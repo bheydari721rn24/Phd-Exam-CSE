@@ -1,8 +1,8 @@
-# دفترچه‌های آزمون‌های کامپیوتر
+# Computer Entrance Exam Papers
 
-این مخزن مجموعه‌ای از دفترچه‌های آزمون‌های ورودی کارشناسی ارشد و دکتری رشته‌های مرتبط با کامپیوتر را برای مطالعه و استفادهٔ آموزشی نگهداری می‌کند.
+This repository contains computer-related entrance exam papers for master's and PhD programs. The files are organized for study and educational reference.
 
-## ساختار پوشه‌ها
+## Directory Structure
 
 ```text
 Exams/
@@ -16,41 +16,43 @@ Exams/
     └── IT/             # فناوری اطلاعات
 ```
 
-درون هر گرایش، فایل‌ها بر اساس سال آزمون در پوشه‌های جداگانه قرار گرفته‌اند.
+Each subject directory contains one folder per exam year.
 
-## وضعیت فعلی مجموعه
+## Current Collection
 
 | مقطع | CE | CS | IT | مجموع |
 |---|---:|---:|---:|---:|
-| کارشناسی ارشد (`MS`) | ۱۳ | ۱۳ | ۱۳ | ۳۹ |
-| دکتری (`Phd`) | ۲۷ | ۹ | ۹ | ۴۵ |
-| **مجموع** | **۴۰** | **۲۲** | **۲۲** | **۸۴** |
+| Level | CE | CS | IT | Total |
+|---|---:|---:|---:|---:|
+| Master's (`MS`) | 13 | 13 | 13 | 39 |
+| PhD (`Phd`) | 27 | 9 | 9 | 45 |
+| **Total** | **40** | **22** | **22** | **84** |
 
-سال‌های موجود در نسخهٔ فعلی از `۱۳۹۳` تا `۱۴۰۵` هستند؛ پوشش سال‌ها ممکن است بین گرایش‌ها متفاوت باشد.
+The current collection covers years from `1393` through `1405`. Year coverage may differ between subjects.
 
-## نام‌گذاری اختصاری
+## Abbreviations
 
-- `MS`: آزمون کارشناسی ارشد
-- `Phd`: آزمون دکتری
-- `CE`: Computer Engineering / مهندسی کامپیوتر
-- `CS`: Computer Science / علوم کامپیوتر
-- `IT`: Information Technology / فناوری اطلاعات
+- `MS`: Master's entrance exam
+- `Phd`: PhD entrance exam
+- `CE`: Computer Engineering
+- `CS`: Computer Science
+- `IT`: Information Technology
 
-## نمونهٔ مسیر فایل
+## Example File Paths
 
 ```text
 Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf
 Exams/Phd/CS/1402/486-PHD1402-[konkur.in].pdf
 ```
 
-## دریافت مخزن
+## Clone the Repository
 
 ```powershell
 git clone https://github.com/bheydari721rn24/Phd-Exam-CSE.git
 cd Phd-Exam-CSE
 ```
 
-## همگام‌سازی و ارسال تغییرات
+## Sync and Publish Changes
 
 ```powershell
 git pull origin main
@@ -59,6 +61,6 @@ git commit -m "Describe your changes"
 git push origin main
 ```
 
-## یادداشت حقوقی
+## Legal Notice
 
-این مخزن گردآوری آموزشی است و ادعای مالکیت یا رسمی‌بودن دفترچه‌ها را ندارد. حقوق محتوای آزمون‌ها و نشان‌های درج‌شده در فایل‌ها متعلق به پدیدآورندگان و ناشران اصلی آن‌هاست.
+This repository is an educational collection and does not claim ownership or official status. The exam content and branding in the files remain the property of their original authors and publishers.
