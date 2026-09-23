@@ -6,22 +6,20 @@ This repository contains computer-related entrance exam papers for master's and 
 
 ```text
 Exams/
-├── MS/                 # کارشناسی ارشد
-│   ├── CE/             # مهندسی کامپیوتر
-│   ├── CS/             # علوم کامپیوتر
-│   └── IT/             # فناوری اطلاعات
-└── Phd/                # دکتری
-    ├── CE/             # مهندسی کامپیوتر
-    ├── CS/             # علوم کامپیوتر
-    └── IT/             # فناوری اطلاعات
+├── MS/                 # Master's
+│   ├── CE/             # Computer Engineering
+│   ├── CS/             # Computer Science
+│   └── IT/             # Information Technology
+└── Phd/                # PhD
+    ├── CE/             # Computer Engineering
+    ├── CS/             # Computer Science
+    └── IT/             # Information Technology
 ```
 
 Each subject directory contains one folder per exam year.
 
 ## Current Collection
 
-| مقطع | CE | CS | IT | مجموع |
-|---|---:|---:|---:|---:|
 | Level | CE | CS | IT | Total |
 |---|---:|---:|---:|---:|
 | Master's (`MS`) | 13 | 13 | 13 | 39 |
