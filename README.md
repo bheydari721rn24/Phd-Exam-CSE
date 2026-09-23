@@ -1,20 +1,64 @@
-# Computer group entrance exam papers
+# دفترچه‌های آزمون‌های کامپیوتر
 
-This repository collects **138 PDF exam files** for Iranian PhD (`PHD`) and master's (`MS`) entrance exams. Files are organized by exam level, subject, and Iranian calendar year:
+این مخزن مجموعه‌ای از دفترچه‌های آزمون‌های ورودی کارشناسی ارشد و دکتری رشته‌های مرتبط با کامپیوتر را برای مطالعه و استفادهٔ آموزشی نگهداری می‌کند.
+
+## ساختار پوشه‌ها
 
 ```text
-PHD/
-  CE/  CS/  IT/
-MS/
-  CE/  CS/  IT/
+Exams/
+├── MS/                 # کارشناسی ارشد
+│   ├── CE/             # مهندسی کامپیوتر
+│   ├── CS/             # علوم کامپیوتر
+│   └── IT/             # فناوری اطلاعات
+└── Phd/                # دکتری
+    ├── CE/             # مهندسی کامپیوتر
+    ├── CS/             # علوم کامپیوتر
+    └── IT/             # فناوری اطلاعات
 ```
 
-- `CE`: Computer Engineering (مهندسی کامپیوتر)
-- `CS`: Computer Science (علوم کامپیوتر)
-- `IT`: Information Technology (فناوری اطلاعات)
+درون هر گرایش، فایل‌ها بر اساس سال آزمون در پوشه‌های جداگانه قرار گرفته‌اند.
 
-Within each subject, each year has its own directory. Original source file names have been retained where possible. Older PhD papers supplied as RAR archives were extracted, and only their PDF files were included.
+## وضعیت فعلی مجموعه
 
-[`sources.csv`](sources.csv) records the source URL, repository path, file size, and SHA-256 checksum for every PDF. The supplied link for `PHD/CS/1395` returned HTTP 404; that row includes its original URL and a working replacement from the [Computer Science PhD paper archive](https://www.konkurcomputer.ir/booklet-phd-olum-computer.html).
+| مقطع | CE | CS | IT | مجموع |
+|---|---:|---:|---:|---:|
+| کارشناسی ارشد (`MS`) | ۱۳ | ۱۳ | ۱۳ | ۳۹ |
+| دکتری (`Phd`) | ۲۷ | ۹ | ۹ | ۴۵ |
+| **مجموع** | **۴۰** | **۲۲** | **۲۲** | **۸۴** |
 
-These files are redistributed for study and reference. The exam papers and any source branding remain attributable to their original publishers and source websites; this repository does not claim authorship or official status.
+سال‌های موجود در نسخهٔ فعلی از `۱۳۹۳` تا `۱۴۰۵` هستند؛ پوشش سال‌ها ممکن است بین گرایش‌ها متفاوت باشد.
+
+## نام‌گذاری اختصاری
+
+- `MS`: آزمون کارشناسی ارشد
+- `Phd`: آزمون دکتری
+- `CE`: Computer Engineering / مهندسی کامپیوتر
+- `CS`: Computer Science / علوم کامپیوتر
+- `IT`: Information Technology / فناوری اطلاعات
+
+## نمونهٔ مسیر فایل
+
+```text
+Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf
+Exams/Phd/CS/1402/486-PHD1402-[konkur.in].pdf
+```
+
+## دریافت مخزن
+
+```powershell
+git clone https://github.com/bheydari721rn24/Phd-Exam-CSE.git
+cd Phd-Exam-CSE
+```
+
+## همگام‌سازی و ارسال تغییرات
+
+```powershell
+git pull origin main
+git add -A
+git commit -m "Describe your changes"
+git push origin main
+```
+
+## یادداشت حقوقی
+
+این مخزن گردآوری آموزشی است و ادعای مالکیت یا رسمی‌بودن دفترچه‌ها را ندارد. حقوق محتوای آزمون‌ها و نشان‌های درج‌شده در فایل‌ها متعلق به پدیدآورندگان و ناشران اصلی آن‌هاست.
