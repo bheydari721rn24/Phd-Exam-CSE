@@ -5,9 +5,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 subjects = {
     "discrete": {"title": "ریاضیات گسسته"},
+    "programming": {"title": "مبانی برنامه‌سازی"},
     "algorithms": {"title": "داده‌ساختارها و الگوریتم‌ها"},
     "probability": {"title": "آمار و احتمال مهندسی"},
     "linear": {"title": "جبر خطی"},
+    "logic": {"title": "مدار منطقی"},
     "ai": {"title": "هوش مصنوعی"},
 }
 
@@ -146,7 +148,6 @@ topic_groups = {
         "i_eval": "بیش‌برازش، سنجه‌ها و خطاهای ارزیابی",
     },
 }
-topic_groups = {key: value for key, value in topic_groups.items() if key in subjects}
 topics = {topic_id: {"title": title, "subject": subject}
           for subject, entries in topic_groups.items()
           for topic_id, title in entries.items()}
@@ -247,48 +248,70 @@ weeks = [
     ]),
 ]
 
+# Two high-return exam subjects have their own chapters and hours every week.
+# Keep the 56-hour ceiling by taking time from the largest existing core unit.
+programming_path = [
+    ("نوع داده و جریان اجرا", "p_types p_flow"),
+    ("تابع و آرایه", "p_functions p_arrays"),
+    ("رشته و بازگشت", "p_strings p_recursion"),
+    ("اشاره‌گر و حافظه", "p_pointers p_memory"),
+    ("نمایش داده و بیت", "p_rep p_bitwise"),
+    ("ساختار و ردگیری", "p_structs p_trace"),
+    ("مرور حلقه و بازگشت", "p_flow p_recursion"),
+    ("مرور اشاره‌گر و حافظه", "p_pointers p_memory"),
+    ("مرور خطاهای مرزی", "p_trace"),
+    ("مرور عملگرهای بیتی", "p_bitwise"),
+    ("مرور ساختار و تابع", "p_structs p_functions"),
+]
+logic_path = [
+    ("مبنا، جبر بولی و گیت", "g_number g_boolean g_gates"),
+    ("ساده‌سازی و مدار ترکیبی", "g_kmap g_combin"),
+    ("مدار حسابی و گزینش", "g_arithmetic g_mux"),
+    ("لچ و فلیپ‌فلاپ", "g_latch g_ff"),
+    ("ثبات و شمارنده", "g_register g_counter"),
+    ("ماشین حالت و زمان‌بندی", "g_fsm g_timing"),
+    ("مخاطره و حافظه", "g_hazards g_memory"),
+    ("مرور ساده‌سازی و ماشین حالت", "g_kmap g_fsm"),
+    ("مرور مدار ترکیبی", "g_combin"),
+    ("مرور تأخیر و مسیر بحرانی", "g_timing"),
+    ("مرور شمارنده و حالت", "g_counter g_fsm"),
+]
+for index, entry in enumerate(weeks):
+    additional_hours = 4 if index < 8 else 2
+    for subject, path in (("programming", programming_path), ("logic", logic_path)):
+        title, ids = path[index]
+        entry["units"].insert(-1, unit(subject, additional_hours, title, ids,
+            "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."))
+    for _ in range(2 * additional_hours):
+        candidates = [u for u in entry["units"] if u["subject"] not in
+                      {"programming", "logic", "english"} and u["hours"] > 4]
+        assert candidates, entry["number"]
+        max(candidates, key=lambda u: u["hours"])["hours"] -= 1
+    entry["totalHours"] = sum(u["hours"] for u in entry["units"])
+
 sources = [
     ("فهرست مواد آزمون ۱۴۰۶", "https://phdtest.ir/wp-content/uploads/2026/03/Sarfasl-Zarayeb-Manbe-Konkoor-PhD-1406-PhdTest.pdf#page=23"),
     ("مخزن دفترچه‌های آزمون", "https://github.com/bheydari721rn24/Phd-Exam-CSE"),
     ("ریاضیات گسستهٔ ام‌آی‌تی، ۲۰۲۴", "https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/"),
+    ("مبانی برنامه‌سازی با C در CS50", "https://cs50.harvard.edu/x/weeks/1/"),
     ("الگوریتم ام‌آی‌تی", "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/"),
     ("احتمال ام‌آی‌تی", "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/"),
     ("احتمال هاروارد", "https://stat110.hsites.harvard.edu/"),
     ("جبر خطی ام‌آی‌تی", "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/"),
+    ("مدار منطقی در ام‌آی‌تی", "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/c4s1/"),
     ("هوش مصنوعی ام‌آی‌تی", "https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/"),
 ]
 
 data = {
-    "updatedLabel": "۲ مهر ۱۴۰۵ · نسخهٔ دوم",
-    "method": "پنج درس اصلی بر اساس آشنایی فعلی شما، پیوند پیش‌نیازها و بازده احتمالی زمان انتخاب شده‌اند. این فصل‌بندی یک نقشهٔ آموزشی قابل بازبینی است؛ سازمان سنجش ریزفصل و تعداد سؤال هر درس را اعلام نکرده است. در هفتهٔ جاری منابع مرتبط و دفترچه‌های مخزن ارزیابی و سپس جزوهٔ حل‌شده افزوده می‌شود.",
+    "updatedLabel": "۲ مهر ۱۴۰۵ · نسخهٔ سوم",
+    "method": "هفت درس اولویت اول شامل برنامه‌سازی و مدار منطقی با ساعت مستقل‌اند. ساعت هر هفته ۵۶ است و چهار ساعت انگلیسی موازی دارد. این فصل‌بندی یک نقشهٔ آموزشی قابل بازبینی است؛ سازمان سنجش ریزفصل و تعداد سؤال هر درس را اعلام نکرده است.",
     "strategy": {
-        "core": "پنج درس اصلی: ساختمان داده و الگوریتم، گسسته، آمار و احتمال، جبر خطی، هوش مصنوعی",
-        "support": "مبانی برنامه‌سازی و مدار منطقی تنها برای رفع پیش‌نیازهای همین پنج درس؛ ساعت مستقل ندارند.",
+        "core": "هفت درس اولویت اول: مبانی برنامه‌سازی، مدار منطقی، ساختمان داده و الگوریتم، گسسته، آمار و احتمال، جبر خطی و هوش مصنوعی.",
+        "support": "برنامه‌سازی و مدار منطقی هر هفته ساعت و فصل مستقل دارند؛ پیوندشان با الگوریتم و معماری هم در جزوه‌ها مشخص می‌شود.",
         "deferred": "سیستم‌عامل و معماری کامپیوتر در اولویت دوم، پس از دور نخست و با بازبینی زمان باقی‌مانده.",
         "excluded": "نظریهٔ زبان‌ها طبق خواستهٔ شما از برنامه حذف شده است.",
         "english": "انگلیسی هر هفته ۴ ساعت موازی پیش می‌رود.",
-        "reviewGate": "پایان هفتهٔ ششم: با پیشرفت واقعی و نمونه‌سؤال‌های خوانده‌شده تصمیم می‌گیریم آیا برای مدار منطقی یا برنامه‌سازی ساعت مستقل باز شود. کنار گذاشتن قطعی این دو عنوان پیش از دادهٔ عملکرد، ریسک رتبهٔ تک‌رقمی دارد."
-    },
-    "courseOptions": {
-        "discrete": [
-            {"name": "MIT 6.1200J", "url": "https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/", "fit": "منطق، اثبات و استقرا"},
-            {"name": "Stanford CS103", "url": "https://web.stanford.edu/class/cs103/", "fit": "فقط اثبات و گسسته؛ بخش محاسبه‌پذیری حذف است"}
-        ],
-        "algorithms": [
-            {"name": "MIT 6.006", "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/", "fit": "مدل محاسبه و تحلیل اولیه"},
-            {"name": "Stanford CS161", "url": "https://web.stanford.edu/class/archive/cs/cs161/cs161.1178/", "fit": "تحلیل و طراحی الگوریتم"}
-        ],
-        "probability": [
-            {"name": "MIT 6.041SC", "url": "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/", "fit": "اصول احتمال"},
-            {"name": "Harvard Stat 110", "url": "https://stat110.hsites.harvard.edu/", "fit": "شمارش و احتمال"}
-        ],
-        "linear": [
-            {"name": "MIT 18.06", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "fit": "بردار و ماتریس"}
-        ],
-        "ai": [
-            {"name": "UC Berkeley CS188", "url": "https://inst.eecs.berkeley.edu/~cs188/archive/fa25/", "fit": "جست‌وجو و عامل"},
-            {"name": "MIT 6.034", "url": "https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/", "fit": "جست‌وجو و استنتاج"}
-        ]
+        "reviewGate": "پایان هفتهٔ ششم: ساعت هر هفت درس با پیشرفت واقعی شما و تحلیل دفترچه‌های مرتبط بازبینی می‌شود."
     },
     "subjects": subjects, "topics": topics, "weeks": weeks,
     "sources": [{"label": label, "url": url} for label, url in sources],

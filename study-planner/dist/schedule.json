@@ -1,74 +1,20 @@
 {
-  "updatedLabel": "۲ مهر ۱۴۰۵ · نسخهٔ دوم",
-  "method": "پنج درس اصلی بر اساس آشنایی فعلی شما، پیوند پیش‌نیازها و بازده احتمالی زمان انتخاب شده‌اند. این فصل‌بندی یک نقشهٔ آموزشی قابل بازبینی است؛ سازمان سنجش ریزفصل و تعداد سؤال هر درس را اعلام نکرده است. در هفتهٔ جاری منابع مرتبط و دفترچه‌های مخزن ارزیابی و سپس جزوهٔ حل‌شده افزوده می‌شود.",
+  "updatedLabel": "۲ مهر ۱۴۰۵ · نسخهٔ سوم",
+  "method": "هفت درس اولویت اول شامل برنامه‌سازی و مدار منطقی با ساعت مستقل‌اند. ساعت هر هفته ۵۶ است و چهار ساعت انگلیسی موازی دارد. این فصل‌بندی یک نقشهٔ آموزشی قابل بازبینی است؛ سازمان سنجش ریزفصل و تعداد سؤال هر درس را اعلام نکرده است.",
   "strategy": {
-    "core": "پنج درس اصلی: ساختمان داده و الگوریتم، گسسته، آمار و احتمال، جبر خطی، هوش مصنوعی",
-    "support": "مبانی برنامه‌سازی و مدار منطقی تنها برای رفع پیش‌نیازهای همین پنج درس؛ ساعت مستقل ندارند.",
+    "core": "هفت درس اولویت اول: مبانی برنامه‌سازی، مدار منطقی، ساختمان داده و الگوریتم، گسسته، آمار و احتمال، جبر خطی و هوش مصنوعی.",
+    "support": "برنامه‌سازی و مدار منطقی هر هفته ساعت و فصل مستقل دارند؛ پیوندشان با الگوریتم و معماری هم در جزوه‌ها مشخص می‌شود.",
     "deferred": "سیستم‌عامل و معماری کامپیوتر در اولویت دوم، پس از دور نخست و با بازبینی زمان باقی‌مانده.",
     "excluded": "نظریهٔ زبان‌ها طبق خواستهٔ شما از برنامه حذف شده است.",
     "english": "انگلیسی هر هفته ۴ ساعت موازی پیش می‌رود.",
-    "reviewGate": "پایان هفتهٔ ششم: با پیشرفت واقعی و نمونه‌سؤال‌های خوانده‌شده تصمیم می‌گیریم آیا برای مدار منطقی یا برنامه‌سازی ساعت مستقل باز شود. کنار گذاشتن قطعی این دو عنوان پیش از دادهٔ عملکرد، ریسک رتبهٔ تک‌رقمی دارد."
-  },
-  "courseOptions": {
-    "discrete": [
-      {
-        "name": "MIT 6.1200J",
-        "url": "https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/",
-        "fit": "منطق، اثبات و استقرا"
-      },
-      {
-        "name": "Stanford CS103",
-        "url": "https://web.stanford.edu/class/cs103/",
-        "fit": "فقط اثبات و گسسته؛ بخش محاسبه‌پذیری حذف است"
-      }
-    ],
-    "algorithms": [
-      {
-        "name": "MIT 6.006",
-        "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/",
-        "fit": "مدل محاسبه و تحلیل اولیه"
-      },
-      {
-        "name": "Stanford CS161",
-        "url": "https://web.stanford.edu/class/archive/cs/cs161/cs161.1178/",
-        "fit": "تحلیل و طراحی الگوریتم"
-      }
-    ],
-    "probability": [
-      {
-        "name": "MIT 6.041SC",
-        "url": "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/",
-        "fit": "اصول احتمال"
-      },
-      {
-        "name": "Harvard Stat 110",
-        "url": "https://stat110.hsites.harvard.edu/",
-        "fit": "شمارش و احتمال"
-      }
-    ],
-    "linear": [
-      {
-        "name": "MIT 18.06",
-        "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
-        "fit": "بردار و ماتریس"
-      }
-    ],
-    "ai": [
-      {
-        "name": "UC Berkeley CS188",
-        "url": "https://inst.eecs.berkeley.edu/~cs188/archive/fa25/",
-        "fit": "جست‌وجو و عامل"
-      },
-      {
-        "name": "MIT 6.034",
-        "url": "https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/",
-        "fit": "جست‌وجو و استنتاج"
-      }
-    ]
+    "reviewGate": "پایان هفتهٔ ششم: ساعت هر هفت درس با پیشرفت واقعی شما و تحلیل دفترچه‌های مرتبط بازبینی می‌شود."
   },
   "subjects": {
     "discrete": {
       "title": "ریاضیات گسسته"
+    },
+    "programming": {
+      "title": "مبانی برنامه‌سازی"
     },
     "algorithms": {
       "title": "داده‌ساختارها و الگوریتم‌ها"
@@ -78,6 +24,9 @@
     },
     "linear": {
       "title": "جبر خطی"
+    },
+    "logic": {
+      "title": "مدار منطقی"
     },
     "ai": {
       "title": "هوش مصنوعی"
@@ -147,6 +96,54 @@
     "d_dprob": {
       "title": "احتمال گسسته و پیوند آن با شمارش",
       "subject": "discrete"
+    },
+    "p_rep": {
+      "title": "نمایش عدد، نویسه و داده در رایانه",
+      "subject": "programming"
+    },
+    "p_types": {
+      "title": "نوع داده، تبدیل نوع و عملگرها",
+      "subject": "programming"
+    },
+    "p_flow": {
+      "title": "شرط، حلقه و ترتیب اجرای دستورها",
+      "subject": "programming"
+    },
+    "p_functions": {
+      "title": "تابع، دامنهٔ متغیر و انتقال پارامتر",
+      "subject": "programming"
+    },
+    "p_arrays": {
+      "title": "آرایه و اندیس‌گذاری",
+      "subject": "programming"
+    },
+    "p_strings": {
+      "title": "رشته و پایان‌دهندهٔ آن",
+      "subject": "programming"
+    },
+    "p_recursion": {
+      "title": "تابع بازگشتی و پشتهٔ فراخوانی",
+      "subject": "programming"
+    },
+    "p_pointers": {
+      "title": "اشاره‌گر، هم‌نامی و حساب آدرس",
+      "subject": "programming"
+    },
+    "p_memory": {
+      "title": "حافظهٔ پویا و طول عمر داده",
+      "subject": "programming"
+    },
+    "p_structs": {
+      "title": "ساختار، رکورد و چیدمان داده",
+      "subject": "programming"
+    },
+    "p_bitwise": {
+      "title": "عملگرهای بیتی و ماسک‌ها",
+      "subject": "programming"
+    },
+    "p_trace": {
+      "title": "ردگیری کد، خطاهای مرزی و رفتار تعریف‌نشده",
+      "subject": "programming"
     },
     "a_model": {
       "title": "مدل محاسبه و تعریف اندازهٔ ورودی",
@@ -380,6 +377,66 @@
       "title": "تجزیهٔ مقادیر منفرد در حد پیوند با مباحث پایه",
       "subject": "linear"
     },
+    "g_number": {
+      "title": "مبنای اعداد و کدگذاری دودویی",
+      "subject": "logic"
+    },
+    "g_boolean": {
+      "title": "جبر بولی و جدول درستی",
+      "subject": "logic"
+    },
+    "g_gates": {
+      "title": "گیت‌ها و پیاده‌سازی تابع",
+      "subject": "logic"
+    },
+    "g_kmap": {
+      "title": "مین‌ترم، ماکس‌ترم و ساده‌سازی",
+      "subject": "logic"
+    },
+    "g_combin": {
+      "title": "طراحی مدارهای ترکیبی",
+      "subject": "logic"
+    },
+    "g_arithmetic": {
+      "title": "جمع‌کننده، مقایسه‌گر و مدار حسابی",
+      "subject": "logic"
+    },
+    "g_mux": {
+      "title": "مالتی‌پلکسر، رمزگذار و دیکدر",
+      "subject": "logic"
+    },
+    "g_latch": {
+      "title": "لچ و مبانی مدار ترتیبی",
+      "subject": "logic"
+    },
+    "g_ff": {
+      "title": "فلیپ‌فلاپ و جدول تحریک",
+      "subject": "logic"
+    },
+    "g_register": {
+      "title": "ثبات و انتقال داده",
+      "subject": "logic"
+    },
+    "g_counter": {
+      "title": "شمارنده و دنبالهٔ حالت",
+      "subject": "logic"
+    },
+    "g_fsm": {
+      "title": "ماشین حالت و طراحی آن",
+      "subject": "logic"
+    },
+    "g_timing": {
+      "title": "زمان‌بندی، تأخیر و مسیر بحرانی",
+      "subject": "logic"
+    },
+    "g_hazards": {
+      "title": "مخاطرهٔ منطقی و رفتار گذرا",
+      "subject": "logic"
+    },
+    "g_memory": {
+      "title": "حافظه و منطق برنامه‌پذیر در حد مدار منطقی",
+      "subject": "logic"
+    },
     "i_agents": {
       "title": "عامل، محیط و تعریف مسئله",
       "subject": "ai"
@@ -465,7 +522,7 @@
       "units": [
         {
           "subject": "discrete",
-          "hours": 14,
+          "hours": 11,
           "title": "منطق و اثبات",
           "topicIds": [
             "d_logic",
@@ -477,7 +534,7 @@
         },
         {
           "subject": "algorithms",
-          "hours": 16,
+          "hours": 11,
           "title": "تحلیل اولیه",
           "topicIds": [
             "a_model",
@@ -507,6 +564,27 @@
           "outcome": "ضرب ماتریسی را با تفسیر هندسی بخوانید."
         },
         {
+          "subject": "programming",
+          "hours": 4,
+          "title": "نوع داده و جریان اجرا",
+          "topicIds": [
+            "p_types",
+            "p_flow"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "title": "مبنا، جبر بولی و گیت",
+          "topicIds": [
+            "g_number",
+            "g_boolean",
+            "g_gates"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
+        },
+        {
           "subject": "english",
           "hours": 4,
           "title": "انگلیسی موازی",
@@ -526,7 +604,7 @@
       "units": [
         {
           "subject": "discrete",
-          "hours": 14,
+          "hours": 11,
           "title": "رابطه، تابع و ناوردا",
           "topicIds": [
             "d_relations",
@@ -538,7 +616,7 @@
         },
         {
           "subject": "algorithms",
-          "hours": 16,
+          "hours": 11,
           "title": "بازگشت و درستی",
           "topicIds": [
             "a_recurrence",
@@ -568,6 +646,26 @@
           "outcome": "جواب دستگاه را به رتبه ربط دهید."
         },
         {
+          "subject": "programming",
+          "hours": 4,
+          "title": "تابع و آرایه",
+          "topicIds": [
+            "p_functions",
+            "p_arrays"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "title": "ساده‌سازی و مدار ترکیبی",
+          "topicIds": [
+            "g_kmap",
+            "g_combin"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
+        },
+        {
           "subject": "english",
           "hours": 4,
           "title": "انگلیسی موازی",
@@ -587,7 +685,7 @@
       "units": [
         {
           "subject": "discrete",
-          "hours": 10,
+          "hours": 9,
           "title": "شمارش پایه",
           "topicIds": [
             "d_counting",
@@ -598,7 +696,7 @@
         },
         {
           "subject": "algorithms",
-          "hours": 14,
+          "hours": 9,
           "title": "ساختار خطی و مرتب‌سازی",
           "topicIds": [
             "a_arrays",
@@ -610,7 +708,7 @@
         },
         {
           "subject": "probability",
-          "hours": 12,
+          "hours": 10,
           "title": "متغیر تصادفی گسسته",
           "topicIds": [
             "s_descriptive",
@@ -638,6 +736,26 @@
             "i_uninformed"
           ],
           "outcome": "حالت، عمل و هدف را دقیق تعریف کنید."
+        },
+        {
+          "subject": "programming",
+          "hours": 4,
+          "title": "رشته و بازگشت",
+          "topicIds": [
+            "p_strings",
+            "p_recursion"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "title": "مدار حسابی و گزینش",
+          "topicIds": [
+            "g_arithmetic",
+            "g_mux"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
         },
         {
           "subject": "english",
@@ -669,7 +787,7 @@
         },
         {
           "subject": "algorithms",
-          "hours": 15,
+          "hours": 9,
           "title": "درخت، هیپ و هش",
           "topicIds": [
             "a_bst",
@@ -682,7 +800,7 @@
         },
         {
           "subject": "probability",
-          "hours": 11,
+          "hours": 9,
           "title": "واریانس و توزیع‌ها",
           "topicIds": [
             "s_variance",
@@ -709,6 +827,26 @@
             "i_optimality"
           ],
           "outcome": "شرط بهینگی و سازگاری تخمین را تفکیک کنید."
+        },
+        {
+          "subject": "programming",
+          "hours": 4,
+          "title": "اشاره‌گر و حافظه",
+          "topicIds": [
+            "p_pointers",
+            "p_memory"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "title": "لچ و فلیپ‌فلاپ",
+          "topicIds": [
+            "g_latch",
+            "g_ff"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
         },
         {
           "subject": "english",
@@ -740,7 +878,7 @@
         },
         {
           "subject": "algorithms",
-          "hours": 14,
+          "hours": 9,
           "title": "نمایش و پیمایش گراف",
           "topicIds": [
             "a_graphrep",
@@ -751,7 +889,7 @@
         },
         {
           "subject": "probability",
-          "hours": 10,
+          "hours": 9,
           "title": "پیوسته و مشترک",
           "topicIds": [
             "s_continuous",
@@ -771,13 +909,33 @@
         },
         {
           "subject": "ai",
-          "hours": 12,
+          "hours": 10,
           "title": "بازی و مسئلهٔ قید",
           "topicIds": [
             "i_games",
             "i_csp"
           ],
           "outcome": "هرس و انتشار محدودیت را با مثال حل‌شده ببینید."
+        },
+        {
+          "subject": "programming",
+          "hours": 4,
+          "title": "نمایش داده و بیت",
+          "topicIds": [
+            "p_rep",
+            "p_bitwise"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "title": "ثبات و شمارنده",
+          "topicIds": [
+            "g_register",
+            "g_counter"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
         },
         {
           "subject": "english",
@@ -808,7 +966,7 @@
         },
         {
           "subject": "algorithms",
-          "hours": 14,
+          "hours": 9,
           "title": "درخت پوشا، مسیر و حریصانه",
           "topicIds": [
             "a_mst",
@@ -819,7 +977,7 @@
         },
         {
           "subject": "probability",
-          "hours": 10,
+          "hours": 9,
           "title": "امید شرطی و تبدیل متغیر",
           "topicIds": [
             "s_condexp",
@@ -839,13 +997,33 @@
         },
         {
           "subject": "ai",
-          "hours": 12,
+          "hours": 10,
           "title": "بازنمایی دانش",
           "topicIds": [
             "i_prop",
             "i_fol"
           ],
           "outcome": "منطق محمولات اینجا ابزار استنتاج است، نه نظریهٔ زبان‌ها."
+        },
+        {
+          "subject": "programming",
+          "hours": 4,
+          "title": "ساختار و ردگیری",
+          "topicIds": [
+            "p_structs",
+            "p_trace"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "title": "ماشین حالت و زمان‌بندی",
+          "topicIds": [
+            "g_fsm",
+            "g_timing"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
         },
         {
           "subject": "english",
@@ -867,7 +1045,7 @@
       "units": [
         {
           "subject": "algorithms",
-          "hours": 15,
+          "hours": 12,
           "title": "برنامه‌ریزی پویا، جریان و کران",
           "topicIds": [
             "a_dp",
@@ -897,13 +1075,33 @@
         },
         {
           "subject": "ai",
-          "hours": 17,
+          "hours": 12,
           "title": "استنتاج و برنامه‌ریزی",
           "topicIds": [
             "i_inference",
             "i_planning"
           ],
           "outcome": "قواعد استنتاج و حالت‌های برنامه‌ریزی را جدا کنید."
+        },
+        {
+          "subject": "programming",
+          "hours": 4,
+          "title": "مرور حلقه و بازگشت",
+          "topicIds": [
+            "p_flow",
+            "p_recursion"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "title": "مخاطره و حافظه",
+          "topicIds": [
+            "g_hazards",
+            "g_memory"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
         },
         {
           "subject": "english",
@@ -955,7 +1153,7 @@
         },
         {
           "subject": "ai",
-          "hours": 22,
+          "hours": 14,
           "title": "بیز، شبکه و تصمیم",
           "topicIds": [
             "i_bayes",
@@ -963,6 +1161,26 @@
             "i_decision"
           ],
           "outcome": "استقلال شرطی را با ساختار شبکه بررسی کنید."
+        },
+        {
+          "subject": "programming",
+          "hours": 4,
+          "title": "مرور اشاره‌گر و حافظه",
+          "topicIds": [
+            "p_pointers",
+            "p_memory"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "title": "مرور ساده‌سازی و ماشین حالت",
+          "topicIds": [
+            "g_kmap",
+            "g_fsm"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
         },
         {
           "subject": "english",
@@ -1015,13 +1233,31 @@
         },
         {
           "subject": "ai",
-          "hours": 24,
+          "hours": 20,
           "title": "چارچوب یادگیری و دسته‌بندی",
           "topicIds": [
             "i_learning",
             "i_classification"
           ],
           "outcome": "تعمیم و ارزیابی را همراه الگوریتم بخوانید."
+        },
+        {
+          "subject": "programming",
+          "hours": 2,
+          "title": "مرور خطاهای مرزی",
+          "topicIds": [
+            "p_trace"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
+        },
+        {
+          "subject": "logic",
+          "hours": 2,
+          "title": "مرور مدار ترکیبی",
+          "topicIds": [
+            "g_combin"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
         },
         {
           "subject": "english",
@@ -1076,7 +1312,7 @@
         },
         {
           "subject": "ai",
-          "hours": 20,
+          "hours": 16,
           "title": "خوشه‌بندی، شبکهٔ عصبی و ارزیابی",
           "topicIds": [
             "i_clustering",
@@ -1084,6 +1320,24 @@
             "i_eval"
           ],
           "outcome": "عمق این فصل‌ها با دفترچه‌های مرتبط بازبینی می‌شود."
+        },
+        {
+          "subject": "programming",
+          "hours": 2,
+          "title": "مرور عملگرهای بیتی",
+          "topicIds": [
+            "p_bitwise"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
+        },
+        {
+          "subject": "logic",
+          "hours": 2,
+          "title": "مرور تأخیر و مسیر بحرانی",
+          "topicIds": [
+            "g_timing"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
         },
         {
           "subject": "english",
@@ -1116,7 +1370,7 @@
         },
         {
           "subject": "algorithms",
-          "hours": 12,
+          "hours": 11,
           "title": "مرور تحلیل و طراحی",
           "topicIds": [
             "a_asym",
@@ -1150,7 +1404,7 @@
         },
         {
           "subject": "ai",
-          "hours": 14,
+          "hours": 11,
           "title": "مرور جست‌وجو و استنتاج",
           "topicIds": [
             "i_informed",
@@ -1158,6 +1412,26 @@
             "i_learning"
           ],
           "outcome": "مرز کاربرد روش‌ها را روشن کنید."
+        },
+        {
+          "subject": "programming",
+          "hours": 2,
+          "title": "مرور ساختار و تابع",
+          "topicIds": [
+            "p_structs",
+            "p_functions"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
+        },
+        {
+          "subject": "logic",
+          "hours": 2,
+          "title": "مرور شمارنده و حالت",
+          "topicIds": [
+            "g_counter",
+            "g_fsm"
+          ],
+          "outcome": "تعریف و مثال‌های حل‌شده را بخوانید؛ در دور نخست آزمون نداریم."
         },
         {
           "subject": "english",
@@ -1183,6 +1457,10 @@
       "url": "https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/"
     },
     {
+      "label": "مبانی برنامه‌سازی با C در CS50",
+      "url": "https://cs50.harvard.edu/x/weeks/1/"
+    },
+    {
       "label": "الگوریتم ام‌آی‌تی",
       "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/"
     },
@@ -1197,6 +1475,10 @@
     {
       "label": "جبر خطی ام‌آی‌تی",
       "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/"
+    },
+    {
+      "label": "مدار منطقی در ام‌آی‌تی",
+      "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/c4s1/"
     },
     {
       "label": "هوش مصنوعی ام‌آی‌تی",

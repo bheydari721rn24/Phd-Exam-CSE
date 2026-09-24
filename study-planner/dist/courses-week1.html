@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="styles.css">
 <style>
 .research-shell{max-width:1200px;margin:auto;padding:30px 25px 80px}.research-hero{background:linear-gradient(135deg,#264c45,#1b354a);border:1px solid #5a8574;border-radius:22px;padding:30px}.research-hero h1{margin:8px 0;font-size:2.2rem}.research-hero p{max-width:800px;line-height:1.9;color:#d8e8e4}.research-meta{display:flex;gap:10px;flex-wrap:wrap}.research-meta span{padding:8px 12px;background:#ffffff18;border-radius:9px}.research-controls{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.research-controls button{background:#203b4d;color:#eaf3f6;border:1px solid #486575;padding:10px 14px;border-radius:9px}.research-controls button.active{background:#b4e77f;color:#102126;font-weight:800}.research-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.research-card{background:#1b3245;border:1px solid #486174;border-radius:15px;padding:21px}.research-card h2{font-size:1.25rem;margin:5px 0}.research-card p{line-height:1.8;color:#c9dbe2}.research-card a{display:block;direction:ltr;text-align:left;overflow-wrap:anywhere}.research-card .university{color:#b4e77f;font-weight:800;font-size:.9rem}.research-card .tag{display:inline-block;border:1px solid #67817c;color:#dfefdf;border-radius:100px;padding:4px 10px;font-size:.78rem}.research-card .caution{border-right:3px solid #e6be75;padding-right:10px;color:#e1d7c3}.research-card small{display:block;color:#aebfca;margin-top:13px}.research-foot{background:#203749;border:1px solid #4c6573;padding:20px;border-radius:14px;margin-top:22px;line-height:1.9}@media(max-width:760px){.research-grid{grid-template-columns:1fr}.research-shell{padding:18px 14px 50px}}
-</style>
+</style><link rel="stylesheet" href="theme.css">
 </head>
 <body>
 <main class="research-shell">
@@ -15,14 +15,14 @@
 <div class="eyebrow">دفتر پژوهش منابع · هفتهٔ اول</div>
 <h1>هر منبع، با میزان بررسی‌اش</h1>
 <p>در این صفحه تفاوت «دورهٔ پیدا شده»، «فصل‌بندی تأیید شده» و «محتوای عمیقاً بررسی شده» روشن است. از نام دانشگاه به‌تنهایی برای انتخاب متن جزوه استفاده نمی‌شود.</p>
-<div class="research-meta"><span id="course-count">… دوره</span><span id="university-count">… دانشگاه</span><span>۴ درس فعال</span><span>بازبینی: ۲ مهر ۱۴۰۵</span></div>
+<div class="research-meta"><span id="course-count">… دوره</span><span id="university-count">… دانشگاه</span><span>۶ درس فعال در هفتهٔ اول</span><span>بازبینی: ۲ مهر ۱۴۰۵</span></div>
 </header>
 <nav class="research-controls" id="filters" aria-label="فیلتر درس"></nav>
 <section class="research-grid" id="course-list" aria-live="polite"></section>
-<p class="research-foot">فهرست فعلی آغاز ممیزی است و به معنی خواندن کلمه‌به‌کلمهٔ همهٔ جزوه‌ها و تکلیف‌ها نیست. برای هر فصل، از متن‌های آزادِ قابل بررسی استفاده می‌شود، صورت سؤال‌های آزمون با تصویر دفترچه تطبیق می‌یابد و تنها پس از آن درسنامهٔ مستند منتشر می‌شود. اگر یک دوره فقط سرفصل عمومی یا منبع تجاری داشته باشد، در این صفحه مشخص است.</p>
+<p class="research-foot">این فهرست ۲۹ گزینه برای کل هفتهٔ اول دارد، نه ده‌ها دوره برای تک‌تک درس‌ها. سطح بررسی هر ردیف مشخص است و پیدا شدن صفحهٔ دوره به معنی خواندن کامل آن نیست. سؤال‌های آزمون پیش از درج در جزوه با تصویر دفترچه تطبیق داده می‌شوند.</p>
 </main>
 <script>
-const names={discrete:'ریاضیات گسسته',algorithms:'داده‌ساختار و الگوریتم',probability:'آمار و احتمال',linear:'جبر خطی'};
+const names={discrete:'ریاضیات گسسته',programming:'مبانی برنامه‌سازی',algorithms:'داده‌ساختار و الگوریتم',probability:'آمار و احتمال',linear:'جبر خطی',logic:'مدار منطقی'};
 const access={lecture_notes_and_problem_sets:'یادداشت و تمرین آزاد',public_schedule_and_some_materials:'برنامه و بخشی از منابع آزاد',public_notes_and_homework:'یادداشت و تکلیف آزاد',catalogue_only:'فقط معرفی دوره',lectures_notes_assignments_solutions:'درس‌گفتار و پاسخ تمرین',public_notes_and_some_solutions:'یادداشت و بخشی از پاسخ‌ها',public_schedule_and_notes:'برنامه و یادداشت',public_notes_and_assignments:'یادداشت و تکلیف',lectures_recitations_problem_solutions:'ویدئو و پاسخ تمرین',open_book_videos_selected_solutions:'کتاب آزاد و پاسخ گزیده',public_lecture_index_and_some_handouts:'فهرست و جزوهٔ منتخب',lectures_assignments_solutions:'درس و پاسخ تمرین',public_schedule_and_practice_exams:'برنامه و آزمون تمرینی',public_syllabus:'فقط سرفصل'};
 const escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let catalogue, selected='all';
