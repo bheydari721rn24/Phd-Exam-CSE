@@ -1,0 +1,1206 @@
+{
+  "updatedLabel": "۲ مهر ۱۴۰۵ · نسخهٔ دوم",
+  "method": "پنج درس اصلی بر اساس آشنایی فعلی شما، پیوند پیش‌نیازها و بازده احتمالی زمان انتخاب شده‌اند. این فصل‌بندی یک نقشهٔ آموزشی قابل بازبینی است؛ سازمان سنجش ریزفصل و تعداد سؤال هر درس را اعلام نکرده است. در هفتهٔ جاری منابع مرتبط و دفترچه‌های مخزن ارزیابی و سپس جزوهٔ حل‌شده افزوده می‌شود.",
+  "strategy": {
+    "core": "پنج درس اصلی: ساختمان داده و الگوریتم، گسسته، آمار و احتمال، جبر خطی، هوش مصنوعی",
+    "support": "مبانی برنامه‌سازی و مدار منطقی تنها برای رفع پیش‌نیازهای همین پنج درس؛ ساعت مستقل ندارند.",
+    "deferred": "سیستم‌عامل و معماری کامپیوتر در اولویت دوم، پس از دور نخست و با بازبینی زمان باقی‌مانده.",
+    "excluded": "نظریهٔ زبان‌ها طبق خواستهٔ شما از برنامه حذف شده است.",
+    "english": "انگلیسی هر هفته ۴ ساعت موازی پیش می‌رود.",
+    "reviewGate": "پایان هفتهٔ ششم: با پیشرفت واقعی و نمونه‌سؤال‌های خوانده‌شده تصمیم می‌گیریم آیا برای مدار منطقی یا برنامه‌سازی ساعت مستقل باز شود. کنار گذاشتن قطعی این دو عنوان پیش از دادهٔ عملکرد، ریسک رتبهٔ تک‌رقمی دارد."
+  },
+  "courseOptions": {
+    "discrete": [
+      {
+        "name": "MIT 6.1200J",
+        "url": "https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/",
+        "fit": "منطق، اثبات و استقرا"
+      },
+      {
+        "name": "Stanford CS103",
+        "url": "https://web.stanford.edu/class/cs103/",
+        "fit": "فقط اثبات و گسسته؛ بخش محاسبه‌پذیری حذف است"
+      }
+    ],
+    "algorithms": [
+      {
+        "name": "MIT 6.006",
+        "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/",
+        "fit": "مدل محاسبه و تحلیل اولیه"
+      },
+      {
+        "name": "Stanford CS161",
+        "url": "https://web.stanford.edu/class/archive/cs/cs161/cs161.1178/",
+        "fit": "تحلیل و طراحی الگوریتم"
+      }
+    ],
+    "probability": [
+      {
+        "name": "MIT 6.041SC",
+        "url": "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/",
+        "fit": "اصول احتمال"
+      },
+      {
+        "name": "Harvard Stat 110",
+        "url": "https://stat110.hsites.harvard.edu/",
+        "fit": "شمارش و احتمال"
+      }
+    ],
+    "linear": [
+      {
+        "name": "MIT 18.06",
+        "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+        "fit": "بردار و ماتریس"
+      }
+    ],
+    "ai": [
+      {
+        "name": "UC Berkeley CS188",
+        "url": "https://inst.eecs.berkeley.edu/~cs188/archive/fa25/",
+        "fit": "جست‌وجو و عامل"
+      },
+      {
+        "name": "MIT 6.034",
+        "url": "https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/",
+        "fit": "جست‌وجو و استنتاج"
+      }
+    ]
+  },
+  "subjects": {
+    "discrete": {
+      "title": "ریاضیات گسسته"
+    },
+    "algorithms": {
+      "title": "داده‌ساختارها و الگوریتم‌ها"
+    },
+    "probability": {
+      "title": "آمار و احتمال مهندسی"
+    },
+    "linear": {
+      "title": "جبر خطی"
+    },
+    "ai": {
+      "title": "هوش مصنوعی"
+    }
+  },
+  "topics": {
+    "d_logic": {
+      "title": "منطق گزاره‌ها، گزاره‌نماها و هم‌ارزی‌ها",
+      "subject": "discrete"
+    },
+    "d_sets": {
+      "title": "مجموعه‌ها و عمل‌های مجموعه‌ای",
+      "subject": "discrete"
+    },
+    "d_proof": {
+      "title": "اثبات مستقیم، خلف و مثال نقض",
+      "subject": "discrete"
+    },
+    "d_induction": {
+      "title": "استقرای معمولی و قوی",
+      "subject": "discrete"
+    },
+    "d_relations": {
+      "title": "رابطه‌ها، هم‌ارزی و ترتیب جزئی",
+      "subject": "discrete"
+    },
+    "d_functions": {
+      "title": "تابع‌ها، وارون، تزریق و پوشا بودن",
+      "subject": "discrete"
+    },
+    "d_invariants": {
+      "title": "ناورداها و استدلال بازگشتی",
+      "subject": "discrete"
+    },
+    "d_number": {
+      "title": "تقسیم‌پذیری، پیمانه و مبانی نظریهٔ اعداد",
+      "subject": "discrete"
+    },
+    "d_counting": {
+      "title": "جایگشت، ترکیب و شمارش حالت‌ها",
+      "subject": "discrete"
+    },
+    "d_inclusion": {
+      "title": "شمول و عدم شمول",
+      "subject": "discrete"
+    },
+    "d_pigeonhole": {
+      "title": "اصل لانه‌کبوتری و کاربردها",
+      "subject": "discrete"
+    },
+    "d_recurrence": {
+      "title": "روابط بازگشتی و حل مقدماتی آن‌ها",
+      "subject": "discrete"
+    },
+    "d_generating": {
+      "title": "توابع مولد و روش‌های شمارش پیشرفته",
+      "subject": "discrete"
+    },
+    "d_graph": {
+      "title": "گراف، مسیر، همبندی و درجه",
+      "subject": "discrete"
+    },
+    "d_trees": {
+      "title": "درخت، پوشا و خواص ساختاری",
+      "subject": "discrete"
+    },
+    "d_dprob": {
+      "title": "احتمال گسسته و پیوند آن با شمارش",
+      "subject": "discrete"
+    },
+    "a_model": {
+      "title": "مدل محاسبه و تعریف اندازهٔ ورودی",
+      "subject": "algorithms"
+    },
+    "a_asym": {
+      "title": "نمادگذاری مجانبی و مقایسهٔ رشد",
+      "subject": "algorithms"
+    },
+    "a_loop": {
+      "title": "تحلیل حلقه‌ها و شمارش عملیات",
+      "subject": "algorithms"
+    },
+    "a_recurrence": {
+      "title": "روابط بازگشتی و قضیه‌های حل آن‌ها",
+      "subject": "algorithms"
+    },
+    "a_divide": {
+      "title": "تقسیم و حل و تحلیل آن",
+      "subject": "algorithms"
+    },
+    "a_arrays": {
+      "title": "آرایه، فهرست پیوندی و هزینهٔ عملیات",
+      "subject": "algorithms"
+    },
+    "a_stackqueue": {
+      "title": "پشته، صف و کاربردها",
+      "subject": "algorithms"
+    },
+    "a_sort": {
+      "title": "مرتب‌سازی‌های مقایسه‌ای و غیرمقایسه‌ای",
+      "subject": "algorithms"
+    },
+    "a_select": {
+      "title": "جست‌وجو، انتخاب و آمارهٔ ترتیبی",
+      "subject": "algorithms"
+    },
+    "a_bst": {
+      "title": "درخت جست‌وجوی دودویی و پیمایش",
+      "subject": "algorithms"
+    },
+    "a_balanced": {
+      "title": "درخت‌های متوازن و تحلیل ارتفاع",
+      "subject": "algorithms"
+    },
+    "a_heap": {
+      "title": "هیپ و صف اولویت",
+      "subject": "algorithms"
+    },
+    "a_hash": {
+      "title": "جدول هش، برخورد و تحلیل امیدی",
+      "subject": "algorithms"
+    },
+    "a_amortized": {
+      "title": "تحلیل سرشکن و تغییر اندازهٔ پویا",
+      "subject": "algorithms"
+    },
+    "a_graphrep": {
+      "title": "نمایش گراف و هزینهٔ پیمایش",
+      "subject": "algorithms"
+    },
+    "a_bfsdfs": {
+      "title": "جست‌وجوی عرضی و عمقی",
+      "subject": "algorithms"
+    },
+    "a_topological": {
+      "title": "ترتیب توپولوژیک و مؤلفه‌ها",
+      "subject": "algorithms"
+    },
+    "a_mst": {
+      "title": "درخت پوشای کمینه",
+      "subject": "algorithms"
+    },
+    "a_shortest": {
+      "title": "کوتاه‌ترین مسیر و شرط‌های الگوریتم‌ها",
+      "subject": "algorithms"
+    },
+    "a_greedy": {
+      "title": "طراحی حریصانه و اثبات درستی",
+      "subject": "algorithms"
+    },
+    "a_dp": {
+      "title": "برنامه‌ریزی پویا و طراحی حالت",
+      "subject": "algorithms"
+    },
+    "a_flow": {
+      "title": "جریان شبکه و برش کمینه",
+      "subject": "algorithms"
+    },
+    "a_lower": {
+      "title": "کران پایین و مسئله‌های سخت",
+      "subject": "algorithms"
+    },
+    "a_random": {
+      "title": "الگوریتم تصادفی و تحلیل امیدی",
+      "subject": "algorithms"
+    },
+    "a_string": {
+      "title": "الگوریتم‌های پایهٔ تطبیق رشته",
+      "subject": "algorithms"
+    },
+    "a_correct": {
+      "title": "ناوردا، گواه درستی و مقایسهٔ روش‌ها",
+      "subject": "algorithms"
+    },
+    "s_axioms": {
+      "title": "فضای نمونه، پیشامد و اصول احتمال",
+      "subject": "probability"
+    },
+    "s_counting": {
+      "title": "شمارش احتمالاتی و استقلال",
+      "subject": "probability"
+    },
+    "s_conditional": {
+      "title": "احتمال شرطی و قانون احتمال کل",
+      "subject": "probability"
+    },
+    "s_bayes": {
+      "title": "قاعدهٔ بیز و نرخ پایه",
+      "subject": "probability"
+    },
+    "s_descriptive": {
+      "title": "خلاصه‌سازی داده و آمار توصیفی",
+      "subject": "probability"
+    },
+    "s_discrete": {
+      "title": "متغیر تصادفی گسسته و توزیع‌های رایج",
+      "subject": "probability"
+    },
+    "s_expectation": {
+      "title": "امید ریاضی و خطی بودن آن",
+      "subject": "probability"
+    },
+    "s_variance": {
+      "title": "واریانس، کوواریانس و همبستگی",
+      "subject": "probability"
+    },
+    "s_distributions": {
+      "title": "دوجمله‌ای، هندسی، پواسون و تقریب‌ها",
+      "subject": "probability"
+    },
+    "s_continuous": {
+      "title": "متغیر پیوسته، چگالی و توزیع‌های رایج",
+      "subject": "probability"
+    },
+    "s_joint": {
+      "title": "توزیع مشترک و حاشیه‌ای",
+      "subject": "probability"
+    },
+    "s_condexp": {
+      "title": "امید شرطی و استقلال متغیرها",
+      "subject": "probability"
+    },
+    "s_transform": {
+      "title": "تبدیل متغیر و توزیع تابعی از متغیرها",
+      "subject": "probability"
+    },
+    "s_llnclt": {
+      "title": "قانون اعداد بزرگ و قضیهٔ حد مرکزی",
+      "subject": "probability"
+    },
+    "s_sampling": {
+      "title": "نمونه‌گیری و توزیع آماره‌ها",
+      "subject": "probability"
+    },
+    "s_estimation": {
+      "title": "برآورد نقطه‌ای و فاصلهٔ اطمینان",
+      "subject": "probability"
+    },
+    "s_hypothesis": {
+      "title": "آزمون فرض، خطاها و مقدار احتمال",
+      "subject": "probability"
+    },
+    "s_regression": {
+      "title": "رگرسیون و همبستگی پایه",
+      "subject": "probability"
+    },
+    "s_markov": {
+      "title": "زنجیرهٔ مارکوف مقدماتی",
+      "subject": "probability"
+    },
+    "l_vectors": {
+      "title": "بردار، ضرب داخلی و هندسهٔ خطی",
+      "subject": "linear"
+    },
+    "l_matrices": {
+      "title": "ماتریس و اعمال ماتریسی",
+      "subject": "linear"
+    },
+    "l_gauss": {
+      "title": "حذف گاوسی و حل دستگاه خطی",
+      "subject": "linear"
+    },
+    "l_rank": {
+      "title": "رتبه، وارون‌پذیری و دستگاه‌ها",
+      "subject": "linear"
+    },
+    "l_det": {
+      "title": "دترمینان و خواص آن",
+      "subject": "linear"
+    },
+    "l_spaces": {
+      "title": "فضا، زیرفضا، پایه و بعد",
+      "subject": "linear"
+    },
+    "l_linear": {
+      "title": "تبدیل خطی، هسته و تصویر",
+      "subject": "linear"
+    },
+    "l_orthogonality": {
+      "title": "عمودبودن و تجزیهٔ متعامد",
+      "subject": "linear"
+    },
+    "l_projection": {
+      "title": "تصویر عمودی و ماتریس تصویر",
+      "subject": "linear"
+    },
+    "l_leastsquares": {
+      "title": "کمترین مربعات و کاربردها",
+      "subject": "linear"
+    },
+    "l_eigen": {
+      "title": "مقدار و بردار ویژه",
+      "subject": "linear"
+    },
+    "l_diagonal": {
+      "title": "قطری‌سازی و ماتریس‌های متقارن",
+      "subject": "linear"
+    },
+    "l_svd": {
+      "title": "تجزیهٔ مقادیر منفرد در حد پیوند با مباحث پایه",
+      "subject": "linear"
+    },
+    "i_agents": {
+      "title": "عامل، محیط و تعریف مسئله",
+      "subject": "ai"
+    },
+    "i_uninformed": {
+      "title": "جست‌وجوی ناآگاهانه و سنجه‌های آن",
+      "subject": "ai"
+    },
+    "i_informed": {
+      "title": "جست‌وجوی آگاهانه و تابع تخمین",
+      "subject": "ai"
+    },
+    "i_optimality": {
+      "title": "کامل‌بودن، بهینگی و سازگاری تخمین",
+      "subject": "ai"
+    },
+    "i_games": {
+      "title": "جست‌وجوی خصمانه و هرس",
+      "subject": "ai"
+    },
+    "i_csp": {
+      "title": "مسئلهٔ ارضای قید و انتشار محدودیت",
+      "subject": "ai"
+    },
+    "i_prop": {
+      "title": "بازنمایی دانش با منطق گزاره‌ای",
+      "subject": "ai"
+    },
+    "i_fol": {
+      "title": "منطق محمولات و یکسان‌سازی",
+      "subject": "ai"
+    },
+    "i_inference": {
+      "title": "استنتاج و راهبرد اثبات",
+      "subject": "ai"
+    },
+    "i_planning": {
+      "title": "برنامه‌ریزی کلاسیک و فضای حالت",
+      "subject": "ai"
+    },
+    "i_bayes": {
+      "title": "استنتاج احتمالاتی و قانون بیز",
+      "subject": "ai"
+    },
+    "i_bn": {
+      "title": "شبکهٔ بیزی و استقلال شرطی",
+      "subject": "ai"
+    },
+    "i_decision": {
+      "title": "تصمیم‌گیری تحت عدم‌قطعیت",
+      "subject": "ai"
+    },
+    "i_learning": {
+      "title": "چارچوب یادگیری نظارت‌شده و تعمیم",
+      "subject": "ai"
+    },
+    "i_classification": {
+      "title": "دسته‌بندی و ارزیابی مدل",
+      "subject": "ai"
+    },
+    "i_clustering": {
+      "title": "خوشه‌بندی در حد مبانی هوش مصنوعی",
+      "subject": "ai"
+    },
+    "i_neural": {
+      "title": "شبکهٔ عصبی در حد مبانی هوش مصنوعی",
+      "subject": "ai"
+    },
+    "i_eval": {
+      "title": "بیش‌برازش، سنجه‌ها و خطاهای ارزیابی",
+      "subject": "ai"
+    }
+  },
+  "weeks": [
+    {
+      "number": 1,
+      "phase": "اولویت اول · دور نخست",
+      "dateLabel": "۲ تا ۸ مهر",
+      "shortLabel": "پایهٔ مشترک",
+      "focus": "تعریف، اثبات، مدل هزینه و زبان احتمال را می‌سازیم.",
+      "totalHours": 56,
+      "notice": "در دور نخست از شما تست گرفته نمی‌شود. پرسش‌های جزوه با حل کامل برای یادگیری ارائه می‌شوند.",
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 14,
+          "title": "منطق و اثبات",
+          "topicIds": [
+            "d_logic",
+            "d_sets",
+            "d_proof",
+            "d_induction"
+          ],
+          "outcome": "قضیه و برهان از مثال جدا شوند."
+        },
+        {
+          "subject": "algorithms",
+          "hours": 16,
+          "title": "تحلیل اولیه",
+          "topicIds": [
+            "a_model",
+            "a_asym",
+            "a_loop"
+          ],
+          "outcome": "هزینهٔ حلقه را از شمارش عملیات استخراج کنید."
+        },
+        {
+          "subject": "probability",
+          "hours": 12,
+          "title": "فضای نمونه و شمارش",
+          "topicIds": [
+            "s_axioms",
+            "s_counting"
+          ],
+          "outcome": "فضای نمونه و استقلال را خلط نکنید."
+        },
+        {
+          "subject": "linear",
+          "hours": 10,
+          "title": "بردار و ماتریس",
+          "topicIds": [
+            "l_vectors",
+            "l_matrices"
+          ],
+          "outcome": "ضرب ماتریسی را با تفسیر هندسی بخوانید."
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "title": "انگلیسی موازی",
+          "topicIds": [],
+          "outcome": "خواندن متن و واژه در بافت؛ بدون آزمون."
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "phase": "اولویت اول · دور نخست",
+      "dateLabel": "۹ تا ۱۵ مهر",
+      "shortLabel": "بازگشت و شرط",
+      "focus": "از استدلال بازگشتی تا احتمال شرطی و حل دستگاه.",
+      "totalHours": 56,
+      "notice": "در دور نخست از شما تست گرفته نمی‌شود. پرسش‌های جزوه با حل کامل برای یادگیری ارائه می‌شوند.",
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 14,
+          "title": "رابطه، تابع و ناوردا",
+          "topicIds": [
+            "d_relations",
+            "d_functions",
+            "d_invariants",
+            "d_number"
+          ],
+          "outcome": "پیش‌نیاز پیمانه و رابطه را تثبیت کنید."
+        },
+        {
+          "subject": "algorithms",
+          "hours": 16,
+          "title": "بازگشت و درستی",
+          "topicIds": [
+            "a_recurrence",
+            "a_divide",
+            "a_correct"
+          ],
+          "outcome": "رابطهٔ زمانی و اثبات درستی را جدا بنویسید."
+        },
+        {
+          "subject": "probability",
+          "hours": 12,
+          "title": "احتمال شرطی و بیز",
+          "topicIds": [
+            "s_conditional",
+            "s_bayes"
+          ],
+          "outcome": "مخرج شرط و نرخ پایه را صریح مشخص کنید."
+        },
+        {
+          "subject": "linear",
+          "hours": 10,
+          "title": "حذف گاوسی و رتبه",
+          "topicIds": [
+            "l_gauss",
+            "l_rank"
+          ],
+          "outcome": "جواب دستگاه را به رتبه ربط دهید."
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "title": "انگلیسی موازی",
+          "topicIds": [],
+          "outcome": "درک جمله و خلاصهٔ بند؛ بدون آزمون."
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "phase": "اولویت اول · دور نخست",
+      "dateLabel": "۱۶ تا ۲۲ مهر",
+      "shortLabel": "شمارش و ساختار",
+      "focus": "ساختمان داده آغاز می‌شود و جست‌وجوی هوش مصنوعی به آن متصل می‌شود.",
+      "totalHours": 56,
+      "notice": "در دور نخست از شما تست گرفته نمی‌شود. پرسش‌های جزوه با حل کامل برای یادگیری ارائه می‌شوند.",
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 10,
+          "title": "شمارش پایه",
+          "topicIds": [
+            "d_counting",
+            "d_inclusion",
+            "d_pigeonhole"
+          ],
+          "outcome": "نوع شمارش را پیش از فرمول‌گذاری تشخیص دهید."
+        },
+        {
+          "subject": "algorithms",
+          "hours": 14,
+          "title": "ساختار خطی و مرتب‌سازی",
+          "topicIds": [
+            "a_arrays",
+            "a_stackqueue",
+            "a_sort",
+            "a_select"
+          ],
+          "outcome": "عملیات و هزینهٔ هر ساختار را مقایسه کنید."
+        },
+        {
+          "subject": "probability",
+          "hours": 12,
+          "title": "متغیر تصادفی گسسته",
+          "topicIds": [
+            "s_descriptive",
+            "s_discrete",
+            "s_expectation"
+          ],
+          "outcome": "امید را ابتدا از تعریف به‌دست آورید."
+        },
+        {
+          "subject": "linear",
+          "hours": 8,
+          "title": "دترمینان و فضا",
+          "topicIds": [
+            "l_det",
+            "l_spaces"
+          ],
+          "outcome": "دترمینان را جایگزین رتبه نکنید."
+        },
+        {
+          "subject": "ai",
+          "hours": 8,
+          "title": "عامل و جست‌وجوی ناآگاهانه",
+          "topicIds": [
+            "i_agents",
+            "i_uninformed"
+          ],
+          "outcome": "حالت، عمل و هدف را دقیق تعریف کنید."
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "title": "انگلیسی موازی",
+          "topicIds": [],
+          "outcome": "خواندن متن علمی؛ بدون آزمون."
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "phase": "اولویت اول · دور نخست",
+      "dateLabel": "۲۳ تا ۲۹ مهر",
+      "shortLabel": "درخت و تخمین",
+      "focus": "مرز روش‌های داده‌ساختاری و جست‌وجوی آگاهانه روشن می‌شود.",
+      "totalHours": 56,
+      "notice": "در دور نخست از شما تست گرفته نمی‌شود. پرسش‌های جزوه با حل کامل برای یادگیری ارائه می‌شوند.",
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 8,
+          "title": "بازگشت و تابع مولد",
+          "topicIds": [
+            "d_recurrence",
+            "d_generating"
+          ],
+          "outcome": "حل بازگشت را از شمارش حالت متمایز کنید."
+        },
+        {
+          "subject": "algorithms",
+          "hours": 15,
+          "title": "درخت، هیپ و هش",
+          "topicIds": [
+            "a_bst",
+            "a_balanced",
+            "a_heap",
+            "a_hash",
+            "a_amortized"
+          ],
+          "outcome": "بدترین، میانگین و سرشکن را جداگانه ثبت کنید."
+        },
+        {
+          "subject": "probability",
+          "hours": 11,
+          "title": "واریانس و توزیع‌ها",
+          "topicIds": [
+            "s_variance",
+            "s_distributions"
+          ],
+          "outcome": "شرایط کاربرد هر توزیع را بنویسید."
+        },
+        {
+          "subject": "linear",
+          "hours": 8,
+          "title": "تبدیل و تعامد",
+          "topicIds": [
+            "l_linear",
+            "l_orthogonality"
+          ],
+          "outcome": "هسته، تصویر و تعامد را با مثال هندسی بخوانید."
+        },
+        {
+          "subject": "ai",
+          "hours": 10,
+          "title": "جست‌وجوی آگاهانه",
+          "topicIds": [
+            "i_informed",
+            "i_optimality"
+          ],
+          "outcome": "شرط بهینگی و سازگاری تخمین را تفکیک کنید."
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "title": "انگلیسی موازی",
+          "topicIds": [],
+          "outcome": "خواندن متن علمی؛ بدون آزمون."
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "phase": "اولویت اول · دور نخست",
+      "dateLabel": "۳۰ مهر تا ۶ آبان",
+      "shortLabel": "گراف و قید",
+      "focus": "پیمایش گراف، متغیر پیوسته و جست‌وجوی خصمانه.",
+      "totalHours": 56,
+      "notice": "در دور نخست از شما تست گرفته نمی‌شود. پرسش‌های جزوه با حل کامل برای یادگیری ارائه می‌شوند.",
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 8,
+          "title": "گراف و درخت",
+          "topicIds": [
+            "d_graph",
+            "d_trees"
+          ],
+          "outcome": "خواص ساختاری را به پیمایش الگوریتمی وصل کنید."
+        },
+        {
+          "subject": "algorithms",
+          "hours": 14,
+          "title": "نمایش و پیمایش گراف",
+          "topicIds": [
+            "a_graphrep",
+            "a_bfsdfs",
+            "a_topological"
+          ],
+          "outcome": "پیش‌شرط و هزینهٔ هر پیمایش را بنویسید."
+        },
+        {
+          "subject": "probability",
+          "hours": 10,
+          "title": "پیوسته و مشترک",
+          "topicIds": [
+            "s_continuous",
+            "s_joint"
+          ],
+          "outcome": "چگالی را با احتمال نقطه‌ای خلط نکنید."
+        },
+        {
+          "subject": "linear",
+          "hours": 8,
+          "title": "تصویر و کمترین مربعات",
+          "topicIds": [
+            "l_projection",
+            "l_leastsquares"
+          ],
+          "outcome": "راه‌حل را هم هندسی و هم جبری بررسی کنید."
+        },
+        {
+          "subject": "ai",
+          "hours": 12,
+          "title": "بازی و مسئلهٔ قید",
+          "topicIds": [
+            "i_games",
+            "i_csp"
+          ],
+          "outcome": "هرس و انتشار محدودیت را با مثال حل‌شده ببینید."
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "title": "انگلیسی موازی",
+          "topicIds": [],
+          "outcome": "خواندن متن علمی؛ بدون آزمون."
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "phase": "اولویت اول · دور نخست",
+      "dateLabel": "۷ تا ۱۳ آبان",
+      "shortLabel": "مسیر و استنتاج",
+      "focus": "الگوریتم‌های مسیر، امید شرطی و منطق در هوش مصنوعی.",
+      "totalHours": 56,
+      "notice": "در دور نخست از شما تست گرفته نمی‌شود. پرسش‌های جزوه با حل کامل برای یادگیری ارائه می‌شوند.",
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 6,
+          "title": "احتمال گسسته",
+          "topicIds": [
+            "d_dprob"
+          ],
+          "outcome": "پیوند شمارش و احتمال را جمع‌بندی کنید."
+        },
+        {
+          "subject": "algorithms",
+          "hours": 14,
+          "title": "درخت پوشا، مسیر و حریصانه",
+          "topicIds": [
+            "a_mst",
+            "a_shortest",
+            "a_greedy"
+          ],
+          "outcome": "شرط وزن‌ها و اثبات انتخاب حریصانه مهم است."
+        },
+        {
+          "subject": "probability",
+          "hours": 10,
+          "title": "امید شرطی و تبدیل متغیر",
+          "topicIds": [
+            "s_condexp",
+            "s_transform"
+          ],
+          "outcome": "توزیع حاصل را با پشتیبان درست محاسبه کنید."
+        },
+        {
+          "subject": "linear",
+          "hours": 10,
+          "title": "ویژه‌مقدار و قطری‌سازی",
+          "topicIds": [
+            "l_eigen",
+            "l_diagonal"
+          ],
+          "outcome": "تفسیر تبدیل را همراه محاسبه بخوانید."
+        },
+        {
+          "subject": "ai",
+          "hours": 12,
+          "title": "بازنمایی دانش",
+          "topicIds": [
+            "i_prop",
+            "i_fol"
+          ],
+          "outcome": "منطق محمولات اینجا ابزار استنتاج است، نه نظریهٔ زبان‌ها."
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "title": "انگلیسی موازی",
+          "topicIds": [],
+          "outcome": "خواندن متن علمی؛ بدون آزمون."
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "phase": "اولویت اول · دور نخست",
+      "dateLabel": "۱۴ تا ۲۰ آبان",
+      "shortLabel": "طراحی و برآورد",
+      "focus": "روش‌های پیشرفتهٔ طراحی و آمار استنباطی آغاز می‌شوند.",
+      "totalHours": 56,
+      "notice": "در دور نخست از شما تست گرفته نمی‌شود. پرسش‌های جزوه با حل کامل برای یادگیری ارائه می‌شوند.",
+      "units": [
+        {
+          "subject": "algorithms",
+          "hours": 15,
+          "title": "برنامه‌ریزی پویا، جریان و کران",
+          "topicIds": [
+            "a_dp",
+            "a_flow",
+            "a_lower"
+          ],
+          "outcome": "حالت، گذار و گواه درستی را کامل بنویسید."
+        },
+        {
+          "subject": "probability",
+          "hours": 12,
+          "title": "حدها و نمونه‌گیری",
+          "topicIds": [
+            "s_llnclt",
+            "s_sampling"
+          ],
+          "outcome": "فرض‌های تقریب و نمونه‌گیری را مشخص کنید."
+        },
+        {
+          "subject": "linear",
+          "hours": 8,
+          "title": "تجزیهٔ مقدار منفرد",
+          "topicIds": [
+            "l_svd"
+          ],
+          "outcome": "تنها پیوند لازم با مبانی جبر خطی و هوش مصنوعی."
+        },
+        {
+          "subject": "ai",
+          "hours": 17,
+          "title": "استنتاج و برنامه‌ریزی",
+          "topicIds": [
+            "i_inference",
+            "i_planning"
+          ],
+          "outcome": "قواعد استنتاج و حالت‌های برنامه‌ریزی را جدا کنید."
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "title": "انگلیسی موازی",
+          "topicIds": [],
+          "outcome": "خواندن متن علمی؛ بدون آزمون."
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "phase": "اولویت اول · دور نخست",
+      "dateLabel": "۲۱ تا ۲۷ آبان",
+      "shortLabel": "عدم قطعیت",
+      "focus": "احتمال و جبر خطی در هوش مصنوعی به کار می‌آیند.",
+      "totalHours": 56,
+      "notice": "در دور نخست از شما تست گرفته نمی‌شود. پرسش‌های جزوه با حل کامل برای یادگیری ارائه می‌شوند.",
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 4,
+          "title": "مرور گراف و شمارش",
+          "topicIds": [
+            "d_graph",
+            "d_counting"
+          ],
+          "outcome": "شکاف‌های تعریفی دور نخست را اصلاح کنید."
+        },
+        {
+          "subject": "algorithms",
+          "hours": 14,
+          "title": "تصادفی و رشته",
+          "topicIds": [
+            "a_random",
+            "a_string"
+          ],
+          "outcome": "امید هزینه و شرط الگوریتم‌ها را بسنجید."
+        },
+        {
+          "subject": "probability",
+          "hours": 12,
+          "title": "برآورد و آزمون فرض",
+          "topicIds": [
+            "s_estimation",
+            "s_hypothesis"
+          ],
+          "outcome": "خطای نوع اول و دوم را با مثال حل‌شده ببینید."
+        },
+        {
+          "subject": "ai",
+          "hours": 22,
+          "title": "بیز، شبکه و تصمیم",
+          "topicIds": [
+            "i_bayes",
+            "i_bn",
+            "i_decision"
+          ],
+          "outcome": "استقلال شرطی را با ساختار شبکه بررسی کنید."
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "title": "انگلیسی موازی",
+          "topicIds": [],
+          "outcome": "خواندن متن علمی؛ بدون آزمون."
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "phase": "اولویت اول · دور نخست",
+      "dateLabel": "۲۸ آبان تا ۴ آذر",
+      "shortLabel": "یادگیری",
+      "focus": "یادگیری پایه بر زمینهٔ احتمال و جبر خطی.",
+      "totalHours": 56,
+      "notice": "در دور نخست از شما تست گرفته نمی‌شود. پرسش‌های جزوه با حل کامل برای یادگیری ارائه می‌شوند.",
+      "units": [
+        {
+          "subject": "algorithms",
+          "hours": 12,
+          "title": "بازخوانی طراحی الگوریتم",
+          "topicIds": [
+            "a_greedy",
+            "a_dp",
+            "a_correct"
+          ],
+          "outcome": "روش‌ها را با مسئله‌های تشریحی ترکیب کنید."
+        },
+        {
+          "subject": "probability",
+          "hours": 12,
+          "title": "رگرسیون و مارکوف مقدماتی",
+          "topicIds": [
+            "s_regression",
+            "s_markov"
+          ],
+          "outcome": "محدودهٔ عنوان آمار مهندسی حفظ می‌شود."
+        },
+        {
+          "subject": "linear",
+          "hours": 4,
+          "title": "بازخوانی ویژه‌مقدار",
+          "topicIds": [
+            "l_eigen",
+            "l_projection"
+          ],
+          "outcome": "کاربرد را به مفاهیم پایه برگردانید."
+        },
+        {
+          "subject": "ai",
+          "hours": 24,
+          "title": "چارچوب یادگیری و دسته‌بندی",
+          "topicIds": [
+            "i_learning",
+            "i_classification"
+          ],
+          "outcome": "تعمیم و ارزیابی را همراه الگوریتم بخوانید."
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "title": "انگلیسی موازی",
+          "topicIds": [],
+          "outcome": "خواندن متن علمی؛ بدون آزمون."
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "phase": "اولویت اول · دور نخست",
+      "dateLabel": "۵ تا ۱۱ آذر",
+      "shortLabel": "تکمیل هوش مصنوعی",
+      "focus": "موضوع‌های اصلی بسته می‌شوند؛ مرور هنوز تشریحی است.",
+      "totalHours": 56,
+      "notice": "در دور نخست از شما تست گرفته نمی‌شود. پرسش‌های جزوه با حل کامل برای یادگیری ارائه می‌شوند.",
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 8,
+          "title": "یکپارچه‌سازی اثبات",
+          "topicIds": [
+            "d_proof",
+            "d_induction",
+            "d_recurrence"
+          ],
+          "outcome": "برهان‌ها را با زبان دقیق بازنویسی کنید."
+        },
+        {
+          "subject": "algorithms",
+          "hours": 12,
+          "title": "یکپارچه‌سازی ساختارها",
+          "topicIds": [
+            "a_sort",
+            "a_hash",
+            "a_bfsdfs"
+          ],
+          "outcome": "جدول انتخاب روش و شرط‌هایش بسازید."
+        },
+        {
+          "subject": "probability",
+          "hours": 12,
+          "title": "یکپارچه‌سازی احتمال",
+          "topicIds": [
+            "s_bayes",
+            "s_expectation",
+            "s_hypothesis"
+          ],
+          "outcome": "شرط‌ها و فرض‌ها را در هر روش کنترل کنید."
+        },
+        {
+          "subject": "ai",
+          "hours": 20,
+          "title": "خوشه‌بندی، شبکهٔ عصبی و ارزیابی",
+          "topicIds": [
+            "i_clustering",
+            "i_neural",
+            "i_eval"
+          ],
+          "outcome": "عمق این فصل‌ها با دفترچه‌های مرتبط بازبینی می‌شود."
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "title": "انگلیسی موازی",
+          "topicIds": [],
+          "outcome": "خواندن متن علمی؛ بدون آزمون."
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "phase": "اولویت اول · دور نخست",
+      "dateLabel": "۱۲ تا ۱۸ آذر",
+      "shortLabel": "بستن دور نخست",
+      "focus": "جاهای مبهم با مثال‌های حل‌شده رفع می‌شوند و آمادگی مرحلهٔ بعد ثبت می‌شود.",
+      "totalHours": 56,
+      "notice": "در دور نخست از شما تست گرفته نمی‌شود. پرسش‌های جزوه با حل کامل برای یادگیری ارائه می‌شوند.",
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 8,
+          "title": "مرور مرزهای گسسته",
+          "topicIds": [
+            "d_relations",
+            "d_generating",
+            "d_trees"
+          ],
+          "outcome": "فهرست ابهام‌ها را به توضیح حل‌شده تبدیل کنید."
+        },
+        {
+          "subject": "algorithms",
+          "hours": 12,
+          "title": "مرور تحلیل و طراحی",
+          "topicIds": [
+            "a_asym",
+            "a_amortized",
+            "a_shortest",
+            "a_flow"
+          ],
+          "outcome": "شرط‌های اعتبار پاسخ‌ها را مرور کنید."
+        },
+        {
+          "subject": "probability",
+          "hours": 10,
+          "title": "مرور توزیع و استنباط",
+          "topicIds": [
+            "s_joint",
+            "s_condexp",
+            "s_estimation"
+          ],
+          "outcome": "مفروضات و دام‌های رایج را ثبت کنید."
+        },
+        {
+          "subject": "linear",
+          "hours": 8,
+          "title": "مرور فضا و تجزیه",
+          "topicIds": [
+            "l_rank",
+            "l_spaces",
+            "l_diagonal"
+          ],
+          "outcome": "ارتباط رتبه، بعد و مقادیر ویژه را ببینید."
+        },
+        {
+          "subject": "ai",
+          "hours": 14,
+          "title": "مرور جست‌وجو و استنتاج",
+          "topicIds": [
+            "i_informed",
+            "i_bn",
+            "i_learning"
+          ],
+          "outcome": "مرز کاربرد روش‌ها را روشن کنید."
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "title": "انگلیسی موازی",
+          "topicIds": [],
+          "outcome": "خواندن متن علمی؛ بدون آزمون."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "فهرست مواد آزمون ۱۴۰۶",
+      "url": "https://phdtest.ir/wp-content/uploads/2026/03/Sarfasl-Zarayeb-Manbe-Konkoor-PhD-1406-PhdTest.pdf#page=23"
+    },
+    {
+      "label": "مخزن دفترچه‌های آزمون",
+      "url": "https://github.com/bheydari721rn24/Phd-Exam-CSE"
+    },
+    {
+      "label": "ریاضیات گسستهٔ ام‌آی‌تی، ۲۰۲۴",
+      "url": "https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/"
+    },
+    {
+      "label": "الگوریتم ام‌آی‌تی",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/"
+    },
+    {
+      "label": "احتمال ام‌آی‌تی",
+      "url": "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/"
+    },
+    {
+      "label": "احتمال هاروارد",
+      "url": "https://stat110.hsites.harvard.edu/"
+    },
+    {
+      "label": "جبر خطی ام‌آی‌تی",
+      "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/"
+    },
+    {
+      "label": "هوش مصنوعی ام‌آی‌تی",
+      "url": "https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/"
+    }
+  ]
+}

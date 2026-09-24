@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f1d2c">
+  <meta name="description" content="برنامهٔ تعاملی پنج درس اصلی آزمون دکتری کامپیوتر ۱۴۰۶">
+  <title>نقشهٔ مطالعهٔ دکتری کامپیوتر ۱۴۰۶</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div><div class="eyebrow">آزمون دکتری ۱۴۰۶ · کد ۲۳۵۴</div><h1>نقشهٔ مطالعه</h1><p>برنامهٔ قابل پیگیری برای دور نخستِ پنج درس اصلی</p></div>
+      <div class="top-actions"><span id="updated"></span><button id="go-today" type="button">هفتهٔ جاری</button><a href="schedule.json" download>دادهٔ برنامه</a></div>
+    </header>
+    <main>
+      <section class="strategy" id="strategy"></section>
+      <section class="metrics" id="metrics" aria-label="وضعیت مطالعه"></section>
+      <div class="layout">
+        <aside class="rail">
+          <h2>تقویم دور نخست</h2>
+          <p>برای دیدن فصل‌ها و ثبت مطالعه، هفته را انتخاب کنید.</p>
+          <nav id="week-nav" aria-label="انتخاب هفته"></nav>
+        </aside>
+        <div class="main-column">
+          <section class="week-panel">
+            <div class="week-heading"><div><div class="eyebrow" id="phase"></div><h2 id="week-title"></h2><p id="week-focus"></p></div><strong id="hours"></strong></div>
+            <div class="notice" id="notice"></div>
+            <div class="week-actions"><span id="week-progress"></span><a id="lesson-link" href="week1.html">یادداشت آموزشی هفتهٔ اول ←</a></div>
+            <div class="progress-track"><div id="week-progress-fill"></div></div>
+            <div class="unit-list" id="unit-list"></div>
+          </section>
+          <section class="panel" id="roadmap"></section>
+          <section class="panel" id="course-panel"></section>
+          <section class="panel" id="audit"></section>
+          <section class="panel" id="sources"></section>
+          <section class="panel export-panel">
+            <h2>اشتراک پیشرفت با دستیار</h2>
+            <p>علامت‌های مطالعه روی همین دستگاه ذخیره می‌شوند. برای اینکه من هم وضعیت واقعی شما را ببینم، پروندهٔ پیشرفت را دریافت و در گفتگو پیوست کنید. برنامهٔ فصل‌ها در <a href="schedule.json">دادهٔ برنامه</a> برای هر دو قابل خواندن است.</p>
+            <div class="export-actions"><button id="export" type="button">دریافت پروندهٔ پیشرفت</button><label class="import-button">بازیابی پروندهٔ پیشرفت<input id="import" type="file" accept="application/json,.json"></label></div>
+            <p id="import-status" role="status"></p>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
