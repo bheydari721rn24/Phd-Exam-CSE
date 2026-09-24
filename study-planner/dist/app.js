@@ -70,7 +70,8 @@ function renderRoadmap() {
 function renderCourses() {
   const subjects = [...new Set(plan.weeks[selected-1].units.map(u => u.subject))].filter(id => id !== 'english');
   if (selected !== 1 || !courseAudit) {
-    $('course-panel').innerHTML = `<div class="eyebrow">ممیزی منابع · هفتهٔ ${selected}</div><h2>فهرست این هفته در دست تهیه است</h2><p>دوره‌های قدیمی یا نامربوط به‌صورت خودکار اینجا تکرار نمی‌شوند. پس از بررسی فصل‌های همین هفته، فهرست مستند آن منتشر می‌شود.</p>`;
+    const auditUrl = lessons.find(item => item.week === selected)?.auditUrl;
+    $('course-panel').innerHTML = `<div class="eyebrow">ممیزی منابع · هفتهٔ ${selected}</div><h2>${auditUrl ? 'فهرست منابع همین هفته' : 'فهرست این هفته در دست تهیه است'}</h2><p>${auditUrl ? 'مزیت، محدودیت، فصل مرتبط و میزان واقعی بررسی هر دوره در دفتر این هفته ثبت شده است.' : 'دوره‌های قدیمی یا نامربوط به‌صورت خودکار اینجا تکرار نمی‌شوند. پس از بررسی فصل‌های همین هفته، فهرست مستند آن منتشر می‌شود.'}</p>${auditUrl ? `<a class="audit-link" href="${esc(auditUrl)}">باز کردن دفتر منابع ←</a>` : ''}`;
     return;
   }
   const courses = courseAudit.courses;

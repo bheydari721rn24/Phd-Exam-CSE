@@ -164,7 +164,7 @@ def week(number, date_label, short_label, focus, units):
             "units": units}
 
 weeks = [
-    week(1, "۲ تا ۸ مهر", "پایهٔ مشترک", "تعریف، اثبات، مدل هزینه و زبان احتمال را می‌سازیم.", [
+    week(1, "۲ تا ۸ مهر", "پایهٔ مشترک", "از منطق و کدنویسی تا مدار، تحلیل الگوریتم و زبان احتمال را می‌سازیم.", [
         unit("discrete", 14, "منطق و اثبات", "d_logic d_sets d_proof d_induction", "قضیه و برهان از مثال جدا شوند."),
         unit("algorithms", 16, "تحلیل اولیه", "a_model a_asym a_loop", "هزینهٔ حلقه را از شمارش عملیات استخراج کنید."),
         unit("probability", 12, "فضای نمونه و شمارش", "s_axioms s_counting", "فضای نمونه و استقلال را خلط نکنید."),
