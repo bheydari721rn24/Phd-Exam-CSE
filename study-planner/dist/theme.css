@@ -1,6 +1,6 @@
-:root{--ink:#18344d;--muted:#5c7185;--canvas:#edf3f8;--paper:#fff;--line:#d3e0eb;--blue:#245f9d;--blue-dark:#16446f;--blue-wash:#e4f0fa;--teal:#11757b;--amber:#b77523;font-family:Vazirmatn,Tahoma,sans-serif;color:var(--ink);background:var(--canvas)}
+:root{--ink:#18344d;--muted:#5c7185;--canvas:#edf3f8;--paper:#fff;--line:#d3e0eb;--blue:#245f9d;--blue-dark:#16446f;--blue-wash:#e4f0fa;--teal:#11757b;--amber:#b77523;font-family:"B Nazanin","BNazanin",Tahoma,serif;font-size:19px;color:var(--ink);background:var(--canvas)}
 html{scroll-behavior:smooth}body{background:var(--canvas);color:var(--ink)}a{color:var(--blue)}button,input{font-family:inherit}
-h1,h2,h3,.week-btn,.metrics b,.strategy-details b,.eyebrow,.section-heading strong,summary strong{font-family:Vazirmatn,Tahoma,sans-serif;letter-spacing:0;line-height:1.55;font-weight:540;color:var(--ink)}
+h1,h2,h3,.week-btn,.metrics b,.strategy-details b,.eyebrow,.section-heading strong,summary strong{font-family:"B Nazanin","BNazanin",Tahoma,serif;letter-spacing:0;line-height:1.55;font-weight:540;color:var(--ink)}
 h1{font-weight:550}h2{font-weight:530}h3{font-weight:520}.eyebrow{font-size:.85rem;color:var(--teal);font-weight:600}
 .shell{max-width:1420px;padding-bottom:80px}.topbar{padding:23px 0;border-color:var(--line)}.topbar h1{font-size:2.15rem;font-weight:560;margin:3px 0}.topbar p,.top-actions{color:var(--muted)}
 .top-actions a,.top-actions button,.export-actions button,.import-button{background:var(--paper);color:var(--blue);border:1px solid var(--line);font-weight:550;border-radius:10px}.top-actions a:hover,.top-actions button:hover,.export-actions button:hover,.import-button:hover{background:var(--blue-wash)}
@@ -15,3 +15,20 @@ h1{font-weight:550}h2{font-weight:530}h3{font-weight:520}.eyebrow{font-size:.85r
 .lesson,.research-shell{color:var(--ink)}.lesson .hero,.research-hero{background:linear-gradient(115deg,#e3f0fa,#f7fbfe 70%);border:1px solid #b8d3e7;border-radius:18px;box-shadow:0 7px 22px #163e600c}.lesson .hero h1,.research-hero h1{font-weight:560;color:var(--ink);font-size:clamp(2rem,3.2vw,2.7rem)}.lesson .hero p,.research-hero p{color:#466277;line-height:1.9}.lesson .meta span,.research-meta span{background:#fff;border:1px solid #cee0ed;color:#45647b}.lesson .note{background:#e5f3f8;border-right:3px solid var(--teal);color:#335a6b}.lesson .note a{color:var(--blue-dark)}.lesson section,.research-card{background:#fff;border:1px solid var(--line);box-shadow:0 3px 16px #163e600a;border-radius:14px}.lesson p,.lesson li,.research-card p{color:#39566b}.lesson .topic-block{border-color:var(--line)}.lesson .toc a{background:#fff;border-color:#c9dbe9;color:var(--ink);font-weight:530}.lesson .toc a:hover{background:#e8f3fa}.lesson .formula{background:#edf4fa;color:#153e5d;font-size:1.14rem;border:1px solid #d6e5ef}.lesson pre{background:#18344d;color:#eff7ff}.lesson .lab div{background:#edf4fa;color:var(--ink)}.lesson .lab b{color:var(--blue-dark)}.lesson .source-list a{color:var(--blue);font-weight:520}.research-card .university{color:var(--teal)}.research-card .tag{border-color:#a9c7d8;color:#315c70;background:#f0f7fa}.research-card .caution{color:#80551f;border-color:#d29b51}.research-card small{color:var(--muted)}.research-controls button{background:#fff;color:var(--blue);border-color:#bdd2e3}.research-controls button.active{background:var(--blue);color:#fff}.research-foot{background:#eaf3f9;border-color:#c2d8e8;color:#446278}.gate-demo{display:flex;gap:20px;align-items:center;justify-content:space-between;background:#edf5fa;border:1px solid #c8deea;border-radius:9px;padding:13px 17px;margin:12px 0}.gate-demo label{display:inline-flex;align-items:center;gap:5px;margin-inline-end:16px}.gate-demo input{accent-color:var(--blue)}.gate-out b{color:var(--blue-dark)}
 @media(max-width:850px){.start-panel{grid-template-columns:1fr}.start-card{border-right:0;border-top:2px solid var(--teal);padding:12px 0 0}.library-grid{grid-template-columns:1fr}}
 @media(max-width:700px){.topbar h1{font-size:1.85rem}.start-panel{padding:19px}.start-panel h2{font-size:1.4rem}.gate-demo{flex-direction:column;align-items:start}.library-panel{padding:18px}}
+/* B Nazanin is a locally installed font; no proprietary font file is redistributed. */
+html,body,button,input,select,textarea,table,pre,code{font-family:"B Nazanin","BNazanin",Tahoma,serif}
+.topic-pending,.library-pending{color:var(--muted);font-size:.82rem;line-height:1.6}
+.topic-pending{margin-inline-start:auto;white-space:nowrap}
+.draft-link{background:#fff0d9!important;color:#805016!important}
+.library-pending{margin-top:12px!important}
+.source-review-list{padding-inline-start:25px;line-height:1.9}
+.source-review-list li{padding:12px 0;border-bottom:1px solid var(--line)}
+.source-review-list a{font-size:.86rem;margin:4px 0 0}
+@media print{
+  :root{font-family:"B Nazanin","BNazanin",serif;font-size:15pt;background:#fff;color:#111}
+  html,body{background:#fff;color:#111}
+  .shell,.lesson,.research-shell{max-width:none;padding:0}
+  .top-actions,.export-panel,.research-controls,.start-actions,.week-actions{display:none!important}
+  .panel,.week-panel,.unit,.lesson section,.research-card{break-inside:avoid;box-shadow:none!important;border-color:#777!important;background:#fff!important;color:#111!important}
+  a{color:#111!important;text-decoration:underline}
+}

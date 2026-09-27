@@ -1,0 +1,41 @@
+:root{font-family:"B Nazanin","BNazanin",Tahoma,serif;font-size:20px}
+body{margin:0;background:#edf3f8;color:#18344d;line-height:1.95}
+*{box-sizing:border-box}
+.chapter{max-width:970px;margin:auto;padding:24px 24px 80px}
+.chapter a{color:#245f9d}
+.chapter-header{padding:38px 42px;background:linear-gradient(120deg,#e1f0f6,#fbfdff);border:1px solid #bcd3e2;border-radius:18px}
+.chapter-header h1{font-size:2.35rem;line-height:1.45;margin:.25rem 0;color:#18344d;font-weight:550}
+.chapter-header p{margin:.4rem 0}
+.chapter-status{display:inline-block;border:1px solid #ad7233;color:#77470f;background:#fff4e4;border-radius:30px;padding:2px 15px;font-size:.8rem}
+.chapter-nav{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}
+.chapter-nav a{border:1px solid #bbd0de;background:#fff;padding:6px 12px;border-radius:8px;text-decoration:none}
+.chapter section{background:#fff;border:1px solid #d3e0eb;border-radius:14px;padding:28px 34px;margin:20px 0;box-shadow:0 3px 12px #163e600b}
+.chapter h2{font-size:1.62rem;margin:0 0 14px;font-weight:550;color:#18344d}
+.chapter h3{font-size:1.25rem;margin:25px 0 9px;font-weight:550;color:#18344d}
+.chapter h4{font-size:1.09rem;margin:18px 0 5px;font-weight:550}
+.chapter p{margin:9px 0 14px;text-align:justify}
+.chapter li{margin:6px 0}
+.chapter ul,.chapter ol{padding-inline-start:28px}
+.chapter .ltr,.chapter .math{direction:ltr;unicode-bidi:isolate;display:inline-block;font-family:"B Nazanin","BNazanin",serif}
+.chapter .math-block{direction:ltr;text-align:center;display:block;background:#f0f6fa;border:1px solid #d5e6f0;border-radius:8px;padding:12px 18px;margin:14px 0;overflow:auto;font-size:1.08rem}
+.chapter .definition{border-right:4px solid #11757b;background:#edf7f8;padding:12px 17px;border-radius:7px}
+.chapter .warning{border-right:4px solid #bd7e2d;background:#fff8ee;padding:12px 17px;border-radius:7px}
+.chapter .source-card{border-bottom:1px solid #d3e0eb;padding:12px 0}
+.chapter .source-card:last-child{border-bottom:0}
+.chapter .source-card a{display:block;direction:ltr;text-align:left;overflow-wrap:anywhere;font-size:.85rem}
+.chapter .source-card small{display:block;color:#5c7185}
+.chapter .problem{border:1px solid #c6dbe9;border-radius:12px;padding:18px 22px;margin:18px 0;background:#fbfdff;break-inside:avoid}
+.chapter .problem h3{margin-top:0}
+.chapter .step{padding:6px 13px;border-right:2px solid #a6c7d7;margin:10px 0}
+.chapter table{border-collapse:collapse;width:100%;margin:14px 0;direction:ltr;text-align:center;font-size:.92rem}
+.chapter th,.chapter td{border:1px solid #bcd0dd;padding:5px 8px}
+.chapter th{background:#eaf3f8}
+.chapter figure{margin:20px auto;text-align:center;max-width:100%}
+.chapter figcaption{font-size:.84rem;color:#5c7185}
+.chapter svg{max-width:100%;height:auto}
+.chapter .lab{background:#eff7fa;padding:17px;border:1px solid #bad7e3;border-radius:10px;margin:18px 0}
+.chapter .lab select{font:inherit;padding:5px 10px;border:1px solid #8fbdcb;border-radius:7px;background:#fff}
+.chapter .lab table{background:#fff}
+.chapter .boundary{font-size:.9rem;color:#516b7c}
+@media(max-width:700px){.chapter{padding:12px}.chapter-header,.chapter section{padding:20px}.chapter-header h1{font-size:1.8rem}.chapter table{font-size:.78rem}}
+@media print{@page{size:A4;margin:18mm 16mm}.chapter{max-width:none;padding:0}.chapter-header,.chapter section{box-shadow:none;border-color:#999;border-radius:0}.chapter-nav,.chapter .lab select{display:none}.chapter section{break-inside:auto}.chapter .problem{break-inside:avoid}.chapter p{orphans:3;widows:3}.chapter a{color:#111}}

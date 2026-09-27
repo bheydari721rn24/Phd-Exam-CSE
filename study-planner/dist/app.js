@@ -8,6 +8,10 @@ function currentWeek() {
   return Math.max(1, Math.min(11, Math.floor(days / 7) + 1));
 }
 function idsForWeek(w) { return [...new Set(w.units.flatMap(u => u.topicIds))]; }
+function readyChapters(lesson) { return (lesson?.chapters || []).filter(c => c.status === 'ready' && c.url); }
+function chapterFor(lesson, id) { return readyChapters(lesson).find(c => c.topicId === id); }
+function draftChapters(lesson) { return (lesson?.chapters || []).filter(c => c.status === 'draft' && c.url); }
+function draftFor(lesson, id) { return draftChapters(lesson).find(c => c.topicId === id); }
 function firstWeek(topicId) { return plan.weeks.find(w => w.units.some(u => u.topicIds.includes(topicId)))?.number || 0; }
 function save() { localStorage.setItem(key, JSON.stringify(done)); }
 function progress(ids) { const n = ids.filter(id => !!done[id]).length; return {n, total: ids.length, percent: ids.length ? Math.round(100*n/ids.length) : 0}; }
@@ -32,17 +36,18 @@ function renderWeek(number) {
   $('hours').textContent = `${w.totalHours} ساعت`;
   $('notice').textContent = w.notice;
   const lesson = lessons.find(item => item.week === number);
-  $('lesson-link').hidden = !lesson;
-  if (lesson) { $('lesson-link').href = lesson.url; $('lesson-link').textContent = `باز کردن جزوهٔ هفتهٔ ${number} ←`; }
+  const ready = readyChapters(lesson);
+  $('lesson-link').hidden = !lesson?.overviewUrl;
+  if (lesson?.overviewUrl) { $('lesson-link').href = lesson.overviewUrl; $('lesson-link').textContent = `نمای کلی کوتاه هفتهٔ ${number} ←`; }
   $('library-status').textContent = lesson
-    ? `جزوهٔ هفتهٔ ${number} منتشر شده؛ از هر فصل برنامه نیز می‌توانید مستقیم به همان بخش بروید.`
-    : `جزوهٔ هفتهٔ ${number} هنوز منتشر نشده است. پس از آماده‌سازی، پیوند آن همین‌جا و در بخش «جزوه‌ها» فعال می‌شود.`;
+    ? `${ready.length} درسنامهٔ فصل از ${idsForWeek(w).length} فصل این هفته منتشر شده است. «نمای کلی» فقط پیش‌نویس کوتاه است. پیوند «درسنامه» تنها کنار فصلِ آماده دیده می‌شود.`
+    : `درسنامهٔ فصل‌های هفتهٔ ${number} هنوز منتشر نشده است. وضعیت نگارش در کتابخانه نمایش داده می‌شود.`;
   $('unit-list').innerHTML = w.units.map(u => `
     <article class="unit">
       <div class="unit-top"><h3>${esc(plan.subjects[u.subject]?.title || 'انگلیسی موازی')}</h3><b>${u.hours} ساعت</b></div>
       <p>${esc(u.title)}</p>
       ${u.topicIds.length ? `<div class="topic-list">${u.topicIds.map(id => `
-        <label class="topic"><input type="checkbox" data-topic="${esc(id)}" ${done[id] ? 'checked' : ''}><span>${esc(plan.topics[id].title)}</span>${lesson ? `<a class="topic-read" href="${esc(lesson.url)}#${esc(id)}" aria-label="خواندن جزوهٔ ${esc(plan.topics[id].title)}">جزوه ←</a>` : ''}</label>`).join('')}</div>` : '<div class="english-note">تمرین پیوستهٔ خواندن، بدون آزمون تا پایان دور نخست</div>'}
+        <label class="topic"><input type="checkbox" data-topic="${esc(id)}" ${done[id] ? 'checked' : ''}><span>${esc(plan.topics[id].title)}</span>${chapterFor(lesson,id) ? `<a class="topic-read" href="${esc(chapterFor(lesson,id).url)}" aria-label="خواندن درسنامهٔ ${esc(plan.topics[id].title)}">درسنامه ←</a>` : draftFor(lesson,id) ? `<a class="topic-read draft-link" href="${esc(draftFor(lesson,id).url)}" aria-label="خواندن پیش‌نویس ${esc(plan.topics[id].title)}">پیش‌نویس ←</a>` : '<small class="topic-pending">درسنامه در دست نگارش</small>'}</label>`).join('')}</div>` : '<div class="english-note">تمرین پیوستهٔ خواندن، بدون آزمون تا پایان دور نخست</div>'}
       <small>${esc(u.outcome)}</small>
     </article>`).join('');
   $('unit-list').querySelectorAll('[data-topic]').forEach(box => box.addEventListener('change', () => {
@@ -83,14 +88,15 @@ function renderCourses() {
 }
 function renderLibrary() {
   $('library').innerHTML = `<div class="section-heading"><div><div class="eyebrow">کتابخانهٔ شما</div><h2>جزوه‌ها در همین اپ</h2></div><span>پیوند هر هفته پس از انتشار فعال می‌شود.</span></div>
-  <p>«تهیه و انتشار جزوهٔ هفتگی» نام کارِ زمان‌بندی‌شدهٔ من است؛ خودِ جزوه نیست. متن آموزشیِ قابل خواندن و شکل‌ها در صفحه‌های زیر قرار می‌گیرند.</p>
-  <div class="library-grid">${lessons.map(l => `<article class="library-card"><div class="eyebrow">هفتهٔ ${l.week} · آمادهٔ مطالعه</div><h3>${esc(l.title)}</h3><p>${esc(l.description)}</p><a class="primary-link" href="${esc(l.url)}">خواندن جزوه ←</a>${l.auditUrl ? `<a class="secondary-link" href="${esc(l.auditUrl)}">دیدن منابع و میزان بررسی ←</a>` : ''}</article>`).join('')}
+  <p>هر فصل وضعیت مستقل دارد. متن‌های کوتاه هفتهٔ اول صرفاً نمای کلی هستند و به جای درسنامهٔ مفصل حساب نمی‌شوند.</p>
+  <div class="library-grid">${lessons.map(l => `<article class="library-card"><div class="eyebrow">هفتهٔ ${l.week} · ${readyChapters(l).length} درسنامه از ${l.chapters?.length || 0} فصل</div><h3>${esc(l.title)}</h3><p>${esc(l.description)}</p>${readyChapters(l).map(c => `<a class="primary-link" href="${esc(c.url)}">${esc(c.title)} ←</a>`).join('')}${draftChapters(l).map(c => `<a class="secondary-link" href="${esc(c.url)}">پیش‌نویس: ${esc(c.title)} ←</a>`).join('')}${l.overviewUrl ? `<a class="secondary-link" href="${esc(l.overviewUrl)}">نمای کلی کوتاه ←</a>` : ''}${l.auditUrl ? `<a class="secondary-link" href="${esc(l.auditUrl)}">ممیزی منابع ←</a>` : ''}<p class="library-pending">${(l.chapters || []).filter(c=>c.status!=='ready').length} فصل هنوز درسنامهٔ مفصل ندارند.</p></article>`).join('')}
   <article class="library-card pending"><div class="eyebrow">هفته‌های بعد · در صف تهیه</div><h3>جزوهٔ هر هفته، کنار برنامهٔ همان هفته</h3><p>پس از انتشار، این فهرست و پیوندِ کنار فصل‌ها به‌روز می‌شود. ساعت ۹ پنجشنبه زمان آغاز کار خودکار است؛ پایان تهیه به حجم بررسی منابع وابسته است.</p></article></div>`;
 }
 function renderStart() {
   const number = currentWeek(), current = plan.weeks[number-1];
   const lesson = lessons.find(item => item.week === number);
-  $('start-panel').innerHTML = `<div class="start-copy"><div class="eyebrow">مسیر شروع · همین هفته</div><h2>اول جزوه را بخوانید</h2><p>فصل‌های هفتهٔ ${number} را در برنامه ببینید، بخش متناظر جزوه را با نمونه‌های حل‌شده بخوانید و پس از خواندن، فصل را علامت بزنید. در دور نخست هیچ تستی برای پاسخ‌دادن از شما خواسته نمی‌شود.</p><div class="start-actions">${lesson ? `<a class="primary-link" href="${esc(lesson.url)}${number===1?'#p_types':''}">شروع با جزوهٔ هفتهٔ ${number} ←</a>` : `<button class="primary-link" type="button" id="show-current-week">دیدن فصل‌های این هفته ←</button>`}<a class="secondary-link" href="#library">محل همهٔ جزوه‌ها ←</a></div></div><div class="start-card"><span>هفتهٔ ${number}</span><strong>${esc(current.dateLabel)}</strong><p>${current.totalHours} ساعت در برنامه</p><small>${lesson ? 'جزوهٔ این هفته آماده است.' : 'جزوهٔ این هفته هنوز منتشر نشده است.'}</small></div>`;
+  const first = readyChapters(lesson)[0], draft = draftChapters(lesson)[0];
+  $('start-panel').innerHTML = `<div class="start-copy"><div class="eyebrow">مسیر شروع · همین هفته</div><h2>${first ? 'با درسنامهٔ فصل آماده شروع کنید' : draft ? 'پیش‌نویس فصل نخست را بخوانید' : 'فصل‌های این هفته را ببینید'}</h2><p>فصل‌های هفتهٔ ${number} را در برنامه ببینید. درسنامهٔ مفصلِ هر فصل پس از نگارش و بازبینی، جداگانه فعال می‌شود. پس از خواندن فصل، آن را علامت بزنید. در دور نخست هیچ تستی برای پاسخ‌دادن از شما خواسته نمی‌شود.</p><div class="start-actions">${first ? `<a class="primary-link" href="${esc(first.url)}">شروع: ${esc(first.title)} ←</a>` : draft ? `<a class="primary-link" href="${esc(draft.url)}">خواندن پیش‌نویس: ${esc(draft.title)} ←</a>` : `<button class="primary-link" type="button" id="show-current-week">دیدن فصل‌های این هفته ←</button>`}<a class="secondary-link" href="#library">وضعیت همهٔ درسنامه‌ها ←</a></div></div><div class="start-card"><span>هفتهٔ ${number}</span><strong>${esc(current.dateLabel)}</strong><p>${current.totalHours} ساعت در برنامه</p><small>${lesson ? `${readyChapters(lesson).length} درسنامهٔ فصل آماده است؛ باقی فصل‌ها در دست نگارش‌اند.` : 'درسنامهٔ این هفته هنوز منتشر نشده است.'}</small></div>`;
   $('show-current-week')?.addEventListener('click',()=>{renderWeek(number);document.querySelector('.week-panel').scrollIntoView({behavior:'smooth'});});
 }
 function renderStatic() {
