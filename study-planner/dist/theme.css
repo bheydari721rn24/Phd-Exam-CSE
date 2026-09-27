@@ -1,7 +1,8 @@
 @font-face{font-family:"Persian Nazanin";src:local("B Nazanin"),local("BNazanin");font-style:normal;font-weight:400;unicode-range:U+0600-06FF,U+0750-077F,U+08A0-08FF,U+200C-200F,U+FB50-FDFF,U+FE70-FEFF}
-:root{--ink:#18344d;--muted:#5c7185;--canvas:#edf3f8;--paper:#fff;--line:#d3e0eb;--blue:#245f9d;--blue-dark:#16446f;--blue-wash:#e4f0fa;--teal:#11757b;--amber:#b77523;font-family:"Persian Nazanin","Segoe UI",Tahoma,sans-serif;font-synthesis:none;font-size:19px;color:var(--ink);background:var(--canvas)}
+@font-face{font-family:"Latin Light";src:local("Segoe UI Light"),local("Calibri Light");font-style:normal;font-weight:400;unicode-range:U+0000-02FF,U+1E00-1EFF,U+2000-206F}
+:root{--ink:#18344d;--muted:#5c7185;--canvas:#edf3f8;--paper:#fff;--line:#d3e0eb;--blue:#245f9d;--blue-dark:#16446f;--blue-wash:#e4f0fa;--teal:#11757b;--amber:#b77523;font-family:"Persian Nazanin","Latin Light","Segoe UI",Tahoma,sans-serif;font-synthesis:none;font-size:19px;color:var(--ink);background:var(--canvas)}
 html{scroll-behavior:smooth}body{background:var(--canvas);color:var(--ink)}a{color:var(--blue)}button,input{font-family:inherit}
-h1,h2,h3,.week-btn,.metrics b,.strategy-details b,.eyebrow,.section-heading strong,summary strong{font-family:"Persian Nazanin","Segoe UI",Tahoma,sans-serif;letter-spacing:0;line-height:1.55;font-weight:400;color:var(--ink)}
+h1,h2,h3,.week-btn,.metrics b,.strategy-details b,.eyebrow,.section-heading strong,summary strong{font-family:"Persian Nazanin","Latin Light","Segoe UI",Tahoma,sans-serif;letter-spacing:0;line-height:1.55;font-weight:400;color:var(--ink)}
 h1,h2,h3{font-weight:400}.eyebrow{font-size:.85rem;color:var(--teal);font-weight:400}
 .shell{max-width:1420px;padding-bottom:80px}.topbar{padding:23px 0;border-color:var(--line)}.topbar h1{font-size:2.15rem;font-weight:560;margin:3px 0}.topbar p,.top-actions{color:var(--muted)}
 .top-actions a,.top-actions button,.export-actions button,.import-button{background:var(--paper);color:var(--blue);border:1px solid var(--line);font-weight:550;border-radius:10px}.top-actions a:hover,.top-actions button:hover,.export-actions button:hover,.import-button:hover{background:var(--blue-wash)}
@@ -17,22 +18,25 @@ h1,h2,h3{font-weight:400}.eyebrow{font-size:.85rem;color:var(--teal);font-weight
 @media(max-width:850px){.start-panel{grid-template-columns:1fr}.start-card{border-right:0;border-top:2px solid var(--teal);padding:12px 0 0}.library-grid{grid-template-columns:1fr}}
 @media(max-width:700px){.topbar h1{font-size:1.85rem}.start-panel{padding:19px}.start-panel h2{font-size:1.4rem}.gate-demo{flex-direction:column;align-items:start}.library-panel{padding:18px}}
 /* B Nazanin is a locally installed font; no proprietary font file is redistributed. */
-html,body,button,input,select,textarea,table,pre,code{font-family:"Persian Nazanin","Segoe UI",Tahoma,sans-serif;font-synthesis:none}
-.ltr,[lang="en"],[dir="ltr"],code,pre{font-family:"Segoe UI",Arial,sans-serif;font-weight:400;letter-spacing:0}
+html,body,button,input,select,textarea,table,pre,code{font-family:"Persian Nazanin","Latin Light","Segoe UI",Tahoma,sans-serif;font-synthesis:none}
+.ltr,[lang="en"],[dir="ltr"],code,pre{font-family:"Latin Light","Segoe UI",Arial,sans-serif;font-weight:400;letter-spacing:0}
 .math,.formula,.math-block{font-family:"Cambria Math","Segoe UI Symbol",serif;font-weight:400}
 .lesson .formula{font-family:"Cambria Math","Segoe UI Symbol",serif;font-weight:400}
 .lesson pre,.lesson code{font-family:Consolas,"Courier New",monospace;font-weight:400}
 .research-card .university,.research-card b,.chapter .source-card b{font-weight:400}
-.course-grid a,.research-card a,.chapter .source-card a,.chapter .reference-list a{font-family:"Segoe UI",Arial,sans-serif;font-weight:400}
+.course-grid a,.research-card a,.chapter .source-card a,.chapter .reference-list a{font-family:"Latin Light","Segoe UI",Arial,sans-serif;font-weight:400}
 .topic-pending,.library-pending{color:var(--muted);font-size:.82rem;line-height:1.6}
 .topic-pending{margin-inline-start:auto;white-space:nowrap}
 .draft-link{background:#fff0d9!important;color:#805016!important}
 .library-pending{margin-top:12px!important}
 .source-review-list{padding-inline-start:25px;line-height:1.9}
 .source-review-list li{padding:12px 0;border-bottom:1px solid var(--line)}
+.source-review-list li[lang="en"]{direction:ltr;text-align:left;font-family:"Latin Light","Segoe UI",sans-serif;line-height:1.65}
+.research-grid .research-card[lang="en"]{direction:ltr;text-align:left;font-family:"Latin Light","Segoe UI",sans-serif}
+.research-grid .research-card[lang="en"] .caution{border-right:0;border-left:3px solid #d29b51;padding-right:0;padding-left:10px}
 .source-review-list a{font-size:.86rem;margin:4px 0 0}
 @media print{
-  :root{font-family:"Persian Nazanin","Segoe UI",sans-serif;font-size:15pt;background:#fff;color:#111}
+  :root{font-family:"Persian Nazanin","Latin Light","Segoe UI",sans-serif;font-size:15pt;background:#fff;color:#111}
   html,body{background:#fff;color:#111}
   .shell,.lesson,.research-shell{max-width:none;padding:0}
   .top-actions,.export-panel,.research-controls,.start-actions,.week-actions{display:none!important}
