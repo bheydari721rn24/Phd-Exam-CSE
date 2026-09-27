@@ -1,7 +1,8 @@
-:root{--ink:#18344d;--muted:#5c7185;--canvas:#edf3f8;--paper:#fff;--line:#d3e0eb;--blue:#245f9d;--blue-dark:#16446f;--blue-wash:#e4f0fa;--teal:#11757b;--amber:#b77523;font-family:"B Nazanin","BNazanin",Tahoma,serif;font-size:19px;color:var(--ink);background:var(--canvas)}
+@font-face{font-family:"Persian Nazanin";src:local("B Nazanin"),local("BNazanin");font-style:normal;font-weight:400;unicode-range:U+0600-06FF,U+0750-077F,U+08A0-08FF,U+200C-200F,U+FB50-FDFF,U+FE70-FEFF}
+:root{--ink:#18344d;--muted:#5c7185;--canvas:#edf3f8;--paper:#fff;--line:#d3e0eb;--blue:#245f9d;--blue-dark:#16446f;--blue-wash:#e4f0fa;--teal:#11757b;--amber:#b77523;font-family:"Persian Nazanin","Segoe UI",Tahoma,sans-serif;font-synthesis:none;font-size:19px;color:var(--ink);background:var(--canvas)}
 html{scroll-behavior:smooth}body{background:var(--canvas);color:var(--ink)}a{color:var(--blue)}button,input{font-family:inherit}
-h1,h2,h3,.week-btn,.metrics b,.strategy-details b,.eyebrow,.section-heading strong,summary strong{font-family:"B Nazanin","BNazanin",Tahoma,serif;letter-spacing:0;line-height:1.55;font-weight:540;color:var(--ink)}
-h1{font-weight:550}h2{font-weight:530}h3{font-weight:520}.eyebrow{font-size:.85rem;color:var(--teal);font-weight:600}
+h1,h2,h3,.week-btn,.metrics b,.strategy-details b,.eyebrow,.section-heading strong,summary strong{font-family:"Persian Nazanin","Segoe UI",Tahoma,sans-serif;letter-spacing:0;line-height:1.55;font-weight:400;color:var(--ink)}
+h1,h2,h3{font-weight:400}.eyebrow{font-size:.85rem;color:var(--teal);font-weight:400}
 .shell{max-width:1420px;padding-bottom:80px}.topbar{padding:23px 0;border-color:var(--line)}.topbar h1{font-size:2.15rem;font-weight:560;margin:3px 0}.topbar p,.top-actions{color:var(--muted)}
 .top-actions a,.top-actions button,.export-actions button,.import-button{background:var(--paper);color:var(--blue);border:1px solid var(--line);font-weight:550;border-radius:10px}.top-actions a:hover,.top-actions button:hover,.export-actions button:hover,.import-button:hover{background:var(--blue-wash)}
 .start-panel{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:26px;align-items:stretch;background:linear-gradient(110deg,#f8fbfe,#e6f1fb);border:1px solid #b9d3e8;border-radius:18px;padding:24px 28px;margin:23px 0 18px;box-shadow:0 9px 25px #163e6010}.start-panel h2{font-size:1.72rem;margin:4px 0 6px}.start-panel p{line-height:1.9;color:#405c73;margin:0;max-width:820px}.start-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.primary-link,.secondary-link{display:inline-flex;align-items:center;justify-content:center;padding:9px 16px;border-radius:9px;text-decoration:none;font-weight:600;font-size:.94rem;min-height:42px}.primary-link{border:1px solid var(--blue);color:#fff;background:var(--blue)}.primary-link:hover{background:var(--blue-dark);color:#fff}.secondary-link{border:1px solid #9cbad3;background:#fff;color:var(--blue)}.secondary-link:hover{background:#edf6fc}.start-card{border-right:3px solid var(--teal);padding:7px 20px 8px 10px;display:flex;flex-direction:column;justify-content:center}.start-card span,.start-card small{color:var(--muted)}.start-card strong{font-size:1.48rem;font-weight:540;color:var(--ink);margin:4px 0}.start-card p{font-size:.94rem}.start-card small{font-size:.83rem;margin-top:8px;line-height:1.6}
@@ -16,7 +17,13 @@ h1{font-weight:550}h2{font-weight:530}h3{font-weight:520}.eyebrow{font-size:.85r
 @media(max-width:850px){.start-panel{grid-template-columns:1fr}.start-card{border-right:0;border-top:2px solid var(--teal);padding:12px 0 0}.library-grid{grid-template-columns:1fr}}
 @media(max-width:700px){.topbar h1{font-size:1.85rem}.start-panel{padding:19px}.start-panel h2{font-size:1.4rem}.gate-demo{flex-direction:column;align-items:start}.library-panel{padding:18px}}
 /* B Nazanin is a locally installed font; no proprietary font file is redistributed. */
-html,body,button,input,select,textarea,table,pre,code{font-family:"B Nazanin","BNazanin",Tahoma,serif}
+html,body,button,input,select,textarea,table,pre,code{font-family:"Persian Nazanin","Segoe UI",Tahoma,sans-serif;font-synthesis:none}
+.ltr,[lang="en"],[dir="ltr"],code,pre{font-family:"Segoe UI",Arial,sans-serif;font-weight:400;letter-spacing:0}
+.math,.formula,.math-block{font-family:"Cambria Math","Segoe UI Symbol",serif;font-weight:400}
+.lesson .formula{font-family:"Cambria Math","Segoe UI Symbol",serif;font-weight:400}
+.lesson pre,.lesson code{font-family:Consolas,"Courier New",monospace;font-weight:400}
+.research-card .university,.research-card b,.chapter .source-card b{font-weight:400}
+.course-grid a,.research-card a,.chapter .source-card a,.chapter .reference-list a{font-family:"Segoe UI",Arial,sans-serif;font-weight:400}
 .topic-pending,.library-pending{color:var(--muted);font-size:.82rem;line-height:1.6}
 .topic-pending{margin-inline-start:auto;white-space:nowrap}
 .draft-link{background:#fff0d9!important;color:#805016!important}
@@ -25,7 +32,7 @@ html,body,button,input,select,textarea,table,pre,code{font-family:"B Nazanin","B
 .source-review-list li{padding:12px 0;border-bottom:1px solid var(--line)}
 .source-review-list a{font-size:.86rem;margin:4px 0 0}
 @media print{
-  :root{font-family:"B Nazanin","BNazanin",serif;font-size:15pt;background:#fff;color:#111}
+  :root{font-family:"Persian Nazanin","Segoe UI",sans-serif;font-size:15pt;background:#fff;color:#111}
   html,body{background:#fff;color:#111}
   .shell,.lesson,.research-shell{max-width:none;padding:0}
   .top-actions,.export-panel,.research-controls,.start-actions,.week-actions{display:none!important}
