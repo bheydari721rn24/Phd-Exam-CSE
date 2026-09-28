@@ -1,0 +1,39 @@
+# Source audit — d_logic (in progress)
+
+This is a bounded, evidence-based survey for the chapter “Propositions, predicates, and equivalences,” not a claim to have evaluated every course worldwide. A course counts toward the four-university minimum only after its relevant lecture text has been read and reconciled against the chapter. A catalogue page alone does not count.
+
+## Candidate comparison
+
+| University / course | Accessible text actually located | Role for this chapter | Review status | Decision |
+| --- | --- | --- | --- | --- |
+| MIT, 6.042J Mathematics for Computer Science, Leighton and van Dijk (2010) | Chapter 1, 19 pp., [original PDF](https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/7853d585044ef21bce5f48ce5fc89d28_MIT6_042JF10_chap01.pdf) | Foundational meanings, quantifiers, order, validity, satisfiability, program examples | All pages indexed; detailed verification of selected sections 1.1–1.5 remains in progress | Core |
+| Stanford, CS103 Mathematical Foundations of Computing, Trevisan (2014) | Lecture 9, 8 pp., [original PDF](https://cs.stanford.edu/people/trevisan/cs103-14/lecture09.pdf) | Syntax, precedence, semantic equivalence, models, variable scope | All pages inspected; terminology cross-check needed because the handout calls open formulas “not well-formed sentences,” while an open formula can still be well formed | Core |
+| UC Berkeley, CS70 Discrete Mathematics and Probability Theory, Shahzar and Hongxun Wu (Summer 2024) | Note 1, 14 pp., [original PDF](https://su24.eecs70.org/assets/pdf/notes/n1.pdf); [course schedule](https://su24.eecs70.org/) | More complete replacement for the earlier 2016 six-page note: propositional and first-order logic, inference rules, restricted quantifiers | All pages indexed; sections 1–3.4 under detailed comparison | Core |
+| Carnegie Mellon, 15-311 Logic and Mechanized Reasoning, Marijn J. H. Heule (2026) | [Propositional slides](https://www.cs.cmu.edu/~mheule/15311-s26/slides/prop.pdf), 75 physical PDF pages (39 slide numbers); [First-Order slides](https://www.cs.cmu.edu/~mheule/15311-s26/slides/FOL.pdf), 58 physical PDF pages (31 slide numbers) | Formal syntax and semantics, satisfiability versus validity, quantifier scope and capture, model-based interpretation | All pages indexed; specific slide sequences checked. Slides contain true/false questions: the propositions on physical pages 38 and 40 are deliberately false and answered on pages 39 and 41; they must not be copied as theorems | Core |
+| Cornell, CS2800 Discrete Structures, Lecture 36 (Fall 2017) | [Full lecture text](https://www.cs.cornell.edu/courses/cs2800/2017fa/lectures/lec36-logic.html) | Inductive evaluation and object language versus metalanguage | Lecture text inspected; later lectures and exact instructor metadata pending | Supplement, not yet counted |
+| Oxford, Introduction to Formal Proof, Edith Elkind (2023) | [Course syllabus](https://www.cs.ox.ac.uk/teaching/courses/2022-2023/ifp/) | Strong scope benchmark: substitution, normal forms, natural deduction | Syllabus only located; no linked public lecture text confirmed | Benchmark only, not counted |
+| ETH Zurich, Discrete Mathematics (2026) | [Course catalogue](https://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?ansicht=KATALOGDATEN&lang=en&lerneinheitId=204115&semkez=2026W) and an [open ETH library book](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/548053/9783728141101.pdf?isAllowed=y&sequence=1) | Potential alternative treatment of syntax and semantics | Specific course-note text and correspondence to the 2026 course not established | Not counted |
+
+The four core courses were chosen because together they cover the basic meaning of connectives and quantifiers, formal syntax, semantic countermodels, exam-oriented translations, and advanced scope/capture pitfalls. The Berkeley 2024 note supersedes the older Berkeley 2016 note in this audit because it covers first-order logic and restricted quantification in the same text. A wider search can still find stronger substitutes; the selection is not a global optimality guarantee.
+
+## Topic-to-source audit
+
+| Topic | Source locations | Chapter state |
+| --- | --- | --- |
+| Proposition, formula, assignment, truth table | MIT §1.1; Stanford pp. 1–3; Berkeley pp. 1–3; CMU propositional slides 1–29 | Existing draft; expand semantic details |
+| Material implication, converse, contrapositive, biconditional | MIT §1.1; Stanford pp. 1–4; Berkeley pp. 3–6 | Existing draft; check all examples |
+| Equivalence, validity, satisfiability, entailment | MIT §§1.4–1.5; Stanford pp. 3–4; Berkeley §§2.2–3.1; CMU propositional slides 29–54 | Existing draft; add validity/satisfiability composition traps |
+| Predicate, model, free/bound variable, quantifier order | MIT §1.3; Stanford pp. 4–8; Berkeley §§3.1–3.4; CMU first-order slides 6–52 | Existing draft; expand model and variable-capture details |
+| Restricted quantification and empty subset | Berkeley §3.3; CMU first-order slide 40; MIT §1.3 | Existing draft; add explicit asymmetric translation |
+| Canonical CNF/DNF and size growth | Oxford syllabus (benchmark); CMU propositional slides 55–72 | Partial; source and proof audit pending |
+| Formal substitution, renaming, capture | CMU first-order slides 22–28 | Missing from draft; add with worked example |
+| Natural deduction and inference-rule side conditions | Berkeley §3.2; Oxford syllabus (benchmark) | Partial; add soundness and witness/arbitrary-object caveats |
+| Past exam questions | Iranian M.Sc. Computer Engineering, 1405 SH, booklet 135A, question 44, PDF p. 10; 1404 SH, booklet 335C, question 42, PDF p. 10 | Both original scans visually checked; worked solutions added |
+
+## Review limits and editorial checks
+
+- The current draft is **not** a finished chapter. The audit does not yet establish a multi-tens-page note, exhaustive syllabus coverage, or complete verification of all relevant text within the four core courses.
+- The 2024 Berkeley note says in one informal passage that tautological truth must be proved using truth tables. That is a teaching choice, not a mathematical necessity: a valid equivalence chain or sound deduction also suffices. The chapter must teach the broader fact.
+- CMU's alternating “True or false?” slides present false statements before the next slide gives a counterexample. For example, satisfiability of A and B separately does not imply satisfiability of A∧B (take p and ¬p); validity of A∨B does not imply either disjunct valid (take p∨¬p).
+- In Stanford's informal terminology, “well-formed sentence” is used where strict syntax distinguishes well-formed *formula* from a *closed sentence*. The chapter should use the strict distinction: a formula with free variables can be well formed, but is not a closed sentence.
+- Past-exam coverage is currently two visually confirmed relevant M.Sc. questions, not an exhaustive archive-wide classification. No unverified answer should be presented as checked. Course-origin problems are still being selected and verified.
