@@ -1,19 +1,465 @@
 {
-  "status": "pilot_topic_classification_only",
+  "status": "first_booklet_visual_topic_audit",
   "source": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
   "examCode": "707A",
   "bookletYear": "1405",
   "bookletField": "Computer Engineering and Computer Science",
   "visualEvidence": [
-    {"pdfPage": 1, "finding": "Questions 1–20: Data Structures and Algorithm Design; questions 21–40: Digital Logic and Computer Architecture."},
-    {"pdfPage": 2, "finding": "Questions 1–6 were visually checked for numbering and broad topic classification."}
+    {
+      "pdfPage": 1,
+      "finding": "Questions 1–20: Data Structures and Algorithm Design; questions 21–40: Digital Logic and Computer Architecture."
+    },
+    {
+      "pdfPages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "finding": "Questions 1–40 were visually checked for numbering and broad topic; solutions and answer keys were not checked."
+    }
   ],
   "questions": [
-    {"number": 1, "pdfPage": 2, "topic": "Recurrence and asymptotic growth", "planTopicIds": ["a_asym", "a_recurrence"], "solutionStatus": "not_checked"},
-    {"number": 2, "pdfPage": 2, "topic": "Recurrence with logarithmic additive term", "planTopicIds": ["a_recurrence"], "solutionStatus": "not_checked"},
-    {"number": 3, "pdfPage": 2, "topic": "Binary tree depth and leaf weights", "planTopicIds": [], "solutionStatus": "not_checked"},
-    {"number": 4, "pdfPage": 2, "topic": "Asymptotic expression", "planTopicIds": ["a_asym"], "solutionStatus": "not_checked"},
-    {"number": 5, "pdfPage": 2, "topic": "Randomized search and probability", "planTopicIds": [], "solutionStatus": "not_checked"},
-    {"number": 6, "pdfPage": 2, "topic": "AVL tree", "planTopicIds": [], "solutionStatus": "not_checked"}
+    {
+      "number": 1,
+      "pdfPage": 2,
+      "topicFa": "رابطه‌ی بازگشتی و رشد مجانبی",
+      "planTopicIds": [
+        "a_asym",
+        "a_recurrence"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 2,
+      "pdfPage": 2,
+      "topicFa": "رابطه‌ی بازگشتی با جمله‌ی لگاریتمی",
+      "planTopicIds": [
+        "a_recurrence"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 3,
+      "pdfPage": 2,
+      "topicFa": "عمق و وزن برگ‌های درخت دودویی",
+      "planTopicIds": [],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 4,
+      "pdfPage": 2,
+      "topicFa": "مقایسه‌ی رشد عبارت‌های لگاریتمی",
+      "planTopicIds": [
+        "a_asym"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 5,
+      "pdfPage": 2,
+      "topicFa": "جست‌وجوی تصادفی و احتمال موفقیت",
+      "planTopicIds": [
+        "a_random"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 6,
+      "pdfPage": 2,
+      "topicFa": "ساختار درخت AVL",
+      "planTopicIds": [
+        "a_balanced"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 7,
+      "pdfPage": 3,
+      "topicFa": "پیداکردن تقاطع پاره‌خط‌ها و تحلیل زمان",
+      "planTopicIds": [
+        "a_asym",
+        "a_sort"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 8,
+      "pdfPage": 3,
+      "topicFa": "ساختار ترکیبی هیپ و پشته",
+      "planTopicIds": [
+        "a_heap",
+        "a_stackqueue"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 9,
+      "pdfPage": 3,
+      "topicFa": "درستی خروجی الگوریتم مرتب‌سازی بازگشتی",
+      "planTopicIds": [
+        "a_sort",
+        "a_recurrence"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 10,
+      "pdfPage": 3,
+      "topicFa": "انتخاب محور در مرتب‌سازی سریع",
+      "planTopicIds": [
+        "a_sort"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 11,
+      "pdfPage": 3,
+      "topicFa": "ساخت درخت جست‌وجو و پیمایش",
+      "planTopicIds": [
+        "a_bst"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 12,
+      "pdfPage": 4,
+      "topicFa": "نمایش ماتریسی گراف و شمارش مسیر",
+      "planTopicIds": [
+        "a_graphrep",
+        "a_bfsdfs"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 13,
+      "pdfPage": 4,
+      "topicFa": "حذف گره از درخت جست‌وجوی دودویی",
+      "planTopicIds": [
+        "a_bst"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 14,
+      "pdfPage": 4,
+      "topicFa": "درستی و پیچیدگی الگوریتم فلویدـوارشال",
+      "planTopicIds": [
+        "a_shortest"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 15,
+      "pdfPage": 4,
+      "topicFa": "درخت پوشای کمینه و مقایسه‌ی روش‌ها",
+      "planTopicIds": [
+        "a_mst"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 16,
+      "pdfPage": 4,
+      "topicFa": "شمار مقایسه‌ها در مرتب‌سازی ادغامی",
+      "planTopicIds": [
+        "a_sort",
+        "a_recurrence"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 17,
+      "pdfPage": 5,
+      "topicFa": "مقایسه‌ی زمان مرتب‌سازی حبابی و سریع",
+      "planTopicIds": [
+        "a_sort",
+        "a_asym"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 18,
+      "pdfPage": 5,
+      "topicFa": "نمایش حاصل‌ضرب خارجی دو بردار در ساختار داده",
+      "planTopicIds": [
+        "a_arrays"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 19,
+      "pdfPage": 5,
+      "topicFa": "رابطه‌ی زیرمجموعه‌جمع و کوله‌پشتی",
+      "planTopicIds": [
+        "a_dp",
+        "a_lower"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 20,
+      "pdfPage": 5,
+      "topicFa": "تفسیر سختی NP و روش تقریبی",
+      "planTopicIds": [
+        "a_lower"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 21,
+      "pdfPage": 5,
+      "topicFa": "ماشین حالت میلی",
+      "planTopicIds": [
+        "g_fsm"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 22,
+      "pdfPage": 6,
+      "topicFa": "ساخت لچ SR با فلیپ‌فلاپ",
+      "planTopicIds": [
+        "g_latch",
+        "g_ff"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 23,
+      "pdfPage": 6,
+      "topicFa": "تحلیل مدار گیت و تابع خروجی",
+      "planTopicIds": [
+        "g_gates",
+        "g_combin"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 24,
+      "pdfPage": 6,
+      "topicFa": "دنباله‌ی شمارنده‌ی ساخته‌شده از فلیپ‌فلاپ",
+      "planTopicIds": [
+        "g_counter",
+        "g_ff"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 25,
+      "pdfPage": 7,
+      "topicFa": "شمارنده و خوداصلاحی",
+      "planTopicIds": [
+        "g_counter"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 26,
+      "pdfPage": 7,
+      "topicFa": "ساده‌سازی تابع مدار منطقی",
+      "planTopicIds": [
+        "g_boolean",
+        "g_gates"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 27,
+      "pdfPage": 7,
+      "topicFa": "مخاطره در مدار ترکیبی",
+      "planTopicIds": [
+        "g_hazards"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 28,
+      "pdfPage": 7,
+      "topicFa": "ساختار و برنامه‌ریزی ROM",
+      "planTopicIds": [
+        "g_memory"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 29,
+      "pdfPage": 8,
+      "topicFa": "پیاده‌سازی تابع با PLA",
+      "planTopicIds": [
+        "g_memory",
+        "g_combin"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 30,
+      "pdfPage": 8,
+      "topicFa": "جدول حالت و معادل‌بودن حالت‌ها",
+      "planTopicIds": [
+        "g_fsm"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 31,
+      "pdfPage": 8,
+      "topicFa": "سرریز در نمایش مکمل دو",
+      "planTopicIds": [
+        "g_number"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 32,
+      "pdfPage": 8,
+      "topicFa": "زمان‌بندی انتقال داده میان ثبات‌ها",
+      "planTopicIds": [
+        "g_register",
+        "g_arithmetic"
+      ],
+      "priorityGroup": "first",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 33,
+      "pdfPage": 9,
+      "topicFa": "مقایسه‌ی کارایی پردازنده با CPI و فرکانس",
+      "planTopicIds": [],
+      "priorityGroup": "second",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 34,
+      "pdfPage": 9,
+      "topicFa": "قانون آمدال و نیاز به شتاب مؤلفه‌ها",
+      "planTopicIds": [],
+      "priorityGroup": "second",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 35,
+      "pdfPage": 9,
+      "topicFa": "مسیر انتقال داده در DMA",
+      "planTopicIds": [],
+      "priorityGroup": "second",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 36,
+      "pdfPage": 9,
+      "topicFa": "تسریع خط لوله",
+      "planTopicIds": [],
+      "priorityGroup": "second",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 37,
+      "pdfPage": 9,
+      "topicFa": "مخاطره‌ی خط لوله‌ی پردازنده",
+      "planTopicIds": [],
+      "priorityGroup": "second",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 38,
+      "pdfPage": 9,
+      "topicFa": "شمار عمل‌های ضرب دودویی",
+      "planTopicIds": [],
+      "priorityGroup": "second",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 39,
+      "pdfPage": 10,
+      "topicFa": "میانگین زمان دسترسی حافظه‌ی نهان",
+      "planTopicIds": [],
+      "priorityGroup": "second",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    },
+    {
+      "number": 40,
+      "pdfPage": 10,
+      "topicFa": "جای‌گذاری بلوک در حافظه‌ی نهان انجمنی مجموعه‌ای",
+      "planTopicIds": [],
+      "priorityGroup": "second",
+      "classificationStatus": "visually_checked_broad_topic",
+      "solutionStatus": "not_checked"
+    }
   ]
 }
