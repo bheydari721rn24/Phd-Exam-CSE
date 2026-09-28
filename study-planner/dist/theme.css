@@ -43,5 +43,7 @@ html,body,button,input,select,textarea,table,pre,code{font-family:"Persian Nazan
   .shell,.lesson,.research-shell{max-width:none;padding:0}
   .top-actions,.export-panel,.research-controls,.start-actions,.week-actions{display:none!important}
   .panel,.week-panel,.unit,.lesson section,.research-card{break-inside:avoid;box-shadow:none!important;border-color:#777!important;background:#fff!important;color:#111!important}
-  a{color:#111!important;text-decoration:underline}
+  a{color:#111!important;text-decoration:none!important}
 }
+*,*::before,*::after{text-decoration:none!important}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--blue);outline-offset:3px}

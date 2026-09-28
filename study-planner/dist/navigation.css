@@ -1,0 +1,31 @@
+.app-nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 24px;padding:8px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 12px #163e6008}
+.app-nav button{border:0;background:transparent;color:var(--muted);border-radius:10px;padding:11px 21px;min-height:45px;font-size:1.05rem;white-space:nowrap}
+.app-nav button:hover{background:var(--blue-wash);color:var(--blue-dark)}
+.app-nav button.active{background:var(--blue);color:#fff}
+.app-view[hidden]{display:none!important}
+.app-view{min-height:50vh}
+.app-view .start-panel{margin-top:0}
+.delivery-panel{margin:0 0 18px;background:#f7fbfe}
+.delivery-panel p{max-width:1100px}
+.resource-stack,.progress-stack{display:grid;gap:18px}
+.more-panel{padding:0!important;overflow:hidden}
+.more-panel>summary{cursor:pointer;padding:17px 23px;color:var(--ink);font-size:1.13rem}
+.more-panel>summary:hover{background:#f2f8fc}
+.more-panel>section{margin:0 23px 23px}
+.more-panel .strategy{display:block;padding:0;border:0;background:transparent;box-shadow:none;margin:0}
+.more-panel .strategy-details{margin-top:16px}
+.day-selector{display:flex;gap:8px;overflow-x:auto;padding:3px 1px 10px;margin-top:14px}
+.day-selector button{flex:1 0 110px;border:1px solid var(--line);border-radius:10px;background:#f7fbff;color:var(--ink);padding:8px 12px;min-height:56px;text-align:center}
+.day-selector button small{display:block;color:var(--muted);font-size:.79rem}
+.day-selector button.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.day-selector button.active small{color:#e9f4ff}
+.day-grid{grid-template-columns:minmax(0,1fr)!important;max-width:920px;margin-inline:auto}
+.day-card{background:#f8fbfe;border:1px solid var(--line);color:var(--ink)}
+.day-card strong,.day-block-title span,.day-card li a{color:var(--blue)}
+.day-card li{border-color:var(--line)}
+.day-card li small{color:var(--muted)}
+.day-card h3{color:var(--ink)}
+.app-view .library-panel{margin:0}
+.app-view .metrics{margin:0}
+@media(max-width:700px){.app-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.app-nav button{padding:8px 5px;font-size:.96rem}.more-panel>summary{padding:14px 17px}.more-panel>section{margin:0 17px 17px}}
+@media print{.app-nav{display:none!important}.app-view[hidden]{display:none!important}}

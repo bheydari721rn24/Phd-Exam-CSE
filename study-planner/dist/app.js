@@ -2,7 +2,20 @@ const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const fa = value => String(value).replace(/[0-9]/g, digit => '۰۱۲۳۴۵۶۷۸۹'[digit]);
 const key = 'phd-1406-progress-v2';
-let plan, courseAudit, dailyPlan, lessons = [], selected = 1, done = {};
+let plan, courseAudit, dailyPlan, lessons = [], selected = 1, selectedDay = 0, activeView = 'today', done = {};
+
+function showView(view, updateHash = true) {
+  const valid = ['today','weeks','lessons','resources','exams','progress'];
+  activeView = valid.includes(view) ? view : 'today';
+  document.querySelectorAll('.app-view').forEach(panel => { panel.hidden = panel.id !== `view-${activeView}`; });
+  document.querySelectorAll('.app-nav [data-view]').forEach(button => {
+    const active = button.dataset.view === activeView;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-current', active ? 'page' : 'false');
+  });
+  if (updateHash) location.hash = activeView === 'weeks' ? `week-${selected}` : activeView;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 
 function currentWeek() {
   const tehranNow = Date.now() + 3.5 * 3600000;
@@ -27,11 +40,11 @@ function renderMetrics() {
   $('week-progress').textContent = `از ${fa(wp.total)} فصل این هفته، ${fa(wp.n)} فصل را پس از مطالعه علامت زده‌اید.`;
   $('week-progress-fill').style.width = `${wp.percent}%`;
 }
-function renderWeek(number) {
+function renderWeek(number, navigate = true) {
   const w = plan.weeks.find(item => item.number === number);
   if (!w) return;
   selected = number;
-  location.hash = `week-${number}`;
+  if (navigate) showView('weeks');
   $('phase').textContent = w.phase;
   $('week-title').textContent = `هفته‌ی ${fa(number)} · ${fa(w.dateLabel)}`;
   $('week-focus').textContent = w.focus;
@@ -74,7 +87,7 @@ function renderRoadmap() {
       const p = progress(entries.map(([tid]) => tid));
       return `<details><summary><strong>${esc(subject.title)}</strong><span>${fa(p.n)} فصل علامت‌خورده از ${fa(p.total)} فصل</span></summary><ol>${entries.map(([tid,t]) => `<li><span>${esc(t.title)}</span><button type="button" data-jump="${firstWeek(tid)}">هفته‌ی ${fa(firstWeek(tid))}</button></li>`).join('')}</ol></details>`;
     }).join('')}</div>`;
-  $('roadmap').querySelectorAll('[data-jump]').forEach(b => b.addEventListener('click', () => {renderWeek(Number(b.dataset.jump)); window.scrollTo({top:0,behavior:'smooth'});}));
+  $('roadmap').querySelectorAll('[data-jump]').forEach(b => b.addEventListener('click', () => renderWeek(Number(b.dataset.jump))));
 }
 function renderCourses() {
   const subjects = [...new Set(plan.weeks[selected-1].units.map(u => u.subject))].filter(id => id !== 'english');
@@ -100,15 +113,19 @@ function renderLibrary() {
 function renderDaily() {
   if (!dailyPlan) { $('daily-plan').hidden = true; return; }
   const lesson = lessons.find(item => item.week === dailyPlan.week);
+  const day = dailyPlan.days[selectedDay] || dailyPlan.days[0];
   $('daily-plan').innerHTML = `<div class="section-heading"><div><div class="eyebrow">۱۱ تا ۱۷ مهر ۱۴۰۵</div><h2>برنامه‌ی روزبه‌روز هفته‌ی اول</h2></div><span>هر روز ${fa(dailyPlan.dailyHours)} ساعت مطالعه‌ی خالص</span></div>
-  <p>${esc(dailyPlan.guidance)}</p><div class="day-grid">${dailyPlan.days.map(day => `<article class="day-card"><header><h3>${esc(day.name)} ${esc(day.date)}</h3><strong>${fa(day.blocks.reduce((sum,b)=>sum+b.hours,0))} ساعت</strong></header><ol>${day.blocks.map(block => {const chapter = block.topicId ? chapterFor(lesson,block.topicId) : null; const draft = block.topicId ? draftFor(lesson,block.topicId) : null; const title = block.topicId ? plan.topics[block.topicId]?.title : 'انگلیسی موازی'; return `<li><div class="day-block-title"><b>${esc(title)}</b><span>${fa(block.hours)} ساعت</span></div><p>${esc(block.task)}</p>${chapter ? `<a href="${esc(chapter.url)}">درسنامه‌ی بازبینی‌شده ←</a>` : draft ? `<a href="${esc(draft.url)}">خواندن پیش‌نویس ←</a>` : block.topicId ? '<small>درسنامه‌ی کامل هنوز منتشر نشده است.</small>' : ''}</li>`;}).join('')}</ol></article>`).join('')}</div>`;
+  <p>${esc(dailyPlan.guidance)}</p><div class="day-selector" aria-label="انتخاب روز">${dailyPlan.days.map((item,index) => `<button type="button" data-day="${index}" class="${index === selectedDay ? 'active' : ''}" aria-pressed="${index === selectedDay}">${esc(item.name)}<small>${esc(item.date)}</small></button>`).join('')}</div>
+  <div class="day-grid"><article class="day-card"><header><h3>${esc(day.name)} ${esc(day.date)}</h3><strong>${fa(day.blocks.reduce((sum,b)=>sum+b.hours,0))} ساعت</strong></header><ol>${day.blocks.map(block => {const chapter = block.topicId ? chapterFor(lesson,block.topicId) : null; const draft = block.topicId ? draftFor(lesson,block.topicId) : null; const title = block.topicId ? plan.topics[block.topicId]?.title : 'انگلیسی موازی'; return `<li><div class="day-block-title"><b>${esc(title)}</b><span>${fa(block.hours)} ساعت</span></div><p>${esc(block.task)}</p>${chapter ? `<a href="${esc(chapter.url)}">درسنامه‌ی بازبینی‌شده ←</a>` : draft ? `<a href="${esc(draft.url)}">خواندن پیش‌نویس ←</a>` : block.topicId ? '<small>درسنامه‌ی کامل هنوز منتشر نشده است.</small>' : ''}</li>`;}).join('')}</ol></article></div>`;
+  $('daily-plan').querySelectorAll('[data-day]').forEach(button => button.addEventListener('click', () => { selectedDay = Number(button.dataset.day); renderDaily(); }));
 }
 function renderStart() {
   const number = currentWeek(), current = plan.weeks[number-1];
   const lesson = lessons.find(item => item.week === number);
   const first = readyChapters(lesson)[0], draft = draftChapters(lesson)[0];
-  $('start-panel').innerHTML = `<div class="start-copy"><div class="eyebrow">از اینجا شروع کنید</div><h2>${first ? 'درسنامه‌ی کامل نخستین فصل را بخوانید' : draft ? 'با پیش‌نویس فصل نخست آشنا شوید' : 'برنامه‌ی فصل‌های این هفته را ببینید'}</h2><p>ابتدا فصل‌های هفته‌ی ${fa(number)} را در برنامه ببینید و متن آموزشی موجود برای هر فصل را بخوانید. پیوند «پیش‌نویس» یعنی متن هنوز کامل و بازبینی‌شده نیست؛ درسنامه‌ی کامل پس از تأیید در همین اپ منتشر می‌شود. پس از مطالعه‌ی هر فصل، مربع کنار عنوان آن را علامت بزنید. تا پایان دور نخست لازم نیست به تست پاسخ دهید.</p><div class="start-actions">${first ? `<a class="primary-link" href="${esc(first.url)}">خواندن درسنامه: ${esc(fa(first.title))} ←</a>` : draft ? `<a class="primary-link" href="${esc(draft.url)}">خواندن پیش‌نویس: ${esc(fa(draft.title))} ←</a>` : `<button class="primary-link" type="button" id="show-current-week">دیدن فصل‌های این هفته ←</button>`}<a class="secondary-link" href="#library">دیدن وضعیت انتشار درسنامه‌ها ←</a></div></div><div class="start-card"><span>هفته‌ی ${fa(number)}</span><strong>${esc(fa(current.dateLabel))}</strong><p>${fa(current.totalHours)} ساعت مطالعه در این هفته</p><small>${lesson ? readyChapters(lesson).length ? `درسنامه‌ی کامل ${fa(readyChapters(lesson).length)} فصل منتشر شده است؛ وضعیت فصل‌های دیگر را در کتابخانه ببینید.` : 'هنوز درسنامه‌ی کاملی برای این هفته منتشر نشده است؛ متن‌های موجود با برچسب «پیش‌نویس» مشخص شده‌اند.' : 'هنوز درسنامه‌ی کاملی برای این هفته منتشر نشده است.'}</small></div>`;
+  $('start-panel').innerHTML = `<div class="start-copy"><div class="eyebrow">از اینجا شروع کنید</div><h2>${first ? 'درسنامه‌ی کامل نخستین فصل را بخوانید' : draft ? 'با پیش‌نویس فصل نخست آشنا شوید' : 'برنامه‌ی فصل‌های این هفته را ببینید'}</h2><p>ابتدا فصل‌های هفته‌ی ${fa(number)} را در برنامه ببینید و متن آموزشی موجود برای هر فصل را بخوانید. پیوند «پیش‌نویس» یعنی متن هنوز کامل و بازبینی‌شده نیست؛ درسنامه‌ی کامل پس از تأیید در همین اپ منتشر می‌شود. پس از مطالعه‌ی هر فصل، مربع کنار عنوان آن را علامت بزنید. تا پایان دور نخست لازم نیست به تست پاسخ دهید.</p><div class="start-actions">${first ? `<a class="primary-link" href="${esc(first.url)}">خواندن درسنامه: ${esc(fa(first.title))} ←</a>` : draft ? `<a class="primary-link" href="${esc(draft.url)}">خواندن پیش‌نویس: ${esc(fa(draft.title))} ←</a>` : `<button class="primary-link" type="button" id="show-current-week">دیدن فصل‌های این هفته ←</button>`}<button class="secondary-link" type="button" id="show-lessons">دیدن وضعیت انتشار درسنامه‌ها ←</button></div></div><div class="start-card"><span>هفته‌ی ${fa(number)}</span><strong>${esc(fa(current.dateLabel))}</strong><p>${fa(current.totalHours)} ساعت مطالعه در این هفته</p><small>${lesson ? readyChapters(lesson).length ? `درسنامه‌ی کامل ${fa(readyChapters(lesson).length)} فصل منتشر شده است؛ وضعیت فصل‌های دیگر را در کتابخانه ببینید.` : 'هنوز درسنامه‌ی کاملی برای این هفته منتشر نشده است؛ متن‌های موجود با برچسب «پیش‌نویس» مشخص شده‌اند.' : 'هنوز درسنامه‌ی کاملی برای این هفته منتشر نشده است.'}</small></div>`;
   $('show-current-week')?.addEventListener('click',()=>{renderWeek(number);document.querySelector('.week-panel').scrollIntoView({behavior:'smooth'});});
+  $('show-lessons').addEventListener('click', () => showView('lessons'));
 }
 function renderStatic() {
   $('updated').textContent = fa(plan.updatedLabel);
@@ -153,8 +170,15 @@ async function start() {
     renderStatic();
     renderDaily();
     const requested = Number((location.hash.match(/week-(\d+)/)||[])[1]);
-    renderWeek(plan.weeks.some(w => w.number === requested) ? requested : currentWeek());
-    $('go-today').addEventListener('click', () => renderWeek(currentWeek()));
+    renderWeek(plan.weeks.some(w => w.number === requested) ? requested : currentWeek(), false);
+    const initial = location.hash === '#library' ? 'lessons' : requested ? 'weeks' : location.hash.slice(1);
+    showView(initial || 'today', false);
+    document.querySelectorAll('.app-nav [data-view]').forEach(button => button.addEventListener('click', () => showView(button.dataset.view)));
+    window.addEventListener('hashchange', () => {
+      const week = Number((location.hash.match(/^#week-(\d+)$/)||[])[1]);
+      if (week && plan.weeks.some(item => item.number === week)) { renderWeek(week, false); showView('weeks', false); }
+      else showView(location.hash === '#library' ? 'lessons' : location.hash.slice(1), false);
+    });
     $('export').addEventListener('click', exportProgress);
     $('import').addEventListener('change', e => {if(e.target.files[0]) importProgress(e.target.files[0]);});
   } catch {
