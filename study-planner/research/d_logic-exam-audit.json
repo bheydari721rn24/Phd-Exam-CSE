@@ -1,6 +1,6 @@
 {
   "topicId": "d_logic",
-  "status": "partial_visual_audit",
+  "status": "multi_year_visual_audit",
   "questions": [
     {
       "level": "MS",
@@ -79,9 +79,88 @@
       "visualQuestionChecked": true,
       "solution": "Only argument (a) is valid; option 1",
       "solutionIndependentCheck": "An ignorant human exists. Since every human is a thinker, that witness is an ignorant thinker. In (b), a one-person model with a human who is both ignorant and a thinker satisfies both premises, but refutes the conclusion that no human is ignorant."
+    },
+    {
+      "level": "PhD",
+      "field": "Computer Science and Bioinformatics",
+      "yearSH": 1404,
+      "booklet": "892A",
+      "number": 13,
+      "pdfPage": 4,
+      "path": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+      "topic": "validity of arguments and the existential nature of a countermodel",
+      "visualQuestionChecked": true,
+      "solution": "Neither statement is true; option 4.",
+      "solutionIndependentCheck": "Statement (a) says the conclusion is always true in a valid argument, without restricting to valuations satisfying the premises. Counterexample: p entails p but p may be false. Statement (b) says every valuation satisfying the premises of an invalid argument makes its conclusion false. Counterexample: p does not entail q; both p=1,q=0 and p=1,q=1 satisfy p, but the conclusion is true in the latter."
+    },
+    {
+      "level": "PhD",
+      "field": "Computer Science and Bioinformatics",
+      "yearSH": 1404,
+      "booklet": "892A",
+      "number": 14,
+      "pdfPage": 4,
+      "path": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+      "topic": "restricted quantification and nested implication in a natural-language translation",
+      "visualQuestionChecked": true,
+      "solution": "No unique single-option answer established from the printed question: options 1 and 4 are logically equivalent under the standard parsing.",
+      "solutionIndependentCheck": "Option 1 is forall x[(S(x) and T(x)) -> forall y(Q(y) -> A(x,y))]. Option 4 is forall x[(S(x) and exists y(Q(y) and not A(x,y))) -> not T(x)]. By De Morgan and contraposition both equal forall x[not S(x) or not T(x) or forall y(Q(y) -> A(x,y))]. The Persian only-if wording also permits a different direction. Official key/author clarification not located.",
+      "ambiguityStatus": "printed_options_1_and_4_equivalent"
+    },
+    {
+      "level": "PhD",
+      "field": "Computer Science and Bioinformatics",
+      "yearSH": 1403,
+      "booklet": "692C",
+      "number": 19,
+      "pdfPage": 5,
+      "path": "Exams/Phd/CS/1403/692c-PHD1403-[konkur.in].pdf",
+      "topic": "negation of two nested quantifiers",
+      "visualQuestionChecked": true,
+      "solution": "Option 4",
+      "solutionIndependentCheck": "Not forall x exists y p(x,y) is exists x forall y not p(x,y). A single x has no successful y."
+    },
+    {
+      "level": "PhD",
+      "field": "Computer Science",
+      "yearSH": 1402,
+      "booklet": "486F",
+      "number": 13,
+      "pdfPage": 5,
+      "path": "Exams/Phd/CS/1402/486-PHD1402-[konkur.in].pdf",
+      "topic": "two nested implications with opposite directions of a binary relation",
+      "visualQuestionChecked": true,
+      "solution": "Option 1",
+      "solutionIndependentCheck": "For every girl x who likes the boy k, every girl y whom k likes is disliked by x: forall x[(G(x) and L(x,k)) -> forall y((G(y) and L(k,y)) -> H(x,y))]."
+    },
+    {
+      "level": "PhD",
+      "field": "Computer Science",
+      "yearSH": 1402,
+      "booklet": "486F",
+      "number": 15,
+      "pdfPage": 5,
+      "path": "Exams/Phd/CS/1402/486-PHD1402-[konkur.in].pdf",
+      "topic": "first-order interpretation and witness checking",
+      "visualQuestionChecked": true,
+      "solution": "Only alpha, option 1",
+      "solutionIndependentCheck": "B1 intersection B2 contains b3 only. A3(b1,b1,b3) witnesses alpha. For beta, outgoing A2 pairs from C3=b3 reach b4 or b2, neither satisfies B1 and not B2."
+    },
+    {
+      "level": "PhD",
+      "field": "Computer Science",
+      "yearSH": 1402,
+      "booklet": "486F",
+      "number": 16,
+      "pdfPage": 6,
+      "path": "Exams/Phd/CS/1402/486-PHD1402-[konkur.in].pdf",
+      "topic": "canonical DNF of complement and CNF from false rows",
+      "visualQuestionChecked": true,
+      "solution": "Both statements, option 3",
+      "solutionIndependentCheck": "The only false rows for G are (1,0,1),(1,0,0),(0,0,1). Their minterms form the displayed DNF for not G; their maxterms form the displayed CNF for G."
     }
   ],
-  "limits": "Not a complete classification of all master and doctoral booklets. Four PhD-CS questions are now visually confirmed and integrated as independently derived solutions in chapter Section 5.6; older booklets remain to audit.",
+  "limits": "Visual audit covers selected relevant PhD-CS questions from 1402–1405 and two M.Sc. CE questions. The printed 1404 PhD-CS Q14 has duplicate-equivalent options and is not assigned a unique answer. This is not a complete classification of all repository booklets; formal proof-system questions are routed to the separate d_proof chapter.",
   "bookletsVisuallyScreened": [
     {
       "level": "PhD",
