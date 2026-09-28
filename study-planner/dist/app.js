@@ -2,7 +2,7 @@ const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const fa = value => String(value).replace(/[0-9]/g, digit => '۰۱۲۳۴۵۶۷۸۹'[digit]);
 const key = 'phd-1406-progress-v2';
-let plan, courseAudit, lessons = [], selected = 1, done = {};
+let plan, courseAudit, dailyPlan, lessons = [], selected = 1, done = {};
 
 function currentWeek() {
   const tehranNow = Date.now() + 3.5 * 3600000;
@@ -97,6 +97,12 @@ function renderLibrary() {
   <div class="library-grid">${lessons.map(l => `<article class="library-card"><div class="eyebrow">هفته‌ی ${fa(l.week)} · ${fa(readyChapters(l).length)} درسنامه‌ی کامل از ${fa(l.chapters?.length || 0)} فصل</div><h3>${esc(fa(l.title))}</h3><p>${esc(fa(l.description))}</p>${readyChapters(l).map(c => `<a class="primary-link" href="${esc(c.url)}">${esc(fa(c.title))} ←</a>`).join('')}${draftChapters(l).map(c => `<a class="secondary-link" href="${esc(c.url)}">خواندن پیش‌نویس: ${esc(fa(c.title))} ←</a>`).join('')}${l.overviewUrl ? `<a class="secondary-link" href="${esc(l.overviewUrl)}">خواندن نمای کلی هفته ←</a>` : ''}${l.auditUrl ? `<a class="secondary-link" href="${esc(l.auditUrl)}">دیدن منابع بررسی‌شده ←</a>` : ''}<p class="library-pending">برای ${fa((l.chapters || []).filter(c=>c.status!=='ready').length)} فصل، درسنامه‌ی کامل هنوز منتشر نشده است.</p></article>`).join('')}
   <article class="library-card pending"><div class="eyebrow">هفته‌های بعد · منتظر انتشار</div><h3>درسنامه‌های بعدی کجا قرار می‌گیرند؟</h3><p>پس از تکمیل و بازبینی هر فصل، پیوند آن در همین کتابخانه و کنار عنوان فصل در برنامه‌ی همان هفته ظاهر می‌شود. فرایند هفتگی پنجشنبه‌ها ساعت ۹ شب به وقت تهران برای هفته‌ی مطالعاتیِ شنبه تا جمعه‌ی پیش رو اجرا می‌شود. هر فصل پس از تکمیل و بازبینی منتشر می‌شود و پیوند آن همین‌جا قرار می‌گیرد.</p></article></div>`;
 }
+function renderDaily() {
+  if (!dailyPlan) { $('daily-plan').hidden = true; return; }
+  const lesson = lessons.find(item => item.week === dailyPlan.week);
+  $('daily-plan').innerHTML = `<div class="section-heading"><div><div class="eyebrow">۱۱ تا ۱۷ مهر ۱۴۰۵</div><h2>برنامه‌ی روزبه‌روز هفته‌ی اول</h2></div><span>هر روز ${fa(dailyPlan.dailyHours)} ساعت مطالعه‌ی خالص</span></div>
+  <p>${esc(dailyPlan.guidance)}</p><div class="day-grid">${dailyPlan.days.map(day => `<article class="day-card"><header><h3>${esc(day.name)} ${esc(day.date)}</h3><strong>${fa(day.blocks.reduce((sum,b)=>sum+b.hours,0))} ساعت</strong></header><ol>${day.blocks.map(block => {const chapter = block.topicId ? chapterFor(lesson,block.topicId) : null; const draft = block.topicId ? draftFor(lesson,block.topicId) : null; const title = block.topicId ? plan.topics[block.topicId]?.title : 'انگلیسی موازی'; return `<li><div class="day-block-title"><b>${esc(title)}</b><span>${fa(block.hours)} ساعت</span></div><p>${esc(block.task)}</p>${chapter ? `<a href="${esc(chapter.url)}">درسنامه‌ی بازبینی‌شده ←</a>` : draft ? `<a href="${esc(draft.url)}">خواندن پیش‌نویس ←</a>` : block.topicId ? '<small>درسنامه‌ی کامل هنوز منتشر نشده است.</small>' : ''}</li>`;}).join('')}</ol></article>`).join('')}</div>`;
+}
 function renderStart() {
   const number = currentWeek(), current = plan.weeks[number-1];
   const lesson = lessons.find(item => item.week === number);
@@ -141,9 +147,11 @@ async function start() {
     plan = await response.json();
     try { const auditResponse = await fetch('course-audit-week1.json'); if (auditResponse.ok) courseAudit = await auditResponse.json(); } catch {}
     try { const lessonResponse = await fetch('lessons.json'); if (lessonResponse.ok) lessons = await lessonResponse.json(); } catch {}
+    try { const dailyResponse = await fetch('week1-daily.json'); if (dailyResponse.ok) dailyPlan = await dailyResponse.json(); } catch {}
     const saved = JSON.parse(localStorage.getItem(key)||'{}');
     done = Object.fromEntries(Object.entries(saved).filter(([id,value]) => value && plan.topics[id]));
     renderStatic();
+    renderDaily();
     const requested = Number((location.hash.match(/week-(\d+)/)||[])[1]);
     renderWeek(plan.weeks.some(w => w.number === requested) ? requested : currentWeek());
     $('go-today').addEventListener('click', () => renderWeek(currentWeek()));

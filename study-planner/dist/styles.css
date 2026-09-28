@@ -2,6 +2,7 @@
 
 .rail{min-width:0}#week-nav{max-width:100%}
 .strategy-details .decision-gate{grid-column:1/-1;border-right:3px solid #b4e77f}
+.daily-panel{margin:22px 0}.day-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:18px}.day-card{border:1px solid #3e5a6b;background:#213a4c;border-radius:14px;padding:17px}.day-card header,.day-block-title{display:flex;align-items:center;justify-content:space-between;gap:12px}.day-card h3{margin:0;font-size:1.12rem}.day-card strong,.day-block-title span{white-space:nowrap;color:#b9e984}.day-card ol{padding-right:25px;margin:13px 0 0}.day-card li{padding:9px 4px;border-top:1px solid #ffffff1c}.day-card li p{margin:4px 0 6px;line-height:1.75}.day-card li a{color:#b9e984}.day-card li small{color:#b7cbd5}.day-block-title span{font-size:.88rem}@media(max-width:700px){.day-grid{grid-template-columns:1fr}}
 .topbar h1{font-size:2.35rem}.week-heading h2{font-size:1.95rem}.unit-top h3{font-size:1.14rem}
 /* Lesson navigation and source audit */
 .topic-read{margin-inline-start:auto;white-space:nowrap;font-size:.79rem;font-weight:700;color:#b4e77f;text-decoration:none;padding:3px 7px;border-radius:7px;background:#b4e77f16}.topic-read:hover,.audit-link:hover{text-decoration:underline}.audit-link{display:inline-block;color:#b4e77f;font-weight:750;text-decoration:none;border:1px solid #6d987e;border-radius:10px;padding:9px 13px}
