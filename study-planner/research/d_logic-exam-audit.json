@@ -1,7 +1,20 @@
 {
   "topicId": "d_logic",
-  "status": "pilot_visual_audit",
+  "status": "partial_visual_audit",
   "questions": [
+    {
+      "level": "MS",
+      "field": "Computer Engineering",
+      "yearSH": 1404,
+      "booklet": "335C",
+      "number": 42,
+      "pdfPage": 10,
+      "path": "Exams/MS/CE/1404/Daftarche-Soalat-Konkur-Arshad-Computer-1404 (konkurcomputer.ir).pdf",
+      "topic": "negation of material implication",
+      "visualQuestionChecked": true,
+      "solution": "p and not q",
+      "solutionIndependentCheck": "Negating p -> q gives not (not p or q), equivalent by De Morgan to p and not q."
+    },
     {
       "level": "MS",
       "field": "Computer Engineering",
@@ -16,18 +29,75 @@
       "solutionIndependentCheck": "For two independent four-bit parity functions, each zero on 8 of 16 assignments, f=0 on 8*8=64 inputs. g is free exactly there."
     },
     {
-      "level": "MS",
-      "field": "Computer Engineering",
-      "yearSH": 1404,
-      "booklet": "335C",
-      "number": 42,
-      "pdfPage": 10,
-      "path": "Exams/MS/CE/1404/Daftarche-Soalat-Konkur-Arshad-Computer-1404 (konkurcomputer.ir).pdf",
-      "topic": "negation of material implication",
+      "level": "PhD",
+      "field": "Computer Science and Bioinformatics",
+      "yearSH": 1405,
+      "booklet": "693A",
+      "number": 13,
+      "pdfPage": 7,
+      "path": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+      "topic": "predicate interpretation; exact-one quantification",
       "visualQuestionChecked": true,
-      "solution": "p and not q",
-      "solutionIndependentCheck": "Negating p -> q gives not (not p or q), equivalent by De Morgan to p and not q."
+      "solution": "Both (a) and (b) are true",
+      "solutionIndependentCheck": "Each girl 03,06,09 has exactly one outgoing E edge to a boy: 03->02, 06->08, 09->02. In addition boy 04 has an outgoing E edge to girl 03."
+    },
+    {
+      "level": "PhD",
+      "field": "Computer Science and Bioinformatics",
+      "yearSH": 1405,
+      "booklet": "693A",
+      "number": 14,
+      "pdfPage": 7,
+      "path": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+      "topic": "translation of nested universal quantifiers, material implication, and distinctness",
+      "visualQuestionChecked": true,
+      "solution": "Option 4",
+      "solutionIndependentCheck": "The Persian sentence requires forall x: (boy(x) and likes(x,Maryam)) -> forall y: (boy(y) and likes(Maryam,y) and y != x) -> dislikes(x,y). Option 4 alone includes the outer implication, inner implication, and the distinctness guard. Option 3 omits distinctness; options 1 and 2 misplace conjunction/implication or y scope."
+    },
+    {
+      "level": "PhD",
+      "field": "Computer Science and Bioinformatics",
+      "yearSH": 1405,
+      "booklet": "693A",
+      "number": 15,
+      "pdfPage": 7,
+      "path": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+      "topic": "canonical conjunctive normal form from a partial truth table",
+      "visualQuestionChecked": true,
+      "solution": "Option 2",
+      "solutionIndependentCheck": "The four shown true rows are 111,110,101,011. The four remaining rows 000,001,010,100 yield the four maxterms (p or q or r), (p or q or not r), (p or not q or r), (not p or q or r), exactly option 2."
+    },
+    {
+      "level": "PhD",
+      "field": "Computer Science and Bioinformatics",
+      "yearSH": 1405,
+      "booklet": "693A",
+      "number": 16,
+      "pdfPage": 7,
+      "path": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+      "topic": "validity of syllogisms with universal and existential premises",
+      "visualQuestionChecked": true,
+      "solution": "Only argument (a) is valid; option 1",
+      "solutionIndependentCheck": "An ignorant human exists. Since every human is a thinker, that witness is an ignorant thinker. In (b), a one-person model with a human who is both ignorant and a thinker satisfies both premises, but refutes the conclusion that no human is ignorant."
     }
   ],
-  "limits": "This is not a complete classification of all master and doctoral booklets in the repository."
+  "limits": "Not a complete classification of all master and doctoral booklets. Four PhD-CS questions are now visually confirmed but have not yet been integrated as worked chapter problems; older booklets remain to audit.",
+  "bookletsVisuallyScreened": [
+    {
+      "level": "PhD",
+      "field": "Computer Engineering",
+      "yearSH": 1405,
+      "booklet": "707A",
+      "pdfPages": 32,
+      "finding": "Full booklet contact sheets reviewed; no direct propositional or first-order-logic question in this chapter boundary. Logic circuits and other subjects are classified separately."
+    },
+    {
+      "level": "PhD",
+      "field": "Computer Science and Bioinformatics",
+      "yearSH": 1405,
+      "booklet": "693A",
+      "pdfPages": 24,
+      "finding": "Full booklet contact sheets reviewed; original PDF page 7 inspected at high resolution. Direct logic questions 13–16 visually verified and independently solved."
+    }
+  ]
 }
