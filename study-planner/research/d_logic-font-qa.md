@@ -10,7 +10,7 @@ The user-provided screenshot from 2026-09-28 showed a mixed Persian font in the 
 
 ## Verification
 
-- Reprinted the full local chapter with Microsoft Edge after the edit: 32 nonempty A4 pages.
-- Parsed the printed PDF's text spans with PyMuPDF: all 22,276 extracted Arabic-script characters were associated with `BNazanin`; zero were associated with another font. The PDF contained zero U+FFFD replacement characters.
+- Reprinted the full local chapter with Microsoft Edge after the edit and later CMU-based additions: 35 nonempty A4 pages.
+- Parsed the latest printed PDF's text spans with PyMuPDF: all 24,241 extracted Arabic-script characters were associated with `BNazanin`; zero were associated with another font. The PDF contained zero U+FFFD replacement characters.
 - Visually inspected the §2.1 page and the corrected Boolean-function result line. The user's reported mixed-font line is now uniform.
 - This verifies the local Edge print. A reader whose device lacks a locally installed B Nazanin font may still see a fallback; the font file is not redistributed in the public repository.
