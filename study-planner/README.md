@@ -1,38 +1,25 @@
-# برنامهٔ مطالعهٔ دکتری کامپیوتر ۱۴۰۶
+# Doctoral CSE 1406 study plan
 
-این پوشه منبع قابل خواندن برنامهٔ منتشرشده است. `build_schedule.py` دادهٔ اصلی را به `dist/schedule.json` تبدیل می‌کند. فایل‌های `dist` خود اپ هستند.
+This folder contains the source and static site for the English study plan. The first reading begins on **Saturday, October 3, 2026 (1405/07/11)**. The 11-week first pass assigns 56 net study hours per week, including four hours of technical English.
 
-خروجی فعلی هفتهٔ اول در `dist/week1.html` فقط **نمای کلی کوتاه و پیش‌نویس** است، نه جزوهٔ کاملِ ۱۶ فصل. `dist/courses-week1.html` و `dist/course-audit-week1.json` فهرست و سطح واقعی بررسی منابع دانشگاهی را نشان می‌دهند. قواعد تولید و کنترل نسخه‌های بعد در `WEEKLY_DELIVERY.md` است.
+## Current study-facing files
 
-در صفحهٔ منابع، برای هر شش درس تخصصی هفتهٔ اول چهار متن یا اسلایدِ مستقیم از چهار دانشگاه متفاوت به‌عنوان نقطهٔ شروع ثبت شده است. برای **هر فصل**، ترکیب واقعیِ دست‌کم چهار دورهٔ دانشگاهیِ مطالعه‌شده، آموزش مفصل از پیش‌نیاز تا مباحث پیشرفته، و ممیزی ریزمبحث‌ها در برابر منابع و دفترچه‌ها شرط انتشار درسنامهٔ کامل است. این چهار منبع حداقل‌اند و سقف ندارند؛ پیدا شدن متن، معادل مطالعهٔ کامل یا استفادهٔ قطعی از آن در جزوه نیست.
+- `dist/index.html`: tabbed plan, daily reading, chapter library, university sources, and progress export/import.
+- `dist/schedule.en.json`: English schedule with 119 named topics across seven priority subjects.
+- `dist/week1-daily.en.json`: English day-by-day study blocks for Week 1.
+- `dist/course-audit-week1.en.json`: English register of candidate university courses and their actual review levels.
+- `research/d_logic.en.md`: canonical English manuscript for the first Discrete Mathematics chapter.
+- `dist/chapters/d_logic.html`: ready, printable English lesson with ten original worked problems, a concise review sheet, a quantifier-dependency diagram, and an interactive truth table. The validated A4 print is 16 nonblank pages.
+- `research/d_logic-en-quality-audit.md`: source-selection and topic-coverage audit.
 
-درسنامهٔ مستقل فصل «منطق گزاره‌ها و گزاره‌نماها» در `dist/chapters/d_logic.html` آماده است. متن مرتبط چهار دوره از چهار دانشگاه بررسی شده، فصل به ۴۰ صفحه‌ی غیرخالی چاپی رسیده و ده حل تشریحی، تحلیل نه سؤال دکتری، بررسی انتقادی یک سؤال با گزینه‌های هم‌ارز و آزمایشگاه جدول ارزش دارد. وضعیت آن `ready` است. بازبینی فصل‌های دیگر فقط پس از تأیید صریح کاربر آغاز می‌شود.
+The English data are built by `research/build_english_plan.py`; the chapter page is built by `research/build_english_chapter.py`. `research/verify_d_logic_en.py` independently checks selected truth-functional claims and small countermodels. The visible chapter status is in `dist/lessons.json`; the one-chapter workflow gate is in `research/chapter-gate.json`.
 
-`dist/lessons.json` وضعیت مستقل هر فصل را نگه می‌دارد. اپ فقط برای فصلی با وضعیت `ready` پیوند «درسنامه» نشان می‌دهد؛ پیوند `overviewUrl` برچسب «نمای کلی کوتاه» دارد. برای تولید جزوه هیچ بیدارباش یا ساعت‌بندی دوره‌ای فعال نیست؛ در هر نوبت کار روی فصل جاری تا تکمیل معیارها ادامه می‌یابد و پس از تحویل، فصل بعد به تأیید صریح کاربر وابسته است. همهٔ صفحه‌های فارسی و نسخهٔ چاپی، B Nazanin را در اولویت فونت دارند؛ فایل فونت اختصاصی در مخزن عمومی توزیع نمی‌شود و نمایش دقیق آن روی دستگاه دیگر به نصب این فونت بستگی دارد.
+## Priorities and deferred practice
 
-متن لاتین و فهرست مراجع از Segoe UI با وزن معمولی استفاده می‌کنند. ارجاعات کتاب‌شناسی در صفحهٔ فصل کاملاً انگلیسی و چپ‌به‌راست‌اند؛ توضیح فارسی جدا از آن‌ها آمده است.
+First priority: Discrete Mathematics, Programming Fundamentals, Data Structures and Algorithms, Probability and Statistics, Linear Algebra, Digital Logic, and Artificial Intelligence. Operating Systems and Computer Architecture are second priority. Theory of Languages and Automata is excluded at the student's request. English reading runs in parallel.
 
-## تصمیم فعلی
+The archived Iranian master's and doctoral entrance-exam booklets are outside the present chapter-writing and first-reading workflow. They are reserved for **joint, question-by-question study in the final month**. Earlier exam audits remain under `research` as project history and are not served as live study content.
 
-- هفت درس اولویت اول: گسسته، مبانی برنامه‌سازی، ساختمان داده و الگوریتم، آمار و احتمال، جبر خطی، مدار منطقی و هوش مصنوعی.
-- نظریهٔ زبان‌ها حذف شده؛ سیستم‌عامل و معماری در اولویت دوم هستند.
-- برنامه‌سازی و مدار منطقی در هر هفته فصل و ساعت مستقل دارند.
-- انگلیسی هر هفته چهار ساعت مستقل دارد.
-- دور نخست از شنبه ۱۱ مهر ۱۴۰۵ به مدت ۱۱ هفته است؛ هیچ سؤال تستی از کاربر خواسته نمی‌شود.
+## Chapter standard
 
-## برنامهٔ روزانه و بانک سؤال
-
-`dist/week1-daily.json` ترتیب ۵۶ ساعت مطالعهٔ خالص هفتهٔ نخست را در هفت روز نشان می‌دهد. این ترتیب و وضعیت جزوه‌ها در صفحهٔ اصلی اپ دیده می‌شود. ساعت شروع روزانه تعیین نشده و نوبت‌ها با زمان آزاد کاربر قابل جابه‌جایی‌اند.
-
-`dist/exam-inventory.json` فقط فهرست و شمار صفحه‌های ۸۴ فایل PDF مخزن را ثبت می‌کند. `dist/question-audit-pilot.json` برچسب موضوعی اولیهٔ ۴۰ سؤال مشترک دفترچهٔ دکتری ۱۴۰۵ را پس از مشاهدهٔ تصویر صفحه‌های اصلی ثبت می‌کند؛ پاسخ آن‌ها هنوز کنترل نشده است. `dist/exam-audit.html` همین مرز را برای کاربر توضیح می‌دهد. ابزار بازسازی فهرست فایل‌ها در `research/build_exam_inventory.py` قرار دارد.
-
-## به‌روزرسانی هفتگی
-
-۱. هفتهٔ جاری را از `schedule.json` بخوان.
-۲. برای موضوع‌های همان هفته، فهرست دوره‌های آزاد دانشگاهی را با پیوند مستقیم، میزان دسترسی، فصل دقیق، قوت و ضعف ثبت کن. نام دانشگاه به‌تنهایی معیار کیفیت نیست.
-۳. پرسش‌های مرتبط مخزن `bheydari721rn24/Phd-Exam-CSE` را با تصویر دفترچه بررسی کن؛ OCR فرمول‌ها قابل اتکا نیست. منبع، سال، رشته و شمارهٔ سؤال را ثبت کن.
-۴. برای هر فصل، دست‌کم چهار متن/اسلاید از چهار دانشگاه متفاوت را واقعاً بررسی کن و درسنامهٔ مستقل چند ده صفحه‌ای با شش بخش اجباری و پنج تا ده حل تشریحی بساز. تا پایان دور نخست از کاربر سؤال تستی نپرس.
-۵. اگر فهم مبحث به رفتار پویا وابسته است، شبیه‌سازی مرتبط اضافه کن.
-۶. پس از بازخورد و پروندهٔ پیشرفت کاربر، ساعت‌ها و ترتیب هفته‌های باقی‌مانده را اصلاح کن.
-
-عدد پوشش در اپ تنها نسبت موضوع‌های تعریف‌شدهٔ برنامه است. ریزفصل‌های رسمی و تعداد سؤال‌های آینده در دسترس نیست؛ از ادعای تضمین ۱۰۰٪ خودداری کن.
+Each chapter must synthesize at least four genuinely reviewed written courses from four universities, use more sources when an identified gap requires them, teach its concepts from prerequisites through advanced cases, include five to ten complete worked problems, and close with a concise high-yield review sheet. Length must follow substance, not a page-count target. Mathematical and presentation checks precede a `ready` label. The details are in `WEEKLY_DELIVERY.md`.

@@ -1,83 +1,61 @@
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#eef4f9">
-  <meta name="description" content="برنامه‌ی تعاملی هفت درس اولویت اول آزمون دکتری کامپیوتر ۱۴۰۶ و کتابخانه‌ی جزوه‌ها">
-  <title>نقشه‌ی مطالعه‌ی دکتری کامپیوتر ۱۴۰۶</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="theme.css">
-  <link rel="stylesheet" href="navigation.css">
+  <meta name="theme-color" content="#f6f8fb">
+  <meta name="description" content="An English study plan and chapter library for the 1406 Iranian Computer Science and Engineering doctoral entrance examination.">
+  <title>Doctoral CSE 1406 · Study Plan</title>
+  <link rel="stylesheet" href="app.en.css">
 </head>
 <body>
   <div class="shell">
-    <header class="topbar">
-      <div><div class="eyebrow">آزمون دکتری ۱۴۰۶ · کد ۲۳۵۴</div><h1>برنامه‌ی هفتگی مطالعه</h1><p>برنامه‌ی ۱۱ هفته‌ای برای هفت درس اولویت اول؛ مجموع زمان هر هفته ۵۶ ساعت است.</p></div>
-      <div class="top-actions"><span id="updated"></span></div>
+    <header class="masthead">
+      <div>
+        <p class="eyebrow">Doctoral CSE 1406 · subject code 2354</p>
+        <h1>Study plan and chapter library</h1>
+        <p class="subtitle">A clear first pass across seven priority subjects, with English reading alongside them.</p>
+      </div>
+      <div class="masthead-fact"><strong>56 h</strong><span>planned study per week</span></div>
     </header>
-    <nav class="app-nav" aria-label="بخش‌های برنامه">
-      <button type="button" data-view="today" aria-controls="view-today">امروز</button>
-      <button type="button" data-view="weeks" aria-controls="view-weeks">هفته‌ها</button>
-      <button type="button" data-view="lessons" aria-controls="view-lessons">جزوه‌ها</button>
-      <button type="button" data-view="resources" aria-controls="view-resources">منابع</button>
-      <button type="button" data-view="exams" aria-controls="view-exams">آزمون‌ها</button>
-      <button type="button" data-view="progress" aria-controls="view-progress">پیشرفت</button>
+    <nav class="tabs" aria-label="App sections">
+      <button type="button" data-view="today">Start here</button>
+      <button type="button" data-view="weeks">Weekly plan</button>
+      <button type="button" data-view="lessons">Chapters</button>
+      <button type="button" data-view="resources">Sources</button>
+      <button type="button" data-view="progress">Progress</button>
     </nav>
     <main>
-      <div class="app-view" id="view-today">
-      <section class="start-panel" id="start-panel" aria-label="مسیر شروع"></section>
-      <section class="panel delivery-panel"><h2>روند تهیه و تحویل جزوه‌ها</h2><p>در هر نوبت نگارش، کار روی یک فصل ادامه می‌یابد تا آموزش مفصل، بررسی منابع دانشگاهی، حل سؤال‌های واقعی و کنترل علمی و نمایشی آن کامل شود. برای ساخت جزوه، برنامه‌ی ساعتی یا موعد روزانه وجود ندارد. زمان‌های بخش «برنامه‌ی روزبه‌روز» فقط به مطالعه‌ی شما مربوط‌اند.</p><p>فصل جاری و وضعیت واقعی آن در بخش «جزوه‌ها» دیده می‌شود. پس از تحویل هر فصل، کار روی فصل بعد تنها با تأیید صریح شما آغاز می‌شود.</p><p><a class="audit-link" href="sprint.html">دیدن معیارهای تکمیل و تحویل هر فصل ←</a></p></section>
-      <section class="panel daily-panel" id="daily-plan" aria-label="برنامه‌ی روزبه‌روز هفته‌ی اول"></section>
-      </div>
-      <div class="app-view" id="view-exams" hidden>
-      <section class="panel exam-panel"><div class="eyebrow">بانک سؤال و شواهد آزمون</div><h2>دفترچه‌ها چگونه بررسی می‌شوند؟</h2><p>فهرست فایل‌های آزمون و نخستین نمونه‌ی دسته‌بندی تصویری ثبت شده است. تا زمانی که صورت، شماره و حل هر سؤال کنترل نشود، آن را سؤالِ تحلیل‌شده یا حل‌شده نمی‌نامیم.</p><a class="audit-link" href="exam-audit.html">دیدن وضعیت بررسی دفترچه‌ها ←</a></section>
-      </div>
-      <div class="app-view" id="view-lessons" hidden>
-      <section class="panel library-panel" id="library" aria-label="جزوه‌های منتشرشده"></section>
-      </div>
-      <div class="app-view" id="view-weeks" hidden>
-      <div class="layout">
-        <aside class="rail">
-          <h2>هفته‌های دور نخست</h2>
-          <p>یک هفته را انتخاب کنید تا درس‌ها، ساعت مطالعه و فصل‌های آن را ببینید. پس از خواندن هر فصل، مربع کنار عنوانش را علامت بزنید.</p>
-          <nav id="week-nav" aria-label="انتخاب هفته"></nav>
-        </aside>
-        <div class="main-column">
-          <section class="week-panel">
-            <div class="week-heading"><div><div class="eyebrow" id="phase"></div><h2 id="week-title"></h2><p id="week-focus"></p></div><strong id="hours"></strong></div>
-            <div class="notice" id="notice"></div>
-            <p class="library-status" id="library-status"></p>
-            <div class="week-actions"><span id="week-progress"></span><a id="lesson-link" href="week1.html">خواندن نمای کلی هفته‌ی اول ←</a></div>
-            <div class="progress-track"><div id="week-progress-fill"></div></div>
-            <div class="unit-list" id="unit-list"></div>
-          </section>
-          <details class="panel more-panel"><summary>فهرست کامل فصل‌ها و جایگاه هر درس در برنامه</summary><section id="roadmap"></section></details>
+      <section class="view" id="view-today">
+        <div id="start"></div>
+        <section class="card" id="daily"></section>
+      </section>
+      <section class="view" id="view-weeks" hidden>
+        <div class="week-layout">
+          <aside class="card sidebar">
+            <h2>First-pass weeks</h2>
+            <p>Choose a week to see its subjects, hours, and chapter boundaries.</p>
+            <nav id="week-nav" class="week-nav" aria-label="Choose a study week"></nav>
+          </aside>
+          <div class="card week-detail" id="week-detail"></div>
         </div>
-      </div>
-      </div>
-      <div class="app-view" id="view-resources" hidden>
-        <div class="resource-stack">
-          <section class="panel" id="course-panel"></section>
-          <details class="panel more-panel"><summary>منابع مبنای برنامه</summary><section id="sources"></section></details>
-        </div>
-      </div>
-      <div class="app-view" id="view-progress" hidden>
-        <section class="metrics" id="metrics" aria-label="وضعیت مطالعه"></section>
-        <div class="progress-stack">
-          <section class="panel"><h2>دریافت نسخه‌ی برنامه</h2><p>برای نگهداری اطلاعات زمان‌بندی، فایل داده‌ی برنامه را دریافت کنید.</p><a class="audit-link" href="schedule.json" download>دریافت فایل برنامه</a></section>
-          <section class="panel export-panel">
-            <h2>چگونه پیشرفت خود را با من در میان بگذارید؟</h2>
-            <p>فصل‌هایی که علامت می‌زنید فقط در مرورگر همین دستگاه ذخیره می‌شوند. برای اینکه من هم ببینم چه فصل‌هایی را خوانده‌اید، با دکمه‌ی زیر فایل پیشرفت را دریافت کنید و آن را در همین گفتگو بفرستید. اگر بعداً خواستید همین علامت‌ها را برگردانید، فایل را با گزینه‌ی بازیابی وارد کنید.</p>
-            <div class="export-actions"><button id="export" type="button">دریافت فایل پیشرفت</button><label class="import-button">بازیابی پیشرفت از فایل<input id="import" type="file" accept="application/json,.json"></label></div>
-            <p id="import-status" role="status"></p>
-          </section>
-          <details class="panel more-panel"><summary>منطق انتخاب درس‌ها و اولویت‌ها</summary><section class="strategy" id="strategy"></section></details>
-          <details class="panel more-panel"><summary>بررسی پوشش فصل‌های برنامه</summary><section id="audit"></section></details>
-        </div>
-      </div>
+        <details class="card roadmap"><summary>Full chapter map</summary><div id="roadmap"></div></details>
+      </section>
+      <section class="view" id="view-lessons" hidden><div id="library"></div></section>
+      <section class="view" id="view-resources" hidden><div id="resources"></div></section>
+      <section class="view" id="view-progress" hidden>
+        <div id="metrics" class="metrics"></div>
+        <section class="card">
+          <h2>Keep a copy of your progress</h2>
+          <p>Chapter checkmarks are stored in this browser. Export the progress file and send it in this conversation when you want the plan adjusted to your actual reading. Import a previous file to restore your checkmarks.</p>
+          <div class="actions"><button type="button" id="export">Export progress</button><label class="file-button">Import progress<input id="import" type="file" accept=".json,application/json"></label><a href="schedule.en.json" download>Download the English schedule</a></div>
+          <p id="import-status" role="status"></p>
+        </section>
+        <section class="card" id="strategy"></section>
+      </section>
     </main>
+    <footer>Study dates describe your reading time. Chapter writing has no recurring production schedule.</footer>
   </div>
-  <script src="app.js"></script>
+  <script src="app.en.js"></script>
 </body>
 </html>

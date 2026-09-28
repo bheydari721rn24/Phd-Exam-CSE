@@ -1,0 +1,1298 @@
+{
+  "updatedLabel": "English edition · chapter quality review in progress",
+  "method": "The first pass assigns 56 study hours per week across seven priority subjects, including four hours of English reading. This is a study schedule, not a production deadline for chapter notes. Past entrance-exam booklets are reserved for the final month.",
+  "strategy": {
+    "core": "First priority: discrete mathematics, programming fundamentals, data structures and algorithms, probability and statistics, linear algebra, digital logic, and artificial intelligence.",
+    "support": "Programming and digital logic keep their own study hours. English reading runs in parallel.",
+    "deferred": "Operating Systems and Computer Architecture are second priority; their scope will be chosen after the first pass from actual progress and remaining time.",
+    "excluded": "Theory of Languages and Automata is excluded at the student's request.",
+    "english": "Four of the 56 weekly hours are reserved for careful reading of technical English.",
+    "reviewGate": "Revise study order when actual chapter progress shows a concrete need. Do not use entrance-exam booklets before the final month."
+  },
+  "subjects": {
+    "discrete": {
+      "title": "Discrete Mathematics"
+    },
+    "algorithms": {
+      "title": "Data Structures and Algorithms"
+    },
+    "probability": {
+      "title": "Probability and Statistics"
+    },
+    "linear": {
+      "title": "Linear Algebra"
+    },
+    "programming": {
+      "title": "Programming Fundamentals"
+    },
+    "logic": {
+      "title": "Digital Logic"
+    },
+    "ai": {
+      "title": "Artificial Intelligence"
+    }
+  },
+  "topics": {
+    "d_logic": {
+      "title": "Propositions, predicates, and logical equivalence",
+      "subject": "discrete"
+    },
+    "d_sets": {
+      "title": "Sets and set operations",
+      "subject": "discrete"
+    },
+    "d_proof": {
+      "title": "Direct proof, contradiction, and counterexamples",
+      "subject": "discrete"
+    },
+    "d_induction": {
+      "title": "Ordinary and strong induction",
+      "subject": "discrete"
+    },
+    "d_relations": {
+      "title": "Relations, equivalence, and partial orders",
+      "subject": "discrete"
+    },
+    "d_functions": {
+      "title": "Functions, inverses, injectivity, and surjectivity",
+      "subject": "discrete"
+    },
+    "d_invariants": {
+      "title": "Invariants and recursive reasoning",
+      "subject": "discrete"
+    },
+    "d_number": {
+      "title": "Divisibility, modular arithmetic, and number theory",
+      "subject": "discrete"
+    },
+    "d_counting": {
+      "title": "Permutations, combinations, and counting",
+      "subject": "discrete"
+    },
+    "d_inclusion": {
+      "title": "Inclusion–exclusion",
+      "subject": "discrete"
+    },
+    "d_pigeonhole": {
+      "title": "The pigeonhole principle and applications",
+      "subject": "discrete"
+    },
+    "d_recurrence": {
+      "title": "Recurrences and introductory solution methods",
+      "subject": "discrete"
+    },
+    "d_generating": {
+      "title": "Generating functions and advanced counting",
+      "subject": "discrete"
+    },
+    "d_graph": {
+      "title": "Graphs, paths, connectivity, and degree",
+      "subject": "discrete"
+    },
+    "d_trees": {
+      "title": "Trees, spanning trees, and structural properties",
+      "subject": "discrete"
+    },
+    "d_dprob": {
+      "title": "Discrete probability and counting",
+      "subject": "discrete"
+    },
+    "p_rep": {
+      "title": "Representation of numbers, characters, and data",
+      "subject": "programming"
+    },
+    "p_types": {
+      "title": "Data types, conversions, and operators",
+      "subject": "programming"
+    },
+    "p_flow": {
+      "title": "Conditionals, loops, and execution order",
+      "subject": "programming"
+    },
+    "p_functions": {
+      "title": "Functions, variable scope, and parameter passing",
+      "subject": "programming"
+    },
+    "p_arrays": {
+      "title": "Arrays and indexing",
+      "subject": "programming"
+    },
+    "p_strings": {
+      "title": "Strings and terminators",
+      "subject": "programming"
+    },
+    "p_recursion": {
+      "title": "Recursive functions and the call stack",
+      "subject": "programming"
+    },
+    "p_pointers": {
+      "title": "Pointers, aliasing, and address arithmetic",
+      "subject": "programming"
+    },
+    "p_memory": {
+      "title": "Dynamic memory and object lifetime",
+      "subject": "programming"
+    },
+    "p_structs": {
+      "title": "Structures, records, and data layout",
+      "subject": "programming"
+    },
+    "p_bitwise": {
+      "title": "Bitwise operators and masks",
+      "subject": "programming"
+    },
+    "p_trace": {
+      "title": "Code tracing, boundary errors, and undefined behavior",
+      "subject": "programming"
+    },
+    "a_model": {
+      "title": "Computation model and input size",
+      "subject": "algorithms"
+    },
+    "a_asym": {
+      "title": "Asymptotic notation and growth comparison",
+      "subject": "algorithms"
+    },
+    "a_loop": {
+      "title": "Loop analysis and operation counting",
+      "subject": "algorithms"
+    },
+    "a_recurrence": {
+      "title": "Algorithmic recurrences and solution theorems",
+      "subject": "algorithms"
+    },
+    "a_divide": {
+      "title": "Divide and conquer: design and analysis",
+      "subject": "algorithms"
+    },
+    "a_arrays": {
+      "title": "Arrays, linked lists, and operation costs",
+      "subject": "algorithms"
+    },
+    "a_stackqueue": {
+      "title": "Stacks, queues, and applications",
+      "subject": "algorithms"
+    },
+    "a_sort": {
+      "title": "Comparison and non-comparison sorting",
+      "subject": "algorithms"
+    },
+    "a_select": {
+      "title": "Searching, selection, and order statistics",
+      "subject": "algorithms"
+    },
+    "a_bst": {
+      "title": "Binary search trees and traversal",
+      "subject": "algorithms"
+    },
+    "a_balanced": {
+      "title": "Balanced trees and height analysis",
+      "subject": "algorithms"
+    },
+    "a_heap": {
+      "title": "Heaps and priority queues",
+      "subject": "algorithms"
+    },
+    "a_hash": {
+      "title": "Hash tables, collisions, and expected analysis",
+      "subject": "algorithms"
+    },
+    "a_amortized": {
+      "title": "Amortized analysis and dynamic resizing",
+      "subject": "algorithms"
+    },
+    "a_graphrep": {
+      "title": "Graph representations and traversal costs",
+      "subject": "algorithms"
+    },
+    "a_bfsdfs": {
+      "title": "Breadth-first and depth-first search",
+      "subject": "algorithms"
+    },
+    "a_topological": {
+      "title": "Topological order and components",
+      "subject": "algorithms"
+    },
+    "a_mst": {
+      "title": "Minimum spanning trees",
+      "subject": "algorithms"
+    },
+    "a_shortest": {
+      "title": "Shortest paths and algorithm preconditions",
+      "subject": "algorithms"
+    },
+    "a_greedy": {
+      "title": "Greedy design and correctness proofs",
+      "subject": "algorithms"
+    },
+    "a_dp": {
+      "title": "Dynamic programming and state design",
+      "subject": "algorithms"
+    },
+    "a_flow": {
+      "title": "Network flow and minimum cuts",
+      "subject": "algorithms"
+    },
+    "a_lower": {
+      "title": "Lower bounds and hard problems",
+      "subject": "algorithms"
+    },
+    "a_random": {
+      "title": "Randomized algorithms and expected analysis",
+      "subject": "algorithms"
+    },
+    "a_string": {
+      "title": "Basic string-matching algorithms",
+      "subject": "algorithms"
+    },
+    "a_correct": {
+      "title": "Invariants, correctness certificates, and method comparison",
+      "subject": "algorithms"
+    },
+    "s_axioms": {
+      "title": "Sample spaces, events, and probability axioms",
+      "subject": "probability"
+    },
+    "s_counting": {
+      "title": "Counting probabilities and independence",
+      "subject": "probability"
+    },
+    "s_conditional": {
+      "title": "Conditional probability and total probability",
+      "subject": "probability"
+    },
+    "s_bayes": {
+      "title": "Bayes' rule and base rates",
+      "subject": "probability"
+    },
+    "s_descriptive": {
+      "title": "Data summaries and descriptive statistics",
+      "subject": "probability"
+    },
+    "s_discrete": {
+      "title": "Discrete random variables and common distributions",
+      "subject": "probability"
+    },
+    "s_expectation": {
+      "title": "Expectation and its linearity",
+      "subject": "probability"
+    },
+    "s_variance": {
+      "title": "Variance, covariance, and correlation",
+      "subject": "probability"
+    },
+    "s_distributions": {
+      "title": "Binomial, geometric, and Poisson distributions",
+      "subject": "probability"
+    },
+    "s_continuous": {
+      "title": "Continuous variables, densities, and distributions",
+      "subject": "probability"
+    },
+    "s_joint": {
+      "title": "Joint and marginal distributions",
+      "subject": "probability"
+    },
+    "s_condexp": {
+      "title": "Conditional expectation and variable independence",
+      "subject": "probability"
+    },
+    "s_transform": {
+      "title": "Transformations of random variables",
+      "subject": "probability"
+    },
+    "s_llnclt": {
+      "title": "Law of large numbers and central limit theorem",
+      "subject": "probability"
+    },
+    "s_sampling": {
+      "title": "Sampling and sampling distributions",
+      "subject": "probability"
+    },
+    "s_estimation": {
+      "title": "Point estimation and confidence intervals",
+      "subject": "probability"
+    },
+    "s_hypothesis": {
+      "title": "Hypothesis testing, errors, and p-values",
+      "subject": "probability"
+    },
+    "s_regression": {
+      "title": "Introductory regression and correlation",
+      "subject": "probability"
+    },
+    "s_markov": {
+      "title": "Introductory Markov chains",
+      "subject": "probability"
+    },
+    "l_vectors": {
+      "title": "Vectors, inner products, and linear geometry",
+      "subject": "linear"
+    },
+    "l_matrices": {
+      "title": "Matrices and matrix operations",
+      "subject": "linear"
+    },
+    "l_gauss": {
+      "title": "Gaussian elimination and linear systems",
+      "subject": "linear"
+    },
+    "l_rank": {
+      "title": "Rank, invertibility, and solution sets",
+      "subject": "linear"
+    },
+    "l_det": {
+      "title": "Determinants and their properties",
+      "subject": "linear"
+    },
+    "l_spaces": {
+      "title": "Vector spaces, subspaces, bases, and dimension",
+      "subject": "linear"
+    },
+    "l_linear": {
+      "title": "Linear maps, kernels, and images",
+      "subject": "linear"
+    },
+    "l_orthogonality": {
+      "title": "Orthogonality and orthogonal decompositions",
+      "subject": "linear"
+    },
+    "l_projection": {
+      "title": "Orthogonal projections and projection matrices",
+      "subject": "linear"
+    },
+    "l_leastsquares": {
+      "title": "Least squares and applications",
+      "subject": "linear"
+    },
+    "l_eigen": {
+      "title": "Eigenvalues and eigenvectors",
+      "subject": "linear"
+    },
+    "l_diagonal": {
+      "title": "Diagonalization and symmetric matrices",
+      "subject": "linear"
+    },
+    "l_svd": {
+      "title": "Singular value decomposition: core connections",
+      "subject": "linear"
+    },
+    "g_number": {
+      "title": "Number bases and binary encoding",
+      "subject": "logic"
+    },
+    "g_boolean": {
+      "title": "Boolean algebra and truth tables",
+      "subject": "logic"
+    },
+    "g_gates": {
+      "title": "Logic gates and function implementation",
+      "subject": "logic"
+    },
+    "g_kmap": {
+      "title": "Minterms, maxterms, and simplification",
+      "subject": "logic"
+    },
+    "g_combin": {
+      "title": "Combinational circuit design",
+      "subject": "logic"
+    },
+    "g_arithmetic": {
+      "title": "Adders, comparators, and arithmetic circuits",
+      "subject": "logic"
+    },
+    "g_mux": {
+      "title": "Multiplexers, encoders, and decoders",
+      "subject": "logic"
+    },
+    "g_latch": {
+      "title": "Latches and sequential-circuit foundations",
+      "subject": "logic"
+    },
+    "g_ff": {
+      "title": "Flip-flops and excitation tables",
+      "subject": "logic"
+    },
+    "g_register": {
+      "title": "Registers and data transfer",
+      "subject": "logic"
+    },
+    "g_counter": {
+      "title": "Counters and state sequences",
+      "subject": "logic"
+    },
+    "g_fsm": {
+      "title": "Finite-state machines and design",
+      "subject": "logic"
+    },
+    "g_timing": {
+      "title": "Timing, delay, and critical paths",
+      "subject": "logic"
+    },
+    "g_hazards": {
+      "title": "Logic hazards and transient behavior",
+      "subject": "logic"
+    },
+    "g_memory": {
+      "title": "Memory and programmable logic fundamentals",
+      "subject": "logic"
+    },
+    "i_agents": {
+      "title": "Agents, environments, and problem definition",
+      "subject": "ai"
+    },
+    "i_uninformed": {
+      "title": "Uninformed search and its measures",
+      "subject": "ai"
+    },
+    "i_informed": {
+      "title": "Informed search and heuristics",
+      "subject": "ai"
+    },
+    "i_optimality": {
+      "title": "Completeness, optimality, and heuristic consistency",
+      "subject": "ai"
+    },
+    "i_games": {
+      "title": "Adversarial search and pruning",
+      "subject": "ai"
+    },
+    "i_csp": {
+      "title": "Constraint-satisfaction problems and propagation",
+      "subject": "ai"
+    },
+    "i_prop": {
+      "title": "Knowledge representation with propositional logic",
+      "subject": "ai"
+    },
+    "i_fol": {
+      "title": "First-order logic and unification",
+      "subject": "ai"
+    },
+    "i_inference": {
+      "title": "Inference and proof strategies",
+      "subject": "ai"
+    },
+    "i_planning": {
+      "title": "Classical planning and state spaces",
+      "subject": "ai"
+    },
+    "i_bayes": {
+      "title": "Probabilistic inference and Bayes' rule",
+      "subject": "ai"
+    },
+    "i_bn": {
+      "title": "Bayesian networks and conditional independence",
+      "subject": "ai"
+    },
+    "i_decision": {
+      "title": "Decision-making under uncertainty",
+      "subject": "ai"
+    },
+    "i_learning": {
+      "title": "Supervised learning and generalization",
+      "subject": "ai"
+    },
+    "i_classification": {
+      "title": "Classification and model evaluation",
+      "subject": "ai"
+    },
+    "i_clustering": {
+      "title": "Introductory clustering",
+      "subject": "ai"
+    },
+    "i_neural": {
+      "title": "Introductory neural networks",
+      "subject": "ai"
+    },
+    "i_eval": {
+      "title": "Overfitting, metrics, and evaluation errors",
+      "subject": "ai"
+    }
+  },
+  "weeks": [
+    {
+      "number": 1,
+      "dateLabel": "Oct 03–Oct 09, 2026",
+      "shortLabel": "Common foundations",
+      "focus": "Establish the definitions and worked examples that later chapters assume.",
+      "totalHours": 56,
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 11,
+          "topicIds": [
+            "d_logic",
+            "d_sets",
+            "d_proof",
+            "d_induction"
+          ]
+        },
+        {
+          "subject": "algorithms",
+          "hours": 11,
+          "topicIds": [
+            "a_model",
+            "a_asym",
+            "a_loop"
+          ]
+        },
+        {
+          "subject": "probability",
+          "hours": 12,
+          "topicIds": [
+            "s_axioms",
+            "s_counting"
+          ]
+        },
+        {
+          "subject": "linear",
+          "hours": 10,
+          "topicIds": [
+            "l_vectors",
+            "l_matrices"
+          ]
+        },
+        {
+          "subject": "programming",
+          "hours": 4,
+          "topicIds": [
+            "p_types",
+            "p_flow"
+          ]
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "topicIds": [
+            "g_number",
+            "g_boolean",
+            "g_gates"
+          ]
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "topicIds": []
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "dateLabel": "Oct 10–Oct 16, 2026",
+      "shortLabel": "Relations and recursion",
+      "focus": "Connect relations and functions to recursion, conditional probability, and linear systems.",
+      "totalHours": 56,
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 11,
+          "topicIds": [
+            "d_relations",
+            "d_functions",
+            "d_invariants",
+            "d_number"
+          ]
+        },
+        {
+          "subject": "algorithms",
+          "hours": 11,
+          "topicIds": [
+            "a_recurrence",
+            "a_divide",
+            "a_correct"
+          ]
+        },
+        {
+          "subject": "probability",
+          "hours": 12,
+          "topicIds": [
+            "s_conditional",
+            "s_bayes"
+          ]
+        },
+        {
+          "subject": "linear",
+          "hours": 10,
+          "topicIds": [
+            "l_gauss",
+            "l_rank"
+          ]
+        },
+        {
+          "subject": "programming",
+          "hours": 4,
+          "topicIds": [
+            "p_functions",
+            "p_arrays"
+          ]
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "topicIds": [
+            "g_kmap",
+            "g_combin"
+          ]
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "topicIds": []
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "dateLabel": "Oct 17–Oct 23, 2026",
+      "shortLabel": "Counting and structures",
+      "focus": "Develop counting methods, linear data structures, and the first AI search models.",
+      "totalHours": 56,
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 9,
+          "topicIds": [
+            "d_counting",
+            "d_inclusion",
+            "d_pigeonhole"
+          ]
+        },
+        {
+          "subject": "algorithms",
+          "hours": 9,
+          "topicIds": [
+            "a_arrays",
+            "a_stackqueue",
+            "a_sort",
+            "a_select"
+          ]
+        },
+        {
+          "subject": "probability",
+          "hours": 10,
+          "topicIds": [
+            "s_descriptive",
+            "s_discrete",
+            "s_expectation"
+          ]
+        },
+        {
+          "subject": "linear",
+          "hours": 8,
+          "topicIds": [
+            "l_det",
+            "l_spaces"
+          ]
+        },
+        {
+          "subject": "ai",
+          "hours": 8,
+          "topicIds": [
+            "i_agents",
+            "i_uninformed"
+          ]
+        },
+        {
+          "subject": "programming",
+          "hours": 4,
+          "topicIds": [
+            "p_strings",
+            "p_recursion"
+          ]
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "topicIds": [
+            "g_arithmetic",
+            "g_mux"
+          ]
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "topicIds": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "dateLabel": "Oct 24–Oct 30, 2026",
+      "shortLabel": "Trees and heuristics",
+      "focus": "Compare trees, heaps, and hashing while studying informed search and linear maps.",
+      "totalHours": 56,
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 8,
+          "topicIds": [
+            "d_recurrence",
+            "d_generating"
+          ]
+        },
+        {
+          "subject": "algorithms",
+          "hours": 9,
+          "topicIds": [
+            "a_bst",
+            "a_balanced",
+            "a_heap",
+            "a_hash",
+            "a_amortized"
+          ]
+        },
+        {
+          "subject": "probability",
+          "hours": 9,
+          "topicIds": [
+            "s_variance",
+            "s_distributions"
+          ]
+        },
+        {
+          "subject": "linear",
+          "hours": 8,
+          "topicIds": [
+            "l_linear",
+            "l_orthogonality"
+          ]
+        },
+        {
+          "subject": "ai",
+          "hours": 10,
+          "topicIds": [
+            "i_informed",
+            "i_optimality"
+          ]
+        },
+        {
+          "subject": "programming",
+          "hours": 4,
+          "topicIds": [
+            "p_pointers",
+            "p_memory"
+          ]
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "topicIds": [
+            "g_latch",
+            "g_ff"
+          ]
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "topicIds": []
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "dateLabel": "Oct 31–Nov 06, 2026",
+      "shortLabel": "Graphs and constraints",
+      "focus": "Study graph traversal alongside continuous probability, least squares, games, and constraints.",
+      "totalHours": 56,
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 8,
+          "topicIds": [
+            "d_graph",
+            "d_trees"
+          ]
+        },
+        {
+          "subject": "algorithms",
+          "hours": 9,
+          "topicIds": [
+            "a_graphrep",
+            "a_bfsdfs",
+            "a_topological"
+          ]
+        },
+        {
+          "subject": "probability",
+          "hours": 9,
+          "topicIds": [
+            "s_continuous",
+            "s_joint"
+          ]
+        },
+        {
+          "subject": "linear",
+          "hours": 8,
+          "topicIds": [
+            "l_projection",
+            "l_leastsquares"
+          ]
+        },
+        {
+          "subject": "ai",
+          "hours": 10,
+          "topicIds": [
+            "i_games",
+            "i_csp"
+          ]
+        },
+        {
+          "subject": "programming",
+          "hours": 4,
+          "topicIds": [
+            "p_rep",
+            "p_bitwise"
+          ]
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "topicIds": [
+            "g_register",
+            "g_counter"
+          ]
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "topicIds": []
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "dateLabel": "Nov 07–Nov 13, 2026",
+      "shortLabel": "Paths and inference",
+      "focus": "Connect shortest paths, spanning trees, conditional expectation, and knowledge representation.",
+      "totalHours": 56,
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 6,
+          "topicIds": [
+            "d_dprob"
+          ]
+        },
+        {
+          "subject": "algorithms",
+          "hours": 9,
+          "topicIds": [
+            "a_mst",
+            "a_shortest",
+            "a_greedy"
+          ]
+        },
+        {
+          "subject": "probability",
+          "hours": 9,
+          "topicIds": [
+            "s_condexp",
+            "s_transform"
+          ]
+        },
+        {
+          "subject": "linear",
+          "hours": 10,
+          "topicIds": [
+            "l_eigen",
+            "l_diagonal"
+          ]
+        },
+        {
+          "subject": "ai",
+          "hours": 10,
+          "topicIds": [
+            "i_prop",
+            "i_fol"
+          ]
+        },
+        {
+          "subject": "programming",
+          "hours": 4,
+          "topicIds": [
+            "p_structs",
+            "p_trace"
+          ]
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "topicIds": [
+            "g_fsm",
+            "g_timing"
+          ]
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "topicIds": []
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "dateLabel": "Nov 14–Nov 20, 2026",
+      "shortLabel": "Design and estimation",
+      "focus": "Develop dynamic programming, network flow, statistical sampling, and AI planning.",
+      "totalHours": 56,
+      "units": [
+        {
+          "subject": "algorithms",
+          "hours": 12,
+          "topicIds": [
+            "a_dp",
+            "a_flow",
+            "a_lower"
+          ]
+        },
+        {
+          "subject": "probability",
+          "hours": 12,
+          "topicIds": [
+            "s_llnclt",
+            "s_sampling"
+          ]
+        },
+        {
+          "subject": "linear",
+          "hours": 8,
+          "topicIds": [
+            "l_svd"
+          ]
+        },
+        {
+          "subject": "ai",
+          "hours": 12,
+          "topicIds": [
+            "i_inference",
+            "i_planning"
+          ]
+        },
+        {
+          "subject": "programming",
+          "hours": 4,
+          "topicIds": [
+            "p_flow",
+            "p_recursion"
+          ]
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "topicIds": [
+            "g_hazards",
+            "g_memory"
+          ]
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "topicIds": []
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "dateLabel": "Nov 21–Nov 27, 2026",
+      "shortLabel": "Uncertainty",
+      "focus": "Use probability and statistical estimation to study Bayesian networks and decisions.",
+      "totalHours": 56,
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 4,
+          "topicIds": [
+            "d_graph",
+            "d_counting"
+          ]
+        },
+        {
+          "subject": "algorithms",
+          "hours": 14,
+          "topicIds": [
+            "a_random",
+            "a_string"
+          ]
+        },
+        {
+          "subject": "probability",
+          "hours": 12,
+          "topicIds": [
+            "s_estimation",
+            "s_hypothesis"
+          ]
+        },
+        {
+          "subject": "ai",
+          "hours": 14,
+          "topicIds": [
+            "i_bayes",
+            "i_bn",
+            "i_decision"
+          ]
+        },
+        {
+          "subject": "programming",
+          "hours": 4,
+          "topicIds": [
+            "p_pointers",
+            "p_memory"
+          ]
+        },
+        {
+          "subject": "logic",
+          "hours": 4,
+          "topicIds": [
+            "g_kmap",
+            "g_fsm"
+          ]
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "topicIds": []
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "dateLabel": "Nov 28–Dec 04, 2026",
+      "shortLabel": "Learning",
+      "focus": "Connect introductory machine learning to regression, probability, and linear algebra.",
+      "totalHours": 56,
+      "units": [
+        {
+          "subject": "algorithms",
+          "hours": 12,
+          "topicIds": [
+            "a_greedy",
+            "a_dp",
+            "a_correct"
+          ]
+        },
+        {
+          "subject": "probability",
+          "hours": 12,
+          "topicIds": [
+            "s_regression",
+            "s_markov"
+          ]
+        },
+        {
+          "subject": "linear",
+          "hours": 4,
+          "topicIds": [
+            "l_eigen",
+            "l_projection"
+          ]
+        },
+        {
+          "subject": "ai",
+          "hours": 20,
+          "topicIds": [
+            "i_learning",
+            "i_classification"
+          ]
+        },
+        {
+          "subject": "programming",
+          "hours": 2,
+          "topicIds": [
+            "p_trace"
+          ]
+        },
+        {
+          "subject": "logic",
+          "hours": 2,
+          "topicIds": [
+            "g_combin"
+          ]
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "topicIds": []
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "dateLabel": "Dec 05–Dec 11, 2026",
+      "shortLabel": "Integration",
+      "focus": "Bring together AI model evaluation and the core reasoning methods of the other subjects.",
+      "totalHours": 56,
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 8,
+          "topicIds": [
+            "d_proof",
+            "d_induction",
+            "d_recurrence"
+          ]
+        },
+        {
+          "subject": "algorithms",
+          "hours": 12,
+          "topicIds": [
+            "a_sort",
+            "a_hash",
+            "a_bfsdfs"
+          ]
+        },
+        {
+          "subject": "probability",
+          "hours": 12,
+          "topicIds": [
+            "s_bayes",
+            "s_expectation",
+            "s_hypothesis"
+          ]
+        },
+        {
+          "subject": "ai",
+          "hours": 16,
+          "topicIds": [
+            "i_clustering",
+            "i_neural",
+            "i_eval"
+          ]
+        },
+        {
+          "subject": "programming",
+          "hours": 2,
+          "topicIds": [
+            "p_bitwise"
+          ]
+        },
+        {
+          "subject": "logic",
+          "hours": 2,
+          "topicIds": [
+            "g_timing"
+          ]
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "topicIds": []
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "dateLabel": "Dec 12–Dec 18, 2026",
+      "shortLabel": "First-pass consolidation",
+      "focus": "Resolve unclear definitions through worked examples and record topics needing another pass.",
+      "totalHours": 56,
+      "units": [
+        {
+          "subject": "discrete",
+          "hours": 8,
+          "topicIds": [
+            "d_relations",
+            "d_generating",
+            "d_trees"
+          ]
+        },
+        {
+          "subject": "algorithms",
+          "hours": 11,
+          "topicIds": [
+            "a_asym",
+            "a_amortized",
+            "a_shortest",
+            "a_flow"
+          ]
+        },
+        {
+          "subject": "probability",
+          "hours": 10,
+          "topicIds": [
+            "s_joint",
+            "s_condexp",
+            "s_estimation"
+          ]
+        },
+        {
+          "subject": "linear",
+          "hours": 8,
+          "topicIds": [
+            "l_rank",
+            "l_spaces",
+            "l_diagonal"
+          ]
+        },
+        {
+          "subject": "ai",
+          "hours": 11,
+          "topicIds": [
+            "i_informed",
+            "i_bn",
+            "i_learning"
+          ]
+        },
+        {
+          "subject": "programming",
+          "hours": 2,
+          "topicIds": [
+            "p_structs",
+            "p_functions"
+          ]
+        },
+        {
+          "subject": "logic",
+          "hours": 2,
+          "topicIds": [
+            "g_counter",
+            "g_fsm"
+          ]
+        },
+        {
+          "subject": "english",
+          "hours": 4,
+          "topicIds": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "1406 Doctoral Exam Subject List",
+      "url": "https://phdtest.ir/wp-content/uploads/2026/03/Sarfasl-Zarayeb-Manbe-Konkoor-PhD-1406-PhdTest.pdf#page=23"
+    },
+    {
+      "label": "MIT 6.1200J Mathematics for Computer Science (2024)",
+      "url": "https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/"
+    },
+    {
+      "label": "Harvard CS50x: C Programming",
+      "url": "https://cs50.harvard.edu/x/weeks/1/"
+    },
+    {
+      "label": "MIT 6.006 Introduction to Algorithms",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/"
+    },
+    {
+      "label": "MIT 6.041SC Probability",
+      "url": "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/"
+    },
+    {
+      "label": "Harvard Stat 110 Probability",
+      "url": "https://stat110.hsites.harvard.edu/"
+    },
+    {
+      "label": "MIT 18.06 Linear Algebra",
+      "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/"
+    },
+    {
+      "label": "MIT 6.004 Computation Structures",
+      "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/c4s1/"
+    },
+    {
+      "label": "MIT 6.034 Artificial Intelligence",
+      "url": "https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/"
+    }
+  ]
+}

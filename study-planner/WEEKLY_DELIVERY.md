@@ -1,40 +1,32 @@
-# قرارداد تهیهٔ جزوهٔ هفتگی
+# Chapter delivery contract
 
-## دروازهٔ تأیید هر فصل
+## Current instruction
 
-فقط یک فصل در هر نوبت نگارش فعال است. شناسه و وضعیت آن در `research/chapter-gate.json` ثبت می‌شود. فصل جاری `d_logic` است. کار بر همان فصل از همین حالا آغاز می‌شود و در هر نوبت تا تکمیل همهٔ معیارهای علمی، آموزشی، آزمونی و نمایشی ادامه می‌یابد؛ برای ساخت جزوه هیچ ساعت، روز، بازه یا بیدارباش دوره‌ای تعیین نشده است. پس از تکمیل و تحویل درسنامهٔ هر فصل، وضعیت را `awaiting_user_approval` کن و تا تأیید صریح کاربر، نگارش فصل بعد را آغاز نکن.
+The study plan and every study-facing chapter are written in clear, precise English. Study dates and hours describe the student's reading; they do not impose a chapter-production schedule. Work on one chapter at a time until it passes the source, mathematical, pedagogical, and presentation checks below. The active chapter and its status are recorded in `research/chapter-gate.json`.
 
-نخستین هفتهٔ مطالعه از شنبه ۱۱ مهر ۱۴۰۵ آغاز می‌شود و جمعه ۱۷ مهر پایان می‌یابد؛ این تاریخ‌ها مربوط به مطالعهٔ کاربرند و برای تولید جزوه موعد یا زمان‌بندی ایجاد نمی‌کنند. پیوستگی کار از راه فایل‌های پروژه و همین گفتگو حفظ می‌شود. فصل ناتمام با وضعیت پیش‌نویس و دلیل ناتمام‌بودن مشخص است؛ فقط فصل کامل و بازبینی‌شده آماده اعلام و پیوند آن در گفتگو و برنامه قرار می‌گیرد. پس از تحویل هر فصل، ادامه به فصل بعد به تأیید صریح کاربر وابسته است.
+Archived Iranian master's and doctoral entrance-exam booklets are **deferred until the final month**. Do not mine, classify, reproduce, or solve those archived questions while writing the present chapters. In the final month, the student and assistant will solve them together, one question at a time, and use the results for targeted revision. Do not ask the student to answer test questions during the first reading.
 
-## ورودی ثابت
+## University-course selection
 
-- `dist/schedule.json`: هفته، درس، شناسهٔ فصل و ساعت مطالعه. هیچ فصل خارج از هفتهٔ جاری را به جای فصل مقرر وارد نکن.
-- مخزن `bheydari721rn24/Phd-Exam-CSE`: دفترچه‌های اسکن‌شدهٔ ارشد و دکتری. OCR فقط ابزار جست‌وجو است؛ صورت و شمارهٔ سؤال باید با تصویر PDF کنترل شوند.
-- بازخورد و پیشرفت واقعی کاربر، اگر در دسترس باشد. تا پایان دور نخست هیچ تستی برای پاسخ‌دادن از کاربر خواسته نمی‌شود.
+For each chapter, survey a broad pool of relevant written courses from leading universities. Record the candidate university, instructor, title, year, directly accessible lecture text or slides, exact chapter coverage, actual review level, strength, and limitation. Evaluate source quality for **that chapter**, not just the university brand. At least four distinct course texts from four universities must genuinely be read, compared, and synthesized. Four is a minimum; add further sources when they resolve a documented gap. A syllabus, promotional page, or video without usable text does not count toward the four.
 
-## ممیزی منبع
+It is impossible to prove that every course worldwide was found or that a selected set is globally best. The source register must state the search boundary and access limits honestly. Never describe a catalogue-only course as fully reviewed.
 
-چهار دوره از چهار دانشگاه برای **هر درس و هر فصل** حداقل است، نه سقف. هر منبع دانشگاهیِ اضافی که خلأ آموزشی، برهان بهتر یا مثال مکمل دارد باید ثبت و ارزیابی شود؛ تعداد نهایی تابع کیفیت و پوشش واقعی فصل است. فهرست‌های کاتالوگی به‌تنهایی این شرط را برآورده نمی‌کنند.
+## Required chapter content
 
-این شرط باید برای **تک‌تک فصل‌ها** اجرا شود: متن مرتبطِ دست‌کم چهار دورهٔ مجزا از چهار دانشگاه برتر واقعاً خوانده، با هم تطبیق و در یک درسنامهٔ واحد ترکیب شود. درسنامه باید آموزش کاملِ از پیش‌نیاز تا پیشرفته‌ترین حالتِ مرتبط با مرز همان فصل باشد، نه گردآوری عنوان‌ها یا خلاصهٔ دوره‌ها. هدف کاربر آمادگی برای پاسخ‌گویی به سؤال‌های آسان تا بسیار دشوار آزمون دکتری است. برای نزدیک‌شدن به پوشش حداکثری، پیش از نگارش یک ماتریس ریزمبحث بساز: هر تعریف، قضیه، اثبات، روش حل، حالت استثنایی و تیپ سؤال را به بخش‌های چهار منبع، منابع تکمیلی و دفترچه‌های واقعی وصل کن؛ پس از نگارش، هر سطرِ بی‌پوشش را تکمیل یا با دلیل روشن در گزارش شکاف‌ها ثبت کن. تا زمانی که ریزمبحثِ مرتبطِ شناسایی‌شده یا خطای علمیِ حل‌نشده وجود دارد، وضعیت فصل `ready` نمی‌شود. هیچ‌کس نمی‌تواند برای سؤال‌های دیده‌نشدهٔ آینده پوشش یا دقتِ ریاضیِ ۱۰۰٪ را تضمین کند؛ این محدودیت، جایگزین تلاش برای یافتن و بستن همهٔ شکاف‌های قابل شناسایی نیست.
+1. State the chapter boundary, prerequisites, exact university sources, and actual review level.
+2. Teach concepts from basic definitions through advanced cases with precise semantics, derivations, proofs, formulas, counterexamples, and all identified in-scope exceptions.
+3. Provide five to ten demanding, fully worked problems with independent wording and complete solution steps. Attribute any adapted course exercise; do not reproduce copyrighted source text without permission.
+4. Add a **concise, high-yield review sheet** of definitions, decision rules, common mistakes, and later timed-problem pitfalls. This is an important companion to the full explanation, not a replacement for it.
+5. Add a diagram or interactive model when it makes a difficult dependency or dynamic behavior clearer; state what the model does and does not simulate.
+6. End with exact references and a truthful statement of unresolved limits.
 
-برای هر درس فعال، ابتدا فهرست گستردهٔ دوره‌های رایگان دانشگاهی را گردآوری کن. برای هر دوره، دانشگاه، نام استاد، عنوان، نسخه/سال، پیوند مستقیمِ متن درس/اسلاید/رونوشت، جلسه یا فصل مرتبط، سطح دسترسی، مزیت آموزشی، محدودیت و **سطح واقعی بررسی** را ثبت کن. ویدئو یا صفحهٔ معرفی دوره بدون متنِ قابل مطالعه در شمار حداقل چهار منبع فصل قرار نمی‌گیرد. سطح‌ها: فقط کاتالوگ؛ سرفصل یا فهرست جلسه‌ها؛ مطالعهٔ صفحه‌های مشخص؛ بازبینی همهٔ متن‌های مرتبط با فصل. دست‌کم چهار دورهٔ مجزا از چهار دانشگاهِ متفاوت باید برای هر فصل متن مرتبطِ قابل دسترس داشته باشند؛ محتوای مرتبطِ هر چهار منبع باید پیش از نگارش تطبیقی مطالعه و اختلاف‌ها بررسی شود. اولویت منبع بر پایهٔ پوشش همان فصل، دقت علمی، کیفیت اثبات و دسترسی آزاد تعیین شود، نه شهرت دانشگاه. شمار دوره‌های واقعاً بررسی‌شده و دانشگاه‌های متمایز را گزارش کن. دسترسی محدود یا نبود مواد را پنهان نکن. «توکن به توکن» تنها وقتی قابل ادعاست که متن تمام مواد مورد نظر در دسترس بوده و بررسیِ کامل با محدودهٔ دقیق ثبت شده باشد.
+Length follows instructional need. Do not inflate pages through repetition, decorative spacing, copied lecture prose, or unrelated topics. Distinguish full teaching from the deliberately concise review sheet.
 
-## ساخت جزوه
+## Accuracy gate
 
-همهٔ متنِ هر ردیف منبع یا ارجاع، شامل نام نویسنده/استاد، عنوان، دانشگاه، سال، شمارهٔ درس/فصل، توضیح کاربرد منبع، میزان واقعی بررسی، محدودیت و برچسب پیوند، باید کاملاً انگلیسی و چپ‌به‌راست باشد. هیچ کلمه یا رقم فارسی در این ردیف‌ها و بخش References نیاید؛ توضیح آموزشی فارسی تنها بیرون از بلوک منبع/ارجاع مجاز است. نمایش فارسی با B Nazanin و نمایش لاتین با فونت ظریفِ مستقل انجام شود. در متن فارسی، همهٔ رقم‌ها فارسی و در متنِ کاملاً انگلیسی، همهٔ رقم‌ها انگلیسی باشند. برای نگارش پسوندِ «ه‌ی» از ترکیب نویسه‌ایِ بدون همزهٔ ترکیبی استفاده کن تا گلیف ناهمگون ظاهر نشود.
+Before setting a chapter to `ready`, compare its topic matrix with the selected course texts; check every formula transformation, theorem assumption, worked answer, edge case, attribution, source link, and print/mobile presentation. Keep a chapter `draft` while a known mathematical error or in-scope gap remains. Use independent finite checks where meaningful, without presenting a test script as a proof of general first-order claims.
 
-در متن نمایشی فارسی از اعراب‌گذاری اختیاری، مانند کسرهٔ اضافه، تشدید و تنوین، استفاده نکن؛ در چاپ مرورگر همین نشانه‌ها موجب افتادن چند واژه یا حتی بخشی از سطر به فونت جایگزین شده‌اند. معنی جمله را با واژه‌گذاری و نشانه‌گذاری روشن حفظ کن. متن فارسی را داخل عنصر یا بلوک مخصوص فرمول نگذار. برای رقم‌های فارسی درون فرمول، فونت B Nazanin باید پیش از فونت‌های جایگزین عمومی در زنجیرهٔ فونت قرار گیرد. پیش از تحویل، فونت همهٔ قطعه‌های فارسی خروجی چاپی بررسی شود، نه فقط فونتِ محاسبه‌شدهٔ CSS.
+The target is to remove every **identified** error and in-scope omission. A literal 100% guarantee about all unseen future questions or all courses in the world cannot be established. State residual uncertainty precisely rather than using an unsupported perfection claim.
 
-برای هر فصلِ برنامه در هفتهٔ جاری، یک **درسنامهٔ مستقل و مفصل** بنویس؛ مرزبندی آن با فصل‌های قبل و بعد و پیش‌نیازها روشن باشد. ترتیب اجباری شش بخش: (۱) فهرست دست‌کم چهار منبع دانشگاهیِ واقعاً به‌کاررفته با دانشگاه/استاد/عنوان/جلسه؛ (۲) مقدمه، تعریف‌ها و پیش‌نیازها؛ (۳) آموزش از پایه تا پیشرفته با اثبات، فرمول، الگوریتم، نمودار و موارد کاربرد؛ (۴) دست‌کم پنج و حداکثر ده مسئلهٔ پیچیده با حل تشریحی گام‌به‌گام؛ (۵) نکات پیشرفته و آزمونی، حالت‌های خاص و خطاهای رایج؛ (۶) مراجع دقیق همان فصل. حداقل حجم هدف، چند ده صفحهٔ واقعیِ A4 برای هر فصل است؛ صفحه‌آرایی، تکرار یا متنِ کش‌دار جای محتوای آموزشی را نمی‌گیرد. از منابع متعدد، توضیح‌های مکمل را با انتساب دقیق ترکیب کن؛ تناقض‌ها را با بررسی مرجع رفع کن. سؤال‌های دفترچه را با سال، رشته، شماره، صفحه و پیوند PDF و حل کامل بیاور. سؤال دوره یا کتاب فقط با انتساب و مجوز مناسب، یا با بازنویسی مستقل و پیوند به منبع اصلی، درج شود. سؤال ابتکاری باید صریحاً «تألیفی» مشخص شود. برای مفهوم‌های پویا شبیه‌ساز بساز و مرز مدل شبیه‌سازی را توضیح بده.
-
-خروجی اصلی هر فصل صفحهٔ فارسیِ واکنش‌گرا و قابل چاپ در `dist/chapters/<topicId>.html` است. همهٔ متن فارسیِ اپ، برنامه، درسنامه و چاپ باید `B Nazanin` را در اولویت فونت داشته باشد؛ فایل اختصاصی فونت بدون مجوز در مخزن عمومی کپی نشود. پس از گذر هر فصل از معیارهای منبع، حجم، ساختار، حل مسئله و بازبینی، همان فصل را در `dist/lessons.json` با `status: ready` و پیوند مستقیم ثبت کن. صفحهٔ کوتاه هفته یا پیش‌نویس هرگز با عنوان جزوهٔ کامل نمایش داده نشود. متن خامِ بلند در پیام تحویل داده نشود؛ پیام شامل خلاصهٔ کوتاه، شمار منابع بررسی‌شده، موارد ناتمام و پیوند صفحه باشد.
-
-## کنترل پیش از تحویل
-
-1. مرزبندی فصل با `schedule.json` تطبیق داده شود و چهار منبع متنی از چهار دانشگاه، همراه استاد و بخش‌های واقعاً مطالعه‌شده، در همان فصل ذکر شود.
-2. شش بخش اجباری، حجم چند ده صفحهٔ آموزشی و پنج تا ده حل تشریحیِ مستقل احراز شود؛ در غیر این صورت وضعیت `draft` بماند.
-3. فرمول‌ها، جواب‌های عددی و پیوندهای سؤال با تصویر دفترچه یا منبع اصلی بازبینی شوند. وجود فایل‌های آزمون در مخزن بررسی شود؛ تنها اگر دسترسی ناکافی است، فایل ZIP از کاربر درخواست شود.
-4. صفحه در مرورگر و حالت چاپ A4 روی اندازهٔ رومیزی و کوچک از نظر فونت B Nazanin، جهت متن، نمودار و پیوند بازبینی شود.
-5. ادعای پوشش یا دقتِ ۱۰۰٪ آزمون آینده مطرح نشود. کمبود منبع یا سؤال مرتبط، آشکار گزارش شود.
-6. فایل‌های مهم در شاخهٔ `study-planner-1406` مخزن کاربر ثبت و نسخهٔ خصوصی سایت منتشر شود.
+The study-facing output is `dist/chapters/<topicId>.html`, generated from a reviewed English manuscript. The chapter index is `dist/lessons.json`. The English schedule is `dist/schedule.en.json`; the Persian schedule input is retained only as archival internal data. After delivery of one chapter, the existing chapter gate requires explicit user approval before work starts on the next chapter.

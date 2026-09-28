@@ -1,0 +1,620 @@
+{
+  "week": 1,
+  "reviewedAt": "2026-09-24",
+  "method": "A course entry records a checked course page and topic match. It does not imply that every lecture or exercise was read. Chapter-level audits state which texts were actually studied and synthesized.",
+  "courses": [
+    {
+      "id": "mit-61200",
+      "subject": "discrete",
+      "university": "MIT",
+      "course": "6.1200J Mathematics for Computer Science",
+      "url": "https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/",
+      "evidence": "https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/",
+      "topics": [
+        "d_logic",
+        "d_sets",
+        "d_proof",
+        "d_induction"
+      ],
+      "advantage": "Clear mapping from sessions to chapters of the open textbook, notes, and exercises.",
+      "limit": "Number theory and probability sections fall outside the first week's scope.",
+      "access": "lecture_notes_and_problem_sets",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "stanford-cs103",
+      "subject": "discrete",
+      "university": "Stanford",
+      "course": "CS103 Mathematical Foundations of Computing",
+      "url": "https://web.stanford.edu/class/archive/cs/cs103/cs103.1248/schedule.html",
+      "evidence": "https://web.stanford.edu/class/archive/cs/cs103/cs103.1248/schedule.html",
+      "topics": [
+        "d_logic",
+        "d_sets",
+        "d_proof",
+        "d_induction"
+      ],
+      "advantage": "A sequence covering sets, proofs, logic, and induction, with emphasis on proof writing.",
+      "limit": "Some recordings require Canvas access; computability topics are outside this plan.",
+      "access": "public_schedule_and_some_materials",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "berkeley-cs70",
+      "subject": "discrete",
+      "university": "UC Berkeley",
+      "course": "CS70 Discrete Mathematics and Probability Theory",
+      "url": "https://www-inst.cs.berkeley.edu/~cs70/fa16/",
+      "evidence": "https://www-inst.cs.berkeley.edu/~cs70/fa16/",
+      "topics": [
+        "d_logic",
+        "d_sets",
+        "d_proof",
+        "d_induction"
+      ],
+      "advantage": "Notes, slides, and exercises for logic, proof, and induction.",
+      "limit": "The citable open version is older, and not every course chapter is needed for this exam.",
+      "access": "public_notes_and_homework",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "cmu-15151",
+      "subject": "discrete",
+      "university": "Carnegie Mellon",
+      "course": "15-151 Mathematical Foundations for Computer Science",
+      "url": "https://csd.cs.cmu.edu/course/15151/s25",
+      "evidence": "https://csd.cs.cmu.edu/course/15151/s25",
+      "topics": [
+        "d_logic",
+        "d_sets",
+        "d_proof",
+        "d_induction"
+      ],
+      "advantage": "The course explicitly targets logic, sets, induction, and proof methods.",
+      "limit": "Full public lecture notes and exercises were not verified on the reviewed page; this is not yet a chapter source.",
+      "access": "catalogue_only",
+      "reviewLevel": "course_description_only"
+    },
+    {
+      "id": "mit-6006",
+      "subject": "algorithms",
+      "university": "MIT",
+      "course": "6.006 Introduction to Algorithms",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/",
+      "evidence": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/resource-index/",
+      "topics": [
+        "a_model",
+        "a_asym",
+        "a_loop"
+      ],
+      "advantage": "Open lectures, exercises, and solutions connect problem models to cost analysis.",
+      "limit": "Its full course sequence differs from the 1406 plan; topic-level selection is required.",
+      "access": "lectures_notes_assignments_solutions",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "stanford-cs161",
+      "subject": "algorithms",
+      "university": "Stanford",
+      "course": "CS161 Design and Analysis of Algorithms",
+      "url": "https://web.stanford.edu/class/archive/cs/cs161/cs161.1178/",
+      "evidence": "https://web.stanford.edu/class/archive/cs/cs161/cs161.1178/",
+      "topics": [
+        "a_model",
+        "a_asym",
+        "a_loop"
+      ],
+      "advantage": "Notes on asymptotic analysis and exercises with solutions.",
+      "limit": "The accessible archive is from 2017, and some assignment links lead to other services.",
+      "access": "public_notes_and_some_solutions",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "cmu-15451",
+      "subject": "algorithms",
+      "university": "Carnegie Mellon",
+      "course": "15-451 Algorithm Design and Analysis",
+      "url": "https://www.cs.cmu.edu/~15451-f25/schedule.html",
+      "evidence": "https://www.cs.cmu.edu/~15451-f25/schedule.html",
+      "topics": [
+        "a_model",
+        "a_asym"
+      ],
+      "advantage": "The first two sessions address algorithm analysis and computation models with open notes.",
+      "limit": "The course is relatively advanced and is not the primary introductory source.",
+      "access": "public_schedule_and_notes",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "berkeley-cs170",
+      "subject": "algorithms",
+      "university": "UC Berkeley",
+      "course": "CS170 Efficient Algorithms and Intractable Problems",
+      "url": "https://cs170.org/",
+      "evidence": "https://cs170.org/",
+      "topics": [
+        "a_model",
+        "a_asym"
+      ],
+      "advantage": "An introductory lecture, a reference text, and assignments with solutions are listed in an open schedule.",
+      "limit": "The term focuses mainly on algorithm design and offers limited direct coverage of first-week loop analysis.",
+      "access": "public_notes_and_assignments",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "mit-6041",
+      "subject": "probability",
+      "university": "MIT",
+      "course": "6.041SC Probabilistic Systems Analysis",
+      "url": "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/",
+      "evidence": "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/pages/unit-i/lecture-1/",
+      "topics": [
+        "s_axioms",
+        "s_counting"
+      ],
+      "advantage": "Probability models, sample spaces, and axioms are supported by lectures, exercises, and solutions.",
+      "limit": "Counting also requires separate study of Lecture 4.",
+      "access": "lectures_recitations_problem_solutions",
+      "reviewLevel": "lecture_page_and_topic_index"
+    },
+    {
+      "id": "harvard-stat110",
+      "subject": "probability",
+      "university": "Harvard",
+      "course": "Stat 110 Probability",
+      "url": "https://stat110.hsites.harvard.edu/",
+      "evidence": "https://stat110.hsites.harvard.edu/",
+      "topics": [
+        "s_axioms",
+        "s_counting"
+      ],
+      "advantage": "An open textbook, lectures, and selected exercise solutions.",
+      "limit": "Complete public solutions are unavailable for exercises in some chapters.",
+      "access": "open_book_videos_selected_solutions",
+      "reviewLevel": "resource_index"
+    },
+    {
+      "id": "stanford-cs109",
+      "subject": "probability",
+      "university": "Stanford",
+      "course": "CS109 Probability for Computer Scientists",
+      "url": "https://web.stanford.edu/class/archive/cs/cs109/cs109.1214/schedule.html",
+      "evidence": "https://web.stanford.edu/class/archive/cs/cs109/cs109.1214/schedule.html",
+      "topics": [
+        "s_axioms",
+        "s_counting"
+      ],
+      "advantage": "Separate sessions on counting, combinations, and probability axioms support precise chapter mapping.",
+      "limit": "The public page belongs to an older term, and not all assignments are freely available.",
+      "access": "public_schedule_and_notes",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "berkeley-stat134",
+      "subject": "probability",
+      "university": "UC Berkeley",
+      "course": "STAT 134 Concepts of Probability",
+      "url": "https://www.stat.berkeley.edu/~yss/courses/sp13-stat134/lectures.html",
+      "evidence": "https://www.stat.berkeley.edu/~yss/courses/sp13-stat134/lectures.html",
+      "topics": [
+        "s_axioms",
+        "s_counting"
+      ],
+      "advantage": "Probability examples and statistical notes emphasize the definition of events.",
+      "limit": "The course is more mathematically oriented, and the archive is older.",
+      "access": "public_lecture_index_and_some_handouts",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "mit-1806",
+      "subject": "linear",
+      "university": "MIT",
+      "course": "18.06 Linear Algebra",
+      "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+      "evidence": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/pages/readings/",
+      "topics": [
+        "l_vectors",
+        "l_matrices"
+      ],
+      "advantage": "Vector geometry and matrix multiplication are supported by lectures and exercises with solutions.",
+      "limit": "The first lecture begins with linear systems, so first-week boundaries require selection.",
+      "access": "lectures_assignments_solutions",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "cmu-21241",
+      "subject": "linear",
+      "university": "Carnegie Mellon",
+      "course": "21-241 Matrices and Linear Transformations",
+      "url": "https://www.math.cmu.edu/~pmckenne/summer/12/",
+      "evidence": "https://www.math.cmu.edu/~pmckenne/summer/12/",
+      "topics": [
+        "l_vectors",
+        "l_matrices"
+      ],
+      "advantage": "Open notes provide a structural view of matrices and transformations.",
+      "limit": "This is an older, compressed summer course with a different topic sequence.",
+      "access": "public_notes_and_assignments",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "cornell-2940",
+      "subject": "linear",
+      "university": "Cornell",
+      "course": "MATH 2940 Linear Algebra for Engineers",
+      "url": "https://pi.math.cornell.edu/~jerison/math2940/",
+      "evidence": "https://pi.math.cornell.edu/~jerison/math2940/",
+      "topics": [
+        "l_vectors",
+        "l_matrices"
+      ],
+      "advantage": "A detailed reading schedule and practice exams with answers.",
+      "limit": "The main textbook is commercial; only open course materials are used here.",
+      "access": "public_schedule_and_practice_exams",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "harvard-21b",
+      "subject": "linear",
+      "university": "Harvard",
+      "course": "Math 21b Linear Algebra",
+      "url": "https://people.math.harvard.edu/~knill/pedagogy/webeducation/coursepages/math21b/syllabus.html",
+      "evidence": "https://people.math.harvard.edu/~knill/pedagogy/webeducation/coursepages/math21b/syllabus.html",
+      "topics": [
+        "l_vectors",
+        "l_matrices"
+      ],
+      "advantage": "The session list clearly separates linear transformations and matrix multiplication.",
+      "limit": "The public version is older and mostly a syllabus; it is not yet a chapter source.",
+      "access": "public_syllabus",
+      "reviewLevel": "course_description_only"
+    },
+    {
+      "id": "mit-6100l",
+      "subject": "programming",
+      "university": "MIT",
+      "course": "6.100L Introduction to CS and Programming Using Python",
+      "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/calendar/",
+      "evidence": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/calendar/",
+      "topics": [
+        "p_types",
+        "p_flow"
+      ],
+      "advantage": "Open sessions and exercises on types and control flow.",
+      "limit": "The course uses Python and does not cover C-specific details.",
+      "access": "public_schedule_and_some_materials",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "stanford-cs106b",
+      "subject": "programming",
+      "university": "Stanford",
+      "course": "CS106B Programming Abstractions",
+      "url": "https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1262/",
+      "evidence": "https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1262/",
+      "topics": [
+        "p_types",
+        "p_flow"
+      ],
+      "advantage": "C++ examples help explain abstraction and execution tracing.",
+      "limit": "C++ behavior does not always match the C material relevant to the exam.",
+      "access": "public_schedule_and_some_materials",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "cmu-15122",
+      "subject": "programming",
+      "university": "Carnegie Mellon",
+      "course": "15-122 Principles of Imperative Computation",
+      "url": "https://www.cs.cmu.edu/~15122-archive/n25/about.shtml",
+      "evidence": "https://www.cs.cmu.edu/~15122-archive/n25/about.shtml",
+      "topics": [
+        "p_types",
+        "p_flow"
+      ],
+      "advantage": "Contracts, arrays, and a transition to C.",
+      "limit": "The introductory sections use C0.",
+      "access": "public_schedule_and_some_materials",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "harvard-cs50",
+      "subject": "programming",
+      "university": "Harvard",
+      "course": "CS50x Week 1 C",
+      "url": "https://cs50.harvard.edu/x/weeks/1/",
+      "evidence": "https://cs50.harvard.edu/x/weeks/1/",
+      "topics": [
+        "p_types",
+        "p_flow"
+      ],
+      "advantage": "Text notes, slides, and C code cover types, conditionals, and loops.",
+      "limit": "Its introductory level requires comparison with past exam questions.",
+      "access": "public_schedule_and_some_materials",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "stanford-cs107",
+      "subject": "programming",
+      "university": "Stanford",
+      "course": "CS107 Computer Organization & Systems",
+      "url": "https://web.stanford.edu/class/archive/cs/cs107/cs107.1258/syllabus",
+      "evidence": "https://web.stanford.edu/class/archive/cs/cs107/cs107.1258/syllabus",
+      "topics": [
+        "p_types",
+        "p_flow"
+      ],
+      "advantage": "Data representation, C, and memory appear in a connected sequence.",
+      "limit": "Many sections extend beyond the first week's scope.",
+      "access": "public_schedule_and_some_materials",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "princeton-cos126",
+      "subject": "programming",
+      "university": "Princeton",
+      "course": "COS 126 Computer Science: An Interdisciplinary Approach",
+      "url": "https://www.cs.princeton.edu/courses/archive/fall26/cos126/assignments/",
+      "evidence": "https://www.cs.princeton.edu/courses/archive/fall26/cos126/assignments/",
+      "topics": [
+        "p_types",
+        "p_flow"
+      ],
+      "advantage": "Public assignments cover conditionals and loops.",
+      "limit": "The course uses Java, and some recordings are not public.",
+      "access": "public_schedule_and_some_materials",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "mit-6004",
+      "subject": "logic",
+      "university": "MIT",
+      "course": "6.004 Computation Structures",
+      "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/c4s1/",
+      "evidence": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/c4s1/",
+      "topics": [
+        "g_number",
+        "g_boolean",
+        "g_gates"
+      ],
+      "advantage": "Connects Boolean functions to gates and truth tables.",
+      "limit": "Architecture sections fall outside the first week's scope.",
+      "access": "public_schedule_and_some_materials",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "cornell-cs3410",
+      "subject": "logic",
+      "university": "Cornell",
+      "course": "CS 3410 Computer System Organization",
+      "url": "https://courses.cs.cornell.edu/cs3410/2026sp/notes/logic.html",
+      "evidence": "https://courses.cs.cornell.edu/cs3410/2026sp/notes/logic.html",
+      "topics": [
+        "g_boolean",
+        "g_gates"
+      ],
+      "advantage": "Open explanations of truth tables and gates.",
+      "limit": "The course as a whole focuses on computer architecture.",
+      "access": "public_schedule_and_some_materials",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "ucsd-cse140",
+      "subject": "logic",
+      "university": "UC San Diego",
+      "course": "CSE 140 Digital Design",
+      "url": "https://cseweb.ucsd.edu/classes/sp22/cse140-a/syllabus.html",
+      "evidence": "https://cseweb.ucsd.edu/classes/sp22/cse140-a/syllabus.html",
+      "topics": [
+        "g_number",
+        "g_boolean",
+        "g_gates"
+      ],
+      "advantage": "Early sessions cover number bases, gates, and Boolean algebra.",
+      "limit": "Materials are scattered across different course versions.",
+      "access": "public_schedule_and_some_materials",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "cambridge-digelec",
+      "subject": "logic",
+      "university": "University of Cambridge",
+      "course": "Digital Electronics",
+      "url": "https://www.cl.cam.ac.uk/teaching/1112/DigElec/materials.html",
+      "evidence": "https://www.cl.cam.ac.uk/teaching/1112/DigElec/materials.html",
+      "topics": [
+        "g_boolean",
+        "g_gates"
+      ],
+      "advantage": "Open notes cover combinational and sequential logic.",
+      "limit": "The reviewed version is older.",
+      "access": "public_schedule_and_some_materials",
+      "reviewLevel": "syllabus_and_topic_index"
+    },
+    {
+      "id": "eth-digital",
+      "subject": "logic",
+      "university": "ETH Zurich",
+      "course": "Digital Logic Design",
+      "url": "https://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?ansicht=KATALOGDATEN&lang=en&lerneinheitId=199628&semkez=2026S",
+      "evidence": "https://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?ansicht=KATALOGDATEN&lang=en&lerneinheitId=199628&semkez=2026S",
+      "topics": [
+        "g_boolean",
+        "g_gates"
+      ],
+      "advantage": "The syllabus helps check the boundary between combinational and sequential logic.",
+      "limit": "Only the catalogue page has been reviewed.",
+      "access": "catalogue_only",
+      "reviewLevel": "course_description_only"
+    },
+    {
+      "id": "cmu-18240",
+      "subject": "logic",
+      "university": "Carnegie Mellon",
+      "course": "18-240 Structure and Design of Digital Systems",
+      "url": "https://courses.ece.cmu.edu/18240",
+      "evidence": "https://courses.ece.cmu.edu/18240",
+      "topics": [
+        "g_number",
+        "g_boolean",
+        "g_gates"
+      ],
+      "advantage": "The official description covers number bases, Boolean logic, and circuit design.",
+      "limit": "Only the course description has been reviewed so far.",
+      "access": "catalogue_only",
+      "reviewLevel": "course_description_only"
+    },
+    {
+      "id": "ucla-m51a",
+      "subject": "logic",
+      "university": "UCLA",
+      "course": "CS M51A Logic Design of Digital Systems",
+      "url": "https://web.cs.ucla.edu/~milos/CSM51A-F19-Syllabus.pdf",
+      "evidence": "https://web.cs.ucla.edu/~milos/CSM51A-F19-Syllabus.pdf",
+      "topics": [
+        "g_number",
+        "g_boolean",
+        "g_gates"
+      ],
+      "advantage": "The syllabus order helps compare chapter boundaries.",
+      "limit": "Only the public syllabus has been reviewed.",
+      "access": "public_syllabus",
+      "reviewLevel": "course_description_only"
+    },
+    {
+      "id": "mit-6042j-2010-logic",
+      "subject": "discrete",
+      "university": "MIT",
+      "course": "6.042J Mathematics for Computer Science — Leighton and van Dijk (2010)",
+      "url": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/",
+      "evidence": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/7853d585044ef21bce5f48ce5fc89d28_MIT6_042JF10_chap01.pdf",
+      "topics": [
+        "d_logic"
+      ],
+      "advantage": "Foundational truth conditions and quantifier examples.",
+      "limit": "Only Chapter 1 is counted for this chapter; one informal sentence has a connective typo.",
+      "access": "chapter_pdf",
+      "reviewLevel": "all_relevant_text_reviewed"
+    },
+    {
+      "id": "stanford-cs103-2014-logic",
+      "subject": "discrete",
+      "university": "Stanford",
+      "course": "CS103 Mathematical Foundations of Computing — Luca Trevisan (2014)",
+      "url": "https://cs.stanford.edu/people/trevisan/cs103-14/",
+      "evidence": "https://cs.stanford.edu/people/trevisan/cs103-14/lecture09.pdf",
+      "topics": [
+        "d_logic"
+      ],
+      "advantage": "Exact syntax, equivalence, and free-variable scope examples.",
+      "limit": "Informal use of 'sentence' is made precise in the chapter.",
+      "access": "lecture_pdf",
+      "reviewLevel": "all_relevant_text_reviewed"
+    },
+    {
+      "id": "berkeley-cs70-2024-logic",
+      "subject": "discrete",
+      "university": "UC Berkeley",
+      "course": "CS70 Discrete Mathematics and Probability Theory — Shahzar and Hongxun Wu (2024)",
+      "url": "https://su24.eecs70.org/",
+      "evidence": "https://su24.eecs70.org/assets/pdf/notes/n1.pdf",
+      "topics": [
+        "d_logic"
+      ],
+      "advantage": "First-order examples and restricted quantification in a single note.",
+      "limit": "Several informal explanations require formal cross-checking.",
+      "access": "note_pdf",
+      "reviewLevel": "all_relevant_text_reviewed"
+    },
+    {
+      "id": "cmu-15311-2026-logic",
+      "subject": "discrete",
+      "university": "Carnegie Mellon",
+      "course": "15-311 Logic and Mechanized Reasoning — Marijn J. H. Heule (2026)",
+      "url": "https://www.cs.cmu.edu/~mheule/15311-s26/schedule.html",
+      "evidence": "https://www.cs.cmu.edu/~mheule/15311-s26/slides/FOL.pdf",
+      "topics": [
+        "d_logic"
+      ],
+      "advantage": "Detailed formal semantics, substitution, and infinite models.",
+      "limit": "Animated slide frames and deliberately false prompts require the full decks.",
+      "access": "slide_pdfs",
+      "reviewLevel": "all_relevant_text_reviewed"
+    },
+    {
+      "id": "cornell-cs2800-2017-logic",
+      "subject": "discrete",
+      "university": "Cornell",
+      "course": "CS2800 Discrete Structures — Lecture 36 (2017)",
+      "url": "https://www.cs.cornell.edu/courses/cs2800/2017fa/",
+      "evidence": "https://www.cs.cornell.edu/courses/cs2800/2017fa/lectures/lec36-logic.html",
+      "topics": [
+        "d_logic"
+      ],
+      "advantage": "Inductive semantics and the object-language/metalanguage distinction.",
+      "limit": "The inspected lecture is supplementary; full course logic sequence was not reviewed.",
+      "access": "lecture_text",
+      "reviewLevel": "one_lecture_inspected"
+    },
+    {
+      "id": "princeton-cos341-2002-logic",
+      "subject": "discrete",
+      "university": "Princeton",
+      "course": "COS 341 Discrete Mathematics — Moses Charikar (2002)",
+      "url": "https://www.cs.princeton.edu/courses/archive/fall02/cs341/",
+      "evidence": "https://www.cs.princeton.edu/courses/archive/fall02/cs341/lec2.pdf",
+      "topics": [
+        "d_logic"
+      ],
+      "advantage": "A freely accessible slide deck on propositional logic and quantifiers.",
+      "limit": "Lecture 2 was screened; the complete relevant course sequence was not reviewed.",
+      "access": "lecture_pdf",
+      "reviewLevel": "one_lecture_screened"
+    },
+    {
+      "id": "illinois-cs173-2024-logic",
+      "subject": "discrete",
+      "university": "Illinois",
+      "course": "CS173 Discrete Structures — Logic 1 (Fall 2024)",
+      "url": "https://courses.grainger.illinois.edu/cs173/fa2024/ALL-lectures/lectures.html",
+      "evidence": "https://courses.grainger.illinois.edu/CS173/fa2024/ALL-lectures/Lectures/logic1.html",
+      "topics": [
+        "d_logic"
+      ],
+      "advantage": "Accessible written lecture treatment of foundational logic.",
+      "limit": "The complete multi-lecture logic sequence was not reviewed.",
+      "access": "lecture_text",
+      "reviewLevel": "one_lecture_screened"
+    },
+    {
+      "id": "oxford-logic-proof-2023",
+      "subject": "discrete",
+      "university": "Oxford",
+      "course": "Logic and Proof (2022–2023)",
+      "url": "https://www.cs.ox.ac.uk/teaching/courses/2022-2023/logicandproof/",
+      "evidence": "https://www.cs.ox.ac.uk/teaching/courses/2022-2023/logicandproof/",
+      "topics": [
+        "d_logic"
+      ],
+      "advantage": "Broad syllabus covering syntax, SAT, normal forms, and first-order structures.",
+      "limit": "The public syllabus is not a verified complete lecture text and does not count toward synthesis.",
+      "access": "syllabus",
+      "reviewLevel": "syllabus_only"
+    },
+    {
+      "id": "eth-discrete-2026",
+      "subject": "discrete",
+      "university": "ETH Zurich",
+      "course": "Discrete Mathematics (2026)",
+      "url": "https://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?ansicht=KATALOGDATEN&lang=en&lerneinheitId=204115&semkez=2026W",
+      "evidence": "https://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?ansicht=KATALOGDATEN&lang=en&lerneinheitId=204115&semkez=2026W",
+      "topics": [
+        "d_logic"
+      ],
+      "advantage": "A possible additional course for future comparison.",
+      "limit": "Only the catalogue and a separate open book were located; their direct linkage was not established.",
+      "access": "catalogue",
+      "reviewLevel": "catalogue_only"
+    }
+  ]
+}

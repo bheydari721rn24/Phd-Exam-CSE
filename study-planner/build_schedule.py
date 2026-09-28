@@ -1,4 +1,4 @@
-"""Readable source for the priority-one calendar; writes dist/schedule.json."""
+"""Readable archival source for the priority-one calendar."""
 import json
 from pathlib import Path
 
@@ -352,6 +352,7 @@ assert all({u["subject"] for u in w["units"]} <= set(subjects) | {"english"} for
 assert len(weeks) == 11
 assert sum(w["totalHours"] for w in weeks) == 616
 
-target = ROOT / "dist" / "schedule.json"
+target = ROOT / "research" / "legacy-inputs" / "schedule.json"
+target.parent.mkdir(parents=True, exist_ok=True)
 target.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 print(f"{len(weeks)} weeks, {len(topics)} topics, {sum(w['totalHours'] for w in weeks)} hours -> {target}")

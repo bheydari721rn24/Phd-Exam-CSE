@@ -1,22 +1,5 @@
 <!doctype html>
-<html lang="fa" dir="rtl">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>وضعیت بررسی دفترچه‌ها · دکتری کامپیوتر ۱۴۰۶</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="theme.css"><style>.audit-shell{max-width:1050px;margin:auto;padding:30px 20px 60px}.audit-shell h1{font-size:2rem}.audit-shell p,.audit-shell li{line-height:1.9}.audit-shell table{width:100%;border-collapse:collapse;margin:18px 0}.audit-shell th,.audit-shell td{border:1px solid #526a78;padding:11px;text-align:right;vertical-align:top}.audit-shell th{background:#24443e}.audit-shell .latin{direction:ltr;text-align:left;font-family:"Segoe UI",sans-serif;font-weight:400}.audit-shell .status{color:#b9e984}.audit-shell .panel{margin:18px 0}.table-wrap{overflow-x:auto}.audit-shell td:first-child,.audit-shell td:nth-child(2){white-space:nowrap}</style></head>
-<body><main class="audit-shell">
-<a href="index.html#week-1">← بازگشت به برنامه</a>
-<h1>وضعیت بررسی دفترچه‌های آزمون</h1>
-<p>این صفحه پیشرفت واقعیِ دسته‌بندی سؤال‌ها را نشان می‌دهد. «فهرست‌شده» یعنی فایل و تعداد صفحه‌های آن ثبت شده است؛ «دسته‌بندی‌شده» یعنی شماره و موضوع سؤال با تصویر اصلی کنترل شده است. پاسخ هیچ‌یک از سؤال‌های نمونه هنوز بازبینی نشده است.</p>
-<section class="panel"><h2>موجودی فایل‌ها</h2><p>در مخزن، <strong>۸۴ فایل PDF</strong> وجود دارد: ۲۷ فایل دکتری مهندسی کامپیوتر، ۹ فایل دکتری علوم کامپیوتر، ۹ فایل دکتری فناوری اطلاعات و ۳۹ فایل ارشد در سه رشته. تعدادی از سال‌ها چند دفترچه دارند؛ شمار فایل‌ها معادل شمار آزمون‌های مستقل یا سؤال‌های مرتبط نیست.</p><p><a href="exam-inventory.json" download>دریافت فهرست ۸۴ فایل و تعداد صفحه‌ها ←</a></p></section>
-<section class="panel"><h2>بررسی تصویری: دکتری ۱۴۰۵، دفترچه‌ی ۷۰۷A</h2><p>در صفحه‌ی نخست، سؤال‌های ۱ تا ۲۰ به ساختمان داده و طراحی الگوریتم و سؤال‌های ۲۱ تا ۴۰ به مدار منطقی و معماری کامپیوتر اختصاص دارند. شماره و موضوع کلی هر ۴۰ سؤال در صفحه‌های ۲ تا ۱۰ بررسی شد. این برچسب‌ها هنوز شامل حل، تعیین دشواری یا تحلیل فراوانیِ چند سال نیستند.</p><div class="table-wrap"><table><thead><tr><th>شماره</th><th>صفحه‌ی PDF</th><th>موضوع کلی</th><th>ارتباط با برنامه</th></tr></thead><tbody id="question-list"><tr><td colspan="4">فهرست سؤال‌ها در حال بارگذاری است.</td></tr></tbody></table></div><p class="status">وضعیت: ۴۰ برچسب موضوعیِ اولیه؛ حل و پاسخ هیچ‌کدام هنوز تأیید نشده است.</p><p><a class="latin" lang="en" href="https://github.com/bheydari721rn24/Phd-Exam-CSE/blob/study-planner-1406/Exams/Phd/CE/1405/Q707A-phd1405-%5Bwww.konkur.in%5D.pdf" target="_blank" rel="noopener noreferrer">1405 PhD CE original scanned booklet ↗</a></p></section>
-<section class="panel"><h2>روش ادامه‌ی بررسی</h2><ol><li>ابتدا دفترچه‌های دکتری مهندسی کامپیوتر از سال‌های تازه‌تر بررسی می‌شوند؛ کد دفترچه و محدوده‌ی سؤال‌های مشترک از صفحه‌ی نخست ثبت می‌شود.</li><li>برای هر سؤال، سال، رشته، کد دفترچه، شماره، صفحه‌ی PDF، ریزمبحث، دشواری و پیوند فصل برنامه ثبت می‌شود.</li><li>متن و فرمول با تصویر اصلی کنترل می‌شوند. تا پیش از کنترل پاسخ و راه‌حل، وضعیت سؤال «حل‌نشده» می‌ماند.</li><li>پس از آن، دفترچه‌های ارشد و سؤال‌های دانشگاهیِ مرتبط به همین طبقه‌بندی افزوده می‌شوند؛ سؤال‌های صرفاً پیشرفته با برچسب جداگانه مشخص خواهند شد.</li></ol><p><a href="question-audit-pilot.json" download>دریافت داده‌ی ۴۰ سؤال ←</a></p></section>
-</main><script>
-const fa = value => String(value).replace(/[0-9]/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
-Promise.all([fetch('question-audit-pilot.json').then(r => r.json()),fetch('schedule.json').then(r => r.json())]).then(([audit,plan]) => {
-  const body = document.getElementById('question-list'); body.replaceChildren();
-  for (const q of audit.questions) {
-    const row = document.createElement('tr');
-    const relation = q.priorityGroup === 'second' ? 'معماری کامپیوتر؛ اولویت دوم' : q.planTopicIds.length ? q.planTopicIds.map(id => plan.topics[id]?.title || id).join('، ') : 'فصل دقیق هنوز تعیین نشده است';
-    for (const value of [fa(q.number),fa(q.pdfPage),q.topicFa,relation]) { const cell = document.createElement('td'); cell.textContent = value; row.append(cell); }
-    body.append(row);
-  }
-}).catch(() => {document.getElementById('question-list').firstElementChild.firstElementChild.textContent='فهرست بارگذاری نشد؛ داده‌ی ۴۰ سؤال را از پیوند پایین دریافت کنید.';});
-</script></body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entrance-exam archive deferred · Doctoral CSE 1406</title><link rel="stylesheet" href="app.en.css"></head>
+<body><main class="shell"><p><a href="index.html">← Back to the study plan</a></p>
+<section class="card"><p class="eyebrow">Deferred until the final month</p><h1>Entrance-exam booklets</h1><p>The archived master's and doctoral entrance-exam papers are not part of the current lesson-writing or first-reading workflow. In the final month, we will solve the questions together, one by one, and use the results to target weaknesses.</p></section></main></body></html>
