@@ -5,7 +5,8 @@ const key = 'phd-1406-progress-v2';
 let plan, courseAudit, lessons = [], selected = 1, done = {};
 
 function currentWeek() {
-  const days = Math.floor((Date.now() - new Date(2026, 8, 24).getTime()) / 86400000);
+  const tehranNow = Date.now() + 3.5 * 3600000;
+  const days = Math.floor((tehranNow - Date.UTC(2026, 9, 3)) / 86400000);
   return Math.max(1, Math.min(11, Math.floor(days / 7) + 1));
 }
 function idsForWeek(w) { return [...new Set(w.units.flatMap(u => u.topicIds))]; }
@@ -94,7 +95,7 @@ function renderLibrary() {
   <p>برای هر فصل، وضعیت انتشار جداگانه نشان داده می‌شود. «نمای کلی» و «پیش‌نویس» متن آموزشی مقدماتی‌اند و هنوز معیار درسنامه‌ی کامل را ندارند.</p>
   <p class="chapter-standard"><b>معیار تهیه‌ی درسنامه:</b> متن هر فصل باید دست‌کم چهار دوره‌ی واقعاً مطالعه‌شده از چهار دانشگاه برتر را ترکیب کند و همه‌ی ریزمبحث‌های مرتبط را از پیش‌نیاز تا نکات پیشرفته، با اثبات، مثال حل‌شده و ارتباط با سؤال‌های آزمون توضیح دهد. پیش از انتشار، پوشش فصل با فهرست موضوعات و دفترچه‌های آزمون کنترل می‌شود و هر شکاف باقی‌مانده آشکار گزارش می‌شود. هدف، آمادگی برای دشوارترین سؤال‌های مرتبط است؛ برای سؤال‌های دیده‌نشده نمی‌توان تضمین قطعی داد.</p>
   <div class="library-grid">${lessons.map(l => `<article class="library-card"><div class="eyebrow">هفته‌ی ${fa(l.week)} · ${fa(readyChapters(l).length)} درسنامه‌ی کامل از ${fa(l.chapters?.length || 0)} فصل</div><h3>${esc(fa(l.title))}</h3><p>${esc(fa(l.description))}</p>${readyChapters(l).map(c => `<a class="primary-link" href="${esc(c.url)}">${esc(fa(c.title))} ←</a>`).join('')}${draftChapters(l).map(c => `<a class="secondary-link" href="${esc(c.url)}">خواندن پیش‌نویس: ${esc(fa(c.title))} ←</a>`).join('')}${l.overviewUrl ? `<a class="secondary-link" href="${esc(l.overviewUrl)}">خواندن نمای کلی هفته ←</a>` : ''}${l.auditUrl ? `<a class="secondary-link" href="${esc(l.auditUrl)}">دیدن منابع بررسی‌شده ←</a>` : ''}<p class="library-pending">برای ${fa((l.chapters || []).filter(c=>c.status!=='ready').length)} فصل، درسنامه‌ی کامل هنوز منتشر نشده است.</p></article>`).join('')}
-  <article class="library-card pending"><div class="eyebrow">هفته‌های بعد · منتظر انتشار</div><h3>درسنامه‌های بعدی کجا قرار می‌گیرند؟</h3><p>پس از تکمیل و بازبینی هر فصل، پیوند آن در همین کتابخانه و کنار عنوان فصل در برنامه‌ی همان هفته ظاهر می‌شود. کار خودکارِ تهیه‌ی مطالب پنجشنبه‌ها ساعت ۹ صبح آغاز می‌شود؛ زمان پایان آن به حجم بررسی منابع بستگی دارد.</p></article></div>`;
+  <article class="library-card pending"><div class="eyebrow">هفته‌های بعد · منتظر انتشار</div><h3>درسنامه‌های بعدی کجا قرار می‌گیرند؟</h3><p>پس از تکمیل و بازبینی هر فصل، پیوند آن در همین کتابخانه و کنار عنوان فصل در برنامه‌ی همان هفته ظاهر می‌شود. فرایند هفتگی پنجشنبه‌ها ساعت ۹ شب به وقت تهران برای هفته‌ی مطالعاتیِ شنبه تا جمعه‌ی پیش رو اجرا می‌شود. هر فصل پس از تکمیل و بازبینی منتشر می‌شود و پیوند آن همین‌جا قرار می‌گیرد.</p></article></div>`;
 }
 function renderStart() {
   const number = currentWeek(), current = plan.weeks[number-1];
