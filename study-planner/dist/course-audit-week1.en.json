@@ -780,6 +780,81 @@
       "limit": "Only relevant sections screened. One displayed AM–GM extraction was inconsistent and not used for derivation.",
       "access": "lecture_text",
       "reviewLevel": "supplemental_sections_screened"
+    },
+    {
+      "id": "mit-6042j-2015-induction",
+      "subject": "discrete",
+      "university": "MIT",
+      "course": "6.042J Mathematics for Computer Science — Lehman, Leighton, Meyer (2015)",
+      "url": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/",
+      "evidence": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/mit6_042js15_textbook.pdf",
+      "topics": [
+        "d_induction"
+      ],
+      "advantage": "Ordinary/strong induction, prime factorization, tiling strength, and false induction diagnosis.",
+      "limit": "Chapter 5 §§5.1–5.3 reviewed; the rest of the full text was not exhaustively read for this chapter.",
+      "access": "textbook_pdf",
+      "reviewLevel": "relevant_sections_reviewed"
+    },
+    {
+      "id": "stanford-cs103-induction",
+      "subject": "discrete",
+      "university": "Stanford",
+      "course": "CS103 Mathematical Foundations of Computing — Guide to Induction",
+      "url": "https://web.stanford.edu/class/archive/cs/cs103/cs103.1252/guide_to_induction",
+      "evidence": "https://web.stanford.edu/class/archive/cs/cs103/cs103.1252/induction_checklist",
+      "topics": [
+        "d_induction"
+      ],
+      "advantage": "Exact predicate, base, step, and multiple-base proof-writing diagnostics.",
+      "limit": "The public induction guide and checklist were reviewed; not all lectures or exercises were reviewed.",
+      "access": "handout_html",
+      "reviewLevel": "relevant_guides_reviewed"
+    },
+    {
+      "id": "berkeley-cs70-2024-induction",
+      "subject": "discrete",
+      "university": "UC Berkeley",
+      "course": "CS70 Discrete Mathematics and Probability Theory — Summer 2024 Notes 3–4",
+      "url": "https://su24.eecs70.org/",
+      "evidence": "https://su24.eecs70.org/assets/pdf/notes/n3.pdf",
+      "topics": [
+        "d_induction"
+      ],
+      "advantage": "Strong induction, slack in inequalities, 4/5 representation, and well-ordering in Note 4.",
+      "limit": "The relevant induction and well-ordering portions of Notes 3–4 were read, not all CS70 materials.",
+      "access": "note_pdf",
+      "reviewLevel": "relevant_sections_reviewed"
+    },
+    {
+      "id": "cornell-cs2800-2015-induction",
+      "subject": "discrete",
+      "university": "Cornell",
+      "course": "CS2800 A Course in Discrete Structures — Pass and Tseng (2015)",
+      "url": "https://courses.cs.cornell.edu/cs2800/2015fa/",
+      "evidence": "https://courses.cs.cornell.edu/cs2800/2015fa/handouts/pass_tseng_discmath.pdf",
+      "topics": [
+        "d_induction"
+      ],
+      "advantage": "Induction across sets, graph paths, recurrences, multiple bases, and strengthened predicates.",
+      "limit": "Only Chapter 2 §2.3 was reviewed for induction; one apparent displayed typo was not copied.",
+      "access": "textbook_pdf",
+      "reviewLevel": "relevant_sections_reviewed"
+    },
+    {
+      "id": "eth-dm24-induction",
+      "subject": "discrete",
+      "university": "ETH Zurich",
+      "course": "Diskrete Mathematik — Ueli Maurer (Autumn 2024)",
+      "url": "https://crypto.ethz.ch/teaching/DM24/",
+      "evidence": "https://crypto.ethz.ch/teaching/DM24/ln/DM24_LN.pdf",
+      "topics": [
+        "d_induction"
+      ],
+      "advantage": "Formal induction axiom, index shift, and geometric series check.",
+      "limit": "Section 2.6.10 was reviewed; this shorter section is a formal cross-check, not the sole source.",
+      "access": "lecture_notes_pdf",
+      "reviewLevel": "relevant_section_reviewed"
     }
   ]
 }

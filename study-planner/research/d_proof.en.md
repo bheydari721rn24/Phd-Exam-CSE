@@ -1,6 +1,6 @@
 # Direct Proof, Contradiction, and Counterexamples
 
-**Discrete Mathematics · Chapter 3 · review draft**
+**Discrete Mathematics · Chapter 3 · student-approved English edition**
 
 This chapter teaches how to turn an exact claim into a valid proof or refutation. It assumes the truth conditions for implication and quantifiers from Chapter 1 and the definitions of sets from Chapter 2. Its boundary includes direct proof, contrapositive, contradiction, cases, two-direction equivalence, witnesses, uniqueness, counterexamples, and diagnosis of invalid arguments. Induction and well-ordering belong to the next chapter. Number-theoretic examples here serve proof technique; they do not replace a later number-theory course. Read the teaching sections before the compact final review: the final review is a recall aid, not the lesson.
 

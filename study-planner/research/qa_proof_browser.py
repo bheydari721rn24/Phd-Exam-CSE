@@ -9,6 +9,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import threading
 import time
@@ -19,7 +20,9 @@ import websocket
 
 ROOT = Path(__file__).resolve().parents[1]
 EDGE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
-OUT = Path(tempfile.gettempdir()) / "d_proof_qa"
+CHAPTER = sys.argv[1] if len(sys.argv) > 1 else "d_proof"
+assert CHAPTER in {"d_proof", "d_induction"}
+OUT = Path(tempfile.gettempdir()) / f"{CHAPTER}_qa"
 OUT.mkdir(exist_ok=True)
 server = ThreadingHTTPServer(("127.0.0.1", 0), partial(SimpleHTTPRequestHandler, directory=str(ROOT / "dist")))
 threading.Thread(target=server.serve_forever, daemon=True).start()
@@ -57,7 +60,7 @@ try:
     cdp("Emulation.setDeviceMetricsOverride", {
         "width": 390, "height": 844, "deviceScaleFactor": 1, "mobile": True,
     })
-    cdp("Page.navigate", {"url": f"http://127.0.0.1:{server.server_port}/chapters/d_proof.html"})
+    cdp("Page.navigate", {"url": f"http://127.0.0.1:{server.server_port}/chapters/{CHAPTER}.html"})
     time.sleep(1.5)
     metrics = cdp("Runtime.evaluate", {"expression": """JSON.stringify({width:innerWidth,scroll:document.documentElement.scrollWidth,fontReady:document.fonts.status,bodyFont:getComputedStyle(document.body).fontFamily,headingFont:getComputedStyle(document.querySelector('.hero h1')).fontFamily,mathFont:getComputedStyle(document.querySelector('.formula-block')).fontFamily,problems:document.querySelectorAll('h3').length})""", "returnByValue": True})["result"]["value"]
     print(metrics)
@@ -76,9 +79,9 @@ try:
     cdp("Emulation.setEmulatedMedia", {"media": "screen"})
     cdp("Page.navigate", {"url": f"http://127.0.0.1:{server.server_port}/index.html#library"})
     time.sleep(1.0)
-    library = cdp("Runtime.evaluate", {"expression": """JSON.stringify({proof:!!document.querySelector('a[href="chapters/d_proof.html"]'),setsReady:document.getElementById('library')?.textContent.includes('Sets and set operations')})""", "returnByValue": True})["result"]["value"]
+    library = cdp("Runtime.evaluate", {"expression": f"""JSON.stringify({{chapter:!!document.querySelector('a[href="chapters/{CHAPTER}.html"]'),setsReady:document.getElementById('library')?.textContent.includes('Sets and set operations')}})""", "returnByValue": True})["result"]["value"]
     print(library)
-    assert json.loads(library)["proof"] and json.loads(library)["setsReady"]
+    assert json.loads(library)["chapter"] and json.loads(library)["setsReady"]
     ws.close()
 finally:
     process.terminate()

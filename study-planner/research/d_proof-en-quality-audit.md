@@ -1,6 +1,6 @@
 # Proof chapter review draft: quality audit
 
-Date: 2026-09-29. Status: awaiting explicit student approval; not `ready`.
+Date: 2026-09-29. Status: explicitly approved by the student; `ready`.
 
 ## Source and teaching coverage
 

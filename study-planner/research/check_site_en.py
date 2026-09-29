@@ -53,8 +53,10 @@ assert sum(block["hours"] for day in daily["days"] for block in day["blocks"] if
 assert lessons[0]["chapters"][0]["status"] == "ready"
 assert lessons[0]["chapters"][1]["status"] == "ready"
 assert lessons[0]["chapters"][1]["url"] == "chapters/d_sets.html"
-assert lessons[0]["chapters"][2]["status"] == "draft"
+assert lessons[0]["chapters"][2]["status"] == "ready"
 assert lessons[0]["chapters"][2]["url"] == "chapters/d_proof.html"
+assert lessons[0]["chapters"][3]["status"] == "draft"
+assert lessons[0]["chapters"][3]["url"] == "chapters/d_induction.html"
 for font_name in ("newsreader-latin.woff2", "source-sans-3-latin.woff2", "stix-two-math.woff2"):
     font_path = ROOT / "fonts" / font_name
     assert font_path.is_file() and font_path.read_bytes()[:4] == b"wOF2", font_path
