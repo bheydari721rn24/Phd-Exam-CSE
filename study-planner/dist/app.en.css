@@ -1,16 +1,19 @@
-:root{font-family:"Aptos","Segoe UI",Arial,sans-serif;color:#172a3a;background:#f6f8fb;font-size:16px}
+@font-face{font-family:"Source Sans 3";src:url("fonts/source-sans-3-latin.woff2") format("woff2");font-style:normal;font-weight:300 700;font-display:swap}
+@font-face{font-family:"Newsreader";src:url("fonts/newsreader-latin.woff2") format("woff2");font-style:normal;font-weight:300 600;font-display:swap}
+@font-face{font-family:"STIX Two Math";src:url("fonts/stix-two-math.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+:root{font-family:"Source Sans 3","STIX Two Math",sans-serif;color:#233142;background:#f5f7f8;font-size:17px}
 *{box-sizing:border-box}body{margin:0;line-height:1.55}button,input{font:inherit}button{cursor:pointer}
 a{color:#235b87;text-decoration:none!important}a:hover{text-decoration:none!important;color:#123f62}
 .shell{max-width:1260px;margin:auto;padding:28px 22px 54px}
 .masthead{display:flex;justify-content:space-between;gap:28px;align-items:flex-end;padding:28px 30px 26px;background:#e9f1f6;border:1px solid #d2e0e9;border-radius:20px}
-.masthead h1{font-size:clamp(2rem,4vw,3.15rem);font-weight:440;letter-spacing:-.045em;line-height:1.08;margin:8px 0 10px}
+.masthead h1{font-family:"Newsreader","STIX Two Math",serif;font-size:clamp(2.2rem,4.4vw,3.55rem);font-weight:410;letter-spacing:-.027em;line-height:1.12;margin:8px 0 10px}
 .subtitle{font-size:1.08rem;max-width:710px;margin:0;color:#496174}
 .eyebrow{margin:0;color:#577188;text-transform:uppercase;font-size:.74rem;font-weight:700;letter-spacing:.11em}
 .masthead-fact{text-align:right;white-space:nowrap}.masthead-fact strong{display:block;font-size:2.1rem;line-height:1.1;font-weight:550}.masthead-fact span{font-size:.83rem;color:#5d7182}
 .tabs{display:flex;gap:8px;overflow-x:auto;padding:18px 0 22px}.tabs button{border:1px solid #d2dee8;background:#fff;border-radius:999px;padding:9px 17px;color:#38536a;white-space:nowrap}.tabs button.active{background:#173c59;color:#fff;border-color:#173c59}
 .view[hidden]{display:none}
 .card{background:#fff;border:1px solid #dae3ea;border-radius:16px;padding:25px 28px;margin-bottom:18px;box-shadow:0 4px 18px #112d4507}
-.card h2{font-size:1.38rem;font-weight:540;letter-spacing:-.02em;line-height:1.25;margin:0 0 10px}.card h3{font-size:1.09rem;font-weight:570;margin:0 0 8px}.card p{margin:8px 0 12px;color:#40566a}
+.card h2{font-family:"Newsreader","STIX Two Math",serif;font-size:1.68rem;font-weight:450;letter-spacing:-.012em;line-height:1.25;margin:0 0 10px}.card h3{font-family:"Newsreader","STIX Two Math",serif;font-size:1.3rem;font-weight:480;margin:0 0 8px}.card p{margin:8px 0 12px;color:#40566a}
 .muted{color:#65788a!important}.lead{font-size:1.12rem;max-width:74ch}
 .status{display:inline-block;border-radius:999px;background:#e8f4ed;color:#20583e;padding:4px 11px;font-size:.79rem;font-weight:650}.status.draft{background:#fff4e4;color:#855314}
 .actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0 4px}.actions a,.actions button,.file-button,.chapter-link{display:inline-flex;align-items:center;justify-content:center;border:1px solid #9eb9cc;border-radius:9px;background:#fff;padding:9px 13px;color:#194864;font-weight:550}.actions .primary,.chapter-link.primary{background:#174e73;color:#fff;border-color:#174e73}.file-button input{display:none}

@@ -1,20 +1,24 @@
-:root{font-family:"Aptos","Segoe UI",Arial,sans-serif;color:#182c3d;background:#f5f8fa;font-size:16px}
-*{box-sizing:border-box}body{margin:0;line-height:1.64}
+@font-face{font-family:"Source Sans 3";src:url("../fonts/source-sans-3-latin.woff2") format("woff2");font-style:normal;font-weight:300 700;font-display:swap}
+@font-face{font-family:"Newsreader";src:url("../fonts/newsreader-latin.woff2") format("woff2");font-style:normal;font-weight:300 600;font-display:swap}
+@font-face{font-family:"STIX Two Math";src:url("../fonts/stix-two-math.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+:root{font-family:"Source Sans 3","STIX Two Math",sans-serif;color:#233142;background:#f5f7f8;font-size:17px}
+*{box-sizing:border-box}body{margin:0;line-height:1.65;font-weight:400}
 a{color:#215d85;text-decoration:none!important}a:hover{color:#154565;text-decoration:none!important}
 .chapter{max-width:1020px;margin:auto;padding:22px 24px 70px}.top-link{font-size:.86rem;margin:6px 0 16px}
 .hero{padding:36px 42px;background:linear-gradient(120deg,#e6f1f5,#fbfdfe);border:1px solid #d3e4eb;border-radius:18px}
-.hero h1{font-size:clamp(2rem,4.5vw,3.25rem);line-height:1.1;letter-spacing:-.04em;font-weight:450;margin:8px 0 14px}
+.hero h1{font-family:"Newsreader","STIX Two Math",serif;font-size:clamp(2.3rem,5vw,3.7rem);line-height:1.12;letter-spacing:-.028em;font-weight:410;margin:8px 0 14px}
 .hero p:last-child{margin:0;color:#526e81}.eyebrow{text-transform:uppercase;letter-spacing:.11em;font-size:.76rem;font-weight:700;color:#58788a}
 .toc{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.toc a{border:1px solid #cfdee8;border-radius:8px;background:#fff;padding:6px 10px;font-size:.86rem}
 .lesson{background:#fff;border:1px solid #d8e4ea;border-radius:14px;padding:38px 46px;box-shadow:0 4px 22px #15344b08}
-.lesson h1{display:none}.lesson h2{font-size:1.68rem;font-weight:530;letter-spacing:-.025em;line-height:1.22;margin:45px 0 15px;padding-top:15px;border-top:1px solid #e5edf2}.lesson h2:first-of-type{margin-top:22px}.lesson h3{font-size:1.25rem;font-weight:580;line-height:1.28;margin:30px 0 10px}.lesson p{margin:11px 0 15px;max-width:85ch}.lesson li{margin:7px 0}.lesson ol,.lesson ul{padding-left:26px}
+.lesson h1{display:none}.lesson h2{font-family:"Newsreader","STIX Two Math",serif;font-size:2rem;font-weight:430;letter-spacing:-.018em;line-height:1.2;margin:45px 0 15px;padding-top:15px;border-top:1px solid #e5edf2}.lesson h2:first-of-type{margin-top:22px}.lesson h3{font-family:"Newsreader","STIX Two Math",serif;font-size:1.48rem;font-weight:480;line-height:1.24;margin:30px 0 10px}.lesson p{margin:11px 0 15px;max-width:82ch}.lesson li{margin:7px 0}.lesson ol,.lesson ul{padding-left:26px}
+.lesson strong{font-weight:620}
 .lesson table,.lab table{border-collapse:collapse;width:100%;margin:18px 0;font-size:.91rem;display:block;overflow-x:auto}.lesson th,.lesson td,.lab th,.lab td{border:1px solid #c6d8e2;padding:8px 10px;vertical-align:top}.lesson th,.lab th{background:#eef5f8;text-align:left}
-.formula-block{font-family:"Cambria Math","Segoe UI Symbol",serif;font-size:1.1rem;background:#f0f6f9;border-left:3px solid #71a6c1;padding:13px 18px;border-radius:5px;overflow-x:auto;white-space:nowrap;margin:16px 0}
+.formula-block{font-family:"STIX Two Math",serif;font-size:1.13rem;background:#f0f6f9;border-left:3px solid #71a6c1;padding:13px 18px;border-radius:5px;overflow-x:auto;white-space:nowrap;margin:16px 0}
 .lesson h3[id^="problem"],.lesson h3:has(+p strong){break-after:avoid}
 .lesson h3:has(+p strong){border-top:1px solid #e0ebef;padding-top:20px}
 .lesson blockquote{border-left:3px solid #9ebccb;margin-left:0;padding-left:15px;color:#4c6576}
 .lab{background:#edf6f9;border:1px solid #b9d6e1;border-radius:10px;padding:18px 20px;margin:20px 0}.lab label{font-weight:600}.lab select{font:inherit;margin-left:12px;border:1px solid #9cbdca;border-radius:6px;padding:5px 8px;background:#fff}
 .logic-diagram{margin:18px 0;text-align:center}.logic-diagram svg{display:block;max-width:100%;height:auto}.logic-diagram figcaption{font-size:.82rem;color:#60788b;margin-top:4px}
 .lesson a{overflow-wrap:anywhere}
-@media(max-width:650px){.chapter{padding:10px}.hero{padding:25px}.lesson{padding:22px}.lesson h2{font-size:1.43rem}.formula-block{font-size:.94rem}.lab select{display:block;margin:9px 0 0}.toc{gap:5px}}
+@media(max-width:650px){.chapter{padding:10px}.hero{padding:25px}.lesson{padding:22px}.lesson h2{font-size:1.73rem}.lesson h3{font-size:1.35rem}.formula-block{font-size:1rem}.lab select{display:block;margin:9px 0 0}.toc{gap:5px}}
 @media print{@page{size:A4;margin:17mm 16mm}body{background:#fff;color:#111}.chapter{max-width:none;padding:0}.hero,.lesson{border:0;border-radius:0;box-shadow:none;padding:0}.hero{margin-bottom:9mm}.lesson{font-size:.94rem;line-height:1.52}.top-link,.toc,.lab label,.lab select{display:none}.lesson h2{break-after:avoid}.lesson h3{break-after:avoid}.lesson p,.lesson li{orphans:3;widows:3}.lesson table,.lab table{display:table;overflow:visible}.lesson tr{break-inside:avoid}.formula-block{break-inside:avoid}.lab{break-inside:auto}}

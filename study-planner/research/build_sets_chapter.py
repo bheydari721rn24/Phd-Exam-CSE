@@ -29,6 +29,19 @@ def heading_id(match: re.Match[str]) -> str:
 
 body = re.sub(r"<h2>(.*?)</h2>", heading_id, body)
 assert index == len(anchors)
+
+# Ordinary HTML text does not provide TeX's automatic binary-operator spacing.
+# Add a stable thin space around set and logic operators in text nodes only;
+# attributes, links, and the script remain untouched.
+math_operators = "∈∉⊆⊊∪∩△∖×=⇔↔→"
+thin = "\u2009"
+parts = re.split(r"(<[^>]+>)", body)
+for i in range(0, len(parts), 2):
+    chunk = parts[i]
+    chunk = re.sub(rf"(?<![\s{thin}])([{math_operators}])", thin + r"\1", chunk)
+    chunk = re.sub(rf"([{math_operators}])(?![\s{thin}])", r"\1" + thin, chunk)
+    parts[i] = chunk
+body = "".join(parts)
 nav = " ".join(f'<a href="#{anchor}">{label}</a>' for anchor, label in zip(anchors, labels))
 
 html = f'''<!doctype html>

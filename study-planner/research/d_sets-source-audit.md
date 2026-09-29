@@ -48,3 +48,8 @@ The set chapter does not need separate Oxford or ETH sources to fill an identifi
 | Product coordinate proof and empty-factor exception | §4.2 | 12 | §6.2 product rows |
 | Power-set intersection/union and mixed-subset witness | §4.3 | 13, 14, 16, 19 | §6.2 power-set rows |
 | Finite overlap and consistency check | §4.3 | 15 | §6.3 region-counting note |
+| Difference/intersection inclusion equivalences and nested difference | §§3.2–3.3 | 4, 18 | §6.4 patterns 1–3, with proofs and counterexamples |
+| Symmetric-difference locality and cancellation | §3.2 | 8, 9, 20 | §6.4 patterns 4–5; §6.6 pattern 13 |
+| Product equality, product differences, and empty-factor limits | §4.2 | 12 | §6.4 pattern 6; §6.5 patterns 7–8 |
+| Mixed power-set subsets and power-set difference | §4.3 | 13, 16, 19 | §6.5 patterns 9–10; §6.6 patterns 14 and 16 |
+| Finite-model counterexample search and size inference | §§3.1, 4.3 | 15, 20 | §6.5 patterns 11–12; §6.6 pattern 15 |

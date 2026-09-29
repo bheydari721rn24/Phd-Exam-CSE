@@ -287,6 +287,72 @@ This section condenses the already taught material into a usable solving procedu
 - **The two-set four-region decomposition prevents double counting.** Count A∖B, A∩B, B∖A, and outside separately. For three sets, construct seven internal region counts and check all are nonnegative before trusting given totals.
 - **No single finite checklist ensures every future question can be answered.** The useful standard is to derive each claim from definitions, check the boundary cases, and correct a discovered gap when practice exposes it.
 
+### 6.4 Exact equivalences worth recognizing immediately
+
+Each equivalence below gives both a fast way to solve a hard-looking condition and a way to check that no hidden assumption was introduced. The displayed statements hold for arbitrary sets unless finiteness or a universe is explicitly required.
+
+**1. A difference inclusion is a union inclusion.** The equivalence
+
+<div class="formula-block">A∖B ⊆ C &nbsp;⇔&nbsp; A ⊆ B∪C</div>
+
+follows by considering any x∈A. Either x∈B, which places x in B∪C immediately, or x∉B, in which case x∈A∖B and the left condition forces x∈C. Conversely, if x∈A∖B and A⊆B∪C, the alternative x∈B is impossible, so x∈C. **Use:** when a problem says “everything in A outside B belongs to C,” write A⊆B∪C. **Trap:** replacing B∪C with B∩C would demand both properties and is too strong. For A={1}, B={1}, C=∅, the original inclusion is true while A⊆B∩C is false.
+
+**2. An intersection inclusion is an implication.** Under a fixed U,
+
+<div class="formula-block">A∩B ⊆ C &nbsp;⇔&nbsp; A ⊆ B<sup>c</sup>∪C.</div>
+
+If x∈A and x∈B, the left condition gives x∈C; if x∈A but x∉B, then x∈B<sup>c</sup>. These are all possibilities. In Boolean form it is (p∧q)→r, equivalent to p→(¬q∨r). **Trap:** complement belongs to B, not A; and B<sup>c</sup> must be relative to U.
+
+**3. A nested difference has a surprising plus term.** For all sets,
+
+<div class="formula-block">A∖(B∖C) = (A∖B)∪(A∩C).</div>
+
+Indeed, x is on the left iff x∈A and not(x∈B and x∉C), iff x∈A and (x∉B or x∈C). Distribution gives the right side. **Trap:** A∖(B∖C) is generally not (A∖B)∖C. Take A=B=C={1}: the former is {1}, while the latter is ∅. The rule “subtract B, then subtract C” silently changes the parentheses.
+
+**4. Equal outside a region means symmetric difference is inside it.** For any C,
+
+<div class="formula-block">A△B ⊆ C &nbsp;⇔&nbsp; A∖C = B∖C.</div>
+
+Proof: outside C, membership in A△B must be false precisely when A and B have the same membership bit. That is the elementwise equality of A∖C and B∖C. **Use:** if two sets may disagree only inside a designated error region C, encode the statement as A△B⊆C. **Trap:** equality inside C is not required; A={1}, B=∅, C={1} satisfies the condition despite A≠B.
+
+**5. Symmetric difference cancels; union does not.** If A△B=A△C, apply △A to both sides. Associativity and A△A=∅ give B=C. By contrast, A∪B=A∪C allows B and C to disagree on elements already in A. For A={1}, B=∅, C={1}, both unions equal {1} while B≠C. **Use:** identify the operator before attempting cancellation. Difference also lacks unrestricted cancellation, as Problem 18 showed.
+
+**6. Product equality reveals factors only when the product exists.** If A×B=C×D≠∅, then A=C and B=D. Since B is nonempty, choose b∈B; each a∈A gives (a,b)∈C×D and thus a∈C. The common product is nonempty, so D is nonempty too; reverse the argument for C⊆A, and then use witnesses for B=D. If the common product is empty, the conclusion can fail: {1}×∅=∅×{2}=∅. **Trap:** a proof that projects an empty product has no pair to project.
+
+### 6.5 High-value transformation and counterexample patterns
+
+**7. Difference of products splits into two coordinate failures.** Expand the ordered-pair test to obtain
+
+<div class="formula-block">(A×B)∖(C×D) = ((A∖C)×B) ∪ (A×(B∖D)).</div>
+
+The left side requires a∈A, b∈B, and not(a∈C and b∈D). Therefore either a∉C or b∉D; the two terms record those failures. **Trap:** the terms can overlap if both failures occur, so their cardinalities cannot simply be added. For A=B={1}, C=D=∅, both terms contain (1,1) but the union contains it once.
+
+**8. A product distributes over a difference only in the varied factor.** The valid law A×(B∖C)=(A×B)∖(A×C) follows because a pair is retained exactly when a∈A, b∈B, and b∉C. It remains valid when A=∅: both sides are ∅. **Trap:** the formula (A×B)∖(C×D)=(A∖C)×(B∖D) is false; a pair survives when **at least one** coordinate test fails, not only when both fail. For A=B={1}, C={1}, D=∅, the left side is {(1,1)} while the proposed right side is ∅.
+
+**9. A union of power sets misses mixed subsets.** P(A)∪P(B)⊆P(A∪B) always. Equality holds exactly when A⊆B or B⊆A, proved in Problem 19. To reject equality quickly when sets are incomparable, choose a∈A∖B and b∈B∖A; {a,b} lies in the larger power set and neither smaller one. **Trap:** choosing only singleton subsets will miss the failure, because {a} and {b} each belong to one smaller power set.
+
+**10. Power set does not turn difference into difference of power sets.** Compare P(A∖B) with P(A)∖P(B). The empty set is always in P(A∖B), but ∅ is also in P(B) and therefore never in P(A)∖P(B). Hence these sets are **never equal**, for any A and B. This one witness is stronger than a single numerical counterexample. Also, P(A)∖P(B) consists of subsets of A that contain at least one element outside B; it need not contain only elements outside B.
+
+**11. A one-element universe is a complete search for pure three-set identities.** If an expression is built only from A, B, C using ∪, ∩, ∖, △, and complement relative to U, membership of any fixed x depends only on three bits p,q,r. Eight rows exhaust all possibilities. An inequality in a row gives a counterexample by taking U={x} and placing x in exactly the sets marked 1. **Trap:** this method does not automatically settle statements about cardinality, order, or quantified families; those require their own semantics. Problem 20 shows why a candidate row must actually be evaluated on both sides before being called a counterexample.
+
+**12. Equal size plus containment is powerful only for finite sets.** If A⊆B and both are finite with |A|=|B|, then B∖A must be empty and A=B. Without the containment, A={1} and B={2} have equal size but differ. For infinite sets, ℕ⊊ℤ yet both can be enumerated: ℤ in the order 0,1,−1,2,−2,… assigns one integer to each natural-number index. Thus the finite inference cannot be exported to arbitrary infinite sets. **Use:** check the word “finite” before invoking a size argument.
+
+### 6.6 Fast quantitative checks
+
+**13. Symmetric-difference size measures disagreement.** For finite A and B, the disjoint pieces A∖B and B∖A yield
+
+<div class="formula-block">|A△B| = |A|+|B|−2|A∩B|.</div>
+
+If A=B, the right side is zero. If A∩B=∅, it is |A|+|B|. A purported answer outside the range 0≤|A△B|≤|A|+|B| reveals an arithmetic or overlap error. **Trap:** subtracting only one copy of |A∩B| computes |A∪B|, not |A△B|.
+
+**14. Shared subsets are controlled by the intersection.** For finite A,B, P(A)∩P(B)=P(A∩B), hence |P(A)∩P(B)|=2<sup>|A∩B|</sup>. If A and B are disjoint, this intersection is {∅} and has size **one**, not zero. **Use:** convert a question about common subsets into an ordinary intersection first; count only after identifying the exact set.
+
+**15. Counting three overlapping sets can be audited region by region.** Start at the center t=|A∩B∩C|. Subtract t from each pairwise intersection to obtain the three exactly-two regions. Subtract these and t from each individual set size to obtain the three exactly-one regions. The seven region counts must be nonnegative integers; their sum must equal the inclusion–exclusion total. **Trap:** if any region becomes negative, the input numbers cannot describe actual finite sets, even if direct substitution into the inclusion–exclusion formula produces a number.
+
+**16. A power set of a finite set cannot be confused with the set itself by size.** If |A|=n, then |P(A)|=2<sup>n</sup>. The two sizes are never equal for finite n≥0: at n=0 they are 0 and 1, and for n≥1, 2<sup>n</sup>&gt;n. This is only a finite observation; the stronger theorem that no set is equinumerous with its power set is beyond this chapter's finite-counting proof. **Trap:** P(∅)={∅}, not ∅.
+
+The fastest reliable solution still ends with a definition check. Each compact identity above has a stated domain, a reason it holds, and a failure pattern for a tempting alternative. Memorizing its shape without those conditions is likely to fail precisely on a difficult question.
+
 ## 7. Visual set laboratory
 
 The controls below assign one hypothetical element x to each of A, B, and C. The outputs show the membership of x in four compound expressions. Change one bit at a time to see why a proposed identity may fail. This lab checks the eight Boolean membership patterns; it does not by itself prove a claim about arbitrary sets unless the claimed expression depends only on these membership conditions and all patterns have been logically accounted for.
