@@ -1,6 +1,6 @@
 # Sets chapter: English draft quality review
 
-Revised on 2026-09-29 after the student rejected the first draft for weak final notes and poor fonts. This remains a review draft awaiting explicit approval, not a ready chapter.
+Revised on 2026-09-29 after the student rejected the first draft for weak final notes and poor fonts. The student explicitly approved this revised chapter on 2026-09-29; it is ready in the library.
 
 ## Source and pedagogy
 
@@ -12,7 +12,7 @@ Revised on 2026-09-29 after the student rejected the first draft for weak final 
 ## Verification performed
 
 - `research/verify_d_sets_en.py`: 20 sequential problems; English-only manuscript and output; balanced table columns; exhaustive checks over all subsets of a three-element universe for the principal identities, power-set characterization, finite counting formulas, and the displayed counterexample.
-- `research/check_site_en.py`: all local links, English-only study assets, approved d_logic status, draft d_sets link, IELTS stage and hour consistency.
+- `research/check_site_en.py`: all local links, English-only study assets, approved d_logic and d_sets statuses, IELTS stage and hour consistency.
 - `node --check dist/app.en.js`: no syntax error.
 - Edge browser: desktop chapter and app views inspected; CDP-emulated 390-pixel mobile app and chapter views inspected. The chapter and app document widths equaled their mobile viewport widths. Local HTTP requests for all three bundled font files returned 200.
 - Edge A4 print of the revised chapter: 20 nonblank pages; all 20 problem headings and all three new review subsections present in extracted text. Pages with the expanded equivalences and product counterexamples were visually inspected. Print stylesheet hides input controls while retaining the model output.

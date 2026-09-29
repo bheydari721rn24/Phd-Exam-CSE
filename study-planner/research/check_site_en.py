@@ -51,8 +51,10 @@ assert len(plan["ielts"]["stages"]) == len(plan["weeks"]) == 11
 assert all(len(stage) == 4 for stage in plan["ielts"]["stages"])
 assert sum(block["hours"] for day in daily["days"] for block in day["blocks"] if block.get("subject") == "english") == 4
 assert lessons[0]["chapters"][0]["status"] == "ready"
-assert lessons[0]["chapters"][1]["status"] == "draft"
+assert lessons[0]["chapters"][1]["status"] == "ready"
 assert lessons[0]["chapters"][1]["url"] == "chapters/d_sets.html"
+assert lessons[0]["chapters"][2]["status"] == "draft"
+assert lessons[0]["chapters"][2]["url"] == "chapters/d_proof.html"
 for font_name in ("newsreader-latin.woff2", "source-sans-3-latin.woff2", "stix-two-math.woff2"):
     font_path = ROOT / "fonts" / font_name
     assert font_path.is_file() and font_path.read_bytes()[:4] == b"wOF2", font_path

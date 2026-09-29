@@ -59,7 +59,7 @@ html = f'''<!doctype html>
   <header class="hero">
     <p class="eyebrow">Discrete Mathematics · Chapter 2</p>
     <h1>Sets and Set Operations</h1>
-    <p>Review draft · four principal university courses and one supplemental text · 20 fully worked problems</p>
+    <p>Student-approved chapter · four principal university courses and one supplemental text · 20 fully worked problems</p>
   </header>
   <nav class="toc" aria-label="Chapter contents">{nav}</nav>
   <article class="lesson">{body}</article>

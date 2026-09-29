@@ -1,6 +1,6 @@
 # English study typography
 
-The plan and both English chapters use the same locally hosted font files. This avoids dependence on fonts installed on the student's machine and keeps the appearance stable when the site is opened on another device.
+The plan and all English chapters use the same locally hosted font files. This avoids dependence on fonts installed on the student's machine and keeps the appearance stable when the site is opened on another device.
 
 | Role | Font | Local asset | Source and license |
 | --- | --- | --- | --- |

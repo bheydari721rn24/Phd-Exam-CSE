@@ -1,6 +1,6 @@
 # Sets and Set Operations
 
-**Discrete Mathematics · Chapter 2 · English review draft**
+**Discrete Mathematics · Chapter 2 · student-approved English edition**
 
 The prerequisites are the meaning of a proposition, quantifiers, and the basic equivalence laws from Chapter 1. This chapter covers extensional sets, membership and containment, finite and indexed set operations, power sets, products, finite cardinality, and the proof methods that connect them. Relations, functions, systematic counting, and induction are separate chapters. The worked bank is deliberately extensive: a difficult set question usually fails at an exact definition or boundary case, not at a missing formula.
 
