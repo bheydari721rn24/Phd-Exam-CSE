@@ -23,7 +23,7 @@ function firstWeek(id) {
 }
 function saveProgress() { localStorage.setItem(progressKey, JSON.stringify(completed)); }
 function showView(view, changeHash = true) {
-  const valid = ["today", "weeks", "lessons", "resources", "progress"];
+  const valid = ["today", "weeks", "lessons", "ielts", "resources", "progress"];
   const chosen = valid.includes(view) ? view : "today";
   document.querySelectorAll(".view").forEach(node => { node.hidden = node.id !== "view-" + chosen; });
   document.querySelectorAll(".tabs button").forEach(node => {
@@ -36,8 +36,9 @@ function showView(view, changeHash = true) {
 }
 function renderStart() {
   const current = plan.weeks[weekNow() - 1];
-  const ready = (lessons.find(item => item.week === current.number)?.chapters || [])
-    .find(chapter => chapter.status === "ready" && chapter.url);
+  const chapters = lessons.find(item => item.week === current.number)?.chapters || [];
+  const ready = chapters.find(chapter => chapter.status === "ready" && chapter.url);
+  const reviewDraft = chapters.find(chapter => chapter.status === "draft" && chapter.url);
   byId("start").innerHTML = `
     <section class="card">
       <p class="eyebrow">Begin with the reading plan</p>
@@ -46,6 +47,7 @@ function renderStart() {
       <div class="notice">Start the first reading on Saturday, October 3, 2026 (1405/07/11). Read each chapter and its worked examples before independent practice. We will use past entrance-exam booklets together in the final month.</div>
       <div class="actions">
         ${ready ? `<a class="primary" href="${escapeHtml(ready.url)}">Open the completed chapter: ${escapeHtml(ready.title)}</a>` : ""}
+        ${reviewDraft ? `<a href="${escapeHtml(reviewDraft.url)}">Review the chapter draft: ${escapeHtml(reviewDraft.title)}</a>` : ""}
         <button type="button" id="open-week">See this week's topics</button>
         <button type="button" id="open-library">Check chapter status</button>
       </div>
@@ -53,7 +55,7 @@ function renderStart() {
     <div class="quick-grid">
       <section class="card"><strong>${current.totalHours} hours</strong><span>net study time this week</span></section>
       <section class="card"><strong>${weekIds(current).length} chapters</strong><span>topic boundaries in this week</span></section>
-      <section class="card"><strong>4 hours</strong><span>technical English reading each week</span></section>
+      <section class="card"><strong>4 hours</strong><span>IELTS grammar, reading, and listening each week</span></section>
     </div>`;
   byId("open-week").onclick = () => { renderWeek(current.number); showView("weeks"); };
   byId("open-library").onclick = () => showView("lessons");
@@ -72,11 +74,11 @@ function renderDaily() {
     <h3>${escapeHtml(item.name)}, ${escapeHtml(item.date)} · ${total} net hours</h3>
     <ol class="blocks">${item.blocks.map(block => {
       const topic = block.topicId ? plan.topics[block.topicId] : null;
-      const subject = topic ? plan.subjects[topic.subject]?.title : "Technical English";
+      const subject = topic ? plan.subjects[topic.subject]?.title : "IELTS English";
       const chapter = block.topicId ? lessonFor(block.topicId) : null;
       return `<li><div class="block-meta"><span>${escapeHtml(subject)}</span><span>${block.hours} h</span></div>
-        <b>${escapeHtml(topic?.title || "Technical reading")}</b><p>${escapeHtml(block.task)}</p>
-        ${chapter?.status === "ready" && chapter.url ? `<a href="${escapeHtml(chapter.url)}">Open the chapter →</a>` : ""}</li>`;
+        <b>${escapeHtml(topic?.title || "Grammar, reading, or listening")}</b><p>${escapeHtml(block.task)}</p>
+        ${chapter?.url ? `<a href="${escapeHtml(chapter.url)}">${chapter.status === "ready" ? "Open the chapter" : "Review draft"} →</a>` : ""}</li>`;
     }).join("")}</ol>`;
   byId("daily").querySelectorAll("[data-day]").forEach(button => button.onclick = () => {
     dayNumber = Number(button.dataset.day); renderDaily();
@@ -93,12 +95,12 @@ function renderWeek(number) {
     <p class="lead">${escapeHtml(week.focus)}</p>
     <p class="muted">${status.count} of ${status.total} chapters marked read. A checkmark records reading; it does not claim mastery.</p>
     <div class="unit-grid">${week.units.map(unit => {
-      const subject = plan.subjects[unit.subject]?.title || "Technical English";
+      const subject = plan.subjects[unit.subject]?.title || "IELTS English";
       return `<article class="unit"><div class="unit-top"><h3>${escapeHtml(subject)}</h3><b>${unit.hours} h</b></div>
         ${unit.topicIds.length ? `<ul class="topic-list">${unit.topicIds.map(id => {
           const chapter = lessonFor(id);
-          return `<li><input type="checkbox" id="read-${id}" data-topic="${id}" ${completed[id] ? "checked" : ""}><label for="read-${id}">${escapeHtml(plan.topics[id].title)}</label>${chapter?.status === "ready" && chapter.url ? `<a href="${escapeHtml(chapter.url)}">Read →</a>` : ""}</li>`;
-        }).join("")}</ul>` : "<p>Read a technical passage closely, noting definitions, assumptions, and new vocabulary in context.</p>"}</article>`;
+          return `<li><input type="checkbox" id="read-${id}" data-topic="${id}" ${completed[id] ? "checked" : ""}><label for="read-${id}">${escapeHtml(plan.topics[id].title)}</label>${chapter?.url ? `<a href="${escapeHtml(chapter.url)}">${chapter.status === "ready" ? "Read" : "Draft"} →</a>` : ""}</li>`;
+        }).join("")}</ul>` : `<p>${escapeHtml(plan.ielts.stages[number - 1][0])}: two grammar sessions, one reading session, and one listening session. Each session is 60 minutes. Advance after mastery, not by date. <a href="#ielts">See the IELTS pathway →</a></p>`}</article>`;
     }).join("")}</div>`;
   byId("week-detail").querySelectorAll("[data-topic]").forEach(box => box.onchange = () => {
     completed[box.dataset.topic] = box.checked;
@@ -138,7 +140,21 @@ function renderLibrary() {
       ${!ready.length && !drafted.length ? '<p>The first chapter is undergoing its English quality review. Its link will appear here when the review is complete.</p>' : ""}
     </div>
   </section>
-  <section class="card"><h2>What the status means</h2><p>The short weekly overview is an orientation aid, not a substitute for a chapter. An unfinished chapter remains a draft. Chapter production has no fixed hour or recurring deadline; only completed, reviewed chapters receive a ready label.</p></section>`;
+  <section class="card"><h2>What the status means</h2><p>The short weekly overview is an orientation aid, not a substitute for a chapter. A draft is open for the student's review but has not received explicit approval. A reviewed draft becomes ready only after that approval; only then does work begin on the next chapter.</p></section>`;
+}
+function renderIelts() {
+  const path = plan.ielts;
+  byId("ielts").innerHTML = `<section class="card"><p class="eyebrow">IELTS English · separate track</p><h2>Grammar, reading, and listening</h2>
+    <p>${escapeHtml(path.module)}. The timetable reserves at least ${path.weeklyMinimumHours} hours per week. Each of the four sessions below is planned for 60 minutes before the session begins.</p>
+    <p><b>Mastery gate.</b> ${escapeHtml(path.progressionRule)}</p>
+    <p class="muted">${escapeHtml(path.scopeNote)}</p></section>
+    <div class="unit-grid">${path.stages.map((stage, index) => `<section class="card"><p class="eyebrow">Stage ${index + 1} · provisional week ${index + 1}</p><h2>${escapeHtml(stage[0])}</h2>
+      <ol class="ielts-sessions"><li><b>Grammar foundation · 60 min.</b> ${escapeHtml(stage[1])}. Read the explanation and guided examples.</li>
+      <li><b>Reading · 60 min.</b> ${escapeHtml(stage[2])}. Locate textual evidence before answering.</li>
+      <li><b>Listening · 60 min.</b> ${escapeHtml(stage[3])}. Listen once, then use a transcript to explain errors.</li>
+      <li><b>Grammar application · 60 min.</b> Reconstruct the stage's sentence patterns, explain each choice, and repair errors.</li></ol>
+      <p class="muted">Move to the next stage only after the current lesson, guided check, and error review show understanding. If a lesson is still a draft, use this card as a plan rather than as the lesson itself.</p></section>`).join("")}</div>
+    <section class="card"><h2>Official IELTS format and practice</h2><p>These official references define the task types and provide later practice. They do not replace the step-by-step lessons.</p><ul>${path.officialSources.map(source => `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)} →</a></li>`).join("")}</ul></section>`;
 }
 function renderResources() {
   const list = courses?.courses || [];
@@ -203,7 +219,7 @@ async function start() {
     completed = Object.fromEntries(Object.entries(saved).filter(([id, value]) => value && plan.topics[id]));
     const requested = Number((location.hash.match(/^#week-(\d+)$/) || [])[1]);
     weekNumber = plan.weeks.some(item => item.number === requested) ? requested : weekNow();
-    renderStart(); renderDaily(); renderWeek(weekNumber); renderRoadmap(); renderLibrary();
+    renderStart(); renderDaily(); renderWeek(weekNumber); renderRoadmap(); renderLibrary(); renderIelts();
     renderResources(); renderMetrics(); renderStrategy();
     document.querySelectorAll(".tabs button").forEach(button => button.onclick = () => showView(button.dataset.view));
     byId("export").onclick = exportProgress;

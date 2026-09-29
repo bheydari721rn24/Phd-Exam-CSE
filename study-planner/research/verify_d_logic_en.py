@@ -8,7 +8,7 @@ import re
 
 
 chapter = (Path(__file__).resolve().parents[1] / "research" / "d_logic.en.md").read_text(encoding="utf-8")
-assert len(re.findall(r"^### Problem \d+ ", chapter, re.M)) == 10
+assert len(re.findall(r"^### Problem \d+ ", chapter, re.M)) == 14
 assert "Exams/" not in chapter
 assert not re.search(r"[\u0600-\u06ff]", chapter)
 
@@ -25,6 +25,22 @@ for p, q, r in rows:
     cnf = (p or q or r) and (not p or not q or r)
     assert f == dnf == cnf
     assert not ((p or q) and imp(p, r) and imp(q, r) and not r)
+    nand = lambda a, b: not (a and b)
+    assert nand(p, p) == (not p)
+    assert nand(nand(p, q), nand(p, q)) == (p and q)
+    assert nand(nand(p, p), nand(q, q)) == (p or q)
+    assert nand(p, nand(q, q)) == imp(p, q)
+    assert nand(p, nand(p, p))
+    assert not nand(nand(p, nand(p, p)), nand(p, nand(p, p)))
+    assert imp(imp(p, q) and (not q), not p)
+
+assert not imp(imp(False, True) and True, False)
+
+for colors in product((False, True), repeat=4):
+    columns = ((colors[0], colors[1]), (colors[2], colors[3]))
+    has_red_column = any(all(column) for column in columns)
+    every_selection_has_red = all(any(picks) for picks in product(*columns))
+    assert has_red_column == every_selection_has_red
 
 valid_outputs = []
 for assignment in product((False, True), repeat=8):
@@ -102,4 +118,4 @@ for a_bits in product((False, True), repeat=2):
         assert (all(a.values()) and b) == all(a[x] and b for x in domain)
         assert (any(a.values()) or b) == any(a[x] or b for x in domain)
 
-print("English logic chapter checks passed: truth-functional claims and finite-model checks for Problems 1–9, quantifier movement, and scope examples.")
+print("English logic chapter checks passed: truth-functional claims, finite-model checks, and the new NAND, inference, and pebble problems.")

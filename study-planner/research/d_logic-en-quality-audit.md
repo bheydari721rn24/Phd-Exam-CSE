@@ -33,12 +33,13 @@ The wider English course register contains 13 logic-related entries, including d
 | Inference rules and witness side conditions | Berkeley Note 1; CMU first-order slides | §4.5, Problems 3 and 8 |
 | Quantifier movement and nonempty-domain conditions | CMU first-order slides; MIT §1.3 | §§4.1, 4.6, Problem 6 |
 | Infinite-only models and finite-search limits | CMU first-order slides | §4.7 |
-| Fast recall and later timed-problem pitfalls | Synthesis of four selected sources | §6 compact review sheet |
+| Fast recall and later timed-problem pitfalls | Synthesis of four selected sources | §6 review sheet and 12-row decision checklist |
+| Course-derived reasoning exercises | MIT Problem Set 1 P3; Stanford HW4 P1; Berkeley Discussion 1B P2; CMU propositional slide 14 | Problems 11–14, independently worded and fully solved |
 
 ## Independent checks and limitations
 
-- The ten worked problems are original to the English edition. No archived Iranian master's or doctoral entrance-exam question, answer, option, or PDF link is included in the live chapter.
+- Problems 1–10 are original to the English edition; Problems 11–14 are independently worded adaptations of the cited university exercise types, with newly derived solutions. No archived Iranian master's or doctoral entrance-exam question, answer, option, or PDF link is included in the live chapter.
 - `verify_d_logic_en.py` exhaustively checks the stated propositional laws and solution counts over finite valuations; it checks finite-model forms of Problems 2, 5, 6, 8, and 9 and the quantifier-movement side conditions. These checks supplement, rather than replace, review of first-order proofs and capture-free substitution.
-- The English app and chapter were rendered on desktop and a narrow viewport. Six HTML pages have no missing local static links. The final Edge print contains 16 nonblank A4 pages, no Arabic-script text, and no replacement glyphs. The live `dist` directory contains English study-facing files only; earlier Persian inputs and exam-audit JSON files are retained under `research` rather than served by the site.
+- The expanded fourteen-problem edition was rendered in Edge at desktop and 600-pixel narrow widths. The six HTML pages passed local-link and English-script checks. Edge produced a 19-page A4 print with no blank pages or replacement glyphs in extracted text. A 390-pixel command-line capture was clipped by the browser window minimum; it was not counted as valid phone-width evidence. The chapter remains a review draft pending the student's explicit approval. The live `dist` directory contains English study-facing files only; earlier Persian inputs and exam-audit JSON files are retained under `research` rather than served by the site.
 - Source claims and access level are traceable to the prior detailed source audit and the original university links. A globally optimal course ranking and a literal 100% guarantee for unseen future questions cannot be proved. Identified errors or in-scope gaps are release blockers.
 - The legacy exam audits are retained as project history but are not used by the current chapter or app workflow. Entrance-exam booklet work is deferred until the final month.

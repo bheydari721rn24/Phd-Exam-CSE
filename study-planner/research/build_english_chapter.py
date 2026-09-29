@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 source = (ROOT / "research" / "d_logic.en.md").read_text(encoding="utf-8")
 assert not re.search(r"[\u0600-\u06ff]", source), "The English lesson contains Arabic-script text."
 assert not re.search(r"Exams/|entrance-exam question [0-9]+", source, flags=re.I)
-assert source.count("### Problem ") == 10
+assert source.count("### Problem ") == 14
 
 renderer = MarkdownIt("commonmark", {"html": True}).enable("table")
 body = renderer.render(source)
@@ -58,7 +58,7 @@ html = f"""<!doctype html>
   <header class="hero">
     <p class="eyebrow">Discrete Mathematics · Chapter 1</p>
     <h1>Propositions, Predicates, and Logical Equivalence</h1>
-    <p>English edition · four university course texts synthesized · ten original worked problems</p>
+    <p>Review draft · four university course texts synthesized · 14 fully worked problems</p>
   </header>
   <nav class="toc" aria-label="Chapter contents">{nav}</nav>
   <article class="lesson">{body}</article>

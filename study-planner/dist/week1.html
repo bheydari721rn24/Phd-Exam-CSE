@@ -4,7 +4,7 @@
 <body><main class="shell">
 <p><a href="index.html#week-1">← Back to the weekly plan</a></p>
 <header class="masthead"><div><p class="eyebrow">Orientation only · October 3–9, 2026</p><h1>Week 1 at a glance</h1><p class="subtitle">The first week's topic boundaries, study hours, and links to completed lessons.</p></div><div class="masthead-fact"><strong>56 h</strong><span>net study time</span></div></header>
-<section class="card"><h2>How to use this overview</h2><p>Read the topics in the scheduled order. Open a chapter only when its status is “ready”; this overview is a map, not a substitute for the full lesson. Study the definitions and worked examples first. Past entrance-exam booklets are reserved for joint study in the final month.</p></section>
+<section class="card"><h2>How to use this overview</h2><p>Read the topics in the scheduled order. Open a draft to review it, and use a chapter as a finished lesson once you have approved it. This overview is a map, not a substitute for the full lesson. The English allocation is for IELTS grammar, reading, and listening. Past entrance-exam booklets are reserved for joint study in the final month.</p></section>
 <section class="card"><h2>Subject allocation</h2><div id="allocation" class="unit-grid"></div></section>
 <section class="card"><h2>Full chapter status</h2><div id="chapter-status" class="library-grid"></div></section>
 <p><a href="index.html#week-1">← Back to the weekly plan</a></p>
@@ -12,9 +12,9 @@
 const esc=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 Promise.all([fetch("schedule.en.json").then(r=>r.json()),fetch("lessons.json").then(r=>r.json())]).then(([plan,lessons])=>{
  const week=plan.weeks[0], chapterMap=new Map((lessons.find(x=>x.week===1)?.chapters||[]).map(x=>[x.topicId,x]));
- document.getElementById("allocation").innerHTML=week.units.map(unit=>`<article class="unit"><div class="unit-top"><h3>${esc(plan.subjects[unit.subject]?.title||"Technical English")}</h3><b>${unit.hours} h</b></div><ol>${unit.topicIds.map(id=>`<li>${esc(plan.topics[id].title)}</li>`).join("")||"<li>Careful reading of a technical text</li>"}</ol></article>`).join("");
+ document.getElementById("allocation").innerHTML=week.units.map(unit=>`<article class="unit"><div class="unit-top"><h3>${esc(plan.subjects[unit.subject]?.title||"IELTS English")}</h3><b>${unit.hours} h</b></div><ol>${unit.topicIds.map(id=>`<li>${esc(plan.topics[id].title)}</li>`).join("")||"<li>Two 60-minute grammar sessions, one 60-minute reading session, and one 60-minute listening session. Advance after mastery.</li>"}</ol></article>`).join("");
  document.getElementById("chapter-status").innerHTML=week.units.flatMap(unit=>unit.topicIds).map(id=>{
-   const chapter=chapterMap.get(id);return `<article class="library-card"><span class="status ${chapter?.status==="ready"?"":"draft"}">${chapter?.status==="ready"?"Ready to study":"Not yet published"}</span><h3>${esc(plan.topics[id].title)}</h3>${chapter?.status==="ready"&&chapter.url?`<a class="chapter-link primary" href="${esc(chapter.url)}">Open chapter →</a>`:""}</article>`;
+   const chapter=chapterMap.get(id);return `<article class="library-card"><span class="status ${chapter?.status==="ready"?"":"draft"}">${chapter?.status==="ready"?"Ready to study":chapter?.url?"Draft for review":"Not yet published"}</span><h3>${esc(plan.topics[id].title)}</h3>${chapter?.url?`<a class="chapter-link ${chapter.status==="ready"?"primary":""}" href="${esc(chapter.url)}">${chapter.status==="ready"?"Open chapter":"Review draft"} →</a>`:""}</article>`;
  }).join("");
 }).catch(()=>document.getElementById("allocation").textContent="The schedule could not be loaded. Return to the main plan and refresh.");
 </script></body></html>

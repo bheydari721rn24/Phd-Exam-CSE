@@ -196,9 +196,9 @@ A finite truth table settles propositional validity because finitely many propos
 
 No finite nonempty domain satisfies all three: an injective self-map of a finite set is surjective. The natural numbers with R(x,y) iff y=x+1 do satisfy them: every x has one successor, successors are unique, and 0 has no predecessor. Thus checking every structure up to some finite size cannot establish universal nonexistence of a first-order model. This is a limitation of that finite search, not an instruction to use an infinite structure whenever an ordinary finite countermodel suffices.
 
-## 5. Ten original worked problems
+## 5. Fully worked problem bank
 
-The ten problems below are newly written for this edition. They test the same concepts taught in the chapter without revealing or paraphrasing archived entrance-exam questions. Each solution states the model, valuation, or rule that makes its conclusion valid.
+Problems 1–10 are original to this edition. Problems 11–14 are independently worded adaptations of specific, cited university exercises; their solutions are newly derived here. This bank samples the major reasoning patterns in the chapter without reproducing archived entrance-exam questions. Read each solution as another explanation of the underlying rule before using the problems for self-checking.
 
 ### Problem 1 — Count Boolean functions constrained by an implication
 
@@ -284,6 +284,38 @@ The existential part supplies a student solver. The universal part says every st
 
 **Solution.** Directly writing ∀y R(y,y) would let the old quantifier bind the inserted free y. Rename bound y to fresh z first: ∀y R(x,y) ≡α ∀z R(x,z). Capture-free substitution then gives **∀z R(y,z)**, where y remains free. For the second expression, simultaneous substitution reads the original positions before either replacement, producing **R(y,x)**. Sequentially replacing x and then y would instead produce R(x,x), a different result. State “simultaneous” or “sequential” before manipulating a substitution list.
 
+### Problem 11 — Build every basic connective from NAND
+
+**Source and adaptation.** MIT 6.042J, Problem Set 1, Problem 3, asks for NAND-based expressions. The variable names and presentation below are independent; the exercise type is attributed to the [original sheet](https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/52e4d5a499a39c41c129e1eb4e831e20_MIT6_042JF10_assn01.pdf).
+
+**Question.** Write ¬p, p∧q, p∨q, and p→q using only the binary operator ↑, where p↑q means ¬(p∧q). Then construct one always-true and one always-false formula without writing truth constants.
+
+**Solution.** First observe that p↑p=¬p: repeating an input turns NAND into negation. Negating NAND gives conjunction, so (p↑q)↑(p↑q)=p∧q. De Morgan's law gives p∨q=¬(¬p∧¬q)=(p↑p)↑(q↑q). Since p→q is ¬p∨q, substitute the expression for ¬p into the disjunction rule; the simpler result is **p↑(q↑q)**, because this is ¬(p∧¬q). Let N=p↑p=¬p. Then p↑N=¬(p∧¬p)=1 for either value of p. Finally, (p↑N)↑(p↑N)=¬1=0. These identities also prove that NAND alone can express any formula built from ¬, ∧, ∨, and →: replace each connective recursively with its NAND expression. The proof is about Boolean functions; actual circuit cost and timing are separate questions.
+
+### Problem 12 — Separate a familiar inference rule from its invalid converse
+
+**Source and adaptation.** Stanford CS103, Homework 4, Problem 1, contrasts valid and invalid implication patterns. This altered pair and its full analysis are based on that exercise type: [official handout](https://cs.stanford.edu/people/trevisan/cs103-14/hw4b.pdf).
+
+**Question.** Decide whether each formula is valid: (i) ((p→q)∧¬q)→¬p; (ii) ((p→q)∧q)→p. Give a proof or a complete countervaluation, and name the inferential mistake in the invalid case.
+
+**Solution.** For (i), assume the antecedent is true. Then p→q is true and q=0. If p were 1, p→q would be false, a contradiction; hence p=0 and ¬p=1. This covers every valuation with true antecedent, while an implication with false antecedent is automatically true. Thus (i) is valid; this is *modus tollens*. For (ii), set p=0 and q=1. Then p→q=1, q=1, and p=0, so the whole implication is false. This one countervaluation proves invalidity. The tempting move from p→q and q to p is *affirming the consequent*. The presence of an implication never asserts that q has only one possible cause.
+
+### Problem 13 — A dependency hidden in a choice of pebbles
+
+**Source and adaptation.** UC Berkeley CS70, Discussion 1B, Problem 2, uses a red/blue pebble array to expose quantifier order. The explanation below is independently written from the [official discussion sheet](https://su24.eecs70.org/assets/pdf/dis1b.pdf).
+
+**Question.** A nonempty finite board has several nonempty columns, and each cell holds either a red or a blue pebble. Let A mean that one column is entirely red. Let B mean that every selection of exactly one pebble from each column contains a red pebble. Prove A↔B. Explain which step fails if a column is empty.
+
+**Solution.** If A holds, name an all-red column C. Every complete selection must pick one pebble from C, and that selected pebble is red. Therefore B holds. For the converse, prove the contrapositive. If A fails, every column has at least one blue pebble. Because the board has finitely many nonempty columns, choose one blue pebble from each column. The resulting complete selection contains no red pebble, so B fails. Consequently B→A. The finite-board assumption makes the simultaneous choice elementary. If an empty column is admitted and “entirely red” is defined to require at least one pebble, there may be no complete selection; then B can be vacuously true while A is false. For example, take one empty column and one column containing a blue pebble. The nonempty-column condition is therefore essential. Under the alternative convention that an empty column counts as vacuously all-red, the meaning of A changes and the boundary case must be reanalyzed.
+
+### Problem 14 — Detect the trap in a subformula claim
+
+**Source and adaptation.** CMU 15-311, “Propositional Logic,” slide 14, presents a deliberately false subformula claim and its counterexample. The formulation and extended diagnosis below follow the [official slide deck](https://www.cs.cmu.edu/~mheule/15311-s26/slides/prop.pdf).
+
+**Question.** Suppose B is a subformula of A and A is a subformula of B. Must both A and B be atomic? Give the strongest conclusion justified by their syntax trees.
+
+**Solution.** No. Take A=B=¬p. A formula is a subformula of itself, so both premises hold, yet neither formula is atomic. In fact, the premises imply **A and B are the same formula**. A proper subformula has strictly fewer nodes than its parent. If A and B were distinct, B being a proper subformula of A would give size(B)<size(A), while A being a proper subformula of B would give size(A)<size(B), an impossibility. Equality is the only remaining case. The false claim confuses “the subformula relation is antisymmetric” with “mutual membership is possible only at a leaf.” This same size argument is useful whenever a recursive syntax relation is alleged to contain a cycle.
+
 ## 6. High-yield review sheet
 
 This section is deliberately compact. It is a **recall aid after the full lesson**, not a substitute for the definitions, countermodels, or worked solutions above. It collects facts that can prevent avoidable errors in later timed problem solving without using any archived entrance-exam question now.
@@ -326,7 +358,26 @@ To test an entailment, append the negation of the proposed conclusion to the pre
 
 Mark every free occurrence before moving a quantifier or substituting a term. Universal restriction uses implication; existential restriction uses conjunction. A witness for ∀x∃y may depend on x, while ∃y∀x requires one witness shared by all x. “Exactly one” always has an existence part and a uniqueness part. A binary relation is directed unless symmetry is given. Quantifier movement across another operand requires the bound variable to be absent from that operand's free variables; the domain convention must also be checked.
 
-### 6.5 What this chapter intentionally leaves for later
+### 6.5 Exam-oriented decision checklist
+
+The following rules cover the recurring *forms of reasoning* that a difficult logic question can combine. They are not a catalogue of archived entrance-exam questions. For each item, first identify the requested conclusion and then apply the stated check to the whole formula, including its assumptions.
+
+| When the question asks for… | Reliable procedure | Trap to rule out |
+| --- | --- | --- |
+| A truth-table count | Identify the distinct atoms, count 2<sup>n</sup> valuations, and split into disjoint cases if a full table is long. | Counting satisfying assignments when the question asks for Boolean functions, or vice versa. |
+| Validity of an implication | Search for the only falsifying pattern: antecedent true and consequent false. | Treating a true consequent as proof of the antecedent. |
+| Equivalence of formulas | Compare outputs under the union of their atom sets, or use a law whose side conditions hold. | Showing only that both formulas are satisfiable. |
+| Logical consequence | Conjoin the premises with the negated conclusion and test satisfiability. | Using a valuation in which one premise is false as a counterexample. |
+| Canonical DNF or CNF | Use all true rows for DNF and all false rows for CNF, with the correct literal polarity. | Confusing an equivalent compact form with the requested canonical form. |
+| A first-order countermodel | State a nonempty domain, every relevant predicate or relation, and a concrete assignment for free variables. | Giving an informal scenario that does not fix the whole interpretation. |
+| A quantified negation | Move negation inward one connective or quantifier at a time and preserve parentheses. | Changing ∀ to ∃ without also negating the quantified body. |
+| Restricted quantification | Translate ∀x∈S to an implication and ∃x∈S to a conjunction. | Writing ∃x(S(x)→P(x)), which can be witnessed outside S. |
+| A quantifier-order claim | Draw the dependency of each existential witness on earlier universal variables. | Reusing a different witness as if it were one common object. |
+| Uniqueness | Prove both at least one witness and at most one witness. | Accepting a statement that is vacuously true when no witness exists. |
+| Variable substitution | Mark free and bound occurrences; rename bound variables before a replacement could capture a free variable. | Performing several substitutions sequentially when they were defined as simultaneous. |
+| A finite search result | State the size bound searched and whether the target claim quantifies over all structures. | Treating failure to find a small model as proof of general unsatisfiability. |
+
+### 6.6 What this chapter intentionally leaves for later
 
 The chapter establishes the logical language needed by the plan. Detailed set identities and relation properties belong to the sets and relations chapters. Complete natural-deduction proof systems belong to the proof chapter. Gate delay and physical glitches belong to digital logic. Algorithmic performance of SAT solvers belongs to algorithms. This separation prevents a logic chapter from growing through unrelated material while keeping its own definitions and edge cases complete.
 
@@ -352,8 +403,12 @@ Try comparing p→q with ¬p∨q; their outputs match in all eight rows, includi
 
 1. Leighton, T., and van Dijk, M. (2010). “Propositions.” *6.042J Mathematics for Computer Science*, Chapter 1, MIT OpenCourseWare. [Original 19-page PDF](https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/7853d585044ef21bce5f48ce5fc89d28_MIT6_042JF10_chap01.pdf). All 17 substantive pages were reviewed; equation and symbol rendering was checked against the PDF images.
 2. Trevisan, L. (2014). “Mathematical Logic.” *CS103 Mathematical Foundations of Computing*, Lecture 9, Stanford University. [Original eight-page PDF](https://cs.stanford.edu/people/trevisan/cs103-14/lecture09.pdf). All eight pages were reviewed, including scope and free-variable examples.
-3. Shahzar, and Wu, H. (2024). “Logic.” *CS70 Discrete Mathematics and Probability Theory*, Note 1, University of California, Berkeley. [Original 14-page PDF](https://su24.eecs70.org/assets/pdf/notes/n1.pdf). All 14 pages and the relevant diagrams were reviewed. The problems in this English edition are original rather than copied from this note.
+3. Shahzar, and Wu, H. (2024). “Logic.” *CS70 Discrete Mathematics and Probability Theory*, Note 1, University of California, Berkeley. [Original 14-page PDF](https://su24.eecs70.org/assets/pdf/notes/n1.pdf). All 14 pages and the relevant diagrams were reviewed. The chapter uses new wording and solutions throughout; Problem 13 is explicitly adapted from the course discussion sheet.
 4. Heule, M. J. H. (2026). “Propositional Logic” and “First-Order Logic.” *15-311 Logic and Mechanized Reasoning*, Carnegie Mellon University. [Propositional slides](https://www.cs.cmu.edu/~mheule/15311-s26/slides/prop.pdf); [first-order slides](https://www.cs.cmu.edu/~mheule/15311-s26/slides/FOL.pdf). Both decks, including repeated animation frames and the response slides after false prompts, were reviewed.
 5. Cornell University (2017). “Lecture 36: Logic.” *CS2800 Discrete Structures*. [Lecture text](https://www.cs.cornell.edu/courses/cs2800/2017fa/lectures/lec36-logic.html). Consulted as a supplementary comparison of inductive semantics; it is not counted toward the four-course minimum.
+6. MIT 6.042J (2010). [Problem Set 1, Problem 3](https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/52e4d5a499a39c41c129e1eb4e831e20_MIT6_042JF10_assn01.pdf). Exercise type used in Problem 11.
+7. Stanford CS103 (2014). [Homework 4, Problem 1](https://cs.stanford.edu/people/trevisan/cs103-14/hw4b.pdf). Exercise type used in Problem 12.
+8. UC Berkeley CS70 (2024). [Discussion 1B, Problem 2](https://su24.eecs70.org/assets/pdf/dis1b.pdf). Exercise type used in Problem 13.
+9. CMU 15-311 (2026). [Propositional Logic, slide 14](https://www.cs.cmu.edu/~mheule/15311-s26/slides/prop.pdf). Counterexample prompt developed further in Problem 14.
 
 The notes synthesize the selected course texts and independently derive the worked examples. A source comparison cannot establish literal coverage of every course worldwide, and no pre-publication audit can prove that a future, unseen question will be answered correctly with certainty. Identified errors or missing concepts should be corrected in the chapter and its audit rather than hidden behind a “100%” label. Archived Iranian master's and doctoral examination booklets are intentionally absent from this edition; they are reserved for joint, question-by-question study in the final month.

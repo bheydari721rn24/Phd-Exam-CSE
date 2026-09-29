@@ -190,14 +190,14 @@ for index, old in enumerate(raw["weeks"]):
     })
 
 english = {
-    "updatedLabel": "English edition · chapter quality review in progress",
-    "method": "The first pass assigns 56 study hours per week across seven priority subjects, including four hours of English reading. This is a study schedule, not a production deadline for chapter notes. Past entrance-exam booklets are reserved for the final month.",
+    "updatedLabel": "English edition · IELTS track and chapter review in progress",
+    "method": "The first pass assigns 56 study hours per week across seven priority subjects and four hours of IELTS English. These hours are a starting allocation, not proof that beginner-to-advanced IELTS preparation fits into eleven weeks. Repeat a stage or increase English hours when mastery evidence requires it. Past Iranian entrance-exam booklets are reserved for the final month.",
     "strategy": {
         "core": "First priority: discrete mathematics, programming fundamentals, data structures and algorithms, probability and statistics, linear algebra, digital logic, and artificial intelligence.",
-        "support": "Programming and digital logic keep their own study hours. English reading runs in parallel.",
+        "support": "Programming and digital logic keep their own study hours. IELTS grammar, reading, and listening run in parallel.",
         "deferred": "Operating Systems and Computer Architecture are second priority; their scope will be chosen after the first pass from actual progress and remaining time.",
         "excluded": "Theory of Languages and Automata is excluded at the student's request.",
-        "english": "Four of the 56 weekly hours are reserved for careful reading of technical English.",
+        "english": "Four of the 56 weekly hours begin a separate IELTS pathway in grammar, reading, and listening. Sessions progress only after the preceding material is understood; the duration and target of each session appear before it begins.",
         "reviewGate": "Revise study order when actual chapter progress shows a concrete need. Do not use entrance-exam booklets before the final month.",
     },
     "subjects": {key: {"title": value} for key, value in SUBJECTS.items()},
@@ -206,6 +206,31 @@ english = {
         for key, value in raw["topics"].items()
     },
     "weeks": weeks,
+    "ielts": {
+        "module": "IELTS Academic, confirmed by the student on 2026-09-29",
+        "weeklyMinimumHours": 4,
+        "progressionRule": "Read the lesson and guided examples first. Only then explain the rule, complete a fresh guided check, and correct every error. If the explanation or check is weak, repeat the stage before moving on. A calendar date never overrides this gate.",
+        "scopeNote": "IELTS also assesses Writing and Speaking. This requested three-skill track cannot alone prepare the learner for an overall IELTS band score.",
+        "stages": [
+            ["Sentences and orientation", "Sentence parts, clauses, basic word order", "Main idea and paragraph purpose", "Sound contrasts, names, dates, and numbers"],
+            ["Core tense and detail", "Simple and continuous tenses, time reference", "Locate explicit detail and identify paraphrase", "Everyday conversations and key facts"],
+            ["Reference and sequence", "Perfect tenses, articles, and pronoun reference", "Track reference and sequence across paragraphs", "Connected speech and signposting"],
+            ["Condition and inference", "Modals and conditional meanings", "Distinguish stated facts from warranted inference", "Speaker purpose and attitude"],
+            ["Complex sentences", "Subordination and conjunction scope", "Scan for details without losing context", "Paraphrase recognition and distractors"],
+            ["Meaning and evidence", "Relative clauses and reduced clauses", "True/False/Not Given and evidence location", "Completion tasks and word limits"],
+            ["Academic compression", "Passive voice and nominalization", "Headings and paragraph function", "Academic monologues and note structure"],
+            ["Comparison and mapping", "Comparison, quantifiers, and exceptions", "Matching information and features", "Maps, diagrams, and spatial language"],
+            ["Coherence", "Cohesion, reference chains, and punctuation", "Summary and sentence completion", "Lecture organization and inference"],
+            ["Advanced interpretation", "Inversion, ellipsis, and ambiguity repair", "Dense arguments and writer claims", "Multi-speaker discussion and stance"],
+            ["Integration and error repair", "Diagnose recurring grammar errors in context", "Full-length reading with evidence review", "Four-part listening with transcript review"],
+        ],
+        "officialSources": [
+            {"label": "IELTS Academic test format", "url": "https://ielts.org/take-a-test/test-types/ielts-academic-test"},
+            {"label": "IELTS Academic reading format", "url": "https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-reading"},
+            {"label": "IELTS listening format", "url": "https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-listening"},
+            {"label": "Official IELTS sample tasks", "url": "https://ielts.org/take-a-test/preparation-resources/sample-test-questions"},
+        ],
+    },
     "sources": [
         source for source in raw["sources"]
         if "Exams/" not in source["url"]
@@ -224,14 +249,14 @@ DAY_TASKS = [
         "Read the definitions of propositions, truth tables, equivalence, and quantifiers; follow the worked derivations.",
         "Trace data types, value representations, and conversions in short instructional programs.",
         "Work through base conversion and signed-integer representation step by step.",
-        "Read a short technical passage related to today's subjects and record each new term in context.",
+        "IELTS grammar session 1 — 60 minutes. Learn sentence parts and basic word order from the lesson and guided examples; do not begin with a test.",
     ],
     [
         "Review the advanced logic examples and distinguish equivalence from entailment.",
         "Read the definitions of sets, subsets, and basic set operations.",
         "Identify the input size, computation model, and primitive-operation cost in worked examples.",
         "Study sample spaces, events, and probability axioms through worked examples.",
-        "Read one technical paragraph and note the exact meaning of its subject-specific terms.",
+        "IELTS reading session 1 — 60 minutes. Learn how to identify a paragraph's main claim and supporting detail before guided practice.",
     ],
     [
         "Study complete examples of direct proof, contradiction, and contraposition.",
@@ -243,13 +268,13 @@ DAY_TASKS = [
         "Compare ordinary and strong induction, including the base case and induction hypothesis.",
         "Count iterations of simple and nested loops step by step.",
         "Review linear dependence and span through geometric and algebraic examples.",
-        "Read a technical passage on induction or vectors sentence by sentence.",
+        "IELTS listening session 1 — 60 minutes. Learn to identify names, dates, and numbers in spoken English, then review the transcript.",
     ],
     [
         "Analyze dependent and piecewise loops by exact iteration counts.",
         "Study addition and multiplication rules, permutations, and combinations with their preconditions.",
         "Work through matrix operations and the geometric meaning of matrix-vector multiplication.",
-        "Read a technical paragraph on counting or matrices and paraphrase its main claim.",
+        "IELTS grammar session 2 — 60 minutes. Build complete simple and compound sentences, explain their structure, and repair errors from session 1.",
     ],
     [
         "Connect exact loop counts to asymptotic bounds; review complete worked examples.",
@@ -273,7 +298,7 @@ daily = {
     "startDate": "2026-10-03",
     "endDate": "2026-10-09",
     "dailyHours": 8,
-    "guidance": "Hours are net study time; take breaks separately. Read the lesson and its worked examples before attempting independent practice. Entrance-exam booklets are reserved for the final month. A chapter marked draft is not a finished lesson.",
+    "guidance": "Hours are net study time; take breaks separately. Read each finished lesson and its worked examples before independent practice. IELTS sessions show their planned duration and require mastery before advancing. Entrance-exam booklets are reserved for the final month. A draft chapter is available for review but is not yet approved as a finished lesson.",
     "days": [],
 }
 for index, original_day in enumerate(daily_original["days"]):
