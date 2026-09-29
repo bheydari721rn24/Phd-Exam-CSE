@@ -50,7 +50,9 @@ lessons = json.loads((ROOT / "lessons.json").read_text(encoding="utf-8"))
 assert len(plan["ielts"]["stages"]) == len(plan["weeks"]) == 11
 assert all(len(stage) == 4 for stage in plan["ielts"]["stages"])
 assert sum(block["hours"] for day in daily["days"] for block in day["blocks"] if block.get("subject") == "english") == 4
-assert lessons[0]["chapters"][0]["status"] == "draft"
+assert lessons[0]["chapters"][0]["status"] == "ready"
+assert lessons[0]["chapters"][1]["status"] == "draft"
+assert lessons[0]["chapters"][1]["url"] == "chapters/d_sets.html"
 assert not arabic, arabic
 assert not missing, missing
-print(f"English site checks passed: {len(pages)} HTML pages; local links, IELTS stages, hours, draft status, and script coverage.")
+print(f"English site checks passed: {len(pages)} HTML pages; local links, IELTS stages, hours, approved logic status, and script coverage.")

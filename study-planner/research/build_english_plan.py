@@ -410,6 +410,51 @@ course_register["courses"].extend([
         "topics": ["d_logic"], "advantage": "A possible additional course for future comparison.",
         "limit": "Only the catalogue and a separate open book were located; their direct linkage was not established.",
         "access": "catalogue", "reviewLevel": "catalogue_only"
+    },
+    {
+        "id": "mit-6042j-2015-sets", "subject": "discrete", "university": "MIT",
+        "course": "6.042J Mathematics for Computer Science — Meyer and Chlipala (2015)",
+        "url": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/",
+        "evidence": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/mit6_042js15_textbook.pdf",
+        "topics": ["d_sets"], "advantage": "Set definitions and elementwise algebra in textbook section 4.1.",
+        "limit": "Relevant section read; automated PDF text extraction distorts some symbols.",
+        "access": "textbook_pdf", "reviewLevel": "relevant_section_reviewed"
+    },
+    {
+        "id": "stanford-cs103-2024-sets", "subject": "discrete", "university": "Stanford",
+        "course": "CS103 Mathematical Foundations of Computing — Amy Liu (Winter 2024)",
+        "url": "https://web.stanford.edu/class/archive/cs/cs103/cs103.1244/",
+        "evidence": "https://web.stanford.edu/class/archive/cs/cs103/cs103.1244/guide_to_proofs_on_sets",
+        "topics": ["d_sets"], "advantage": "Detailed proof templates for subsets, operations, and power sets.",
+        "limit": "The complete set-proof handout was read, not every lecture of CS103.",
+        "access": "handout_html", "reviewLevel": "full_relevant_handout_reviewed"
+    },
+    {
+        "id": "cornell-cs2800-2015-sets", "subject": "discrete", "university": "Cornell",
+        "course": "CS2800 A Course in Discrete Structures — Pass and Tseng (2015)",
+        "url": "https://courses.cs.cornell.edu/cs2800/2015fa/",
+        "evidence": "https://courses.cs.cornell.edu/cs2800/2015fa/handouts/pass_tseng_discmath.pdf",
+        "topics": ["d_sets"], "advantage": "Set foundations, Venn diagrams, products, and two-containment proofs.",
+        "limit": "The relevant set section was read; later relations and functions sections were deferred.",
+        "access": "textbook_pdf", "reviewLevel": "relevant_section_reviewed"
+    },
+    {
+        "id": "cmu-15151-2022-sets", "subject": "discrete", "university": "Carnegie Mellon",
+        "course": "15-151 Mathematical Foundations for Computer Science — Klaus Sutner (2022)",
+        "url": "https://www.cs.cmu.edu/~sutner/mfcs.html",
+        "evidence": "https://www.cs.cmu.edu/~sutner/pdf/10-sets.pdf",
+        "topics": ["d_sets"], "advantage": "Extensionality, symmetric difference, indexed families, and empty-index caveats.",
+        "limit": "Relevant slides in Set Operations and Cartesian Products were read; one slide typo was corrected.",
+        "access": "slide_pdfs", "reviewLevel": "relevant_slides_reviewed"
+    },
+    {
+        "id": "berkeley-cs70-2024-sets", "subject": "discrete", "university": "UC Berkeley",
+        "course": "CS70 Discrete Mathematics and Probability Theory — Summer 2024 Note 0",
+        "url": "https://su24.eecs70.org/",
+        "evidence": "https://su24.eecs70.org/assets/pdf/notes/n0.pdf",
+        "topics": ["d_sets"], "advantage": "Independent foundational check of set, product, and power-set notation.",
+        "limit": "Only the set-relevant first three to four pages were read; supplemental rather than principal source.",
+        "access": "note_pdf", "reviewLevel": "relevant_pages_reviewed"
     }
 ])
 (DIST / "course-audit-week1.en.json").write_text(

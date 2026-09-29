@@ -9,10 +9,11 @@ This folder contains the source and static site for the English study plan. The 
 - `dist/week1-daily.en.json`: English day-by-day study blocks for Week 1.
 - `dist/course-audit-week1.en.json`: English register of candidate university courses and their actual review levels.
 - `research/d_logic.en.md`: canonical English manuscript for the first Discrete Mathematics chapter.
-- `dist/chapters/d_logic.html`: review draft with 14 fully worked problems, including four independently worded course-derived exercises, a decision checklist, a quantifier-dependency diagram, and an interactive truth table. The current A4 print is 19 nonblank pages. The draft awaits explicit student approval before becoming a finished lesson.
+- `dist/chapters/d_logic.html`: student-approved chapter with 14 fully worked problems, including four independently worded course-derived exercises, a decision checklist, a quantifier-dependency diagram, and an interactive truth table. The current A4 print is 19 nonblank pages. The student approved it on 2026-09-29.
+- `research/d_sets.en.md` and `dist/chapters/d_sets.html`: English review draft for sets and set operations, combining four principal written university courses and a fifth supplemental source, with 20 fully worked problems, a detailed high-yield review sheet, a set-region diagram, and an interactive membership model. It awaits student approval.
 - `research/d_logic-en-quality-audit.md`: source-selection and topic-coverage audit.
 
-The English data are built by `research/build_english_plan.py`; the chapter page is built by `research/build_english_chapter.py`. `research/verify_d_logic_en.py` independently checks selected truth-functional claims and small countermodels; `research/check_site_en.py` checks local links, English script, IELTS stages, and draft status. The visible chapter status is in `dist/lessons.json`; the one-chapter workflow gate is in `research/chapter-gate.json`.
+The English data are built by `research/build_english_plan.py`; chapter pages are built by `research/build_english_chapter.py` and `research/build_sets_chapter.py`. `research/verify_d_logic_en.py` and `research/verify_d_sets_en.py` independently check selected finite models and the rendered structure; `research/check_site_en.py` checks local links, English script, IELTS stages, and chapter statuses. The visible chapter status is in `dist/lessons.json`; the one-chapter workflow gate is in `research/chapter-gate.json`.
 
 ## Priorities and deferred practice
 

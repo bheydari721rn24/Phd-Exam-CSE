@@ -136,7 +136,7 @@ function renderLibrary() {
     <p>A chapter is labelled complete only after its source comparison, definitions, proofs, edge cases, worked problems, concise review sheet, and presentation checks pass review. At least four genuinely reviewed courses from four universities must be synthesized. More sources are used when they resolve a real gap. Past entrance-exam booklets are reserved for the final month. <a href="sprint.html">Read the full completion standard →</a></p>
     <div class="library-grid">
       ${ready.map(chapter => `<article class="library-card"><span class="status">Ready to study</span><h3>${escapeHtml(chapter.title)}</h3><a class="chapter-link primary" href="${escapeHtml(chapter.url)}">Open chapter →</a></article>`).join("")}
-      ${drafted.map(chapter => `<article class="library-card"><span class="status draft">Revision in progress</span><h3>${escapeHtml(chapter.title)}</h3><a class="chapter-link" href="${escapeHtml(chapter.url)}">View draft →</a></article>`).join("")}
+      ${drafted.map(chapter => `<article class="library-card"><span class="status draft">Awaiting student review</span><h3>${escapeHtml(chapter.title)}</h3><a class="chapter-link" href="${escapeHtml(chapter.url)}">View draft →</a></article>`).join("")}
       ${!ready.length && !drafted.length ? '<p>The first chapter is undergoing its English quality review. Its link will appear here when the review is complete.</p>' : ""}
     </div>
   </section>

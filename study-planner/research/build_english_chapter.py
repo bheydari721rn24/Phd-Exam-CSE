@@ -58,7 +58,7 @@ html = f"""<!doctype html>
   <header class="hero">
     <p class="eyebrow">Discrete Mathematics · Chapter 1</p>
     <h1>Propositions, Predicates, and Logical Equivalence</h1>
-    <p>Review draft · four university course texts synthesized · 14 fully worked problems</p>
+    <p>Student-approved chapter · four university course texts synthesized · 14 fully worked problems</p>
   </header>
   <nav class="toc" aria-label="Chapter contents">{nav}</nav>
   <article class="lesson">{body}</article>
