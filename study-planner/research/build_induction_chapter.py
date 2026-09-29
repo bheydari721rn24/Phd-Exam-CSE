@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import html as html_lib
 import re
 from pathlib import Path
 
@@ -37,22 +38,82 @@ def add_id(match: re.Match[str]) -> str:
 
 body = re.sub(r"<h2>(.*?)</h2>", add_id, body)
 assert count == len(anchors)
-# Separate mathematical operators visually without editing tags or diagram labels.
-operators = "∈∉⊆∑∧=→↔≥≤≠∨∣+−"
+# Use MathML for summation/product limits. HTML <sub>/<sup> attached to a text
+# sigma places the indices at the right and leaves them in a fallback font.
+SUB = str.maketrans("₀₁₂₃₄₅₆₇₈₉₊₋ₙₖ", "0123456789+-nk")
+SUP = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁿʲᵏᵗᴺⁱ", "0123456789+-njktNi")
+
+
+def mathml_limit(value: str) -> str:
+    value = html_lib.unescape(value)
+    tokens = re.findall(r"[A-Za-z][₀-₉₊₋ₙₖ]*|\d+|[+=−]", value)
+    assert "".join(tokens) == value, value
+    out = []
+    for token in tokens:
+        if token in "+=−":
+            out.append(f"<mo>{token}</mo>")
+        elif token.isdigit():
+            out.append(f"<mn>{token}</mn>")
+        else:
+            match = re.fullmatch(r"([A-Za-z])([₀-₉₊₋ₙₖ]+)?", token)
+            assert match, token
+            base, index = match.groups()
+            if index:
+                out.append(f"<msub><mi>{base}</mi><mtext>{index.translate(SUB)}</mtext></msub>")
+            else:
+                out.append(f"<mi>{base}</mi>")
+    return "<mrow>" + "".join(out) + "</mrow>"
+
+
+def limit_operator(match: re.Match[str]) -> str:
+    symbol, lower, upper = match.groups()
+    operator = "∑" if symbol == "∑" else "⋀"
+    return (
+        '<math class="math-limits" display="inline" aria-label="'
+        + html_lib.escape(f"{operator} from {lower} to {upper}", quote=True)
+        + '"><munderover><mo largeop="true">'
+        + operator + "</mo>" + mathml_limit(lower) + mathml_limit(upper)
+        + "</munderover></math>"
+    )
+
+
+body = re.sub(r"([∑∧])<sub>(.*?)</sub><sup>(.*?)</sup>", limit_operator, body)
+
+# Replace Unicode script letters/digits with semantic scripts in one bundled
+# math font. This covers inline prose, worked solutions, and review rules.
+script_pattern = re.compile(r"([A-Za-z0-9)])([₀₁₂₃₄₅₆₇₈₉₊₋ₙₖ]+|[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁿʲᵏᵗᴺⁱ]+)")
+
+
+def semantic_script(match: re.Match[str]) -> str:
+    base, script = match.groups()
+    if script[0] in "₀₁₂₃₄₅₆₇₈₉₊₋ₙₖ":
+        tag, value = "sub", script.translate(SUB)
+    else:
+        tag, value = "sup", script.translate(SUP)
+    return f'<span class="math-inline">{base}<{tag}>{value}</{tag}></span>'
+
+
+operators = "∈∉⊆∧=→↔≥≤≠∨∣+−"
 thin = "\u2009"
 parts = re.split(r"(<[^>]+>)", body)
 inside_svg = False
+inside_math = False
 for i, part in enumerate(parts):
     if i % 2:
         if part.startswith("<svg"):
             inside_svg = True
         elif part.startswith("</svg"):
             inside_svg = False
+        elif part.startswith("<math"):
+            inside_math = True
+        elif part.startswith("</math"):
+            inside_math = False
         continue
-    if inside_svg:
+    if inside_svg or inside_math:
         continue
     part = re.sub(rf"(?<![\s{thin}])([{operators}])", thin + r"\1", part)
     part = re.sub(rf"([{operators}])(?![\s{thin}])", r"\1" + thin, part)
+    part = script_pattern.sub(semantic_script, part)
     parts[i] = part
 body = "".join(parts)
 nav = " ".join(f'<a href="#{key}">{label}</a>' for key, label in zip(anchors, labels))

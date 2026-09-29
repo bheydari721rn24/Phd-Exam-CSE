@@ -17,6 +17,11 @@ assert all(f"**{i}." in source for i in range(1, 29))
 assert all(name in source for name in ["MIT", "Stanford", "Berkeley", "Cornell", "ETH Zürich"])
 assert not re.search(r"[\u0600-\u06ff]", source + html)
 assert html.count("<svg") == 2
+assert html.count('<math class="math-limits"') >= 15
+assert html.count('class="math-inline"') >= 100
+assert "class\u2009=\u2009" not in html
+outside_diagrams_and_math = re.sub(r"<(?:svg|math)\b.*?</(?:svg|math)>", "", html, flags=re.S)
+assert not re.search(r"[₀-₉₊₋ₙₖ⁰-⁹⁺⁻ⁿʲᵏᵗᴺⁱ]", outside_diagrams_and_math)
 assert "formula-block" in html and "<sub>" in html and "<sup>" in html
 assert "STIX Two Math" in (ROOT / "dist" / "chapters" / "chapter.en.css").read_text(encoding="utf-8")
 

@@ -62,12 +62,19 @@ try:
     })
     cdp("Page.navigate", {"url": f"http://127.0.0.1:{server.server_port}/chapters/{CHAPTER}.html"})
     time.sleep(1.5)
-    metrics = cdp("Runtime.evaluate", {"expression": """JSON.stringify({width:innerWidth,scroll:document.documentElement.scrollWidth,fontReady:document.fonts.status,bodyFont:getComputedStyle(document.body).fontFamily,headingFont:getComputedStyle(document.querySelector('.hero h1')).fontFamily,mathFont:getComputedStyle(document.querySelector('.formula-block')).fontFamily,problems:document.querySelectorAll('h3').length})""", "returnByValue": True})["result"]["value"]
+    metrics = cdp("Runtime.evaluate", {"expression": """JSON.stringify({width:innerWidth,scroll:document.documentElement.scrollWidth,fontReady:document.fonts.status,bodyFont:getComputedStyle(document.body).fontFamily,headingFont:getComputedStyle(document.querySelector('.hero h1')).fontFamily,mathFont:getComputedStyle(document.querySelector('.formula-block')).fontFamily,formulaOverflow:Math.max(...[...document.querySelectorAll('.formula-block')].map(x=>x.scrollWidth-x.clientWidth)),problems:document.querySelectorAll('h3').length})""", "returnByValue": True})["result"]["value"]
     print(metrics)
     parsed = json.loads(metrics)
     assert parsed["width"] == 390 and parsed["scroll"] == 390, "Mobile horizontal overflow."
+    if CHAPTER == "d_induction":
+        assert parsed["formulaOverflow"] == 0, "A mathematical display is clipped on mobile."
     shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
     (OUT / "mobile-cdp.png").write_bytes(base64.b64decode(shot))
+    if CHAPTER == "d_induction":
+        cdp("Runtime.evaluate", {"expression": "document.querySelector('.math-limits').scrollIntoView({block:'center'})"})
+        time.sleep(.25)
+        math_shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
+        (OUT / "math-mobile-cdp.png").write_bytes(base64.b64decode(math_shot))
     cdp("Emulation.clearDeviceMetricsOverride")
     cdp("Emulation.setDeviceMetricsOverride", {
         "width": 1280, "height": 900, "deviceScaleFactor": 1, "mobile": False,
