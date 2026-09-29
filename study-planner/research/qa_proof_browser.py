@@ -21,7 +21,7 @@ import websocket
 ROOT = Path(__file__).resolve().parents[1]
 EDGE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 CHAPTER = sys.argv[1] if len(sys.argv) > 1 else "d_proof"
-assert CHAPTER in {"d_proof", "d_induction"}
+assert CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction"}
 OUT = Path(tempfile.gettempdir()) / f"{CHAPTER}_qa"
 OUT.mkdir(exist_ok=True)
 server = ThreadingHTTPServer(("127.0.0.1", 0), partial(SimpleHTTPRequestHandler, directory=str(ROOT / "dist")))
@@ -70,8 +70,8 @@ try:
         assert parsed["formulaOverflow"] == 0, "A mathematical display is clipped on mobile."
     shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
     (OUT / "mobile-cdp.png").write_bytes(base64.b64decode(shot))
-    if CHAPTER == "d_induction":
-        cdp("Runtime.evaluate", {"expression": "document.querySelector('.math-limits').scrollIntoView({block:'center'})"})
+    if CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction"}:
+        cdp("Runtime.evaluate", {"expression": "document.querySelector('.math-limits, .math-inline').scrollIntoView({block:'center'})"})
         time.sleep(.25)
         math_shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
         (OUT / "math-mobile-cdp.png").write_bytes(base64.b64decode(math_shot))

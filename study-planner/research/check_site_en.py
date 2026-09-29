@@ -57,6 +57,11 @@ assert lessons[0]["chapters"][2]["status"] == "ready"
 assert lessons[0]["chapters"][2]["url"] == "chapters/d_proof.html"
 assert lessons[0]["chapters"][3]["status"] == "draft"
 assert lessons[0]["chapters"][3]["url"] == "chapters/d_induction.html"
+for chapter_id in ("d_logic", "d_sets", "d_proof", "d_induction"):
+    chapter_html = (ROOT / "chapters" / f"{chapter_id}.html").read_text(encoding="utf-8")
+    text_without_diagrams = re.sub(r"<(?:svg|math)\b.*?</(?:svg|math)>", "", chapter_html, flags=re.S)
+    assert not re.search(r"[₀-₉₊₋ₙₖᵢ⁰-⁹⁺⁻ⁿʲᵏᵗᴺⁱ]", text_without_diagrams), chapter_id
+    assert "class\u2009=\u2009" not in chapter_html, chapter_id
 for font_name in ("newsreader-latin.woff2", "source-sans-3-latin.woff2", "stix-two-math.woff2"):
     font_path = ROOT / "fonts" / font_name
     assert font_path.is_file() and font_path.read_bytes()[:4] == b"wOF2", font_path
@@ -64,4 +69,4 @@ for license_name in ("OFL-Newsreader.txt", "OFL-SourceSans3.txt", "OFL-STIXTwoMa
     assert (ROOT / "fonts" / license_name).is_file(), license_name
 assert not arabic, arabic
 assert not missing, missing
-print(f"English site checks passed: {len(pages)} HTML pages; local links, IELTS stages, hours, approved logic status, and script coverage.")
+print(f"English site checks passed: {len(pages)} HTML pages; local links, IELTS stages, hours, chapter status, and math-index typography.")

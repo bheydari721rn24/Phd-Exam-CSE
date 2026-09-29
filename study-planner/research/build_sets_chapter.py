@@ -6,6 +6,7 @@ import re
 from pathlib import Path
 
 from markdown_it import MarkdownIt
+from math_typography import normalize_scripts
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,7 +42,7 @@ for i in range(0, len(parts), 2):
     chunk = re.sub(rf"(?<![\s{thin}])([{math_operators}])", thin + r"\1", chunk)
     chunk = re.sub(rf"([{math_operators}])(?![\s{thin}])", r"\1" + thin, chunk)
     parts[i] = chunk
-body = "".join(parts)
+body = normalize_scripts("".join(parts))
 nav = " ".join(f'<a href="#{anchor}">{label}</a>' for anchor, label in zip(anchors, labels))
 
 html = f'''<!doctype html>

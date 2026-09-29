@@ -16,7 +16,7 @@ This folder contains the source and static site for the English study plan. The 
 - `dist/fonts/`: locally hosted and licensed Source Sans 3, Newsreader, and STIX Two Math files shared by the app and English chapters; provenance is documented in `research/font-assets.md`.
 - `research/d_logic-en-quality-audit.md`: source-selection and topic-coverage audit.
 
-The English data are built by `research/build_english_plan.py`; chapter pages are built by `research/build_english_chapter.py`, `research/build_sets_chapter.py`, `research/build_proof_chapter.py`, and `research/build_induction_chapter.py`. The corresponding `verify_*.py` scripts check selected finite models and rendered structure; `research/check_site_en.py` checks local links, English script, IELTS stages, and chapter statuses. The visible chapter status is in `dist/lessons.json`; the one-chapter workflow gate is in `research/chapter-gate.json`.
+The English data are built by `research/build_english_plan.py`; chapter pages are built by `research/build_english_chapter.py`, `research/build_sets_chapter.py`, `research/build_proof_chapter.py`, and `research/build_induction_chapter.py`. Shared index typography is applied by `research/math_typography.py`; the induction chapter also uses MathML for summation limits. The corresponding `verify_*.py` scripts check selected finite models and rendered structure; `research/check_site_en.py` checks local links, English script, IELTS stages, chapter statuses, and math-index rendering. The visible chapter status is in `dist/lessons.json`; the one-chapter workflow gate is in `research/chapter-gate.json`.
 
 ## Priorities and deferred practice
 

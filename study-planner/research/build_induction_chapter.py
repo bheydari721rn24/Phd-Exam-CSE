@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 
 from markdown_it import MarkdownIt
+from math_typography import SUB, normalize_scripts
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -40,10 +41,6 @@ body = re.sub(r"<h2>(.*?)</h2>", add_id, body)
 assert count == len(anchors)
 # Use MathML for summation/product limits. HTML <sub>/<sup> attached to a text
 # sigma places the indices at the right and leaves them in a fallback font.
-SUB = str.maketrans("₀₁₂₃₄₅₆₇₈₉₊₋ₙₖ", "0123456789+-nk")
-SUP = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁿʲᵏᵗᴺⁱ", "0123456789+-njktNi")
-
-
 def mathml_limit(value: str) -> str:
     value = html_lib.unescape(value)
     tokens = re.findall(r"[A-Za-z][₀-₉₊₋ₙₖ]*|\d+|[+=−]", value)
@@ -79,20 +76,6 @@ def limit_operator(match: re.Match[str]) -> str:
 
 body = re.sub(r"([∑∧])<sub>(.*?)</sub><sup>(.*?)</sup>", limit_operator, body)
 
-# Replace Unicode script letters/digits with semantic scripts in one bundled
-# math font. This covers inline prose, worked solutions, and review rules.
-script_pattern = re.compile(r"([A-Za-z0-9)])([₀₁₂₃₄₅₆₇₈₉₊₋ₙₖ]+|[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁿʲᵏᵗᴺⁱ]+)")
-
-
-def semantic_script(match: re.Match[str]) -> str:
-    base, script = match.groups()
-    if script[0] in "₀₁₂₃₄₅₆₇₈₉₊₋ₙₖ":
-        tag, value = "sub", script.translate(SUB)
-    else:
-        tag, value = "sup", script.translate(SUP)
-    return f'<span class="math-inline">{base}<{tag}>{value}</{tag}></span>'
-
-
 operators = "∈∉⊆∧=→↔≥≤≠∨∣+−"
 thin = "\u2009"
 parts = re.split(r"(<[^>]+>)", body)
@@ -113,9 +96,8 @@ for i, part in enumerate(parts):
         continue
     part = re.sub(rf"(?<![\s{thin}])([{operators}])", thin + r"\1", part)
     part = re.sub(rf"([{operators}])(?![\s{thin}])", r"\1" + thin, part)
-    part = script_pattern.sub(semantic_script, part)
     parts[i] = part
-body = "".join(parts)
+body = normalize_scripts("".join(parts))
 nav = " ".join(f'<a href="#{key}">{label}</a>' for key, label in zip(anchors, labels))
 html = f'''<!doctype html>
 <html lang="en">
