@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 from markdown_it import MarkdownIt
-from math_typography import normalize_scripts
+from math_typography import normalize_math, normalize_scripts
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,7 +34,7 @@ def add_heading_id(match: re.Match[str]) -> str:
 
 body = re.sub(r"<h2>(.*?)</h2>", add_heading_id, body)
 assert index == len(anchors)
-body = normalize_scripts(body)
+body = normalize_scripts(normalize_math(body))
 
 nav = " ".join(
     f'<a href="#{slug}">{label}</a>'

@@ -126,11 +126,11 @@ The first permits y to vary with x; the second demands a single common y. On a n
   <text x="369" y="38" font-size="17" font-family="Segoe UI,Arial" fill="#304661">∃y∀x R(x,y): one shared witness</text>
   <circle cx="63" cy="80" r="19" fill="#fff" stroke="#7aa8bb"/><circle cx="63" cy="135" r="19" fill="#fff" stroke="#7aa8bb"/>
   <circle cx="260" cy="80" r="19" fill="#fff" stroke="#7aa8bb"/><circle cx="260" cy="135" r="19" fill="#fff" stroke="#7aa8bb"/>
-  <text x="53" y="86" font-size="17">x₁</text><text x="53" y="141" font-size="17">x₂</text><text x="250" y="86" font-size="17">y₁</text><text x="250" y="141" font-size="17">y₂</text>
+  <text x="53" y="86" font-size="17">x<tspan baseline-shift="sub" font-size="12">1</tspan></text><text x="53" y="141" font-size="17">x<tspan baseline-shift="sub" font-size="12">2</tspan></text><text x="250" y="86" font-size="17">y<tspan baseline-shift="sub" font-size="12">1</tspan></text><text x="250" y="141" font-size="17">y<tspan baseline-shift="sub" font-size="12">2</tspan></text>
   <path d="M82 80 L237 80 M82 135 L237 135" stroke="#577f98" stroke-width="2" marker-end="url(#arrow)"/>
   <circle cx="405" cy="80" r="19" fill="#fff" stroke="#8397bf"/><circle cx="405" cy="135" r="19" fill="#fff" stroke="#8397bf"/>
   <circle cx="610" cy="107" r="19" fill="#fff" stroke="#8397bf"/>
-  <text x="395" y="86" font-size="17">x₁</text><text x="395" y="141" font-size="17">x₂</text><text x="603" y="113" font-size="17">y</text>
+  <text x="395" y="86" font-size="17">x<tspan baseline-shift="sub" font-size="12">1</tspan></text><text x="395" y="141" font-size="17">x<tspan baseline-shift="sub" font-size="12">2</tspan></text><text x="603" y="113" font-size="17">y</text>
   <path d="M424 80 L588 103 M424 135 L588 111" stroke="#577f98" stroke-width="2" marker-end="url(#arrow)"/>
 </svg>
 <figcaption>The arrows represent witness choices, not a required one-to-one relation.</figcaption>

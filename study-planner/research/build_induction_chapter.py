@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 from markdown_it import MarkdownIt
-from math_typography import SUB, normalize_scripts
+from math_typography import SUB, normalize_math, normalize_scripts
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -97,7 +97,7 @@ for i, part in enumerate(parts):
     part = re.sub(rf"(?<![\s{thin}])([{operators}])", thin + r"\1", part)
     part = re.sub(rf"([{operators}])(?![\s{thin}])", r"\1" + thin, part)
     parts[i] = part
-body = normalize_scripts("".join(parts))
+body = normalize_scripts(normalize_math("".join(parts)))
 nav = " ".join(f'<a href="#{key}">{label}</a>' for key, label in zip(anchors, labels))
 html = f'''<!doctype html>
 <html lang="en">
