@@ -21,7 +21,7 @@ import websocket
 ROOT = Path(__file__).resolve().parents[1]
 EDGE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 CHAPTER = sys.argv[1] if len(sys.argv) > 1 else "d_proof"
-assert CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction"}
+assert CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model"}
 OUT = Path(tempfile.gettempdir()) / f"{CHAPTER}_qa"
 OUT.mkdir(exist_ok=True)
 server = ThreadingHTTPServer(("127.0.0.1", 0), partial(SimpleHTTPRequestHandler, directory=str(ROOT / "dist")))
@@ -65,16 +65,27 @@ try:
     metrics = cdp("Runtime.evaluate", {"expression": """JSON.stringify({width:innerWidth,scroll:document.documentElement.scrollWidth,fontReady:document.fonts.status,bodyFont:getComputedStyle(document.body).fontFamily,headingFont:getComputedStyle(document.querySelector('.hero h1')).fontFamily,mathFont:getComputedStyle(document.querySelector('.formula-block')).fontFamily,formulaOverflow:Math.max(...[...document.querySelectorAll('.formula-block')].map(x=>x.scrollWidth-x.clientWidth)),problems:document.querySelectorAll('h3').length})""", "returnByValue": True})["result"]["value"]
     print(metrics)
     parsed = json.loads(metrics)
+    if CHAPTER == "a_model":
+        overflow_items = cdp("Runtime.evaluate", {"expression": "JSON.stringify([...document.querySelectorAll('.formula-block')].filter(x=>x.scrollWidth>x.clientWidth).map(x=>({extra:x.scrollWidth-x.clientWidth,text:x.textContent.slice(0,110)})))", "returnByValue": True})["result"]["value"]
+        print(overflow_items)
     assert parsed["width"] == 390 and parsed["scroll"] == 390, "Mobile horizontal overflow."
-    if CHAPTER == "d_induction":
+    if CHAPTER in {"d_induction", "a_model"}:
         assert parsed["formulaOverflow"] == 0, "A mathematical display is clipped on mobile."
     shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
     (OUT / "mobile-cdp.png").write_bytes(base64.b64decode(shot))
-    if CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction"}:
+    if CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model"}:
         cdp("Runtime.evaluate", {"expression": "document.querySelector('.math-limits, .math-inline').scrollIntoView({block:'center'})"})
         time.sleep(.25)
         math_shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
         (OUT / "math-mobile-cdp.png").write_bytes(base64.b64decode(math_shot))
+    if CHAPTER == "a_model":
+        diagram = cdp("Runtime.evaluate", {"expression": "JSON.stringify({container:document.querySelector('.model-diagram').clientWidth,content:document.querySelector('.model-diagram svg').clientWidth})", "returnByValue": True})["result"]["value"]
+        print(diagram)
+        assert json.loads(diagram)["content"] >= 700
+        cdp("Runtime.evaluate", {"expression": "document.querySelector('.model-diagram').scrollIntoView({block:'center'})"})
+        time.sleep(.25)
+        diagram_shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
+        (OUT / "diagram-mobile-cdp.png").write_bytes(base64.b64decode(diagram_shot))
     cdp("Emulation.clearDeviceMetricsOverride")
     cdp("Emulation.setDeviceMetricsOverride", {
         "width": 1280, "height": 900, "deviceScaleFactor": 1, "mobile": False,

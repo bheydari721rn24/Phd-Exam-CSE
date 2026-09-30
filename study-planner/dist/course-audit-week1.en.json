@@ -1,6 +1,6 @@
 {
   "week": 1,
-  "reviewedAt": "2026-09-24",
+  "reviewedAt": "2026-09-30",
   "method": "A course entry records a checked course page and topic match. It does not imply that every lecture or exercise was read. Chapter-level audits state which texts were actually studied and synthesized.",
   "courses": [
     {
@@ -81,49 +81,49 @@
       "university": "MIT",
       "course": "6.006 Introduction to Algorithms",
       "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/",
-      "evidence": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/resource-index/",
+      "evidence": "https://live.ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/c6d8f06c6f11e3342633dec85498f551_MIT6_006S20_r01.pdf",
       "topics": [
         "a_model",
         "a_asym",
         "a_loop"
       ],
-      "advantage": "Open lectures, exercises, and solutions connect problem models to cost analysis.",
-      "limit": "Its full course sequence differs from the 1406 plan; topic-level selection is required.",
+      "advantage": "Lecture 1 and Recitation 1 were read for problem relations, input parameters, word-RAM, and static arrays.",
+      "limit": "Only the relevant introductory notes were read; later algorithm-design lectures remain unreviewed.",
       "access": "lectures_notes_assignments_solutions",
-      "reviewLevel": "syllabus_and_topic_index"
+      "reviewLevel": "relevant_sections_reviewed"
     },
     {
       "id": "stanford-cs161",
       "subject": "algorithms",
       "university": "Stanford",
       "course": "CS161 Design and Analysis of Algorithms",
-      "url": "https://web.stanford.edu/class/archive/cs/cs161/cs161.1178/",
-      "evidence": "https://web.stanford.edu/class/archive/cs/cs161/cs161.1178/",
+      "url": "https://web.stanford.edu/class/archive/cs/cs161/cs161.1182/schedule.html",
+      "evidence": "https://web.stanford.edu/class/archive/cs/cs161/cs161.1182/Lectures/Lecture1/CS161Lecture01.pdf",
       "topics": [
         "a_model",
         "a_asym",
         "a_loop"
       ],
-      "advantage": "Notes on asymptotic analysis and exercises with solutions.",
-      "limit": "The accessible archive is from 2017, and some assignment links lead to other services.",
+      "advantage": "Lecture 1 was read for n-digit integer multiplication as an input-size and elementary-operation example.",
+      "limit": "The introductory model discussion is narrower than MIT or CMU; later lectures were not read for this chapter.",
       "access": "public_notes_and_some_solutions",
-      "reviewLevel": "syllabus_and_topic_index"
+      "reviewLevel": "relevant_sections_reviewed"
     },
     {
       "id": "cmu-15451",
       "subject": "algorithms",
       "university": "Carnegie Mellon",
       "course": "15-451 Algorithm Design and Analysis",
-      "url": "https://www.cs.cmu.edu/~15451-f25/schedule.html",
-      "evidence": "https://www.cs.cmu.edu/~15451-f25/schedule.html",
+      "url": "https://www.cs.cmu.edu/~15451-s25/schedule.html",
+      "evidence": "https://www.cs.cmu.edu/~15451-s25/notes/lecture03.pdf",
       "topics": [
         "a_model",
         "a_asym"
       ],
-      "advantage": "The first two sessions address algorithm analysis and computation models with open notes.",
-      "limit": "The course is relatively advanced and is not the primary introductory source.",
+      "advantage": "Spring 2025 Lecture 3 was read for comparison versus word-RAM power, width limits, multiword arithmetic, and direct addressing.",
+      "limit": "Sorting construction portions are outside this chapter; this is not a review of the entire course.",
       "access": "public_schedule_and_notes",
-      "reviewLevel": "syllabus_and_topic_index"
+      "reviewLevel": "relevant_sections_reviewed"
     },
     {
       "id": "berkeley-cs170",
@@ -131,15 +131,15 @@
       "university": "UC Berkeley",
       "course": "CS170 Efficient Algorithms and Intractable Problems",
       "url": "https://cs170.org/",
-      "evidence": "https://cs170.org/",
+      "evidence": "https://cs170.org/assets/lec/lec-13_blank.pdf",
       "topics": [
         "a_model",
         "a_asym"
       ],
-      "advantage": "An introductory lecture, a reference text, and assignments with solutions are listed in an open schedule.",
-      "limit": "The term focuses mainly on algorithm design and offers limited direct coverage of first-week loop analysis.",
+      "advantage": "The knapsack lecture was read for binary capacity length and the pseudo-polynomial table-size warning.",
+      "limit": "Some slide equations contain blanks; their relevant claims were derived independently in the chapter.",
       "access": "public_notes_and_assignments",
-      "reviewLevel": "syllabus_and_topic_index"
+      "reviewLevel": "relevant_sections_reviewed"
     },
     {
       "id": "mit-6041",
@@ -855,6 +855,21 @@
       "limit": "Section 2.6.10 was reviewed; this shorter section is a formal cross-check, not the sole source.",
       "access": "lecture_notes_pdf",
       "reviewLevel": "relevant_section_reviewed"
+    },
+    {
+      "id": "princeton-wayne-analysis",
+      "subject": "algorithms",
+      "university": "Princeton",
+      "course": "Kevin Wayne, Algorithm Analysis lecture slides (Kleinberg-Tardos companion)",
+      "url": "https://www.cs.princeton.edu/~wayne/kleinberg-tardos/",
+      "evidence": "https://www.cs.princeton.edu/~wayne/kleinberg-tardos/pdf/02AlgorithmAnalysis-2x2.pdf",
+      "topics": [
+        "a_model"
+      ],
+      "advantage": "Slides 3–7 were read for Turing-machine versus word-RAM steps, memory measures, address width, and the large-integer caveat.",
+      "limit": "Only the model section was read for this chapter; its asymptotic analysis section belongs to the following chapter.",
+      "access": "public_slides",
+      "reviewLevel": "relevant_sections_reviewed"
     }
   ]
 }
