@@ -9,8 +9,11 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
+from math_typography import LIST_MARKER, SINGLE_VARIABLE
+
 
 ROOT = Path(__file__).resolve().parents[1] / "dist"
+assert SINGLE_VARIABLE.search("G=") and not SINGLE_VARIABLE.search("x₁")
 
 
 class Links(HTMLParser):
@@ -61,6 +64,11 @@ class MathCoverage(HTMLParser):
             if unicodedata.category(char) in {"Sm", "No"}
             or "\u0370" <= char <= "\u03ff"
             or char in "ΓΔΩΘℕℤℚℝ∅"
+        )
+        list_markers = {match.start(1) for match in LIST_MARKER.finditer(data)}
+        self.unstyled.extend(
+            match.group() for match in SINGLE_VARIABLE.finditer(data)
+            if match.start() not in list_markers
         )
 
 
