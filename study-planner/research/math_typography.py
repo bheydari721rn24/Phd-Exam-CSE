@@ -14,7 +14,7 @@ SCRIPT = re.compile(r"([A-Za-z0-9)|])([₀₁₂₃₄₅₆₇₈₉₊₋ₙ�
 # deliberately avoids treating a whole English sentence as a formula.
 SCRIPT_GLYPHS = "₀₁₂₃₄₅₆₇₈₉₊₋ₙₖᵢ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁿʲᵏᵗᴺⁱ"
 ATOM = rf"(?:\{{[^{{}}\n]{{1,70}}\}}|[A-Za-zΓΔΩΘℕℤℚℝ∅][A-Za-z]?[0-9_{SCRIPT_GLYPHS}]*(?:\([^()\n]{{0,50}}\))?|[0-9]+[A-Za-z]{{0,2}}[_{SCRIPT_GLYPHS}]*(?:\([^()\n]{{0,50}}\))?)"
-OP = r"(?:[∈∉⊆⊊⊂⊃⊄∪∩∖△→↔⇒⇔↦≡⊨⊢∧∨⊕∣∤≤≥≠≈=+−×÷⋅/<>]|&lt;|&gt;)"
+OP = r"(?:[∈∉⊆⊊⊂⊃⊄∪∩∖△→↔⇒⇔↦≡⊨⊢∧∨⊕∣∤≤≥≠≈∼=+−×÷⋅/<>]|&lt;|&gt;)"
 EXPRESSION = re.compile(rf"(?<![\w])(?:{ATOM})(?:[\s\u2009]*{OP}[\s\u2009]*(?:{ATOM}))+", re.UNICODE)
 FUNCTION = re.compile(r"(?<![\w])(?:[A-Za-z]|Var|Even|Odd|Dom|Pow|Pr|rank|card|gcd|ceil|floor|max|min|log|len|size|cost)\([^()\n]{1,45}\)")
 NUMBER_PRODUCT = re.compile(rf"(?<![\w.])[0-9]+[A-Za-z]{{1,2}}[_{SCRIPT_GLYPHS}]*(?![A-Za-z0-9])")
@@ -23,7 +23,7 @@ PAREN_PRODUCT = re.compile(r"\([a-z]{2}\)")
 PAREN_POWER = re.compile(rf"\([^()\n]{{1,60}}\)[{SCRIPT_GLYPHS}]+")
 ABS = re.compile(rf"\|[^|\n]{{1,60}}\|[{SCRIPT_GLYPHS}]*")
 QUANTIFIED = re.compile(r"[∀∃][A-Za-z](?:[\s\u2009]*[∈∉][\s\u2009]*[A-Za-zℕℤℚℝ])?")
-MATH_GLYPH = re.compile(r"[¬∧∨⊕→↔⇒⇔↦↑∀∃∈∉⊆⊊⊂⊃⊄∪∩⋃⋂∖△∅ℕℤℚℝ℘Α-Ωα-ω∞≡⊨⊢∑∏≤≥≠≈∣∤×÷⋅√∝⋯−=+|]|&lt;|&gt;")
+MATH_GLYPH = re.compile(r"[¬∧∨⊕→↔⇒⇔↦↑∀∃∈∉⊆⊊⊂⊃⊄∪∩⋃⋂∖△∅ℕℤℚℝ℘Α-Ωα-ω∞≡⊨⊢∑∏≤≥≠≈∼∣∤×÷⋅√∝⋯−=+|]|&lt;|&gt;")
 SINGLE_VARIABLE = re.compile(rf"(?<![A-Za-z0-9'’/.-])(?:[b-zB-Z])(?![A-Za-z0-9'’/{SCRIPT_GLYPHS}])")
 LIST_MARKER = re.compile(r"\(([a-d])\)(?=\s+[A-Za-z])")
 FORMULA_A = re.compile(r"(?<![A-Za-z0-9'’/.-])A(?=\s+(?:is|and|or|has|be|true|false|holds|belongs|exactly|mean|means|fails|changes|are|would)\b|\s*[,;:.=+−×÷∈⊆∪∩∖△⊂⊃⊄→↔⇒⇔≡⊨⊢≤≥≠≈∣∤∧∨⊕◦)\]}])")

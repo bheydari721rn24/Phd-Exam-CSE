@@ -1,12 +1,12 @@
 {
   "currentTopicId": "a_asym",
-  "state": "in_progress",
+  "state": "awaiting_user_approval",
   "nextTopicRequiresExplicitApproval": true,
   "nextTopicId": null,
   "sourceAuditPath": "research/a_asym-source-audit.md",
   "examAuditPath": null,
-  "lastCompletedReview": "2026-09-30: The student explicitly approved a_model. Its status was promoted to ready, and the shared math-font revision passed text-parity, mobile, print, and symbol-coverage checks across all five chapters.",
-  "nextReview": "Continue only a_asym under the one-chapter gate. Archived Iranian entrance-exam booklets remain deferred.",
+  "lastCompletedReview": "2026-09-30: a_asym was written and audited as an English review draft with four directly reviewed university course texts, 18 worked problems, a 20-item high-yield sheet, mathematical checks, and mobile/print font QA. The student has not yet approved this chapter.",
+  "nextReview": "Await explicit student approval of a_asym. Do not begin a_loop or another chapter before approval. Archived Iranian entrance-exam booklets remain deferred.",
   "rule": "Work on one chapter at a time. After delivering its note, set state to awaiting_user_approval and do not start the next chapter until the user explicitly approves continuation.",
   "studyStartJalali": "1405/07/11"
 }
