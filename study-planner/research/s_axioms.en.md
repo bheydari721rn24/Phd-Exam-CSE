@@ -1,6 +1,6 @@
 # Sample Spaces, Events, and Probability Axioms
 
-*Probability and Statistics · Chapter 1 · English review draft · 24 fully worked problems*
+*Probability and Statistics · Chapter 1 · Approved English chapter · 24 fully worked problems*
 
 ## 1. Scope, prerequisites, and source selection
 

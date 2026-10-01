@@ -1,0 +1,11 @@
+.independence-lab{border:1px solid #aacac6;background:#f1f8f7;border-radius:12px;padding:20px;margin:24px 0}
+.independence-lab label{display:grid;grid-template-columns:minmax(0,1fr) 4em;gap:10px;margin:20px 0}
+.independence-lab label>span{grid-column:1/-1}.independence-lab input{width:100%;accent-color:#317f7d}.independence-lab output{font-family:"STIX Two Math",serif;text-align:right}
+.independence-lab table{display:table;table-layout:fixed}.independence-lab th:nth-child(1){width:25%}.independence-lab th:nth-child(2){width:32%}
+.independence-lab td{font-family:"STIX Two Math",serif;font-size:1.07em}.independence-lab .mass-track{height:9px;background:#dbe9e7;border-radius:4px;overflow:hidden;margin-top:7px}.mass-track>span{display:block;height:100%;background:#408d88}
+#parity-result p{margin:7px 0}.lab-metric{font-family:"STIX Two Math",serif;white-space:nowrap}
+.formula-block .math-limits{font-size:1.05em}
+.sum-limits{font-family:"STIX Two Math",serif;font-size:1em;math-style:compact;vertical-align:middle;margin:0 .12em}
+.formula-block .sum-limits{math-style:normal}
+@media(max-width:650px){.independence-lab{padding:14px}.formula-steps>div:has(math){padding-left:0}.independence-lab td,.independence-lab th{padding:6px}.formula-block{padding:12px;font-size:.98rem}}
+@media print{.independence-lab label{display:none}.independence-lab{break-inside:avoid}.logic-diagram{break-inside:avoid}.lesson{font-size:.92rem;line-height:1.44}}

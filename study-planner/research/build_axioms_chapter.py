@@ -45,7 +45,7 @@ html = f'''<!doctype html>
   <header class="hero">
     <p class="eyebrow">Probability and Statistics · Chapter 1</p>
     <h1>Sample Spaces, Events, and Probability Axioms</h1>
-    <p>Review draft · four core university sources and one supplement · 24 fully worked problems</p>
+    <p>Approved chapter · four core university sources and one supplement · 24 fully worked problems</p>
   </header>
   <nav class="toc" aria-label="Chapter contents">{nav}</nav>
   <article class="lesson">{body}</article>
