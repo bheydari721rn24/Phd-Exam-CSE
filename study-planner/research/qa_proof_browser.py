@@ -21,7 +21,7 @@ import websocket
 ROOT = Path(__file__).resolve().parents[1]
 EDGE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 CHAPTER = sys.argv[1] if len(sys.argv) > 1 else "d_proof"
-assert CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors"}
+assert CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices"}
 OUT = Path(tempfile.gettempdir()) / f"{CHAPTER}_qa"
 OUT.mkdir(exist_ok=True)
 server = ThreadingHTTPServer(("127.0.0.1", 0), partial(SimpleHTTPRequestHandler, directory=str(ROOT / "dist")))
@@ -68,16 +68,16 @@ try:
     if parsed["scroll"] > 390:
         offenders = cdp("Runtime.evaluate", {"expression": "JSON.stringify([...document.querySelectorAll('*')].filter(x=>x.getBoundingClientRect().right>392).slice(0,35).map(x=>({tag:x.tagName,cls:x.className?.baseVal??x.className,text:x.textContent.slice(0,90),right:Math.round(x.getBoundingClientRect().right)})))", "returnByValue": True})["result"]["value"]
         print(offenders.encode("ascii", "backslashreplace").decode("ascii"))
-    if CHAPTER in {"a_model", "s_axioms", "s_counting", "l_vectors"}:
+    if CHAPTER in {"a_model", "s_axioms", "s_counting", "l_vectors", "l_matrices"}:
         overflow_items = cdp("Runtime.evaluate", {"expression": "JSON.stringify([...document.querySelectorAll('.formula-block')].filter(x=>x.scrollWidth>x.clientWidth).map(x=>({extra:x.scrollWidth-x.clientWidth,text:x.textContent.slice(0,110)})))", "returnByValue": True})["result"]["value"]
         print(overflow_items.encode("ascii", "backslashreplace").decode("ascii"))
     assert parsed["width"] == 390 and parsed["scroll"] == 390, "Mobile horizontal overflow."
-    if CHAPTER in {"d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors"}:
+    if CHAPTER in {"d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices"}:
         assert parsed["formulaOverflow"] == 0, "A mathematical display is clipped on mobile."
     shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
     (OUT / "mobile-cdp.png").write_bytes(base64.b64decode(shot))
-    if CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors"}:
-        cdp("Runtime.evaluate", {"expression": "document.querySelector('math, .math-limits, .math-inline').scrollIntoView({block:'center'})" if CHAPTER not in {"s_counting", "l_vectors"} else "document.querySelector('math').scrollIntoView({block:'center'})"})
+    if CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices"}:
+        cdp("Runtime.evaluate", {"expression": "document.querySelector('math, .math-limits, .math-inline').scrollIntoView({block:'center'})" if CHAPTER not in {"s_counting", "l_vectors", "l_matrices"} else "document.querySelector('math').scrollIntoView({block:'center'})"})
         time.sleep(.25)
         math_shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
         (OUT / "math-mobile-cdp.png").write_bytes(base64.b64decode(math_shot))
@@ -120,6 +120,30 @@ try:
         (OUT / "laboratory-mobile-cdp.png").write_bytes(base64.b64decode(lab_shot))
         assert cdp("Runtime.evaluate", {"expression": "[...document.querySelectorAll('h3')].filter(x=>x.textContent.startsWith('Problem ')).length", "returnByValue": True})["result"]["value"] == 34
         print("Independence laboratory: four parameter states, normalization, all marginals and pair joints, triple probability, and 34 problems passed.")
+    if CHAPTER == "l_matrices":
+        from math import sin, pi
+        expression = "JSON.stringify({...document.querySelector('#matrix-result').dataset,text:document.querySelector('#matrix-result').textContent})"
+        for angle, shear, x, y in ((90,100,100,100),(0,100,100,100),(180,100,100,100),(45,0,100,100),(-30,-150,-75,125),(90,100,0,0),(90,-200,150,-150),(146,75,100,0)):
+            cdp("Runtime.evaluate", {"expression": f"document.querySelector('#matrix-angle').value={angle};document.querySelector('#matrix-shear').value={shear};document.querySelector('#matrix-x').value={x};document.querySelector('#matrix-y').value={y};document.querySelector('#matrix-angle').dispatchEvent(new Event('input'))"})
+            lab = json.loads(cdp("Runtime.evaluate", {"expression":expression,"returnByValue":True})['result']['value'])
+            expected=(shear/100*sin(angle*pi/180))**2*((x/100)**2+(y/100)**2)
+            assert abs(float(lab['gap'])-expected)<1e-10,lab
+            assert lab['commute']==str(shear==0 or angle in (0,180,-180)).lower(),lab
+            first,second=json.loads(lab['first']),json.loads(lab['second'])
+            assert abs(sum((a-b)**2 for a,b in zip(first,second))-expected)<1e-10,lab
+            if angle==90 and shear==100 and x==y==100:
+                assert all(abs(a-b)<1e-10 for a,b in zip(first,[-1,2])),lab
+                assert all(abs(a-b)<1e-10 for a,b in zip(second,[0,1])),lab
+        cdp("Runtime.evaluate", {"expression":"document.querySelector('#matrix-angle').value=90;document.querySelector('#matrix-shear').value=100;document.querySelector('#matrix-x').value=100;document.querySelector('#matrix-y').value=100;document.querySelector('#matrix-angle').dispatchEvent(new Event('input'))"})
+        for name,selector in [('laboratory','.matrix-lab'),('problems','#worked-problems'),('review','#quick-reference'),('arrays','#blocks'),('code','#computation')]:
+            cdp("Runtime.evaluate", {"expression":f"document.querySelector('{selector}').scrollIntoView({{block:'start'}})"})
+            time.sleep(.15)
+            (OUT/f'{name}-mobile-cdp.png').write_bytes(base64.b64decode(cdp('Page.captureScreenshot',{'format':'png','captureBeyondViewport':False})['data']))
+        font_info=json.loads(cdp('Runtime.evaluate',{'expression':"JSON.stringify({math:getComputedStyle(document.querySelector('math')).fontFamily,cell:getComputedStyle(document.querySelector('mtd')).fontFamily,code:getComputedStyle(document.querySelector('pre')).fontFamily,arrays:document.querySelectorAll('mtable').length})",'returnByValue':True})['result']['value'])
+        assert 'STIX Two Math' in font_info['math'] and 'STIX Two Math' in font_info['cell'],font_info
+        assert font_info['arrays']>=70,font_info
+        assert cdp('Runtime.evaluate',{'expression':"[...document.querySelectorAll('h3')].filter(x=>x.textContent.startsWith('Problem ')).length",'returnByValue':True})['result']['value']==36
+        print('Matrix laboratory: eight states, both action orders, commutator identity, zero input, fonts and 36 solutions passed.',font_info)
     if CHAPTER == "l_vectors":
         expression = "JSON.stringify({...document.querySelector('#vector-result').dataset,text:document.querySelector('#vector-result').textContent})"
         for orientation, size, coefficient in ((0,100,300),(90,100,200),(180,100,-300),(30,50,150),(146,100,0),(30,0,500)):

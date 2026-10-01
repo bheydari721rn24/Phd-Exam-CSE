@@ -1,0 +1,18 @@
+.overline{text-decoration:overline;text-decoration-thickness:1px}
+.lesson math{font-family:"STIX Two Math",serif;font-size:1.03em;math-style:normal}
+.lesson .formula-block{white-space:normal;overflow-wrap:anywhere;line-height:2}
+.lesson .formula-block math{vertical-align:middle;margin:.12em .1em}
+.lesson .matrix-array{font-size:1em}
+.lesson mtable{columnspacing:.65em;rowspacing:.3em}
+.matrix-figure{margin:28px 0;overflow-x:auto}.matrix-figure svg{display:block;width:100%;min-width:650px;height:auto}
+.matrix-figure svg text{font-family:"Source Sans 3",sans-serif;font-size:17px}
+.matrix-figure svg .diagram-math{font-family:"STIX Two Math",serif;font-size:21px}
+.matrix-figure figcaption{font-size:.94rem;color:#486176;line-height:1.65}
+.matrix-controls{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}.matrix-controls label{font-size:.95rem}
+.matrix-controls input{display:block;width:100%;accent-color:#286c91}.matrix-controls output,.lab-math{font-family:"STIX Two Math",serif;font-weight:400}
+#matrix-canvas{display:block;width:100%;height:auto;background:#fff;border:1px solid #cbdee6;border-radius:12px;margin:16px 0}
+#matrix-canvas text{font-family:"STIX Two Math",serif;font-size:18px}
+#matrix-result{padding:15px;border-radius:10px;background:#fff;line-height:1.7}#matrix-result p{margin:6px 0;font-size:.95rem}
+.lab-comparison{display:flex;gap:24px;flex-wrap:wrap}.lab-comparison>div{flex:1;min-width:150px}.lab-blue{color:#286c91}.lab-amber{color:#aa6d22}
+@media(max-width:650px){.matrix-controls{grid-template-columns:1fr;gap:12px}.lesson .formula-block{font-size:.95rem;padding:12px}.matrix-figure svg text{font-size:18px}}
+@media print{.matrix-controls{display:none}.matrix-figure,.lesson pre{break-inside:avoid}#matrix-canvas{max-width:140mm;margin:10px auto}.matrix-lab{break-inside:avoid}.lesson .formula-block{font-size:1rem}}

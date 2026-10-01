@@ -77,7 +77,7 @@ html = f'''<!doctype html>
 <div class="top-link"><a href="../index.html#library">← Back to the chapter library</a></div>
 <header class="hero"><p class="eyebrow">Linear Algebra · Chapter 1</p>
 <h1>Vectors, Inner Products, and Linear Geometry</h1>
-<p>Review draft · four reviewed university courses · 34 fully worked problems</p></header>
+<p>Approved chapter · four reviewed university courses · 34 fully worked problems</p></header>
 <nav class="toc" aria-label="Chapter contents">{nav}</nav>
 <article class="lesson">{body}</article>
 <p class="top-link"><a href="../index.html#library">← Back to the chapter library</a></p>

@@ -1,6 +1,6 @@
 {
   "week": 1,
-  "reviewedAt": "2026-10-01",
+  "reviewedAt": "2026-10-02",
   "method": "A course entry records a checked course page and topic match. It does not imply that every lecture or exercise was read. Chapter-level audits state which texts were actually studied and synthesized.",
   "courses": [
     {
@@ -989,6 +989,81 @@
       "advantage": "Selected core source: instructional pages of Dot Product, Components and Projection, and Cross Product were read for geometric meaning and signed components.",
       "limit": "Short notes require independent proof expansions. No claim of full-course reading or video review is made.",
       "access": "official_written_lecture_pdfs",
+      "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
+      "id": "stanford-ee263-matrices",
+      "subject": "linear",
+      "university": "Stanford",
+      "course": "Stephen Boyd: archival EE263, Matrix Operations, Lecture 2",
+      "url": "https://web.stanford.edu/class/archive/ee/ee263/ee263.1082/lectures.html",
+      "evidence": "https://ee263.stanford.edu/archive/matrix-primer-lect2.pdf",
+      "topics": [
+        "l_matrices"
+      ],
+      "advantage": "Selected core: all 15 written slides reviewed for shapes, operations, powers, inverse and transpose rules.",
+      "limit": "Proofs and edge cases expanded independently; no claim of reading the whole offering.",
+      "access": "official_written_lecture_pdf",
+      "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
+      "id": "oxford-m1-2022-matrices",
+      "subject": "linear",
+      "university": "Oxford",
+      "course": "M1 Linear Algebra I, Michaelmas 2022; instructor Andrew Wathen",
+      "url": "https://courses.maths.ox.ac.uk/course/view.php?id=609",
+      "evidence": "https://courses.maths.ox.ac.uk/pluginfile.php/25471/mod_folder/content/0/lecture_notes22.pdf?forcedownload=1",
+      "topics": [
+        "l_matrices"
+      ],
+      "advantage": "Selected core: printed pp. 8–13 and 21–24 reviewed for definitions, algebraic proofs, structured matrices, and operation counts.",
+      "limit": "Strict-upper and identity-dimension slips corrected. General elimination belongs to a later chapter. Note author not separately identified.",
+      "access": "official_guest_access_written_notes",
+      "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
+      "id": "berkeley-math54-2018-matrices",
+      "subject": "linear",
+      "university": "UC Berkeley",
+      "course": "Alexander Paulin: Math 54, Spring 2018",
+      "url": "https://math.berkeley.edu/~apaulin/54(Spring%202018%20Videos%20and%20Notes).html",
+      "evidence": "https://math.berkeley.edu/~apaulin/Matrix%20Algebra.pdf",
+      "topics": [
+        "l_matrices"
+      ],
+      "advantage": "Selected core: all four handwritten Matrix Algebra pages rendered and visually read; basis images, composition, and failed cancellation compared.",
+      "limit": "Only the named note was reviewed for this chapter; no full-course review claimed.",
+      "access": "official_handwritten_lecture_pdf",
+      "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
+      "id": "mit-1806sc-2011-matrices",
+      "subject": "linear",
+      "university": "MIT",
+      "course": "Gilbert Strang: 18.06SC, Fall 2011",
+      "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/resource-index/",
+      "evidence": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/1963da71c4d96e5d14e7939780f79bcc_MIT18_06SCF11_Ses1.3sum.pdf",
+      "topics": [
+        "l_matrices"
+      ],
+      "advantage": "Selected core: both lecture summaries and multiplication recitation/solutions read on all instructional pages; four product views, blocks, and both in-scope recitation types included.",
+      "limit": "Inverse recitation's operation-label slips corrected via an independently verified finite-series solution. Full Gaussian procedure deferred.",
+      "access": "official_written_lecture_and_problem_pdfs",
+      "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
+      "id": "cmu-21241-2014-matrices",
+      "subject": "linear",
+      "university": "CMU",
+      "course": "William Gunther: 21-241 Matrix Algebra, Summer I 2014",
+      "url": "https://www.math.cmu.edu/~wgunther/241/m14/index.html",
+      "evidence": "https://www.math.cmu.edu/~wgunther/241/m14/notes/week2/7.pdf",
+      "topics": [
+        "l_matrices"
+      ],
+      "advantage": "Additional selected source: all four Day 7 pages reviewed for applied dimensions, coordinate selectors, and graph-walk meaning.",
+      "limit": "Application numbers and explanations rewritten independently; selector proof's row/column wording corrected.",
+      "access": "official_written_lecture_pdf",
       "reviewLevel": "reviewed_in_scope_written_sections"
     }
   ]

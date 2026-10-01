@@ -1,6 +1,6 @@
 # Vectors, Inner Products, and Linear Geometry
 
-**English review draft · Linear Algebra, Chapter 1 · Read the full lesson before using the problem bank as practice.**
+**Approved English chapter · Linear Algebra, Chapter 1 · Read the full lesson before using the problem bank as practice.**
 
 ## 1. Scope, prerequisites, and reviewed sources
 
