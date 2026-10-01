@@ -21,7 +21,7 @@ import websocket
 ROOT = Path(__file__).resolve().parents[1]
 EDGE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 CHAPTER = sys.argv[1] if len(sys.argv) > 1 else "d_proof"
-assert CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop"}
+assert CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms"}
 OUT = Path(tempfile.gettempdir()) / f"{CHAPTER}_qa"
 OUT.mkdir(exist_ok=True)
 server = ThreadingHTTPServer(("127.0.0.1", 0), partial(SimpleHTTPRequestHandler, directory=str(ROOT / "dist")))
@@ -68,15 +68,15 @@ try:
     if parsed["scroll"] > 390:
         offenders = cdp("Runtime.evaluate", {"expression": "JSON.stringify([...document.querySelectorAll('*')].filter(x=>x.getBoundingClientRect().right>392).slice(0,35).map(x=>({tag:x.tagName,cls:x.className?.baseVal??x.className,text:x.textContent.slice(0,90),right:Math.round(x.getBoundingClientRect().right)})))", "returnByValue": True})["result"]["value"]
         print(offenders.encode("ascii", "backslashreplace").decode("ascii"))
-    if CHAPTER == "a_model":
+    if CHAPTER in {"a_model", "s_axioms"}:
         overflow_items = cdp("Runtime.evaluate", {"expression": "JSON.stringify([...document.querySelectorAll('.formula-block')].filter(x=>x.scrollWidth>x.clientWidth).map(x=>({extra:x.scrollWidth-x.clientWidth,text:x.textContent.slice(0,110)})))", "returnByValue": True})["result"]["value"]
-        print(overflow_items)
+        print(overflow_items.encode("ascii", "backslashreplace").decode("ascii"))
     assert parsed["width"] == 390 and parsed["scroll"] == 390, "Mobile horizontal overflow."
-    if CHAPTER in {"d_induction", "a_model", "a_asym", "a_loop"}:
+    if CHAPTER in {"d_induction", "a_model", "a_asym", "a_loop", "s_axioms"}:
         assert parsed["formulaOverflow"] == 0, "A mathematical display is clipped on mobile."
     shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
     (OUT / "mobile-cdp.png").write_bytes(base64.b64decode(shot))
-    if CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop"}:
+    if CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms"}:
         cdp("Runtime.evaluate", {"expression": "document.querySelector('.math-limits, .math-inline').scrollIntoView({block:'center'})"})
         time.sleep(.25)
         math_shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
@@ -89,6 +89,19 @@ try:
         time.sleep(.25)
         diagram_shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
         (OUT / "diagram-mobile-cdp.png").write_bytes(base64.b64decode(diagram_shot))
+    if CHAPTER == "s_axioms":
+        expr = "JSON.stringify({valid:document.querySelector('#lab-result').dataset.valid,text:document.querySelector('#lab-result').textContent,cells:[...document.querySelectorAll('.lab-region .lab-math')].map(x=>x.textContent)})"
+        lab = json.loads(cdp("Runtime.evaluate", {"expression": expr, "returnByValue": True})["result"]["value"])
+        assert lab["valid"] == "true" and lab["cells"] == ["25%", "40%", "20%", "15%"], lab
+        cdp("Runtime.evaluate", {"expression": "document.querySelector('#pq').value=5;document.querySelector('#pq').dispatchEvent(new Event('input'))"})
+        lab = json.loads(cdp("Runtime.evaluate", {"expression": expr, "returnByValue": True})["result"]["value"])
+        assert lab["valid"] == "false" and "negative mass of -5%" in lab["text"] and not lab["cells"], lab
+        cdp("Runtime.evaluate", {"expression": "document.querySelector('#pq').value=25;document.querySelector('#pq').dispatchEvent(new Event('input'));document.querySelector('.probability-lab').scrollIntoView({block:'start'})"})
+        time.sleep(.25)
+        lab_shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
+        (OUT / "laboratory-mobile-cdp.png").write_bytes(base64.b64decode(lab_shot))
+        assert cdp("Runtime.evaluate", {"expression": "[...document.querySelectorAll('h3')].filter(x=>x.textContent.startsWith('Problem ')).length", "returnByValue": True})["result"]["value"] == 24
+        print("Probability laboratory: valid initial law and invalid-overlap rejection passed.")
     cdp("Emulation.clearDeviceMetricsOverride")
     cdp("Emulation.setDeviceMetricsOverride", {
         "width": 1280, "height": 900, "deviceScaleFactor": 1, "mobile": False,

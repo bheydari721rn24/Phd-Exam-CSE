@@ -1,0 +1,7 @@
+.probability-lab{border:1px solid #a8c9c7;background:#f1f8f7;border-radius:12px;padding:20px;margin:24px 0}
+.lab-controls{display:grid;gap:18px;margin:20px 0}.lab-controls label{display:grid;grid-template-columns:1fr 4em;gap:8px;font-size:.94rem}.lab-controls input{grid-column:1;grid-row:2;width:100%;accent-color:#317f7d}.lab-controls output{grid-column:2;grid-row:2;font-family:"STIX Two Math",serif;text-align:right}
+.lab-regions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.lab-region{padding:12px;background:#fff;border:1px solid #c7dbd9;border-radius:8px}.lab-region p{margin:0 0 5px}.lab-math{font-family:"STIX Two Math",serif}.lab-track{height:8px;border-radius:4px;background:#e3eeed;overflow:hidden}.lab-track>div{height:100%;background:#408d88}.lab-warning{color:#913e23;font-weight:600}
+.lab-label{grid-column:1/-1}
+.lesson-diagram{display:block;width:100%;height:auto;max-width:650px;margin:22px auto}.lesson-diagram text{font-family:"STIX Two Math",serif}
+@media(max-width:650px){.probability-lab{padding:16px}.formula-block .math-limits{font-size:1em}.formula-steps>div:has(math){padding-left:0}}
+@media print{.lab-controls{display:none}.probability-lab{break-inside:avoid}.lesson-diagram{max-height:70mm;break-inside:avoid}.lesson{font-size:.92rem;line-height:1.44}}

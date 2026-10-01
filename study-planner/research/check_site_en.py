@@ -110,9 +110,11 @@ assert lessons[0]["chapters"][4]["status"] == "ready"
 assert lessons[0]["chapters"][4]["url"] == "chapters/a_model.html"
 assert lessons[0]["chapters"][5]["status"] == "ready"
 assert lessons[0]["chapters"][5]["url"] == "chapters/a_asym.html"
-assert lessons[0]["chapters"][6]["status"] == "draft"
+assert lessons[0]["chapters"][6]["status"] == "ready"
 assert lessons[0]["chapters"][6]["url"] == "chapters/a_loop.html"
-for chapter_id in ("d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop"):
+assert lessons[0]["chapters"][7]["status"] == "draft"
+assert lessons[0]["chapters"][7]["url"] == "chapters/s_axioms.html"
+for chapter_id in ("d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms"):
     chapter_html = (ROOT / "chapters" / f"{chapter_id}.html").read_text(encoding="utf-8")
     text_without_diagrams = re.sub(r"<(?:svg|math)\b.*?</(?:svg|math)>", "", chapter_html, flags=re.S)
     assert not re.search(r"[₀-₉₊₋ₙₖᵢ⁰-⁹⁺⁻ⁿʲᵏᵗᴺⁱ]", text_without_diagrams), chapter_id
