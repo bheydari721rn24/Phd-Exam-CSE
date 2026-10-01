@@ -57,7 +57,7 @@ html = f'''<!doctype html>
 <div class="top-link"><a href="../index.html#library">← Back to the chapter library</a></div>
 <header class="hero"><p class="eyebrow">Probability and Statistics · Chapter 2</p>
 <h1>Counting Probabilities and Independence</h1>
-<p>Review draft · four reviewed university courses · 34 fully worked problems</p></header>
+<p>Approved chapter · four reviewed university courses · 34 fully worked problems</p></header>
 <nav class="toc" aria-label="Chapter contents">{nav}</nav>
 <article class="lesson">{body}</article>
 <p class="top-link"><a href="../index.html#library">← Back to the chapter library</a></p>
@@ -66,7 +66,7 @@ html = f'''<!doctype html>
 lessons_path = ROOT / "dist" / "lessons.json"
 lessons = json.loads(lessons_path.read_text(encoding="utf-8"))
 chapter = next(c for w in lessons for c in w["chapters"] if c["topicId"] == "s_counting")
-chapter.update(status="draft", url="chapters/s_counting.html")
+chapter.update(url="chapters/s_counting.html")
 lessons_path.write_text(json.dumps(lessons, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 register_path = ROOT / "dist" / "course-audit-week1.en.json"
 register = json.loads(register_path.read_text(encoding="utf-8"))

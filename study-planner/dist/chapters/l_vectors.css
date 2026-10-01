@@ -1,0 +1,14 @@
+.overline{text-decoration:overline;text-decoration-thickness:1px}
+.lesson math{font-family:"STIX Two Math",serif;math-style:normal;font-size:1.04em}
+.lesson .formula-block{white-space:normal;overflow-wrap:anywhere;line-height:1.8}
+.lesson .formula-block math{vertical-align:middle;margin:0 .09em}
+.vector-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;align-items:center}
+.vector-controls label{font-size:.95rem}.vector-controls output{font-family:"STIX Two Math",serif;font-weight:400}
+.vector-controls input{width:100%;accent-color:#286c91}
+#vector-canvas{display:block;width:100%;height:auto;margin:16px auto;background:#fff;border:1px solid #cbdee6;border-radius:10px}
+#vector-canvas text{font-family:"STIX Two Math",serif;font-size:18px}
+#vector-result{background:#fff;padding:12px 16px;border-radius:8px;line-height:1.7}
+#vector-result p{margin:5px 0;font-size:.94rem}
+#vector-result .lab-math{font-family:"STIX Two Math",serif}
+@media(max-width:650px){.vector-controls{grid-template-columns:1fr;gap:5px}.vector-controls input{margin-bottom:12px}.formula-block{padding:12px;font-size:1rem}.lesson math{max-width:100%}}
+@media print{.vector-controls{display:none}#vector-canvas{max-width:145mm}.vector-lab{break-inside:avoid}.lesson .formula-block{font-size:1.05rem}.lesson figure,.lesson pre{break-inside:avoid}}

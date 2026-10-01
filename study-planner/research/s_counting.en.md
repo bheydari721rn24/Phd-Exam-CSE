@@ -1,6 +1,6 @@
 # Counting Probabilities and Independence
 
-*Probability and Statistics · Chapter 2 · English review draft*
+*Probability and Statistics · Chapter 2 · Approved English chapter*
 
 ## 1. Scope, prerequisites, and reviewed sources
 
