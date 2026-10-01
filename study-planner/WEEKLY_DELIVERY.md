@@ -43,4 +43,4 @@ The study-facing output is `dist/chapters/<topicId>.html`, generated from a revi
 
 ## Current chapter handoff
 
-As of 2026-09-30, `a_asym` is a completed English **review draft** in `dist/chapters/a_asym.html`, linked from the chapter library. Its source and quality audits are `research/a_asym-source-audit.md` and `research/a_asym-quality-audit.md`. The gate is `awaiting_user_approval`; do not promote it to `ready` or start `a_loop` until the student explicitly approves this draft.
+As of 2026-10-01, the student explicitly approved `a_asym`, which is now `ready`. The next chapter, `a_loop`, is a completed English **review draft** in `dist/chapters/a_loop.html`, linked from the chapter library. Its source and quality audits are `research/a_loop-source-audit.md` and `research/a_loop-quality-audit.md`. The gate is `awaiting_user_approval`; do not promote `a_loop` to `ready` or start another chapter until the student explicitly approves this draft. Archived Iranian entrance-exam booklets remain deferred.
