@@ -215,6 +215,9 @@ async function start() {
       loadJson("schedule.en.json"), loadJson("week1-daily.en.json"),
       loadJson("course-audit-week1.en.json"), loadJson("lessons.json")
     ]);
+    lessons = lessons.map(week => ({ ...week, chapters: (week.chapters || []).map(chapter => ({
+      ...chapter, title: chapter.title || plan.topics[chapter.topicId]?.title || chapter.topicId
+    })) }));
     const saved = JSON.parse(localStorage.getItem(progressKey) || "{}");
     completed = Object.fromEntries(Object.entries(saved).filter(([id, value]) => value && plan.topics[id]));
     const requested = Number((location.hash.match(/^#week-(\d+)$/) || [])[1]);

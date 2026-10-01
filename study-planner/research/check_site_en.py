@@ -119,12 +119,14 @@ assert lessons[0]["chapters"][8]["url"] == "chapters/s_counting.html"
 vectors = next(c for w in lessons for c in w['chapters'] if c['topicId'] == 'l_vectors')
 assert vectors['status'] == 'ready' and vectors['url'] == 'chapters/l_vectors.html'
 matrices = next(c for w in lessons for c in w['chapters'] if c['topicId'] == 'l_matrices')
-assert matrices['status'] == 'draft' and matrices['url'] == 'chapters/l_matrices.html'
+assert matrices['status'] == 'ready' and matrices['url'] == 'chapters/l_matrices.html'
+types = next(c for w in lessons for c in w['chapters'] if c['topicId'] == 'p_types')
+assert types['status'] == 'draft' and types['url'] == 'chapters/p_types.html'
 vector_html = (ROOT / 'chapters/l_vectors.html').read_text(encoding='utf-8')
 vector_text = re.sub(r'<[^>]+>', '', vector_html)
 for required in ('in a normed space', 'in an inner-product space', 'Equality means linear dependence', 'It often rejects impossible lengths'):
     assert required in vector_text, ('vector review table lost content', required)
-for chapter_id in ("d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices"):
+for chapter_id in ("d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types"):
     chapter_html = (ROOT / "chapters" / f"{chapter_id}.html").read_text(encoding="utf-8")
     text_without_diagrams = re.sub(r"<(?:svg|math)\b.*?</(?:svg|math)>", "", chapter_html, flags=re.S)
     assert not re.search(r"[₀-₉₊₋ₙₖᵢ⁰-⁹⁺⁻ⁿʲᵏᵗᴺⁱ]", text_without_diagrams), chapter_id

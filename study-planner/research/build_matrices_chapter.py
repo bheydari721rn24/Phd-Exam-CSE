@@ -88,12 +88,12 @@ html=f'''<!doctype html>
 <script src="l_matrices-lab.js" defer></script></head>
 <body><main class="chapter"><div class="top-link"><a href="../index.html#library">← Back to the chapter library</a></div>
 <header class="hero"><p class="eyebrow">Linear Algebra · Chapter 2</p><h1>Matrices and Matrix Operations</h1>
-<p>Review draft · five reviewed university courses · 36 fully worked problems · 50 examination rules</p></header>
+<p>Approved chapter · five reviewed university courses · 36 fully worked problems · 50 examination rules</p></header>
 <nav class="toc" aria-label="Chapter contents">{nav}</nav><article class="lesson">{body}</article>
 <p class="top-link"><a href="../index.html#library">← Back to the chapter library</a></p></main></body></html>'''
 (ROOT/'dist/chapters/l_matrices.html').write_text(html,encoding='utf-8')
 path=ROOT/'dist/lessons.json'; data=json.loads(path.read_text(encoding='utf-8'))
-next(c for w in data for c in w['chapters'] if c['topicId']=='l_matrices').update(url='chapters/l_matrices.html',status='draft')
+next(c for w in data for c in w['chapters'] if c['topicId']=='l_matrices').update(url='chapters/l_matrices.html',status='ready')
 path.write_text(json.dumps(data,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
 path=ROOT/'dist/course-audit-week1.en.json'; data=json.loads(path.read_text(encoding='utf-8'))
 courses=json.loads((ROOT/'research/l_matrices-reviewed-courses.json').read_text(encoding='utf-8'))

@@ -1,6 +1,6 @@
 # Matrices and Matrix Operations
 
-**English review draft · Linear Algebra, Chapter 2 · Prerequisite: Vectors and Inner Products.**
+**Approved English chapter · Linear Algebra, Chapter 2 · Prerequisite: Vectors and Inner Products.**
 
 ## 1. Scope, learning route, and source synthesis
 
