@@ -21,7 +21,7 @@ import websocket
 ROOT = Path(__file__).resolve().parents[1]
 EDGE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 CHAPTER = sys.argv[1] if len(sys.argv) > 1 else "d_proof"
-assert CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow"}
+assert CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number"}
 OUT = Path(tempfile.gettempdir()) / f"{CHAPTER}_qa"
 OUT.mkdir(exist_ok=True)
 server = ThreadingHTTPServer(("127.0.0.1", 0), partial(SimpleHTTPRequestHandler, directory=str(ROOT / "dist")))
@@ -68,16 +68,16 @@ try:
     if parsed["scroll"] > 390:
         offenders = cdp("Runtime.evaluate", {"expression": "JSON.stringify([...document.querySelectorAll('*')].filter(x=>x.getBoundingClientRect().right>392).slice(0,35).map(x=>({tag:x.tagName,cls:x.className?.baseVal??x.className,text:x.textContent.slice(0,90),right:Math.round(x.getBoundingClientRect().right)})))", "returnByValue": True})["result"]["value"]
         print(offenders.encode("ascii", "backslashreplace").decode("ascii"))
-    if CHAPTER in {"a_model", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow"}:
+    if CHAPTER in {"a_model", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number"}:
         overflow_items = cdp("Runtime.evaluate", {"expression": "JSON.stringify([...document.querySelectorAll('.formula-block')].filter(x=>x.scrollWidth>x.clientWidth).map(x=>({extra:x.scrollWidth-x.clientWidth,text:x.textContent.slice(0,110)})))", "returnByValue": True})["result"]["value"]
         print(overflow_items.encode("ascii", "backslashreplace").decode("ascii"))
     assert parsed["width"] == 390 and parsed["scroll"] == 390, "Mobile horizontal overflow."
-    if CHAPTER in {"d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow"}:
+    if CHAPTER in {"d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number"}:
         assert parsed["formulaOverflow"] == 0, "A mathematical display is clipped on mobile."
     shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
     (OUT / "mobile-cdp.png").write_bytes(base64.b64decode(shot))
-    if CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow"}:
-        cdp("Runtime.evaluate", {"expression": "document.querySelector('math, .math-limits, .math-inline').scrollIntoView({block:'center'})" if CHAPTER not in {"s_counting", "l_vectors", "l_matrices", "p_types", "p_flow"} else "document.querySelector('math').scrollIntoView({block:'center'})"})
+    if CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number"}:
+        cdp("Runtime.evaluate", {"expression": "document.querySelector('math, .math-limits, .math-inline').scrollIntoView({block:'center'})" if CHAPTER not in {"s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number"} else "document.querySelector('math').scrollIntoView({block:'center'})"})
         time.sleep(.25)
         math_shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
         (OUT / "math-mobile-cdp.png").write_bytes(base64.b64decode(math_shot))
@@ -120,6 +120,25 @@ try:
         (OUT / "laboratory-mobile-cdp.png").write_bytes(base64.b64decode(lab_shot))
         assert cdp("Runtime.evaluate", {"expression": "[...document.querySelectorAll('h3')].filter(x=>x.textContent.startsWith('Problem ')).length", "returnByValue": True})["result"]["value"] == 34
         print("Independence laboratory: four parameter states, normalization, all marginals and pair joints, triple probability, and 34 problems passed.")
+    if CHAPTER == 'g_number':
+        cases=[(4,7,1,'add',8,-8,0,True),(4,15,1,'add',0,0,1,False),(4,8,8,'add',0,0,1,True),(4,7,8,'sub',15,-1,0,True),(4,0,0,'sub',0,0,1,False),(4,8,15,'sub',9,-7,0,False),(8,100,60,'add',160,-96,0,True),(16,65535,1,'add',0,0,1,False),(16,32767,1,'add',32768,-32768,0,True)]
+        for n,a,b,op,word,signed,carry,overflow in cases:
+            expression=f"document.getElementById('number-width').value={n};document.getElementById('number-a').value={a};document.getElementById('number-b').value={b};document.getElementById('number-operation').value='{op}';document.getElementById('number-operation').dispatchEvent(new Event('input'));JSON.stringify({{...document.getElementById('number-result').dataset}})"
+            state=json.loads(cdp('Runtime.evaluate',{'expression':expression,'returnByValue':True})['result']['value'])
+            assert state['valid']=='true' and int(state['word'])==word and int(state['signed'])==signed and int(state['carry'])==carry and state['overflow']==str(overflow).lower(),state
+        for bad in ('', '-1', '1.5', '65536'):
+            cdp('Runtime.evaluate',{'expression':f"document.getElementById('number-a').value='{bad}';document.getElementById('number-a').dispatchEvent(new Event('input'))"})
+            assert cdp('Runtime.evaluate',{'expression':"document.getElementById('number-result').dataset.valid",'returnByValue':True})['result']['value']=='false'
+        cdp('Runtime.evaluate',{'expression':"document.getElementById('number-width').value=4;document.getElementById('number-a').value=7;document.getElementById('number-b').value=1;document.getElementById('number-operation').value='add';document.getElementById('number-operation').dispatchEvent(new Event('input'))"})
+        info=json.loads(cdp('Runtime.evaluate',{'expression':"JSON.stringify({math:getComputedStyle(document.querySelector('math')).fontFamily,code:getComputedStyle(document.querySelector('pre code')).fontFamily,diagram:getComputedStyle(document.querySelector('svg .math-label')).fontFamily,index:getComputedStyle(document.querySelector('sub')).fontFamily,underline:[...document.querySelectorAll('a')].some(x=>getComputedStyle(x).textDecorationLine.includes('underline')),problems:[...document.querySelectorAll('h3')].filter(x=>x.textContent.startsWith('Problem ')).length})",'returnByValue':True})['result']['value'])
+        assert all('STIX Two Math' in info[k] for k in ('math','diagram','index')) and 'JetBrains Mono' in info['code'] and not info['underline'] and info['problems']==36,info
+        font_loaded=cdp('Runtime.evaluate',{'expression':'''document.fonts.check('16px "JetBrains Mono"') && document.fonts.check('16px "STIX Two Math"')''','returnByValue':True})['result']['value']
+        assert font_loaded, 'A bundled mathematical or code face did not load.'
+        for name,selector in [('laboratory','.number-lab'),('problems','#worked-problems'),('review','#quick-reference'),('diagram','.number-diagram'),('gray','#gray'),('codes','#decimal')]:
+            cdp('Runtime.evaluate',{'expression':f"document.querySelector('{selector}').scrollIntoView({{block:'start'}})"})
+            time.sleep(.15)
+            (OUT/f'{name}-mobile-cdp.png').write_bytes(base64.b64decode(cdp('Page.captureScreenshot',{'format':'png','captureBeyondViewport':False})['data']))
+        print('Number laboratory: nine arithmetic states, four invalid inputs, math/code/index/diagram fonts, links and 36 solutions passed.',info)
     if CHAPTER == 'p_flow':
         cases=[('for',5,0,'normal',5,4,6,5,5),('while',5,0,'normal',5,10,6,5,5),('do',0,0,'normal',1,0,1,1,1),('do',0,2,'normal',3,2,1,1,1),('bug',5,0,'cycle',0,0,1,1,0),('bug',5,1,'cycle',2,1,2,2,1),('break',8,0,'break',3,3,4,4,3),('break',3,0,'normal',3,3,4,3,3),('for',0,0,'normal',0,0,1,0,0),('for',4,6,'normal',6,0,1,0,0)]
         for mode,n,a,status,i,total,tests,entries,updates in cases:
@@ -220,6 +239,10 @@ try:
         title=cdp('Runtime.evaluate',{'expression':f"document.querySelector('#library article a[href={chr(34)}chapters/p_flow.html{chr(34)}]').closest('article').querySelector('h3').textContent",'returnByValue':True})['result']['value']
         assert title == 'Conditionals, loops, execution order',title
         print('Complete flow chapter title visible in library.')
+    if CHAPTER == 'g_number':
+        title=cdp('Runtime.evaluate',{'expression':f"document.querySelector('#library article a[href={chr(34)}chapters/g_number.html{chr(34)}]').closest('article').querySelector('h3').textContent",'returnByValue':True})['result']['value']
+        assert title == 'Number bases and binary encoding',title
+        print('Complete number chapter title visible in library.')
     ws.close()
 finally:
     process.terminate()

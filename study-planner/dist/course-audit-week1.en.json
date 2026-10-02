@@ -1215,6 +1215,96 @@
       "limit": "Python 3.5 offering; no video required or watched. Local PDF download refused; cached web PDF text and official question text were actually read. No C17 rules inferred from Python.",
       "access": "official_written_slides_and_questions",
       "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
+      "id": "mit-number",
+      "subject": "logic",
+      "university": "MIT",
+      "course": "6.004 Spring 2017; Chris Terman; Chapter 1 annotated notes",
+      "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c1/c1s1/",
+      "evidence": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c1/c1s1/",
+      "topics": [
+        "g_number"
+      ],
+      "advantage": "Fixed-length codes, integer encodings, Hamming distance and parity",
+      "limit": "Huffman compression excluded; worksheet landing only screened.",
+      "access": "official_written_course_material",
+      "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
+      "id": "berkeley-number",
+      "subject": "logic",
+      "university": "UC Berkeley",
+      "course": "CS61C living course teaching-team notes; Number Representation",
+      "url": "https://notes.cs61c.org/content/number-rep/integer-representations/",
+      "evidence": "https://notes.cs61c.org/content/number-rep/integer-representations/",
+      "topics": [
+        "g_number"
+      ],
+      "advantage": "Radix, signed encodings, bias, range and zero counts",
+      "limit": "Complete in-scope written bodies read; ones complement carry and signed-zero qualifications supplied.",
+      "access": "official_written_course_material",
+      "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
+      "id": "stanford-number",
+      "subject": "logic",
+      "university": "Stanford",
+      "course": "CS107 Winter 2020; Jerry Cain and Lisa Yan; Lecture 2",
+      "url": "https://web.stanford.edu/class/archive/cs/cs107/cs107.1204/lectures/2/Lecture2.pdf",
+      "evidence": "https://web.stanford.edu/class/archive/cs/cs107/cs107.1204/lectures/2/Lecture2.pdf",
+      "topics": [
+        "g_number"
+      ],
+      "advantage": "PDF pages 8–50, 53–84, 109–114; conversion, range, extension",
+      "limit": "Machine-specific C assumptions not treated as universal; full course not claimed read.",
+      "access": "official_written_course_material",
+      "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
+      "id": "cornell-number",
+      "subject": "logic",
+      "university": "Cornell",
+      "course": "CS3410 Fall 2024; Adrian Sampson and Giulia Guidi; written notes",
+      "url": "https://www.cs.cornell.edu/courses/cs3410/2024fa/notes/float.html",
+      "evidence": "https://www.cs.cornell.edu/courses/cs3410/2024fa/notes/float.html",
+      "topics": [
+        "g_number"
+      ],
+      "advantage": "Switches and Numbers plus Real Numbers in Binary and Fixed-Point Numbers",
+      "limit": "Primary web text read; local certificate verification failed. Full IEEE details deferred.",
+      "access": "official_written_course_material",
+      "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
+      "id": "cmu-number",
+      "subject": "logic",
+      "university": "Carnegie Mellon",
+      "course": "15-213/14-513/15-513 Spring 2025; teaching team; From Bits through Integers",
+      "url": "https://www.cs.cmu.edu/afs/cs/academic/class/15213-s25/www/lectures/02-bits-bytes-ints.pdf",
+      "evidence": "https://www.cs.cmu.edu/afs/cs/academic/class/15213-s25/www/lectures/02-bits-bytes-ints.pdf",
+      "topics": [
+        "g_number"
+      ],
+      "advantage": "PDF pages 7–10, 19, 21–35, 39–64; word arithmetic, product widths, shifts",
+      "limit": "Selected supplement; abstract word behavior separated from C17 expressions. Endianness deferred.",
+      "access": "official_written_course_material",
+      "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
+      "id": "princeton-number",
+      "subject": "logic",
+      "university": "Princeton",
+      "course": "Algorithms lecture resources; Robert Sedgewick and Kevin Wayne; Combinatorial Search",
+      "url": "https://algs4.cs.princeton.edu/lectures/keynote/67CombinatorialSearch.pdf",
+      "evidence": "https://algs4.cs.princeton.edu/lectures/keynote/67CombinatorialSearch.pdf",
+      "topics": [
+        "g_number"
+      ],
+      "advantage": "PDF pages 35–37 visually read; Gray reflection, enumeration and encoders",
+      "limit": "Selected Gray supplement; damaged local text resolved by original page images, year not guessed.",
+      "access": "official_written_course_material",
+      "reviewLevel": "reviewed_in_scope_written_sections"
     }
   ]
 }

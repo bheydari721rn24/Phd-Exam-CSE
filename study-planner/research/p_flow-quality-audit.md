@@ -1,6 +1,6 @@
 # p_flow quality audit
 
-Date: 2026-10-02. Completed English review draft. The student's approval of p_types authorized this chapter; explicit approval of p_flow is still required for promotion or the next chapter.
+Date: 2026-10-02. Approved English chapter. The student's subsequent explicit approval of p_flow promoted it to ready and authorized g_number; the evidence below records its completed pre-approval validation.
 
 ## Manuscript and coverage
 
@@ -36,4 +36,7 @@ Date: 2026-10-02. Completed English review draft. The student's approval of p_ty
 
 ## Residual limits and handoff
 
-The documented eight-offering pool is not a global inventory. Not every lecture in the selected semesters was read, and not every exercise in every course is reproduced. Functions, arrays, pointers, detailed I/O, concurrency and full numerical-method algorithms belong to later chapters. No finite check proves that every future exam problem has been anticipated; no literal 100% accuracy or performance guarantee is asserted. The chapter remains draft pending explicit approval, and no later chapter is started.
+The documented eight-offering pool is not a global inventory. Not every lecture in the selected semesters was read, and not every exercise in every course is reproduced. Functions, arrays, pointers, detailed I/O, concurrency and full numerical-method algorithms belong to later chapters. No finite check proves that every future exam problem has been anticipated; no literal 100% accuracy or performance guarantee is asserted. The chapter was delivered as a review draft and then explicitly approved on 2026-10-02; g_number was started only after that approval.
+
+
+Approval update, 2026-10-02: The student approved p_flow and authorized g_number. The validation record above describes the pre-approval review; p_flow is now ready.

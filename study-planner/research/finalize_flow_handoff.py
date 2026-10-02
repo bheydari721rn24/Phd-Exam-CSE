@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 ROOT=Path(__file__).resolve().parents[1]
 p=ROOT/'research/chapter-gate.json';gate=json.loads(p.read_text(encoding='utf-8'))
-assert gate['currentTopicId']=='p_flow'
+assert gate['currentTopicId']=='p_flow', 'Historical helper cannot overwrite a later chapter gate.'
 gate.update(state='awaiting_user_approval',lastCompletedReview='2026-10-02: Student approved p_types, now ready. p_flow completed as English review draft: five reviewed university courses, 36 solved problems, 60 rules, two diagrams, execution-order lab, 850 model cases and 182293 independent arithmetic assertions; mobile and 42-page print reviewed.',nextReview='Await explicit approval of p_flow before promotion or starting any next chapter. Archived Iranian papers remain deferred.')
 p.write_text(json.dumps(gate,indent=2)+'\n',encoding='utf-8')
 p=ROOT/'WEEKLY_DELIVERY.md';s=p.read_text(encoding='utf-8').split('## Current chapter handoff')[0]
