@@ -1,0 +1,132 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Recurrence source comparison and reading audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/a_recurrence.html">← Recurrence chapter</a></p><article class="lesson"><h1>Algorithmic recurrences: candidate selection and genuine reading ledger</h1>
+<p>Review date: 2026-10-02. Active chapter: a_recurrence, Week 2 Algorithms. This is a bounded comparison of eight university candidates; it does not certify discovery of every worldwide course or a globally optimal ranking. Chapter-specific selection considers usable text, proof detail, domain precision, complementary coverage, and useful exercise types.</p>
+<h2>Candidate-by-candidate assessment</h2>
+<table>
+<thead>
+<tr>
+<th>University and course</th>
+<th>Actual review level</th>
+<th>Strength and limitation</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIT 6.006, Spring 2020; Erik Demaine, Jason Ku, Justin Solomon</td>
+<td>All seven pages of Recitation 3 read, including all recurrence exercises. Additional MIT 6.046-hosted Tom Leighton 1996 notes pages 1–5 read through extraction and the decoded primary-source text; original pages 2 and 4 visually inspected because PDF extraction has encoded characters.</td>
+<td>Direct modeling examples, general master hypotheses, extended nonnegative log-power case. Supplement supplies a proof for unequal ratios. Exact toll versus upper toll is kept distinct; a derivative-bound remark is not adopted as a sufficient comparability criterion.</td>
+<td>Principal university source; foundational and advanced theorem spine.</td>
+</tr>
+<tr>
+<td>Stanford CS 161 Lecture 3</td>
+<td>All six PDF pages and the complete one-page solved concept checks read. Retrieved notes identify Winter 2026, Moses Charikar and Ellen Vitercik, adapted from Virginia Williams with credited contributors.</td>
+<td>Explicit upper inequalities and geometric-tree proof; parameter and substitution checks. The winter2025 URL now serves a file headed Winter 2026, so the manuscript cites the actual file header and retains its hash. Rounding is stated but not proved in the note; the new lesson gives separate checks.</td>
+<td>Principal course; modeling and theorem reasoning.</td>
+</tr>
+<tr>
+<td>CMU 15-451, Fall 2011; Avrim Blum author, Avrim and Manuel Blum instructors</td>
+<td>PDF pages 10–15 read in full (printed Lecture 2 pages 7–12); pages 24–26 read for selected Lecture 4 passages on randomized/deterministic selection and shrinking-mass recurrences. Cover and contents inspected to verify authorship/page mapping.</td>
+<td>Clear unrolling, fixed-constant induction failure, geometric sums, and unequal linear-mass reasoning. A theta claim following only an upper inequality needs compulsory-work qualification; the chapter supplies it and includes leaf costs.</td>
+<td>Principal course; proof diagnostics and unequal branches.</td>
+</tr>
+<tr>
+<td>Princeton Analysis of Algorithms; Robert Sedgewick and Philippe Flajolet</td>
+<td>Complete available Chapter 2 web text, formulas, and selected exercise statements read; official course-materials page reviewed. Several section headings have no text and are not represented as full underlying book chapters read.</td>
+<td>Telescoping factors, exact floor/ceiling effects, periodic terms, and non-master examples. The web merge recurrence uses toll <span class="math-inline">n</span>; actual worst-case merge comparisons use <span class="math-inline">n−1</span>. Both are derived and distinguished.</td>
+<td>Principal course; exact recurrences and normalization.</td>
+</tr>
+<tr>
+<td>Cornell CS 3110, Spring 2009 lecture and Spring 2011 recitation</td>
+<td>Complete Lecture 20 and Recitation 19 text read, including all displayed proof steps. The read pages do not name individual authors, so no instructor is invented.</td>
+<td>Especially useful slack induction, parameter thresholds, and an uncovered reciprocal-log example. Typographical issues in uneven-branch notation and a comparison-envelope definition are explicitly corrected.</td>
+<td>Genuinely read supplementary university source; four is a minimum, not a ceiling.</td>
+</tr>
+<tr>
+<td>Berkeley CS 170, historical Jordan/Demmel course listings</td>
+<td>Official search entries and course scope screened. Two intended historical lecture addresses did not resolve to usable written text in this pass.</td>
+<td>Relevant curriculum, but the specific recurrence text was not obtained and read here. No download or catalogue entry is counted as genuine chapter reading.</td>
+<td>Unselected; not counted toward the four.</td>
+</tr>
+<tr>
+<td>Oxford Design and Analysis of Algorithms, Hilary 2022; Elias Koutsoupias</td>
+<td>Official syllabus and lecture-material links screened. No full recurrence passage read.</td>
+<td>Strong introductory fit; the selected pool already supplies explicit proofs and exact-analysis complements.</td>
+<td>Unselected candidate; future supplement if a gap requires it.</td>
+</tr>
+<tr>
+<td>ETH Zurich Data Structures and Algorithms, Spring 2022; Felix Friedrich</td>
+<td>Official syllabus/agenda and written-material availability screened, including the master-theorem topic. No full recurrence lecture text read.</td>
+<td>Algorithms, cost models, and parallelism fit the chapter, but no full recurrence-proof review is claimed.</td>
+<td>Unselected candidate; not counted toward the four.</td>
+</tr>
+</tbody>
+</table>
+<h2>Reconciled scientific and presentation issues</h2>
+<ol>
+<li>Stanford's polynomial-toll theorem gives upper conclusions; no tight conclusion is inferred without a lower toll/base or compulsory-work assumption.</li>
+<li>MIT's critical log-power case states nonnegative log exponents. The negative-exponent thresholds are derived independently by reversing depth and proving the power-sum estimates.</li>
+<li>Cornell Lecture 20's uneven tree illustrates children <span class="math-inline">n/3</span> and <span class="math-inline">2n/3</span>, although one displayed equation writes <span class="math-inline">T(n/3)+2T(n/3)</span>. The new lesson states the intended unequal model explicitly and distinguishes the two trees.</li>
+<li>Cornell Recitation 19's larger envelope is written with original <span class="math-inline">T</span> children in the last display. The lesson defines envelopes recursively on themselves and proves comparison. The reciprocal-log recurrence is solved tightly rather than merely bounded by <span class="math-inline">n</span> log <span class="math-inline">n</span>.</li>
+<li>CMU's shrinking-mass theorem is displayed after an upper inequality with a theta conclusion. The chapter separates the proven upper bound from a lower bound supplied by exact positive linear work.</li>
+<li>Princeton's size toll and a size-minus-one comparison toll differ by one per internal merge. The exact balanced-tree identity derives both values and explains their equal leading order.</li>
+<li>Leighton's polynomial-interval comparability is adopted as an explicit assumption. The remark about a polynomial derivative bound alone is not adopted: a nonnegative smooth function such as sine squared can have zeros and violate the displayed multiplicative comparability condition. Initial logarithmic singularities are handled by a fixed cutoff and bounded extension.</li>
+<li>The full perturbation proof in later Leighton pages was not read or reproduced. The lesson proves the unperturbed theorem, handles selected floors/ceilings independently, and does not apply a general perturbation theorem to arbitrary child arguments.</li>
+<li>Tree identities retain positive base work and distinguish internal levels from leaves. Mathematical weighted recurrences are distinguished from physical recursive-call counts.</li>
+</ol>
+<h2>Attributed exercise-type map</h2>
+<table>
+<thead>
+<tr>
+<th>Read source</th>
+<th>New problems</th>
+<th>Adaptation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIT Recitation 3 <span class="math-inline">p</span>. 6</td>
+<td>4, 5, 7, 16, 21</td>
+<td>Independently stated models; exact bases/tolls or extended representation and boundary analysis.</td>
+</tr>
+<tr>
+<td>Stanford Lecture 3 and solved checks</td>
+<td>3, 13, 17, 34</td>
+<td>Upper-versus-tight diagnosis, detailed level arithmetic, fractional critical exponent, and explicit unequal quadratic induction.</td>
+</tr>
+<tr>
+<td>CMU Lecture <span class="math-inline">2 / se</span>lected Lecture 4</td>
+<td>20, 29</td>
+<td>Fixed-constant proof diagnosis and complete mass bound with base leaves and logical lower-bound distinction.</td>
+</tr>
+<tr>
+<td>Princeton Chapter 2 Exercises 2.13, 2.71, 2.73 and exact split analysis</td>
+<td>8, 27, 32, 36</td>
+<td>New full derivations, corrected cost convention, independent mass check, and direct exponential-toll proof.</td>
+</tr>
+<tr>
+<td>Cornell read lecture and recitation</td>
+<td>15, 18, 19, 22, 31</td>
+<td>Exact geometric sum, changed parameter family, slack proof, tight log-log boundary, and corrected uneven-branch notation.</td>
+</tr>
+<tr>
+<td>Leighton MIT theorem examples</td>
+<td>33</td>
+<td>Explicit characteristic-root verification and integral evaluation.</td>
+</tr>
+</tbody>
+</table>
+<p>Other questions are labeled original. The bank covers the chapter's in-scope reasoning patterns but does not reproduce every copyrighted exercise from any source collection. The source pool records a search boundary and access limits; no course is counted as read merely because its university name is prestigious.</p>
+<h2>Primary references</h2>
+<ul>
+<li><a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/1869dbf640ded6b31f1bd369d2001ef5_MIT6_006S20_r03.pdf">MIT Recitation 3</a> and <a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r03/">official course resource page</a>.</li>
+<li><a href="https://courses.csail.mit.edu/6.046/spring04/handouts/akrabazzi.pdf">MIT-hosted Leighton notes</a>.</li>
+<li><a href="https://stanford-cs161.github.io/winter2025/assets/files/lecture3-notes.pdf">Stanford lecture text</a>, <a href="https://stanford-cs161.github.io/winter2025-bank/recurrence.pdf">solved concept checks</a>, and <a href="https://stanford-cs161.github.io/winter2025/lectures/">course lectures</a>.</li>
+<li><a href="https://www.cs.cmu.edu/afs/cs/academic/class/15451-f11/www/lectures/lects1-10.pdf">CMU 2011 lecture collection</a>.</li>
+<li><a href="https://aofa.cs.princeton.edu/20recurrence/">Princeton recurrence text</a> and <a href="https://aofa.cs.princeton.edu/online/">official course materials</a>.</li>
+<li><a href="https://www.cs.cornell.edu/courses/cs3110/2009sp/lectures/lec20.html">Cornell 2009 lecture</a> and <a href="https://www.cs.cornell.edu/courses/cs3110/2011sp/Recitations/rec19.htm">2011 recitation</a>.</li>
+<li><a href="https://people.eecs.berkeley.edu/~demmel/cs170_Spr10/">Berkeley historical syllabus</a>.</li>
+<li><a href="https://www.cs.ox.ac.uk/teaching/courses/2021-2022/algdesign/">Oxford 2021–22 course</a>.</li>
+<li><a href="https://lec.inf.ethz.ch/DA/2022/">ETH 2022 course</a>.</li>
+</ul>
+<p>Downloaded reference hashes are in research/a_recurrence-source-downloads.json; reference files remain in temporary read-only use. All teaching prose and figures are newly authored. Deferred Iranian entrance-exam archives were not opened or classified. Literal all-world coverage, a zero-error guarantee, and performance on every unseen question cannot be certified.</p>
+</article></main></body></html>

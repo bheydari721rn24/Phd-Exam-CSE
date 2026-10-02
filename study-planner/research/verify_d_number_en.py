@@ -83,6 +83,6 @@ c=MathCoverage();c.feed(page);assert not c.unstyled,c.unstyled
 assert page.count('<figure ')==4 and page.count('<h2 ')==12 and page.count('<munderover>')>=1
 assert not re.search(r'[\u0600-\u06ff]|\$|\\\\|<!--',page)
 assert '^' not in re.sub(r'<pre>.*?</pre>','',page,flags=re.S)
-assert 'Review draft' in page
+assert 'Student-approved chapter' in page
 report={'extendedEuclidSignedPairs':egcdcases,'modularPowerInputs':powercases,'laboratoryMapsComparedWithIndependentEnumeration':len(labrows),'generalizedCRTSystems':crtcases,'EulerUnitCases':totientcases,'coprimeCoinPairs':coincases,'quadraticRootCountModuli':rootcases,'workedProblems':40,'completeExaminationRules':70,'figures':4,'limits':'Finite checks detect errors; general results rely on the written proofs. Iranian examination archives remain deferred.'}
 (base/'d_number-finite-check.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))
