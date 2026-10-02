@@ -15,7 +15,7 @@ for t in (main,bank,review):
 page=(ROOT/'dist/chapters/a_recurrence.html').read_text()
 assert page.count('<figure ')==4 and page.count('<math ')==4
 assert '<!--' not in page and '$' not in page
-assert 'Review draft' in page and '<sup>' in page and '<sub>' in page
+assert 'Student-approved chapter' in page and '<sup>' in page and '<sub>' in page
 from check_site_en import MathCoverage
 coverage=MathCoverage();coverage.feed(page)
 assert not coverage.unstyled,coverage.unstyled
@@ -100,7 +100,7 @@ for n in range(2,61):
 rows=json.loads((ROOT/'dist/lessons.json').read_text())
 flat=[c for w in rows for c in w['chapters']]
 assert next(c for c in flat if c['topicId']=='d_number')['status']=='ready'
-assert next(c for c in flat if c['topicId']=='a_recurrence')['status']=='draft'
+assert next(c for c in flat if c['topicId']=='a_recurrence')['status']=='ready'
 report={'laboratoryOracleCases':len(cases),'arbitraryPrecisionVerified':True,'mergeInputsVerified':1024,
  'workedProblems':40,'reviewRules':80,'figures':4,'mathmlDisplays':4,
  'oracles':['explicit recursive-node enumeration','rounded merge dynamic recurrence','first-order rational recurrence','characteristic roots and resonance','harmonic critical normalization','floor stopping','ceiling progress','regularity counterexample','weighted child equations','Fibonacci dependency count'],

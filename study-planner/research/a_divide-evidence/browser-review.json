@@ -1,0 +1,433 @@
+[
+  {
+    "topicId": "a_divide",
+    "figures": [
+      {
+        "index": 0,
+        "title": "Strict inversion charges during a stable merge",
+        "viewBox": [
+          700,
+          375
+        ],
+        "outside": [],
+        "overlap": [],
+        "labels": [
+          {
+            "text": "Left: 2, 4, 7     Right: 1, 4, 6",
+            "x": 224.0709991455078,
+            "y": 14.864924430847168,
+            "w": 251.85797119140625,
+            "h": 24.716140747070312,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Right 1 < left 2",
+            "x": 86.4330825805664,
+            "y": 81.66221618652344,
+            "w": 152.2069854736328,
+            "h": 23.918840408325195,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Add 3: pairs with 2, 4, 7",
+            "x": 380.220703125,
+            "y": 82.45951080322266,
+            "w": 228.76133728027344,
+            "h": 23.121543884277344,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Left 4 = right 4",
+            "x": 86.15901184082031,
+            "y": 141.66221618652344,
+            "w": 152.7589569091797,
+            "h": 23.918846130371094,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Take left; add 0",
+            "x": 421.6924743652344,
+            "y": 142.45950317382812,
+            "w": 146.61505126953125,
+            "h": 23.121551513671875,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Right 4 < left 7",
+            "x": 86.4330825805664,
+            "y": 201.66221618652344,
+            "w": 152.2069854736328,
+            "h": 23.918846130371094,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Add 1: pair with 7",
+            "x": 407.1792297363281,
+            "y": 202.45950317382812,
+            "w": 174.84426879882812,
+            "h": 23.121551513671875,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Right 6 < left 7",
+            "x": 86.4330825805664,
+            "y": 261.6622009277344,
+            "w": 152.2069854736328,
+            "h": 23.918846130371094,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Add 1: pair with 7",
+            "x": 407.1792297363281,
+            "y": 262.4595031738281,
+            "w": 174.84426879882812,
+            "h": 23.121551513671875,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Cross inversions = 3 + 0 + 1 + 1 = 5",
+            "x": 158.4685821533203,
+            "y": 320.86492919921875,
+            "w": 383.06280517578125,
+            "h": 24.716140747070312,
+            "font": "\"STIX Two Math\", serif"
+          }
+        ],
+        "screenshot": "a_divide-figure-1.png"
+      },
+      {
+        "index": 1,
+        "title": "Combine adjacent four-component maximum-subarray summaries",
+        "viewBox": [
+          700,
+          390
+        ],
+        "outside": [],
+        "overlap": [],
+        "labels": [
+          {
+            "text": "Array: 4, \u22126, 8 | \u22122, 3, \u22129, 5",
+            "x": 209.43316650390625,
+            "y": 15.662219047546387,
+            "w": 280.3363342285156,
+            "h": 23.918846130371094,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Left: (6, 6, 8, 8)",
+            "x": 99.58087921142578,
+            "y": 97.16222381591797,
+            "w": 150.83822631835938,
+            "h": 23.918846130371094,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Right: (\u22123, 1, 5, 5)",
+            "x": 433.15533447265625,
+            "y": 97.16222381591797,
+            "w": 183.6892547607422,
+            "h": 23.918846130371094,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Crossing: 8 + 1 = 9",
+            "x": 253.5958251953125,
+            "y": 219.66220092773438,
+            "w": 192.80831909179688,
+            "h": 23.918846130371094,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Best interval: 8, \u22122, 3",
+            "x": 238.56556701660156,
+            "y": 283.86492919921875,
+            "w": 222.8688201904297,
+            "h": 24.716140747070312,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Parent: (total, prefix, suffix, best) = (3, 7, 5, 9)",
+            "x": 130.2891845703125,
+            "y": 332.4595031738281,
+            "w": 439.42156982421875,
+            "h": 23.121551513671875,
+            "font": "\"STIX Two Math\", serif"
+          }
+        ],
+        "screenshot": "a_divide-figure-2.png"
+      },
+      {
+        "index": 2,
+        "title": "Closest-pair packing with separate recursive-half membership",
+        "viewBox": [
+          700,
+          455
+        ],
+        "outside": [],
+        "overlap": [],
+        "labels": [
+          {
+            "text": "Window height \u03b4; two half-specific four-cell grids",
+            "x": 110.14503479003906,
+            "y": 13.459511756896973,
+            "w": 478.91259765625,
+            "h": 23.121551513671875,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Left membership",
+            "x": 150.43246459960938,
+            "y": 314.2568054199219,
+            "w": 159.2757110595703,
+            "h": 22.324256896972656,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Right membership",
+            "x": 383.294189453125,
+            "y": 314.2568054199219,
+            "w": 173.55197143554688,
+            "h": 22.324256896972656,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Width \u03b4",
+            "x": 192.09112548828125,
+            "y": 48.25680923461914,
+            "w": 75.02046203613281,
+            "h": 22.324256896972656,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Width \u03b4",
+            "x": 432.09112548828125,
+            "y": 48.25680923461914,
+            "w": 75.02046203613281,
+            "h": 22.324256896972656,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "At most 4 left + 4 right = 8 including current point",
+            "x": 113.76400756835938,
+            "y": 361.2568054199219,
+            "w": 471.9190979003906,
+            "h": 22.324256896972656,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "At most 7 successors can improve the distance",
+            "x": 125.12545776367188,
+            "y": 400.4595031738281,
+            "w": 448.9517517089844,
+            "h": 23.121551513671875,
+            "font": "\"STIX Two Math\", serif"
+          }
+        ],
+        "screenshot": "a_divide-figure-3.png"
+      },
+      {
+        "index": 3,
+        "title": "Karatsuba difference-product dependency graph",
+        "viewBox": [
+          700,
+          410
+        ],
+        "outside": [],
+        "overlap": [],
+        "labels": [
+          {
+            "text": "Three recursive products recover all four terms",
+            "x": 112.9460220336914,
+            "y": 13.662543296813965,
+            "w": 474.1952209472656,
+            "h": 23.918420791625977,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "z2 = high \u00d7 high",
+            "x": 35.51317596435547,
+            "y": 99.66254425048828,
+            "w": 168.97366333007812,
+            "h": 31.09394073486328,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "z0 = low \u00d7 low",
+            "x": 274.55731201171875,
+            "y": 99.66254425048828,
+            "w": 152.03622436523438,
+            "h": 31.09394073486328,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "zd = (high \u2212 low)",
+            "x": 505.9151611328125,
+            "y": 89.85166931152344,
+            "w": 148.1990966796875,
+            "h": 25.512977600097656,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "\u00d7 (high \u2212 low)",
+            "x": 516.728271484375,
+            "y": 114.8516616821289,
+            "w": 126.57035064697266,
+            "h": 19.932016372680664,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Mixed = z2 + z0 \u2212 zd",
+            "x": 245.63096618652344,
+            "y": 232.1625518798828,
+            "w": 208.98719787597656,
+            "h": 31.093917846679688,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Result = high shift + mixed shift + low",
+            "x": 151.44595336914062,
+            "y": 308.66253662109375,
+            "w": 398.25726318359375,
+            "h": 23.918420791625977,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Shift widths: 2m, m, 0; m is the low-part width",
+            "x": 134.99581909179688,
+            "y": 353.257080078125,
+            "w": 430.060791015625,
+            "h": 22.3238582611084,
+            "font": "\"STIX Two Math\", serif"
+          }
+        ],
+        "screenshot": "a_divide-figure-4.png"
+      },
+      {
+        "index": 4,
+        "title": "Two-output Fourier butterfly with a shared twiddle product",
+        "viewBox": [
+          700,
+          420
+        ],
+        "outside": [],
+        "overlap": [],
+        "labels": [
+          {
+            "text": "FFT butterfly: two children, two parent evaluations",
+            "x": 102.1951904296875,
+            "y": 14.459824562072754,
+            "w": 495.6095886230469,
+            "h": 23.121139526367188,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Ej",
+            "x": 100.2146224975586,
+            "y": 109.66253662109375,
+            "w": 19.570755004882812,
+            "h": 31.093948364257812,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Oj",
+            "x": 98.86921691894531,
+            "y": 254.66253662109375,
+            "w": 22.261573791503906,
+            "h": 31.09393310546875,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "\u00d7 \u03c9j",
+            "x": 323.3426208496094,
+            "y": 250.67613220214844,
+            "w": 43.31475830078125,
+            "h": 27.904830932617188,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Ej + \u03c9jOj",
+            "x": 532.1110229492188,
+            "y": 105.67613983154297,
+            "w": 90.77789306640625,
+            "h": 35.080345153808594,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Ej \u2212 \u03c9jOj",
+            "x": 532.1110229492188,
+            "y": 250.67613220214844,
+            "w": 90.77789306640625,
+            "h": 35.08033752441406,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Upper output: index j; lower output: index j + N/2",
+            "x": 128.71722412109375,
+            "y": 329.05438232421875,
+            "w": 442.5655212402344,
+            "h": 20.729297637939453,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Both children use the primitive root squared",
+            "x": 135.12039184570312,
+            "y": 368.4598083496094,
+            "w": 430.1126403808594,
+            "h": 23.121139526367188,
+            "font": "\"STIX Two Math\", serif"
+          }
+        ],
+        "screenshot": "a_divide-figure-5.png"
+      }
+    ],
+    "fonts": {
+      "loaded": [
+        "Source Sans 3",
+        "Newsreader",
+        "STIX Two Math",
+        "JetBrains Mono",
+        "Math Glyphs"
+      ],
+      "math": [
+        "\"STIX Two Math\", serif"
+      ]
+    },
+    "mobile": {
+      "viewport": 390,
+      "document": 390,
+      "formulaOverflow": [],
+      "figureSizes": [
+        {
+          "width": 700,
+          "fontSize": "25px"
+        },
+        {
+          "width": 700,
+          "fontSize": "24px"
+        },
+        {
+          "width": 700,
+          "fontSize": "23px"
+        },
+        {
+          "width": 700,
+          "fontSize": "24px"
+        },
+        {
+          "width": 700,
+          "fontSize": "23px"
+        }
+      ],
+      "problems": 48,
+      "codeFonts": [
+        "\"JetBrains Mono\", ui-monospace, monospace"
+      ]
+    },
+    "printStyle": {
+      "diagramOverflow": 0,
+      "mathFonts": [
+        "\"STIX Two Math\", serif"
+      ]
+    }
+  }
+]

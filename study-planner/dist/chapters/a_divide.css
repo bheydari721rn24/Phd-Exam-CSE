@@ -1,0 +1,13 @@
+.lesson .math-inline{white-space:normal}
+.lab-actions{display:flex;gap:8px;flex-wrap:wrap}
+.lab button{font:inherit;padding:8px 12px;border:1px solid #90b2c4;border-radius:7px;background:white;color:#23485e;cursor:pointer}
+.lab button:focus-visible,.lab input:focus-visible{outline:3px solid #467e9e;outline-offset:2px}
+#subarray-form{display:flex;gap:14px;flex-wrap:wrap;margin:20px 0;align-items:end}
+#subarray-form label{display:block;max-width:100%}
+#subarray-form input{display:block;max-width:100%;font-family:"STIX Two Math",serif;padding:9px;border:1px solid #90b2c4;border-radius:6px;margin-top:6px}
+#subarray-input{width:330px}#subarray-split{width:95px}
+.lab .verified{background:#dcece1;padding:12px;border-radius:6px}
+.lab td:not(:first-child){font-family:"STIX Two Math",serif}
+.formula-block math{max-width:100%}
+@media(max-width:650px){.lesson .math-inline{overflow-wrap:anywhere}.lab{padding:16px 12px}.formula-block{font-size:.95rem;padding:12px 8px}.lesson .logic-diagram::before{content:"Swipe horizontally to inspect the complete diagram.";display:block;font-size:.8rem;color:#60788b;margin-bottom:8px}}
+@media print{.lab-actions,#subarray-form{display:none}.formula-block{white-space:normal}}
