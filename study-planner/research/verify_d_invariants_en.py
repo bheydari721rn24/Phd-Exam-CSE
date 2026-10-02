@@ -121,6 +121,6 @@ c=MathCoverage();c.feed(page);assert not c.unstyled,c.unstyled
 assert page.count('<figure ')==4 and page.count('<h2 ')==14 and page.count('<munderover>')>=2
 assert not re.search(r'[\u0600-\u06ff]|\$|\\\\|<!--',page)
 assert '^' not in re.sub(r'<pre>.*?</pre>','',page,flags=re.S)
-assert 'awaiting your approval' in page
+assert 'Student-approved chapter' in page
 report={'prefixSumInputs':len(lists),'powerInputs':power_cases,'mergePairs':merge_cases,'halvingInputs':10000,'tripleRotations':rotations,'slidingMoves':slide_cases,'nimPositionsPerVariant':nim_cases,'growthTransitions':growth,'bridgeTransitions':bridge_edges,'listTriples':structural,'populationTransitions':population,'workedProblems':49,'examinationRules':80,'figures':4,'limits':'These are finite independent error detectors. General statements are proved in the manuscript; no deferred Iranian examination archives were used.'}
 (base/'d_invariants-finite-check.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))
