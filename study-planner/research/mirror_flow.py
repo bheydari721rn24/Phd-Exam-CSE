@@ -17,6 +17,6 @@ for relative in paths:
 stage=['study-planner/'+p.replace('\\','/') for p in paths]
 subprocess.run(['git','add','--sparse','--',*stage],cwd=MIRROR,check=True)
 subprocess.run(['git','diff','--cached','--check'],cwd=MIRROR,check=True)
-subprocess.run(['git','commit','-m','Add deep English Boolean algebra chapter and approve number representation'],cwd=MIRROR,check=True)
+subprocess.run(['git','commit','-m','Add deep English logic-gates chapter and approve Boolean algebra'],cwd=MIRROR,check=True)
 subprocess.run(['git','push','origin','study-planner-1406'],cwd=MIRROR,check=True)
 print(f'Mirrored {len(paths)} exact changed files; commit '+git('rev-parse','--short','HEAD',cwd=MIRROR))

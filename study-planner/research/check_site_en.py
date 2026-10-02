@@ -127,12 +127,14 @@ assert flow['status'] == 'ready' and flow['url'] == 'chapters/p_flow.html'
 number = next(c for w in lessons for c in w['chapters'] if c['topicId'] == 'g_number')
 assert number['status'] == 'ready' and number['url'] == 'chapters/g_number.html'
 boolean = next(c for w in lessons for c in w['chapters'] if c['topicId'] == 'g_boolean')
-assert boolean['status'] == 'draft' and boolean['url'] == 'chapters/g_boolean.html'
+assert boolean['status'] == 'ready' and boolean['url'] == 'chapters/g_boolean.html'
+gates = next(c for w in lessons for c in w['chapters'] if c['topicId'] == 'g_gates')
+assert gates['status'] == 'draft' and gates['url'] == 'chapters/g_gates.html'
 vector_html = (ROOT / 'chapters/l_vectors.html').read_text(encoding='utf-8')
 vector_text = re.sub(r'<[^>]+>', '', vector_html)
 for required in ('in a normed space', 'in an inner-product space', 'Equality means linear dependence', 'It often rejects impossible lengths'):
     assert required in vector_text, ('vector review table lost content', required)
-for chapter_id in ("d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean"):
+for chapter_id in ("d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean", "g_gates"):
     chapter_html = (ROOT / "chapters" / f"{chapter_id}.html").read_text(encoding="utf-8")
     text_without_diagrams = re.sub(r"<(?:svg|math)\b.*?</(?:svg|math)>", "", chapter_html, flags=re.S)
     assert not re.search(r"[₀-₉₊₋ₙₖᵢ⁰-⁹⁺⁻ⁿʲᵏᵗᴺⁱ]", text_without_diagrams), chapter_id

@@ -1,0 +1,18 @@
+.gates-diagram{margin:1.7rem 0;overflow-x:auto;border:1px solid #c8d9de;border-radius:12px;background:#f7fbfc;padding:1rem}
+.gates-diagram svg{display:block;width:100%;min-width:720px;height:auto;color:#183b4c}
+.gates-diagram .math-label{font-family:"STIX Two Math",serif;font-size:21px;font-weight:400}
+.gates-diagram .diagram-label{font-family:"Source Sans 3",sans-serif;font-size:16px;font-weight:400}
+.gates-diagram figcaption{margin-top:.8rem;line-height:1.6;color:#395664}
+.gates-lab{border:1px solid #aecbd4;border-radius:14px;padding:1.2rem;background:#f7fbfc;margin:2rem 0}
+.lab-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.lab-controls label{display:grid;gap:.4rem;font:400 1rem/1.5 "Source Sans 3",sans-serif}
+.lab-controls select,.lab-controls input{box-sizing:border-box;width:100%;min-height:44px;border:1px solid #8fabb5;border-radius:7px;background:white;padding:.5rem .7rem;font:400 1rem/1.5 "STIX Two Math",serif;color:#163b4c}
+.table-scroll{max-width:100%;overflow:auto}.mismatch{background:#fff0e8}
+[role=status]{min-height:3rem;line-height:1.6}
+.gates-lab table{margin:.7rem 0}
+@media(max-width:600px){.lab-controls{grid-template-columns:1fr}.gates-lab{padding:.8rem}.gates-diagram{padding:.6rem}.lesson .math-inline{white-space:normal;overflow-wrap:anywhere}.formula-block math{font-size:.95em}}
+@media print{.gates-lab .lab-controls{display:none}.gates-diagram{overflow:visible;padding:.6rem;break-inside:avoid}.gates-diagram svg{min-width:0}.gates-lab{background:white;border-color:#ccc}.gates-lab .table-scroll{overflow:visible}.gates-lab{break-inside:auto}}
+@font-face{font-family:"JetBrains Mono";src:url("../fonts/jetbrains-mono-regular.woff2") format("woff2");font-weight:400;font-display:swap}
+.lesson pre,.lesson code{font-family:"JetBrains Mono",monospace;font-weight:400}
+.lesson math{font-family:"STIX Two Math",serif;max-width:100%;font-weight:400}
+.formula-block math{display:inline-block;vertical-align:middle;margin:0;text-align:left}

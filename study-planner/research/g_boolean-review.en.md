@@ -102,7 +102,7 @@ The chapter concerns exact binary steady-state functions. Physical delays, hazar
 
 ### Review status and remaining uncertainty
 
-This is a completed English **review draft** awaiting explicit student approval. The mathematical derivations, independent finite checks, parser tests, font checks, and sampled print inspection provide specific evidence. They do not establish literal universal correctness or guarantee answers to every unseen examination question. Later gate, minimization, and timing chapters supply their own material. No archived Iranian exam has been mined for this chapter, and no pre-study test is requested.
+The student approved this English chapter on 2026-10-02. The mathematical derivations, independent finite checks, parser tests, font checks, and sampled print inspection provide specific evidence. They do not establish literal universal correctness or guarantee answers to every unseen examination question. Later gate, minimization, and timing chapters supply their own material. No archived Iranian exam has been mined for this chapter, and no pre-study test is requested.
 
 ## 15. References and exact reading locations
 
@@ -114,3 +114,6 @@ This is a completed English **review draft** awaiting explicit student approval.
 6. **Cornell University.** Adrian Sampson and Giulia Guidi; CS3410 teaching team. *Computer System Organization and Programming*, Fall 2024. [Gates & Logic](https://www.cs.cornell.edu/courses/cs3410/2024fa/notes/logic.html), Truth Tables, Logic Notation, and Universal Gates and a Recipe for Building Anything. The in-scope XNOR and selector exercise patterns were reviewed; the later arithmetic construction is not taught here. [Offering overview](https://www.cs.cornell.edu/courses/cs3410/2024fa/).
 
 The bounded source pool and its access evidence are recorded in the project research files. Additional ANF, self-duality, counting, model-boundary, and verification derivations are original instructional extensions with independent checks. The references specify actual reviewed locations rather than imply that every lecture or problem in each complete course was analyzed.
+
+
+The student explicitly approved this chapter on 2026-10-02. It is now in the approved library.

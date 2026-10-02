@@ -21,7 +21,7 @@ import websocket
 ROOT = Path(__file__).resolve().parents[1]
 EDGE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 CHAPTER = sys.argv[1] if len(sys.argv) > 1 else "d_proof"
-assert CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean"}
+assert CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean", "g_gates"}
 OUT = Path(tempfile.gettempdir()) / f"{CHAPTER}_qa"
 OUT.mkdir(exist_ok=True)
 server = ThreadingHTTPServer(("127.0.0.1", 0), partial(SimpleHTTPRequestHandler, directory=str(ROOT / "dist")))
@@ -68,19 +68,37 @@ try:
     if parsed["scroll"] > 390:
         offenders = cdp("Runtime.evaluate", {"expression": "JSON.stringify([...document.querySelectorAll('*')].filter(x=>x.getBoundingClientRect().right>392).slice(0,35).map(x=>({tag:x.tagName,cls:x.className?.baseVal??x.className,text:x.textContent.slice(0,90),right:Math.round(x.getBoundingClientRect().right)})))", "returnByValue": True})["result"]["value"]
         print(offenders.encode("ascii", "backslashreplace").decode("ascii"))
-    if CHAPTER in {"a_model", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean"}:
+    if CHAPTER in {"a_model", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean", "g_gates"}:
         overflow_items = cdp("Runtime.evaluate", {"expression": "JSON.stringify([...document.querySelectorAll('.formula-block')].filter(x=>x.scrollWidth>x.clientWidth).map(x=>({extra:x.scrollWidth-x.clientWidth,text:x.textContent.slice(0,110)})))", "returnByValue": True})["result"]["value"]
         print(overflow_items.encode("ascii", "backslashreplace").decode("ascii"))
     assert parsed["width"] == 390 and parsed["scroll"] == 390, "Mobile horizontal overflow."
-    if CHAPTER in {"d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean"}:
+    if CHAPTER in {"d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean", "g_gates"}:
         assert parsed["formulaOverflow"] == 0, "A mathematical display is clipped on mobile."
     shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
     (OUT / "mobile-cdp.png").write_bytes(base64.b64decode(shot))
-    if CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean"}:
-        cdp("Runtime.evaluate", {"expression": "document.querySelector('math, .math-limits, .math-inline').scrollIntoView({block:'center'})" if CHAPTER not in {"s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean"} else "document.querySelector('math').scrollIntoView({block:'center'})"})
+    if CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean", "g_gates"}:
+        cdp("Runtime.evaluate", {"expression": "document.querySelector('math, .math-limits, .math-inline').scrollIntoView({block:'center'})" if CHAPTER not in {"s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean", "g_gates"} else "document.querySelector('math').scrollIntoView({block:'center'})"})
         time.sleep(.25)
         math_shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
         (OUT / "math-mobile-cdp.png").write_bytes(base64.b64decode(math_shot))
+    if CHAPTER == "g_gates":
+        for kind,n,count in [('AND',3,0),('NAND',3,4),('NOR',3,4),('XOR',4,0),('XNOR',3,8),('XNOR',4,0)]:
+            js=f"document.getElementById('gate-kind').value={json.dumps(kind)};document.getElementById('gate-count').value='{n}';document.getElementById('gate-kind').dispatchEvent(new Event('change'));JSON.stringify({{count:document.querySelectorAll('#gate-table tbody tr').length,mismatch:document.getElementById('gate-status').dataset.mismatches}})"
+            r=json.loads(cdp('Runtime.evaluate',{'expression':js,'returnByValue':True})['result']['value']);assert r=={'count':2**n,'mismatch':str(count)},r
+        for inv,direct,comp,last,width in [(3,1,1,2,3),(0,1,1,0,0),(1,5,1,2,0),(0,0,0,0,0),(20,0,20,20,40)]:
+            values={'haz-inv':inv,'haz-direct':direct,'haz-comp':comp,'haz-or':last}
+            js=';'.join(f"document.getElementById('{k}').value='{v}'" for k,v in values.items())+";document.getElementById('haz-inv').dispatchEvent(new Event('input'));JSON.stringify({...document.getElementById('haz-status').dataset})"
+            r=json.loads(cdp('Runtime.evaluate',{'expression':js,'returnByValue':True})['result']['value']);assert r=={'valid':'true','width':str(width)},r
+        for value in ['', '-1','21']:
+            js=f"document.getElementById('haz-inv').value={json.dumps(value)};document.getElementById('haz-inv').dispatchEvent(new Event('input'));JSON.stringify({{valid:document.getElementById('haz-status').dataset.valid,events:document.querySelectorAll('#haz-events tbody tr').length,shape:document.querySelector('#haz-wave').children.length}})"
+            r=json.loads(cdp('Runtime.evaluate',{'expression':js,'returnByValue':True})['result']['value']);assert r=={'valid':'false','events':0,'shape':0},r
+        cdp('Runtime.evaluate',{'expression':"document.getElementById('haz-inv').value=3;document.getElementById('haz-direct').value=1;document.getElementById('haz-comp').value=1;document.getElementById('haz-or').value=2;document.getElementById('haz-inv').dispatchEvent(new Event('input'))"})
+        info=json.loads(cdp('Runtime.evaluate',{'expression':"""JSON.stringify({code:getComputedStyle(document.querySelector('pre code')).fontFamily,math:getComputedStyle(document.querySelector('math')).fontFamily,diagram:getComputedStyle(document.querySelector('svg .math-label')).fontFamily,mono:document.fonts.check('16px \"JetBrains Mono\"'),stix:document.fonts.check('16px \"STIX Two Math\"'),problems:[...document.querySelectorAll('h3')].filter(x=>x.textContent.startsWith('Problem ')).length})""",'returnByValue':True})['result']['value'])
+        assert 'JetBrains Mono' in info['code'] and 'STIX Two Math' in info['math'] and 'STIX Two Math' in info['diagram'] and info['mono'] and info['stix'] and info['problems']==36,info
+        for name,selector in [('laboratory','.gates-lab'),('waveform','#haz-wave'),('problems','#worked-problems'),('review','#quick-reference'),('code','pre'),('diagram','.gates-diagram')]:
+            cdp('Runtime.evaluate',{'expression':f"document.querySelector('{selector}').scrollIntoView({{block:'start'}})"});time.sleep(.2)
+            (OUT/f'{name}-mobile-cdp.png').write_bytes(base64.b64decode(cdp('Page.captureScreenshot',{'format':'png','captureBeyondViewport':False})['data']))
+        print('Gate lab UI, invalid delay clearing, and chapter font checks passed.',info)
     if CHAPTER == "g_boolean":
         cases=[('x | y','x ^ y','x',False,False,True,False),('x & y','x & y','x',True,False,True,False),('!x & y','!x & y','x',True,False,False,True),('x ^ y','x ^ y','x',True,False,False,False),('x','x','z',True,True,True,True),('1','1','x',True,True,True,True),('(x & y) | (!x & z) | (y & z)','(x & y) | (!x & z)','x',True,False,False,False)]
         for first,second,var,equivalent,independent,positive,negative in cases:
