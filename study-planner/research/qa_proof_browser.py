@@ -21,7 +21,7 @@ import websocket
 ROOT = Path(__file__).resolve().parents[1]
 EDGE = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
 CHAPTER = sys.argv[1] if len(sys.argv) > 1 else "d_proof"
-assert CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number"}
+assert CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean"}
 OUT = Path(tempfile.gettempdir()) / f"{CHAPTER}_qa"
 OUT.mkdir(exist_ok=True)
 server = ThreadingHTTPServer(("127.0.0.1", 0), partial(SimpleHTTPRequestHandler, directory=str(ROOT / "dist")))
@@ -68,19 +68,39 @@ try:
     if parsed["scroll"] > 390:
         offenders = cdp("Runtime.evaluate", {"expression": "JSON.stringify([...document.querySelectorAll('*')].filter(x=>x.getBoundingClientRect().right>392).slice(0,35).map(x=>({tag:x.tagName,cls:x.className?.baseVal??x.className,text:x.textContent.slice(0,90),right:Math.round(x.getBoundingClientRect().right)})))", "returnByValue": True})["result"]["value"]
         print(offenders.encode("ascii", "backslashreplace").decode("ascii"))
-    if CHAPTER in {"a_model", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number"}:
+    if CHAPTER in {"a_model", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean"}:
         overflow_items = cdp("Runtime.evaluate", {"expression": "JSON.stringify([...document.querySelectorAll('.formula-block')].filter(x=>x.scrollWidth>x.clientWidth).map(x=>({extra:x.scrollWidth-x.clientWidth,text:x.textContent.slice(0,110)})))", "returnByValue": True})["result"]["value"]
         print(overflow_items.encode("ascii", "backslashreplace").decode("ascii"))
     assert parsed["width"] == 390 and parsed["scroll"] == 390, "Mobile horizontal overflow."
-    if CHAPTER in {"d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number"}:
+    if CHAPTER in {"d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean"}:
         assert parsed["formulaOverflow"] == 0, "A mathematical display is clipped on mobile."
     shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
     (OUT / "mobile-cdp.png").write_bytes(base64.b64decode(shot))
-    if CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number"}:
-        cdp("Runtime.evaluate", {"expression": "document.querySelector('math, .math-limits, .math-inline').scrollIntoView({block:'center'})" if CHAPTER not in {"s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number"} else "document.querySelector('math').scrollIntoView({block:'center'})"})
+    if CHAPTER in {"d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean"}:
+        cdp("Runtime.evaluate", {"expression": "document.querySelector('math, .math-limits, .math-inline').scrollIntoView({block:'center'})" if CHAPTER not in {"s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean"} else "document.querySelector('math').scrollIntoView({block:'center'})"})
         time.sleep(.25)
         math_shot = cdp("Page.captureScreenshot", {"format": "png", "captureBeyondViewport": False})["data"]
         (OUT / "math-mobile-cdp.png").write_bytes(base64.b64decode(math_shot))
+    if CHAPTER == "g_boolean":
+        cases=[('x | y','x ^ y','x',False,False,True,False),('x & y','x & y','x',True,False,True,False),('!x & y','!x & y','x',True,False,False,True),('x ^ y','x ^ y','x',True,False,False,False),('x','x','z',True,True,True,True),('1','1','x',True,True,True,True),('(x & y) | (!x & z) | (y & z)','(x & y) | (!x & z)','x',True,False,False,False)]
+        for first,second,var,equivalent,independent,positive,negative in cases:
+            js=f"document.getElementById('bool-first').value={json.dumps(first)};document.getElementById('bool-second').value={json.dumps(second)};document.getElementById('bool-variable').value={json.dumps(var)};document.getElementById('bool-first').dispatchEvent(new Event('input'));JSON.stringify({{status:{{...document.getElementById('bool-status').dataset}},kind:{{...document.getElementById('bool-classification').dataset}},rows:document.querySelectorAll('#bool-table tbody tr').length,cof:document.querySelectorAll('#bool-cofactors tbody tr').length}})"
+            r=json.loads(cdp('Runtime.evaluate',{'expression':js,'returnByValue':True})['result']['value'])
+            assert r['status']['valid']=='true' and r['status']['equivalent']==str(equivalent).lower(),r
+            assert r['kind']=={'independent':str(independent).lower(),'positive':str(positive).lower(),'negative':str(negative).lower()},r
+            assert r['rows']==8 and r['cof']==4,r
+        for bad in ['', 'xy', '(x', '2']:
+            js=f"document.getElementById('bool-first').value={json.dumps(bad)};document.getElementById('bool-first').dispatchEvent(new Event('input'));JSON.stringify({{valid:document.getElementById('bool-status').dataset.valid,rows:document.querySelectorAll('#bool-table tbody tr').length,cof:document.querySelectorAll('#bool-cofactors tbody tr').length}})"
+            r=json.loads(cdp('Runtime.evaluate',{'expression':js,'returnByValue':True})['result']['value']);assert r=={'valid':'false','rows':0,'cof':0},r
+        cdp('Runtime.evaluate',{'expression':"document.getElementById('bool-example').click()"})
+        info=json.loads(cdp('Runtime.evaluate',{'expression':"""JSON.stringify({code:getComputedStyle(document.querySelector('pre code')).fontFamily,math:getComputedStyle(document.querySelector('math')).fontFamily,mono:document.fonts.check('16px \"JetBrains Mono\"'),stix:document.fonts.check('16px \"STIX Two Math\"'),problems:[...document.querySelectorAll('h3')].filter(x=>x.textContent.startsWith('Problem ')).length})""",'returnByValue':True})['result']['value'])
+        assert 'JetBrains Mono' in info['code'] and 'STIX Two Math' in info['math'] and info['mono'] and info['stix'] and info['problems']==40,info
+        assert 'STIX Two Math' in cdp('Runtime.evaluate',{'expression':"getComputedStyle(document.querySelector('svg .math-label')).fontFamily",'returnByValue':True})['result']['value']
+        for name,selector in [('laboratory','.boolean-lab'),('problems','#worked-problems'),('review','#quick-reference'),('code','pre'),('diagram','.boolean-diagram')]:
+            cdp('Runtime.evaluate',{'expression':f"document.querySelector('{selector}').scrollIntoView({{block:'start'}})"})
+            time.sleep(.2)
+            (OUT/f'{name}-mobile-cdp.png').write_bytes(base64.b64decode(cdp('Page.captureScreenshot',{'format':'png','captureBeyondViewport':False})['data']))
+        print('Boolean lab: seven valid cases, four invalid cases, example button, math/code fonts, and forty problems passed.',info)
     if CHAPTER == "a_model":
         diagram = cdp("Runtime.evaluate", {"expression": "JSON.stringify({container:document.querySelector('.model-diagram').clientWidth,content:document.querySelector('.model-diagram svg').clientWidth})", "returnByValue": True})["result"]["value"]
         print(diagram)

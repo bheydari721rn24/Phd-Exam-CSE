@@ -38,3 +38,6 @@ The course-derived practice covers identified in-scope exercise patterns with in
 ## Approval and publication gate
 
 Student approval of p_flow on 2026-10-02 authorized only this subsequent chapter. g_number must remain a review draft and the gate must remain awaiting_user_approval until explicit approval. No later chapter has been started.
+
+
+2026-10-02: Student explicitly approved g_number and authorized g_boolean. g_number is now ready.

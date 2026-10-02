@@ -107,7 +107,7 @@
 
 The chapter aims to teach the derivations needed to handle unfamiliar combinations of its topics, not just memorize the worked answers. The source comparison, independent finite arithmetic checks, browser tests, and visual review make specific errors less likely. They do not establish literal universal correctness or guarantee performance on every future examination question. The stated chapter boundary and deferred archive are explicit; questions involving a later circuit, programming-language, or floating-point topic need that additional instruction.
 
-This is a completed **review draft**. Promotion to the approved library and work on the next chapter require the student's explicit approval. No pre-study test is required.
+This chapter was explicitly approved by the student on 2026-10-02. It is now an approved chapter. No pre-study test is required.
 
 ## 15. References and exact reading locations
 
