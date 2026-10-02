@@ -1,0 +1,16 @@
+.lab-actions{display:flex;gap:8px;flex-wrap:wrap}
+.lab button{font:inherit;border:1px solid #90b2c4;background:#fff;color:#23485e;border-radius:7px;padding:7px 11px;cursor:pointer}
+.lab button:focus-visible{outline:3px solid #467e9e;outline-offset:2px}
+.lab button[aria-pressed="true"]{background:#315d76;color:#fff}
+.lab button:disabled{opacity:.55;cursor:default}
+.lab td,.lab th{text-align:center}
+.lab td button{min-width:40px;font-family:"STIX Two Math",serif;font-size:1.1rem}
+.lab h4{margin-bottom:8px}
+.lab .new-pair{background:#d4ebdc}
+.lab .matrix-name{font-weight:600;margin-bottom:5px}
+.lab .closure-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.lab .closure-grid table{font-size:.85rem}
+.lab .closure-grid td,.lab .closure-grid th{padding:5px}
+@media(max-width:850px){.lab .closure-grid{grid-template-columns:1fr}}
+@media(max-width:650px){.lab{padding:16px 14px}.lab #lab-input th,.lab #lab-input td{padding:5px}.lab #lab-input td button{min-width:32px;padding:7px}}
+@media print{.lab-actions,#lab-input button,#lab-next{display:none}.lab .closure-grid{grid-template-columns:1fr}.lab table{display:table} .formula-block{white-space:normal;overflow-wrap:anywhere}}

@@ -1,0 +1,190 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Relations source audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/d_relations.html">← Relations chapter</a></p><article class="lesson"><h1>Relations: written-course selection and synthesis audit</h1>
+<p>Review date: 2026-10-02. Topic: <span class="math-inline">d</span>_relations, Discrete Mathematics Chapter 5, first scheduled in Week 2. Four principal university courses and one independent focused supplement inform the chapter.</p>
+<h2>Search boundary and selection method</h2>
+<p>Searches targeted official university lecture notes, slides with readable text, and written exercises on relation properties, equivalence, closures, partial orders, bounds, and well-foundedness. The candidate pool below spans nine universities. Accessible chapter-level texts received deeper reading after a preliminary comparison of coverage and prerequisites. A catalogue or search result is not counted as reading the lecture body. This is a bounded search, not a proof that every course offered worldwide was found or exhaustively read. Course dates are kept distinct from current catalogue dates.</p>
+<p>Selection criteria were: explicit definitions and theorem hypotheses; breadth within this chapter; availability of substantive written text; proofs and problem types; complementarity with other sources; and the work required to correct omissions or imprecise claims. Reputation alone did not decide selection. Instead of inventing decimal rankings, the register records each text's actual contribution and limitations.</p>
+<table>
+<thead>
+<tr>
+<th>University and offering</th>
+<th>Review depth</th>
+<th>Decision and reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIT, 6.<span class="math-inline">042J / 18</span>.062J, Fall 2010; Tom Leighton and Marten van Dijk</td>
+<td>Chapter 7, PDF pp. 1–24, read as extracted text; property page visually checked against PDF <span class="math-inline">p</span>. 11.</td>
+<td>Principal. Best application coverage in this pool: typed relations, scheduling, linear extensions, and finite height/width implications. Some partition proofs are omitted; terminology separates function and totality.</td>
+</tr>
+<tr>
+<td>Stanford, CS103, Spring 2017; Keith Schwarz</td>
+<td>Binary Relations <span class="math-inline">I</span>: pp. 7–8, 17–21, 24–25, 28–36, 42–49, 56–57. Binary Relations II: pp. 4–20, 27–28, 40–42, 64–78. Problem Set 3 relation questions on pp. 2–4. Original slide <span class="math-inline">p</span>. 69 visually checked.</td>
+<td>Principal. Strongest definition-based proof exercises and counterexamples in the pool. Limited coverage of closures and bounds; repeated animation pages and announcements excluded from the reading claim.</td>
+</tr>
+<tr>
+<td>Cambridge, Discrete Mathematics, Michaelmas <span class="math-inline">2003 / Le</span>nt 2004; Peter Robinson</td>
+<td>Printed pp. 35–<span class="math-inline">43 / PD</span>F pp. 37–45 read; PDF <span class="math-inline">p</span>. 40 visually checked for Boolean matrices. Cover and syllabus also inspected.</td>
+<td>Principal. Adds closure-existence conditions, Warshall's invariant, well-founded induction, and rich closure exercises. Several overbroad source claims require correction.</td>
+</tr>
+<tr>
+<td>Oxford, Discrete Mathematics, Michaelmas 2010; Andrew <span class="math-inline">D</span>. Ker</td>
+<td>Chapters 4 and 8, PDF pp. 55–66 and 107–120, read including exercise answers; PDF <span class="math-inline">p</span>. 115 visually checked for bounds and quantifier direction.</td>
+<td>Principal. Broad formal account of relations, constrained counting, orders, bounds, and isomorphisms. Contains errors documented below. The later 2022–2023 catalogue was only screened and is not attributed to Ker.</td>
+</tr>
+<tr>
+<td>Cornell, CS2800, Spring 2017; Michael George</td>
+<td>Independently authored Lecture 6 relation section and all Lecture 7 read as HTML text; course page inspected for author/year.</td>
+<td>Focused fifth source. Useful quotient and representative-independence emphasis; too brief for the principal treatment of orders. Its linked MIT textbook is not counted as independent Cornell authorship.</td>
+</tr>
+<tr>
+<td>CMU, 21-127 Concepts of Math, Summer <span class="math-inline">I</span> 2018; Shaun Allison</td>
+<td>Official course page and reading/assignment list screened. Textbook link and equivalence assignment located; chapter body not deeply reviewed.</td>
+<td>Not selected as a principal text. Accessible pool already provides complementary relation/order/closure instruction; catalogue-only screening is not scored as text synthesis.</td>
+</tr>
+<tr>
+<td>Princeton, COS510, Spring 2013; Software Foundations, Relations chapter</td>
+<td>HTML definitions of properties and reflexive transitive closure examined, including closure rule structure. Coq-only exercises not worked.</td>
+<td>Not principal. Useful formal perspective but Coq prerequisites and limited bounds/Hasse coverage add burden. The separate Princeton-hosted MIT textbook mirror is not a distinct independent source.</td>
+</tr>
+<tr>
+<td>Berkeley, CS70, Fall 2026</td>
+<td>Official course overview and note list screened. No broad relation/order chapter was selected from it.</td>
+<td>Not principal for this boundary; strong mathematical course does not automatically match this particular chapter. No assertion is made that all Berkeley courses lack these topics.</td>
+</tr>
+<tr>
+<td>ETH Zurich, Discrete Mathematics, Autumn 2026; catalogue listing</td>
+<td>Official catalogue and textbook availability entries screened during search; a complete relevant lecture body was not read.</td>
+<td>Not principal. Catalogue and physical-library availability alone do not meet the written-text reading requirement. No rejection of scientific quality is implied.</td>
+</tr>
+</tbody>
+</table>
+<p>The register includes nine universities. Oxford's two catalogue/text offerings and the Princeton mirror are not extra universities. There are four principal courses plus Cornell, not five repackaged copies of one book.</p>
+<h2>Evidence and provenance</h2>
+<p>Downloaded reference PDFs remain outside the site, in the system temporary research directory. Their verified original URLs, page counts, and SHA-256 hashes are recorded in research/d_relations-source-downloads.json. Only original authored manuscripts, the source audit, and generated educational assets are published. No source PDF or extracted course transcript is republished in the site or GitHub chapter bundle.</p>
+<p>Text extraction loses some relation negations and misorders matrix entries. The four sample original pages were rendered and inspected. Stanford's missing extraction slashes were verified as negated symbols in the original slide. Cambridge's matrix was read as a Boolean table rather than trusting the extracted sequence of characters. More generally, extracted typography is evidence to interpret, not an automatic source of correct mathematical statements.</p>
+<h2>Corrections and hypothesis reconciliation</h2>
+<ol>
+<li>MIT uses a right-unique relation as a function and separately specifies totality. This chapter reserves total function for exactly one output at every source and explicitly distinguishes partial functions.</li>
+<li>Cambridge's first-then composition notation is opposite the function-compatible convention used here. Every composition and Boolean product was reconciled with the explicit witness definition.</li>
+<li>Cambridge, printed <span class="math-inline">p</span>. 40, says any irreflexive relation on a finite set is well-founded. A directed two-cycle refutes this. The chapter states finite acyclicity as the correct general criterion and proves the finite strict-order special case.</li>
+<li>Cambridge's assertion about eventually constant descending sequences requires order/acyclicity qualifications. A predecessor-free nonempty-subset definition is used as the primary definition, with a direct minimal-element proof of lexicographic well-foundedness. The full dictionary-order descending example is retained with an explicit alphabet order.</li>
+<li>Cambridge's fraction example must exclude zero denominators; the chapter states positive denominators and provides a transitivity counterexample when zero is allowed.</li>
+<li>Cambridge's well-founded induction is presented here with one universally quantified induction step; its minimal cases are included by vacuity. No separate base claim is silently substituted for the full predecessor hypothesis.</li>
+<li>Oxford, printed pp. 99–100, applies a lexicographic construction to arbitrary preorders using comparison plus inequality for its strict part. Returning between equivalent unequal first coordinates can violate transitivity. The chapter states the valid poset construction and supplies an explicit counterexample in Problem 46.</li>
+<li>Oxford, printed <span class="math-inline">p</span>. 105, calls ordinary real order a complete lattice. It is not: empty subsets and unbounded subsets need endpoints. The chapter distinguishes a complete lattice from the bounded-nonempty least-upper-bound property and chain completeness.</li>
+<li>Oxford's printed <span class="math-inline">p</span>. 105 formulation of no upper bound reverses the witness comparison. The correct failure of candidate upper bound <span class="math-inline">u</span> is some subset member <span class="math-inline">s</span> with <span class="math-inline">s</span> not below <span class="math-inline">u</span>. All bound definitions in the manuscript use that direction.</li>
+<li>Oxford's answer to exercise 8.4(<span class="math-inline">i</span>) describes upper bounds as divisors of the lcm. They are its multiples; the lcm is least in divisibility order. The chapter independently derives both gcd and lcm roles.</li>
+<li>Cornell's generalized smallest-extension phrasing needs existence hypotheses; these are supplied from Cambridge's intersection criterion. Antisymmetric extension failure is explicitly taught.</li>
+<li>Cornell's sequence-rearrangement quotient must retain multiplicities; it produces multisets rather than fixed-size subsets when repeated entries are allowed. No incorrect subset claim is adopted.</li>
+<li>Directed reachability is distinguished from undirected connectivity and from mutual directed reachability. Only the appropriate constructions are called equivalence relations.</li>
+<li>MIT's finite chain-length convention counts vertices. This chapter uses that convention throughout scheduling and height arguments, and excludes self-comparisons when speaking of strict task predecessors.</li>
+</ol>
+<h2>Topic-to-source-and-problem matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Teaching boundary</th>
+<th>Principal / supplemental support</th>
+<th>Worked-problem coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Typed relation, active domain/range, functional constraints, images</td>
+<td>MIT §7.1–7.2; Cambridge <span class="math-inline">p</span>. 35; Oxford §4.1</td>
+<td>1–3</td>
+</tr>
+<tr>
+<td>Converse, composition, witnesses, Boolean matrix orientation</td>
+<td>MIT §7.1.4–7.1.5; Cambridge <span class="math-inline">p</span>. 35; Oxford §4.4–4.5</td>
+<td>4–7</td>
+</tr>
+<tr>
+<td>Properties, vacuity, nonnegation, partial equivalence, alternative axioms</td>
+<td>MIT §7.3; Stanford <span class="math-inline">I/II</span> and PS3; Oxford §4.2</td>
+<td>8–14</td>
+</tr>
+<tr>
+<td>Counting local entry constraints</td>
+<td>Oxford §4.6; Cambridge exercises 3–4</td>
+<td>2, 15, 25</td>
+</tr>
+<tr>
+<td>Powers, positive/zero-length closure, finite cycle bounds</td>
+<td>Oxford §4.4; Cambridge pp. 36–37 and exercises 6–10; MIT §7.6</td>
+<td>16–23</td>
+</tr>
+<tr>
+<td>Closure existence, leastness, noncommuting operations</td>
+<td>Cambridge pp. 36–37; Cornell Lecture 7</td>
+<td>20–23</td>
+</tr>
+<tr>
+<td>Warshall recurrence, pivot invariant, in-place argument</td>
+<td>Cambridge pp. 37–38; original independent loop-order counterexample</td>
+<td>18–19; laboratory</td>
+</tr>
+<tr>
+<td>Partitions, quotient classes, representatives, rational equivalence</td>
+<td>Oxford §4.3; MIT §7.4; Stanford; Cambridge <span class="math-inline">p</span>. 36; Cornell Lecture 7</td>
+<td>10, 14, 24–27</td>
+</tr>
+<tr>
+<td>Preorder quotient and strongly connected classes</td>
+<td>Oxford §8.1; original proof from relation/quotient foundations</td>
+<td>28–29</td>
+</tr>
+<tr>
+<td>Strict/nonstrict, product/lexicographic, isomorphism</td>
+<td>Oxford §§8.1–8.2, 8.6; Cambridge pp. 38–39; Stanford PS3</td>
+<td>30–31, 40, 46</td>
+</tr>
+<tr>
+<td>Covers, finite reconstruction, Hasse geometry</td>
+<td>Oxford §8.3; MIT §7.6.4; Stanford PS3, Problem Five</td>
+<td>32–33</td>
+</tr>
+<tr>
+<td>Extrema, bounds, ambient membership, suprema and infima</td>
+<td>Oxford §8.4–8.5; MIT §7.7</td>
+<td>34–39</td>
+</tr>
+<tr>
+<td>Lattice identities and limits of completeness</td>
+<td>Oxford <span class="math-inline">p</span>. 105 qualified; original bound-based derivations</td>
+<td>36, 39, 45</td>
+</tr>
+<tr>
+<td>Linear extensions, layers, height–width bounds, subsequences</td>
+<td>MIT §§7.7–7.9; Cambridge <span class="math-inline">p</span>. 41</td>
+<td>33, 41–42</td>
+</tr>
+<tr>
+<td>Dilworth chain partition, matching-cover proof</td>
+<td>Original self-contained advanced extension of MIT's finite chain–antichain discussion</td>
+<td>33, 43</td>
+</tr>
+<tr>
+<td>Well-foundedness, induction, recursive descent</td>
+<td>Cambridge pp. 40–42, corrected; prior approved induction chapter</td>
+<td>44, 46</td>
+</tr>
+</tbody>
+</table>
+<p>All forty-six solutions are authored and checked within this chapter. Course-derived indicates an attributed mathematical pattern, not copied exercise prose or a claim that all source exercises were reproduced. Each of the twelve top-level sections has a declared role; the deliberately concise final review is separate from the detailed lesson.</p>
+<h2>Reference links</h2>
+<ul>
+<li><a href="https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/">MIT course</a> and <a href="https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/efac321fdc8d0b27586ca35b04aab808_MIT6_042JF10_chap07.pdf">Chapter 7</a>.</li>
+<li><a href="https://web.stanford.edu/class/archive/cs/cs103/cs103.1176/">Stanford CS103 archive</a>, <a href="https://web.stanford.edu/class/archive/cs/cs103/cs103.1176/lectures/06/Small06.pdf">Relations I</a>, <a href="https://web.stanford.edu/class/archive/cs/cs103/cs103.1176/lectures/07/Small07.pdf">Relations II</a>, <a href="https://web.stanford.edu/class/archive/cs/cs103/cs103.1176/handouts/150%20Problem%20Set%203.pdf">Problem Set 3</a>.</li>
+<li><a href="https://www.cl.cam.ac.uk/teaching/2003/DiscMaths/DiscMaths.pdf">Cambridge, Peter Robinson notes</a>.</li>
+<li><a href="https://www.cs.ox.ac.uk/andrew.ker/docs/discretemaths-lecture-notes-mt2010.pdf">Oxford, Andrew D. Ker notes</a> and <a href="https://www.cs.ox.ac.uk/teaching/courses/2022-2023/discretemaths/">2022–2023 screened catalogue</a>.</li>
+<li><a href="https://www.cs.cornell.edu/courses/cs2800/2017sp/">Cornell course</a>, <a href="https://www.cs.cornell.edu/courses/cs2800/2017sp/lectures/lec06-relations.html">Lecture 6</a>, <a href="https://www.cs.cornell.edu/courses/cs2800/2017sp/lectures/lec07-equivalence.html">Lecture 7</a>.</li>
+<li><a href="https://www.math.cmu.edu/~sallison/concepts18/index.html">CMU screened course page</a>.</li>
+<li><a href="https://www.cs.princeton.edu/courses/archive/spring13/cos510/sf/Rel.html">Princeton formal relation chapter</a>.</li>
+<li><a href="https://www.eecs70.org/">Berkeley screened CS70 page</a>.</li>
+<li><a href="https://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?ansicht=KATALOGDATEN&amp;lang=en&amp;lerneinheitId=204115&amp;semkez=2026W">ETH screened catalogue</a> and <a href="https://textbooks.inf.ethz.ch/lectures/1st-semester/267/">textbook availability entry</a>.</li>
+</ul>
+<h2>Remaining limits</h2>
+<p>No universal exhaustiveness or future-exam performance guarantee is asserted. Independent finite checks validate the implemented finite model and selected identities, while the written proofs address general statements under their stated hypotheses. Source screening is not equivalent to reading an entire unrelated course. Infinite order theory and full domain/lattice representation theory remain outside this chapter's boundary. Iranian MSc and PhD archives were not examined; they remain deferred to the final month. This chapter remains a review draft until explicit student approval.</p>
+</article></main></body></html>
