@@ -61,7 +61,7 @@ assert problems.count('**Solution.**')==46
 assert re.findall(r'^(\d+)\. ',review,re.M)==list(map(str,range(1,73)))
 page=(ROOT/'dist/chapters/d_relations.html').read_text(encoding='utf-8');assert page.count('<figure ')==4 and page.count('<h2 ')==12
 assert not re.search(r'[\u0600-\u06ff]|\$|\\bar|<!-- INCLUDE',page)
-assert 'awaiting your approval' in page
+assert 'Student-approved chapter' in page
 assert '^' not in page
 assert all('include_zero_length' in text for text in re.findall(r'>[^<]*_[^<]*<',page)), 'Unrendered mathematical underscore'
 result={'finiteRelationsChecked':sum(1<<(n*n) for n in range(4)),'propertiesAndAlternativeAxioms':True,'countsForThreeElements':counts,'cycleStages':stage_new,'wrongLoopCounterexample':True,'divisorCoversAndTaskChains':True,'workedProblems':46,'completeReviewRules':72,'figures':4}

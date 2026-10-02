@@ -1,0 +1,13 @@
+.lab-actions{display:flex;flex-wrap:wrap;gap:8px}
+.lab button,.lab select{font:inherit;border:1px solid #90b2c4;border-radius:7px;background:white;color:#23485e;padding:7px 10px;cursor:pointer}
+.lab select.output-choice{font-family:"STIX Two Math",serif}
+.lab button:focus-visible,.lab select:focus-visible,.lab input:focus-visible{outline:3px solid #467e9e;outline-offset:2px}
+.lab td,.lab th{text-align:center}
+.lab .selected-fiber{background:#e3f0e9}
+.lab .math-inline{white-space:normal}
+.lab dl{display:grid;grid-template-columns:minmax(110px,1fr) 3fr;gap:8px 14px}
+.lab dt{font-weight:600}.lab dd{margin:0;overflow-wrap:anywhere}
+.lab input{width:18px;height:18px;accent-color:#315d76}
+.lab-caption{color:#425c6b}
+@media(max-width:650px){.lesson .math-inline{white-space:normal;overflow-wrap:anywhere}.lab{padding:16px 14px}.lab td,.lab th{padding:6px}.lab dl{grid-template-columns:1fr}.lab dd{margin-bottom:8px}}
+@media print{.lab-actions,.lab select,.lab input,#function-input{display:none}.lab table{display:table}.formula-block{white-space:normal;overflow-wrap:anywhere}}
