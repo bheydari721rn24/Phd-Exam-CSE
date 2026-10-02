@@ -2,7 +2,7 @@
 
 ## Scope, conventions, and reviewed sources
 
-**Programming Fundamentals · Chapter 1 · English review draft.** This chapter teaches how to read an expression as a typed computation, determine its mathematical meaning, and identify the conditions under which that meaning is valid. Read the teaching sections before attempting the problem bank. The final review is a retrieval aid, not a substitute for the derivations.
+**Programming Fundamentals · Chapter 1 · Approved English chapter.** This chapter teaches how to read an expression as a typed computation, determine its mathematical meaning, and identify the conditions under which that meaning is valid. Read the teaching sections before attempting the problem bank. The final review is a retrieval aid, not a substitute for the derivations.
 
 The primary language is **ISO C17**. Python 3 and Java appear in explicitly labelled comparisons. A rule from one language must never be silently imported into another. Unless a problem states otherwise, numerical machine examples use an eight-bit byte, 32-bit `int` and `unsigned int`, 16-bit `short`, and a two's-complement signed representation. Examples involving `long` state its width separately. These are a declared example model, not universal C guarantees. Floating examples that require exact numerical rounding additionally assume IEEE binary64 `double`, round to nearest with ties to even, and no reassociation or excess intermediate precision.
 

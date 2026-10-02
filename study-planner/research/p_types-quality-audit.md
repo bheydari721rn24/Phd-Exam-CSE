@@ -1,6 +1,6 @@
 # p_types quality audit
 
-Date: 2026-10-02. Status: completed English review draft; explicit student approval is required before ready status or work on p_flow.
+Date: 2026-10-02. Status: approved English chapter. Student approval on 2026-10-02 permits ready status and work on p_flow; the validation evidence below was completed before that approval.
 
 ## Deliverable
 
@@ -44,4 +44,4 @@ Date: 2026-10-02. Status: completed English review draft; explicit student appro
 
 ## Approval handoff
 
-The student approved l_matrices on 2026-10-02; it is promoted to ready. p_types remains draft with its completed audit and gate awaiting_user_approval. No subsequent chapter has been started.
+The student approved l_matrices on 2026-10-02; it is promoted to ready. p_types was delivered as a draft with its completed audit. The subsequent explicit approval on 2026-10-02 promoted it to ready and authorized p_flow.

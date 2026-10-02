@@ -1,0 +1,20 @@
+from pathlib import Path
+import json
+ROOT=Path(__file__).resolve().parents[1]
+p=ROOT/'research/chapter-gate.json';gate=json.loads(p.read_text(encoding='utf-8'))
+assert gate['currentTopicId']=='p_flow'
+gate.update(state='awaiting_user_approval',lastCompletedReview='2026-10-02: Student approved p_types, now ready. p_flow completed as English review draft: five reviewed university courses, 36 solved problems, 60 rules, two diagrams, execution-order lab, 850 model cases and 182293 independent arithmetic assertions; mobile and 42-page print reviewed.',nextReview='Await explicit approval of p_flow before promotion or starting any next chapter. Archived Iranian papers remain deferred.')
+p.write_text(json.dumps(gate,indent=2)+'\n',encoding='utf-8')
+p=ROOT/'WEEKLY_DELIVERY.md';s=p.read_text(encoding='utf-8').split('## Current chapter handoff')[0]
+s+='''## Current chapter handoff
+
+As of 2026-10-02, the student explicitly approved `p_types`, now `ready`. The current chapter, `p_flow` (Conditionals, Loops, and Execution Order, Programming Fundamentals Chapter 2), is a completed English **review draft** at `dist/chapters/p_flow.html`, linked from the library. Source and quality audits are `research/p_flow-source-audit.md` and `research/p_flow-quality-audit.md`. Four complementary core courses from Harvard, MIT, Princeton, and Cornell were selected after an eight-offering survey; Cambridge is a fifth university supplement for C control details. The chapter has 36 fully explained problems, 60 complete-sentence examination rules, an eight-step solving method, two original diagrams, separate local code/math fonts, and a five-mode execution-order laboratory. Checks passed for 850 finite execution cases, 182293 independent arithmetic assertions, ten browser terminal states, invalid-input rejection, forward/back navigation, mobile overflow and a 42-page A4 print review. These are bounded validations, not universal correctness guarantees. C snippets were not compiled; specification and model checks are explicitly distinguished from execution. The gate is `awaiting_user_approval`: do not promote p_flow or start another chapter until the student explicitly approves. Archived Iranian entrance-exam questions remain deferred.
+'''
+p.write_text(s,encoding='utf-8')
+p=ROOT/'research/p_types.en.md';s=p.read_text(encoding='utf-8').replace('English review draft.','Approved English chapter.');p.write_text(s,encoding='utf-8')
+p=ROOT/'research/p_types-review.en.md';s=p.read_text(encoding='utf-8').replace("This chapter is a review draft awaiting the student's approval before promotion to the finished library.","The student approved this chapter on 2026-10-02; it is promoted to the finished library.");p.write_text(s,encoding='utf-8')
+p=ROOT/'research/p_types-quality-audit.md';s=p.read_text(encoding='utf-8');s=s.replace('Status: completed English review draft; explicit student approval is required before ready status or work on p_flow.','Status: approved English chapter. Student approval on 2026-10-02 permits ready status and work on p_flow; the validation evidence below was completed before that approval.');s=s.replace('p_types remains draft with its completed audit and gate awaiting_user_approval. No subsequent chapter has been started.','p_types was delivered as a draft with its completed audit. The subsequent explicit approval on 2026-10-02 promoted it to ready and authorized p_flow.');p.write_text(s,encoding='utf-8')
+p=ROOT/'research/p_flow.en.md';s=p.read_text(encoding='utf-8')
+s=s.replace('Processed values: 1 through i</text>','Processed values: 1 through <tspan class="math-label">i</tspan></text>').replace('i + 1 through n</text>','<tspan class="math-label">i + 1</tspan> through <tspan class="math-label">n</tspan></text>').replace('y="43">0</text>','y="43" class="math-label">0</text>').replace('y="43">i</text>','y="43" class="math-label">i</text>').replace('y="43">n</text>','y="43" class="math-label">n</text>')
+p.write_text(s,encoding='utf-8')
+print('Saved approval promotion and completed p_flow review gate.')

@@ -1067,6 +1067,81 @@
       "reviewLevel": "reviewed_in_scope_written_sections"
     },
     {
+      "id": "harvard-cs50x-2025-flow",
+      "subject": "programming",
+      "university": "Harvard",
+      "course": "CS50x 2025; David J. Malan; Lecture 1",
+      "url": "https://cs50.harvard.edu/x/2025/notes/1/",
+      "evidence": "https://cs50.harvard.edu/x/2025/notes/1/",
+      "topics": [
+        "p_flow"
+      ],
+      "advantage": "Selected core: Conditionals, comparisons, logical tests, Loops, input validation and Mario written sections read; foundational C branching and repetition.",
+      "limit": "Examples expanded with checkpoint reasoning and safe bounds. Environment-dependent validation termination is not guaranteed. No full-course review.",
+      "access": "official_written_lecture_notes",
+      "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
+      "id": "mit-60001-2016-flow",
+      "subject": "programming",
+      "university": "MIT",
+      "course": "6.0001 Fall 2016; Ana Bell, Eric Grimson, John Guttag; Lecture 2",
+      "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/resources/mit6_0001f16_lec2/",
+      "evidence": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/ba2947b25b1580e4a84df0ec5dbe5cdd_MIT6_0001F16_Lec2.pdf",
+      "topics": [
+        "p_flow"
+      ],
+      "advantage": "Selected core: 24-page PDF available and control sections pages 7–23 actually read, including ranges, branching, indentation and break.",
+      "limit": "Python iterator rules separated from C; stop-1 shorthand corrected for general steps. No videos required.",
+      "access": "official_written_lecture_pdf",
+      "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
+      "id": "princeton-cos126-flow",
+      "subject": "programming",
+      "university": "Princeton",
+      "course": "COS126 resource family; Robert Sedgewick and Kevin Wayne; section 1.3",
+      "url": "https://introcs.cs.princeton.edu/java/13flow/",
+      "evidence": "https://introcs.cs.princeton.edu/java/13flow/",
+      "topics": [
+        "p_flow"
+      ],
+      "advantage": "Selected core: instructional section and complete exercise inventory inspected; tracing, nesting, numerical-loop and control traps.",
+      "limit": "Java-specific typing, labeled jumps, overflow and definite assignment are not imported into C17; exercise patterns curated within scope.",
+      "access": "official_written_course_resource",
+      "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
+      "id": "cornell-cs2110-2026-flow",
+      "subject": "programming",
+      "university": "Cornell",
+      "course": "CS2110 Spring 2026; course teaching staff; Lecture 4 Loop Invariants",
+      "url": "https://courses.cis.cornell.edu/courses/cs2110/2026sp/lectures/lec04/",
+      "evidence": "https://courses.cis.cornell.edu/courses/cs2110/2026sp/lectures/lec04/",
+      "topics": [
+        "p_flow"
+      ],
+      "advantage": "Selected core: loop anatomy, range/boundary diagrams, frequency invariant derivation and recap read; argmin and exercise inventory screened for boundaries.",
+      "limit": "Individual authorship not verified; array partition, merge and search implementations deferred. Generic loop rewrite qualified for continue paths.",
+      "access": "official_written_course_notes",
+      "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
+      "id": "cambridge-progc-2017-flow",
+      "subject": "programming",
+      "university": "Cambridge",
+      "course": "Programming in C 2017–18; Neel Krishnaswami; Lecture 1",
+      "url": "https://www.cl.cam.ac.uk/teaching/1718/ProgC/",
+      "evidence": "https://www.cl.cam.ac.uk/teaching/1718/ProgC/lectures/lecture1.pdf",
+      "topics": [
+        "p_flow"
+      ],
+      "advantage": "Selected supplement: pages 14–18 and 20–23 read from official 23-page PDF web body; scope, comma expressions, control grammar and goto.",
+      "limit": "Older examples not assumed valid C17. Comma exercise reformulated with initialized bounded ints; local PDF hash not fabricated.",
+      "access": "official_written_lecture_pdf",
+      "reviewLevel": "reviewed_in_scope_written_sections"
+    },
+    {
       "id": "stanford-cs107-2020-types",
       "subject": "programming",
       "university": "Stanford",

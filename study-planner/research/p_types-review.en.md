@@ -86,4 +86,7 @@
 
 **Review scope.** These are reviewed in-scope written sections, not claims of full-course transcription. The bounded source survey and corrected source statements are recorded in the project's source audit. The problem bank covers the chapter's reasoning patterns; it does not claim to contain every question in all university offerings. In-scope reasoning from the selected exercises is represented, while whole applications requiring later algorithms, strings, input processing, or advanced mathematics are deferred with their chapter boundaries.
 
-**Accuracy limits.** The mathematical arguments establish their conclusions under the stated domains and model. Numerical and presentation checks supplement those arguments; they do not prove that an unknown future question has been anticipated or that studying alone guarantees an examination result. Language-version changes, implementation choices, and unexplored course material remain explicit limits. This chapter is a review draft awaiting the student's approval before promotion to the finished library.
+**Accuracy limits.** The mathematical arguments establish their conclusions under the stated domains and model. Numerical and presentation checks supplement those arguments; they do not prove that an unknown future question has been anticipated or that studying alone guarantees an examination result. Language-version changes, implementation choices, and unexplored course material remain explicit limits. The student approved this chapter on 2026-10-02; it is promoted to the finished library.
+
+
+Student approved this chapter on 2026-10-02 and authorized p_flow.

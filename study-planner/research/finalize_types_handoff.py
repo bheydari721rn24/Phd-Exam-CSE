@@ -1,6 +1,8 @@
 """Save the completed single-chapter handoff without shell string interpolation."""
 from pathlib import Path
+import json
 ROOT=Path(__file__).resolve().parents[1]
+assert json.loads((ROOT/'research/chapter-gate.json').read_text(encoding='utf-8'))['currentTopicId']=='p_types', 'Historical helper cannot overwrite a later chapter handoff.'
 path=ROOT/'WEEKLY_DELIVERY.md'
 text=path.read_text(encoding='utf-8').split('## Current chapter handoff')[0]
 text+='''## Current chapter handoff
