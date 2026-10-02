@@ -54,3 +54,8 @@ The lesson supplies definitions, proof steps, assumptions, counterexamples, and 
 ## Remaining boundaries
 
 The chapter deliberately reserves counting, conditional probability, developed independence theory, random variables, expectation, measure construction, and converse Borel–Cantelli results for their own boundaries. Exam-archive coverage is unassessed under the student's final-month policy. The reviewed sources and audits cannot establish worldwide course optimality, literal universal coverage, or guaranteed performance on every unseen question. Student approval is required before promotion from review draft to ready and before the next chapter starts.
+
+
+## Final existing-library revision — 2026-10-02
+
+The full authored manuscripts, every worked answer, final rules, and diagram context were reread during the sixteen-chapter revision. Findings: Corrected the dyadic-cell limsup endpoint: probability one does not mean the whole closed interval. Reviewed both manuscripts, all twenty-four solutions, limits, feasibility and laboratory model. All identified findings were corrected before rebuilding. The rebuilt chapter passed the recorded finite checks, desktop/mobile geometry, font loading, and print-style diagram-width checks. This is evidence of the performed review, not a universal correctness guarantee or a new full reading of every source course. See `LIBRARY_FINAL_REVIEW.en.md` and `library-review.json`.

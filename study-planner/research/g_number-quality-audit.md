@@ -41,3 +41,8 @@ Student approval of p_flow on 2026-10-02 authorized only this subsequent chapter
 
 
 2026-10-02: Student explicitly approved g_number and authorized g_boolean. g_number is now ready.
+
+
+## Final existing-library revision — 2026-10-02
+
+The full authored manuscripts, every worked answer, final rules, and diagram context were reread during the sixteen-chapter revision. Findings: Reviewed all three manuscripts, thirty-six solutions, arithmetic flags, signed ranges, fixed-point bounds, decimal/Gray/Hamming codes, and sixty end rules. Added the extended-Hamming minimum-distance proof and clarified capacity, radix-termination, word-width, and absolute-error assumptions. All identified findings were corrected before rebuilding. The rebuilt chapter passed the recorded finite checks, desktop/mobile geometry, font loading, and print-style diagram-width checks. This is evidence of the performed review, not a universal correctness guarantee or a new full reading of every source course. See `LIBRARY_FINAL_REVIEW.en.md` and `library-review.json`.

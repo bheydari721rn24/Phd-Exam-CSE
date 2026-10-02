@@ -129,7 +129,7 @@ assert number['status'] == 'ready' and number['url'] == 'chapters/g_number.html'
 boolean = next(c for w in lessons for c in w['chapters'] if c['topicId'] == 'g_boolean')
 assert boolean['status'] == 'ready' and boolean['url'] == 'chapters/g_boolean.html'
 gates = next(c for w in lessons for c in w['chapters'] if c['topicId'] == 'g_gates')
-assert gates['status'] == 'draft' and gates['url'] == 'chapters/g_gates.html'
+assert gates['status'] == 'ready' and gates['url'] == 'chapters/g_gates.html'
 vector_html = (ROOT / 'chapters/l_vectors.html').read_text(encoding='utf-8')
 vector_text = re.sub(r'<[^>]+>', '', vector_html)
 for required in ('in a normed space', 'in an inner-product space', 'Equality means linear dependence', 'It often rejects impossible lengths'):

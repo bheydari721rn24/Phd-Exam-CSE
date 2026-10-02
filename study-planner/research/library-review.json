@@ -1,0 +1,425 @@
+{
+  "started": "2026-10-02",
+  "state": "complete",
+  "requestedScope": "All 16 existing chapters: sentence-level semantic review, worked solutions, end rules, formulas, all diagrams and interactive models. No new chapters during this revision.",
+  "chapters": [
+    {
+      "topicId": "d_logic",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Corrected free-variable count and fresh-bound-name condition.",
+        "Added four quantifier movement laws with empty-domain cases and precise distribution laws.",
+        "Corrected formal-calculus scope; split diagram arrows to retain every arrowhead."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/d_logic.en.md",
+          "sha256": "54cd49bd78c4c98f99b593cd720fa040bc1992d6d7e5eda1e382c81fe1e395fc",
+          "words": 6882,
+          "reviewedSha256": "ef6cff19c9a292e682f22b5490818aa78fa1764a7959194df5b2351df428bc36"
+        }
+      ],
+      "renderedPath": "chapters/d_logic.html",
+      "renderedSha256": "e9b77aa841cf34a8a6e9a4e2ef92376d1ef83b6a2109177c3aaa55b363fffbf4"
+    },
+    {
+      "topicId": "d_sets",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Corrected the alternating/decreasing-tail exercise title.",
+        "Distinguished legitimate ordered-pair membership from product-condition errors.",
+        "Named the outside Venn region relative to U."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/d_sets.en.md",
+          "sha256": "af7c74889214fd6a66a9559713fba9c865beedb769bf3a29c16f0541ecaf68e4",
+          "words": 6733,
+          "reviewedSha256": "54cc4b6e27daf76109a300ece02db68bde07fa46d6fc35cafc7cdd404d49a514"
+        }
+      ],
+      "renderedPath": "chapters/d_sets.html",
+      "renderedSha256": "886193cb44f05c8cb1960b588f46743e15833cfec099524255a2d49aa8e9487d"
+    },
+    {
+      "topicId": "d_proof",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Corrected contradiction and unused-assumption guidance.",
+        "Clarified the square-root domain and equality characterization.",
+        "Restored each proof-route arrowhead."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/d_proof.en.md",
+          "sha256": "5e03f50ac7b78c466e30873c5eee4b654beec2a08f15875e48eb934689ad76f2",
+          "words": 6417,
+          "reviewedSha256": "eb5a9defb128990d54429031f5a0a649e46fd58d7895c6c0660add1d3bdbfd0b"
+        }
+      ],
+      "renderedPath": "chapters/d_proof.html",
+      "renderedSha256": "3d39e0ebc9a7c0a8cc148b7a29346121dcc2b8dd6915dfeb0f8ca0493120508e"
+    },
+    {
+      "topicId": "d_induction",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Corrected central L-tile quadrant placement and induced-gap explanation.",
+        "Made the zero-base geometric-sum polynomial convention explicit.",
+        "Restored dependency arrowheads."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/d_induction.en.md",
+          "sha256": "94dd5319ecf66d073882c1ef18e9389b178400084f13dbf8eac9dce2ec2a0cff",
+          "words": 6871,
+          "reviewedSha256": "dee8c1c04293eddd786e04cf52bb8ba6fe08bc06e54612969e23aa49f687ed2d"
+        }
+      ],
+      "renderedPath": "chapters/d_induction.html",
+      "renderedSha256": "63b1253125254a0e3c31f171a459accb698963c8be4583e13c578c6938011fea"
+    },
+    {
+      "topicId": "a_model",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Corrected empty-size supremum and input-sensitivity lower-bound qualifications.",
+        "Specified distinct index-pair answer semantics and decision-tree b>=2,q>=1 assumptions.",
+        "Restored encoding-layer arrowheads."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/a_model.en.md",
+          "sha256": "677aab8c4cd3215b98bc3e176bfc10d96af8d3fc047525c97a6d92ccd06fe9a4",
+          "words": 6006,
+          "reviewedSha256": "317890daf43c5ddb0d14a113c75b9f966d6a0f2baf0f36fbe131f8bc73a10188"
+        }
+      ],
+      "renderedPath": "chapters/a_model.html",
+      "renderedSha256": "f969e7eaccbf962b1060949580a35f7e895b4126df02befd6d5cb117df195b83"
+    },
+    {
+      "topicId": "a_asym",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Corrected signed residual in asymptotic equivalence under the nonnegative little-oh convention."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/a_asym.en.md",
+          "sha256": "852074db4dd888a308c5f2fcea0bcb01ad9624052a3113d9519fe24cab7baa83",
+          "words": 5628,
+          "reviewedSha256": "d4c53ab8b819664299dc20fa3984a056c937ddadcb32d40d47b6411b3253fa68"
+        }
+      ],
+      "renderedPath": "chapters/a_asym.html",
+      "renderedSha256": "08eedc0babf8bd6750988c1de75464686191cbb88e4aab99c34b483746b4d79d"
+    },
+    {
+      "topicId": "a_loop",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Checked all twenty exact-count solutions, including powers of two, short-circuit comparisons, inversions, and zero-size cases.",
+        "Removed rhetorical ambiguity in the geometric-sum solution."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/a_loop.en.md",
+          "sha256": "eeedff682140ac39e458c5aeb401d509dcc4b3899c839c0e455de9f79af86d4f",
+          "words": 6950,
+          "reviewedSha256": "94339c11b39d991a3a12af5bcb7bce1dc28675b2901f4ed617019a8ed778a3fd"
+        }
+      ],
+      "renderedPath": "chapters/a_loop.html",
+      "renderedSha256": "0aaf810458dbe073e7e76a217acfeaeb17cca9100b65c044ae7528f7628de802"
+    },
+    {
+      "topicId": "s_axioms",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Corrected the dyadic-cell limsup endpoint: probability one does not mean the whole closed interval.",
+        "Reviewed both manuscripts, all twenty-four solutions, limits, feasibility and laboratory model."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/s_axioms-supplement.en.md",
+          "sha256": "a92cfb6454c973eea513c8820400064a4b7ba2c3ac0d83341b99d5e4742e56cc",
+          "words": 5427,
+          "reviewedSha256": "a92cfb6454c973eea513c8820400064a4b7ba2c3ac0d83341b99d5e4742e56cc"
+        },
+        {
+          "path": "research/s_axioms.en.md",
+          "sha256": "580ab4cc3d88ab2b8d3fdfc344b1bbea57b1e924822df88b9f339041431510f1",
+          "words": 3814,
+          "reviewedSha256": "bd317de89eedc9ffc6e55e7d8417f25983b6622d0bc8cc3fc0a281622abb78a1"
+        }
+      ],
+      "renderedPath": "chapters/s_axioms.html",
+      "renderedSha256": "b0ed35d54335ad38e61367b3b2dcdbee33d1c795b665b2fa43c313550bafc150"
+    },
+    {
+      "topicId": "s_counting",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Defined multiset brackets preserving repetitions instead of ordinary set braces.",
+        "Preserved all five stars in the stars-and-bars text using code formatting.",
+        "Reviewed all three manuscripts, thirty-four solutions, parity law, and review rules."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/s_counting-models.en.md",
+          "sha256": "81422da102a1a8e9d3900ce84255bfddb0691274d1c2ee46299421a09b90db65",
+          "words": 2531,
+          "reviewedSha256": "81422da102a1a8e9d3900ce84255bfddb0691274d1c2ee46299421a09b90db65"
+        },
+        {
+          "path": "research/s_counting-problems.en.md",
+          "sha256": "f9049b2f66b2ddc1f8e19a18f8b9603d85226ecd25434bd932f4f5ac45e72790",
+          "words": 6505,
+          "reviewedSha256": "f9049b2f66b2ddc1f8e19a18f8b9603d85226ecd25434bd932f4f5ac45e72790"
+        },
+        {
+          "path": "research/s_counting.en.md",
+          "sha256": "126aa85cb576ced1b148738507bb0c89e7168a1c5c0830bcfbf25bf68fa60f13",
+          "words": 3092,
+          "reviewedSha256": "5f77ef3b1e70fac882012ddadf1abf1f1312e733715ade06f18d7678da34ade8"
+        }
+      ],
+      "renderedPath": "chapters/s_counting.html",
+      "renderedSha256": "897a18a08e87f5402d45cd46d64ad1ae16e444de75f5578aac8308db42c02df9"
+    },
+    {
+      "topicId": "l_vectors",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Reviewed all three manuscripts, thirty-four complete solutions, complex conjugation, projection coefficients, equality cases, and numerical caveats.",
+        "Corrected a grammatical error in Problem 7."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/l_vectors-problems.en.md",
+          "sha256": "a1446680a1729cff7b9469e041d30de0d4a00f613251e514355cc04874cc3453",
+          "words": 3597,
+          "reviewedSha256": "f8925b9de87cfcbcd9deff08c73b1852afe77e6735b1ce8e00ca217350ddabb3"
+        },
+        {
+          "path": "research/l_vectors-review.en.md",
+          "sha256": "8763b4b002c62cd5a4b0bfea5a913267b3464972bae07476c22769f0be24df79",
+          "words": 2140,
+          "reviewedSha256": "8763b4b002c62cd5a4b0bfea5a913267b3464972bae07476c22769f0be24df79"
+        },
+        {
+          "path": "research/l_vectors.en.md",
+          "sha256": "b666bf94c151a5d400189f09df1e0c80d794d5b7450bf8dc335018365207b625",
+          "words": 5523,
+          "reviewedSha256": "b666bf94c151a5d400189f09df1e0c80d794d5b7450bf8dc335018365207b625"
+        }
+      ],
+      "renderedPath": "chapters/l_vectors.html",
+      "renderedSha256": "5bdd6395aad3664f13be12f2074866727cfbd1e96431d3109cbfd91dccbcaa5c"
+    },
+    {
+      "topicId": "l_matrices",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Reviewed all three manuscripts, thirty-six solutions, rectangular/square distinctions, Hermitian identities, matrix norms, and conditioning.",
+        "Replaced an unsupported backward reference with a self-contained exchange proof that n independent vectors in R^n span."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/l_matrices-problems.en.md",
+          "sha256": "82c306ed3e651df13a16bf44851ae9714356030dd0b729cf4d364f4ed6311ae6",
+          "words": 4519,
+          "reviewedSha256": "82c306ed3e651df13a16bf44851ae9714356030dd0b729cf4d364f4ed6311ae6"
+        },
+        {
+          "path": "research/l_matrices-review.en.md",
+          "sha256": "ea913755a057d3b3fae07c363254a3faf255084ba094a5109556a1bed82d394e",
+          "words": 2559,
+          "reviewedSha256": "ea913755a057d3b3fae07c363254a3faf255084ba094a5109556a1bed82d394e"
+        },
+        {
+          "path": "research/l_matrices.en.md",
+          "sha256": "48363a575379b103f99312fc09c97edabd8124f903b46bb2874b3cad1ce023b4",
+          "words": 6451,
+          "reviewedSha256": "059868163153b7ddec32490fb71a86eef766dea8adae253a695d19782e07b887"
+        }
+      ],
+      "renderedPath": "chapters/l_matrices.html",
+      "renderedSha256": "6614da1bf54be7182b7dfe4c038a122930f09783b394830b8bc1dd842aaac6d3"
+    },
+    {
+      "topicId": "p_types",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Reviewed all three manuscripts, thirty-six solutions, C17 conversion/overflow contracts, and fifty end rules. No substantive mathematical correction identified."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/p_types-problems.en.md",
+          "sha256": "d5b06d929c1b8637b6d0935fa563129b00e2fa55c642144fbf33e38f79b59df7",
+          "words": 4346,
+          "reviewedSha256": "d5b06d929c1b8637b6d0935fa563129b00e2fa55c642144fbf33e38f79b59df7"
+        },
+        {
+          "path": "research/p_types-review.en.md",
+          "sha256": "5a7c4b4c58f9069b4d81ac68ffcf9b3506903f83963f1f371d71f409c2640ebc",
+          "words": 1813,
+          "reviewedSha256": "5a7c4b4c58f9069b4d81ac68ffcf9b3506903f83963f1f371d71f409c2640ebc"
+        },
+        {
+          "path": "research/p_types.en.md",
+          "sha256": "fd460c991af10f249a5b878bb56fc83f53bc2ec2ff0c00ee2ea9b0efbabd9f22",
+          "words": 7434,
+          "reviewedSha256": "fd460c991af10f249a5b878bb56fc83f53bc2ec2ff0c00ee2ea9b0efbabd9f22"
+        }
+      ],
+      "renderedPath": "chapters/p_types.html",
+      "renderedSha256": "1ab1a90c604657d4bfba843473ae4561b8e359e25edb7c025891828983223db6"
+    },
+    {
+      "topicId": "p_flow",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Reviewed all three manuscripts, thirty-six solutions, break/continue paths, termination clauses, loop checkpoints, and sixty end rules. No substantive correction identified."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/p_flow-problems.en.md",
+          "sha256": "06650ac9fa359e32f944107c4867347a40da19101a78dd814234005e6a05814a",
+          "words": 5428,
+          "reviewedSha256": "06650ac9fa359e32f944107c4867347a40da19101a78dd814234005e6a05814a"
+        },
+        {
+          "path": "research/p_flow-review.en.md",
+          "sha256": "8f60f60f3c2d959cbe66211405600f9c9736b2bb54b61aefdc3c0b53b771fe02",
+          "words": 2208,
+          "reviewedSha256": "8f60f60f3c2d959cbe66211405600f9c9736b2bb54b61aefdc3c0b53b771fe02"
+        },
+        {
+          "path": "research/p_flow.en.md",
+          "sha256": "04b8bff0db9b1755b35eb03f6d97abeea6752b5e87ddea2f6750e7d5e637a01c",
+          "words": 5780,
+          "reviewedSha256": "04b8bff0db9b1755b35eb03f6d97abeea6752b5e87ddea2f6750e7d5e637a01c"
+        }
+      ],
+      "renderedPath": "chapters/p_flow.html",
+      "renderedSha256": "7f32ba70158cd9d9f691d4cc10f81e4ae42d9e04bf5b7966e751e1ad6f51d19e"
+    },
+    {
+      "topicId": "g_number",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Reviewed all three manuscripts, thirty-six solutions, arithmetic flags, signed ranges, fixed-point bounds, decimal/Gray/Hamming codes, and sixty end rules.",
+        "Added the extended-Hamming minimum-distance proof and clarified capacity, radix-termination, word-width, and absolute-error assumptions."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/g_number-problems.en.md",
+          "sha256": "66721644cf284d6ca09ef5a93d80ef47f0ac284985da066ec014191404cd668e",
+          "words": 4882,
+          "reviewedSha256": "66721644cf284d6ca09ef5a93d80ef47f0ac284985da066ec014191404cd668e"
+        },
+        {
+          "path": "research/g_number-review.en.md",
+          "sha256": "da31cb6ffa0642e44a511170bca3d7286ae06710fd41dcd4eb2fd873be9709a7",
+          "words": 2433,
+          "reviewedSha256": "a76791dea950c7905417ddb7125e13d659d294f20045cede9f232f1f58786148"
+        },
+        {
+          "path": "research/g_number.en.md",
+          "sha256": "d17714c3b3d6649e45e53669595ef809810cb8d8ad74e284f823b036d2ea3fe3",
+          "words": 8685,
+          "reviewedSha256": "cc14f364cb0ac795ada6c79645ad48f8d7cdf6d84b877aa4bc23be99ad54ee17"
+        }
+      ],
+      "renderedPath": "chapters/g_number.html",
+      "renderedSha256": "1efd4c36446b709eb4b387222897d8fd93886a8d53d602ce0eadad377b70c70e"
+    },
+    {
+      "topicId": "g_boolean",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Reviewed all three manuscripts, forty solutions, Boolean derivatives, quantification, ANF, unateness, source boundaries, and sixty end rules. No substantive mathematical correction identified."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/g_boolean-problems.en.md",
+          "sha256": "70f3bd9cdfd380016a2fc9f857aa401915a800fc3b5e5fd42518689d35a02060",
+          "words": 4224,
+          "reviewedSha256": "70f3bd9cdfd380016a2fc9f857aa401915a800fc3b5e5fd42518689d35a02060"
+        },
+        {
+          "path": "research/g_boolean-review.en.md",
+          "sha256": "627f8ac839f7b9b040bbcffc93d562bdda53a1f5e2c9fba078fc7de638bc9336",
+          "words": 2212,
+          "reviewedSha256": "627f8ac839f7b9b040bbcffc93d562bdda53a1f5e2c9fba078fc7de638bc9336"
+        },
+        {
+          "path": "research/g_boolean.en.md",
+          "sha256": "ede91f00c4f1c0413b270510d87740b6eba4da03d4db9a776d51af5d6547dcf2",
+          "words": 6756,
+          "reviewedSha256": "ede91f00c4f1c0413b270510d87740b6eba4da03d4db9a776d51af5d6547dcf2"
+        }
+      ],
+      "renderedPath": "chapters/g_boolean.html",
+      "renderedSha256": "dd201bf1b5984cc35d679fbbe8c5a7fa7beadf98598909277150e1fe25b1f371"
+    },
+    {
+      "topicId": "g_gates",
+      "semanticReview": "complete",
+      "diagramReview": "complete: baseline visual/semantic reading; rebuilt geometry checks; corrected figures visually reinspected",
+      "findings": [
+        "Reviewed all three manuscripts, thirty-six solutions, constant assumptions, gate mappings, CMOS conduction, timing contracts, and sixty end rules.",
+        "Removed the incorrect XOR output-inversion bubble and corrected the equivalent-POS/duality distinction in the voter solution."
+      ],
+      "manuscripts": [
+        {
+          "path": "research/g_gates-problems.en.md",
+          "sha256": "02984bdc9db66397eedad0a5c9fa0acfa8455a9bc6591332d6dd46446e265aa0",
+          "words": 5388,
+          "reviewedSha256": "e503ca25176b618bf57a35f8747960fac5c55653cb5746b619b6001dfed4ac88"
+        },
+        {
+          "path": "research/g_gates-review.en.md",
+          "sha256": "90051026b31cd949c59698ae892139082edb086a9836adf327dc26225c55db9b",
+          "words": 1960,
+          "reviewedSha256": "c32ac9ad415012afaa892bee880df84f3a6c275728766a63ea05aa2dbf68ebd6"
+        },
+        {
+          "path": "research/g_gates.en.md",
+          "sha256": "e3975c4cc86b4f37640a053c94b298f0429df95db0d7dcdbceb836ba279e578c",
+          "words": 6834,
+          "reviewedSha256": "3af1ec70cb5aaa61fbe406bb4db30f98e0b3c596ed84066743ae9cc8a0fb2d20"
+        }
+      ],
+      "renderedPath": "chapters/g_gates.html",
+      "renderedSha256": "d819cc3c9de2e0d20eb9ac72b046e22555a9abecef5dab00a38f00990a7729ae"
+    }
+  ],
+  "semanticChaptersReviewed": 16,
+  "lastCheckpoint": "All sixteen existing chapters fully read and revised; 446 worked solutions and 29 figures reviewed. All identified findings corrected, rebuilt, checked, and recorded.",
+  "completed": "2026-10-02",
+  "workedProblemsReviewed": 446,
+  "figuresReviewed": 29,
+  "manuscriptFilesReviewed": 33,
+  "reportPath": "research/LIBRARY_FINAL_REVIEW.en.md",
+  "reportUrl": "library-review.html",
+  "verificationScriptsPassed": 20,
+  "evidenceDirectory": "research/library-review-evidence"
+}

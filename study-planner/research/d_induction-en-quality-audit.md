@@ -19,3 +19,8 @@ Date: 2026-09-29. Status: review draft delivered for explicit student approval; 
 ## Residual limits and gate
 
 The accessible-course survey cannot establish global optimality, and no note can guarantee every unseen doctoral question. Archived Iranian papers are intentionally postponed to the final month. No identified in-scope mathematical error remains after the checks above; if the student finds an error or unclear explanation, the chapter remains a draft while it is corrected. Do not start the next chapter without explicit approval of this one.
+
+
+## Final existing-library revision — 2026-10-02
+
+The full authored manuscripts, every worked answer, final rules, and diagram context were reread during the sixteen-chapter revision. Findings: Corrected central L-tile quadrant placement and induced-gap explanation. Made the zero-base geometric-sum polynomial convention explicit. Restored dependency arrowheads. All identified findings were corrected before rebuilding. The rebuilt chapter passed the recorded finite checks, desktop/mobile geometry, font loading, and print-style diagram-width checks. This is evidence of the performed review, not a universal correctness guarantee or a new full reading of every source course. See `LIBRARY_FINAL_REVIEW.en.md` and `library-review.json`.

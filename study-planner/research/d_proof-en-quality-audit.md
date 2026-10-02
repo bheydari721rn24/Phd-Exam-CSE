@@ -17,3 +17,8 @@ Date: 2026-09-29. Status: explicitly approved by the student; `ready`.
 - Edge A4 print: 18 nonblank pages, all 22 problem headings and final references in extracted text, no replacement characters. Teaching, diagram, final review, and references pages visually reviewed.
 
 The survey does not establish a globally optimal choice among all courses. No written lesson can guarantee answers to every unseen exam problem. The review goal is to remove identified in-scope errors and omissions before student approval; any new objection should keep the chapter in `draft` until corrected.
+
+
+## Final existing-library revision — 2026-10-02
+
+The full authored manuscripts, every worked answer, final rules, and diagram context were reread during the sixteen-chapter revision. Findings: Corrected contradiction and unused-assumption guidance. Clarified the square-root domain and equality characterization. Restored each proof-route arrowhead. All identified findings were corrected before rebuilding. The rebuilt chapter passed the recorded finite checks, desktop/mobile geometry, font loading, and print-style diagram-width checks. This is evidence of the performed review, not a universal correctness guarantee or a new full reading of every source course. See `LIBRARY_FINAL_REVIEW.en.md` and `library-review.json`.

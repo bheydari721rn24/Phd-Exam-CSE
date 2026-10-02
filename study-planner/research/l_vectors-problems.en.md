@@ -42,7 +42,7 @@ The following 34 problems are independently written. A course attribution names 
 
 **Task.** Real vectors satisfy ‖u‖=3, ‖v‖=4, and ‖u−v‖=5. Find their dot product and the norm of u+v. **Pattern:** Berkeley norm expansions; original data.
 
-**Solution.** Expanding the difference gives 25=9+16−2u·v, so u·v=0. The sum expansion then gives ‖u+v‖²=9+16=25, so its norm is 5. This is Pythagoras inferred from lengths, not a assumption that any two vectors with these lengths are orthogonal. It is valid here for real inner-product geometry. In a complex space the same calculation identifies only the real part of the inner product; Problem 15 explains the difference.
+**Solution.** Expanding the difference gives 25=9+16−2u·v, so u·v=0. The sum expansion then gives ‖u+v‖²=9+16=25, so its norm is 5. This is Pythagoras inferred from lengths, not an assumption that any two vectors with these lengths are orthogonal. It is valid here for real inner-product geometry. In a complex space the same calculation identifies only the real part of the inner product; Problem 15 explains the difference.
 
 ### Problem 8 — Distinguish equality in two inequalities
 

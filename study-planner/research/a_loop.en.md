@@ -1,6 +1,6 @@
 # Loop Analysis and Operation Counting
 
-*Data Structures and Algorithms · Chapter 3 · English review draft · 20 fully worked problems*
+*Data Structures and Algorithms · Chapter 3 · Approved English chapter · 20 fully worked problems*
 
 ## 1. Boundary, prerequisites, and selected written courses
 
@@ -199,7 +199,7 @@ The fragments below are original teaching exercises. Problems 1–5 develop Prin
 
 **Question.** For `i=1; while i<=n: for j=1..i: tick(); i*=2`, give an exact formula and asymptotic order for <span class="math-inline">n≥1</span>.
 
-**Solution.** Let <span class="math-inline">m=⌊log₂n⌋</span>. The outer values are <span class="math-inline">2<sup>0</sup>,…,2<sup>m</sup></span>; the inner body runs that many times on each pass. The exact count is <span class="math-inline">2<sup>m+1</sup>−1</span>. Since <span class="math-inline">2<sup>m</sup>≤n&lt;2<sup>m+1</sup></span>, the count is greater than or equal to <span class="math-inline">n</span>? When <span class="math-inline">n=6</span>, it is seven, but when <span class="math-inline">n=7</span>, it is seven. Indeed <span class="math-inline">2<sup>m+1</sup>−1≥n</span> for every integer <span class="math-inline">n</span> in the interval, while <span class="math-inline">2<sup>m+1</sup>−1&lt;2n</span>. Thus it is <span class="math-inline">Θ(n)</span>. The precise interval check matters; saying “last term equals <span class="math-inline">n</span>” would be false unless <span class="math-inline">n</span> is a power of two.
+**Solution.** Let <span class="math-inline">m=⌊log₂n⌋</span>. The outer values are <span class="math-inline">2<sup>0</sup>,…,2<sup>m</sup></span>; the inner body runs that many times on each pass. The exact count is <span class="math-inline">2<sup>m+1</sup>−1</span>. Since <span class="math-inline">2<sup>m</sup>≤n&lt;2<sup>m+1</sup></span> and <span class="math-inline">n</span> is integral, <span class="math-inline">2<sup>m+1</sup>−1≥n</span> for every integer <span class="math-inline">n</span> in the interval, while <span class="math-inline">2<sup>m+1</sup>−1&lt;2n</span>. Thus it is <span class="math-inline">Θ(n)</span>. The precise interval check matters; saying “last term equals <span class="math-inline">n</span>” would be false unless <span class="math-inline">n</span> is a power of two.
 
 ### Problem 8. Multiples and harmonic work
 

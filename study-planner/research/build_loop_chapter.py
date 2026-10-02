@@ -54,7 +54,7 @@ html = f'''<!doctype html>
   <header class="hero">
     <p class="eyebrow">Data Structures and Algorithms · Chapter 3</p>
     <h1>Loop Analysis and Operation Counting</h1>
-    <p>Review draft · four reviewed university course texts · 20 fully worked problems</p>
+    <p>Student-approved chapter · four reviewed university course texts · 20 fully worked problems</p>
   </header>
   <nav class="toc" aria-label="Chapter contents">{nav}</nav>
   <article class="lesson">{body}</article>

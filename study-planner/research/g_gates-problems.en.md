@@ -116,7 +116,7 @@ Design a positive output for at least three asserted inputs. Derive both SOP and
 
 **Solution.** Each possible triple of asserted inputs gives a product: f = xyz + xyw + xzw + yzw. Any three ones satisfy one product, and four ones satisfy all four. Fewer than three satisfy none.
 
-The dual POS is f = (x + y)(x + z)(x + w)(y + z)(y + w)(z + w). Every pair-sum is one exactly when no pair of inputs is simultaneously zero. That condition is equivalent to having at most one zero, hence at least three ones.
+An equivalent POS is f = (x + y)(x + z)(x + w)(y + z)(y + w)(z + w). This is not obtained by merely taking the dual of the three-literal SOP: that dual would be one whenever at least two inputs are one and would implement a different function. Every pair-sum is one exactly when no pair of inputs is simultaneously zero. That condition is equivalent to having at most one zero, hence at least three ones.
 
 A NAND mapping uses four three-input NANDs followed by a four-input NAND: five gates. A NOR mapping uses six two-input NORs followed by a six-input NOR: seven gates. These counts assume the large gates exist in the library, positive output is required, and no input inversion is needed. They are construction counts, not minimum proofs under a two-input-only constraint.
 

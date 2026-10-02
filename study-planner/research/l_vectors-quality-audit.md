@@ -50,3 +50,8 @@ Temporary screenshots and the QA PDF are at `%TEMP%/l_vectors_qa`; source PDFs/s
 No known in-scope mathematical error or rendering defect remains after these checks. This is not a claim of infallibility. The bounded source survey cannot establish that every worldwide course was evaluated. The worked bank cannot guarantee performance on all unseen questions. Archived Iranian papers were not read, classified, or solved; their empirical calibration is deferred to joint study in the final month. Full matrix/structural and infinite-dimensional topics remain outside this chapter's declared scope.
 
 After delivery, the gate is `awaiting_user_approval`. The chapter's library status remains `draft` until the student explicitly approves promotion and continuation. An active draft must not silently become ready through its build script.
+
+
+## Final existing-library revision — 2026-10-02
+
+The full authored manuscripts, every worked answer, final rules, and diagram context were reread during the sixteen-chapter revision. Findings: Reviewed all three manuscripts, thirty-four complete solutions, complex conjugation, projection coefficients, equality cases, and numerical caveats. Corrected a grammatical error in Problem 7. All identified findings were corrected before rebuilding. The rebuilt chapter passed the recorded finite checks, desktop/mobile geometry, font loading, and print-style diagram-width checks. This is evidence of the performed review, not a universal correctness guarantee or a new full reading of every source course. See `LIBRARY_FINAL_REVIEW.en.md` and `library-review.json`.

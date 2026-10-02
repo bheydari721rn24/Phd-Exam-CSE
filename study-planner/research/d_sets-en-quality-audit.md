@@ -19,3 +19,8 @@ Revised on 2026-09-29 after the student rejected the first draft for weak final 
 - The plan and chapter CSS now self-host the same Source Sans 3 body, Newsreader heading, and STIX Two Math formula fonts. Their SIL Open Font License files are bundled. The sets builder inserts thin operator spacing into HTML text nodes without modifying links or script code. Details are in `font-assets.md`.
 
 The exhaustive finite check is a countermodel search and regression aid, **not a proof** for arbitrary sets. The written elementwise proofs supply the general claims. Archived Iranian master's and doctoral examination booklets remain deferred to the final month by instruction. A literal claim of perfect coverage of every possible future examination question is not verifiable.
+
+
+## Final existing-library revision — 2026-10-02
+
+The full authored manuscripts, every worked answer, final rules, and diagram context were reread during the sixteen-chapter revision. Findings: Corrected the alternating/decreasing-tail exercise title. Distinguished legitimate ordered-pair membership from product-condition errors. Named the outside Venn region relative to U. All identified findings were corrected before rebuilding. The rebuilt chapter passed the recorded finite checks, desktop/mobile geometry, font loading, and print-style diagram-width checks. This is evidence of the performed review, not a universal correctness guarantee or a new full reading of every source course. See `LIBRARY_FINAL_REVIEW.en.md` and `library-review.json`.

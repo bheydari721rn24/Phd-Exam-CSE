@@ -127,11 +127,11 @@ The first permits y to vary with x; the second demands a single common y. On a n
   <circle cx="63" cy="80" r="19" fill="#fff" stroke="#7aa8bb"/><circle cx="63" cy="135" r="19" fill="#fff" stroke="#7aa8bb"/>
   <circle cx="260" cy="80" r="19" fill="#fff" stroke="#7aa8bb"/><circle cx="260" cy="135" r="19" fill="#fff" stroke="#7aa8bb"/>
   <text x="53" y="86" font-size="17">x<tspan baseline-shift="sub" font-size="12">1</tspan></text><text x="53" y="141" font-size="17">x<tspan baseline-shift="sub" font-size="12">2</tspan></text><text x="250" y="86" font-size="17">y<tspan baseline-shift="sub" font-size="12">1</tspan></text><text x="250" y="141" font-size="17">y<tspan baseline-shift="sub" font-size="12">2</tspan></text>
-  <path d="M82 80 L237 80 M82 135 L237 135" stroke="#577f98" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M82 80 L237 80" stroke="#577f98" stroke-width="2" marker-end="url(#arrow)"/><path d="M82 135 L237 135" stroke="#577f98" stroke-width="2" marker-end="url(#arrow)"/>
   <circle cx="405" cy="80" r="19" fill="#fff" stroke="#8397bf"/><circle cx="405" cy="135" r="19" fill="#fff" stroke="#8397bf"/>
   <circle cx="610" cy="107" r="19" fill="#fff" stroke="#8397bf"/>
   <text x="395" y="86" font-size="17">x<tspan baseline-shift="sub" font-size="12">1</tspan></text><text x="395" y="141" font-size="17">x<tspan baseline-shift="sub" font-size="12">2</tspan></text><text x="603" y="113" font-size="17">y</text>
-  <path d="M424 80 L588 103 M424 135 L588 111" stroke="#577f98" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M424 80 L588 103" stroke="#577f98" stroke-width="2" marker-end="url(#arrow)"/><path d="M424 135 L588 111" stroke="#577f98" stroke-width="2" marker-end="url(#arrow)"/>
 </svg>
 <figcaption>The arrows represent witness choices, not a required one-to-one relation.</figcaption>
 </figure>
@@ -162,7 +162,7 @@ The formula ∀x∀y((P(x)∧P(y))→x=y) says **at most one**, since it remains
 
 ### 4.4 Scope, renaming, and capture-free substitution
 
-The scope of a quantifier is the formula it binds, ordinarily delimited by parentheses. In (∀x P(x,y))∧Q(x), the x inside P is bound; the x in Q and both occurrences of y are free. Parentheses are part of the reasoning, not decorative typography. Renaming a bound variable to a **fresh** name leaves meaning unchanged: ∀y R(x,y) ≡ ∀z R(x,z), provided z was not already free in the quantified body.
+The scope of a quantifier is the formula it binds, ordinarily delimited by parentheses. In (∀x P(x,y))∧Q(x), the x inside P is bound; the x in Q and the occurrence of y in P are free. Parentheses are part of the reasoning, not decorative typography. Renaming a bound variable to a **fresh** name leaves meaning unchanged: ∀y R(x,y) ≡ ∀z R(x,z), provided z does not already occur in the quantified body. Choosing a genuinely fresh name prevents both capture of an existing free occurrence and interference with an inner binder.
 
 Substitution must avoid **variable capture**. In A=∀y R(x,y), naively replacing free x by y produces ∀y R(y,y), where the inserted y has become bound and the meaning has changed. First rename the bound y to fresh z; then substitute:
 
@@ -176,17 +176,21 @@ Here ≡α denotes alpha-equivalence, not a new logical law about arbitrary free
 
 First-order rules need witness conditions. From ∀x A(x), infer A(t) when t denotes an object and substitution is capture-free. From A(c) for a **fresh arbitrary** c, one may infer ∀x A(x) only if c was not chosen using a special property of the premises. From ∃x A(x), one may reason with a fresh witness c inside a subproof, but the final conclusion must not depend on c's accidental identity. Choosing a particular favorable object from an existential premise and then announcing a universal conclusion is invalid.
 
-Semantic entailment and a specific formal proof system are separate notions. This chapter proves soundness of the basic rules and uses model counterexamples. A later proof chapter develops full deduction systems and their side conditions.
+Semantic entailment and a specific formal proof system are separate notions. This chapter proves soundness of the basic rules and uses model counterexamples. Chapter 3 develops direct proof, contradiction, cases, witness arguments and their side conditions. A complete formal natural-deduction calculus, including its metatheory, is outside these introductory chapter boundaries.
 
 ### 4.6 Moving quantifiers safely
 
 A bound variable may be moved past a connective only when its scope and the free variables in the other operand have been checked. If x is not free in B and D is nonempty, then
 
-<div class="formula-block">(∀x A(x))∧B ≡ ∀x(A(x)∧B),<br>(∃x A(x))∨B ≡ ∃x(A(x)∨B).</div>
+<div class="formula-block">(∀x A(x))∧B ≡ ∀x(A(x)∧B),<br>(∀x A(x))∨B ≡ ∀x(A(x)∨B),<br>(∃x A(x))∧B ≡ ∃x(A(x)∧B),<br>(∃x A(x))∨B ≡ ∃x(A(x)∨B).</div>
 
-The nonempty-domain assumption matters to these two displayed rules: in an empty domain, the first right side is true while its left side equals B; the second right side is false while its left side equals B. A corresponding law can sometimes hold without that assumption, but using one clear convention avoids accidental changes of semantics.
+The nonempty-domain assumption is needed for the first and fourth displayed movement laws. In an empty domain, the first right side is true while its left side equals B; the fourth right side is false while its left side equals B. The second and third laws remain valid even in an empty domain under the stated free-variable condition. One convention for the whole lesson is convenient, but the precise dependency matters when an application permits an empty domain.
 
-To prove the first equivalence under its stated conditions, fix a nonempty domain and an assignment for B's free variables. If B is false, the left side is false and every instance A(d)∧B on the right is false, so the right side is false. If B is true, both sides reduce to ∀x A(x). Because x is not free in B, varying x cannot change the value of B. The second equivalence follows by the analogous two cases for B: when B is false both sides reduce to ∃x A(x); when B is true both sides are true because the domain is nonempty. These case proofs show exactly where each side condition is used.
+To prove the first equivalence under its stated conditions, fix a nonempty domain and an assignment for B's free variables. If B is false, the left side is false and every instance A(d)∧B on the right is false, so the right side is false. If B is true, both sides reduce to ∀x A(x). Because x is not free in B, varying x cannot change the value of B. The fourth equivalence follows by the analogous two cases for B: when B is false both sides reduce to ∃x A(x); when B is true both sides are true because the domain is nonempty. For the second law, B true makes both sides true and B false reduces both to ∀x A(x). For the third law, B false makes both sides false and B true reduces both to ∃x A(x). These last two arguments do not require a domain object.
+
+Distinguish movement past a fixed operand from distribution over two quantified operands. Universal quantification distributes over conjunction: ∀x(A(x)∧C(x)) is equivalent to (∀x A(x))∧(∀x C(x)). Both assertions require every object to satisfy both predicates. Existential quantification distributes over disjunction: ∃x(A(x)∨C(x)) is equivalent to (∃x A(x))∨(∃x C(x)); either side has a witness for at least one predicate. The apparent dual distributions fail in general because they change witness dependencies.
+
+**Worked boundary model.** Let D={0,1}, let A hold only at 0, and let C hold only at 1. Every object satisfies A∨C, so ∀x(A∨C) is true, yet neither ∀x A nor ∀x C is true. Both ∃x A and ∃x C are true with different witnesses, yet ∃x(A∧C) is false because no common witness exists. Thus only the implication (∀x A)∨(∀x C) ⇒ ∀x(A∨C) is generally valid in the first comparison, and only ∃x(A∧C) ⇒ (∃x A)∧(∃x C) in the second. A singleton domain conceals these failures, so a two-object model is the smallest useful test.
 
 The side condition “x not free in B” is essential. For example, (∀x P(x))∧Q(x) is an open formula whose Q(x) refers to the external assignment. Moving ∀x across the conjunction to make ∀x(P(x)∧Q(x)) binds that previously free x. Choose D={0,1}, P true everywhere, Q true only at 0, and s(x)=0: the left side is true and the right side false. Rename bound variables and mark all free occurrences before any rearrangement.
 
@@ -373,13 +377,14 @@ The following rules cover the recurring *forms of reasoning* that a difficult lo
 | A quantified negation | Move negation inward one connective or quantifier at a time and preserve parentheses. | Changing ∀ to ∃ without also negating the quantified body. |
 | Restricted quantification | Translate ∀x∈S to an implication and ∃x∈S to a conjunction. | Writing ∃x(S(x)→P(x)), which can be witnessed outside S. |
 | A quantifier-order claim | Draw the dependency of each existential witness on earlier universal variables. | Reusing a different witness as if it were one common object. |
+| Quantifier distribution | Distribute ∀ over ∧ and ∃ over ∨. Check the two-object split-predicate model before claiming either opposite distribution. | Turning different existential witnesses into one common witness, or turning a per-object disjunction into one universal disjunct. |
 | Uniqueness | Prove both at least one witness and at most one witness. | Accepting a statement that is vacuously true when no witness exists. |
 | Variable substitution | Mark free and bound occurrences; rename bound variables before a replacement could capture a free variable. | Performing several substitutions sequentially when they were defined as simultaneous. |
 | A finite search result | State the size bound searched and whether the target claim quantifies over all structures. | Treating failure to find a small model as proof of general unsatisfiability. |
 
 ### 6.6 What this chapter intentionally leaves for later
 
-The chapter establishes the logical language needed by the plan. Detailed set identities and relation properties belong to the sets and relations chapters. Complete natural-deduction proof systems belong to the proof chapter. Gate delay and physical glitches belong to digital logic. Algorithmic performance of SAT solvers belongs to algorithms. This separation prevents a logic chapter from growing through unrelated material while keeping its own definitions and edge cases complete.
+The chapter establishes the logical language needed by the plan. Detailed set identities and relation properties belong to the sets and relations chapters. Chapter 3 develops mathematical proof techniques; a complete formal natural-deduction calculus is outside the present introductory sequence. Gate delay and physical glitches belong to digital logic. Algorithmic performance of SAT solvers belongs to algorithms. This separation prevents a logic chapter from growing through unrelated material while keeping its own definitions and edge cases explicit.
 
 ## 7. Interactive truth-table laboratory
 

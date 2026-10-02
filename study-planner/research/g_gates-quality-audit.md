@@ -30,3 +30,10 @@ The binary closure check independently identifies NOR and NAND as the two univer
 ## Boundaries and approval gate
 
 Karnaugh maps, minimization algorithms, arithmetic combinational components and sequential design remain separate chapters. Device microphysics and technology-specific timing signoff are outside this chapter. Iranian archived examinations remain deferred, and no pre-study tests were asked of the student. These finite checks and source audits do not establish literal 100 percent accuracy, exhaustive global course coverage, or guaranteed performance on every unseen question. Publish this completed review draft, then keep the gate `awaiting_user_approval` until the student explicitly approves promotion and continuation.
+
+2026-10-02: Student explicitly approved g_gates and requested a comprehensive revision of all existing chapters. No new chapter is authorized during this revision.
+
+
+## Final existing-library revision — 2026-10-02
+
+The full authored manuscripts, every worked answer, final rules, and diagram context were reread during the sixteen-chapter revision. Findings: Reviewed all three manuscripts, thirty-six solutions, constant assumptions, gate mappings, CMOS conduction, timing contracts, and sixty end rules. Removed the incorrect XOR output-inversion bubble and corrected the equivalent-POS/duality distinction in the voter solution. All identified findings were corrected before rebuilding. The rebuilt chapter passed the recorded finite checks, desktop/mobile geometry, font loading, and print-style diagram-width checks. This is evidence of the performed review, not a universal correctness guarantee or a new full reading of every source course. See `LIBRARY_FINAL_REVIEW.en.md` and `library-review.json`.

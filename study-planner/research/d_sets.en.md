@@ -50,7 +50,7 @@ The expression A∖B is generally different from B∖A; it is not numerical subt
 
 The four regions determined by A and B in U are A∩B, A∖B, B∖A, and U∖(A∪B). They are pairwise disjoint and their union is U. Every two-set identity can be checked region by region. For three sets there are eight membership patterns (the three yes/no choices), a useful finite model for finding a counterexample. A region diagram is an aid to **discovery**, while membership arguments and the Boolean-pattern table provide the proof.
 
-<figure class="logic-diagram"><svg viewBox="0 0 560 220" role="img" aria-label="Four disjoint regions of a universe formed by two overlapping sets A and B"><rect x="12" y="12" width="536" height="194" rx="10" fill="#f6fafc" stroke="#8caabd" stroke-width="2"/><circle cx="230" cy="110" r="82" fill="#b8d9e9" fill-opacity=".67" stroke="#327795" stroke-width="2"/><circle cx="330" cy="110" r="82" fill="#ebd1aa" fill-opacity=".7" stroke="#ad7944" stroke-width="2"/><text x="28" y="38" font-size="18" fill="#233e52">U</text><text x="185" y="118" font-size="15" fill="#203748">A ∖ B</text><text x="272" y="118" font-size="15" fill="#203748">A ∩ B</text><text x="369" y="118" font-size="15" fill="#203748">B ∖ A</text><text x="42" y="184" font-size="15" fill="#203748">outside A ∪ B</text></svg><figcaption>The four region labels are membership conditions; they do not imply that each region is nonempty.</figcaption></figure>
+<figure class="logic-diagram"><svg viewBox="0 0 560 220" role="img" aria-label="Four disjoint regions of a universe formed by two overlapping sets A and B"><rect x="12" y="12" width="536" height="194" rx="10" fill="#f6fafc" stroke="#8caabd" stroke-width="2"/><circle cx="230" cy="110" r="82" fill="#b8d9e9" fill-opacity=".67" stroke="#327795" stroke-width="2"/><circle cx="330" cy="110" r="82" fill="#ebd1aa" fill-opacity=".7" stroke="#ad7944" stroke-width="2"/><text x="28" y="38" font-size="18" fill="#233e52">U</text><text x="185" y="118" font-size="15" fill="#203748">A ∖ B</text><text x="272" y="118" font-size="15" fill="#203748">A ∩ B</text><text x="369" y="118" font-size="15" fill="#203748">B ∖ A</text><text x="42" y="184" font-size="15" fill="#203748">U ∖ (A ∪ B)</text></svg><figcaption>The four region labels are membership conditions; they do not imply that each region is nonempty.</figcaption></figure>
 
 ### 3.2 Laws and a proof strategy
 
@@ -172,7 +172,7 @@ Show A△B=∅ iff A=B. Then decide whether A△B=A∪B iff A∩B=∅.
 
 **Solution.** If A△B=∅, there is no element exclusively in A or exclusively in B, so every x belongs to A iff it belongs to B; extensionality gives A=B. If A=B, no element belongs to exactly one, so the symmetric difference is empty. Also A△B=(A∪B)∖(A∩B). If A∩B=∅, removing it changes nothing, so A△B=A∪B. Conversely, if these sets are equal and x were in A∩B, then x would be in A∪B but not in A△B, a contradiction. The converse relies on a hypothetical common member, not on cardinalities.
 
-### Problem 10 — Indexed operations and alternating sets
+### Problem 10 — Indexed operations and decreasing tail sets
 
 Let U=ℕ={0,1,2,…}; for each n≥0 define A<sub>n</sub>={k∈ℕ:k≥n}. Find ⋃<sub>n≥0</sub>A<sub>n</sub>, ⋂<sub>n≥0</sub>A<sub>n</sub>, and the corresponding union and intersection when the index set is empty.
 
@@ -278,7 +278,7 @@ This section condenses the already taught material into a usable solving procedu
 ### 6.3 High-difficulty pattern notes
 
 - **An identity involving ∪, ∩, and ∖ is a propositional identity in disguise.** Introduce p=(x∈A), q=(x∈B), r=(x∈C). Prove the resulting Boolean equivalence for all eight bit patterns. For a false identity, the first differing bit pattern gives a one-element-universe counterexample.
-- **An expression with a product has two separate coordinates.** Name a candidate ordered pair (a,b) and expand both coordinate tests. A proof that writes “x∈A∩B” when x is an ordered pair is a type error; correct it before using the result.
+- **An expression with a product has two separate coordinates.** Name a candidate ordered pair (a,b) and expand both coordinate tests. Membership of the pair in A×B means a∈A and b∈B; replacing this by (a,b)∈A∩B does not express product membership. Sets may themselves contain ordered pairs, so pair membership in an intersection is not inherently ill-typed; the error is confusing the intended factor tests.
 - **A universal claim about an empty index set is vacuous.** The union and intersection do not therefore have the same value: existential and universal quantifiers differ. Declare U for the empty intersection.
 - **A statement about every set in a family may allow a different witness in each set.** It cannot be changed to one witness common to the family unless a separate intersection argument establishes it.
 - **Power-set formulas have an extra logical level.** If S belongs to a power set, expand it to a subset condition. If a power set is contained in another, test the special member A∈P(A) to recover A⊆B.

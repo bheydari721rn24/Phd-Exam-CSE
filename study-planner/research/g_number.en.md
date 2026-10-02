@@ -43,7 +43,7 @@ A nonnegative integer has a unique finite base-b expansion once unnecessary lead
 
 ### Capacity and digit count
 
-A word of n binary positions has 2<sup>n</sup> distinct patterns. If M distinct states must have distinct fixed-length codes, at least n = ⌈log<sub>2</sub> M⌉ bits are necessary. The result is a capacity statement, not an unsigned maximum. There are 2<sup>n</sup> patterns, but the greatest n-bit unsigned value is 2<sup>n</sup> − 1 because counting begins at zero.
+A word of n binary positions has 2<sup>n</sup> distinct patterns. If M is a positive integer and M distinct states must have distinct fixed-length codes, at least n = ⌈log<sub>2</sub> M⌉ bits are necessary. The result is a capacity statement, not an unsigned maximum. There are 2<sup>n</sup> patterns, but the greatest n-bit unsigned value is 2<sup>n</sup> − 1 because counting begins at zero.
 
 For a positive integer N, the minimum number of base-b digits is ⌊log<sub>b</sub> N⌋ + 1. Zero still needs one written digit by convention. In exact computations, repeated division or integer bit length is safer than a floating logarithm near powers of the base. To encode every integer in an inclusive interval from L to H, a freely chosen injective code needs ⌈log<sub>2</sub>(H − L + 1)⌉ bits. A mandated representation may need more. For example, sixteen states fit in four bits, but standard two's complement cannot encode the interval from zero through fifteen in four bits.
 
@@ -99,7 +99,7 @@ Write a rational number in lowest terms as p/q with q positive. A finite base-b 
 
 Equivalently, every prime factor of q must divide b. In binary, q must be a power of two. The fraction 3/40 terminates in decimal because 40 = 2<sup>3</sup> × 5, but repeats in binary because the factor five never divides a power of two. The fraction 1/6 does not terminate in either binary or decimal; its denominator contains the missing prime three.
 
-If q and b have the same prime factors, the minimum f is obtained by comparing exponents. If q contains prime p to exponent α and b contains it to exponent β, then fβ ≥ α. Take the maximum required ceiling over the denominator's primes. This computes the shortest terminating length exactly.
+If every prime factor of q occurs in b, the minimum f is obtained by comparing exponents. If q contains prime p to exponent α and b contains it to exponent β, then fβ ≥ α. Take the maximum required ceiling over the denominator's primes. This computes the shortest terminating length exactly.
 
 ### Repeating blocks and eventually repeating expansions
 
@@ -121,7 +121,7 @@ To guarantee absolute truncation error below ε, choose f so that 2<sup>−f</su
 
 ### Unsigned interpretation
 
-For an n-bit word, let U be its ordinary unsigned value and let s be its most significant bit. The unsigned range is 0 through 2<sup>n</sup> − 1. Every pattern has a unique unsigned value. Arithmetic on stored low n bits uses residues modulo 2<sup>n</sup>; exact mathematical arithmetic is a separate layer.
+For an n-bit word with integer n ≥ 1, let U be its ordinary unsigned value and let s be its most significant bit. The unsigned range is 0 through 2<sup>n</sup> − 1. Every pattern has a unique unsigned value. Arithmetic on stored low n bits uses residues modulo 2<sup>n</sup>; exact mathematical arithmetic is a separate layer.
 
 ### Sign-magnitude
 
@@ -384,7 +384,7 @@ The code can detect all two-bit errors if used strictly as a validity checker, o
 
 ### Extended parity and the SECDED decision table
 
-Add an overall even-parity bit to the seven-bit Hamming word. The resulting eight-bit extended code has minimum distance four and supports single-error correction plus double-error detection, abbreviated SECDED. Let S be the three-bit Hamming syndrome and P the XOR of all eight received bits. Under the explicit assumption of at most two flipped bits:
+Add an overall even-parity bit to the seven-bit Hamming word. The resulting eight-bit extended code has minimum distance four and supports single-error correction plus double-error detection, abbreviated SECDED. To prove the distance, take two distinct seven-bit codewords whose distance is w. The preceding argument establishes w ≥ 3. Their appended parity bits differ exactly when w is odd, because parity of the XOR equals XOR of the two parities. Their extended distance is therefore w + (w mod 2): an odd distance increases by one and an even distance stays unchanged. Both cases give a distance at least four. The valid three-position difference at positions one, two, and three attains four after extension, so the minimum is exactly four. Let S be the three-bit Hamming syndrome and P the XOR of all eight received bits. Under the explicit assumption of at most two flipped bits:
 
 | Syndrome | Overall parity result | Interpretation and action |
 |---|---|---|

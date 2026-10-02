@@ -1,0 +1,122 @@
+[
+  {
+    "check": "verify_boolean.py",
+    "exitCode": 0,
+    "seconds": 3.97,
+    "output": "{\"assertions\": 1079812, \"allFourInputANFTables\": 65536, \"allThreeInputFunctions\": 256, \"allTwoInputFunctionPairs\": 256, \"scope\": \"Finite independent checks. Universal identities are proved in prose; this is not a universal accuracy guarantee.\"}\n"
+  },
+  {
+    "check": "verify_boolean_lab.cjs",
+    "exitCode": 0,
+    "seconds": 0.09,
+    "output": "{\"assertions\":32793,\"allThreeInputFunctions\":256,\"allTwoInputComparisons\":256,\"rejectedSyntax\":17}\n"
+  },
+  {
+    "check": "verify_counting_examples.py",
+    "exitCode": 0,
+    "seconds": 0.08,
+    "output": "Independent enumerations passed: codes, fibers, partitions, symmetries, restrictions, occupancy, sampling, fixed points, weighted trials, and independence counterexamples.\n"
+  },
+  {
+    "check": "verify_d_induction_en.py",
+    "exitCode": 0,
+    "seconds": 0.09,
+    "output": "Induction chapter checks passed: 6914 words, 24 problems, 28 rules, 1 tables.\n"
+  },
+  {
+    "check": "verify_d_logic_en.py",
+    "exitCode": 0,
+    "seconds": 0.07,
+    "output": "English logic chapter checks passed: truth-functional claims, finite-model checks, and the new NAND, inference, and pebble problems.\n"
+  },
+  {
+    "check": "verify_d_proof_en.py",
+    "exitCode": 0,
+    "seconds": 0.1,
+    "output": "Proof chapter checks passed: 3 tables, 22 problems, 24 review rules, finite edge cases.\n"
+  },
+  {
+    "check": "verify_d_sets_en.py",
+    "exitCode": 0,
+    "seconds": 0.1,
+    "output": "Sets checks passed: 3 HTML tables; 20 problems; exhaustive 3-element finite models.\n"
+  },
+  {
+    "check": "verify_gates.py",
+    "exitCode": 0,
+    "seconds": 0.08,
+    "output": "{\"assertions\": 3525, \"allThreeInputNandSyntheses\": 256, \"singleBinaryUniversalMasks\": [1, 7], \"xnorLeafCounts\": [2, 8], \"models\": \"Stable Boolean, ideal complementary switches, supplied fixed timing bounds. No physical circuit certification.\"}\n"
+  },
+  {
+    "check": "verify_gates_lab.cjs",
+    "exitCode": 0,
+    "seconds": 0.08,
+    "output": "{\"assertions\":5547,\"transportCases\":1296,\"gateRows\":168}\n"
+  },
+  {
+    "check": "verify_library_semantic_additions.py",
+    "exitCode": 0,
+    "seconds": 0.07,
+    "output": "{\"status\": \"passed\", \"finiteCases\": 1066, \"quantifierDomainSizes\": [0, 1, 2, 3, 4], \"hammingCodewords\": 16, \"originalDistance\": 3, \"extendedDistance\": 4, \"voterRows\": 16, \"scope\": \"Finite regressions plus general proofs in manuscripts; not a proof of the entire library.\"}\n"
+  },
+  {
+    "check": "verify_loop_examples.py",
+    "exitCode": 0,
+    "seconds": 0.3,
+    "output": "Finite loop-count checks passed; general proofs remain in the lesson.\n"
+  },
+  {
+    "check": "verify_matrix_examples.py",
+    "exitCode": 0,
+    "seconds": 1.07,
+    "output": "Matrix audit passed: 26565 exact checks; 36 solutions; 50 complete-sentence rules; five reviewed universities. Finite checks support the written proofs, not universal guarantees.\n"
+  },
+  {
+    "check": "verify_number.py",
+    "exitCode": 0,
+    "seconds": 0.33,
+    "output": "{\"assertions\": 823880, \"wordWidths\": [2, 3, 4, 5, 6, 7, 8], \"grayWidths\": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], \"bcdSubtotals\": 200, \"hammingDataWords\": 16, \"quantizerCases\": 8442, \"limitations\": \"Finite arithmetic/codebook verification, not a universal correctness proof or an examination guarantee.\"}\n"
+  },
+  {
+    "check": "verify_number_lab.cjs",
+    "exitCode": 0,
+    "seconds": 1.18,
+    "output": "{\"laboratoryCases\":174756,\"exhaustiveWidths\":[2,3,4,5,6,7,8],\"additionalWidth16Cases\":4}\n"
+  },
+  {
+    "check": "verify_p_flow.js",
+    "exitCode": 0,
+    "seconds": 0.07,
+    "output": "850 execution-model cases passed: five modes, all 169 input pairs each, independent closed-form results, transfer counts, cycles and invalid inputs.\n"
+  },
+  {
+    "check": "verify_p_flow_math.py",
+    "exitCode": 0,
+    "seconds": 0.16,
+    "output": "182293 independent finite-domain assertions passed: progression counts, modular reachability, accumulator invariants, budget exit and Euclid preservation.\n"
+  },
+  {
+    "check": "verify_probability_examples.py",
+    "exitCode": 0,
+    "seconds": 0.14,
+    "output": "Passed 25,266 exact finite-model and feasibility checks; countable theorems retain separate written proofs.\n"
+  },
+  {
+    "check": "verify_review_figures.py",
+    "exitCode": 0,
+    "seconds": 0.09,
+    "output": "Reviewed diagram topology, polarity, independent arrowheads, multiplicity, and proof wording passed.\n"
+  },
+  {
+    "check": "verify_types_semantics.py",
+    "exitCode": 0,
+    "seconds": 0.2,
+    "output": "453032 exact/model and manuscript assertions passed. C examples were not compiled; undefined snippets were not run.\n"
+  },
+  {
+    "check": "verify_vector_examples.py",
+    "exitCode": 0,
+    "seconds": 0.11,
+    "output": "Vector verification passed: 7886 independent exact/numerical assertions, 729 vector pairs, worked-answer checks, complex/weighted projections, and exact polynomial integrals.\n"
+  }
+]

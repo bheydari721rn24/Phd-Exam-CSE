@@ -45,3 +45,8 @@ Date: 2026-10-02. Status: approved English chapter. Student approval on 2026-10-
 ## Approval handoff
 
 The student approved l_matrices on 2026-10-02; it is promoted to ready. p_types was delivered as a draft with its completed audit. The subsequent explicit approval on 2026-10-02 promoted it to ready and authorized p_flow.
+
+
+## Final existing-library revision — 2026-10-02
+
+The full authored manuscripts, every worked answer, final rules, and diagram context were reread during the sixteen-chapter revision. Findings: Reviewed all three manuscripts, thirty-six solutions, C17 conversion/overflow contracts, and fifty end rules. No substantive mathematical correction identified. All identified findings were corrected before rebuilding. The rebuilt chapter passed the recorded finite checks, desktop/mobile geometry, font loading, and print-style diagram-width checks. This is evidence of the performed review, not a universal correctness guarantee or a new full reading of every source course. See `LIBRARY_FINAL_REVIEW.en.md` and `library-review.json`.

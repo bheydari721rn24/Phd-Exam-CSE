@@ -1,6 +1,7 @@
 @font-face{font-family:"Source Sans 3";src:url("../fonts/source-sans-3-latin.woff2") format("woff2");font-style:normal;font-weight:300 700;font-display:swap}
 @font-face{font-family:"Newsreader";src:url("../fonts/newsreader-latin.woff2") format("woff2");font-style:normal;font-weight:300 600;font-display:swap}
 @font-face{font-family:"STIX Two Math";src:url("../fonts/stix-two-math.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url("../fonts/jetbrains-mono-regular.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
 @font-face{font-family:"Math Glyphs";src:url("../fonts/stix-two-math.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+00AC,U+00B1,U+00D7,U+00F7,U+0393-0394,U+0398,U+03A0,U+03A3,U+03A9,U+03C0,U+2100-214F,U+2190-21FF,U+2200-22FF,U+25B3-25B7}
 :root{font-family:"Math Glyphs","Source Sans 3",sans-serif;color:#233142;background:#f5f7f8;font-size:17px}
 *{box-sizing:border-box}body{margin:0;line-height:1.65;font-weight:400}
@@ -13,7 +14,7 @@ a{color:#215d85;text-decoration:none!important}a:hover{color:#154565;text-decora
 .lesson{background:#fff;border:1px solid #d8e4ea;border-radius:14px;padding:38px 46px;box-shadow:0 4px 22px #15344b08}
 .lesson h1{display:none}.lesson h2{font-family:"Newsreader","STIX Two Math",serif;font-size:2rem;font-weight:430;letter-spacing:-.018em;line-height:1.2;margin:45px 0 15px;padding-top:15px;border-top:1px solid #e5edf2}.lesson h2:first-of-type{margin-top:22px}.lesson h3{font-family:"Newsreader","STIX Two Math",serif;font-size:1.48rem;font-weight:480;line-height:1.24;margin:30px 0 10px}.lesson p{margin:11px 0 15px;max-width:82ch}.lesson li{margin:7px 0}.lesson ol,.lesson ul{padding-left:26px}
 .lesson strong{font-weight:620}
-.lesson code,.lesson pre{font-family:"Cascadia Code","IBM Plex Mono","Consolas",ui-monospace,monospace;font-size:.9em;font-weight:400}
+.lesson code,.lesson pre{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.9em;font-weight:400}
 .lesson pre{background:#edf4f8;border:1px solid #d5e5ee;border-radius:9px;padding:14px 18px;overflow-x:auto;line-height:1.5}
 .lesson sub,.lesson sup{font-family:"STIX Two Math",serif;font-size:.8em;line-height:0}
 .lesson table,.lab table{border-collapse:collapse;width:100%;margin:18px 0;font-size:.91rem;display:block;overflow-x:auto}.lesson th,.lesson td,.lab th,.lab td{border:1px solid #c6d8e2;padding:8px 10px;vertical-align:top}.lesson th,.lab th{background:#eef5f8;text-align:left}
@@ -21,6 +22,7 @@ a{color:#215d85;text-decoration:none!important}a:hover{color:#154565;text-decora
 .formula-steps>div{display:block;line-height:1.55}.formula-steps>div+div{padding-left:1.4em}
 .math-inline,.math-limits{font-family:"STIX Two Math",serif;white-space:nowrap}.math-inline{font-size:1.07em;font-weight:400;letter-spacing:.003em}.math-inline sub,.math-inline sup{font-family:inherit;font-size:.77em;line-height:0;position:relative;vertical-align:baseline}.math-inline sub{bottom:-.28em}.math-inline sup{top:-.52em}.math-limits{font-size:1.18em;math-style:normal;vertical-align:middle;margin:0 .08em}.formula-block .math-limits{font-size:1.25em}
 .lesson sub,.lesson sup{font-family:"STIX Two Math",serif}
+.lesson math{font-family:"STIX Two Math",serif}
 .lesson h3[id^="problem"],.lesson h3:has(+p strong){break-after:avoid}
 .lesson h3:has(+p strong){border-top:1px solid #e0ebef;padding-top:20px}
 .lesson blockquote{border-left:3px solid #9ebccb;margin-left:0;padding-left:15px;color:#4c6576}
@@ -31,3 +33,4 @@ a{color:#215d85;text-decoration:none!important}a:hover{color:#154565;text-decora
 @media print{@page{size:A4;margin:17mm 16mm}:root{background:#fff}body{background:#fff;color:#111}.chapter{max-width:none;padding:0}.hero,.lesson{border:0;border-radius:0;box-shadow:none;padding:0}.hero{margin-bottom:9mm}.lesson{font-size:.94rem;line-height:1.52}.top-link,.toc,.lab label,.lab select{display:none}.lesson h2{break-after:avoid}.lesson h3{break-after:avoid}.lesson p,.lesson li{orphans:3;widows:3}.lesson table,.lab table{display:table;overflow:visible}.lesson tr{break-inside:avoid}.formula-block{break-inside:avoid}.lab{break-inside:auto}}
 
 @media(max-width:650px){.model-diagram{overflow-x:auto;text-align:left}.model-diagram svg{min-width:700px;max-width:none}.model-diagram figcaption{min-width:0}}
+@media screen and (max-width:650px){.lesson .logic-diagram{overflow-x:auto;text-align:left}.lesson .logic-diagram svg{width:700px;min-width:700px;max-width:none}.lesson .logic-diagram figcaption{max-width:100%;font-size:.9rem}}

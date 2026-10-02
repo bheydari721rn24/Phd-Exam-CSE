@@ -43,3 +43,8 @@ Date: 2026-09-30. Manuscript: `research/a_model.en.md`; study page: `dist/chapte
 ## Delivery decision
 
 No identified mathematical error, broken study link, or in-scope matrix gap remained after these checks. The chapter is a **review draft**, not a guaranteed solution to every unseen examination item. It remains at `draft` in `dist/lessons.json`; `research/chapter-gate.json` will be set to `awaiting_user_approval` after delivery. No later chapter begins until the student explicitly approves this one.
+
+
+## Final existing-library revision — 2026-10-02
+
+The full authored manuscripts, every worked answer, final rules, and diagram context were reread during the sixteen-chapter revision. Findings: Corrected empty-size supremum and input-sensitivity lower-bound qualifications. Specified distinct index-pair answer semantics and decision-tree b>=2,q>=1 assumptions. Restored encoding-layer arrowheads. All identified findings were corrected before rebuilding. The rebuilt chapter passed the recorded finite checks, desktop/mobile geometry, font loading, and print-style diagram-width checks. This is evidence of the performed review, not a universal correctness guarantee or a new full reading of every source course. See `LIBRARY_FINAL_REVIEW.en.md` and `library-review.json`.

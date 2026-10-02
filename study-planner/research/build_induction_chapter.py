@@ -115,7 +115,7 @@ html = f'''<!doctype html>
   <header class="hero">
     <p class="eyebrow">Discrete Mathematics · Chapter 4</p>
     <h1>Ordinary and Strong Induction</h1>
-    <p>Review draft · five reviewed university course texts · 24 fully worked problems</p>
+    <p>Student-approved chapter · five reviewed university course texts · 24 fully worked problems</p>
   </header>
   <nav class="toc" aria-label="Chapter contents">{nav}</nav>
   <article class="lesson">{body}</article>

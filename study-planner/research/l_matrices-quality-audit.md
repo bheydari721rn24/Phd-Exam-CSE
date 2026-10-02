@@ -33,3 +33,8 @@ The browser produced a **44-page A4 print layout**. Sampled mobile displays were
 ## Remaining limits and approval gate
 
 No identified mathematical error or in-scope omission remains after these checks. The survey is bounded, the source exercise selection is documented, and later chapter topics remain explicitly deferred. Literal worldwide-course completeness, literal zero future errors, and success on every unseen exam question cannot be certified. The chapter is linked as a review draft and will be promoted only after explicit student approval. No next chapter has been started.
+
+
+## Final existing-library revision — 2026-10-02
+
+The full authored manuscripts, every worked answer, final rules, and diagram context were reread during the sixteen-chapter revision. Findings: Reviewed all three manuscripts, thirty-six solutions, rectangular/square distinctions, Hermitian identities, matrix norms, and conditioning. Replaced an unsupported backward reference with a self-contained exchange proof that n independent vectors in R^n span. All identified findings were corrected before rebuilding. The rebuilt chapter passed the recorded finite checks, desktop/mobile geometry, font loading, and print-style diagram-width checks. This is evidence of the performed review, not a universal correctness guarantee or a new full reading of every source course. See `LIBRARY_FINAL_REVIEW.en.md` and `library-review.json`.

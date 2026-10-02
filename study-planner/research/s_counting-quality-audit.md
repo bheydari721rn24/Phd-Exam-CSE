@@ -51,3 +51,8 @@ The parity family was checked at five exact rational parameter values: minus one
 ## Residual limits and approval
 
 The source pool is bounded; some official materials were unavailable, and most unrelated course sections were intentionally not reviewed. General group actions, unrestricted unlabeled partitions, generating functions, full conditional-probability theory, and limit distributions require other chapter boundaries. No promise is made of success on every unseen examination question. The chapter is submitted for student review; only explicit approval may promote it to ready and authorize the next chapter.
+
+
+## Final existing-library revision — 2026-10-02
+
+The full authored manuscripts, every worked answer, final rules, and diagram context were reread during the sixteen-chapter revision. Findings: Defined multiset brackets preserving repetitions instead of ordinary set braces. Preserved all five stars in the stars-and-bars text using code formatting. Reviewed all three manuscripts, thirty-four solutions, parity law, and review rules. All identified findings were corrected before rebuilding. The rebuilt chapter passed the recorded finite checks, desktop/mobile geometry, font loading, and print-style diagram-width checks. This is evidence of the performed review, not a universal correctness guarantee or a new full reading of every source course. See `LIBRARY_FINAL_REVIEW.en.md` and `library-review.json`.

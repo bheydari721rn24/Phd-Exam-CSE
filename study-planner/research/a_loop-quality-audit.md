@@ -39,3 +39,8 @@ The high-yield section contains 24 complete decision rules and traps. Two origin
 ## Remaining limits
 
 No finite source search can prove that the chosen four courses are globally optimal, and no note can guarantee perfect performance on every unseen question. Machine-specific operation costs, large-integer bit complexity, and expected values without a distribution are deliberately conditional. The chapter remains a review draft until the student explicitly approves it.
+
+
+## Final existing-library revision — 2026-10-02
+
+The full authored manuscripts, every worked answer, final rules, and diagram context were reread during the sixteen-chapter revision. Findings: Checked all twenty exact-count solutions, including powers of two, short-circuit comparisons, inversions, and zero-size cases. Removed rhetorical ambiguity in the geometric-sum solution. All identified findings were corrected before rebuilding. The rebuilt chapter passed the recorded finite checks, desktop/mobile geometry, font loading, and print-style diagram-width checks. This is evidence of the performed review, not a universal correctness guarantee or a new full reading of every source course. See `LIBRARY_FINAL_REVIEW.en.md` and `library-review.json`.

@@ -36,7 +36,7 @@
 15. **Count leading zeros inside a repeating block.** They determine the block length k and hence the denominator b<sup>k</sup> − 1.
 16. **Scale a repeating tail by its prefix length.** A t-digit nonrepeating prefix moves the repeating fraction t positions to the right.
 17. **Specify the tie rule for nearest rounding.** An exact midpoint can map to either adjacent grid point unless a policy such as ties-to-even is declared.
-18. **Use the appropriate absolute-error bound.** Positive truncation error is below one grid step, while nearest rounding is at most half a step when a suitable in-range point exists.
+18. **Use the appropriate absolute-error bound.** For a nonnegative target, truncation has absolute error below one grid step, while nearest rounding is at most half a step when a suitable in-range point exists.
 19. **Do not infer a uniform relative-error bound near zero.** A small absolute quantization error can be large relative to a very small exact value.
 20. **Check range after rounding.** A target near the highest endpoint may round beyond the representable interval even if it is close to a valid value.
 
