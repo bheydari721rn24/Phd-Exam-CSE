@@ -1,0 +1,11 @@
+.lesson .math-inline{white-space:normal}
+.lab-actions{display:flex;gap:8px;flex-wrap:wrap}
+.lab button{font:inherit;padding:8px 12px;border:1px solid #90b2c4;border-radius:7px;background:white;color:#23485e;cursor:pointer}
+.lab button:focus-visible,.lab input:focus-visible{outline:3px solid #467e9e;outline-offset:2px}
+.lab td,.lab th{text-align:center}.lab caption{text-align:left;margin-bottom:8px;font-size:.9rem;color:#425c6b}
+.lab input[type=checkbox]{width:19px;height:19px;accent-color:#315d76}
+.lab .rank-input{font-family:"STIX Two Math",serif;width:90px;padding:6px;border:1px solid #90b2c4;border-radius:6px}
+.lab dl{display:grid;grid-template-columns:minmax(130px,1fr) 2fr;gap:9px 14px}.lab dt{font-weight:600}.lab dd{margin:0}
+.lab .math-inline{overflow-wrap:anywhere}
+@media(max-width:650px){.lesson .math-inline{overflow-wrap:anywhere}.lab{padding:16px 12px}.lab dl{grid-template-columns:1fr}.lab dd{margin-bottom:10px}.lab td,.lab th{padding:7px}.lab .rank-input{width:75px}}
+@media print{.lab-actions,#invariant-input{display:none}.formula-block{white-space:normal;overflow-wrap:anywhere}}

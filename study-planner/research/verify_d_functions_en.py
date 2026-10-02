@@ -96,7 +96,7 @@ for topic in ('d_functions',):
  assert not coverage.unstyled,(topic,coverage.unstyled)
 assert page.count('<figure ')==4 and page.count('<h2 ')==13 and '<munderover>' in page
 assert not re.search(r'[\u0600-\u06ff]|\$|\\binom|<!--',page)
-assert 'awaiting your approval' in page
+assert 'Student-approved chapter' in page
 assert '^' not in page
 outside_code=re.sub(r'<pre>.*?</pre>','',page,flags=re.S)
 assert not re.search(r'>[^<]*_[^<]*<',outside_code)
