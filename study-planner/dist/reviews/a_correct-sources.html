@@ -1,0 +1,127 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Algorithm correctness: sources audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/a_correct.html">← Algorithm correctness chapter</a></p><article class="lesson"><h1>Algorithm correctness — source selection and reading audit</h1>
+<p>Reviewed on 3 October 2026. Selection concerns the chapter's mathematical scope and accessible written texts. Downloading a PDF is not counted as reading all its pages. A course catalogue or an unavailable slide URL is not counted as a reviewed course.</p>
+<h2>Candidate comparison</h2>
+<table>
+<thead>
+<tr>
+<th>University / candidate</th>
+<th>Access and review level</th>
+<th>Selection decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CMU 15-122, Frank Pfenning, Contracts</td>
+<td>Complete 24-page written lecture read; exponentiation and arithmetic derivations checked</td>
+<td>Principal source for contracts and finite arithmetic boundaries</td>
+</tr>
+<tr>
+<td>Cambridge Specification and Verification <span class="math-inline">I</span>, Mike Gordon</td>
+<td>121-page text downloaded; pages 11–28, 47–59 and 63–72 read</td>
+<td>Principal source for formal rules, array aliasing, verification conditions and variants</td>
+</tr>
+<tr>
+<td>MIT 6.042J, Meyer and Chlipala; Lehman–Leighton–Meyer text</td>
+<td>920-page text downloaded; §5.4, PDF pages 140–152 read</td>
+<td>Principal source for state-machine induction and well-founded progress</td>
+</tr>
+<tr>
+<td>Stanford CS161 Winter 2022, Lecture 2</td>
+<td>11-page text downloaded; pages 1–4 read</td>
+<td>Principal source for sorting and recursive proof composition</td>
+</tr>
+<tr>
+<td>Cornell CS2112 Fall 2018</td>
+<td>Public lecture index screened; topic listing includes loop invariants; complete note body not read in this review</td>
+<td>Candidate only; no content-reading credit and no source-count inflation</td>
+</tr>
+<tr>
+<td>ETH Zurich Program Verification, loops/procedures candidate</td>
+<td>The searched official slide URL returned HTTP 404</td>
+<td>Unavailable candidate; no claim to have read its contents or compared their scientific quality</td>
+</tr>
+<tr>
+<td>Oxford Imperative Programming <span class="math-inline">I</span>, 2016–2017</td>
+<td>Official course catalogue screened for scope</td>
+<td>Candidate only; catalogue is not a reviewed lecture text</td>
+</tr>
+<tr>
+<td>Berkeley CS61B Spring 2024</td>
+<td>Public course landing page screened</td>
+<td>Candidate only; broad data-structure scope provides no additional reviewed correctness text here</td>
+</tr>
+</tbody>
+</table>
+<p>This is a bounded pool of eight identified universities, with four genuinely reviewed principal written courses. It cannot establish a global ranking against inaccessible, unpublished or unidentified courses. Availability, relevance and complementary rigor determined selection. Among the read texts, Cambridge provides the most explicit proof-rule treatment, CMU the clearest executable contract example, MIT the broadest transition/termination perspective, and Stanford the direct recursive-sorting connection. These are scope judgments, not objective scores or a claim of absolute best courses worldwide.</p>
+<h2>Exact reading and synthesis map</h2>
+<table>
+<thead>
+<tr>
+<th>Chapter content</th>
+<th>Principal written sources</th>
+<th>Additions and repairs in this chapter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>States, contracts and old input snapshots</td>
+<td>CMU all lecture; Cambridge pages 11–22</td>
+<td>Distinguish safety from normal-termination partial correctness; explicit record and frame contracts</td>
+</tr>
+<tr>
+<td>Assignment, consequence, sequencing, conditionals and arrays</td>
+<td>Cambridge pages 19–28 and 50–59</td>
+<td>Independently derived numeric questions and aliasing counterexample</td>
+</tr>
+<tr>
+<td>Initialization, inductiveness and reachable states</td>
+<td>MIT pages 140–152; CMU pages 20–21; Cambridge pages 55–56</td>
+<td>Separate reachable truth from preservation over all annotation states</td>
+</tr>
+<tr>
+<td>Natural and lexicographic variants</td>
+<td>MIT §5.4; Cambridge pages 63–72</td>
+<td>Explain arbitrary finite reset versus uniform runtime bound</td>
+</tr>
+<tr>
+<td>Lower-bound binary search and three-way partition</td>
+<td>Original synthesis of reviewed proof frameworks</td>
+<td>Full implementations, duplicate/empty cases, exact variants and counterexamples</td>
+</tr>
+<tr>
+<td>Insertion and merge sort</td>
+<td>Stanford pages 1–4, with Cambridge/MIT proof rules</td>
+<td>Saved-key hole, multiset preservation, stable ties, exhausted merge inputs and empty recursion</td>
+</tr>
+<tr>
+<td>Division, gcd and power</td>
+<td>Cambridge division examples; CMU power; MIT state-machine power</td>
+<td>Explicit positive divisor; old-state updates; modular normalization and overflow</td>
+</tr>
+<tr>
+<td>Optimality certificates and proof-method comparison</td>
+<td>Original synthesis using reviewed invariant and induction methods</td>
+<td>Parent-cycle counterexample and meeting-witness/bound argument; later graph/greedy/DP chapters remain distinct</td>
+</tr>
+</tbody>
+</table>
+<h2>Source-scaffold issues handled explicitly</h2>
+<p>CMU's nonnegative-exponent contract includes exponent zero; an isolated prose description using “positive” must not erase that boundary. The chapter's proof allows zero and states its exponent-zero convention. Arithmetic wrapping claims are separated from <span class="math-inline">C</span> signed-overflow semantics.</p>
+<p>Cambridge's mathematical language assumes expression evaluation is defined under its model. The chapter adds explicit implementation safety. Partial division verification and total division verification are separated; a positive divisor is required for the decreasing remainder proof. Chosen annotations can fail even when the underlying command is correct.</p>
+<p>Stanford's insertion proof describes a predecessor position without completely spelling out the no-predecessor case. The chapter permits the sentinel index negative one and handles duplicates with a stability-preserving comparison. Its merge scaffold is completed with both exhausted-input cases. Child sortedness is strengthened by multiset preservation.</p>
+<p>MIT's state-machine reasoning is applied under the chapter's declared integer model. The text's broader mathematical exponentiation model does not automatically certify finite-width implementations. A real strictly decreasing measure is not treated as a termination proof.</p>
+<h2>Provenance and visual inspection</h2>
+<p>The acquisition manifest records exact official URLs, PDF lengths and SHA-256 digests in <code>research/a_correct-source-downloads.json</code>. PDFs and extraction caches remain outside the published site; third-party course texts are not republished. Source formula layouts were visually checked on CMU PDF page 20, Cambridge page 66, MIT page 149 and Stanford page 2 after rendering. Relevant passages were read from extracted page text, with the rendered samples confirming exponent indices and rule structure.</p>
+<p>Four authentic archive records are reused from the existing page-checked question selection: PhD CE 1405 Q3 and Q9; PhD CS 1405 Q20; MSc CS 1393 Q167. Their full stored stems, alternatives, provenance and independent solutions were reread for this chapter. This is not a new exhaustive archive reading or official-answer-key verification. The immutable source revision is <code>bdadf6e2c9cadc4772ae137a96a3da753c7cfd08</code>.</p>
+<p>The fifty independently written questions include source-derived concept applications and new problems. Each source-derived question states its precise origin. The bank does not claim to reproduce or solve every exercise from every selected course. Broader library questions remain available for additional practice.</p>
+<h2>Official source links</h2>
+<ul>
+<li><a href="https://www.cs.cmu.edu/~wlovas/15122-r11/lectures/02-contracts.pdf">CMU Contracts lecture</a></li>
+<li><a href="https://www.cl.cam.ac.uk/archive/mjcg/Lectures/SpecVer1/Notes/Notes.pdf">Cambridge Specification and Verification I notes</a></li>
+<li><a href="https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/mit6_042js15_textbook.pdf">MIT Mathematics for Computer Science text</a></li>
+<li><a href="https://stanford-cs161.github.io/winter2022/assets/files/lecture2-notes.pdf">Stanford CS161 Lecture 2 notes</a></li>
+<li><a href="https://www.cs.cornell.edu/courses/cs2112/2018fa/lectures/">Cornell CS2112 lecture index</a></li>
+<li><a href="https://www.cs.ox.ac.uk/teaching/courses/2016-2017/imperativeprogramming1/">Oxford course catalogue</a></li>
+<li><a href="https://sp24.datastructur.es/">Berkeley CS61B Spring 2024</a></li>
+</ul>
+</article></main></body></html>

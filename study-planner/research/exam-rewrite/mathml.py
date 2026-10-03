@@ -33,6 +33,7 @@ class Parser:
    if not m:
     c=self.s[self.i];self.i+=1;return atom('mo',c) if c not in ',; ' else '<mspace width=".2em"/>'
    name=m.group();self.i+=len(name)
+   if name in ('quad','qquad'):return '<mspace width="'+('1em' if name=='quad' else '2em')+'"/>'
    if name in ('left','right'):return self.base()
    if name=='frac':return tag('mfrac',self.group()+self.group())
    if name=='sqrt':return tag('msqrt',self.group())

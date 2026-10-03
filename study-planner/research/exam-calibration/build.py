@@ -120,7 +120,10 @@ manifest['expansionPolicy']='Every chapter count must be at least three times it
 lessons=json.loads((ROOT/'dist/lessons.json').read_text())
 for week in lessons:
  for c in week['chapters']:
+  if not any(a['topicId']==c['topicId'] for a in manifest['chapters']):continue
   audit=next(a for a in manifest['chapters'] if a['topicId']==c['topicId'])
   c.update(status='draft',statusLabel='Expanded examination revision draft',questionCount=audit['totalQuestions'],authenticQuestionCount=audit['authenticQuestions'],originalQuestionCount=audit['newOriginalQuestions']+2,examNotesCount=audit['notes'],revisionState='exam_grounded_draft')
 (ROOT/'dist/lessons.json').write_text(json.dumps(lessons,indent=2)+'\n')
+from preserve_library_approval import preserve_approval
+preserve_approval()
 print(json.dumps({k:v for k,v in manifest.items() if k!='chapters'},indent=2))

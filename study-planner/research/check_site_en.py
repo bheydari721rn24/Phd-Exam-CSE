@@ -100,8 +100,10 @@ assert len(plan["ielts"]["stages"]) == len(plan["weeks"]) == 11
 assert all(len(stage) == 4 for stage in plan["ielts"]["stages"])
 assert sum(block["hours"] for day in daily["days"] for block in day["blocks"] if block.get("subject") == "english") == 4
 chapters = [c for w in lessons for c in w['chapters']]
-assert len(chapters) == 22
-assert all(c['status'] == 'draft' and c['revisionState'] == 'exam_grounded_draft' for c in chapters)
+assert len(chapters) >= 22 and len({c['topicId'] for c in chapters}) == len(chapters)
+ledger=ROOT.parent/'research/library-approval.json'
+approved=set(json.loads(ledger.read_text())['approvedTopics']) if ledger.exists() else set()
+assert all(c['status']=='ready' and c['revisionState']=='exam_grounded_approved' if c['topicId'] in approved else c['status']=='draft' and c['revisionState'] in ('exam_grounded_draft','new_chapter_draft') for c in chapters)
 assert all(c['url'] == 'chapters/' + c['topicId'] + '.html' for c in chapters)
 for chapter_id in [c['topicId'] for c in chapters]:
     chapter_html = (ROOT / "chapters" / f"{chapter_id}.html").read_text(encoding="utf-8")

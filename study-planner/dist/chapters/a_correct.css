@@ -1,0 +1,18 @@
+.lesson .correctness-diagram{overflow:visible;text-align:center}
+.lesson .correctness-diagram svg{width:100%;min-width:0;max-width:700px;height:auto;margin:auto}
+.correctness-diagram svg text{font-family:"STIX Two Math",serif;font-weight:400}
+.lesson .formula-block{white-space:normal;max-width:100%}
+.lesson :not(pre)>code{overflow-wrap:anywhere;white-space:normal}
+.lab form{display:grid;gap:1rem}
+.lab label{display:block;font-weight:500}
+.lab input,.lab select,.lab button{font:inherit;border:1px solid #99b8bd;border-radius:8px;padding:.65rem;background:white;max-width:100%}
+.lab input,.lab select{display:block;width:100%;box-sizing:border-box;margin:.4rem 0 0}
+.lab button{color:#205c66;cursor:pointer}
+.lab-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin:1rem 0}
+.lab table{font-variant-numeric:tabular-nums}
+.review-rule{border-left:2px solid #b3ccd0;padding:.25rem 1rem;margin:1.25rem 0}
+.review-rule h4{font-weight:500;color:#326671;margin:.3rem 0}
+.lab .counterexample{color:#8c3447;background:#fbeff2;padding:1rem;border-radius:8px}
+.lab .certificate-ok{color:#225c43;background:#e7f3eb;padding:1rem;border-radius:8px}
+@media(max-width:600px){.formula-block{padding:10px;font-size:.94rem}.math-inline{font-size:1em}.lesson{padding:18px}.lab{padding:14px}}
+@media print{.lab form,.lab-actions{display:none}.correctness-diagram{break-inside:avoid}.correctness-diagram svg{max-width:100%}}

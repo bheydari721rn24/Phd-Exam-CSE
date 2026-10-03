@@ -74,7 +74,7 @@ delivery=f'# Exam-grounded library revision — delivery draft\n\n22 chapters; {
 (BASE/'DELIVERY.en.md').write_text(delivery,encoding='utf-8')
 gate=ROOT/'research/chapter-gate.json';g=json.loads(gate.read_text())
 g.update(state='awaiting_user_approval',lastCompletedReview=f'Exam-grounded banks in all 22 chapters: {m["authenticUniqueItems"]} unique authentic items, {m["newOriginalItems"]} original analogues, {m["retainedOriginalChallenges"]} retained challenges, {m["totalQuestions"]} problem placements, 184 added families, 368 numeric recomputations, 70 figures; '+str(checks['independentChecks'])+' finite/exact and output checks.',revisionTracker='research/exam-calibration/manifest.json',libraryReviewReportPath='research/exam-calibration/DELIVERY.en.md',libraryRewritePath='research/exam-calibration/manifest.json',nextReview='Await explicit approval of the tripled problem-bank revision. Do not start a new chapter.',reviewScope='At least three times the version-55 question count in every one of the 22 existing problem banks; authentic MSc/PhD items plus original medium/hard formula and conceptual analogues.')
-gate.write_text(json.dumps(g,indent=2)+'\n')
+if not (ROOT/'research/library-approval.json').exists():gate.write_text(json.dumps(g,indent=2)+'\n')
 weekly=ROOT/'WEEKLY_DELIVERY.md';s=weekly.read_text(encoding='utf-8')
 marker='## Completed exam-grounded problem banks'
 if marker in s:s=s[:s.index(marker)].rstrip()+'\n'
@@ -84,4 +84,6 @@ import hashlib
 for c in m['chapters']:c['htmlSha256']=hashlib.sha256((ROOT/'dist/chapters'/(c['topicId']+'.html')).read_bytes()).hexdigest()
 (BASE/'manifest.json').write_text(json.dumps(m,indent=2)+'\n')
 shutil.copy2(BASE/'manifest.json',public/'manifest.json')
+from preserve_library_approval import preserve_approval
+preserve_approval()
 print('Prepared report, source audit, reading log, evidence and approval gate.')

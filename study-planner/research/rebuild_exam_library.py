@@ -86,6 +86,7 @@ manifest['state']='in_progress'
 lessons=json.loads((ROOT/'dist/lessons.json').read_text())
 for week in lessons:
  for c in week['chapters']:
+  if not any(x['topicId']==c['topicId'] for x in manifest['chapters']):continue
   c['status']='draft';c['statusLabel']='Examination revision draft'
   c['revisionState']=next(x['state'] for x in manifest['chapters'] if x['topicId']==c['topicId'])
   audit=next(x for x in manifest['chapters'] if x['topicId']==c['topicId'])
@@ -97,3 +98,5 @@ calibration=ROOT/'research/exam-calibration/build.py'
 if calibration.exists():
  import subprocess
  subprocess.run([sys.executable,str(calibration)],check=True)
+from preserve_library_approval import preserve_approval
+preserve_approval()

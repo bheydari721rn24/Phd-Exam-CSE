@@ -8,4 +8,4 @@ The latest instruction supersedes archive deferral. Every source question has or
 
 User-facing report: dist/library-review.html. Source audit: dist/exam-source-audit.html. Sources: actual-items.json and READING_LOG.en.md. The 736 additions comprise 184 related four-question families; this is not a claim of 736 independent concepts. Authoring: original-*.json, author_*.py and expand_*.py. Audit: verify_answers.py and verify_expansion.py. Reauthor: clean_authoring.py regenerates both the earlier banks and all five expansion collections. Rebuild: research/rebuild_exam_library.py applies the calibration overlay after the legacy banks.
 
-All chapters remain drafts. Await explicit approval before promoting this revision or starting another chapter. Preserve study progress.
+The user approved all 22 revised chapters in version 56 on 3 October 2026. Preserve this approval through rebuilds. Newly authored chapters require their own explicit approval. Preserve study progress.

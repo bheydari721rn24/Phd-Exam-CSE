@@ -72,3 +72,9 @@ The latest instruction supersedes archive deferral. Every source question has or
 User-facing report: dist/library-review.html. Source audit: dist/exam-source-audit.html. Sources: actual-items.json and READING_LOG.en.md. The 736 additions comprise 184 related four-question families; this is not a claim of 736 independent concepts. Authoring: original-*.json, author_*.py and expand_*.py. Audit: verify_answers.py and verify_expansion.py. Reauthor: clean_authoring.py regenerates both the earlier banks and all five expansion collections. Rebuild: research/rebuild_exam_library.py applies the calibration overlay after the legacy banks.
 
 All chapters remain drafts. Await explicit approval before promoting this revision or starting another chapter. Preserve study progress.
+
+## Current handoff — algorithm correctness
+
+The user approved the version-56 library of 22 chapters on 3 October 2026. Approval is preserved in research/library-approval.json. The next chapter, a_correct, is now a complete English review draft; do not start another chapter before explicit approval.
+
+Delivery: dist/chapters/a_correct.html. Four reviewed written courses: CMU, Cambridge, MIT and Stanford, with exact reading scope in research/a_correct-source-audit.md. Fifty original/course-derived tasks plus four attributed authentic archive questions; 74 complete notes; five original diagrams; native MathML; safe bounded binary-search proof laboratory. Verification: research/a_correct-validation.json and research/a_correct-browser-review.json. Evidence states finite domains and limits. All prior study progress is preserved.

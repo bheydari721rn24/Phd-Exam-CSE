@@ -1,0 +1,637 @@
+[
+  {
+    "topicId": "a_correct",
+    "figures": [
+      {
+        "index": 0,
+        "title": "Separate correctness, safety and termination obligations",
+        "viewBox": [
+          700,
+          275
+        ],
+        "outside": [],
+        "overlap": [],
+        "labels": [
+          {
+            "text": "State and contract",
+            "x": 258.859375,
+            "y": 40,
+            "w": 182.71990966796875,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Preserved result",
+            "x": 43.9609375,
+            "y": 152.5,
+            "w": 162.51187133789062,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Safe operations",
+            "x": 272.7734375,
+            "y": 152.5,
+            "w": 154.95989990234375,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Strict progress",
+            "x": 502.890625,
+            "y": 152.5,
+            "w": 144.73590087890625,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "All three obligations support the complete algorithm claim",
+            "x": 64.2890625,
+            "y": 224,
+            "w": 570.8146362304688,
+            "h": 23,
+            "font": "\"STIX Two Math\", serif"
+          }
+        ],
+        "screenshot": "a_correct-figure-1.png"
+      },
+      {
+        "index": 1,
+        "title": "Classified regions at lower-bound termination",
+        "viewBox": [
+          700,
+          305
+        ],
+        "outside": [],
+        "overlap": [],
+        "labels": [
+          {
+            "text": "Lower bound: target 3 in [1, 3, 3, 3, 8, 9]",
+            "x": 141.3125,
+            "y": 16,
+            "w": 417.375,
+            "h": 25,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "1",
+            "x": 95.3203125,
+            "y": 89,
+            "w": 14.359375,
+            "h": 29,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "index 0",
+            "x": 71.8671875,
+            "y": 150,
+            "w": 61.35997009277344,
+            "h": 20,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "3",
+            "x": 190.3203125,
+            "y": 89,
+            "w": 14.359375,
+            "h": 29,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "index 1",
+            "x": 166.8671875,
+            "y": 150,
+            "w": 61.265625,
+            "h": 20,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "3",
+            "x": 285.3203125,
+            "y": 89,
+            "w": 14.359375,
+            "h": 29,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "index 2",
+            "x": 261.8671875,
+            "y": 150,
+            "w": 61.3599853515625,
+            "h": 20,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "3",
+            "x": 380.3203125,
+            "y": 89,
+            "w": 14.359375,
+            "h": 29,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "index 3",
+            "x": 356.8671875,
+            "y": 150,
+            "w": 61.3599853515625,
+            "h": 20,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "8",
+            "x": 475.3203125,
+            "y": 89,
+            "w": 14.359375,
+            "h": 29,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "index 4",
+            "x": 451.8671875,
+            "y": 150,
+            "w": 61.3599853515625,
+            "h": 20,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "9",
+            "x": 570.3203125,
+            "y": 89,
+            "w": 14.359375,
+            "h": 29,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "index 5",
+            "x": 546.8671875,
+            "y": 150,
+            "w": 61.3599853515625,
+            "h": 20,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Below target",
+            "x": 46.6328125,
+            "y": 196,
+            "w": 117.80194091796875,
+            "h": 22,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "At least target",
+            "x": 372.4453125,
+            "y": 196,
+            "w": 131.1658935546875,
+            "h": 22,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Exit: both boundaries are 1; unresolved width is 0",
+            "x": 100.0625,
+            "y": 247,
+            "w": 499.99169921875,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          }
+        ],
+        "screenshot": "a_correct-figure-2.png"
+      },
+      {
+        "index": 2,
+        "title": "Insertion-sort saved-key conservation during a shift",
+        "viewBox": [
+          700,
+          365
+        ],
+        "outside": [],
+        "overlap": [],
+        "labels": [
+          {
+            "text": "Insert key 2 into prefix [1, 4, 2]",
+            "x": 182.28125,
+            "y": 15,
+            "w": 335.4375,
+            "h": 26,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "1",
+            "x": 124.0546875,
+            "y": 115,
+            "w": 11.890625,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "hole",
+            "x": 307.9375,
+            "y": 115,
+            "w": 44.125,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "4",
+            "x": 524.0546875,
+            "y": 115,
+            "w": 12,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "saved key 2",
+            "x": 272.8984375,
+            "y": 240,
+            "w": 114.31192016601562,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Ignore the hole: remaining records + saved key preserve the bag",
+            "x": 53.7734375,
+            "y": 313,
+            "w": 592.78955078125,
+            "h": 22,
+            "font": "\"STIX Two Math\", serif"
+          }
+        ],
+        "screenshot": "a_correct-figure-3.png"
+      },
+      {
+        "index": 3,
+        "title": "Three-way partition regions and progress",
+        "viewBox": [
+          700,
+          315
+        ],
+        "outside": [],
+        "overlap": [],
+        "labels": [
+          {
+            "text": "Four regions before classifying the scan position",
+            "x": 96.9453125,
+            "y": 16,
+            "w": 506.6998291015625,
+            "h": 25,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "less",
+            "x": 75.78125,
+            "y": 104,
+            "w": 38.54998779296875,
+            "h": 25,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "equal",
+            "x": 221.0234375,
+            "y": 104,
+            "w": 57.953125,
+            "h": 25,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "unknown",
+            "x": 368.7109375,
+            "y": 104,
+            "w": 103.17495727539062,
+            "h": 25,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "greater",
+            "x": 560.59375,
+            "y": 104,
+            "w": 74.29998779296875,
+            "h": 25,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "0",
+            "x": 14.0546875,
+            "y": 166,
+            "w": 12,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "lt",
+            "x": 167.8203125,
+            "y": 166,
+            "w": 14.7919921875,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "i",
+            "x": 326.578125,
+            "y": 166,
+            "w": 7,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "gt",
+            "x": 505.40625,
+            "y": 166,
+            "w": 19.615966796875,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "n",
+            "x": 673.0859375,
+            "y": 166,
+            "w": 14,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Greater branch: shrink gt; incoming value stays unknown",
+            "x": 70.8359375,
+            "y": 214,
+            "w": 559.0765991210938,
+            "h": 23,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Variant: unknown length decreases by one in every branch",
+            "x": 64.5703125,
+            "y": 261,
+            "w": 570.5875854492188,
+            "h": 23,
+            "font": "\"STIX Two Math\", serif"
+          }
+        ],
+        "screenshot": "a_correct-figure-4.png"
+      },
+      {
+        "index": 4,
+        "title": "Feasibility and optimality components of a path certificate",
+        "viewBox": [
+          700,
+          305
+        ],
+        "outside": [],
+        "overlap": [],
+        "labels": [
+          {
+            "text": "An attaining path and a universal path bound",
+            "x": 108.4609375,
+            "y": 16,
+            "w": 482.599853515625,
+            "h": 25,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Root s",
+            "x": 88.59375,
+            "y": 117.5,
+            "w": 63.32798767089844,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "a",
+            "x": 344.234375,
+            "y": 117.5,
+            "w": 12,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "b",
+            "x": 572.734375,
+            "y": 117.5,
+            "w": 13.53125,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "weight 4",
+            "x": 196.203125,
+            "y": 78,
+            "w": 77.18392944335938,
+            "h": 21,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "weight \u22123",
+            "x": 418.6484375,
+            "y": 78,
+            "w": 91.703125,
+            "h": 21,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "Parent path gives an attainable distance of 1 to b",
+            "x": 106.0390625,
+            "y": 198,
+            "w": 487.921875,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          },
+          {
+            "text": "All edge inequalities bound every competing path",
+            "x": 97.6796875,
+            "y": 247,
+            "w": 503.78369140625,
+            "h": 24,
+            "font": "\"STIX Two Math\", serif"
+          }
+        ],
+        "screenshot": "a_correct-figure-5.png"
+      }
+    ],
+    "solutionPrint": {
+      "count": 54,
+      "allOpened": true,
+      "restored": true
+    },
+    "fonts": {
+      "loaded": [
+        "Source Sans 3",
+        "Newsreader",
+        "STIX Two Math",
+        "JetBrains Mono",
+        "Math Glyphs"
+      ],
+      "math": [
+        "\"STIX Two Math\", serif"
+      ]
+    },
+    "mobile": {
+      "viewport": 390,
+      "document": 390,
+      "formulaOverflow": [],
+      "inlineMathOverflow": [],
+      "figureSizes": [
+        {
+          "width": 332,
+          "fontSize": "24px"
+        },
+        {
+          "width": 332,
+          "fontSize": "25px"
+        },
+        {
+          "width": 332,
+          "fontSize": "26px"
+        },
+        {
+          "width": 332,
+          "fontSize": "25px"
+        },
+        {
+          "width": 332,
+          "fontSize": "25px"
+        }
+      ],
+      "problems": 54,
+      "codeFonts": [
+        "\"JetBrains Mono\", ui-monospace, monospace"
+      ]
+    },
+    "wideElements": [
+      {
+        "tag": "THEAD",
+        "cls": "",
+        "right": 556.28125,
+        "text": "CheckpointLowerUpperMidpointValueWidthInvariant"
+      },
+      {
+        "tag": "TR",
+        "cls": "",
+        "right": 556.28125,
+        "text": "CheckpointLowerUpperMidpointValueWidthInvariant"
+      },
+      {
+        "tag": "TH",
+        "cls": "",
+        "right": 410.96875,
+        "text": "Value"
+      },
+      {
+        "tag": "TH",
+        "cls": "",
+        "right": 472.46875,
+        "text": "Width"
+      },
+      {
+        "tag": "TH",
+        "cls": "",
+        "right": 556.28125,
+        "text": "Invariant"
+      },
+      {
+        "tag": "TBODY",
+        "cls": "",
+        "right": 556.28125,
+        "text": "006336Holds103133Holds201011Holds311\u2014\u20140Holds"
+      },
+      {
+        "tag": "TR",
+        "cls": "",
+        "right": 556.28125,
+        "text": "006336Holds"
+      },
+      {
+        "tag": "TD",
+        "cls": "",
+        "right": 410.96875,
+        "text": "3"
+      },
+      {
+        "tag": "TD",
+        "cls": "",
+        "right": 472.46875,
+        "text": "6"
+      },
+      {
+        "tag": "TD",
+        "cls": "",
+        "right": 556.28125,
+        "text": "Holds"
+      },
+      {
+        "tag": "TR",
+        "cls": "",
+        "right": 556.28125,
+        "text": "103133Holds"
+      },
+      {
+        "tag": "TD",
+        "cls": "",
+        "right": 410.96875,
+        "text": "3"
+      },
+      {
+        "tag": "TD",
+        "cls": "",
+        "right": 472.46875,
+        "text": "3"
+      },
+      {
+        "tag": "TD",
+        "cls": "",
+        "right": 556.28125,
+        "text": "Holds"
+      },
+      {
+        "tag": "TR",
+        "cls": "",
+        "right": 556.28125,
+        "text": "201011Holds"
+      },
+      {
+        "tag": "TD",
+        "cls": "",
+        "right": 410.96875,
+        "text": "1"
+      },
+      {
+        "tag": "TD",
+        "cls": "",
+        "right": 472.46875,
+        "text": "1"
+      },
+      {
+        "tag": "TD",
+        "cls": "",
+        "right": 556.28125,
+        "text": "Holds"
+      },
+      {
+        "tag": "TR",
+        "cls": "",
+        "right": 556.28125,
+        "text": "311\u2014\u20140Holds"
+      },
+      {
+        "tag": "TD",
+        "cls": "",
+        "right": 410.96875,
+        "text": "\u2014"
+      },
+      {
+        "tag": "TD",
+        "cls": "",
+        "right": 472.46875,
+        "text": "0"
+      },
+      {
+        "tag": "TD",
+        "cls": "",
+        "right": 556.28125,
+        "text": "Holds"
+      }
+    ],
+    "printStyle": {
+      "diagramOverflow": 0,
+      "mathFonts": [
+        "\"STIX Two Math\", serif"
+      ]
+    }
+  }
+]
