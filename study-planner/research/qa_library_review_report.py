@@ -33,16 +33,23 @@ try:
   assert 'exceptionDetails' not in r,r
   return r['result'].get('value')
  cdp('Page.enable');result=[]
- for path,width in [('library-review.html',1280),('library-review.html',390),('index.html#library',390)]:
+ for path,width in [('library-review.html',1280),('library-review.html',390),('index.html#library',390),('chapters/d_logic.html',1280),('chapters/d_logic.html',390),('chapters/a_recurrence.html',1280),('chapters/l_vectors.html',390)]:
   cdp('Emulation.setDeviceMetricsOverride',{'width':width,'height':900,'deviceScaleFactor':1,'mobile':width==390})
   cdp('Page.navigate',{'url':f'http://127.0.0.1:{server.server_port}/{path}'});time.sleep(.6)
   cdp('Runtime.evaluate',{'expression':'document.fonts.ready','awaitPromise':True,'returnByValue':True})
+  if path.startswith('chapters/'):
+   js("document.querySelectorAll('.exam-solution').forEach(x=>x.open=true);document.querySelectorAll('.problem-family')[1].scrollIntoView({block:'start'})")
   row=json.loads(js('''JSON.stringify({title:document.title,documentWidth:document.documentElement.scrollWidth,viewport:innerWidth,reviewLink:[...document.querySelectorAll('a')].some(a=>a.getAttribute('href')==='library-review.html'&&a.getBoundingClientRect().height>0),chapterRows:document.querySelectorAll('tbody tr').length,underlinedLinks:[...document.querySelectorAll('a')].filter(a=>getComputedStyle(a).textDecorationLine.includes('underline')).length})'''))
   assert row['documentWidth']<=width and row['underlinedLinks']==0,row
   if path.startswith('index'):assert row['reviewLink'],row
-  else:assert row['chapterRows']==22,row
+  elif not path.startswith('chapters/'):assert row['chapterRows']==22,row
+  else:
+   row['expandedQuestions']=js("document.querySelectorAll('.problem-family').length*4")
+   row['solutionCount']=js("document.querySelectorAll('.exam-solution').length")
+   assert row['expandedQuestions']>=32 and row['solutionCount']>=39,row
   shot=cdp('Page.captureScreenshot',{'format':'png'})['data']
-  (OUT/f"{'report' if not path.startswith('index') else 'library'}-{width}.png").write_bytes(base64.b64decode(shot))
+  label=Path(path).stem+'-expanded' if path.startswith('chapters/') else 'library' if path.startswith('index') else 'report'
+  (OUT/f"{label}-{width}.png").write_bytes(base64.b64decode(shot))
   result.append({'path':path,'width':width,**row})
  (OUT/'report-review.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
  print(json.dumps(result))

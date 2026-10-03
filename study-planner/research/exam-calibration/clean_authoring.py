@@ -2,7 +2,7 @@
 import io,tokenize,subprocess,sys
 from pathlib import Path
 BASE=Path(__file__).resolve().parent
-for name in ('author_actual','author_discrete','author_algorithms','author_math','author_computing'):
+for name in ('author_actual','author_discrete','author_algorithms','author_math','author_computing','expand_discrete','expand_structures','expand_algorithms','expand_math','expand_computing'):
  p=BASE/(name+'.py');s=p.read_text(encoding='utf-8');tokens=list(tokenize.generate_tokens(io.StringIO(s).readline))
  lines=s.splitlines(keepends=True);starts=[];offset=0
  for line in lines:starts.append(offset);offset+=len(line)

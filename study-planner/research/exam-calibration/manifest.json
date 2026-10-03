@@ -5,7 +5,7 @@
   "inventoryFiles": 84,
   "authenticUniqueItems": 56,
   "excludedSourceRecords": 3,
-  "newOriginalItems": 176,
+  "newOriginalItems": 912,
   "retainedOriginalChallenges": 44,
   "answerPolicy": "Independent derivations; no claim of official-key verification.",
   "coveragePolicy": "Purposeful question-level sample. Inventory is not a claim that all 84 PDFs or all years have been read.",
@@ -14,9 +14,12 @@
       "topicId": "d_logic",
       "title": "Propositions, Predicates, and Logical Equivalence",
       "authenticQuestions": 7,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 44,
       "retainedChallenges": 2,
-      "totalQuestions": 17,
+      "totalQuestions": 53,
+      "baselineQuestions": 17,
+      "minimumQuestions": 51,
+      "expandedFamilies": 9,
       "authenticIds": [
         "MS_CS_1405_Q95",
         "MS_CS_1405_Q97",
@@ -31,15 +34,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "72e2bef62838a519b3a075c6e994d2be828a7980fa2f02acccb37ea303bdf7b1"
+      "htmlSha256": "31e280bbbec129aa37ef4b09ff1a905597f1dbd42e66bbd12ab7436a62925f69"
     },
     {
       "topicId": "d_sets",
       "title": "Sets and Set Operations",
       "authenticQuestions": 4,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 14,
+      "totalQuestions": 46,
+      "baselineQuestions": 14,
+      "minimumQuestions": 42,
+      "expandedFamilies": 8,
       "authenticIds": [
         "MS_CS_1405_Q37",
         "MS_CS_1405_Q101",
@@ -51,15 +57,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "46f48f76db8428f1eabac520db9c5a9f2183e2cbb2cea3a20c15128af630e972"
+      "htmlSha256": "3f07abd55403282319bbefc9ee33df17a7b6695cbddade52cccb94306b2d179f"
     },
     {
       "topicId": "d_proof",
       "title": "Direct Proof, Contradiction, and Counterexamples",
       "authenticQuestions": 6,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 16,
+      "totalQuestions": 48,
+      "baselineQuestions": 16,
+      "minimumQuestions": 48,
+      "expandedFamilies": 8,
       "authenticIds": [
         "MS_CS_1405_Q40",
         "MS_CS_1405_Q98",
@@ -73,15 +82,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "ecb72a486f84c1815d989e76dd77675fb4cbdd539731764eff7499f6f5c355c3"
+      "htmlSha256": "9ea84fc1c65c59f7f7881c8327676be40c1ff7773936de5404cce34bbb0d2371"
     },
     {
       "topicId": "d_induction",
       "title": "Ordinary and Strong Induction",
       "authenticQuestions": 4,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 14,
+      "totalQuestions": 46,
+      "baselineQuestions": 14,
+      "minimumQuestions": 42,
+      "expandedFamilies": 8,
       "authenticIds": [
         "MS_CS_1405_Q121",
         "MS_CS_1405_Q130",
@@ -93,15 +105,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "3f922b3d59653744f237735399312346851d6a8e2dec68de1d7ae2dbc437bc07"
+      "htmlSha256": "c574668ac302c498b5f38dccd67c3b25538dc4563c02ecad130894e718dcc4cc"
     },
     {
       "topicId": "a_model",
       "title": "Computation Models and Input Size",
       "authenticQuestions": 4,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 14,
+      "totalQuestions": 46,
+      "baselineQuestions": 14,
+      "minimumQuestions": 42,
+      "expandedFamilies": 8,
       "authenticIds": [
         "Phd_CE_1405_Q3",
         "Phd_CE_1405_Q16",
@@ -113,15 +128,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "7ff48ee1b747b97a2adbfdcf2174074f2a2aaaf617c307b6c688ca76b1664816"
+      "htmlSha256": "834f2b293c8a02635dcc2c404d7d9fbb23906d8b8952e5456dd2cf8d74c7eb26"
     },
     {
       "topicId": "a_asym",
       "title": "Asymptotic Notation and Growth Comparison",
       "authenticQuestions": 4,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 14,
+      "totalQuestions": 46,
+      "baselineQuestions": 14,
+      "minimumQuestions": 42,
+      "expandedFamilies": 8,
       "authenticIds": [
         "Phd_CE_1405_Q1",
         "Phd_CE_1405_Q2",
@@ -133,15 +151,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "fc5fab1f2a145c7d761d6ab71b2c7616feccde8529b7e6c40642496140d1356f"
+      "htmlSha256": "d5cb17088eea616f39a4e686bcfd005db6a68014e9d0ee3bc8ad4e7737551c08"
     },
     {
       "topicId": "a_loop",
       "title": "Loop Analysis and Operation Counting",
       "authenticQuestions": 4,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 14,
+      "totalQuestions": 46,
+      "baselineQuestions": 14,
+      "minimumQuestions": 42,
+      "expandedFamilies": 8,
       "authenticIds": [
         "Phd_CS_1405_Q20",
         "Phd_CE_1405_Q16",
@@ -153,15 +174,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "e92beb7812597d68d558122ec93359d01139e7b38014194666e737fc601c7fa6"
+      "htmlSha256": "76f509a96606307e81e5d2c365f3603e3f415c53875e94aa459770706bf2a520"
     },
     {
       "topicId": "s_axioms",
       "title": "Sample Spaces, Events, and Probability Axioms",
       "authenticQuestions": 6,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 16,
+      "totalQuestions": 48,
+      "baselineQuestions": 16,
+      "minimumQuestions": 48,
+      "expandedFamilies": 8,
       "authenticIds": [
         "Phd_CS_1405_Q21",
         "Phd_CS_1404_Q68",
@@ -175,15 +199,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "3eff2e2d5a9349bcb2288b676bff29e36c7a28c983409486c03522593ccbd497"
+      "htmlSha256": "acf9396f966c1806cd7f143adca64d8330db9cd58a048d3c8e9c907c50e90d4b"
     },
     {
       "topicId": "s_counting",
       "title": "Counting Probabilities and Independence",
       "authenticQuestions": 15,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 60,
       "retainedChallenges": 2,
-      "totalQuestions": 25,
+      "totalQuestions": 77,
+      "baselineQuestions": 25,
+      "minimumQuestions": 75,
+      "expandedFamilies": 13,
       "authenticIds": [
         "MS_CS_1405_Q113",
         "MS_CS_1405_Q115",
@@ -206,15 +233,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "6ae5a3131ffed201fac7b3b56309a88d5391c09080865ee26bbdac9839fe68fe"
+      "htmlSha256": "24667998bef7f2a12fe1664a166a5de5d3e13f1e0100d509dd4abfb51cf3db68"
     },
     {
       "topicId": "l_vectors",
       "title": "Vectors, Inner Products, and Linear Geometry",
       "authenticQuestions": 4,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 14,
+      "totalQuestions": 46,
+      "baselineQuestions": 14,
+      "minimumQuestions": 42,
+      "expandedFamilies": 8,
       "authenticIds": [
         "MS_CS_1405_Q41",
         "Phd_CS_1404_Q30",
@@ -226,15 +256,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "da1dd4b7baf32155ec01db4f01601fda505803538dd4ca64976f227d9b7e8a21"
+      "htmlSha256": "2e0235de834bc62eae346e7ab0ae00a33ac74b46ad3264d24af80816c6452723"
     },
     {
       "topicId": "l_matrices",
       "title": "Matrices and Matrix Operations",
       "authenticQuestions": 5,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 15,
+      "totalQuestions": 47,
+      "baselineQuestions": 15,
+      "minimumQuestions": 45,
+      "expandedFamilies": 8,
       "authenticIds": [
         "MS_CS_1405_Q41",
         "MS_CS_1405_Q113",
@@ -247,15 +280,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "c17c655979096c11149f4c671ef96c5c22ed8ebbe95e9f5b78d0bf2bce662c84"
+      "htmlSha256": "a56af58066e7b491d3d595136603594d0439abf8dfccda598a144464d15e61e4"
     },
     {
       "topicId": "p_types",
       "title": "Data Types, Conversions, and Operators",
       "authenticQuestions": 3,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 13,
+      "totalQuestions": 45,
+      "baselineQuestions": 13,
+      "minimumQuestions": 39,
+      "expandedFamilies": 8,
       "authenticIds": [
         "Phd_CE_1405_Q31",
         "MS_CS_1393_Q165",
@@ -266,15 +302,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "583f98d97d479e39b1e4674ae1a39a5d3dc68eec33c2080b4e70bc5b4c05814c"
+      "htmlSha256": "392e032715200d954407e772cc642ba59d752d15a4f5d415fd4d4231afee749c"
     },
     {
       "topicId": "p_flow",
       "title": "Conditionals, Loops, and Execution Order",
       "authenticQuestions": 3,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 13,
+      "totalQuestions": 45,
+      "baselineQuestions": 13,
+      "minimumQuestions": 39,
+      "expandedFamilies": 8,
       "authenticIds": [
         "Phd_CS_1405_Q20",
         "Phd_CE_1405_Q9",
@@ -285,15 +324,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "234a550074267032ddc0e26e766efb5a98b3a3edf2f46ee316f381a0df1c2b7b"
+      "htmlSha256": "69e0c7d656df55d7969261c056964a1d3f54a296a18eba977cc26e5257827bf9"
     },
     {
       "topicId": "g_number",
       "title": "Number Bases and Binary Encoding",
       "authenticQuestions": 3,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 13,
+      "totalQuestions": 45,
+      "baselineQuestions": 13,
+      "minimumQuestions": 39,
+      "expandedFamilies": 8,
       "authenticIds": [
         "Phd_CE_1405_Q31",
         "MS_CS_1393_Q165",
@@ -304,15 +346,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "81a720b74d506b3304a531bf53697c6662eaf431ea509e49a1fd115a08e0c9a8"
+      "htmlSha256": "bdff0326641501de9aab35201e78db21069b4ea4e9c0f8f437a242c83d10c4bc"
     },
     {
       "topicId": "g_boolean",
       "title": "Boolean Algebra and Truth Tables",
       "authenticQuestions": 7,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 44,
       "retainedChallenges": 2,
-      "totalQuestions": 17,
+      "totalQuestions": 53,
+      "baselineQuestions": 17,
+      "minimumQuestions": 51,
+      "expandedFamilies": 9,
       "authenticIds": [
         "MS_CS_1405_Q37",
         "MS_CS_1405_Q99",
@@ -327,15 +372,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "916bf33b2a9c1393d9c47fa27a0a11a097cdabadeb29c5e61c7a0c50438bf4bb"
+      "htmlSha256": "b03036d133e4039a39f9dcb2abfc608c35b8c6b089833e9babcff929dfdd1554"
     },
     {
       "topicId": "g_gates",
       "title": "Logic Gates and Function Implementation",
       "authenticQuestions": 4,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 14,
+      "totalQuestions": 46,
+      "baselineQuestions": 14,
+      "minimumQuestions": 42,
+      "expandedFamilies": 8,
       "authenticIds": [
         "Phd_CE_1405_Q23",
         "MS_CE_1404_Q80",
@@ -347,15 +395,18 @@
       "bankId": "worked-problems",
       "notesId": "quick-reference",
       "sourceAudit": null,
-      "htmlSha256": "f4e08b635b965b0272d705e91be232ef49124024f3cd2f558434334e3620e9d3"
+      "htmlSha256": "b5434489397d2d2b3045ec33272bd15c5a36e2480d80fc4cb97f2878056f5c0c"
     },
     {
       "topicId": "d_relations",
       "title": "Relations, Equivalence, and Partial Orders",
       "authenticQuestions": 3,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 13,
+      "totalQuestions": 45,
+      "baselineQuestions": 13,
+      "minimumQuestions": 39,
+      "expandedFamilies": 8,
       "authenticIds": [
         "MS_CS_1405_Q38",
         "Phd_CS_1405_Q13",
@@ -366,15 +417,18 @@
       "bankId": "problems",
       "notesId": "review",
       "sourceAudit": null,
-      "htmlSha256": "10fb6c1f689380e94449faade397a9fca12c4a04e3b6c8a596e6fccb36a468dc"
+      "htmlSha256": "153257c244829c2f98886809228a02eab719179cf02fe5b07333c853374fde79"
     },
     {
       "topicId": "d_functions",
       "title": "Functions, Inverses, Injectivity, and Surjectivity",
       "authenticQuestions": 5,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 15,
+      "totalQuestions": 47,
+      "baselineQuestions": 15,
+      "minimumQuestions": 45,
+      "expandedFamilies": 8,
       "authenticIds": [
         "MS_CS_1405_Q40",
         "MS_CS_1405_Q97",
@@ -387,15 +441,18 @@
       "bankId": "problems",
       "notesId": "review",
       "sourceAudit": null,
-      "htmlSha256": "473c1e486ee2d504b5e8038ba566716703fba7893c294468629922210e7bb864"
+      "htmlSha256": "049035caad94fa96ab5a5f709a44edcbab6704bbd88ac591ccfedd4568876d59"
     },
     {
       "topicId": "d_invariants",
       "title": "Invariants and Recursive Reasoning",
       "authenticQuestions": 4,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 14,
+      "totalQuestions": 46,
+      "baselineQuestions": 14,
+      "minimumQuestions": 42,
+      "expandedFamilies": 8,
       "authenticIds": [
         "Phd_CE_1405_Q3",
         "Phd_CE_1405_Q9",
@@ -407,15 +464,18 @@
       "bankId": "problems",
       "notesId": "review",
       "sourceAudit": null,
-      "htmlSha256": "a3f436c26a5b210b7bdf49fedd3c2ccd5cf12b4a7f7152de8844f822b04f35ae"
+      "htmlSha256": "1d0cb595ba95456d85f3d67a1c681d044845961e485d8a2613cae930231a7da8"
     },
     {
       "topicId": "d_number",
       "title": "Divisibility, Modular Arithmetic, and Number Theory",
       "authenticQuestions": 5,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 15,
+      "totalQuestions": 47,
+      "baselineQuestions": 15,
+      "minimumQuestions": 45,
+      "expandedFamilies": 8,
       "authenticIds": [
         "MS_CS_1405_Q38",
         "MS_CS_1405_Q125",
@@ -428,15 +488,18 @@
       "bankId": "problems",
       "notesId": "review",
       "sourceAudit": null,
-      "htmlSha256": "5d6806916bbad589f55c141787d42dbfd14918e723c7ac83ccc22358b21600f0"
+      "htmlSha256": "869209c0089931b954b3c7c759d5adf266c481c50bdeb526d34e4f5beb5a979c"
     },
     {
       "topicId": "a_recurrence",
       "title": "Algorithmic Recurrences and Solution Theorems",
       "authenticQuestions": 7,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 44,
       "retainedChallenges": 2,
-      "totalQuestions": 17,
+      "totalQuestions": 53,
+      "baselineQuestions": 17,
+      "minimumQuestions": 51,
+      "expandedFamilies": 9,
       "authenticIds": [
         "MS_CS_1405_Q130",
         "Phd_CE_1405_Q1",
@@ -451,15 +514,18 @@
       "bankId": "problems",
       "notesId": "review",
       "sourceAudit": null,
-      "htmlSha256": "27cec082cf3b74d822db00fc6f9010c1292e801dc7d8d12fcdd19e3016b32b46"
+      "htmlSha256": "1412349eaead55213b9a1b25bb0048d930066ae202069b04f726b5dd5a3a901e"
     },
     {
       "topicId": "a_divide",
       "title": "Divide and Conquer: Design and Analysis",
       "authenticQuestions": 4,
-      "newOriginalQuestions": 8,
+      "newOriginalQuestions": 40,
       "retainedChallenges": 2,
-      "totalQuestions": 14,
+      "totalQuestions": 46,
+      "baselineQuestions": 14,
+      "minimumQuestions": 42,
+      "expandedFamilies": 8,
       "authenticIds": [
         "Phd_CE_1405_Q1",
         "Phd_CE_1405_Q9",
@@ -471,10 +537,14 @@
       "bankId": "problems",
       "notesId": "review",
       "sourceAudit": null,
-      "htmlSha256": "2498ed74031350a588d8a0d5e6834e548646fb1fb9f8cecebd7ceae1fa55a399"
+      "htmlSha256": "79ceb6bc989647db277a0ffbc073c0a7e0274dbf0ef76b4beee3e532e3caec1e"
     }
   ],
   "authenticChapterOccurrences": 111,
-  "totalQuestions": 331,
-  "figures": 70
+  "totalQuestions": 1067,
+  "figures": 70,
+  "baselineTotalQuestions": 331,
+  "additionalOriginalQuestions": 736,
+  "additionalFamilies": 184,
+  "expansionPolicy": "Every chapter count must be at least three times its frozen version-55 baseline; each added family contains two numerical instances, a symbolic generalization, and a scope question."
 }

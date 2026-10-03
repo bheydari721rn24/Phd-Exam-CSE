@@ -7,6 +7,7 @@ SYMBOLS.update({'theta':'θ','lambda':'λ','mu':'μ','rho':'ρ','tau':'τ','vare
 SYMBOLS['int']='∫'
 SYMBOLS['circ']='∘'
 SYMBOLS['varphi']='ϕ'
+SYMBOLS['leftarrow']='←'
 SYMBOLS['subsetneq']='⊊'
 SYMBOLS['triangle']='△'
 def tag(t,s):return '<'+t+'>'+s+'</'+t+'>'
