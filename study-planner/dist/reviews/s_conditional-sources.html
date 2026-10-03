@@ -1,0 +1,182 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Conditional probability audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/s_conditional.html">← Conditional probability chapter</a></p><article class="lesson"><h1>Conditional Probability: Source Selection and Reading Audit</h1>
+<p>Review date: 3 October 2026. Scope: the event-level conditional probability chapter, not every probability syllabus or every later stochastic-process topic.</p>
+<h2>Candidate pool and availability</h2>
+<p>The candidate pool contains seven university course families. Each was evaluated individually for accessible written material and relevance. Five supplied usable readings. Two acquisition failures are recorded rather than counted as reviewed courses. A global exhaustive search over every university course cannot be established from this bounded pool; the selection below is the strongest complementary set among the candidates actually inspected.</p>
+<table>
+<thead>
+<tr>
+<th>Course family</th>
+<th>Written access</th>
+<th>Relevance decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIT 6.041SC; John <span class="math-inline">N</span>. Tsitsiklis</td>
+<td>Lecture 2 PDF acquired and reviewed; separate Lecture 3 request failed TLS</td>
+<td>Primary: conditional universe, complete-history tree, partition framework. Slides are concise, so CMU supplies detailed proofs and counterexamples.</td>
+</tr>
+<tr>
+<td>Stanford CS109; Chris Piech</td>
+<td>Three complete reader sections acquired and reviewed</td>
+<td>Primary: conditional-measure interpretation, complement laws, generalized independence, chain factorization. Explicit denominator qualifications are added in the synthesis.</td>
+</tr>
+<tr>
+<td>CMU Introduction to Probability for Computing; Mor Harchol-Balter</td>
+<td>Chapter 2 PDF acquired</td>
+<td>Primary: Sections 2.3–2.6 and the relevant exercise collection give the broadest event-level coverage and the most useful conceptual counterexamples.</td>
+</tr>
+<tr>
+<td>Berkeley STAT 134; David Aldous</td>
+<td>Lecture 2 and 3 PDFs acquired</td>
+<td>Primary: observation protocols, unequal selection weights, aggregation, reliability. Source refers to unavailable board work; it is not treated as a reviewed proof.</td>
+</tr>
+<tr>
+<td>Oxford Part <span class="math-inline">B</span> Applied Probability; Matthias Winkel</td>
+<td>Complete PDF acquired; only the stated chapter-relevant range reviewed</td>
+<td>Supplementary fifth university: modeling assumptions, density conditioning, null-event boundaries. Most stochastic-process material is outside this chapter.</td>
+</tr>
+<tr>
+<td>Harvard STAT 110; Joe Blitzstein</td>
+<td>Course context screened; the requested strategic practice 2 PDF returned HTTP 403</td>
+<td>Not counted as a reviewed written course. Its reputation does not compensate for inaccessible evidence.</td>
+</tr>
+<tr>
+<td>Cambridge Probability; Richard Weber</td>
+<td>PDF acquisition failed certificate verification</td>
+<td>Not counted as a reviewed course. TLS verification was retained.</td>
+</tr>
+</tbody>
+</table>
+<h2>Selection rubric</h2>
+<p>The rubric uses editorial 0–5 ratings for four distinct criteria: event-level coverage, explicit mathematical assumptions, instructional complementarity, and accessible written verification. These are author judgments, not an objective ranking of university quality.</p>
+<table>
+<thead>
+<tr>
+<th>Reviewed candidate</th>
+<th>Coverage</th>
+<th>Assumptions</th>
+<th>Complementarity</th>
+<th>Written verification</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CMU</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>Formal backbone and counterexample/problem structures</td>
+</tr>
+<tr>
+<td>Stanford</td>
+<td>4</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>Conditional paradigm and computing applications</td>
+</tr>
+<tr>
+<td>MIT</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>5</td>
+<td>Concise tree and partition organization</td>
+</tr>
+<tr>
+<td>Berkeley</td>
+<td>4</td>
+<td>3</td>
+<td>5</td>
+<td>4</td>
+<td>Protocol ambiguity, sampling and aggregation</td>
+</tr>
+<tr>
+<td>Oxford</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>5</td>
+<td>Supplementary boundary material rather than a replacement for elementary coverage</td>
+</tr>
+</tbody>
+</table>
+<p>The four primary courses are selected together for complementary coverage. Oxford is used in addition where its continuous-observation discussion adds a necessary qualification. None is asserted to be individually complete. Harvard and Cambridge receive no numerical content rating because the intended text was not accessible.</p>
+<h2>Exact reading ledger</h2>
+<ul>
+<li><strong>MIT:</strong> Lecture 2 PDF pages 1–3 extracted. Pages 1–2 visually inspected to verify the displayed condition, multiplication tree, and partition diagrams. Page 3 is attribution rather than theory.</li>
+<li><strong>Stanford:</strong> Complete instructional bodies of Conditional Probability, Independence, and Probability of And read after removing menus and scripts. Reviewed the weighted rather than equiprobable interpretation, nested conditioning, complement proof, all-subfamily definition, chain, and parallel network example.</li>
+<li><strong>CMU:</strong> PDF pages 4–14 read for Sections 2.3–2.6; PDF pages 14–21 read for the exercise inventory. Pages 1–3 concern prior axioms, and page 22 is a footer, not additional reviewed theory. Relevant exercise structures used or adapted: 2.8, 2.9, 2.10, 2.15–2.22, and 2.24(a). Other exercises were screened for overlap or later Bayes/counting coverage; they were not all reproduced.</li>
+<li><strong>Berkeley:</strong> Lecture 2 pages 1–12 and Lecture 3 pages 1–10 extracted and reviewed. Lecture 2 pages 11–12 and Lecture 3 page 4 visually checked because extracted character encodings were damaged. Numerical examples in the manuscript use separately specified original models instead of trusting garbled digits. Board-only network calculations are unavailable.</li>
+<li><strong>Oxford:</strong> Title, synopsis, and Lecture 2, Sections 2.1–2.3, PDF pages 15–20 reviewed. PDF page 20 contains a set-letter typo in a displayed independence equality; the synthesis uses the correct event factorization. Smoothness/positivity qualifications are explicit for the density example. General regular conditional probability is outside the proof scope.</li>
+</ul>
+<p>The machine acquisition ledger records URLs, byte sizes, SHA-256 fingerprints, and failures. The course files stay in a private temporary research cache; they are not distributed with the Site. The reading status is separate from successful downloading.</p>
+<h2>Concept-to-source crosswalk</h2>
+<table>
+<thead>
+<tr>
+<th>Chapter concept</th>
+<th>Primary written support</th>
+<th>Additional contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reduced weighted universe and conditional axioms</td>
+<td>MIT Lecture 2; Stanford Conditional Probability; CMU Section 2.3</td>
+<td>Original proof of the conditioned probability measure</td>
+</tr>
+<tr>
+<td>Complete-history multiplication</td>
+<td>MIT Lecture 2; Stanford Probability of And; CMU Theorem 2.10 and Exercise 2.9</td>
+<td>Positive-prefix versus positive-final distinction; original XOR counterexample</td>
+</tr>
+<tr>
+<td>Joint-table feasibility and reversed direction</td>
+<td>CMU Sections 2.3–2.6; Stanford Conditional Probability</td>
+<td>Original sharp bounds, cell reconstruction, determinant and exact laboratory</td>
+</tr>
+<tr>
+<td>Sequential counts and eligibility</td>
+<td>CMU Exercise 2.10; Berkeley Lecture 2 sampling examples</td>
+<td>Original urn derivations; authentic MSc 1405 question 35</td>
+</tr>
+<tr>
+<td>Weighted and conditional partitions</td>
+<td>MIT Lecture 2; CMU Section 2.5; Berkeley Lecture 2</td>
+<td>Original Simpson model; authentic PhD 1404 question 69</td>
+</tr>
+<tr>
+<td>Pairwise/mutual/complement independence</td>
+<td>Stanford Independence; CMU Section 2.4 and Exercises 2.15–2.18</td>
+<td>Original triple-only construction and feasible triple-mass interval</td>
+</tr>
+<tr>
+<td>Conditional independence and hidden types</td>
+<td>CMU Section 2.4 and Exercises 2.19–2.21; Stanford Independence</td>
+<td>Original two-stratum covariance derivation and selection simulations</td>
+</tr>
+<tr>
+<td>Reporting protocol</td>
+<td>Berkeley Lecture 2 pages 11–12 and Lecture 3 page 4; CMU Exercise 2.22</td>
+<td>Explicit likelihood-weighted sensor and host models</td>
+</tr>
+<tr>
+<td>Reliability</td>
+<td>Stanford parallel-network reading; CMU Section 2.4; Berkeley Lecture 3 pages 5–7</td>
+<td>Original shared-edge proof and explicit five-edge bridge enumeration</td>
+</tr>
+<tr>
+<td>Continuous conditioning boundary</td>
+<td>Oxford Section 2.2</td>
+<td>Original triangle and positive-strip examples with stated interior assumptions</td>
+</tr>
+</tbody>
+</table>
+<h2>Examination provenance and limits</h2>
+<p>The repository source revision is <code>bdadf6e2c9cadc4772ae137a96a3da753c7cfd08</code>. Four relevant existing translations were rechecked against newly rendered original pages: PhD CS 1404 Q68 and Q69 on PDF page 15; Q70 on page 16; MSc CE 1405 Q35 on page 8. Q70 is a cross-topic independence/counting application, not an explicitly conditional question. PhD Q67 was excluded because the problematic source wording cannot safely be repaired into an authenticated item.</p>
+<p>This is a selected examination-pattern review, not a claim to have classified every question in every archive booklet for this chapter. Authentic options retain source numbering. Solutions are independently derived. The remaining 56 questions are original or explicitly attributed adaptations, with qualitative medium/hard labels rather than measured psychometric difficulty.</p>
+</article></main></body></html>

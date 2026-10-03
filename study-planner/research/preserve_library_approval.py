@@ -10,9 +10,11 @@ def preserve_approval():
     for week in lessons:
         for c in week['chapters']:
             if c['topicId'] not in approved:continue
-            c.update(status='ready',statusLabel='Student-approved chapter',revisionState='exam_grounded_approved',approvedVersion=approval['approvedSiteVersion'])
+            version=approval.get('approvalByTopic',{}).get(c['topicId'],{}).get('version',approval['approvedSiteVersion'])
+            c.update(status='ready',statusLabel='Student-approved chapter',revisionState='exam_grounded_approved',approvedVersion=version)
             page=ROOT/'dist'/c['url'];s=page.read_text(encoding='utf-8')
             s=s.replace('Examination revision draft ·','Student-approved chapter ·')
+            s=s.replace('Review draft ·','Student-approved chapter ·')
             page.write_text(s,encoding='utf-8')
     p.write_text(json.dumps(lessons,indent=2)+chr(10),encoding='utf-8')
     p=ROOT/'dist/library-review.html'

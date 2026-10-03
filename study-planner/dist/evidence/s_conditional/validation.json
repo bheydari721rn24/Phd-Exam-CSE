@@ -1,0 +1,178 @@
+{
+  "chapter": "s_conditional",
+  "state": "passed",
+  "checks": 13453,
+  "byKind": {
+    "answer-bound-to-source": 41,
+    "four-cell-feasibility": 2400,
+    "determinant-independence": 2400,
+    "conditional-complement": 2352,
+    "conditional-association-sign": 2352,
+    "reversed-equality": 2310,
+    "triple-family-normalization": 21,
+    "triple-family-pairwise": 63,
+    "triple-family-mutual": 21,
+    "authentic-68-general-form": 12,
+    "authentic-69-geometric": 1,
+    "authentic-70-vandermonde": 1,
+    "authentic-35-two-derivations": 1,
+    "bridge-reliability": 21,
+    "two-stratum-covariance": 243,
+    "geometric-mixture-positive-count": 9,
+    "animation-count": 1,
+    "animation-text-control-characters": 180,
+    "serialized-selection-joint": 3,
+    "serialized-report-weights": 3,
+    "serialized-bridge-state": 32,
+    "serialized-strip-masses": 4,
+    "distinct-complete-problem": 56,
+    "source-string-integrity": 112,
+    "unique-problem-identities": 1,
+    "reviewed-source-fingerprint": 8,
+    "minimum-reviewed-universities": 1,
+    "authentic-booklet-fingerprint": 4,
+    "artifact-counts": 1,
+    "well-formed-mathml": 797,
+    "existing-approval-preserved": 1,
+    "one-new-draft": 1
+  },
+  "numericAnswerBindings": {
+    "SC01": [
+      "1/3",
+      "1/4"
+    ],
+    "SC02": [
+      "3/10",
+      "1/10",
+      "1/10",
+      "1/2"
+    ],
+    "SC04": [
+      "1/2",
+      "1"
+    ],
+    "SC05": [
+      "1/2",
+      "4/5"
+    ],
+    "SC08": [
+      "5/6",
+      "1/2",
+      "1/6"
+    ],
+    "SC10": "5/7",
+    "SC11": "0",
+    "SC12": [
+      "1/4",
+      "1/8"
+    ],
+    "SC13": "2/3",
+    "SC14": [
+      "2/45",
+      "8/45",
+      "1/5"
+    ],
+    "SC15": [
+      "1/5",
+      "2/5",
+      "2/5"
+    ],
+    "SC16": [
+      "6/35",
+      "18/35"
+    ],
+    "SC17": "3/5",
+    "SC18": "8/15",
+    "SC19": "3/28",
+    "SC20": "1/5",
+    "SC21": "1/6",
+    "SC22": "5/16",
+    "SC23": [
+      "1/2",
+      "2/5"
+    ],
+    "SC24": "7/12",
+    "SC27": [
+      "9/20",
+      "3/4"
+    ],
+    "SC31": [
+      "0",
+      "1"
+    ],
+    "SC32": [
+      "1/4",
+      "0"
+    ],
+    "SC33": [
+      "1/8",
+      "1/2"
+    ],
+    "SC34": [
+      "26",
+      "10"
+    ],
+    "SC35": [
+      "11/24",
+      "3/4"
+    ],
+    "SC36": [
+      "1/8",
+      "1/4"
+    ],
+    "SC37": [
+      "1/2",
+      "1/2",
+      "1/4"
+    ],
+    "SC38": [
+      "1/3",
+      "4/9"
+    ],
+    "SC39": [
+      "41/100",
+      "41/50"
+    ],
+    "SC40": "3/8",
+    "SC42": [
+      "4/25",
+      "-9/100"
+    ],
+    "SC44": [
+      "1/3",
+      "1/2"
+    ],
+    "SC45": [
+      "2/3",
+      "1/2"
+    ],
+    "SC47": "1/2",
+    "SC48": [
+      "3/8",
+      "7/16"
+    ],
+    "SC51": "3/4",
+    "SC52": "3/4",
+    "SC53": "1/3",
+    "SC55": [
+      "0",
+      "1/4"
+    ],
+    "SC49": "1/2"
+  },
+  "originalProblems": 56,
+  "authenticProblems": 4,
+  "examRules": 80,
+  "figures": 7,
+  "scenarios": 9,
+  "checkpoints": 60,
+  "domains": {
+    "jointTables": "all integer weights 0..6, excluding all-zero table",
+    "bridge": "all 32 edge states; 21 rational success probabilities 0..1",
+    "urn": "all 210 ordered three-object draws from four red and three blue",
+    "stratumCovariance": "243 rational parameter combinations",
+    "pairwiseFamily": "21 feasible triple masses",
+    "authentic": "four exact independently derived answers plus the at-most-one formula for n=2..13"
+  },
+  "limits": "Bounded models and explicit numeric answer bindings. Other symbolic proofs and conceptual solutions receive editorial derivation review, not automated universal theorem proving. No unseen-examination score guarantee."
+}

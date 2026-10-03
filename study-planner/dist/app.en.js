@@ -140,7 +140,7 @@ function renderLibrary() {
       ${!ready.length && !drafted.length ? '<p>The first chapter is undergoing its English quality review. Its link will appear here when the review is complete.</p>' : ""}
     </div>
   </section>
-  <section class="card"><h2>What the status means</h2><p>The 22 revised chapters were approved in version 56. A new chapter is labeled as a draft until you explicitly approve it. The weekly overview is an orientation aid; the linked chapter contains the full instruction.</p><a href="library-review.html">Read the revision evidence and limitations →</a></section>`;
+  <section class="card"><h2>What the status means</h2><p>The 22 revised chapters were approved in version 56; the correctness chapter and existing animations were approved in version 58. A new chapter is labeled as a draft until you explicitly approve it. The weekly overview is an orientation aid; the linked chapter contains the full instruction.</p><a href="library-review.html">Read the revision evidence and limitations →</a></section>`;
 }
 function renderIelts() {
   const path = plan.ielts;

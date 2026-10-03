@@ -16,7 +16,7 @@
         ]
       },
       "questionCount": 53,
-      "htmlSha256": "235ec6d1d233f000a9394ba0a83d92619c58cd1f4acba89056f06fde95397d3f"
+      "htmlSha256": "0d43646c410efb770b75634bd90b30f93be5eb9de6c23f759826ef2eb05e8f74"
     },
     {
       "topicId": "d_sets",
@@ -62,7 +62,7 @@
         ]
       },
       "questionCount": 48,
-      "htmlSha256": "77582f0b76053fa762a0f6b30e60a57f1f81276ed7a3ae95737206457b3d671c"
+      "htmlSha256": "5a4999411ac3939118241639287678457a677561f7935bdd4a76d4ac5081f603"
     },
     {
       "topicId": "d_induction",
@@ -226,7 +226,7 @@
         ]
       },
       "questionCount": 46,
-      "htmlSha256": "9d59a2442f0ac416d374e44d7e03b73a9e5102150644f7129971ed4c83dd122e"
+      "htmlSha256": "020aa6f9c520bfdc17392adaa32237da871a6272bd64c660a7b76fc6806ac704"
     },
     {
       "topicId": "l_matrices",
@@ -404,7 +404,7 @@
         ]
       },
       "questionCount": 45,
-      "htmlSha256": "2bb6a0d7e6f39cf30d7847fb3d9cfcf317cd801462430c40b4b0193a8ad3ac14"
+      "htmlSha256": "1d45956fd76612378b40c6066a83837167bb93210c5c628cb3f07468fca65bf9"
     },
     {
       "topicId": "d_functions",
@@ -429,7 +429,7 @@
         ]
       },
       "questionCount": 47,
-      "htmlSha256": "1cd64139b0fe8116a00f526592eba62da375ab69fbeed48feeadc4ecb0a04a85"
+      "htmlSha256": "585ea77ff5ec9537db107da6761294e864f8fe955af580465318e7a4101ece0a"
     },
     {
       "topicId": "d_invariants",
@@ -526,7 +526,7 @@
         ]
       },
       "questionCount": 46,
-      "htmlSha256": "eaa341892c74eb6366cd8cd2a01ef4420386af985e12f736e614a6ad592d6edd"
+      "htmlSha256": "4f4d48b9a8ffe115daa495bf0ae3416572480c90505204eec93c5c9f96041ae7"
     },
     {
       "topicId": "a_correct",
@@ -566,13 +566,47 @@
         ]
       },
       "questionCount": 54,
-      "htmlSha256": "23ea5b6b6ff8a0c8fce616a400bf1bc2ebf66b085e552f9dfee358e5dea60943"
+      "htmlSha256": "78c0cff7a7e1d477daf0028416e216b0d9888a150915183b8e420bbf9ea04841"
+    },
+    {
+      "topicId": "s_conditional",
+      "placements": 8,
+      "scenarios": 9,
+      "sections": {
+        "conditioning": [
+          "conditional-atoms"
+        ],
+        "multiplication": [
+          "conditional-history"
+        ],
+        "sequential": [
+          "conditional-urn"
+        ],
+        "partitions": [
+          "conditional-simpson"
+        ],
+        "conditional-independence": [
+          "conditional-selection",
+          "conditional-mixture"
+        ],
+        "information": [
+          "conditional-report"
+        ],
+        "reliability": [
+          "conditional-bridge"
+        ],
+        "limits": [
+          "conditional-strip"
+        ]
+      },
+      "questionCount": 60,
+      "htmlSha256": "2cd2b532fd8810e4e2a3ee944888a66c05ed32f1c992ceb90c9c929f9eb96596"
     }
   ],
-  "uniqueScenarios": 105,
-  "checkpoints": 697,
-  "placements": 107,
-  "constructionAssertions": 2460,
+  "uniqueScenarios": 114,
+  "checkpoints": 757,
+  "placements": 115,
+  "constructionAssertions": 2642,
   "scope": "Original bounded explanatory models embedded in existing instructional sections. Written proofs remain authoritative; finite examples do not certify all inputs.",
   "checkpointsPrint": "Uninitialized players retain a printable first checkpoint. Initialized players print the currently selected exact checkpoint. No blank animation is required for offline reading."
 }

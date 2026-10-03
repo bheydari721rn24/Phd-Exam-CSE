@@ -1,0 +1,616 @@
+{
+  "state": "passed",
+  "chapter": "s_conditional",
+  "rendered": [
+    {
+      "topicId": "s_conditional",
+      "figures": [
+        {
+          "index": 0,
+          "title": "Unequal retained atom weights",
+          "viewBox": [
+            700,
+            345
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Original weights: 1/10, 2/10, 3/10, 4/10",
+              "x": 161.28402709960938,
+              "y": 12.459511756896973,
+              "w": 377.4319152832031,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1/10",
+              "x": 73.4854965209961,
+              "y": 80.45951080322266,
+              "w": 43.02900695800781,
+              "h": 23.121543884277344,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "2/10",
+              "x": 243.48550415039062,
+              "y": 80.45951080322266,
+              "w": 43.02900695800781,
+              "h": 23.121543884277344,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "3/10",
+              "x": 413.4855041503906,
+              "y": 80.45951080322266,
+              "w": 43.02900695800781,
+              "h": 23.121543884277344,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "4/10",
+              "x": 583.4854736328125,
+              "y": 80.45951080322266,
+              "w": 43.02900695800781,
+              "h": 23.121543884277344,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "B retains the first two atoms: total mass 3/10",
+              "x": 135.0605010986328,
+              "y": 152.4595184326172,
+              "w": 429.87896728515625,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1/3",
+              "x": 234.1786651611328,
+              "y": 225.45950317382812,
+              "w": 31.64263916015625,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "2/3",
+              "x": 434.1786804199219,
+              "y": 225.45950317382812,
+              "w": 31.64263916015625,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Conditional A retains only the first atom: 1/3",
+              "x": 131.94607543945312,
+              "y": 290.4595031738281,
+              "w": 436.1078186035156,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "s_conditional-figure-1.png"
+        },
+        {
+          "index": 1,
+          "title": "Four-cell feasibility of a joint event model",
+          "viewBox": [
+            700,
+            330
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Four disjoint cells reconstruct the entire two-event law",
+              "x": 85.44135284423828,
+              "y": 14.459512710571289,
+              "w": 530.2296142578125,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "both: x",
+              "x": 168.5090789794922,
+              "y": 100.45951843261719,
+              "w": 68.12617492675781,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "A only: a \u2212 x",
+              "x": 434.17730712890625,
+              "y": 100.45951843261719,
+              "w": 126.78379821777344,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "B only: b \u2212 x",
+              "x": 140.64112854003906,
+              "y": 195.45950317382812,
+              "w": 124.65284729003906,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "neither: 1 \u2212 a \u2212 b + x",
+              "x": 393.023193359375,
+              "y": 195.45950317382812,
+              "w": 209.8915252685547,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Every cell must be nonnegative; their sum is one",
+              "x": 115.45825958251953,
+              "y": 272.4595031738281,
+              "w": 469.08343505859375,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "s_conditional-figure-2.png"
+        },
+        {
+          "index": 2,
+          "title": "Conditional edge values versus prefix masses",
+          "viewBox": [
+            700,
+            390
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "root: 1",
+              "x": 46.592369079589844,
+              "y": 157.95950317382812,
+              "w": 61.81526565551758,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "A: 3/5",
+              "x": 279.609375,
+              "y": 67.95951080322266,
+              "w": 59.983978271484375,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "not A: 2/5",
+              "x": 261.545654296875,
+              "y": 267.9595031738281,
+              "w": 96.90869903564453,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "A and B: 2/5",
+              "x": 526.2577514648438,
+              "y": 52.959510803222656,
+              "w": 121.68712615966797,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "A not B: 1/5",
+              "x": 528.444091796875,
+              "y": 167.9595184326172,
+              "w": 117.31446075439453,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "2/3",
+              "x": 431.24041748046875,
+              "y": 12.851397514343262,
+              "w": 27.51913070678711,
+              "h": 19.932371139526367,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1/3",
+              "x": 431.24041748046875,
+              "y": 117.85140228271484,
+              "w": 27.51913070678711,
+              "h": 19.932371139526367,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Child masses add to parent mass; edge values are conditional",
+              "x": 80.42711639404297,
+              "y": 339.0540771484375,
+              "w": 539.5735473632812,
+              "h": 20.729665756225586,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "s_conditional-figure-3.png"
+        },
+        {
+          "index": 3,
+          "title": "Hidden-type weighting and marginal dependence",
+          "viewBox": [
+            700,
+            335
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Independent checks inside known types",
+              "x": 155.55970764160156,
+              "y": 12.459511756896973,
+              "w": 388.88055419921875,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "type 1: weight 1/2",
+              "x": 93.89837646484375,
+              "y": 92.95951080322266,
+              "w": 172.20323181152344,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "type 2: weight 1/2",
+              "x": 433.89837646484375,
+              "y": 92.95951080322266,
+              "w": 172.20323181152344,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "rates 9/10 and 9/10",
+              "x": 87.37675476074219,
+              "y": 157.45950317382812,
+              "w": 185.24647521972656,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "rates 1/10 and 1/10",
+              "x": 427.37677001953125,
+              "y": 157.45950317382812,
+              "w": 185.24647521972656,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "joint = 41/100; each marginal = 1/2",
+              "x": 173.5237579345703,
+              "y": 222.45950317382812,
+              "w": 349.7632751464844,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "after first success: type weights 9/10 and 1/10",
+              "x": 131.16123962402344,
+              "y": 277.4595031738281,
+              "w": 437.677490234375,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "s_conditional-figure-4.png"
+        },
+        {
+          "index": 4,
+          "title": "Matching selection creates dependence between fair bits",
+          "viewBox": [
+            700,
+            375
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Original pairs: every state has mass 1/4",
+              "x": 161.17190551757812,
+              "y": 12.459511756896973,
+              "w": 378.2303771972656,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "00",
+              "x": 83.61363220214844,
+              "y": 87.95951080322266,
+              "w": 22.772733688354492,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "01",
+              "x": 253.61363220214844,
+              "y": 87.95951080322266,
+              "w": 22.772733688354492,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "10",
+              "x": 423.6136474609375,
+              "y": 87.95951080322266,
+              "w": 22.772733688354492,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "11",
+              "x": 593.6135864257812,
+              "y": 87.95951080322266,
+              "w": 22.772733688354492,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Equality condition retains 00 and 11",
+              "x": 174.6885528564453,
+              "y": 164.45950317382812,
+              "w": 350.62286376953125,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "00: 1/2",
+              "x": 202.27354431152344,
+              "y": 245.4595184326172,
+              "w": 65.45292663574219,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "11: 1/2",
+              "x": 432.2735290527344,
+              "y": 245.4595184326172,
+              "w": 65.45292663574219,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Conditional joint 1/2 differs from product 1/4",
+              "x": 129.6787567138672,
+              "y": 317.4595031738281,
+              "w": 441.2107849121094,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "s_conditional-figure-5.png"
+        },
+        {
+          "index": 5,
+          "title": "Shared-edge reliability and overlapping paths",
+          "viewBox": [
+            700,
+            385
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "A shared component joins both candidate paths",
+              "x": 117.7567138671875,
+              "y": 12.459511756896973,
+              "w": 463.6892395019531,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "source",
+              "x": 45.77638626098633,
+              "y": 170.4595184326172,
+              "w": 63.44723129272461,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "edge E",
+              "x": 227.60989379882812,
+              "y": 170.4595184326172,
+              "w": 64.78020477294922,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "edge F",
+              "x": 428.0459289550781,
+              "y": 85.45951080322266,
+              "w": 63.93381118774414,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "edge G",
+              "x": 426.5260925292969,
+              "y": 260.4595031738281,
+              "w": 67.12299346923828,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "output",
+              "x": 605.0662841796875,
+              "y": 170.4595184326172,
+              "w": 65.5958480834961,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Path intersection needs E, F, G: probability p\u00b3",
+              "x": 139.7010040283203,
+              "y": 328.2568054199219,
+              "w": 420.59796142578125,
+              "h": 22.324256896972656,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "s_conditional-figure-6.png"
+        },
+        {
+          "index": 6,
+          "title": "Conditional area differs from projection length",
+          "viewBox": [
+            700,
+            390
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Condition on the triangle X + Y \u2264 1",
+              "x": 176.93093872070312,
+              "y": 12.459511756896973,
+              "w": 346.1380920410156,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1",
+              "x": 125.54013061523438,
+              "y": 51.445987701416016,
+              "w": 8.9197359085083,
+              "h": 17.54048728942871,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0",
+              "x": 145.54013061523438,
+              "y": 336.44598388671875,
+              "w": 9.567538261413574,
+              "h": 17.54048728942871,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1/2",
+              "x": 262.61700439453125,
+              "y": 336.44598388671875,
+              "w": 24.765972137451172,
+              "h": 17.54048728942871,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1",
+              "x": 395.5401611328125,
+              "y": 336.44598388671875,
+              "w": 8.9197359085083,
+              "h": 17.54048728942871,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "X",
+              "x": 431.56610107421875,
+              "y": 302.4595031738281,
+              "w": 16.743192672729492,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Y",
+              "x": 121.75920867919922,
+              "y": 20.45951271057129,
+              "w": 16.743192672729492,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "whole area 1/2",
+              "x": 488.83697509765625,
+              "y": 109.0541000366211,
+              "w": 131.5287322998047,
+              "h": 20.729665756225586,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "target area 3/8",
+              "x": 491.14788818359375,
+              "y": 189.05409240722656,
+              "w": 127.70420837402344,
+              "h": 20.729665756225586,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "ratio 3/4",
+              "x": 513.9517822265625,
+              "y": 267.4595031738281,
+              "w": 82.66586303710938,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "s_conditional-figure-7.png"
+        }
+      ],
+      "solutionPrint": {
+        "count": 60,
+        "allOpened": true,
+        "restored": true
+      },
+      "fonts": {
+        "loaded": [
+          "Source Sans 3",
+          "Newsreader",
+          "STIX Two Math",
+          "JetBrains Mono",
+          "Math Glyphs"
+        ],
+        "math": [
+          "\"STIX Two Math\", serif"
+        ]
+      },
+      "mobile": {
+        "viewport": 390,
+        "document": 390,
+        "formulaOverflow": [],
+        "inlineMathOverflow": [],
+        "figureSizes": [
+          {
+            "width": 700,
+            "fontSize": "23px"
+          },
+          {
+            "width": 700,
+            "fontSize": "23px"
+          },
+          {
+            "width": 700,
+            "fontSize": "23px"
+          },
+          {
+            "width": 700,
+            "fontSize": "23px"
+          },
+          {
+            "width": 700,
+            "fontSize": "23px"
+          },
+          {
+            "width": 700,
+            "fontSize": "23px"
+          },
+          {
+            "width": 700,
+            "fontSize": "23px"
+          }
+        ],
+        "problems": 60,
+        "codeFonts": [
+          "\"JetBrains Mono\", monospace"
+        ]
+      },
+      "printStyle": {
+        "diagramOverflow": 0,
+        "mathFonts": [
+          "\"STIX Two Math\", serif"
+        ]
+      }
+    }
+  ],
+  "labChecks": "four presets; all-zero, negative, fractional and oversized input rejected",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\s-conditional-browser",
+  "limits": "A local Edge rendering and finite interaction audit; not a guarantee for every browser or every input."
+}

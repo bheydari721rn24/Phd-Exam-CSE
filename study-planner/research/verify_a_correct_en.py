@@ -161,7 +161,8 @@ page=(ROOT/'dist/chapters/a_correct.html').read_text(encoding='utf-8')
 checked('artifact problem count',page.count('<section class="exam-question"')==54 and page.count('<details class="exam-solution"')==54)
 checked('artifact note count',page.count('<section class="review-rule"')==74)
 checked('artifact static diagrams',page.count('<figure ')==5)
-checked('approval state',all(c['status']=='ready' for w in json.loads((ROOT/'dist/lessons.json').read_text()) for c in w['chapters'] if c['topicId']!='a_correct'))
+approved=set(json.loads((ROOT/'research/library-approval.json').read_text())['approvedTopics'])
+checked('approval state',all(c['status']=='ready' for w in json.loads((ROOT/'dist/lessons.json').read_text()) for c in w['chapters'] if c['topicId'] in approved))
 for q in qs.values():
     checked('question structure',len(q['options'])==4 and len(set(q['options']))==4 and len(q['solution'].split())>=40)
     for value in [q['stem'],q['solution']]+q['options']:

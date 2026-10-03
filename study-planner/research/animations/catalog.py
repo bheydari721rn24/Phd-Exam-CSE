@@ -22,5 +22,6 @@ CATALOG={
 'd_number':{'gcd':['euclid'],'integer-equations':['integer-family'],'crt':['crt-intersection'],'powers':['modular-power']},
 'a_recurrence':{'unrolling':['rounded-splits'],'trees':['recursion-tree'],'master':['recurrence-levels'],'rounding':['rounded-splits']},
 'a_divide':{'merging':['merge-recursion','merge'],'subarrays':['max-subarray'],'geometry':['closest-pair'],'karatsuba':['karatsuba'],'strassen':['strassen'],'fourier':['fft-butterfly']},
-'a_correct':{'backward':['weakest-precondition'],'invariants':['insertion','euclid'],'search':['lower-bound','search-stall'],'sorting':['insertion','insertion-unstable','selection','bubble','merge','merge-recursion'],'partition':['partition3','partition-skip'],'arithmetic':['division','power','euclid'],'certificates':['shortest-path-certificate']}
+'a_correct':{'backward':['weakest-precondition'],'invariants':['insertion','euclid'],'search':['lower-bound','search-stall'],'sorting':['insertion','insertion-unstable','selection','bubble','merge','merge-recursion'],'partition':['partition3','partition-skip'],'arithmetic':['division','power','euclid'],'certificates':['shortest-path-certificate']},
+'s_conditional':{'conditioning':['conditional-atoms'],'multiplication':['conditional-history'],'sequential':['conditional-urn'],'partitions':['conditional-simpson'],'conditional-independence':['conditional-selection','conditional-mixture'],'information':['conditional-report'],'reliability':['conditional-bridge'],'limits':['conditional-strip']}
 }
