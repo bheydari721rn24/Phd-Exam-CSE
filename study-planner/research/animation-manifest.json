@@ -1,0 +1,578 @@
+{
+  "state": "animation_revision_awaiting_user_approval",
+  "chapters": [
+    {
+      "topicId": "d_logic",
+      "placements": 2,
+      "scenarios": 4,
+      "sections": {
+        "propositional": [
+          "implication",
+          "de-morgan"
+        ],
+        "first-order": [
+          "quantifier-dependent",
+          "quantifier-fixed"
+        ]
+      },
+      "questionCount": 53,
+      "htmlSha256": "235ec6d1d233f000a9394ba0a83d92619c58cd1f4acba89056f06fde95397d3f"
+    },
+    {
+      "topicId": "d_sets",
+      "placements": 3,
+      "scenarios": 9,
+      "sections": {
+        "objects": [
+          "powerset",
+          "cartesian"
+        ],
+        "operations": [
+          "set-union",
+          "set-intersection",
+          "set-difference",
+          "set-symmetric",
+          "set-complement",
+          "set-set-demorgan"
+        ],
+        "families": [
+          "image-collapse"
+        ]
+      },
+      "questionCount": 46,
+      "htmlSha256": "bbba786dab2e8ebb477d501f371ed68b30bc0a311e21f19e59e83bb7df2bd4c4"
+    },
+    {
+      "topicId": "d_proof",
+      "placements": 4,
+      "scenarios": 5,
+      "sections": {
+        "direct-proofs": [
+          "direct-even"
+        ],
+        "contrapositive": [
+          "contrapositive"
+        ],
+        "contradiction": [
+          "sqrt-contradiction"
+        ],
+        "counterexamples": [
+          "quantifier-fixed",
+          "induction-gap"
+        ]
+      },
+      "questionCount": 48,
+      "htmlSha256": "77582f0b76053fa762a0f6b30e60a57f1f81276ed7a3ae95737206457b3d671c"
+    },
+    {
+      "topicId": "d_induction",
+      "placements": 5,
+      "scenarios": 5,
+      "sections": {
+        "ordinary-induction": [
+          "induction-triangular",
+          "induction-square"
+        ],
+        "initial-values": [
+          "induction-gap"
+        ],
+        "strong-induction": [
+          "strong-coins"
+        ],
+        "strengthening": [
+          "euclid"
+        ],
+        "invalid-inductions": [
+          "induction-gap"
+        ]
+      },
+      "questionCount": 46,
+      "htmlSha256": "4cbd6542d1ff0c9f237be13ac47a2262c76aaad3d3a621cafd5024e86bf40a43"
+    },
+    {
+      "topicId": "a_model",
+      "placements": 4,
+      "scenarios": 4,
+      "sections": {
+        "problem-contract": [
+          "insertion",
+          "shortest-path-certificate"
+        ],
+        "input-size": [
+          "encoding-length"
+        ],
+        "word-ram": [
+          "word-bit-cost"
+        ],
+        "numeric-parameters": [
+          "encoding-length"
+        ]
+      },
+      "questionCount": 46,
+      "htmlSha256": "73e15395d3c8fa1d6fe844b4f794e5044853d77b87ddef0bd95fbdebbd5c9e87"
+    },
+    {
+      "topicId": "a_asym",
+      "placements": 3,
+      "scenarios": 4,
+      "sections": {
+        "definitions": [
+          "growth-threshold"
+        ],
+        "growth": [
+          "encoding-length",
+          "loop-doubling"
+        ],
+        "algebra": [
+          "recurrence-levels"
+        ]
+      },
+      "questionCount": 46,
+      "htmlSha256": "42f19cf84cc433f1204354ce3f4cd27a0e08167fdf2792076df49e333f61b9e9"
+    },
+    {
+      "topicId": "a_loop",
+      "placements": 4,
+      "scenarios": 5,
+      "sections": {
+        "sums": [
+          "loop-triangle"
+        ],
+        "regions": [
+          "loop-triangle"
+        ],
+        "input-dependence": [
+          "lower-bound",
+          "search-stall"
+        ],
+        "nonconstant-work": [
+          "loop-doubling",
+          "word-bit-cost"
+        ]
+      },
+      "questionCount": 46,
+      "htmlSha256": "1a14f33d65f17bc604498beadc844599056b762735f51e72b22d985c29a239a3"
+    },
+    {
+      "topicId": "s_axioms",
+      "placements": 4,
+      "scenarios": 3,
+      "sections": {
+        "modeling": [
+          "probability-atoms"
+        ],
+        "axioms": [
+          "probability-atoms"
+        ],
+        "laws": [
+          "probability-union"
+        ],
+        "limits": [
+          "probability-limit"
+        ]
+      },
+      "questionCount": 48,
+      "htmlSha256": "15ee410be7dba9b07d43bfd33a98d6ab012f3c6503369719b0ea5fe4ee93b8b1"
+    },
+    {
+      "topicId": "s_counting",
+      "placements": 5,
+      "scenarios": 7,
+      "sections": {
+        "selections": [
+          "selection-ordered",
+          "selection-unordered",
+          "selection-repeated"
+        ],
+        "constraints": [
+          "stars-bars"
+        ],
+        "identities": [
+          "powerset",
+          "stars-bars"
+        ],
+        "probabilities": [
+          "draw-without-replacement"
+        ],
+        "independence": [
+          "pairwise-independence"
+        ]
+      },
+      "questionCount": 77,
+      "htmlSha256": "a37e89dccc03af15883a4298a3566fea405ccdfeca71502823f0339cf466d6fc"
+    },
+    {
+      "topicId": "l_vectors",
+      "placements": 6,
+      "scenarios": 6,
+      "sections": {
+        "vectors": [
+          "vector-addition"
+        ],
+        "norms": [
+          "vector-norms"
+        ],
+        "projection": [
+          "projection"
+        ],
+        "orthonormal": [
+          "gram-schmidt"
+        ],
+        "affine": [
+          "affine-origin"
+        ],
+        "cross-product": [
+          "cross-orientation"
+        ]
+      },
+      "questionCount": 46,
+      "htmlSha256": "9d59a2442f0ac416d374e44d7e03b73a9e5102150644f7129971ed4c83dd122e"
+    },
+    {
+      "topicId": "l_matrices",
+      "placements": 5,
+      "scenarios": 5,
+      "sections": {
+        "multiplication": [
+          "matrix-product"
+        ],
+        "composition": [
+          "matrix-composition"
+        ],
+        "transpose": [
+          "matrix-transpose"
+        ],
+        "inverse": [
+          "row-elimination"
+        ],
+        "trace-norms": [
+          "matrix-summaries"
+        ]
+      },
+      "questionCount": 47,
+      "htmlSha256": "8a3a2af2efcad3701c630f5a3c914132235f5e508f336d660f24e7211b711ae4"
+    },
+    {
+      "topicId": "p_types",
+      "placements": 5,
+      "scenarios": 5,
+      "sections": {
+        "values": [
+          "assignment-sequential",
+          "assignment-simultaneous"
+        ],
+        "conversions": [
+          "finite-representation"
+        ],
+        "operators": [
+          "short-circuit"
+        ],
+        "sequencing": [
+          "assignment-sequential"
+        ],
+        "floating": [
+          "float-rounding"
+        ]
+      },
+      "questionCount": 45,
+      "htmlSha256": "14eca16336af275d7bfe059b5316c7b25d104f27335e3521bad29171ae9d7409"
+    },
+    {
+      "topicId": "p_flow",
+      "placements": 4,
+      "scenarios": 7,
+      "sections": {
+        "state": [
+          "assignment-sequential"
+        ],
+        "conditionals": [
+          "branch-m1",
+          "branch-0",
+          "branch-2"
+        ],
+        "transfers": [
+          "loop-transfers"
+        ],
+        "termination": [
+          "loop-doubling",
+          "wraparound-loop"
+        ]
+      },
+      "questionCount": 45,
+      "htmlSha256": "3d3ef090fff51d3ba9672c4e98c03a30cbdc5a2c03fac938093117ae0036665f"
+    },
+    {
+      "topicId": "g_number",
+      "placements": 6,
+      "scenarios": 6,
+      "sections": {
+        "conversion": [
+          "base-conversion"
+        ],
+        "fractions": [
+          "fraction-conversion"
+        ],
+        "signed": [
+          "finite-representation"
+        ],
+        "arithmetic": [
+          "word-bit-cost"
+        ],
+        "gray": [
+          "gray-code"
+        ],
+        "errors": [
+          "hamming-code"
+        ]
+      },
+      "questionCount": 45,
+      "htmlSha256": "58306df6539c2373f83ccb931568024f21028e2ba6738156c5c6afff17bd1d02"
+    },
+    {
+      "topicId": "g_boolean",
+      "placements": 5,
+      "scenarios": 6,
+      "sections": {
+        "laws": [
+          "de-morgan",
+          "absorption"
+        ],
+        "simplification": [
+          "consensus"
+        ],
+        "xor": [
+          "xor"
+        ],
+        "selectors": [
+          "selectors"
+        ],
+        "cofactors": [
+          "shannon"
+        ]
+      },
+      "questionCount": 53,
+      "htmlSha256": "7e741dcdb57c9d8232b0fa5c417a221e6efda66ce339083b47212ef27ba07c59"
+    },
+    {
+      "topicId": "g_gates",
+      "placements": 6,
+      "scenarios": 5,
+      "sections": {
+        "netlists": [
+          "nand-mapping"
+        ],
+        "completeness": [
+          "nand-only"
+        ],
+        "mapping": [
+          "nand-mapping"
+        ],
+        "cmos": [
+          "cmos-nand"
+        ],
+        "timing": [
+          "static-hazard"
+        ],
+        "hazards": [
+          "static-hazard",
+          "hazard-consensus"
+        ]
+      },
+      "questionCount": 46,
+      "htmlSha256": "195bf11c4a29d4368abf229290022cdc669694aa7177c364d62c0d022c14f58e"
+    },
+    {
+      "topicId": "d_relations",
+      "placements": 5,
+      "scenarios": 5,
+      "sections": {
+        "closures": [
+          "transitive-closure",
+          "reflexive-closure"
+        ],
+        "equivalence": [
+          "equivalence-classes"
+        ],
+        "orders": [
+          "hasse"
+        ],
+        "bounds": [
+          "hasse"
+        ],
+        "scheduling": [
+          "topological"
+        ]
+      },
+      "questionCount": 45,
+      "htmlSha256": "2bb6a0d7e6f39cf30d7847fb3d9cfcf317cd801462430c40b4b0193a8ad3ac14"
+    },
+    {
+      "topicId": "d_functions",
+      "placements": 5,
+      "scenarios": 6,
+      "sections": {
+        "fibers": [
+          "function-fibers"
+        ],
+        "composition": [
+          "function-composition"
+        ],
+        "inverses": [
+          "right-inverse"
+        ],
+        "images": [
+          "function-preimages",
+          "image-collapse"
+        ],
+        "counting": [
+          "function-count"
+        ]
+      },
+      "questionCount": 47,
+      "htmlSha256": "1cd64139b0fe8116a00f526592eba62da375ab69fbeed48feeadc4ecb0a04a85"
+    },
+    {
+      "topicId": "d_invariants",
+      "placements": 5,
+      "scenarios": 8,
+      "sections": {
+        "states": [
+          "assignment-sequential"
+        ],
+        "loops": [
+          "insertion",
+          "lower-bound"
+        ],
+        "rankings": [
+          "division",
+          "wraparound-loop"
+        ],
+        "recursion": [
+          "merge-recursion"
+        ],
+        "accumulators": [
+          "power",
+          "euclid"
+        ]
+      },
+      "questionCount": 46,
+      "htmlSha256": "c512e106783387f412d01586a330b760a1c3e66ce2eb498cf8ef9d4c91881e12"
+    },
+    {
+      "topicId": "d_number",
+      "placements": 4,
+      "scenarios": 4,
+      "sections": {
+        "gcd": [
+          "euclid"
+        ],
+        "integer-equations": [
+          "integer-family"
+        ],
+        "crt": [
+          "crt-intersection"
+        ],
+        "powers": [
+          "modular-power"
+        ]
+      },
+      "questionCount": 47,
+      "htmlSha256": "8acb4cf154a4450f9715ae04f3830417c190ae2c7c8acb22573b37e3065a5714"
+    },
+    {
+      "topicId": "a_recurrence",
+      "placements": 4,
+      "scenarios": 3,
+      "sections": {
+        "unrolling": [
+          "rounded-splits"
+        ],
+        "trees": [
+          "recursion-tree"
+        ],
+        "master": [
+          "recurrence-levels"
+        ],
+        "rounding": [
+          "rounded-splits"
+        ]
+      },
+      "questionCount": 53,
+      "htmlSha256": "c9d62fd2fe254ec3367fe11114b0d34ddd8847e49b85a8f48ad3f3ba862cff37"
+    },
+    {
+      "topicId": "a_divide",
+      "placements": 6,
+      "scenarios": 7,
+      "sections": {
+        "merging": [
+          "merge-recursion",
+          "merge"
+        ],
+        "subarrays": [
+          "max-subarray"
+        ],
+        "geometry": [
+          "closest-pair"
+        ],
+        "karatsuba": [
+          "karatsuba"
+        ],
+        "strassen": [
+          "strassen"
+        ],
+        "fourier": [
+          "fft-butterfly"
+        ]
+      },
+      "questionCount": 46,
+      "htmlSha256": "eaa341892c74eb6366cd8cd2a01ef4420386af985e12f736e614a6ad592d6edd"
+    },
+    {
+      "topicId": "a_correct",
+      "placements": 7,
+      "scenarios": 15,
+      "sections": {
+        "backward": [
+          "weakest-precondition"
+        ],
+        "invariants": [
+          "insertion",
+          "euclid"
+        ],
+        "search": [
+          "lower-bound",
+          "search-stall"
+        ],
+        "sorting": [
+          "insertion",
+          "insertion-unstable",
+          "selection",
+          "bubble",
+          "merge",
+          "merge-recursion"
+        ],
+        "partition": [
+          "partition3",
+          "partition-skip"
+        ],
+        "arithmetic": [
+          "division",
+          "power",
+          "euclid"
+        ],
+        "certificates": [
+          "shortest-path-certificate"
+        ]
+      },
+      "questionCount": 54,
+      "htmlSha256": "23ea5b6b6ff8a0c8fce616a400bf1bc2ebf66b085e552f9dfee358e5dea60943"
+    }
+  ],
+  "uniqueScenarios": 105,
+  "checkpoints": 697,
+  "placements": 107,
+  "constructionAssertions": 2460,
+  "scope": "Original bounded explanatory models embedded in existing instructional sections. Written proofs remain authoritative; finite examples do not certify all inputs.",
+  "checkpointsPrint": "Uninitialized players retain a printable first checkpoint. Initialized players print the currently selected exact checkpoint. No blank animation is required for offline reading."
+}

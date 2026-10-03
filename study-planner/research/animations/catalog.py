@@ -1,0 +1,26 @@
+"""Instructional placements: chapter -> existing section -> exact scenarios."""
+CATALOG={
+'d_logic':{'propositional':['implication','de-morgan'],'first-order':['quantifier-dependent','quantifier-fixed']},
+'d_sets':{'objects':['powerset','cartesian'],'operations':['set-union','set-intersection','set-difference','set-symmetric','set-complement','set-set-demorgan'],'families':['image-collapse']},
+'d_proof':{'direct-proofs':['direct-even'],'contrapositive':['contrapositive'],'contradiction':['sqrt-contradiction'],'counterexamples':['quantifier-fixed','induction-gap']},
+'d_induction':{'ordinary-induction':['induction-triangular','induction-square'],'initial-values':['induction-gap'],'strong-induction':['strong-coins'],'strengthening':['euclid'],'invalid-inductions':['induction-gap']},
+'a_model':{'problem-contract':['insertion','shortest-path-certificate'],'input-size':['encoding-length'],'word-ram':['word-bit-cost'],'numeric-parameters':['encoding-length']},
+'a_asym':{'definitions':['growth-threshold'],'growth':['encoding-length','loop-doubling'],'algebra':['recurrence-levels']},
+'a_loop':{'sums':['loop-triangle'],'regions':['loop-triangle'],'input-dependence':['lower-bound','search-stall'],'nonconstant-work':['loop-doubling','word-bit-cost']},
+'s_axioms':{'modeling':['probability-atoms'],'axioms':['probability-atoms'],'laws':['probability-union'],'limits':['probability-limit']},
+'s_counting':{'selections':['selection-ordered','selection-unordered','selection-repeated'],'constraints':['stars-bars'],'identities':['powerset','stars-bars'],'probabilities':['draw-without-replacement'],'independence':['pairwise-independence']},
+'l_vectors':{'vectors':['vector-addition'],'norms':['vector-norms'],'projection':['projection'],'orthonormal':['gram-schmidt'],'affine':['affine-origin'],'cross-product':['cross-orientation']},
+'l_matrices':{'multiplication':['matrix-product'],'composition':['matrix-composition'],'transpose':['matrix-transpose'],'inverse':['row-elimination'],'trace-norms':['matrix-summaries']},
+'p_types':{'values':['assignment-sequential','assignment-simultaneous'],'conversions':['finite-representation'],'operators':['short-circuit'],'sequencing':['assignment-sequential'],'floating':['float-rounding']},
+'p_flow':{'state':['assignment-sequential'],'conditionals':['branch-m1','branch-0','branch-2'],'transfers':['loop-transfers'],'termination':['loop-doubling','wraparound-loop']},
+'g_number':{'conversion':['base-conversion'],'fractions':['fraction-conversion'],'signed':['finite-representation'],'arithmetic':['word-bit-cost'],'gray':['gray-code'],'errors':['hamming-code']},
+'g_boolean':{'laws':['de-morgan','absorption'],'simplification':['consensus'],'xor':['xor'],'selectors':['selectors'],'cofactors':['shannon']},
+'g_gates':{'netlists':['nand-mapping'],'completeness':['nand-only'],'mapping':['nand-mapping'],'cmos':['cmos-nand'],'timing':['static-hazard'],'hazards':['static-hazard','hazard-consensus']},
+'d_relations':{'closures':['transitive-closure','reflexive-closure'],'equivalence':['equivalence-classes'],'orders':['hasse'],'bounds':['hasse'],'scheduling':['topological']},
+'d_functions':{'fibers':['function-fibers'],'composition':['function-composition'],'inverses':['right-inverse'],'images':['function-preimages','image-collapse'],'counting':['function-count']},
+'d_invariants':{'states':['assignment-sequential'],'loops':['insertion','lower-bound'],'rankings':['division','wraparound-loop'],'recursion':['merge-recursion'],'accumulators':['power','euclid']},
+'d_number':{'gcd':['euclid'],'integer-equations':['integer-family'],'crt':['crt-intersection'],'powers':['modular-power']},
+'a_recurrence':{'unrolling':['rounded-splits'],'trees':['recursion-tree'],'master':['recurrence-levels'],'rounding':['rounded-splits']},
+'a_divide':{'merging':['merge-recursion','merge'],'subarrays':['max-subarray'],'geometry':['closest-pair'],'karatsuba':['karatsuba'],'strassen':['strassen'],'fourier':['fft-butterfly']},
+'a_correct':{'backward':['weakest-precondition'],'invariants':['insertion','euclid'],'search':['lower-bound','search-stall'],'sorting':['insertion','insertion-unstable','selection','bubble','merge','merge-recursion'],'partition':['partition3','partition-skip'],'arithmetic':['division','power','euclid'],'certificates':['shortest-path-certificate']}
+}

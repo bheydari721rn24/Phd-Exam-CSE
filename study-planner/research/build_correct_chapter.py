@@ -128,4 +128,7 @@ for part,filename in [('source-audit','sources'),('quality-audit','quality')]:
 p=ROOT/'dist/lessons.json';lessons=json.loads(p.read_text());week=next(w for w in lessons if w['week']==2)
 week['chapters']=[c for c in week['chapters'] if c['topicId']!='a_correct']+[dict(topicId='a_correct',title=title,status='draft',statusLabel='New chapter awaiting review',revisionState='new_chapter_draft',url='chapters/a_correct.html',questionCount=54,authenticQuestionCount=4,originalQuestionCount=50,examNotesCount=74,sourceAuditUrl='reviews/a_correct-sources.html')]
 p.write_text(json.dumps(lessons,indent=2)+chr(10),encoding='utf-8')
+if (ROOT/'dist/chapters/concept-animations.json').exists():
+    from build_concept_animations import install_animations
+    install_animations()
 print('Built a_correct: 54 worked questions, 74 notes, five original diagrams and native MathML.')

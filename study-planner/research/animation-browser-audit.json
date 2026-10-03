@@ -1,0 +1,715 @@
+{
+  "chapters": [
+    {
+      "players": 2,
+      "questions": 53,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "d_logic"
+    },
+    {
+      "players": 3,
+      "questions": 46,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "d_sets"
+    },
+    {
+      "players": 4,
+      "questions": 48,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "d_proof"
+    },
+    {
+      "players": 5,
+      "questions": 46,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "d_induction"
+    },
+    {
+      "players": 4,
+      "questions": 46,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "a_model"
+    },
+    {
+      "players": 3,
+      "questions": 46,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "a_asym"
+    },
+    {
+      "players": 4,
+      "questions": 46,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "a_loop"
+    },
+    {
+      "players": 4,
+      "questions": 48,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "s_axioms"
+    },
+    {
+      "players": 5,
+      "questions": 77,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "s_counting"
+    },
+    {
+      "players": 6,
+      "questions": 46,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "l_vectors"
+    },
+    {
+      "players": 5,
+      "questions": 47,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "l_matrices"
+    },
+    {
+      "players": 5,
+      "questions": 45,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "p_types"
+    },
+    {
+      "players": 4,
+      "questions": 45,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "p_flow"
+    },
+    {
+      "players": 6,
+      "questions": 45,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "g_number"
+    },
+    {
+      "players": 5,
+      "questions": 53,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "g_boolean"
+    },
+    {
+      "players": 6,
+      "questions": 46,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "g_gates"
+    },
+    {
+      "players": 5,
+      "questions": 45,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "d_relations"
+    },
+    {
+      "players": 5,
+      "questions": 47,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "d_functions"
+    },
+    {
+      "players": 5,
+      "questions": 46,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "d_invariants"
+    },
+    {
+      "players": 4,
+      "questions": 47,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "d_number"
+    },
+    {
+      "players": 4,
+      "questions": 53,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "a_recurrence"
+    },
+    {
+      "players": 6,
+      "questions": 46,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "a_divide"
+    },
+    {
+      "players": 7,
+      "questions": 54,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "a_correct"
+    }
+  ],
+  "scenarios": {
+    "implication": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "de-morgan": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "quantifier-dependent": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "quantifier-fixed": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": true
+    },
+    "powerset": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "cartesian": {
+      "frames": 6,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "set-union": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "set-intersection": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "set-difference": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "set-symmetric": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "set-complement": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "set-set-demorgan": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "image-collapse": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "direct-even": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "contrapositive": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "sqrt-contradiction": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "induction-gap": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": true
+    },
+    "induction-triangular": {
+      "frames": 7,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "induction-square": {
+      "frames": 7,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "strong-coins": {
+      "frames": 13,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "euclid": {
+      "frames": 5,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "insertion": {
+      "frames": 29,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "shortest-path-certificate": {
+      "frames": 5,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "encoding-length": {
+      "frames": 6,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "word-bit-cost": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "growth-threshold": {
+      "frames": 6,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "loop-doubling": {
+      "frames": 5,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "recurrence-levels": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "loop-triangle": {
+      "frames": 15,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "lower-bound": {
+      "frames": 8,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "search-stall": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": true
+    },
+    "probability-atoms": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "probability-union": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "probability-limit": {
+      "frames": 6,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "selection-ordered": {
+      "frames": 12,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "selection-unordered": {
+      "frames": 6,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "selection-repeated": {
+      "frames": 10,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "stars-bars": {
+      "frames": 15,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "draw-without-replacement": {
+      "frames": 10,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "pairwise-independence": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": true
+    },
+    "vector-addition": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "vector-norms": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "projection": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "gram-schmidt": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "affine-origin": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "cross-orientation": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "matrix-product": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "matrix-composition": {
+      "frames": 6,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "matrix-transpose": {
+      "frames": 5,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "row-elimination": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "matrix-summaries": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "assignment-sequential": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "assignment-simultaneous": {
+      "frames": 2,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "finite-representation": {
+      "frames": 5,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "short-circuit": {
+      "frames": 2,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "float-rounding": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "branch-m1": {
+      "frames": 2,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "branch-0": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "branch-2": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "loop-transfers": {
+      "frames": 5,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "wraparound-loop": {
+      "frames": 10,
+      "entityMotion": true,
+      "finalCounterexample": true
+    },
+    "base-conversion": {
+      "frames": 6,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "fraction-conversion": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "gray-code": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "hamming-code": {
+      "frames": 5,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "absorption": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "consensus": {
+      "frames": 16,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "xor": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "selectors": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "shannon": {
+      "frames": 16,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "nand-mapping": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "nand-only": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "cmos-nand": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "static-hazard": {
+      "frames": 6,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "hazard-consensus": {
+      "frames": 6,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "transitive-closure": {
+      "frames": 5,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "reflexive-closure": {
+      "frames": 5,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "equivalence-classes": {
+      "frames": 6,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "hasse": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "topological": {
+      "frames": 5,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "function-fibers": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "function-composition": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "right-inverse": {
+      "frames": 2,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "function-preimages": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "function-count": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "division": {
+      "frames": 7,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "merge-recursion": {
+      "frames": 14,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "power": {
+      "frames": 6,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "integer-family": {
+      "frames": 5,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "crt-intersection": {
+      "frames": 6,
+      "entityMotion": true,
+      "finalCounterexample": true
+    },
+    "modular-power": {
+      "frames": 6,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "rounded-splits": {
+      "frames": 5,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "recursion-tree": {
+      "frames": 15,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "merge": {
+      "frames": 12,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "max-subarray": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "closest-pair": {
+      "frames": 5,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "karatsuba": {
+      "frames": 6,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "strassen": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "fft-butterfly": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "weakest-precondition": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "insertion-unstable": {
+      "frames": 15,
+      "entityMotion": true,
+      "finalCounterexample": true
+    },
+    "selection": {
+      "frames": 11,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "bubble": {
+      "frames": 16,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "partition3": {
+      "frames": 12,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "partition-skip": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": true
+    }
+  },
+  "layoutIssues": [],
+  "motionSample": {
+    "busy": true,
+    "record": "L0",
+    "transform": "translate(96.64375790087463 150.48108408163267)",
+    "start": {
+      "x": 100,
+      "y": 80
+    },
+    "end": {
+      "id": "L0",
+      "label": "1 \u00b7 L0",
+      "x": 90,
+      "y": 290,
+      "w": 88,
+      "h": 46,
+      "tone": "done",
+      "kind": "card"
+    }
+  },
+  "reducedMotion": true,
+  "printControlsHidden": true,
+  "allScenariosVisited": true
+}

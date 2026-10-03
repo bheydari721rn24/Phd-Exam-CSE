@@ -23,6 +23,9 @@ def preserve_approval():
     if p.exists():
         s=p.read_text(encoding='utf-8').replace('All chapters remain drafts. Await explicit approval before promoting this revision or starting another chapter. Preserve study progress.','The user approved all 22 revised chapters in version 56 on 3 October 2026. Preserve this approval through rebuilds. Newly authored chapters require their own explicit approval. Preserve study progress.')
         p.write_text(s,encoding='utf-8')
+    if (ROOT/'dist/chapters/concept-animations.json').exists():
+        from build_concept_animations import install_animations
+        install_animations()
     for name in ['research/exam-calibration/manifest.json','dist/evidence/exam-calibration/manifest.json']:
         p=ROOT/name
         if p.exists():
