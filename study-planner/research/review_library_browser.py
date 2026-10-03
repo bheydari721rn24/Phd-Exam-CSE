@@ -37,6 +37,9 @@ try:
   cdp('Page.navigate',{'url':f'http://127.0.0.1:{server.server_port}/chapters/{topic}.html'});time.sleep(.5)
   cdp('Runtime.evaluate',{'expression':'document.fonts.ready','awaitPromise':True,'returnByValue':True})
   row={'topicId':topic,'figures':[]}
+  row['solutionPrint']=json.loads(js('''JSON.stringify((()=>{const nodes=[...document.querySelectorAll('.exam-solution')],before=nodes.map(x=>x.open);dispatchEvent(new Event('beforeprint'));const allOpened=nodes.every(x=>x.open);dispatchEvent(new Event('afterprint'));const restored=nodes.every((x,i)=>x.open===before[i]);return {count:nodes.length,allOpened,restored};})())'''))
+  assert row['solutionPrint']['allOpened'] and row['solutionPrint']['restored'],row['solutionPrint']
+  js("document.querySelectorAll('.exam-solution').forEach(x=>x.open=true)")
   row['fonts']=json.loads(js('''JSON.stringify({loaded:[...document.fonts].filter(f=>f.status==='loaded').map(f=>f.family),math:[...new Set([...document.querySelectorAll('math,.math-inline,.formula-block,sub,sup')].map(x=>getComputedStyle(x).fontFamily))]})'''))
   if topic in ('d_logic','d_sets','l_vectors','a_recurrence','a_divide','p_types'):
    for label in ('Formula and conceptual problem bank','Applicable formulas and examination notes'):

@@ -92,3 +92,8 @@ for week in lessons:
   c['questionCount']=audit['questionCount'];c['examNotesCount']=audit['notesCount']
 (ROOT/'dist/lessons.json').write_text(json.dumps(lessons,indent=2)+'\n')
 print('Rebuilt',done,'of 22 chapters. All existing chapters remain revision drafts.')
+# Apply the latest explicitly authorized archive-grounded banks after legacy revisions.
+calibration=ROOT/'research/exam-calibration/build.py'
+if calibration.exists():
+ import subprocess
+ subprocess.run([sys.executable,str(calibration)],check=True)

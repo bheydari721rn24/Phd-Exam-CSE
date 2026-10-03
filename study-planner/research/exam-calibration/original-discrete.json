@@ -1,0 +1,1026 @@
+[
+  {
+    "topic": "d_logic",
+    "title": "A formula with conditional and parity constraints",
+    "stem": "How many assignments to $p,q,r,s$ satisfy $(p\\Leftrightarrow q)\\land(p\\Rightarrow r)\\land(r\\oplus s)$?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "answer": 2,
+    "solution": "First force $q=p$. If $p=0$, the implication permits either value of $r$; each determines exactly one $s$ through XOR, giving two assignments. If $p=1$, then $r=1$ and $s=0$, giving one more. The total is three.\n\nCount cases after propagating equalities. Four treats $r$ as free even when $p=1$; six fails to enforce all dependent choices; two omits the valid all-one antecedent case. This is a model count, not a count of distinct syntactic formulas.",
+    "pattern": "MS_CS_1405_Q99; Phd_CS_1405_Q22",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_logic",
+    "title": "The exact CNF index set",
+    "stem": "The true rows of $F(p,q,r)$ have indices 1, 2, 4, and 7, with $p$ the most significant bit. Which canonical product of maxterms represents $F$?",
+    "options": [
+      "$\\prod M(1,2,4,7)$",
+      "$\\prod M(0,3,5,6)$",
+      "$\\sum m(0,3,5,6)$",
+      "$\\prod M(0,2,4,6)$"
+    ],
+    "answer": 2,
+    "solution": "The full index set is zero through seven. Complement the given true indices to obtain false indices 0, 3, 5, and 6. Canonical CNF contains a maxterm for each of those false rows, so the second option is correct.\n\nThe first product represents the complemented function. The third is a sum rather than the requested product and also selects the complemented truth set. The final product corresponds to a fixed least-significant-bit condition. As a cross-check, the stated true rows have an odd number of true bits, so this function is three-input parity.",
+    "pattern": "MS_CS_1405_Q99; Phd_CS_1405_Q15",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_logic",
+    "title": "A cyclic successor and two universal formulas",
+    "stem": "The domain is $\\{0,1,2,3\\}$, $f(x)=x+1\\pmod4$, and $R(x,y)$ means $y=f(x)$. Assess (I) $\\forall x\\exists y(R(x,y)\\land R(y,x))$ and (II) $\\forall x\\exists y\\exists z(R(x,y)\\land R(y,z)\\land R(z,f(x)))$.",
+    "options": [
+      "Only I.",
+      "Only II.",
+      "Both.",
+      "Neither."
+    ],
+    "answer": 4,
+    "solution": "A successor edge forces $y=x+1$ modulo four. For I, the reverse edge would force $x=x+2$ modulo four, which is impossible. Thus I is false for every $x$.\n\nFor II the first two edges force $y=x+1$ and $z=x+2$. The final edge would require $f(x)=x+3$ modulo four, but $f(x)=x+1$. Again no witness exists. Both formulas fail. The tempting existential choice is not free after the first relational constraint fixes it.",
+    "pattern": "MS_CS_1405_Q95; MS_CS_1405_Q97",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_logic",
+    "title": "Translate exactly one without an accidental injection",
+    "stem": "Every researcher reviews exactly one paper, but several researchers may review the same paper. Which formula states this, with predicates $R(x),P(y),V(x,y)$?",
+    "options": [
+      "$\\forall x(R(x)\\Rightarrow\\exists y(P(y)\\land V(x,y)\\land\\forall z((P(z)\\land V(x,z))\\Rightarrow z=y)))$",
+      "$\\forall y(P(y)\\Rightarrow\\exists!x(R(x)\\land V(x,y)))$",
+      "$\\forall x\\exists y(R(x)\\land P(y)\\land V(x,y))$",
+      "$\\exists y(P(y)\\land\\forall x(R(x)\\Rightarrow V(x,y)))$"
+    ],
+    "answer": 1,
+    "solution": "The first formula imposes existence for each researcher and makes every other reviewed paper equal to the chosen paper. It does not compare choices made by different researchers, so shared targets are allowed.\n\nThe second reverses the source and target roles and requires exactly one researcher per paper. The third asserts that every domain object is a researcher and supplies no uniqueness clause. The fourth requires one common paper for all researchers, which the statement does not require. Here $\\exists!$ in option two abbreviates existence and uniqueness, rather than a new primitive proof rule.",
+    "pattern": "Phd_CS_1405_Q13; Phd_CS_1405_Q14",
+    "difficulty": "Hard",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_logic",
+    "title": "An implication under an empty restriction",
+    "stem": "A nonempty model has no objects satisfying $A(x)$. Which pair of truth values belongs to $\\forall x(A(x)\\Rightarrow B(x))$ and $\\exists x(A(x)\\land B(x))$?",
+    "options": [
+      "True, true.",
+      "True, false.",
+      "False, true.",
+      "False, false."
+    ],
+    "answer": 2,
+    "solution": "For every domain object the implication has a false antecedent, hence is true. Its universal closure is true. The existential conjunction requires an $A$ witness, but none exists, so it is false.\n\nThe nonempty domain does not ensure that a restricted predicate has a witness. Options one and three invent an $A$ object; options three and four also confuse vacuous truth with failure of universal quantification. This distinction is essential when converting an English subject restriction into a formula.",
+    "pattern": "Phd_CS_1405_Q14; Phd_CS_1405_Q16",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_logic",
+    "title": "Entailment with a missing converse",
+    "stem": "Premises are $p\\Rightarrow q$, $r\\Rightarrow q$, and $\\neg q\\lor s$. Which statement must follow?",
+    "options": [
+      "$s\\Rightarrow p$",
+      "$p\\Rightarrow s$",
+      "$q\\Rightarrow p$",
+      "$\\neg s\\Rightarrow r$"
+    ],
+    "answer": 2,
+    "solution": "Rewrite the third premise as $q\\Rightarrow s$. Compose it with $p\\Rightarrow q$ to obtain $p\\Rightarrow s$.\n\nFor the first and third options, take $p=0,q=1,r=0,s=1$; the premises hold, but both conclusions fail. For the final option, all four variables false satisfy the premises while $\\neg s\\Rightarrow r$ is false. A conditional chain supports its forward implication and contrapositive, not its converse.",
+    "pattern": "Phd_CS_1405_Q16; Phd_CS_1405_Q22",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_logic",
+    "title": "Count assignments with precisely two true implications",
+    "stem": "Among $p\\Rightarrow q$, $q\\Rightarrow r$, and $r\\Rightarrow p$, exactly two must be true. How many assignments to $p,q,r$ meet this requirement?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "answer": 4,
+    "solution": "The all-zero and all-one assignments make all three implications true. Each of the other six binary cycles contains exactly one transition from 1 to 0, so exactly one implication is false and two are true.\n\nFor example, 110 makes the middle implication false and the other two true. Three would count only the rows with a single true variable; four would miscount the mixed rows. The cyclic structure limits the number of false transitions, which is more informative than evaluating each implication independently.",
+    "pattern": "MS_CS_1405_Q99; Phd_CS_1405_Q22",
+    "difficulty": "Hard",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_logic",
+    "title": "Negate a uniqueness specification",
+    "stem": "Let $S(x,y)$ mean that $y$ is a solution for input $x$. What is the negation of \u201cevery input has exactly one solution\u201d?",
+    "options": [
+      "Every input has no solution.",
+      "Some input has no solution or at least two distinct solutions.",
+      "Some input has exactly two solutions.",
+      "Every input has at least two solutions."
+    ],
+    "answer": 2,
+    "solution": "Write the original as $\\forall x\\exists y(S(x,y)\\land\\forall z(S(x,z)\\Rightarrow z=y))$. Negating the outer universal supplies an input at which existence or uniqueness fails.\n\nExistence fails when no $y$ satisfies $S$. Uniqueness fails when two distinct solutions both satisfy $S$. Their disjunction is the complete negation. Exactly two excludes three or infinitely many solutions, while the universal alternatives change the quantifier and are too strong.",
+    "pattern": "Phd_CS_1405_Q13; Phd_CS_1405_Q14",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_sets",
+    "title": "Recover exactly-two and outside counts",
+    "stem": "Three subsets of a 60-element universe have sizes 25, 22, and 20. Their pairwise intersections have sizes 10, 9, and 8; the triple intersection has size 4. What are the numbers in exactly two sets and in none?",
+    "options": [
+      "15 and 16.",
+      "27 and 16.",
+      "15 and 20.",
+      "19 and 16."
+    ],
+    "answer": 1,
+    "solution": "The sum of pair intersections is 27, but each triple member contributes three. Exactly-two membership is $27-3\\cdot4=15$.\n\nInclusion-exclusion gives union size $25+22+20-10-9-8+4=44$, so sixteen elements are outside. These data are feasible: exclusive pair cells have sizes 6, 5, and 4; the single-only cells are 10, 8, and 7. The distractors either retain triple overcounts or subtract the triple correction with the wrong sign.",
+    "pattern": "Phd_CS_1405_Q21",
+    "difficulty": "Hard",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_sets",
+    "title": "Two nested strict inclusions",
+    "stem": "If $|U|=5$, how many ordered pairs $(A,B)$ satisfy $\\varnothing\\ne A\\subsetneq B\\subsetneq U$?",
+    "options": [
+      "150",
+      "120",
+      "180",
+      "90"
+    ],
+    "answer": 1,
+    "solution": "Partition $U$ into the three nonempty labeled regions $A$, $B\\setminus A$, and $U\\setminus B$. Every element chooses a region, so start with $3^5$ assignments.\n\nExclude assignments missing at least one region: $3^5-3\\cdot2^5+3=150$. The intersections of two missing-region events leave one region, yielding the final three. There is no division by $3!$: the regions have different roles. The other counts lose a strictness condition or confuse labeled regions with unlabeled groups.",
+    "pattern": "MS_CS_1405_Q120; MS_CS_1405_Q124",
+    "difficulty": "Hard",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_sets",
+    "title": "Power-set difference is not a power set",
+    "stem": "$|A|=4$, $|B|=3$, and $|A\\cap B|=2$. What is $|\\mathcal P(A)\\setminus\\mathcal P(B)|$?",
+    "options": [
+      "4",
+      "8",
+      "12",
+      "16"
+    ],
+    "answer": 3,
+    "solution": "A set belongs to both power sets exactly when it is a subset of $A\\cap B$. Hence the intersection of the two power sets has size $2^2=4$.\n\nThere are $2^4=16$ subsets of $A$, so the requested difference has size $16-4=12$. It is not $\\mathcal P(A\\setminus B)$: a subset using both shared and exclusive elements is still counted in the requested difference. Four counts only subsets of the exclusive region; sixteen ignores shared subsets.",
+    "pattern": "MS_CS_1405_Q101; MS_CS_1405_Q37",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_sets",
+    "title": "A symmetric-difference cancellation",
+    "stem": "$|A|=11$, $|B|=9$, and $|A\\triangle B|=12$. Find $|A\\cap B|$ and $|(A\\triangle B)\\triangle B|$.",
+    "options": [
+      "4 and 11.",
+      "8 and 11.",
+      "4 and 12.",
+      "4 and 9."
+    ],
+    "answer": 1,
+    "solution": "Use $|A\\triangle B|=|A|+|B|-2|A\\cap B|$, yielding an intersection size of four.\n\nMembership in symmetric difference is XOR. Each membership bit of $B$ is toggled twice in $(A\\triangle B)\\triangle B$, so the resulting set is $A$ and has size eleven. The two quantities ask different questions: one is recovered numerically, the other follows from algebraic cancellation.",
+    "pattern": "MS_CS_1405_Q37; MS_CS_1405_Q99",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_sets",
+    "title": "An equation between unions imposes one missing region",
+    "stem": "Fix $B\\subseteq U$ with $|U|=8$ and $|B|=3$. How many $A\\subseteq U$ satisfy $A\\cup B=U$ and $A\\cap B\\ne\\varnothing$?",
+    "options": [
+      "7",
+      "31",
+      "56",
+      "63"
+    ],
+    "answer": 1,
+    "solution": "Every one of the five elements outside $B$ must lie in $A$. The only free choices are which elements of $B$ to include. At least one must be chosen, giving $2^3-1=7$.\n\nThese seven choices each determine a unique whole set $A$; the fixed outside region supplies no multiplicative factor. Thirty-one incorrectly makes the outside region variable, while the other values introduce independent choices that the union equation already forbids.",
+    "pattern": "MS_CS_1405_Q37; Phd_CS_1405_Q21",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_sets",
+    "title": "Transitivity versus downward closure of all subsets",
+    "stem": "For $S=\\{\\varnothing,\\{\\varnothing\\},\\{\\varnothing,\\{\\varnothing\\}\\}\\}$, which is correct?",
+    "options": [
+      "$\\bigcup S=S$ and $S=\\mathcal P(S)$.",
+      "$\\bigcup S\\subsetneq S$ and $S\\subsetneq\\mathcal P(S)$.",
+      "$\\bigcup S\\not\\subseteq S$.",
+      "$S\\not\\subseteq\\mathcal P(S)$."
+    ],
+    "answer": 2,
+    "solution": "The union is $\\{\\varnothing,\\{\\varnothing\\}\\}$, containing two elements versus the family's three, so it is a proper subset.\n\nEach member of $S$ is a subset of $S$, establishing $S\\subseteq\\mathcal P(S)$. It is proper because the power set has eight elements. Transitivity does not make a set equal to its power set and does not mean it contains every subset of itself. The other alternatives confuse those distinct claims.",
+    "pattern": "MS_CS_1405_Q101; Phd_CS_1405_Q18",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_sets",
+    "title": "Count a prescribed Venn-region population",
+    "stem": "$U$ has six distinct elements. Count ordered pairs $(A,B)$ with $|A\\setminus B|=2$, $|B\\setminus A|=1$, and $|A\\cap B|=1$.",
+    "options": [
+      "360",
+      "180",
+      "720",
+      "90"
+    ],
+    "answer": 2,
+    "solution": "The four labeled membership regions have sizes 2, 1, 1, and 2, the last being the complement of the union. Assign six distinct elements to these regions by a multinomial count: $6!/(2!1!1!2!)=180$.\n\nThere is no further division for exchanging the two size-two regions: one is $A$-only and the other is outside both. Likewise, exchanging $A$ and $B$ changes the specified sizes. The distractors omit or add a symmetry factor without checking the labels.",
+    "pattern": "MS_CS_1405_Q120; Phd_CS_1405_Q21",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_sets",
+    "title": "A Cartesian-product identity with a boundary case",
+    "stem": "Which identity holds for every set $C$, including $C=\\varnothing$?",
+    "options": [
+      "$(A\\setminus B)\\times C=(A\\times C)\\setminus(B\\times C)$",
+      "$(A\\times C)\\setminus(B\\times C)=(A\\setminus B)\\times(C\\setminus C)$",
+      "$A\\times C=B\\times C\\Rightarrow A=B$",
+      "$(A\\cup B)\\times C=(A\\times C)\\cap(B\\times C)$"
+    ],
+    "answer": 1,
+    "solution": "A pair lies in the left side exactly when its first coordinate lies in $A$ but not $B$ and its second coordinate lies in $C$. This is precisely membership in the right-side product difference.\n\nThe second proposed identity always has empty right side. The third fails when $C$ is empty and $A\\ne B$. The fourth would require union on the right, not intersection. Product cancellation requires a nonempty common factor, whereas the distributive difference identity needs no such assumption.",
+    "pattern": "MS_CS_1405_Q37; MS_CS_1405_Q40",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_proof",
+    "title": "A congruence implication and its converse",
+    "stem": "For integers $n$, assess (I) $6\\mid n\\Rightarrow6\\mid n^2$ and (II) $6\\mid n^2\\Rightarrow6\\mid n$.",
+    "options": [
+      "Only I.",
+      "Only II.",
+      "Both.",
+      "Neither."
+    ],
+    "answer": 3,
+    "solution": "I follows by writing $n=6k$. For II, divisibility of $n^2$ by two implies $n$ is even, and divisibility by three implies $n$ is divisible by three, since two and three are prime. Their coprimality gives $6\\mid n$.\n\nThe corresponding converse for a non-squarefree divisor can fail: $4\\mid2^2$ but $4\\nmid2$. The correct proof therefore uses the prime structure of six, rather than asserting that squaring preserves every divisibility equivalence.",
+    "pattern": "MS_CS_1405_Q38; MS_CS_1405_Q125",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_proof",
+    "title": "An existence-and-uniqueness parameter",
+    "stem": "For which real $a$ does $(a^2-1)x=a-1$ have exactly one real solution?",
+    "options": [
+      "$a\\ne1$",
+      "$a\\ne-1$",
+      "$a\\notin\\{-1,1\\}$",
+      "Every real $a$."
+    ],
+    "answer": 3,
+    "solution": "A linear equation has a unique solution exactly when its coefficient $a^2-1$ is nonzero. Thus both $a=1$ and $a=-1$ are excluded.\n\nAt $a=1$, the equation is $0=0$, giving every real number as a solution. At $a=-1$, it is $0=-2$, giving none. For all remaining parameters, division gives $x=(a-1)/((a-1)(a+1))=1/(a+1)$. Cancelling $a-1$ before classifying $a=1$ loses the infinite-solution case.",
+    "pattern": "MS_CS_1405_Q40; Phd_CS_1405_Q13",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_proof",
+    "title": "Which counterexample refutes a universal claim?",
+    "stem": "The claim is \u201cfor all positive integers $a,b$, if $a+b$ is even then $a$ and $b$ are both even.\u201d Which pair is a valid counterexample?",
+    "options": [
+      "(2,4).",
+      "(1,2).",
+      "(3,5).",
+      "(0,2)."
+    ],
+    "answer": 3,
+    "solution": "A counterexample must satisfy the domain, make the antecedent true, and make the consequent false. The pair $(3,5)$ consists of positive integers with even sum eight, but neither is even.\n\nThe first pair satisfies the conclusion and is not a counterexample. The second has odd sum and therefore does not activate the implication. Zero violates the stated positive domain in the last pair. This three-part check avoids a common mistake: refuting the conclusion where the theorem makes no assertion.",
+    "pattern": "MS_CS_1405_Q95; Phd_CS_1405_Q16",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_proof",
+    "title": "Two forms of evidence",
+    "stem": "A formula $P(n)$ has been verified for $1\\le n\\le10^6$. Which additional statement proves it for all positive integers?",
+    "options": [
+      "It also holds at $10^6+1$.",
+      "For every $n\\ge1$, $P(n)\\Rightarrow P(n+1)$.",
+      "A random integer above $10^6$ satisfies it.",
+      "No counterexample was found."
+    ],
+    "answer": 2,
+    "solution": "The verified range contains the base case $P(1)$. A universal valid successor implication propagates truth from that base through all positive integers, completing induction.\n\nOne more check still leaves infinitely many untested inputs. A random success and absence of a found counterexample are evidence, not a proof of a universal theorem. The second statement must itself be proved; assuming it merely repeats the missing obligation.",
+    "pattern": "MS_CS_1405_Q98; Phd_CE_1405_Q3",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_proof",
+    "title": "Witnesses depend on quantifier order",
+    "stem": "Over the integers, compare (I) $\\forall x\\exists y(y>x)$ and (II) $\\exists y\\forall x(y>x)$.",
+    "options": [
+      "Both are true.",
+      "Only I is true.",
+      "Only II is true.",
+      "Both are false."
+    ],
+    "answer": 2,
+    "solution": "For I, choose $y=x+1$ after the input $x$ is known. It is an integer and larger than $x$.\n\nFor II, any proposed fixed witness $y$ is defeated by choosing $x=y$. The strict inequality then fails. A witness depending on the universal variable cannot be used before that variable has been chosen. The difference is dependency, not the number of symbols or the domain's nonemptiness.",
+    "pattern": "Phd_CS_1405_Q14; MS_CS_1405_Q95",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_proof",
+    "title": "An inequality and its equality condition",
+    "stem": "For positive $x,y$ with $x+y=10$, which statement is correct?",
+    "options": [
+      "$xy\\ge25$, equality iff $x=y$.",
+      "$xy\\le25$, equality iff $x=y=5$.",
+      "$xy<25$ for every such pair.",
+      "$xy=25$ for every such pair."
+    ],
+    "answer": 2,
+    "solution": "The nonnegative square $(x-y)^2=(x+y)^2-4xy$ implies $100-4xy\\ge0$, so $xy\\le25$.\n\nEquality is equivalent to $x-y=0$ and, under the sum constraint, occurs only at $x=y=5$. The first alternative reverses the inequality; the strict alternative excludes the attainable equality case; the final alternative confuses a maximum with a constant value. A complete extremum proof includes both the bound and an attaining witness.",
+    "pattern": "Phd_CS_1405_Q21; Phd_CS_1404_Q32",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_proof",
+    "title": "What follows from inconsistency?",
+    "stem": "In classical propositional logic, premises include $p$ and $\\neg p$. Which statement is correct?",
+    "options": [
+      "Only contradictions can be derived.",
+      "An arbitrary formula $q$ is derivable, and the premise set has no satisfying assignment.",
+      "Every formula becomes a tautology.",
+      "A satisfying assignment exists with $p$ both true and false."
+    ],
+    "answer": 2,
+    "solution": "From $p$ infer $p\\lor q$. Combine it with $\\neg p$ by disjunctive syllogism to obtain $q$. Semantically, no assignment satisfies both premises, so entailment from this premise set is vacuous.\n\nDerivability under inconsistent assumptions does not make $q$ a tautology under no assumptions. Classical assignments give each variable one truth value, not both. Keeping the premises attached to a conclusion distinguishes explosion from a change in the logic's definition of validity.",
+    "pattern": "Phd_CS_1405_Q16; MS_CS_1405_Q98",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_proof",
+    "title": "A false cancellation in a proof",
+    "stem": "A proof starts with $x=y\\ne0$, obtains $(x-y)(x+y)=y(x-y)$, cancels $x-y$, and concludes $2=1$. Where does it fail?",
+    "options": [
+      "The factorization is false.",
+      "The assumption $x=y\\ne0$ is impossible.",
+      "It divides by zero.",
+      "It uses integers instead of reals."
+    ],
+    "answer": 3,
+    "solution": "The starting assumption is possible and the displayed identity is true: both sides equal zero when $x=y$. The cancelled factor $x-y$ is exactly zero.\n\nCancellation in a field is justified only for a nonzero common factor. Since that hypothesis fails, the purported equation $x+y=y$ does not follow. The nonzero condition on $x$ does not make $x-y$ nonzero. Checking the precise divisor, rather than any nearby quantity, exposes the invalid step.",
+    "pattern": "MS_CS_1405_Q40; Phd_CS_1405_Q19",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_induction",
+    "title": "A weighted sum with a boundary",
+    "stem": "For $n\\ge1$, determine $S_n=\\sum_{k=1}^n k2^{k-1}$.",
+    "options": [
+      "$(n-1)2^n+1$",
+      "$n2^n$",
+      "$(n+1)2^n-1$",
+      "$2^n-1$"
+    ],
+    "answer": 1,
+    "solution": "At $n=1$ the proposed formula gives one, matching the sum. If it holds at $n$, then $S_{n+1}=S_n+(n+1)2^n=((n-1)+(n+1))2^n+1=n2^{n+1}+1$, exactly the formula with $n+1$.\n\nThe other choices already fail small base values or the increment identity. A correct closed form must pass both tests. The additive one is not negligible in an exact formula, even though it can be ignored in an asymptotic order.",
+    "pattern": "MS_CS_1405_Q121; MS_CS_1405_Q130",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_induction",
+    "title": "A residue-class induction requires multiple bases",
+    "stem": "A proposed proof uses $P(n)\\Rightarrow P(n+4)$ for all $n\\ge3$. Which minimal consecutive base set proves $P(n)$ for every $n\\ge3$?",
+    "options": [
+      "3 only.",
+      "3,4.",
+      "3,4,5.",
+      "3,4,5,6."
+    ],
+    "answer": 4,
+    "solution": "A step of four never changes the residue class modulo four. The four bases 3 through 6 represent all four classes among integers at least three.\n\nFor each target, repeatedly subtract four until reaching exactly one of those bases. Fewer bases leave at least one progression unreachable. This is a dependency argument, not a requirement to test arbitrary extra values; the number of bases comes from the step's residue classes.",
+    "pattern": "MS_CS_1405_Q130; MS_CS_1405_Q125",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_induction",
+    "title": "A divisibility induction with a factored step",
+    "stem": "Which statement is correct for every integer $n\\ge0$?",
+    "options": [
+      "$8\\mid5^{2n}-1$",
+      "$8\\mid5^n-1$",
+      "$16\\mid5^{2n}-1$",
+      "$3\\mid5^{2n}+1$"
+    ],
+    "answer": 1,
+    "solution": "For the first statement, the base $n=0$ is zero. In the step, $5^{2(n+1)}-1=25(5^{2n}-1)+24$. Both terms are divisible by eight if the hypothesis holds.\n\nThe second fails at $n=1$, since four is not divisible by eight. The third fails there too, since 24 is not divisible by sixteen. The fourth fails at $n=0$, where the value is two. Factoring the successor expression connects it directly to the induction hypothesis.",
+    "pattern": "MS_CS_1405_Q125; MS_CS_1405_Q38",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_induction",
+    "title": "The exact prefix-doubling exception",
+    "stem": "$u_0=2$ and $u_{n+1}=\\sum_{i=0}^n u_i$. What is $u_8$?",
+    "options": [
+      "128",
+      "256",
+      "512",
+      "1024"
+    ],
+    "answer": 2,
+    "solution": "Compute $u_1=2$. For $n\\ge1$, subtract consecutive prefix equations to obtain $u_{n+1}=2u_n$. Induction then gives $u_n=2^n$ for $n\\ge1$, so $u_8=256$.\n\nThe formula is not intended at zero, where $u_0=2$ rather than one. Using the initial value as if doubling began immediately gives 512; failing to count one doubling gives 128. A simplified recurrence often starts later than the original one.",
+    "pattern": "MS_CS_1405_Q130",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_induction",
+    "title": "An inequality starts later than expected",
+    "stem": "What is the smallest positive $N$ such that $2^n>n^2$ holds for every integer $n\\ge N$?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": 3,
+    "solution": "The claim fails at three and is equality at four. At five it holds: 32 is greater than 25.\n\nFor $n\\ge5$, $2n^2-(n+1)^2=n^2-2n-1>0$. Hence $2^n>n^2$ implies $2^{n+1}>2n^2>(n+1)^2$. Induction proves the entire tail from five, and failure at four establishes minimality. Merely observing rapid exponential growth does not identify the earliest universal threshold.",
+    "pattern": "Phd_CE_1405_Q2; MS_CS_1405_Q130",
+    "difficulty": "Hard",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_induction",
+    "title": "A full branching-tree formula",
+    "stem": "A finite rooted tree has exactly three children at every internal node. If it has 17 internal nodes, how many leaves does it have?",
+    "options": [
+      "34",
+      "35",
+      "36",
+      "51"
+    ],
+    "answer": 2,
+    "solution": "Let $I$ and $L$ count internal nodes and leaves. Counting edges by parents gives $3I$; counting edges in a finite tree gives $I+L-1$. Equating yields $L=2I+1=35$.\n\nAlternatively, replacing a leaf by an internal node with three leaves increases $I$ by one and $L$ by two, preserving the formula from the one-leaf base tree. The finite and full-branching assumptions are essential; arbitrary missing children would change the identity.",
+    "pattern": "Phd_CE_1405_Q3",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_induction",
+    "title": "Induction on a two-step recurrence",
+    "stem": "$a_0=2$, $a_1=3$, and $a_n=2a_{n-1}-a_{n-2}$ for $n\\ge2$. Which formula holds?",
+    "options": [
+      "$a_n=n+2$",
+      "$a_n=2^n+2$",
+      "$a_n=3n$",
+      "$a_n=n^2+2$"
+    ],
+    "answer": 1,
+    "solution": "Check both bases: $n+2$ gives two and three. If the formulas hold at consecutive predecessors, the recurrence yields $2((n-1)+2)-((n-2)+2)=n+2$.\n\nThis proof needs two predecessor hypotheses, not just one base value. The exponential and quadratic candidates fail the recurrence even where an initial value happens to agree; the linear candidate $3n$ fails the zero base. A recurrence of order two requires sufficient initial data to select a unique solution.",
+    "pattern": "MS_CS_1405_Q130; Phd_CS_1404_Q71",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_induction",
+    "title": "A weighted binomial identity",
+    "stem": "Evaluate $\\sum_{k=2}^{8}\\binom8k\\binom k2$.",
+    "options": [
+      "896",
+      "1792",
+      "3584",
+      "28"
+    ],
+    "answer": 2,
+    "solution": "Choose two marked elements from the eight first, then an arbitrary subset of the other six. This counts the same objects as choosing a $k$-element subset and marking two within it.\n\nThe result is $\\binom82 2^6=28\\cdot64=1792$. The identity can also be proved algebraically from $\\binom8k\\binom k2=\\binom82\\binom6{k-2}$. Twenty-eight omits all optional elements; doubling or halving the result inserts a nonexistent symmetry or constraint.",
+    "pattern": "MS_CS_1405_Q121",
+    "difficulty": "Hard",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_relations",
+    "title": "A relation defined by a modular difference",
+    "stem": "On $\\mathbb Z$, $xRy$ iff $x-y\\pmod6$ lies in $\\{0,2,4\\}$. How many equivalence classes are there?",
+    "options": [
+      "2",
+      "3",
+      "6",
+      "It is not an equivalence."
+    ],
+    "answer": 1,
+    "solution": "The permitted residues are the multiples of two modulo six. A difference is permitted exactly when it is even. The relation therefore identifies integers of the same parity.\n\nZero belongs to the permitted set, negatives preserve it, and sums preserve it, proving equivalence. There are exactly two classes, even and odd. Counting the three allowed differences as three classes confuses a subgroup's size with its index.",
+    "pattern": "MS_CS_1405_Q38; Phd_CS_1405_Q23",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_relations",
+    "title": "Transitive closure is not union",
+    "stem": "$R_1$ has classes $\\{1,2\\},\\{3\\},\\{4\\}$ and $R_2$ has classes $\\{1\\},\\{2,3\\},\\{4\\}$. How many ordered pairs are in the smallest equivalence containing $R_1\\cup R_2$?",
+    "options": [
+      "8",
+      "10",
+      "12",
+      "16"
+    ],
+    "answer": 2,
+    "solution": "The edges joining 1 to 2 and 2 to 3 force all of 1,2,3 into one class by transitivity. Element four remains alone.\n\nThe generated relation therefore has $3^2+1^2=10$ ordered pairs. The original union has only eight, missing both 1-to-3 directions. Sixteen would join the isolated fourth element without justification. Equivalence closure merges connected blocks, not all blocks.",
+    "pattern": "Phd_CS_1405_Q23",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_relations",
+    "title": "Count relations with two compatible properties",
+    "stem": "On a four-element set, how many relations are simultaneously symmetric and antisymmetric, without any reflexivity requirement?",
+    "options": [
+      "1",
+      "4",
+      "16",
+      "64"
+    ],
+    "answer": 3,
+    "solution": "If an off-diagonal pair occurs, symmetry requires its reverse, while antisymmetry then forces equal endpoints, a contradiction. Thus only diagonal pairs may occur.\n\nEach of the four diagonal pairs can independently be present or absent, yielding $2^4=16$. Reflexivity would force all four and leave only one relation, but it is explicitly not required. The other counts confuse optional diagonal pairs with mandatory ones or permit forbidden off-diagonal pairs.",
+    "pattern": "Phd_CS_1405_Q23; MS_CS_1405_Q38",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_relations",
+    "title": "Composition direction and transitivity",
+    "stem": "On $\\{1,2,3,4\\}$ let $R=\\{(1,2),(2,3),(3,4)\\}$. What is $R^2\\cup R^3$, where $xR^2z$ means $\\exists y(xRy\\land yRz)$?",
+    "options": [
+      "$\\{(1,3),(2,4),(1,4)\\}$",
+      "$\\{(3,1),(4,2),(4,1)\\}$",
+      "$R$",
+      "$\\{(1,4)\\}$"
+    ],
+    "answer": 1,
+    "solution": "Two-edge paths yield $(1,3)$ and $(2,4)$. The only three-edge path yields $(1,4)$. Their union is the first set.\n\nThe reverse pairs would require reversing the directed edges; the original relation consists of length-one paths and is not what was requested. Keeping only $(1,4)$ omits all length-two paths. Stating the composition convention prevents notation differences from changing the answer.",
+    "pattern": "Phd_CS_1405_Q23; Phd_CS_1405_Q13",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_relations",
+    "title": "Count an equivalence with prescribed block sizes",
+    "stem": "A labeled six-element set is partitioned into two classes of size two and two classes of size one. How many distinct equivalence relations have this shape?",
+    "options": [
+      "45",
+      "90",
+      "180",
+      "15"
+    ],
+    "answer": 1,
+    "solution": "Choose the two singleton elements in $\\binom62=15$ ways. The remaining four elements can be partitioned into two unordered pairs in three ways. Thus the count is 45.\n\nEquivalently $6!/((2!)^2 2!2!)=45$, with separate divisors for ordering inside pairs and exchanging equal-size blocks. Ninety labels one pair block; 180 also labels singleton blocks. Fifteen omits pairing the four remaining elements.",
+    "pattern": "MS_CS_1405_Q120; Phd_CS_1405_Q23",
+    "difficulty": "Hard",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_relations",
+    "title": "Minimal does not mean least",
+    "stem": "Order divisors of 12 by divisibility. Within the induced subposet $\\{2,3,4,6\\}$, which statement is correct?",
+    "options": [
+      "2 is least.",
+      "There are two minimal elements and no least element.",
+      "6 is greatest.",
+      "There are four minimal elements."
+    ],
+    "answer": 2,
+    "solution": "Elements 2 and 3 have no smaller elements in this induced set, so both are minimal. Neither divides the other, so no element is below all elements and there is no least element.\n\nThe maximal elements are 4 and 6; neither divides the other, so six is not greatest. Four is not minimal because two lies below it, and six is not minimal because two and three lie below it. Ambient elements such as one cannot be used when the question restricts to an induced subposet.",
+    "pattern": "Phd_CS_1405_Q19; MS_CS_1405_Q38",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_relations",
+    "title": "A difference condition that fails one property",
+    "stem": "On $\\mathbb R$, define $xRy$ iff $x-y\\in\\{0,1,-1\\}$. Which classification is correct?",
+    "options": [
+      "Reflexive, symmetric, and transitive.",
+      "Reflexive and symmetric, but not transitive.",
+      "Symmetric and transitive, but not reflexive.",
+      "Only reflexive."
+    ],
+    "answer": 2,
+    "solution": "Zero difference proves reflexivity, and the allowed set is closed under negation, proving symmetry. It is not closed under addition: 1 and 1 are allowed, but 2 is not.\n\nConcretely, $2R1$ and $1R0$ hold while $2R0$ does not. Thus transitivity fails. The first alternative assumes symmetry and reflexivity imply equivalence; the others discard properties directly established by the permitted differences.",
+    "pattern": "MS_CS_1405_Q38",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_relations",
+    "title": "A quotient map and relation inclusion",
+    "stem": "$R,S$ are equivalences on finite $A$, with $R\\subseteq S$. What can be asserted about the numbers of classes?",
+    "options": [
+      "$|A/R|\\le|A/S|$",
+      "$|A/R|\\ge|A/S|$",
+      "They are always equal.",
+      "They are unrelated."
+    ],
+    "answer": 2,
+    "solution": "Each $R$ class lies within exactly one $S$ class. Sending an $R$ class to that containing $S$ class defines a surjective map of quotient sets.\n\nFinite surjectivity implies at least as many source classes as target classes. Strict inequality occurs when equality classes are merged into one block; equality occurs when $R=S$. Adding related pairs coarsens a partition rather than creating more blocks.",
+    "pattern": "MS_CS_1405_Q40; Phd_CS_1405_Q23",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_functions",
+    "title": "Exactly three output values",
+    "stem": "How many functions from a five-element set to a four-element set have an image of size exactly three?",
+    "options": [
+      "600",
+      "360",
+      "240",
+      "1024"
+    ],
+    "answer": 1,
+    "solution": "Choose the three used outputs in four ways. For that chosen labeled codomain, count onto maps: $3^5-3\\cdot2^5+3=150$.\n\nMultiply to get 600. Selecting three outputs and then using unrestricted maps would include functions omitting one of the selected values. The factor $3!$ must not be added after inclusion-exclusion because the outputs were labeled from the start.",
+    "pattern": "MS_CS_1405_Q124; MS_CS_1405_Q40",
+    "difficulty": "Hard",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_functions",
+    "title": "Number of sections of a fixed map",
+    "stem": "A surjection has three fibers of sizes 2, 3, and 4. How many right inverses $g$ satisfy $f\\circ g=\\operatorname{id}$?",
+    "options": [
+      "9",
+      "24",
+      "12",
+      "36"
+    ],
+    "answer": 2,
+    "solution": "A right inverse chooses one representative from each fiber. These are independent choices, giving $2\\cdot3\\cdot4=24$.\n\nSumming the fiber sizes counts domain elements rather than representative combinations. A section must choose one in every fiber, and cannot choose a value outside the matching fiber. Distinguish right inverses of this fixed map from the number of possible surjections with those fiber sizes.",
+    "pattern": "MS_CS_1405_Q40; MS_CS_1405_Q124",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_functions",
+    "title": "Weakly increasing with fixed endpoints",
+    "stem": "Count weakly increasing functions $f:\\{1,\\ldots,6\\}\\to\\{1,2,3,4\\}$ with $f(1)=1$ and $f(6)=4$.",
+    "options": [
+      "15",
+      "35",
+      "56",
+      "70"
+    ],
+    "answer": 2,
+    "solution": "The middle four values form a weakly increasing sequence drawn from four possibilities. The fixed endpoints impose no additional restriction on those interior values.\n\nEncode their four multiplicities as nonnegative integers summing to four. Stars and bars gives $\\binom73=35$. Counting all six values would ignore the fixed endpoints, while treating them as strictly increasing would prohibit repetition that the statement permits.",
+    "pattern": "MS_CS_1405_Q122",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_functions",
+    "title": "An idempotent map with two fixed points",
+    "stem": "On a five-element set, how many functions have exactly two fixed points and satisfy $f\\circ f=f$?",
+    "options": [
+      "40",
+      "80",
+      "160",
+      "20"
+    ],
+    "answer": 2,
+    "solution": "For an idempotent map, every image point is fixed: if $y=f(x)$ then $f(y)=f(f(x))=f(x)=y$. Conversely, sending every nonfixed point into the fixed set makes the map idempotent.\n\nChoose the two fixed points in ten ways; each of the other three points chooses one of them, giving $2^3$ maps. The total is eighty. No other fixed point can appear because all three remaining points are sent into the chosen set.",
+    "pattern": "MS_CS_1405_Q40; Phd_CS_1404_Q31",
+    "difficulty": "Hard",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_functions",
+    "title": "Which composition implication survives?",
+    "stem": "$f:A\\to B$ and $g:B\\to C$ are arbitrary maps. Which implication is always correct?",
+    "options": [
+      "If $g\\circ f$ is injective, $g$ is injective.",
+      "If $g\\circ f$ is surjective, $f$ is surjective.",
+      "If $g\\circ f$ is bijective, $f$ is injective and $g$ is surjective.",
+      "If $f$ is surjective, $g\\circ f$ is injective."
+    ],
+    "answer": 3,
+    "solution": "Injectivity of the composite implies injectivity of $f$: equal $f$ outputs would produce equal composite outputs. Surjectivity of the composite implies surjectivity of $g$: every target is reached through some intermediate $f$ output. Hence the third claim holds.\n\nThe composite tests $g$ only on $f(A)$, so $g$ may fail injectivity elsewhere. Likewise, $f$ may miss elements that $g$ does not need to cover $C$. Surjectivity of $f$ alone gives no injectivity guarantee for either stage.",
+    "pattern": "MS_CS_1405_Q40; Phd_CS_1405_Q19",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_functions",
+    "title": "Count functions with a prescribed fiber",
+    "stem": "$A$ has seven elements, $B$ has three labeled elements, and one distinguished $b\\in B$ must have exactly three preimages. How many functions satisfy this?",
+    "options": [
+      "560",
+      "280",
+      "840",
+      "2187"
+    ],
+    "answer": 1,
+    "solution": "Choose the three preimages of $b$ in $\\binom73=35$ ways. Each of the other four inputs must avoid $b$ and has two output choices, giving $2^4=16$.\n\nThe count is $35\\cdot16=560$. There is no onto requirement for the other outputs. Dividing by two would incorrectly identify their labels; using $3^4$ would permit extra preimages of the distinguished value.",
+    "pattern": "MS_CS_1405_Q124; Phd_CS_1405_Q13",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_functions",
+    "title": "Preimages and images behave differently",
+    "stem": "For any $f:A\\to B$ and subsets $X,Y\\subseteq A$, which statement always holds?",
+    "options": [
+      "$f(X\\cap Y)=f(X)\\cap f(Y)$",
+      "$f(X\\setminus Y)=f(X)\\setminus f(Y)$",
+      "$f(X\\cup Y)=f(X)\\cup f(Y)$",
+      "$f(X)=f(Y)\\Rightarrow X=Y$"
+    ],
+    "answer": 3,
+    "solution": "An output is in the image of a union exactly when some preimage lies in at least one input set, proving preservation of union.\n\nFor all other alternatives, use a constant map on two distinct inputs and take the two distinct singleton subsets. Their image intersection is nonempty although their input intersection is empty; their image difference is empty although the image of their input difference is not; and their equal images do not force equal inputs. Extra injectivity would fix these failures, but was not assumed.",
+    "pattern": "MS_CS_1405_Q40; MS_CS_1405_Q37",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_functions",
+    "title": "Count involutions by their two-cycles",
+    "stem": "How many bijections on a five-element set satisfy $f^2=\\operatorname{id}$ and have exactly one fixed point?",
+    "options": [
+      "15",
+      "30",
+      "45",
+      "60"
+    ],
+    "answer": 1,
+    "solution": "Choose the sole fixed point in five ways. The other four points must be paired into two transpositions, since every cycle of an involution has length one or two.\n\nThere are $4!/(2^2 2!)=3$ unordered pairings, giving fifteen maps. Ordered pairs and an ordering of the transpositions describe the same bijection and must not be counted again. A five-cycle is a bijection but not an involution.",
+    "pattern": "MS_CS_1405_Q120; MS_CS_1405_Q40",
+    "difficulty": "Hard",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_invariants",
+    "title": "A modular move obstruction",
+    "stem": "A state is $(x,y)\\in\\mathbb Z^2$. Allowed moves add either $(2,1)$ or $(-1,2)$, or subtract either vector. Starting at $(0,0)$, which target is impossible?",
+    "options": [
+      "(5,0).",
+      "(0,5).",
+      "(2,1).",
+      "(1,0)."
+    ],
+    "answer": 4,
+    "solution": "The residue $x-2y\\pmod5$ is unchanged: the two move increments are zero and negative five. The initial residue is zero, while $(1,0)$ has residue one, proving impossibility.\n\nThe other targets are explicitly reachable: twice $(2,1)$ minus $(-1,2)$ gives $(5,0)$; once $(2,1)$ plus twice $(-1,2)$ gives $(0,5)$; the third is a permitted move. An invariant proves impossibility, but reachability of the other choices needs a construction.",
+    "pattern": "MS_CS_1405_Q125; Phd_CE_1405_Q3",
+    "difficulty": "Hard",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_invariants",
+    "title": "An invariant that is true but insufficient",
+    "stem": "A sum loop processes $a_0,\\ldots,a_{n-1}$ with initialization $s=0,k=0$ and update `s+=a[k]; k++`. Which invariant directly proves that the final sum is correct?",
+    "options": [
+      "$s\\ge0$",
+      "$s=\\sum_{i=0}^{k-1}a_i$ and $0\\le k\\le n$",
+      "$s=\\sum_{i=0}^{n-1}a_i$ at every iteration",
+      "$k<n$"
+    ],
+    "answer": 2,
+    "solution": "At initialization the empty prefix sum is zero. The update adds the next element and advances the boundary by one, preserving the prefix equation and bounds.\n\nAt exit, $k=n$, so the prefix is the entire array. Nonnegativity is not even valid for arbitrary signed data and would not identify the sum. The third equation is generally false before completion; the final strict inequality fails at exit. A useful invariant connects progress state to the desired postcondition.",
+    "pattern": "MS_CS_1393_Q167; Phd_CE_1405_Q9",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_invariants",
+    "title": "Binary powering: exact multiplication count",
+    "stem": "Binary exponentiation starts with $r=1,b=a,e=13$. Each iteration multiplies $r$ by $b$ if $e$ is odd, then squares $b$ unconditionally and replaces $e$ by $\\lfloor e/2\\rfloor$. Count all multiplications, including the final square.",
+    "options": [
+      "6",
+      "7",
+      "8",
+      "13"
+    ],
+    "answer": 2,
+    "solution": "The exponent states are 13, 6, 3, and 1, so four iterations square the base. The odd states 13, 3, and 1 each multiply the accumulator, adding three.\n\nSeven multiplications are performed. The preserved identity is $rb^e=a^{13}$; odd iterations move one factor to the accumulator before halving. Omitting the final unused square would give six for a different implementation. Counts depend on the exact code, not just the logarithmic complexity.",
+    "pattern": "Phd_CS_1405_Q20; MS_CS_1393_Q167",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_invariants",
+    "title": "A lexicographic termination bound",
+    "stem": "For integer state $(i,j)$ with $0\\le i\\le m$ and $0\\le j\\le n$, a loop decreases $j$ by one when $j>0$; when $j=0$ and $i>0$, it decreases $i$ and sets $j=n$. Which integer ranking decreases by one at every step?",
+    "options": [
+      "$i+j$",
+      "$i(n+1)+j$",
+      "$ij$",
+      "$i-j$"
+    ],
+    "answer": 2,
+    "solution": "Within a row, decrementing $j$ decreases $i(n+1)+j$ by one. At a row boundary, the new value is $(i-1)(n+1)+n=i(n+1)-1$, again one less.\n\nThe ranking is nonnegative and zero only at $(0,0)$, so it proves termination and an exact number of steps equal to its initial value. The simple sum can increase on reset; the product is zero along whole boundaries; $i-j$ increases when $j$ decreases.",
+    "pattern": "MS_CS_1393_Q167; Phd_CS_1405_Q20",
+    "difficulty": "Hard",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_invariants",
+    "title": "Parity in a coefficient problem",
+    "stem": "A polynomial is built by multiplying ten factors, each contributing either $x^3$ or $x^{-1}$. Which exponent cannot occur?",
+    "options": [
+      "-10",
+      "-2",
+      "6",
+      "8"
+    ],
+    "answer": 4,
+    "solution": "If $j$ factors contribute $x^3$, the exponent is $3j-(10-j)=4j-10$. Thus every exponent is congruent to two modulo four and $0\\le j\\le10$.\n\nThe first three values correspond to $j=0,2,4$. Eight would require $j=18/4$, not an integer. Both congruence and range are required; a congruent exponent outside the achievable interval would also be impossible.",
+    "pattern": "MS_CS_1405_Q125",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_invariants",
+    "title": "A conservation law for a full tree",
+    "stem": "A finite full binary tree has 19 leaves. What pair gives its number of internal nodes and total edges?",
+    "options": [
+      "18 and 36.",
+      "19 and 38.",
+      "18 and 37.",
+      "20 and 38."
+    ],
+    "answer": 1,
+    "solution": "For a full binary tree, $L=I+1$. Hence $I=18$ and the total node count is 37. A finite tree has one fewer edge than nodes, giving 36.\n\nEquivalently, each of the eighteen internal nodes supplies two child edges. This double check verifies both coordinates. The distractors confuse leaves with internal nodes or count edges as all nodes. Fullness is necessary for the internal-node formula.",
+    "pattern": "Phd_CE_1405_Q3",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_invariants",
+    "title": "Safety without inductiveness",
+    "stem": "A program starts at $x=0$ and repeatedly adds two, never using other moves. Which statement is true of property $x\\ne1$?",
+    "options": [
+      "It is false at initialization.",
+      "It is inductive over all states satisfying it.",
+      "It is true on all reachable states, but not inductive over all states satisfying it.",
+      "It proves termination."
+    ],
+    "answer": 3,
+    "solution": "Every reachable value is a nonnegative even integer, so no reachable value is one. However the property also permits state $x=-1$, whose next state is one. Therefore the property alone is not closed under the transition over its full state set.\n\nThe stronger invariant \u201c$x$ is even and nonnegative\u201d excludes the spurious predecessor. Safety can be true without the proposed assertion being inductive. The program can run forever, so a safety condition does not prove termination.",
+    "pattern": "Phd_CE_1405_Q3; MS_CS_1393_Q167",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_invariants",
+    "title": "A recursive permutation preserves a sum but changes order",
+    "stem": "A recursive routine splits distinct values around a pivot and returns greater-block, pivot, smaller-block. Which specification is sufficient to prove descending sorting?",
+    "options": [
+      "The output sum equals the input sum.",
+      "The output length equals input length.",
+      "The output is a permutation, each child is descending, and both cross-block inequalities hold.",
+      "The pivot occurs somewhere in the output."
+    ],
+    "answer": 3,
+    "solution": "Permutation preservation ensures no value is lost or duplicated. Child sortedness handles within-block neighbors, and cross-block inequalities place all greater values before the pivot and all smaller values after it. Together they prove the complete ordering and preservation contract.\n\nLength and sum alone allow many incorrect multisets; retaining a pivot says nothing about the remaining order. A recursive proof must retain enough information about each child to justify the combine step.",
+    "pattern": "Phd_CE_1405_Q9; Phd_CE_1405_Q16",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_number",
+    "title": "A congruence with several solutions",
+    "stem": "How many integers $x$ with $0\\le x<84$ satisfy $12x\\equiv18\\pmod{30}$?",
+    "options": [
+      "5",
+      "6",
+      "16",
+      "0"
+    ],
+    "answer": 3,
+    "solution": "The gcd is six and divides eighteen. Divide by six: $2x\\equiv3\\pmod5$. Invert two modulo five to obtain $x\\equiv4\\pmod5$.\n\nSolutions in the interval are $4,9,\\ldots,79$, giving sixteen. Eighty-four is the next solution, but the upper bound is strict. Six counts the solution residues modulo thirty, not occurrences in this longer interval; zero ignores compatibility. Reduce the modulus and then count actual integers in the requested range.",
+    "pattern": "MS_CS_1405_Q125; MS_CS_1405_Q129",
+    "difficulty": "Hard",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_number",
+    "title": "Compatible noncoprime remainders",
+    "stem": "Solve $x\\equiv5\\pmod8$ and $x\\equiv1\\pmod6$. What is the least positive solution and period?",
+    "options": [
+      "13 and 24.",
+      "5 and 48.",
+      "13 and 48.",
+      "No solution."
+    ],
+    "answer": 1,
+    "solution": "Compatibility requires the residues to agree modulo $\\gcd(8,6)=2$; both are odd, so they do. Set $x=5+8k$. Reduction modulo six gives $2k\\equiv2\\pmod6$, hence $k\\equiv1\\pmod3$.\n\nThus $x=13+24t$. The period is the lcm, twenty-four, not the product forty-eight. The first residue five fails the second congruence. Compatibility precedes inversion because the original moduli are not coprime.",
+    "pattern": "MS_CS_1405_Q38; MS_CS_1405_Q125",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_number",
+    "title": "Exponent reduction with a nonunit",
+    "stem": "Find $6^{100}\\pmod{15}$.",
+    "options": [
+      "1",
+      "6",
+      "0",
+      "9"
+    ],
+    "answer": 2,
+    "solution": "Six is idempotent modulo fifteen: $6^2=36\\equiv6$. Multiplying by six therefore preserves the same residue for every positive exponent, giving six.\n\nEuler's unit theorem cannot be applied because $\\gcd(6,15)=3$. Reducing the exponent to zero modulo the totient and returning one would be invalid. The same result follows from CRT: the power is zero modulo three and one modulo five, whose combined residue is six.",
+    "pattern": "MS_CS_1405_Q38; MS_CS_1405_Q125",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_number",
+    "title": "Cancel a factor and change the modulus",
+    "stem": "$8x\\equiv8y\\pmod{20}$ is equivalent to which condition?",
+    "options": [
+      "$x\\equiv y\\pmod{20}$",
+      "$x\\equiv y\\pmod5$",
+      "$x\\equiv y\\pmod{10}$",
+      "$x=y$"
+    ],
+    "answer": 2,
+    "solution": "The original equation means $20\\mid8(x-y)$. Divide both the coefficient and modulus by their gcd four: $5\\mid2(x-y)$.\n\nTwo is invertible modulo five, so this is equivalent to $5\\mid x-y$. The original coefficient is not invertible modulo twenty, so retaining the original modulus after cancellation would be too strong. For example, $x-y=5$ satisfies the original but not congruence modulo ten or twenty.",
+    "pattern": "MS_CS_1405_Q38; MS_CS_1405_Q125",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_number",
+    "title": "A factorial valuation",
+    "stem": "What is the largest $k$ such that $12^k$ divides $30!$?",
+    "options": [
+      "7",
+      "13",
+      "14",
+      "26"
+    ],
+    "answer": 2,
+    "solution": "The two-adic valuation is $15+7+3+1=26$. The three-adic valuation is $10+3+1=14$.\n\nSince $12^k=2^{2k}3^k$, both $2k\\le26$ and $k\\le14$ must hold. The limiting value is thirteen. Fourteen would exhaust enough threes but demand twenty-eight twos; twenty-six counts individual twos rather than powers of twelve.",
+    "pattern": "MS_CS_1405_Q125; MS_CS_1405_Q129",
+    "difficulty": "Hard",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_number",
+    "title": "Count modular units and a required residue",
+    "stem": "Among $0\\le x<30$, how many are invertible modulo thirty and satisfy $x\\equiv1\\pmod3$?",
+    "options": [
+      "2",
+      "4",
+      "8",
+      "10"
+    ],
+    "answer": 2,
+    "solution": "The candidates congruent to one modulo three are $1,4,7,10,13,16,19,22,25,28$. Invertibility also requires avoiding factors two and five.\n\nExactly 1, 7, 13, and 19 survive, giving four. Eight is the total number of units without the residue restriction; ten counts all candidates without checking invertibility. CRT also gives the result: choose the unique nonzero class modulo two, the fixed class modulo three, and one of four nonzero classes modulo five.",
+    "pattern": "MS_CS_1405_Q38; MS_CS_1405_Q125",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_number",
+    "title": "Integer equation with a bounded variable",
+    "stem": "How many integer pairs satisfy $6x+9y=45$ with $0\\le x\\le10$?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "0"
+    ],
+    "answer": 2,
+    "solution": "Divide by three to obtain $2x+3y=15$. Modulo three, $2x=0$, so $x$ is a multiple of three.\n\nThe permitted values are 0, 3, 6, and 9, each determining exactly one integer $y=5-2x/3$. Negative $y$ is allowed because only $x$ is bounded. Imposing nonnegativity on both variables would answer a different question and produce too few pairs.",
+    "pattern": "MS_CS_1405_Q129; MS_CS_1405_Q125",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  },
+  {
+    "topic": "d_number",
+    "title": "A modular difference subgroup",
+    "stem": "On $\\mathbb Z_{12}$, $xRy$ iff $x-y$ is divisible by four modulo twelve. What pair gives the size of every class and the number of classes?",
+    "options": [
+      "3 and 4.",
+      "4 and 3.",
+      "3 and 3.",
+      "12 and 1."
+    ],
+    "answer": 1,
+    "solution": "The allowed difference subgroup is $\\{0,4,8\\}$ and has size three. Each equivalence class is one coset of that subgroup, so has three elements.\n\nThere are $12/3=4$ classes. The residue classes modulo four display them explicitly. Swapping subgroup size and index gives the second distractor; the remaining options fail the partition size check: class size times class count must equal twelve.",
+    "pattern": "MS_CS_1405_Q38; Phd_CS_1405_Q23",
+    "difficulty": "Medium",
+    "kind": "Original examination analogue"
+  }
+]

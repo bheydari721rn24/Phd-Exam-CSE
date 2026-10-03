@@ -6,6 +6,9 @@ SYMBOLS.update(bigcup='⋃',bigcap='⋂',perp='⊥',langle='⟨',rangle='⟩',Ve
 SYMBOLS.update({'theta':'θ','lambda':'λ','mu':'μ','rho':'ρ','tau':'τ','varepsilon':'ε'})
 SYMBOLS['int']='∫'
 SYMBOLS['circ']='∘'
+SYMBOLS['varphi']='ϕ'
+SYMBOLS['subsetneq']='⊊'
+SYMBOLS['triangle']='△'
 def tag(t,s):return '<'+t+'>'+s+'</'+t+'>'
 def atom(t,s):return tag(t,html.escape(s))
 class Parser:
@@ -32,6 +35,11 @@ class Parser:
    if name in ('left','right'):return self.base()
    if name=='frac':return tag('mfrac',self.group()+self.group())
    if name=='sqrt':return tag('msqrt',self.group())
+   if name=='not':
+    value=self.base()
+    for old,new in (('⊆','⊈'),('∈','∉'),('=','≠'),('∣','∤')):
+     if old in value:return value.replace(old,new)
+    raise ValueError('Unsupported negated operator in '+self.s)
    if name=='binom':return tag('mrow',atom('mo','(')+'<mfrac linethickness="0">'+self.group()+self.group()+'</mfrac>'+atom('mo',')'))
    if name in ('text','operatorname','mathrm','mathbb','mathbf','mathcal'):
     self.skip()
@@ -40,7 +48,7 @@ class Parser:
     else:s=self.s[self.i];self.i+=1
     if name=='mathbb':s={'R':'ℝ','N':'ℕ','Z':'ℤ','C':'ℂ','Q':'ℚ'}.get(s,s)
     return ('<mi mathvariant="script">'+html.escape(s)+'</mi>') if name=='mathcal' else atom('mtext' if name=='text' else 'mi',s)
-   if name in ('log','ln','min','max','gcd','lcm','sin','cos','exp','det','rank','tr','ker','lim'):return '<mi mathvariant="normal">'+name+'</mi>'
+   if name in ('log','ln','min','max','gcd','lcm','sin','cos','exp','det','rank','tr','ker','lim','dim'):return '<mi mathvariant="normal">'+name+'</mi>'
    if name in ('mod','bmod'):return atom('mo','mod')
    if name=='pmod':return tag('mrow',atom('mo','(')+atom('mo','mod')+self.group()+atom('mo',')'))
    if name in ('bar','overline'):return tag('mover',self.group()+atom('mo','¯'))

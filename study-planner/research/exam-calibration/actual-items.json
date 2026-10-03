@@ -1,0 +1,1594 @@
+[
+  {
+    "id": "MS_CS_1405_Q37",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 9,
+    "questionNumber": 37,
+    "topics": [
+      "d_sets",
+      "g_boolean"
+    ],
+    "title": "Set-expression elimination",
+    "stem": "Simplify $(A^c\\cap B)\\cup[((A\\setminus B)\\cup B^c)\\cap(B\\setminus A)]$. Complements are relative to the same universe.",
+    "options": [
+      "$A$",
+      "$B\\setminus A$",
+      "$A\\setminus B$",
+      "$B$"
+    ],
+    "answer": 2,
+    "solution": "1. Every element of $B\\setminus A$ belongs to $B$ and does not belong to $A$.\n2. Such an element belongs to neither $A\\setminus B$ nor $B^c$. The second intersection is therefore empty.\n3. The first term is exactly $B\\setminus A$. Union with the empty set leaves that set unchanged.\n4. Option 1 includes elements exclusive to $A$; option 3 reverses the direction of difference; option 4 incorrectly includes $A\\cap B$. A one-element witness in the relevant Venn region refutes each.\n\n**Transfer rule.** Convert difference to intersection with a complement before distributing. Avoid distributing a large expression when a disjointness argument already eliminates a term.",
+    "pattern": "membership regions and elimination",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q38",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 9,
+    "questionNumber": 38,
+    "topics": [
+      "d_relations",
+      "d_number"
+    ],
+    "title": "A difference-defined equivalence",
+    "stem": "For real $x,y$, define $x\\sim y$ exactly when $x-y\\in A$. Which choice of $A$ makes this an equivalence relation?",
+    "options": [
+      "The integers divisible by 2 or by 3.",
+      "$\\{m/n:n\\in\\mathbb N,\\ m\\in\\mathbb Z,\\ m\\le n\\}$, with positive denominators.",
+      "The integers that are not prime.",
+      "$\\{m/2^n:n\\in\\mathbb N,\\ m\\in\\mathbb Z\\}$"
+    ],
+    "answer": 4,
+    "solution": "1. Reflexivity requires $0\\in A$. Symmetry requires closure under negation. Transitivity requires closure under addition, because $(x-y)+(y-z)=x-z$.\n2. Conversely, these three conditions imply all three equivalence properties. Thus $A$ must be an additive subgroup of the reals.\n3. Dyadic rationals meet these conditions. Put two fractions over $2^{\\max(r,s)}$ to show their sum remains dyadic; negative numerators give closure under negation.\n4. Option 1 fails addition: 2 and 3 are permitted, but 5 is not. Option 2 contains $-2$ but not its opposite 2. Option 3 contains 1, but $1+1=2$ is prime and excluded.\n\n**Transfer rule.** Translate a relation property into an algebraic closure condition before testing a large family.",
+    "pattern": "property-to-closure conversion",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q40",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 9,
+    "questionNumber": 40,
+    "topics": [
+      "d_functions",
+      "d_proof"
+    ],
+    "title": "Cardinality and a specified function",
+    "stem": "For $f:A\\to B$, consider: (a) if $f$ is injective then $|A|\\le|B|$; (b) if $f$ is surjective then $|A|\\ge|B|$; (c) if $f$ is bijective then $|A|=|B|$; (d) if $|A|=|B|$ then $f$ is bijective. Which are correct? Use the usual set-theoretic choice convention for infinite sets.",
+    "options": [
+      "Only (a) and (c).",
+      "Only (b) and (d).",
+      "Only (c) and (d).",
+      "Only (a), (b), and (c)."
+    ],
+    "answer": 4,
+    "solution": "1. An injection witnesses the inequality in (a). A surjection permits a section under the stated convention, giving the inequality in (b).\n2. A bijection is the definition of equal cardinality, so (c) is true.\n3. Equal cardinality guarantees existence of some bijection, not bijectivity of every specified map. On $A=B=\\{0,1\\}$ the constant map $f(x)=0$ is neither injective nor onto.\n4. Hence (d) is false, and option 4 lists exactly the three true statements. Each other option either omits a true implication or includes (d).\n\n**Transfer rule.** Distinguish a statement about existence of a map from a statement about the map already named in the question.",
+    "pattern": "multiple assertions and quantifier distinction",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q41",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 9,
+    "questionNumber": 41,
+    "topics": [
+      "l_matrices",
+      "l_vectors"
+    ],
+    "title": "Dimension with simultaneous constraints",
+    "stem": "Let $W$ be the real vector space of symmetric $4\\times4$ matrices with trace zero. What is $\\dim W$?",
+    "options": [
+      "10",
+      "9",
+      "8",
+      "7"
+    ],
+    "answer": 2,
+    "solution": "1. A symmetric matrix is determined by four diagonal entries and six entries above the diagonal, giving ten free coordinates before the trace condition.\n2. The trace equation is one nonzero homogeneous linear constraint. It permits the fourth diagonal entry to be determined by the first three.\n3. Three diagonal degrees of freedom and six off-diagonal degrees of freedom remain, giving nine. A basis consists of six symmetric off-diagonal pair matrices and three diagonal matrices $E_{ii}-E_{44}$ for $i=1,2,3$.\n4. Ten ignores trace; eight and seven subtract additional constraints that are not independent requirements of this space.\n\n**Transfer rule.** Count independent parameters, then subtract the rank of the imposed linear constraints, not the number of times a constraint is written.",
+    "pattern": "dimension after independent constraints",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q95",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 21,
+    "questionNumber": 95,
+    "topics": [
+      "d_logic"
+    ],
+    "title": "Quantifiers and a wrapping function",
+    "stem": "In a model with domain $\\{0,1,2,3,4\\}$, $f(n)=n+1\\pmod5$ and $R(x,y)$ means $x<y$. Evaluate (a) $\\forall x\\exists y\\,R(x,y)$ and (b) $\\forall x\\forall y(R(x,y)\\Rightarrow R(f(x),f(y)))$.",
+    "options": [
+      "Only (a) is true.",
+      "Only (b) is true.",
+      "Both are true.",
+      "Neither is true."
+    ],
+    "answer": 4,
+    "solution": "1. Statement (a) fails at $x=4$: there is no larger domain element. A universal statement is false after one counterexample.\n2. Statement (b) is an implication, so a counterexample must make its antecedent true. Take $x=3,y=4$. Then $3<4$, but $f(3)=4$ and $f(4)=0$, so the consequent $4<0$ is false.\n3. Both statements are false. Testing only adjacent pairs that do not cross the wrap would miss the decisive boundary.\n4. Options 1 and 2 incorrectly assert one universal formula; option 3 asserts both.\n\n**Transfer rule.** Test extremal domain values and discontinuities of the interpretation before attempting a complete table.",
+    "pattern": "finite model with boundary counterexamples",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q97",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 21,
+    "questionNumber": 97,
+    "topics": [
+      "d_logic",
+      "d_functions"
+    ],
+    "title": "Assignments in a finite model",
+    "stem": "The domain is $\\{0,1,2\\}$; $c=0$; $f(0)=1,f(1)=2,f(2)=0$; $R=\\{(0,1),(1,2),(2,0)\\}$. For $\\varphi(x)=\\forall y(R(x,y)\\Rightarrow R(f(y),c))$, let $v_1(x)=0$ and $v_2(x)=2$. Under which assignments is $\\varphi$ true?",
+    "options": [
+      "Only $v_1$.",
+      "Only $v_2$.",
+      "Both.",
+      "Neither."
+    ],
+    "answer": 1,
+    "solution": "1. For $x=0$, only $y=1$ makes the antecedent true. Its consequent is $R(f(1),0)=R(2,0)$, which is true. The other two implications are vacuously true.\n2. For $x=2$, the relevant witness is $y=0$. Its consequent is $R(f(0),0)=R(1,0)$, which is false. Therefore the universal formula fails.\n3. Only $v_1$ satisfies the formula. Options 2 and 3 overlook the failed consequent for $v_2$; option 4 overlooks vacuous implications and the successful successor for $v_1$.\n\n**Transfer rule.** First identify the assignments that satisfy an implication's antecedent, then apply the interpreted function in the consequent.",
+    "pattern": "predicate evaluation with interpreted function",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q98",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 21,
+    "questionNumber": 98,
+    "topics": [
+      "d_proof"
+    ],
+    "title": "Identify a proof rule",
+    "stem": "A natural-deduction argument assumes $\\forall xP(x,x)$, derives $P(u,u)$ by universal elimination, then $\\exists zP(u,z)$ by existential introduction. It next obtains $\\forall y\\exists zP(y,z)$ and discharges the initial assumption to conclude $\\forall xP(x,x)\\Rightarrow\\forall y\\exists zP(y,z)$. Which rule justifies the next-to-last line?",
+    "options": [
+      "Existential elimination.",
+      "Universal elimination.",
+      "Universal introduction.",
+      "Existential introduction."
+    ],
+    "answer": 3,
+    "solution": "1. The derived formula $\\exists zP(u,z)$ applies to a fresh, arbitrary parameter $u$; the initial assumption does not depend on a particular value of $u$.\n2. Universal introduction may therefore generalize this parameter to $y$, producing $\\forall y\\exists zP(y,z)$.\n3. Universal elimination specializes a universal premise rather than introducing one. Existential introduction was already used to create the $z$ quantifier. Existential elimination would require an existential premise and a scoped witness subproof.\n4. The freshness condition matters: generalizing from a special named element would be invalid.\n\n**Transfer rule.** Read both the direction of the quantifier rule and its side condition; matching only the symbol is insufficient.",
+    "pattern": "proof-rule side conditions",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q99",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 22,
+    "questionNumber": 99,
+    "topics": [
+      "d_logic",
+      "g_boolean"
+    ],
+    "title": "Canonical CNF from true rows",
+    "stem": "A formula in $A,B,C$ is true exactly on rows $110,100,011,001$. Does its canonical conjunctive normal form include (a) $\\neg A\\lor\\neg B\\lor\\neg C$ and (b) $A\\lor B\\lor C$?",
+    "options": [
+      "Only (a).",
+      "Only (b).",
+      "Both.",
+      "Neither."
+    ],
+    "answer": 3,
+    "solution": "1. Canonical CNF contains one maxterm for each false row. A maxterm is false at its designated row.\n2. Clause (a) is false at 111; that row is absent from the true-row list, so (a) occurs. Clause (b) is false at 000; that row is also false, so (b) occurs.\n3. The other false rows are 010 and 101. Their clauses complete the canonical CNF. The function simplifies to $A\\oplus C$, but the question asks which canonical clauses occur, not which survive minimization.\n4. Options 1 and 2 omit a required maxterm; option 4 omits both.\n\n**Transfer rule.** Minterms are indexed by true rows; maxterms by false rows. Canonical and minimized forms answer different questions.",
+    "pattern": "canonical versus minimized form",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q101",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 22,
+    "questionNumber": 101,
+    "topics": [
+      "d_sets",
+      "d_proof"
+    ],
+    "title": "Two tests for a transitive set",
+    "stem": "A set $A$ is transitive when $x\\in y\\in A$ implies $x\\in A$. Which conditions must hold: (a) $\\bigcup A\\subseteq A$; (b) $A\\subseteq\\mathcal P(A)$?",
+    "options": [
+      "Only (a).",
+      "Only (b).",
+      "Both.",
+      "Neither."
+    ],
+    "answer": 3,
+    "solution": "1. Every $x\\in\\bigcup A$ lies in some $y\\in A$. Transitivity places $x$ in $A$, proving (a).\n2. Fix $y\\in A$. Every member of $y$ lies in $A$, hence $y\\subseteq A$ and consequently $y\\in\\mathcal P(A)$. This proves (b).\n3. Conversely, either condition implies transitivity: (a) controls every member of a member; (b) says every member of $A$ is a subset of $A$.\n4. Both conditions express the same property. The distractors confuse membership with subset inclusion.\n\n**Transfer rule.** Expand the definitions of union and power set into element statements before comparing them.",
+    "pattern": "nested membership and power-set equivalence",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q113",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 25,
+    "questionNumber": 113,
+    "topics": [
+      "s_counting",
+      "l_matrices"
+    ],
+    "title": "Coupled nonnegative equations",
+    "stem": "How many nonnegative integer solutions satisfy $x_1+x_2+x_3=5$ and $x_1+x_2+x_3+x_4+x_5=20$?",
+    "options": [
+      "32",
+      "$\\binom{24}{4}+\\binom72$",
+      "$\\binom{24}{4}\\binom72$",
+      "336"
+    ],
+    "answer": 4,
+    "solution": "1. Subtract the first equation from the second to obtain $x_4+x_5=15$.\n2. The first group has $\\binom{5+3-1}{3-1}=21$ solutions. The second group has $\\binom{15+2-1}{2-1}=16$ solutions.\n3. The two groups are independent once subtraction is performed, so multiply: $21\\cdot16=336$.\n4. Option 1 adds small counts rather than multiplying independent choices. Options 2 and 3 count unrestricted solutions of the second equation and therefore fail to enforce the first equation simultaneously.\n\n**Transfer rule.** Eliminate shared sums before applying stars and bars. Linear rank gives the real solution dimension, not the count of nonnegative integer points.",
+    "pattern": "constraint elimination before counting",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q115",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 25,
+    "questionNumber": 115,
+    "topics": [
+      "s_counting"
+    ],
+    "title": "A lower bound on one category",
+    "stem": "Answer eight of ten questions, including at least four of the first five. How many choices are possible?",
+    "options": [
+      "25",
+      "35",
+      "$\\binom54\\binom{10}{8}$",
+      "$\\binom54\\binom53$"
+    ],
+    "answer": 2,
+    "solution": "1. Split by the number selected from the first five: it can be four or five.\n2. Selecting four first-group and four second-group questions gives $\\binom54\\binom54=25$.\n3. Selecting all five first-group and three second-group questions gives $\\binom55\\binom53=10$.\n4. These cases are disjoint and exhaustive, so add to obtain 35. Option 1 omits the all-five case. Option 3 chooses eight from the full pool again and double counts. Option 4 selects only seven questions and omits a valid case.\n\n**Transfer rule.** For an inequality constraint, identify all feasible category counts and sum disjoint cases.",
+    "pattern": "at-least constraints and disjoint cases",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q120",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 26,
+    "questionNumber": 120,
+    "topics": [
+      "s_counting"
+    ],
+    "title": "Unlabeled equal-sized groups",
+    "stem": "In how many ways can $3n$ distinct people be partitioned into three groups of $n$ people each, when the groups have no labels?",
+    "options": [
+      "$\\frac{(3n)!}{3!n!}$",
+      "$\\binom{3n}{n}^3$",
+      "$\\binom{3n}{n}\\binom{2n}{n}\\binom nn$",
+      "$\\frac{(3n)!}{3!(n!)^3}$"
+    ],
+    "answer": 4,
+    "solution": "1. Temporarily label the groups. Sequential selection gives $(3n)!/(n!)^3$ assignments.\n2. Each unlabeled partition is represented by $3!$ labelings, since the three disjoint nonempty groups are distinct as sets.\n3. Divide by $3!$ to obtain option 4. Option 1 fails to divide by permutations within two of the groups. Option 2 repeatedly chooses from the full population and permits overlap. Option 3 counts labeled groups.\n4. The division relies on $n\\ge1$. For an empty population, three indistinguishable empty groups do not have six distinct labelings.\n\n**Transfer rule.** Establish equal orbit size before dividing by a factorial.",
+    "pattern": "unlabeled partitions and symmetry factor",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q121",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 26,
+    "questionNumber": 121,
+    "topics": [
+      "s_counting",
+      "d_induction"
+    ],
+    "title": "A weighted binomial sum",
+    "stem": "Let $A=\\frac1{10}\\sum_{i=3}^7\\binom i3\\binom7i$. Which interval contains $A$?",
+    "options": [
+      "$[1,30]$",
+      "$(30,60]$",
+      "$(60,90]$",
+      "$(90,+\\infty)$"
+    ],
+    "answer": 2,
+    "solution": "1. Count the same choice in two orders: choosing an $i$-set and then three marked elements equals choosing the marked three first and then $i-3$ more elements. Hence $\\binom7i\\binom i3=\\binom73\\binom4{i-3}$.\n2. Sum over all possible subsets of the remaining four elements: $\\sum_{j=0}^4\\binom4j=2^4$.\n3. Therefore $A=35\\cdot16/10=56$, which lies in $(30,60]$.\n4. The other intervals cannot contain 56; omitting the free subset produces 3.5, while forgetting the factor $1/10$ produces 560.\n\n**Transfer rule.** Products of binomial coefficients often encode a marked-subset double count.",
+    "pattern": "binomial identity by double counting",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q122",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 26,
+    "questionNumber": 122,
+    "topics": [
+      "d_functions",
+      "s_counting"
+    ],
+    "title": "Weakly increasing maps",
+    "stem": "How many functions $f:\\{1,2,3,4,5\\}\\to\\{1,2,3,4,5\\}$ satisfy $f(i)\\le f(j)$ whenever $i\\le j$?",
+    "options": [
+      "126",
+      "84",
+      "168",
+      "63"
+    ],
+    "answer": 1,
+    "solution": "1. A weakly increasing output sequence is determined by the multiplicities $c_1,\\ldots,c_5$ of its five possible values.\n2. Each multiplicity is nonnegative and their sum is five. Stars and bars gives $\\binom{5+5-1}{5-1}=\\binom94=126$.\n3. This encoding is bijective: sort the multiset to reconstruct the unique increasing function, and count the values to recover its multiplicities.\n4. Strictly increasing maps would require distinct outputs and give one map here. Unrestricted functions would give $5^5$. Neither interpretation matches the weak inequality; the other numeric options do not count the multiplicity solutions.\n\n**Transfer rule.** Replace ordered monotone values by value multiplicities.",
+    "pattern": "weak monotonicity as multiset encoding",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q123",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 26,
+    "questionNumber": 123,
+    "topics": [
+      "s_counting",
+      "g_boolean"
+    ],
+    "title": "Parity of a symbol count",
+    "stem": "Let $A$ count length-four strings over $\\{0,1,2,3\\}$ with an even number of zeros. Which interval contains $A/4$?",
+    "options": [
+      "$[1,15]$",
+      "$(30,45]$",
+      "$(15,30]$",
+      "$(45,+\\infty)$"
+    ],
+    "answer": 2,
+    "solution": "1. The possible zero counts are 0, 2, and 4. Their counts are $3^4$, $\\binom42 3^2$, and 1.\n2. Thus $A=81+54+1=136$, and $A/4=34$ lies in option 2.\n3. Equivalently, the even-parity filter gives $A=((3+1)^4+(3-1)^4)/2$; the second term corrects the false assumption that exactly half of all strings have even zero count.\n4. The other intervals do not contain 34. Parity classes need not be equally large when three symbols are unmarked and only one is marked.\n\n**Transfer rule.** Use an explicit parity filter or disjoint counts rather than assuming a half split.",
+    "pattern": "parity-filter counting",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q124",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 27,
+    "questionNumber": 124,
+    "topics": [
+      "d_functions",
+      "s_counting"
+    ],
+    "title": "Count onto maps",
+    "stem": "Let $A$ be the number of surjections $f:\\{1,2,3,4,5,6\\}\\to\\{1,2,3,4\\}$. Which interval contains $A/30$?",
+    "options": [
+      "$[1,15]$",
+      "$(15,30]$",
+      "$(30,45]$",
+      "$(45,+\\infty)$"
+    ],
+    "answer": 4,
+    "solution": "1. Start with $4^6$ unrestricted maps. Exclude maps omitting at least one codomain value by inclusion-exclusion.\n2. The count is $A=4^6-\\binom413^6+\\binom422^6-\\binom431^6=4096-2916+384-4=1560$.\n3. Divide by the source question's 30: $A/30=52$, in option 4.\n4. Multiplying by $4!$ after inclusion-exclusion would overcount: codomain values were already labeled. Options 1–3 cannot contain 52.\n\n**Transfer rule.** An onto map is a labeled nonempty fiber partition; account for labels exactly once.",
+    "pattern": "surjection via inclusion-exclusion",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q125",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 27,
+    "questionNumber": 125,
+    "topics": [
+      "d_number",
+      "s_counting"
+    ],
+    "title": "An impossible coefficient",
+    "stem": "Let $A$ be the coefficient of $x^{14}$ in $(x^2+1/x)^{14}$. Which interval contains $A/5$?",
+    "options": [
+      "$[9,+\\infty)$",
+      "$[3,6)$",
+      "$[6,9)$",
+      "$[0,3)$"
+    ],
+    "answer": 4,
+    "solution": "1. Choosing $j$ factors of $x^2$ and $14-j$ factors of $x^{-1}$ yields exponent $2j-(14-j)=3j-14$.\n2. The desired exponent would require $3j-14=14$, so $j=28/3$, not an integer. No binomial term has that exponent.\n3. Therefore $A=0$ and $A/5=0$ lies in option 4. Every exponent is congruent to 1 modulo 3, while 14 is congruent to 2.\n4. The other intervals exclude zero. A binomial coefficient cannot be evaluated at a noninteger selection index to manufacture a term.\n\n**Transfer rule.** Solve the exponent equation and its integrality/range constraints before calculating a coefficient.",
+    "pattern": "modular obstruction in exponent patterns",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q129",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 28,
+    "questionNumber": 129,
+    "topics": [
+      "s_counting",
+      "d_number"
+    ],
+    "title": "Parity with upper and lower bounds",
+    "stem": "Let $A$ count nonnegative integer solutions of $a+b+c=20$, where $a$ is even, $b\\le4$, and $c\\ge1$. Which interval contains $A/16$?",
+    "options": [
+      "$[1,2)$",
+      "$[2,4)$",
+      "$[4,6)$",
+      "$[6,+\\infty)$"
+    ],
+    "answer": 2,
+    "solution": "1. Write $a=2j$ and $c=c'+1$, with $j,c'\\ge0$. Then $2j+b+c'=19$.\n2. For each $b=0,1,2,3,4$, the number of permitted $j$ values is $\\lfloor(19-b)/2\\rfloor+1$.\n3. These counts are 10, 10, 9, 9, and 8, totaling 46. Hence $A/16=23/8=2.875$, in option 2.\n4. Standard three-variable stars and bars would ignore both parity and the upper bound. The source constrains $a$ to be even, not $b$, and sets $b\\le4$, not a larger value.\n\n**Transfer rule.** Translate lower bounds first, encode divisibility, then sum over a short bounded variable.",
+    "pattern": "mixed parity and bounded integer solutions",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q130",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 28,
+    "questionNumber": 130,
+    "topics": [
+      "d_induction",
+      "a_recurrence"
+    ],
+    "title": "A prefix-sum recurrence",
+    "stem": "Let $c_0=1$ and $c_{n+1}=\\sum_{i=0}^n c_i$ for $n\\ge0$. Its generating function is $C(x)=(1-x)/(1-\\alpha x)$. What is $\\alpha$?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": 1,
+    "solution": "1. The first recurrence value is $c_1=1$. For $n\\ge1$, subtract the equation for $c_n$ from that for $c_{n+1}$ to obtain $c_{n+1}=2c_n$.\n2. Therefore $c_n=2^{n-1}$ for $n\\ge1$, proved directly by induction from $c_1=1$.\n3. Sum the formal series: $C(x)=1+x\\sum_{j\\ge0}(2x)^j=1+x/(1-2x)=(1-x)/(1-2x)$. Thus $\\alpha=2$.\n4. Values 3, 4, and 5 would already produce the wrong coefficient of $x^2$. Applying $c_n=2^n$ at $n=0$ would also miss the initial exception.\n\n**Transfer rule.** Subtract consecutive prefix recurrences; state precisely where the simplified recurrence begins.",
+    "pattern": "prefix subtraction and initial-value exception",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1405_Q13",
+    "booklet": "Phd_CS_1405",
+    "pdfPage": 7,
+    "questionNumber": 13,
+    "topics": [
+      "d_logic",
+      "d_relations"
+    ],
+    "title": "Evaluate a finite relational specification",
+    "stem": "The universe is $\\{01,02,03,04,05,06,07,08,09\\}$; girls are $\\{03,06,09\\}$; boys are $\\{02,04,05,08\\}$; the love relation is $E=\\{(03,02),(06,08),(04,03),(09,02)\\}$. Evaluate (a) every girl loves exactly one boy; (b) some boy loves some girl.",
+    "options": [
+      "Only (a).",
+      "Only (b).",
+      "Both.",
+      "Neither."
+    ],
+    "answer": 3,
+    "solution": "1. Restrict the first coordinate of $E$ to girls. The three girls have respectively the unique targets 02, 08, and 02, all boys. Thus (a) is true.\n2. The pair $(04,03)$ witnesses (b): 04 is a boy and 03 is a girl.\n3. Uniqueness in (a) is per girl, not a requirement that different girls have different targets. Shared target 02 is permitted.\n4. The distractors confuse uniqueness with injectivity or read an ordered pair in reverse.\n\n**Transfer rule.** Separate domain restrictions, existence, and uniqueness; a relation is not automatically a one-to-one function.",
+    "pattern": "existence versus uniqueness versus injectivity",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1405_Q14",
+    "booklet": "Phd_CS_1405",
+    "pdfPage": 7,
+    "questionNumber": 14,
+    "topics": [
+      "d_logic"
+    ],
+    "title": "Translate a nested conditional with an exception",
+    "stem": "$B(x)$ means that $x$ is a boy, $E(x,y)$ that $x$ likes $y$, and $H(x,y)$ that $x$ dislikes $y$. Translate: Every boy who likes Maryam dislikes every other boy whom Maryam likes. Use $M$ for Maryam.",
+    "options": [
+      "$\\forall x((B(x)\\land E(x,M))\\land\\forall y((B(y)\\land E(M,y))\\Rightarrow H(x,y)))$",
+      "$\\forall x((B(x)\\land E(x,M))\\land\\forall y((B(y)\\land E(M,y)\\land y\\ne x)\\Rightarrow H(x,y)))$",
+      "$\\forall x((B(x)\\land E(x,M))\\Rightarrow\\forall y((B(y)\\land E(M,y))\\Rightarrow H(x,y)))$",
+      "$\\forall x((B(x)\\land E(x,M))\\Rightarrow\\forall y((B(y)\\land E(M,y)\\land y\\ne x)\\Rightarrow H(x,y)))$"
+    ],
+    "answer": 4,
+    "solution": "1. The subject restriction is conditional: only $x$ values satisfying $B(x)\\land E(x,M)$ create an obligation.\n2. The target restriction is also conditional, and other requires $y\\ne x$. The direction of liking is $E(M,y)$, not $E(y,M)$.\n3. Option 4 expresses all three requirements. Options 1 and 2 use a conjunction at the outer level and incorrectly assert every object is a boy who likes Maryam. Option 3 requires self-dislike when Maryam likes $x$, because it omits the exception.\n4. A model containing any nonboy immediately refutes the outer conjunction alternatives without affecting the English statement.\n\n**Transfer rule.** Translate restricted universal claims using implications; encode exceptions inside the target restriction.",
+    "pattern": "nested restricted quantifiers",
+    "difficulty": "Hard",
+    "repoPath": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1405_Q15",
+    "booklet": "Phd_CS_1405",
+    "pdfPage": 7,
+    "questionNumber": 15,
+    "topics": [
+      "d_logic",
+      "g_boolean"
+    ],
+    "title": "A canonical CNF choice",
+    "stem": "A formula is true exactly on rows $(p,q,r)=111,110,101,011$. Which displayed form is its canonical CNF?",
+    "options": [
+      "$(p\\land q\\land r)\\lor(p\\land q\\land\\neg r)\\lor(p\\land\\neg q\\land r)\\lor(\\neg p\\land q\\land r)$",
+      "$(p\\lor q\\lor r)\\land(\\neg p\\lor q\\lor r)\\land(p\\lor\\neg q\\lor r)\\land(p\\lor q\\lor\\neg r)$",
+      "$(p\\lor q\\lor r)\\land(\\neg p\\lor q\\lor r)\\land(\\neg p\\lor\\neg q\\lor r)\\land(p\\lor q\\lor\\neg r)$",
+      "$(p\\land q\\land r)\\lor(p\\land q\\land\\neg r)\\lor(p\\land\\neg q\\land r)\\lor(\\neg p\\land q\\land\\neg r)$"
+    ],
+    "answer": 2,
+    "solution": "1. False rows are 000, 001, 010, and 100. Their maxterms are respectively $p\\lor q\\lor r$, $p\\lor q\\lor\\neg r$, $p\\lor\\neg q\\lor r$, and $\\neg p\\lor q\\lor r$.\n2. Their conjunction, in any order, is option 2.\n3. Option 1 is an equivalent canonical DNF, so its function is correct but its requested form is wrong. Option 3 includes a clause false at the true row 110 and omits the clause for false row 010. Option 4 is a DNF with the wrong final minterm.\n4. This is the three-input majority function; recognizing that function does not remove the requirement to return canonical CNF.\n\n**Transfer rule.** Check both semantic equivalence and the requested normal-form syntax.",
+    "pattern": "correct function but wrong requested form",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1405_Q16",
+    "booklet": "Phd_CS_1405",
+    "pdfPage": 7,
+    "questionNumber": 16,
+    "topics": [
+      "d_proof"
+    ],
+    "title": "Two categorical arguments",
+    "stem": "Assess (a) Some humans are ignorant; all humans are thinkers; therefore some thinkers are ignorant. (b) No ignorant person is a thinker; all humans are thinkers; therefore no human is ignorant.",
+    "options": [
+      "Only (a) is valid.",
+      "Only (b) is valid.",
+      "Both are valid.",
+      "Neither is valid."
+    ],
+    "answer": 3,
+    "solution": "1. For (a), retain the witness that is both human and ignorant. The universal second premise makes that same witness a thinker, proving the conclusion.\n2. For (b), assume a human were ignorant. It would also be a thinker by the second premise, contradicting the disjointness of ignorant people and thinkers.\n3. Both conclusions follow. The second argument does not need any human to exist: a universal negative conclusion can hold vacuously.\n4. The incorrect options either discard the existential witness in (a) or impose an unnecessary existence premise on (b).\n\n**Transfer rule.** Track the same existential witness across premises; do not invent existential import for universal assertions.",
+    "pattern": "witness propagation and contradiction",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1405_Q18",
+    "booklet": "Phd_CS_1405",
+    "pdfPage": 8,
+    "questionNumber": 18,
+    "topics": [
+      "d_sets",
+      "d_proof"
+    ],
+    "title": "Transitivity of two small families",
+    "stem": "A family $S$ is acceptable if $\\bigcup S\\subseteq S$. Let $S_1=\\{\\varnothing,\\{\\varnothing\\}\\}$ and $S_2=\\{\\varnothing,\\{\\varnothing\\},\\{\\varnothing,\\{\\varnothing\\}\\}\\}$. Which families are acceptable?",
+    "options": [
+      "$S_1$ only.",
+      "$S_2$ only.",
+      "Both.",
+      "Neither."
+    ],
+    "answer": 3,
+    "solution": "1. The union of $S_1$ is $\\{\\varnothing\\}$, which is a subset of $S_1$.\n2. The union of $S_2$ is $\\{\\varnothing,\\{\\varnothing\\}\\}=S_1$, also a subset of $S_2$.\n3. Both families meet the condition. A union removes one level of braces; it does not preserve the original family verbatim.\n4. The single-family options overlook one inclusion, while neither confuses a member with a subset.\n\n**Transfer rule.** Enumerate members at each brace level before evaluating a union of sets of sets.",
+    "pattern": "brace-depth and union calculation",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1405_Q19",
+    "booklet": "Phd_CS_1405",
+    "pdfPage": 8,
+    "questionNumber": 19,
+    "topics": [
+      "d_functions",
+      "d_proof"
+    ],
+    "title": "Strict order and injectivity",
+    "stem": "Evaluate (a) if $(A,<)$ is linearly ordered and $f:A\\to A$ preserves that strict order, then $f$ is injective; (b) every countable set is well-orderable.",
+    "options": [
+      "Only (a).",
+      "Only (b).",
+      "Both.",
+      "Neither."
+    ],
+    "answer": 3,
+    "solution": "1. If $x\\ne y$, linearity makes either $x<y$ or $y<x$. Strict preservation gives a strict inequality between the outputs, so the outputs are different.\n2. A finite set can be listed in a finite order. A countably infinite set can inherit the natural-number order from a listing/bijection. Each nonempty subset then has a least-indexed member.\n3. Thus both claims hold. Preservation of a weak order would not imply (a): a constant map is weakly monotone. The strict symbol in the source is essential.\n4. The other options falsely reject one or both arguments.\n\n**Transfer rule.** Read strictness and comparability assumptions before invoking order-based injectivity.",
+    "pattern": "theorem hypotheses and strictness",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1405_Q20",
+    "booklet": "Phd_CS_1405",
+    "pdfPage": 8,
+    "questionNumber": 20,
+    "topics": [
+      "a_loop",
+      "p_flow",
+      "s_counting"
+    ],
+    "title": "Exact count of ordered triples",
+    "stem": "Assume the variables have types large enough for the following code. What is the final value of `Cod`?\n\n```c\nCod = 10;\nfor (i = 1; i <= 15; i++)\n  for (j = i; j <= 15; j++)\n    for (k = j; k <= 15; k++)\n      Cod++;\n```",
+    "options": [
+      "610",
+      "690",
+      "630",
+      "710"
+    ],
+    "answer": 2,
+    "solution": "1. Each increment corresponds to exactly one triple $1\\le i\\le j\\le k\\le15$.\n2. Such triples are multisets of size three drawn from fifteen values, numbering $\\binom{15+3-1}{3}=\\binom{17}3=680$.\n3. The initial value is ten, so the final value is $10+680=690$.\n4. Counting strictly increasing triples would give $\\binom{15}3$ and omit equal indices. Counting $15^3$ would ignore the dependent bounds. All three other numeric options fail the exact multiset count.\n\n**Transfer rule.** Weakly ordered loop indices correspond to combinations with repetition, and initialization is part of the output.",
+    "pattern": "dependent loop bounds and exact output",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1405_Q21",
+    "booklet": "Phd_CS_1405",
+    "pdfPage": 8,
+    "questionNumber": 21,
+    "topics": [
+      "s_counting",
+      "s_axioms"
+    ],
+    "title": "Minimum count outside three sets",
+    "stem": "Thirty-two offices each have a computer. Fifteen have a laser printer, ten have a scanner, eight have a modem, and two have all three. What is the minimum number with none of these three devices?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 3,
+    "solution": "1. The membership total is $15+10+8=33$. The two triple members contribute six memberships but only two union elements, so they force four duplicated memberships.\n2. Consequently the union has at most $33-4=29$ members. Additional pair-only overlaps would make it smaller.\n3. The upper bound is attainable: use two triple offices, thirteen printer-only offices, eight scanner-only offices, and six modem-only offices. This uses 29 offices and has no pair-only overlaps.\n4. Exactly three of the 32 offices are outside this maximal union. One and two violate the forced duplication; four is possible but is not the minimum.\n\n**Transfer rule.** Optimize a union under forced overlaps and prove the bound is attainable.",
+    "pattern": "inclusion-exclusion with attainability",
+    "difficulty": "Hard",
+    "repoPath": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1405_Q22",
+    "booklet": "Phd_CS_1405",
+    "pdfPage": 8,
+    "questionNumber": 22,
+    "topics": [
+      "g_boolean",
+      "d_logic"
+    ],
+    "title": "Canonical product of maxterms",
+    "stem": "What is the canonical product-of-maxterms form of $(p\\Rightarrow r)\\land(p\\Leftrightarrow q)$, with index order $p,q,r$?",
+    "options": [
+      "$\\sum m(0,1,7)$",
+      "$\\prod M(0,1,3,4,6)$",
+      "$\\sum m(2,5,7)$",
+      "$\\prod M(2,3,4,5,6)$"
+    ],
+    "answer": 4,
+    "solution": "1. The equivalence forces $p=q$. If both are zero, the implication is true regardless of $r$, giving indices 0 and 1. If both are one, $r$ must be one, giving index 7.\n2. All remaining indices 2, 3, 4, 5, and 6 are false. The canonical product includes the corresponding maxterms, giving option 4.\n3. Option 1 is the equivalent canonical sum, but the question requests a product. Option 2 uses the wrong zero rows; option 3 is both the wrong form and the wrong function.\n4. Keep the source variable order: permuting bit significance changes the indices.\n\n**Transfer rule.** Enumerate satisfying rows, then complement their index set when a product-of-maxterms form is requested.",
+    "pattern": "canonical indices and requested representation",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1405_Q23",
+    "booklet": "Phd_CS_1405",
+    "pdfPage": 8,
+    "questionNumber": 23,
+    "topics": [
+      "d_relations"
+    ],
+    "title": "A closure operation on equivalences",
+    "stem": "If $R_1$ and $R_2$ are equivalence relations on $A$, which relation below is guaranteed to be an equivalence?",
+    "options": [
+      "$R_1^{-1}\\cap R_2^{-1}$",
+      "$R_1\\cup R_2$",
+      "$R_1^{-1}\\cup R_2^{-1}$",
+      "$R_1\\cup R_2^{-1}$"
+    ],
+    "answer": 1,
+    "solution": "1. Symmetry implies $R_i^{-1}=R_i$. Thus option 1 is the intersection of two equivalences.\n2. Each diagonal pair belongs to both relations. Reversal and composable pairs remain in both, so the intersection is reflexive, symmetric, and transitive.\n3. Every other option is the same union. On $\\{1,2,3\\}$ take partitions $\\{\\{1,2\\},\\{3\\}\\}$ and $\\{\\{1\\},\\{2,3\\}\\}$. The union has $1R2$ and $2R3$ but not $1R3$.\n4. That missing pair violates transitivity, ruling out all three union options at once.\n\n**Transfer rule.** Simplify inverse relations using symmetry before testing a set operation.",
+    "pattern": "operation closure and a minimal countermodel",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CE_1405_Q1",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 2,
+    "questionNumber": 1,
+    "topics": [
+      "a_recurrence",
+      "a_divide",
+      "a_asym"
+    ],
+    "title": "Unequal recursive splits",
+    "stem": "Fixed positive constants $\\alpha,\\beta$ satisfy $\\alpha+\\beta=1$. For $T(n)=T(\\alpha n)+T(\\beta n)+n$ with constant small-input base cost, which listed bound is correct?",
+    "options": [
+      "$O(\\alpha\\beta n)$",
+      "$O(n\\log n)$",
+      "$O(\\beta n^\\alpha\\log n)$",
+      "$O(\\alpha n+\\beta\\log n)$"
+    ],
+    "answer": 2,
+    "solution": "1. The Akra–Bazzi exponent satisfies $\\alpha^p+\\beta^p=1$. Here $p=1$.\n2. Its integral is $\\int_1^n u/u^2\\,du=\\log n$, giving $T(n)=\\Theta(n\\log n)$. Integer rounding of subproblem sizes is absorbed under the usual bounded-perturbation convention.\n3. Constants $\\alpha,\\beta$ are fixed; options 1 and 4 are linear bounds and are too small. Since $0<\\alpha<1$, option 3 grows as $n^\\alpha\\log n=o(n\\log n)$ and is also too small.\n4. The equal-split Master theorem does not directly apply to unequal branches; equal sizes cannot be invented.\n\n**Transfer rule.** Solve for the branching exponent before comparing candidate bounds; coefficients and exponents play different roles.",
+    "pattern": "unequal splits and exponent selection",
+    "difficulty": "Hard",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CE_1405_Q2",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 2,
+    "questionNumber": 2,
+    "topics": [
+      "a_recurrence",
+      "a_asym"
+    ],
+    "title": "A polylogarithmic toll",
+    "stem": "What is the order of $T(n)=T(2n/3)+\\log^2 n$, with bounded base cost?",
+    "options": [
+      "$\\Theta(n)$",
+      "$\\Theta(\\log^2 n)$",
+      "$\\Theta(\\log^3 n)$",
+      "$\\Theta(\\log n)$"
+    ],
+    "answer": 3,
+    "solution": "1. There is one recursive branch and $\\Theta(\\log n)$ levels. At level $j$, the toll is $(\\log n-j\\log(3/2))^2$ until the argument reaches the base region.\n2. The upper bound is $O(\\log n)$ tolls each at most $O(\\log^2 n)$, giving $O(\\log^3 n)$.\n3. In the first fixed fraction of the levels, each logarithm remains $\\Theta(\\log n)$, so there are $\\Theta(\\log n)$ tolls of size $\\Theta(\\log^2 n)$. This gives the matching lower bound.\n4. Option 2 counts only the root toll; option 4 counts only levels; option 1 is a loose upper bound but the question asks the tight order.\n\n**Transfer rule.** A tight estimate needs both the number of significant levels and their accumulated toll.",
+    "pattern": "logarithmic levels times toll",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CE_1405_Q3",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 2,
+    "questionNumber": 3,
+    "topics": [
+      "d_induction",
+      "d_invariants",
+      "a_model"
+    ],
+    "title": "Leaf weights in a binary tree",
+    "stem": "For each leaf $x$ at depth $d$ of a binary tree $T$, put $w(x)=2^{-d}$. If $L$ is the set of all leaves and $\\alpha=\\sum_{x\\in L}w(x)$, which is always correct?",
+    "options": [
+      "$\\alpha=1$.",
+      "$\\alpha\\le1$.",
+      "$\\alpha>1$.",
+      "$\\alpha<1$."
+    ],
+    "answer": 2,
+    "solution": "1. Assign mass one to the root and half of a node's mass to each possible child. Missing children leave unused mass; a leaf receives exactly $2^{-d}$.\n2. Leaf masses are disjoint allocations of the root mass, so their sum is at most one. This can also be proved by structural induction on the two subtrees.\n3. Equality occurs in a finite full binary tree, including a single root leaf. A root with just one leaf child has sum one half, so equality is not guaranteed.\n4. These examples eliminate the always-equal and always-strict alternatives; the greater-than alternative contradicts conservation of mass.\n\n**Transfer rule.** An upper bound can be universal even when equality depends on fullness of the structure.",
+    "pattern": "structural mass invariant",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CE_1405_Q9",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 3,
+    "questionNumber": 9,
+    "topics": [
+      "a_divide",
+      "d_invariants",
+      "p_flow"
+    ],
+    "title": "A recursive algorithm with reversed concatenation",
+    "stem": "For an array of distinct values, `SplitSort` chooses its median $m$, recursively processes $R=\\{x:x>m\\}$ and $L=\\{x:x<m\\}$, and returns `concatenate(SplitSort(R), [m], SplitSort(L))`; arrays of length at most one are returned unchanged. What is the output order?",
+    "options": [
+      "Descending up to the median, then ascending.",
+      "Approximately random.",
+      "Ascending.",
+      "Descending."
+    ],
+    "answer": 4,
+    "solution": "1. The base cases of zero or one value are descending.\n2. Assume recursive outputs are descending. Every value in the first block is greater than $m$, and every value in the final block is less than $m$.\n3. Concatenating the descending greater block, $m$, and the descending smaller block therefore produces a descending whole array. Strong induction establishes the claim for every length.\n4. Median selection controls balance, not ascending direction. Option 1 misreads one recursive block; option 2 ignores determinism; option 3 would require left–median–right concatenation.\n\n**Transfer rule.** Prove a recursion's semantic invariant separately from its running-time recurrence.",
+    "pattern": "recursive correctness versus runtime",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CE_1405_Q16",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 4,
+    "questionNumber": 16,
+    "topics": [
+      "a_divide",
+      "a_model",
+      "a_loop"
+    ],
+    "title": "Exact merge comparisons",
+    "stem": "Merge sort repeatedly divides an eight-element array into equal halves and merges by comparing the two current front elements until one side is exhausted. For $A=[12,7,5,9,3,8,2,6]$, how many element comparisons are performed?",
+    "options": [
+      "14",
+      "16",
+      "10",
+      "12"
+    ],
+    "answer": 2,
+    "solution": "1. Four size-two merges cost one comparison each: subtotal four.\n2. Merging $[7,12]$ with $[5,9]$ costs three comparisons. Merging $[3,8]$ with $[2,6]$ also costs three. The subtotal is ten.\n3. The final merge of $[5,7,9,12]$ with $[2,3,6,8]$ compares front pairs until the right list empties: emitted comparison results are 2, 3, 5, 6, 7, and 8. Six comparisons bring the total to sixteen.\n4. Ten omits the final merge; twelve undercounts intermediate comparisons; fourteen is not the trace count. Remaining elements copied after exhaustion incur no key comparison.\n\n**Transfer rule.** A worst-case merge bound is not automatically the exact cost of a supplied input.",
+    "pattern": "exact trace versus worst-case bound",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CE_1405_Q31",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 8,
+    "questionNumber": 31,
+    "topics": [
+      "g_number",
+      "p_types"
+    ],
+    "title": "Four-bit signed overflow",
+    "stem": "Using four-bit two\\'s-complement numbers, which addition overflows?",
+    "options": [
+      "`0101 + 1000`",
+      "`0010 + 0101`",
+      "`0100 + 1110`",
+      "`1100 + 1011`"
+    ],
+    "answer": 4,
+    "solution": "1. Decode each operand in the range $[-8,7]$. The mathematical sums are $5+(-8)=-3$, $2+5=7$, $4+(-2)=2$, and $-4+(-5)=-9$.\n2. Only $-9$ is outside the representable range. Its low four bits are 0111, which encode positive 7, demonstrating the signed overflow.\n3. Opposite-sign operands in options 1 and 3 cannot overflow; option 2 reaches the positive endpoint but stays inside it.\n4. A hardware overflow flag describes this fixed-width addition. In C, overflowing a signed arithmetic type is undefined rather than a guaranteed wrapped result; the original item concerns representation, not a C language rule.\n\n**Transfer rule.** Check mathematical range before interpreting wrapped bits; signed overflow and unsigned carry are different properties.",
+    "pattern": "encoding range and overflow distinction",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CE_1405_Q58",
+    "booklet": "MS_CE_1405",
+    "pdfPage": 13,
+    "questionNumber": 58,
+    "topics": [
+      "a_recurrence",
+      "a_asym"
+    ],
+    "title": "A square-root recurrence",
+    "stem": "Which listed bound describes $T(n)=2T(\\lfloor\\sqrt n\\rfloor)+\\log n$ with bounded base cost?",
+    "options": [
+      "$O(\\log n\\log\\log n)$",
+      "$O(n\\log\\log n)$",
+      "$O(\\log\\log n)$",
+      "$O(\\log n)$"
+    ],
+    "answer": 1,
+    "solution": "1. Let $m=\\log_2 n$ and first ignore the harmless floor to see the structure. The recurrence becomes $S(m)=2S(m/2)+m$.\n2. Each of its $\\Theta(\\log m)$ significant levels costs $\\Theta(m)$, so $S(m)=\\Theta(m\\log m)$.\n3. Substitute back to obtain $\\Theta(\\log n\\log\\log n)$. A base region above one prevents the square-root recursion from sticking at one.\n4. Option 2 is also a loose upper bound. As is conventional in this source question, option 1 is the smallest asymptotic bound among the listed choices. Options 3 and 4 are too small. The booklet uses $O$ rather than $\\Theta$, so the literal wording does not make all true upper bounds mutually exclusive.\n\n**Source wording note.** The tight answer is unambiguous; selecting a unique $O$ answer requires the usual smallest-bound convention.",
+    "pattern": "change of variable and loose-bound wording",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CE_1405_Q59",
+    "booklet": "MS_CE_1405",
+    "pdfPage": 13,
+    "questionNumber": 59,
+    "topics": [
+      "a_divide",
+      "a_recurrence"
+    ],
+    "title": "An unbalanced pivot selection",
+    "stem": "A quicksort variant sorts the first $2\\sqrt n+1$ elements by insertion sort and chooses their median as pivot, then proceeds as ordinary quicksort. Which recurrence describes the worst case, suppressing rounding and constant terms?",
+    "options": [
+      "$T(n)=2T(n-1)+n$",
+      "$T(n)=2T(\\sqrt n)+n$",
+      "$T(n)=2T(n-\\sqrt n)+n$",
+      "$T(n)=T(n-\\sqrt n)+T(\\sqrt n)+n$"
+    ],
+    "answer": 4,
+    "solution": "1. Sorting a sample of size $\\Theta(\\sqrt n)$ by insertion sort costs $\\Theta(n)$; partitioning also costs $\\Theta(n)$.\n2. The sample median has at least $\\sqrt n$ sample elements on each side. Thus neither partition can leave fewer than approximately $\\sqrt n$ elements on its smaller side, but the rest of the array can all lie on the larger side.\n3. The worst split is therefore approximately $\\sqrt n$ versus $n-\\sqrt n$, giving option 4.\n4. Options 1 and 3 duplicate a large branch and count more elements than the partition contains. Option 2 incorrectly treats the small sample as the whole input.\n\n**Transfer rule.** Derive partition guarantees from the sample, and check that child sizes add to the parent size up to the pivot.",
+    "pattern": "sample rank guarantee and conservation",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1393_Q165",
+    "booklet": "MS_CS_1393",
+    "pdfPage": 33,
+    "questionNumber": 165,
+    "topics": [
+      "p_types",
+      "g_number"
+    ],
+    "title": "Truncation is not decimal rounding",
+    "stem": "`CHOP` removes the fractional part of a real number, truncating toward zero. Which statement is false?",
+    "options": [
+      "If $x$ is an integer, $x=\\operatorname{CHOP}(x)$.",
+      "If $x<0$, $\\operatorname{CHOP}(x-0.5)$ rounds $x$ to an integer.",
+      "If $x\\ge0$, $\\operatorname{CHOP}(100x+0.5)/100$ rounds $x$ to two decimal places by truncation.",
+      "If $x\\ge0$, $\\operatorname{CHOP}(100x)/100$ truncates $x$ to two decimal places."
+    ],
+    "answer": 3,
+    "solution": "1. Integers remain unchanged by truncation, so option 1 is true.\n2. For negative values, subtracting one half then truncating implements nearest-integer rounding with halfway cases away from zero. This explains the rounding convention implicit in option 2.\n3. Adding one half to $100x$ before truncation produces rounding, not truncation. For $x=1.239$, option 3 produces $1.24$, whereas truncation to two decimal places produces $1.23$.\n4. Option 4 correctly discards digits after two decimal places. The false option is 3. The item is about the stated numeric primitive; a C cast has a range requirement and does not make every real-to-integer conversion valid.\n\n**Transfer rule.** Test a proposed rounding formula with an input whose discarded digit exceeds five; specify the halfway convention.",
+    "pattern": "rounding versus truncation and numeric model",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1393/olum_93_konkurcomputer.pdf",
+    "sourceSha256": "7ed89fae8eb601a964355fde5e5d297cbb30844e5240b9e3908b798fb86e349d",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1393_Q167",
+    "booklet": "MS_CS_1393",
+    "pdfPage": 34,
+    "questionNumber": 167,
+    "topics": [
+      "p_flow",
+      "d_invariants"
+    ],
+    "title": "Recursive reverse-stride copying",
+    "stem": "Copy every other element of an $N$-element array `a`, starting at its last element, into array `b` from index zero upward. Call `store(N-1,0)`. Which pseudocode is correct? Syntax below treats parameters as integers and arrays as available in the procedure.",
+    "options": [
+      "`if(n<0)return; b[i]=a[n]; store(n-2,i+1);`",
+      "`if(n<i)return; b[i+1]=a[n]; store(n-2,i+1);`",
+      "`if(n<i)return; b[i]=a[n]; store(n-1,i+1);`",
+      "`if(n<0)return; b[i++]=a[n]; store(n-1,i+2);`"
+    ],
+    "answer": 1,
+    "solution": "1. After $t$ calls, the intended state is $n=N-1-2t$ and $i=t$. Thus the next recursive call must decrease the source index by two and increase the destination by one.\n2. Option 1 preserves this state and stops precisely when the source index becomes negative. It writes $\\lceil N/2\\rceil$ elements.\n3. Option 2 leaves `b[0]` unwritten and stops too early through an unrelated comparison. Option 3 uses stride one. Option 4 also uses source stride one and has incompatible destination updates.\n4. The source lists pseudocode resembling C without parameter type declarations; it is not a strictly compilable C17 function. We assess its specified indexing algorithm, not missing declarations.\n\n**Transfer rule.** Express the intended source and destination indices as functions of recursion depth.",
+    "pattern": "index invariant and stop condition",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1393/olum_93_konkurcomputer.pdf",
+    "sourceSha256": "7ed89fae8eb601a964355fde5e5d297cbb30844e5240b9e3908b798fb86e349d",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1404_Q51",
+    "booklet": "MS_CS_1404",
+    "pdfPage": 11,
+    "questionNumber": 51,
+    "topics": [
+      "g_number",
+      "p_types"
+    ],
+    "title": "Finite precision breaks associativity",
+    "stem": "A decimal floating-point calculator rounds each operation to four digits after the decimal point in a normalized mantissa. Let $a=3.4127\\times10^2$, $b=8.1316\\times10^1$, and $c=1.2417\\times10^1$. It computes $A=(a+b)+c$ and $B=a+(b+c)$. What is $A-B$?",
+    "options": [
+      "0.01",
+      "0",
+      "0.003",
+      "-0.01"
+    ],
+    "answer": 1,
+    "solution": "1. The normalized mantissa retains five significant digits: one before the decimal point and four after it. Each intermediate sum is rounded, not only the final result.\n2. The exact first sum $a+b=422.586$ rounds to $422.59$. Adding $c$ gives $435.007$, which rounds to $435.01$.\n3. The exact sum $b+c=93.733$ is representable as $9.3733\\times10^1$. Adding $a$ gives $435.003$, which rounds to $435.00$.\n4. Hence $A-B=0.01$. Zero assumes associativity; 0.003 mixes exact and rounded paths; the negative option reverses subtraction.\n\n**Transfer rule.** Normalize and round at each operation under the specified mantissa model; do not replace decimal precision with binary64.",
+    "pattern": "operation-by-operation rounding",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CS/1404/Daftarche-Soalat-Konkur-Arshad-Olum-Computer-1404-(konkurcomputer.ir).pdf",
+    "sourceSha256": "53719e256f35b9acb43bfa87062a7c0fb20f1e4b3f9e0fa9c688e74e4a0ec26f",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1404_Q30",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 8,
+    "questionNumber": 30,
+    "topics": [
+      "l_matrices",
+      "l_vectors"
+    ],
+    "title": "A lower norm bound does not imply positivity",
+    "stem": "A real square matrix $A$ satisfies $\\Vert Ax\\Vert\\ge\\theta\\Vert x\\Vert$ for every real $x$, with $\\theta>0$. Which assertion is false?",
+    "options": [
+      "$\\Vert A^{-1}\\Vert\\le\\theta^{-1}$ for the induced norm.",
+      "$A$ is positive definite.",
+      "$A$ is nonsingular.",
+      "If $\\lambda$ is an eigenvalue of $A$, then $|\\lambda|\\ge\\theta$."
+    ],
+    "answer": 2,
+    "solution": "1. If $Ax=0$, the inequality forces $x=0$. A square matrix with trivial kernel is invertible.\n2. Put $x=A^{-1}y$: $\\Vert A^{-1}y\\Vert\\le\\Vert y\\Vert/\\theta$. Taking the supremum gives the inverse norm bound.\n3. For the Euclidean norm, the real inequality extends to complex vectors by applying its squared form to real and imaginary parts. For an eigenvector, $\\Vert Ax\\Vert=|\\lambda|\\Vert x\\Vert$, giving the eigenvalue modulus bound.\n4. Positivity does not follow: $A=-I$ satisfies the norm bound with $\\theta=1$, but $x^TAx=-\\Vert x\\Vert^2<0$ for nonzero $x$. Thus option 2 is false.\n\n**Model note.** The source uses the standard matrix/vector norm convention; the eigenvalue discussion above explicitly uses the Euclidean induced norm. Norm preservation of magnitude says nothing about the sign of a quadratic form.",
+    "pattern": "counterexample versus magnitude bound",
+    "difficulty": "Hard",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1404_Q31",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 8,
+    "questionNumber": 31,
+    "topics": [
+      "l_vectors",
+      "l_matrices"
+    ],
+    "title": "Orthogonal projection and a reversed inequality",
+    "stem": "An orthonormal basis $u_1,\\ldots,u_n$ spans $U\\subseteq\\mathbb R^m$, with $n\\le m$. Let $Px=\\sum_{k=1}^n\\langle x,u_k\\rangle u_k$. Which statement is false?",
+    "options": [
+      "$P$ is idempotent.",
+      "If $x\\in U$ then $Px\\in U$.",
+      "For every $x$, $\\Vert x\\Vert_2\\le\\Vert Px\\Vert_2$.",
+      "$P$ is a linear operator from $\\mathbb R^m$ to $U$."
+    ],
+    "answer": 3,
+    "solution": "1. Every $Px$ is a linear combination of the basis vectors, and the coefficient functionals are linear. Hence the operator is linear with image in $U$.\n2. If $x\\in U$, the orthonormal expansion recovers $x$, so $Px=x$; applying this to $Px$ gives $P^2x=Px$.\n3. Orthogonal decomposition gives $\\Vert x\\Vert_2^2=\\Vert Px\\Vert_2^2+\\Vert x-Px\\Vert_2^2$. Therefore the universal inequality is $\\Vert Px\\Vert_2\\le\\Vert x\\Vert_2$, the reverse of option 3.\n4. For a proper subspace, a nonzero perpendicular vector gives a strict counterexample: $Px=0$. If $U$ equals the whole space, equality happens, but that special case does not make the proposed claim a general projection theorem.\n\n**Transfer rule.** Decompose into orthogonal components and compare squared norms before trusting the inequality direction.",
+    "pattern": "projection decomposition and special-case trap",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1404_Q32",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 8,
+    "questionNumber": 32,
+    "topics": [
+      "l_matrices",
+      "l_vectors"
+    ],
+    "title": "A matrix parameter range",
+    "stem": "The symmetric $3\\times3$ matrix has diagonal entries 1 and every off-diagonal entry $a$. For which range of $a$ is it positive definite?",
+    "options": [
+      "$-1<a<1$",
+      "$-1/2<a<1$",
+      "$-1/2<a<1/2$",
+      "$0<a<1$"
+    ],
+    "answer": 2,
+    "solution": "1. Write the quadratic form as $(1-a)(x_1^2+x_2^2+x_3^2)+a(x_1+x_2+x_3)^2$.\n2. On the sum-zero plane, the coefficient is $1-a$, which must be positive. On the all-equal line, the coefficient is $1+2a$, which must also be positive.\n3. These perpendicular subspaces span the whole space, so the two necessary inequalities are sufficient. They give $-1/2<a<1$.\n4. Endpoints are excluded because one subspace then has zero quadratic form. Option 1 includes invalid negative values; options 3 and 4 unnecessarily exclude valid values.\n\n**Transfer rule.** Split a structured quadratic form into invariant subspaces; strict positivity excludes zero endpoints.",
+    "pattern": "parameter classification by subspaces",
+    "difficulty": "Hard",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1404_Q67",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 15,
+    "questionNumber": 67,
+    "topics": [
+      "s_axioms",
+      "s_counting"
+    ],
+    "title": "Collision probability with replacement",
+    "stem": "An urn contains $N$ balls numbered 1 through $N$. Draw $n$ balls without replacement. What is the probability that at least one ball is selected twice? These are the alternatives printed in the supplied scan.",
+    "options": [
+      "$1/N^n$",
+      "$1-1/N!$",
+      "$\\binom Nn/N^n$",
+      "$1-N!/(n!N^n)$"
+    ],
+    "answer": null,
+    "solution": "1. Without replacement, the same ball cannot be selected twice. Thus for a valid experiment with $n\\le N$, the stated probability is zero.\n2. None of the printed expressions is identically zero. The question's wording and alternatives are therefore inconsistent. We do not silently change “without” into “with.”\n3. If replacement had been intended, the collision probability would instead be $1-N!/((N-n)!N^n)$. The printed fourth denominator is $n!N^n$, so even that reinterpretation would need a second correction.\n4. This source record is excluded from practice, but retained as an example of checking experiment rules before applying a memorized formula.",
+    "pattern": "complement and ordered sampling; source defect",
+    "difficulty": "Hard",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1404_Q68",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 15,
+    "questionNumber": 68,
+    "topics": [
+      "s_axioms",
+      "s_counting"
+    ],
+    "title": "At most one independent event",
+    "stem": "Events $B_1,\\ldots,B_n$ are independent, and $P(B_i)=1/n$. What is the probability that at most one occurs? Take $n\\ge2$ in the displayed formulas.",
+    "options": [
+      "$\\frac{(n-1)^{n-1}(2n-1)}{n^n}$",
+      "$\\frac{n^{n-1}(2n-1)}{(n+1)^n}$",
+      "$(n/(n-1))^n$",
+      "$((n-1)/(n+1))^n$"
+    ],
+    "answer": 1,
+    "solution": "1. No event occurs with probability $(1-1/n)^n$ by mutual independence.\n2. Exactly one occurs in $n$ disjoint ways, each of probability $(1/n)(1-1/n)^{n-1}$. Their total is $(1-1/n)^{n-1}$.\n3. Add the two cases and factor: $(1-1/n)^{n-1}(2-1/n)=(n-1)^{n-1}(2n-1)/n^n$.\n4. The other options use a different success probability or omit the exactly-one contribution. For $n=2$ the correct result is $3/4$, a quick check against alternatives.\n\n**Transfer rule.** At most one includes zero; pairwise independence alone would not justify multiplying all complements.",
+    "pattern": "independent-event zero/one decomposition",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1404_Q69",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 15,
+    "questionNumber": 69,
+    "topics": [
+      "s_axioms"
+    ],
+    "title": "A conditional probability with random family size",
+    "stem": "The probability that a family has $n$ children is $2^{-n-1}$ for $n\\ge0$. Independently, each child is equally likely to be a boy or a girl. Given that the family has no boys, what is the probability it has at least one child?",
+    "options": [
+      "1/3",
+      "1/2",
+      "3/4",
+      "1/4"
+    ],
+    "answer": 4,
+    "solution": "1. Let $G$ mean no boys. Conditional on $n$ children its probability is $2^{-n}$, including value one for $n=0$.\n2. The total probability of $G$ is $\\sum_{n\\ge0}2^{-n-1}2^{-n}=\\frac12\\sum_{n\\ge0}4^{-n}=2/3$.\n3. The joint probability of $G$ and at least one child is $2/3-1/2=1/6$. Divide by $P(G)=2/3$ to obtain $1/4$, option 4.\n4. The reverse conditional, no boys given at least one child, would be $1/3$, option 1. That tempting distractor demonstrates why the conditioning direction must be preserved in translation.\n\n**Transfer rule.** Name the conditioning event, include the zero-size case where appropriate, and divide the joint event by that event's probability.",
+    "pattern": "total probability and conditioning",
+    "difficulty": "Hard",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1404_Q70",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 16,
+    "questionNumber": 70,
+    "topics": [
+      "s_axioms",
+      "s_counting"
+    ],
+    "title": "Equal heads from unequal sample sizes",
+    "stem": "Player $A$ tosses a fair coin 25 times and player $B$ tosses a fair coin 20 times, independently. What is the probability that they obtain the same number of heads?",
+    "options": [
+      "$\\binom{45}{20}2^{-45}$",
+      "$\\binom{45}{15}2^{-45}$",
+      "$\\binom{45}{20}2^{-20}$",
+      "$\\binom{45}{15}2^{-20}$"
+    ],
+    "answer": 1,
+    "solution": "1. Sum over their common head count $k$: $P=2^{-45}\\sum_{k=0}^{20}\\binom{25}k\\binom{20}k$.\n2. Replace $\\binom{20}k$ by $\\binom{20}{20-k}$ and apply Vandermonde's identity. The sum is $\\binom{45}{20}$.\n3. Alternatively, equal heads means the heads in A's tosses plus the tails in B's tosses total 20. Those 45 independent fair indicators give the same binomial coefficient.\n4. The denominator counts all 45 tosses; $2^{20}$ is insufficient. The index 15 represents the wrong combined target.\n\n**Transfer rule.** Convert equality between two counts into one count by complementing one group's successes.",
+    "pattern": "Vandermonde and complemented indicators",
+    "difficulty": "Hard",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1404_Q71",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 16,
+    "questionNumber": 71,
+    "topics": [
+      "a_recurrence",
+      "a_asym"
+    ],
+    "title": "A multiplicative one-step recurrence",
+    "stem": "For $T(n)=2^nT(n-1)$ and $T(0)=1$, which listed order is correct?",
+    "options": [
+      "$\\Theta(n^{2n})$",
+      "$\\Theta(2^n\\log n)$",
+      "$\\Theta(2^{n^2})$",
+      "$\\Theta((\\sqrt2)^{n^2+n})$"
+    ],
+    "answer": 4,
+    "solution": "1. Unroll the recurrence: $T(n)=\\prod_{j=1}^n2^j=2^{\\sum_{j=1}^n j}=2^{n(n+1)/2}$.\n2. The last option is exactly $(\\sqrt2)^{n^2+n}=2^{(n^2+n)/2}$.\n3. Option 3 is not a tight bound: its ratio to the true answer is $2^{(n^2-n)/2}$ and grows without bound. Option 2 is far smaller. The exponent of option 1 is $2n\\log_2 n$, also much smaller than $n(n+1)/2$ eventually.\n4. Constants multiplying an exponent of $n^2$ cannot be discarded inside a tight exponential order.\n\n**Transfer rule.** Take logarithms or add exponents when recurrence terms multiply.",
+    "pattern": "products and exponential tightness",
+    "difficulty": "Hard",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1404_Q72",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 16,
+    "questionNumber": 72,
+    "topics": [
+      "a_loop",
+      "a_model",
+      "s_axioms"
+    ],
+    "title": "Expected running-minimum updates",
+    "stem": "An array contains $n$ distinct values in a uniformly random permutation. Set `min` to positive infinity, scan from index 1 to $n$, and replace it whenever the next value is smaller. If $Y$ counts replacements, which expression is closest to its mean for large $n$?",
+    "options": [
+      "1",
+      "$\\ln n$",
+      "n",
+      "$n\\ln n$"
+    ],
+    "answer": 2,
+    "solution": "1. Let $I_i$ indicate that position $i$ contains the smallest of the first $i$ values. Uniform permutation symmetry gives $P(I_i=1)=1/i$.\n2. Linearity of expectation requires no independence between these indicators: $E[Y]=\\sum_{i=1}^n1/i=H_n$.\n3. Integral bounds give $\\ln(n+1)\\le H_n\\le1+\\ln n$, so $\\ln n$ is the listed large-$n$ approximation.\n4. The exact mean is $H_n$, not exactly $\\ln n$. One counts only the first update; $n$ assumes every position is a record; $n\\ln n$ multiplies counts that should be summed.\n\n**Transfer rule.** Distinguish the number of loop tests (always $n$) from the number of successful updates (random).",
+    "pattern": "indicator expectation versus loop count",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CE_1405_Q23",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 6,
+    "questionNumber": 23,
+    "topics": [
+      "g_gates",
+      "g_boolean"
+    ],
+    "title": "Recognize a NAND network",
+    "stem": "A circuit has $t=\\overline{xy}$, $u=\\overline{xt}$, $v=\\overline{yt}$, $F_1=\\overline{uv}$, and $F_2=\\overline{vv}$. These equations transcribe the connected NAND gates in the original diagram. Which describes $F_1,F_2$?",
+    "options": [
+      "Comparator outputs for equality and $x>y$, respectively.",
+      "Comparator outputs for equality and $x<y$, respectively.",
+      "Half-adder sum and carry for $x+y$, respectively.",
+      "Half-subtractor difference and borrow for $x-y$, respectively."
+    ],
+    "answer": 4,
+    "solution": "1. The first four NAND gates form an XOR: substituting $t$ gives $F_1=x\\oplus y$.\n2. The final NAND has tied inputs and inverts $v$. Thus $F_2=yt=y\\overline{xy}=\\overline{x}y$.\n3. In one-bit subtraction, difference is XOR and a borrow is needed exactly when $x=0,y=1$. These are precisely the two derived outputs.\n4. A comparator equality output would be XNOR, eliminating options 1 and 2. A half-adder carry is $xy$, not $\\overline{x}y$, eliminating option 3.\n\n**Transfer rule.** Label internal nets and calculate every output; matching one familiar subcircuit does not identify a two-output circuit.",
+    "pattern": "internal-net derivation and arithmetic interpretation",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CE_1405_Q77",
+    "booklet": "MS_CE_1405",
+    "pdfPage": 16,
+    "questionNumber": 77,
+    "topics": [
+      "g_gates",
+      "g_boolean"
+    ],
+    "title": "Minimum NOR realization",
+    "stem": "Each input variable and its complement are available. What minimum NOR-gate combination realizes $F=x\\overline{(y\\oplus z)}+y\\overline z$?",
+    "options": [
+      "Four two-input NOR gates and one three-input NOR gate.",
+      "Five two-input NOR gates and one three-input NOR gate.",
+      "Three two-input NOR gates and one three-input NOR gate.",
+      "Two two-input NOR gates and two three-input NOR gates."
+    ],
+    "answer": null,
+    "solution": "1. Expanding and simplifying gives $F=xy+x\\overline z+y\\overline z=(x+y)(x+\\overline z)(y+\\overline z)$.\n2. Three two-input NOR gates complement the pair sums; one three-input NOR combines them. This gives the conventional option 3 construction.\n3. The source does not state whether redundant tied pins count as a three-input gate. If they do, replace one of the first-stage two-input NORs with a three-input NOR having one repeated input. The function is unchanged and the gate counts now match option 4, also totaling four gates.\n4. Thus a unique fan-in-count answer needs an additional convention. We retain the construction as a tutorial and exclude the printed question from unique-answer practice. Its logical function remains useful for original questions with an explicit gate model.",
+    "pattern": "factoring with an explicit gate-cost model",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CE_1405_Q78",
+    "booklet": "MS_CE_1405",
+    "pdfPage": 16,
+    "questionNumber": 78,
+    "topics": [
+      "g_gates",
+      "g_boolean"
+    ],
+    "title": "A hazard-free SOP with unspecified cells",
+    "stem": "For $F(a,b,c,d)=\\prod M(2,3,4,10,11,12,13,14)$ with don\\'t-care indices 0 and 1, which is the simplified SOP so that it is hazard-free? Index order is $a,b,c,d$.",
+    "options": [
+      "$\\overline a bc+bcd+\\overline b\\overline c+\\overline a\\overline c d$",
+      "$\\overline a bd+\\overline a bc+bcd+\\overline b\\overline c$",
+      "$\\overline a bd+\\overline a bc+bcd+a\\overline b\\overline c$",
+      "$\\overline a bd+\\overline a bc+bcd+\\overline a\\overline c$"
+    ],
+    "answer": null,
+    "solution": "1. The required one-set is $\\{5,6,7,8,9,15\\}$. Specified zero cells must remain zero; don't-care cells 0 and 1 may be chosen freely.\n2. Option 2 covers the adjacent required-one pairs 5–7, 6–7, 7–15 and 8–9 with common implicants. It has eleven literals and includes the four-cell group $\\{0,1,8,9\\}$.\n3. Option 1 lacks common coverage for transition 5–7 and can have a static-one hazard. Option 4 misses required ones 8 and 9. Option 3 preserves the required outputs and covers every required-one adjacency when don't-cares 0 and 1 are assigned zero, but has twelve literals; its group covering 8 and 9 is not prime once the don't-cares are available for expansion.\n4. The source also asks for a simplified expression. Interpreting that as minimum-literal prime-implicant coverage selects option 2; interpreting the question as hazard freedom alone admits option 3 as well. This is a convention-sensitive item, not proof that the conventional simplified answer is wrong. We exclude it from unqualified single-answer practice and state the minimization convention in original exercises.",
+    "pattern": "functional correctness before hazard coverage; source ambiguity",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CE_1404_Q80",
+    "booklet": "MS_CE_1404",
+    "pdfPage": 19,
+    "questionNumber": 80,
+    "topics": [
+      "g_gates",
+      "g_boolean"
+    ],
+    "title": "Two cascaded multiplexers",
+    "stem": "Two 2:1 multiplexers use select values zero and one to choose inputs $I_0$ and $I_1$. The first has $(I_0,I_1)=(1,0)$ and select $b$. Its output feeds $I_0$ of the second, whose $I_1=0$ and select is $a$. Which function is implemented?",
+    "options": [
+      "XNOR",
+      "XOR",
+      "NAND",
+      "NOR"
+    ],
+    "answer": 4,
+    "solution": "1. The first multiplexer produces $\\overline b$: it is one when its select is zero and zero when the select is one.\n2. The second produces the first output only when $a=0$, so its output is $\\overline a\\overline b=\\overline{a+b}$.\n3. This is NOR. NAND differs at inputs 01 and 10; XOR differs at 00 and the mixed inputs; XNOR is also one at 11, which the second multiplexer forces to zero.\n4. A multiplexer selects data; its select pin is not simply another OR input.\n\n**Transfer rule.** Derive each multiplexer by its select cases and then substitute the intermediate signal.",
+    "pattern": "cofactor substitution and gate recognition",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CE/1404/Daftarche-Soalat-Konkur-Arshad-Computer-1404 (konkurcomputer.ir).pdf",
+    "sourceSha256": "909e4efaaad96f4d39e526104bc9dc6de6d52be11fd7716e583476b0e62ff654",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CE_1404_Q81",
+    "booklet": "MS_CE_1404",
+    "pdfPage": 19,
+    "questionNumber": 81,
+    "topics": [
+      "g_gates"
+    ],
+    "title": "A ring-oscillator frequency",
+    "stem": "A ring oscillator contains five inverters in a loop. Each inverter has propagation delay 5 ns. What is its oscillation frequency in megahertz?",
+    "options": [
+      "5",
+      "10",
+      "20",
+      "40"
+    ],
+    "answer": 3,
+    "solution": "1. A transition traverses all five inverters in 25 ns and changes polarity because the loop has an odd number of inversions.\n2. A complete cycle requires both a rising and a falling traversal, so the period is $2\\cdot5\\cdot5=50$ ns.\n3. Frequency is $1/(50\\times10^{-9})=20\\times10^6$ Hz, or 20 MHz. Forty megahertz counts only half the period; the other choices confuse the number of stages and their delay.\n4. This is the usual equal-delay digital model of the source diagram, not an analog startup or jitter prediction.\n\n**Transfer rule.** Convert time units and distinguish a single polarity traversal from a full oscillation.",
+    "pattern": "timing formula and unit conversion",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CE/1404/Daftarche-Soalat-Konkur-Arshad-Computer-1404 (konkurcomputer.ir).pdf",
+    "sourceSha256": "909e4efaaad96f4d39e526104bc9dc6de6d52be11fd7716e583476b0e62ff654",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CE_1404_Q91",
+    "booklet": "MS_CE_1404",
+    "pdfPage": 22,
+    "questionNumber": 91,
+    "topics": [
+      "g_gates"
+    ],
+    "title": "Transistor scaling and an Elmore-delay limit",
+    "stem": "All transistor widths in a three-input NAND are doubled. Under the Elmore model, how does its maximum low-to-high propagation delay change? The load $C_L$ is due to next-stage input gates whose dimensions remain fixed.",
+    "options": [
+      "It may be greater or smaller than half the initial delay, depending on original dimensions.",
+      "It decreases, but remains greater than half the initial delay.",
+      "It decreases to less than half the initial delay.",
+      "It does not change."
+    ],
+    "answer": 2,
+    "solution": "1. Doubling widths halves the on-resistances but doubles this gate's width-dependent internal capacitances. The externally specified load remains fixed.\n2. An Elmore term from an internal capacitance therefore retains its value: $(R/2)(2C)=RC$. A term due to the fixed load halves.\n3. With positive internal and load contributions, write the original delay as $D_{int}+D_L$ and the new delay as $D_{int}+D_L/2$. Its ratio is strictly between one half and one.\n4. Treating every capacitance as fixed would predict exactly half; treating every capacitance as scaled would predict unchanged delay. Both ignore the question's split between internal and external capacitance.\n\n**Transfer rule.** Scale resistance and capacitance contributions separately before estimating delay.",
+    "pattern": "physical scaling with a fixed external load",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CE/1404/Daftarche-Soalat-Konkur-Arshad-Computer-1404 (konkurcomputer.ir).pdf",
+    "sourceSha256": "909e4efaaad96f4d39e526104bc9dc6de6d52be11fd7716e583476b0e62ff654",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1404_Q25",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 7,
+    "questionNumber": 25,
+    "topics": [
+      "d_sets",
+      "s_counting",
+      "d_number"
+    ],
+    "title": "A subset containing an odd pair sum",
+    "stem": "How many four-element subsets $A$ of $\\{1,2,\\ldots,10\\}$ contain two elements $x,y$ such that $x+y$ is odd?",
+    "options": [
+      "200",
+      "205",
+      "208",
+      "209"
+    ],
+    "answer": 1,
+    "solution": "1. A sum is odd exactly when one summand is even and the other odd. Thus the set must contain both parities.\n2. There are $\\binom{10}4=210$ unrestricted subsets. The failing subsets consist entirely of the five even or entirely of the five odd elements.\n3. Subtract $2\\binom54=10$ to get 200. The two failure classes are disjoint, so no overlap correction is required.\n4. Counting a chosen odd/even pair and then two other elements would overcount sets containing several witness pairs.\n\n**Transfer rule.** Count an existential-witness property by its complement when each valid object may have several witnesses.",
+    "pattern": "existential parity witness and complement count",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1404_Q28",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 7,
+    "questionNumber": 28,
+    "topics": [
+      "d_number",
+      "a_recurrence",
+      "d_induction",
+      "d_invariants"
+    ],
+    "title": "Parity far from the given recurrence values",
+    "stem": "Let $a_n=3a_{n-1}+5a_{n-2}+4$, with $a_{16}=1403$ and $a_{17}=2025$. How many of $a_{100},a_{101},\\ldots,a_{113}$ are even?",
+    "options": [
+      "4",
+      "5",
+      "7",
+      "10"
+    ],
+    "answer": 1,
+    "solution": "1. Reduce modulo two: $a_n\\equiv a_{n-1}+a_{n-2}$. The two given values are both odd.\n2. The parity states from indices 16 onward are odd, odd, even, repeating every three. This can be checked by advancing the pair state and then proved by induction.\n3. Hence even values occur exactly at indices divisible by three. In 100 through 113 these are 102,105,108,111, giving four.\n4. There is no need to construct the enormous later terms. Counting a half split or forgetting the inclusive range gives the wrong number.\n\n**Transfer rule.** Project a recurrence into the requested residue system and track its finite pair-state cycle.",
+    "pattern": "recurrence projection into a finite residue system",
+    "difficulty": "Hard",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CE_1405_Q35",
+    "booklet": "MS_CE_1405",
+    "pdfPage": 8,
+    "questionNumber": 35,
+    "topics": [
+      "s_axioms",
+      "s_counting"
+    ],
+    "title": "Heads in a conditional second toss",
+    "stem": "Four fair coins are tossed. Every coin that showed heads is tossed again. If $Y$ is the number of heads in the second toss, what is $P(Y=2)$?",
+    "options": [
+      "$1/2$",
+      "$3/4$",
+      "$17/128$",
+      "$27/128$"
+    ],
+    "answer": 4,
+    "solution": "1. Model each coin by two independent fair tosses, with the second revealed only when the first is heads. A coin contributes one to $Y$ exactly on the outcome heads-heads, which has probability $1/4$.\n2. The four contribution indicators are independent, so $Y$ is binomial with parameters 4 and $1/4$. Exactly two successes have probability $\\binom42(1/4)^2(3/4)^2=27/128$, option 4.\n3. An independent derivation conditions on the number $K$ of first-round heads. Sum $\\binom4k2^{-4}\\binom k2 2^{-k}$ for $k=2,3,4$. The contributions are $3/32,3/32,3/128$, whose sum is $27/128$.\n4. Treating the second round as four unconditional fair tosses ignores that only first-round heads qualify. Fixing the random number of qualifying coins at its expected value also changes the distribution.\n\n**Transfer rule.** Replace a multistage selection experiment by independent per-object indicators when eligibility and success can be combined into one event.",
+    "pattern": "multistage eligibility converted to independent indicators",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CE_1405_Q56",
+    "booklet": "MS_CE_1405",
+    "pdfPage": 12,
+    "questionNumber": 56,
+    "topics": [
+      "a_model",
+      "a_loop"
+    ],
+    "title": "Sequentially merging equal sorted lists",
+    "stem": "There are $k$ sorted lists, each containing $n/k$ elements. Merge lists 1 and 2, then merge the result with list 3, and continue in this way. What is the worst-case running-time bound of this algorithm?",
+    "options": [
+      "$O(k\\log n)$",
+      "$O(n)$",
+      "$O(n\\log k)$",
+      "$O(nk)$"
+    ],
+    "answer": 4,
+    "solution": "1. At stage $j$, merge an accumulated list of $j n/k$ elements with the next list of $n/k$ elements. In the standard linear-time merge model, the worst-case work is proportional to $(j+1)n/k$.\n2. Sum the stage costs for $j=1,\\ldots,k-1$: $(n/k)(2+3+\\cdots+k)=(n/k)(k(k+1)/2-1)$. For $2\\le k\\le n$, this is $\\Theta(nk)$, so option 4 is the stated bound.\n3. A balanced merge tree instead processes all $n$ elements at each of $\\Theta(\\log k)$ levels and takes $\\Theta(n\\log k)$. A heap can achieve the same asymptotic bound, but neither is the sequential algorithm in the question.\n4. The worst case includes inputs whose keys remain interleaved at successive merges; one cannot price every stage at the size of the incoming list alone. If $k$ is fixed independently of $n$, the expression becomes linear in $n$, but the listed options treat both parameters as variable.\n\n**Transfer rule.** Write the accumulated problem size at each iteration before summing costs. A correct bound for a different merge strategy is a distractor, not an answer.",
+    "pattern": "growing work per iteration and two-parameter cost",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  }
+]

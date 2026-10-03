@@ -101,7 +101,7 @@ assert all(len(stage) == 4 for stage in plan["ielts"]["stages"])
 assert sum(block["hours"] for day in daily["days"] for block in day["blocks"] if block.get("subject") == "english") == 4
 chapters = [c for w in lessons for c in w['chapters']]
 assert len(chapters) == 22
-assert all(c['status'] == 'draft' and c['revisionState'] == 'rewritten_draft' for c in chapters)
+assert all(c['status'] == 'draft' and c['revisionState'] == 'exam_grounded_draft' for c in chapters)
 assert all(c['url'] == 'chapters/' + c['topicId'] + '.html' for c in chapters)
 for chapter_id in [c['topicId'] for c in chapters]:
     chapter_html = (ROOT / "chapters" / f"{chapter_id}.html").read_text(encoding="utf-8")

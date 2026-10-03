@@ -56,3 +56,19 @@ The gate is awaiting_user_approval. a_divide remains draft until explicit approv
 2026-10-03: The explicit whole-library rewrite supersedes older delivery counts and approval states below. All 22 existing chapters remain revision drafts. No new topic may start until explicit approval of this revision. Current evidence and delivery: research/exam-rewrite/manifest.json, DELIVERY.en.md, answer-checks.json and evidence/browser-review.json. App report: dist/library-review.html. Previous Iranian exam-archive deferral remains active. Do not reset study progress.
 
 The authoritative rebuild is research/rebuild_exam_library.py using research/exam-rewrite/baseline and the new authored chapter files. Run it after any legacy builder. Never publish a legacy builder’s output alone. See research/exam-rewrite/README.md for the complete generation and validation sequence.
+
+## Exam-grounded problem-bank revision
+
+2026-10-03: The student explicitly authorized studying the original MS and PhD PDFs in main/Exams and rejected the replacement banks as insufficient. This supersedes final-month exam deferral. Each existing chapter must include attributed, accurately translated actual examination items where relevant, plus independently worded medium-to-hard original analogues with complete solutions. Record year, field, question number, original PDF page, original options and answer provenance; do not invent official answers or exact chapter matches. University-course teaching and source standards remain active. Existing material remains draft until explicit approval.
+
+## Completed exam-grounded problem banks
+
+22 chapters; 56 distinct authentic questions, 111 authentic placements, 176 new authored analogues, 44 retained challenges; 331 total problem entries; 339 examination notes; 70 figure instances.
+
+The latest instruction supersedes archive deferral. Every source question has original options, PDF page, year, field, immutable commit and an independent worked solution. Three ambiguous/defective records are excluded and documented. Difficulty for original questions is qualitative.
+
+145 independent finite/exact and output checks passed. The 22 pages and 70 figures passed mobile and print-style geometry checks. These checks do not prove universal correctness or unseen-exam performance.
+
+User-facing report: dist/library-review.html. Source audit: dist/exam-source-audit.html. Sources: actual-items.json and READING_LOG.en.md. Authoring: original-*.json and author_*.py. Rebuild: research/rebuild_exam_library.py applies the calibration overlay after the legacy banks.
+
+All chapters remain drafts. Await explicit approval before promoting this revision or starting another chapter. Preserve study progress.

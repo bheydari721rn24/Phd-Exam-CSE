@@ -44,7 +44,7 @@ function renderStart() {
       <p class="eyebrow">Begin with the reading plan</p>
       <h2>Week ${current.number}: ${escapeHtml(current.shortLabel)}</h2>
       <p class="lead">${escapeHtml(current.focus)}</p>
-      <div class="notice">Start the first reading on Saturday, October 3, 2026 (1405/07/11). Read each chapter and its worked examples before independent practice. We will use past entrance-exam booklets together in the final month.</div>
+      <div class="notice">Start the first reading on Saturday, October 3, 2026 (1405/07/11). Read each chapter and its worked examples before independent practice. Original MSc and PhD examination questions are included in the revised chapter banks.</div>
       <div class="actions">
         ${ready ? `<a class="primary" href="${escapeHtml(ready.url)}">Open the completed chapter: ${escapeHtml(ready.title)}</a>` : ""}
         ${reviewDraft ? `<a href="${escapeHtml(reviewDraft.url)}">Review the chapter draft: ${escapeHtml(reviewDraft.title)}</a>` : ""}
@@ -133,10 +133,10 @@ function renderLibrary() {
   const drafted = lessons.flatMap(item => item.chapters || []).filter(chapter => chapter.status === "draft" && chapter.url);
   byId("library").innerHTML = `<section class="card">
     <p class="eyebrow">Chapter library</p><h2>Review the revised chapters</h2>
-    <p>A chapter is labelled complete only after its source comparison, definitions, proofs, edge cases, worked problems, concise review sheet, and presentation checks pass review. At least four genuinely reviewed courses from four universities must be synthesized. More sources are used when they resolve a real gap. Past entrance-exam booklets are reserved for the final month. <a href="sprint.html">Read the full completion standard →</a></p>
+    <p>A chapter is labelled complete only after its source comparison, definitions, proofs, edge cases, worked problems, concise review sheet, and presentation checks pass review. At least four genuinely reviewed courses from four universities must be synthesized. More sources are used when they resolve a real gap. Original MSc and PhD examination questions are included in the revised chapter banks. <a href="sprint.html">Read the full completion standard →</a></p>
     <div class="library-grid">
       ${ready.map(chapter => `<article class="library-card"><span class="status">Ready to study</span><h3>${escapeHtml(chapter.title)}</h3><a class="chapter-link primary" href="${escapeHtml(chapter.url)}">Open chapter →</a></article>`).join("")}
-      ${drafted.map(chapter => `<article class="library-card"><span class="status draft">Examination revision draft</span><h3>${escapeHtml(chapter.title)}</h3><p>${chapter.questionCount || 0} original questions with explanations · ${chapter.examNotesCount || 0} examination notes</p><a class="chapter-link" href="${escapeHtml(chapter.url)}">Open revised chapter →</a></article>`).join("")}
+      ${drafted.map(chapter => `<article class="library-card"><span class="status draft">Examination revision draft</span><h3>${escapeHtml(chapter.title)}</h3><p>${chapter.authenticQuestionCount || 0} authentic questions · ${chapter.originalQuestionCount || 0} original problems with explanations · ${chapter.examNotesCount || 0} examination notes</p><a class="chapter-link" href="${escapeHtml(chapter.url)}">Open revised chapter →</a></article>`).join("")}
       ${!ready.length && !drafted.length ? '<p>The first chapter is undergoing its English quality review. Its link will appear here when the review is complete.</p>' : ""}
     </div>
   </section>

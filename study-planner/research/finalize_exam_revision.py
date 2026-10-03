@@ -2,6 +2,10 @@
 from pathlib import Path
 import json,re,html,shutil,datetime
 ROOT=Path(__file__).resolve().parents[1];BASE=ROOT/'research/exam-rewrite'
+if (ROOT/'research/exam-calibration/actual-items.json').exists():
+ import subprocess,sys
+ subprocess.run([sys.executable,str(ROOT/'research/exam-calibration/finalize.py')],check=True)
+ raise SystemExit(0)
 m=json.loads((BASE/'manifest.json').read_text())
 answers=json.loads((BASE/'answer-checks.json').read_text())
 browser_source=Path('C:/Users/bheydari/AppData/Local/Temp/chapter-library-review')
