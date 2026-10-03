@@ -38,6 +38,11 @@ try:
   cdp('Runtime.evaluate',{'expression':'document.fonts.ready','awaitPromise':True,'returnByValue':True})
   row={'topicId':topic,'figures':[]}
   row['fonts']=json.loads(js('''JSON.stringify({loaded:[...document.fonts].filter(f=>f.status==='loaded').map(f=>f.family),math:[...new Set([...document.querySelectorAll('math,.math-inline,.formula-block,sub,sup')].map(x=>getComputedStyle(x).fontFamily))]})'''))
+  if topic in ('d_logic','d_sets','l_vectors','a_recurrence','a_divide','p_types'):
+   for label in ('Formula and conceptual problem bank','Applicable formulas and examination notes'):
+    js("[...document.querySelectorAll('h2')].find(x=>x.textContent==="+json.dumps(label)+").scrollIntoView({block:'start'})")
+    shot=cdp('Page.captureScreenshot',{'format':'png'})['data']
+    (OUT/(topic+('-questions.png' if label.startswith('Formula') else '-notes.png'))).write_bytes(base64.b64decode(shot))
   figures=json.loads(js('''JSON.stringify([...document.querySelectorAll('figure svg')].map((s,i)=>{
    const v=s.viewBox.baseVal,ts=[...s.querySelectorAll('text')],boxes=ts.map(t=>{const b=t.getBBox();return {text:t.textContent,x:b.x,y:b.y,w:b.width,h:b.height,font:getComputedStyle(t).fontFamily};});
    const outside=boxes.filter(b=>b.x<v.x-1||b.y<v.y-1||b.x+b.w>v.x+v.width+1||b.y+b.h>v.y+v.height+1);
@@ -52,7 +57,11 @@ try:
    row['figures'].append(f)
   cdp('Emulation.setDeviceMetricsOverride',{'width':390,'height':844,'deviceScaleFactor':1,'mobile':True})
   js('scrollTo(0,0)');time.sleep(.1)
-  row['mobile']=json.loads(js('''JSON.stringify({viewport:innerWidth,document:document.documentElement.scrollWidth,formulaOverflow:[...document.querySelectorAll('.formula-block')].filter(x=>x.scrollWidth>x.clientWidth+1).map(x=>({extra:x.scrollWidth-x.clientWidth,text:x.textContent.slice(0,160)})),figureSizes:[...document.querySelectorAll('figure svg')].map(x=>({width:x.clientWidth,fontSize:getComputedStyle(x.querySelector('text')||x).fontSize})),problems:[...document.querySelectorAll('h3')].filter(x=>x.textContent.startsWith('Problem ')).length,codeFonts:[...new Set([...document.querySelectorAll('pre code')].map(x=>getComputedStyle(x).fontFamily))]})'''))
+  row['mobile']=json.loads(js('''JSON.stringify({viewport:innerWidth,document:document.documentElement.scrollWidth,formulaOverflow:[...document.querySelectorAll('.formula-block')].filter(x=>x.scrollWidth>x.clientWidth+1).map(x=>({extra:x.scrollWidth-x.clientWidth,text:x.textContent.slice(0,160)})),inlineMathOverflow:[...document.querySelectorAll('.math-inline')].filter(x=>x.scrollWidth>x.clientWidth+1).map(x=>x.textContent),figureSizes:[...document.querySelectorAll('figure svg')].map(x=>({width:x.clientWidth,fontSize:getComputedStyle(x.querySelector('text')||x).fontSize})),problems:[...document.querySelectorAll('h3')].filter(x=>x.textContent.startsWith('Question ')).length,codeFonts:[...new Set([...document.querySelectorAll('pre code')].map(x=>getComputedStyle(x).fontFamily))]})'''))
+  if topic in ('d_sets','a_recurrence'):
+   js("document.getElementById('exam-methods').scrollIntoView({block:'start'})")
+   shot=cdp('Page.captureScreenshot',{'format':'png'})['data']
+   (OUT/f'{topic}-exam-mobile.png').write_bytes(base64.b64decode(shot))
   if topic in ('d_logic','a_loop','l_matrices','g_gates'):
    target={'d_logic':'figure','a_loop':'pre','l_matrices':'.formula-block','g_gates':'figure'}[topic]
    js(f"document.querySelector({json.dumps(target)}).scrollIntoView({{block:'start'}})")

@@ -40,7 +40,7 @@ try:
   row=json.loads(js('''JSON.stringify({title:document.title,documentWidth:document.documentElement.scrollWidth,viewport:innerWidth,reviewLink:[...document.querySelectorAll('a')].some(a=>a.getAttribute('href')==='library-review.html'&&a.getBoundingClientRect().height>0),chapterRows:document.querySelectorAll('tbody tr').length,underlinedLinks:[...document.querySelectorAll('a')].filter(a=>getComputedStyle(a).textDecorationLine.includes('underline')).length})'''))
   assert row['documentWidth']<=width and row['underlinedLinks']==0,row
   if path.startswith('index'):assert row['reviewLink'],row
-  else:assert row['chapterRows']==16,row
+  else:assert row['chapterRows']==22,row
   shot=cdp('Page.captureScreenshot',{'format':'png'})['data']
   (OUT/f"{'report' if not path.startswith('index') else 'library'}-{width}.png").write_bytes(base64.b64decode(shot))
   result.append({'path':path,'width':width,**row})

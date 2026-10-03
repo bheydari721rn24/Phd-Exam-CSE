@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An English, source-synthesized chapter on propositions, predicates, and logical equivalence.">
+  <title>Propositions, Predicates, and Logical Equivalence · Doctoral CSE 1406</title>
+  <link rel="stylesheet" href="chapter.en.css">
+</head>
+<body>
+<main class="chapter">
+  <div class="top-link"><a href="../index.html#week-1">← Back to the weekly plan</a></div>
+  <header class="hero">
+    <p class="eyebrow">Discrete Mathematics · Chapter 1</p>
+    <h1>Propositions, Predicates, and Logical Equivalence</h1>
+    <p>Student-approved chapter · four university course texts synthesized · 14 fully worked problems</p>
+  </header>
+  <nav class="toc" aria-label="Chapter contents"><a href="#course-selection">Sources</a> <a href="#foundations">Foundations</a> <a href="#propositional">Propositional logic</a> <a href="#first-order">Predicates</a> <a href="#worked-problems">Worked problems</a> <a href="#quick-reference">Key points</a> <a href="#laboratory">Truth-table lab</a> <a href="#references">References</a></nav>
+  <article class="lesson"><h1>Propositions, Predicates, and Logical Equivalence</h1>
+<p><strong>Discrete Mathematics · first-pass chapter · English edition</strong></p>
+<p>This chapter develops classical, two-valued logic from syntax to semantics and then to careful first-order reasoning. It is a complete teaching unit for the chapter boundary shown in the weekly plan. Set theory, formal natural-deduction systems, and induction receive their own chapters. The aim here is to make every definition, law, proof obligation, and edge case in this boundary explicit without padding the lesson with repeated explanations.</p>
+<h2 id="course-selection">1. Course selection and how the sources were combined</h2>
+<p>The source register screened 13 logic-related course entries from MIT, Stanford, UC Berkeley, Carnegie Mellon, Cornell, Princeton, Illinois, Oxford, and ETH Zurich. Several entries are different versions of a course, and some were only available as a syllabus or catalogue; those were not counted as studied texts. The four texts below were selected for <strong>this</strong> chapter because each fills a different need; their relevant pages or complete slide decks were read, and disagreements were checked before the lesson was written.</p>
+<table>
+<thead>
+<tr>
+<th>University and course</th>
+<th>Material actually reviewed</th>
+<th>Contribution used here</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIT, 6.042J <em>Mathematics for Computer Science</em>, Leighton and van Dijk (2010)</td>
+<td>Chapter 1, all 17 substantive pages of the 19-page PDF</td>
+<td>Fundamental truth conditions, implications, quantifier order, validity, and satisfiability</td>
+</tr>
+<tr>
+<td>Stanford, CS103 <em>Mathematical Foundations of Computing</em>, Trevisan (2014)</td>
+<td>Lecture 9, all eight pages</td>
+<td>Formula syntax, equivalence across variable sets, and free versus bound occurrences</td>
+</tr>
+<tr>
+<td>UC Berkeley, CS70 <em>Discrete Mathematics and Probability Theory</em>, Shahzar and Wu (Summer 2024)</td>
+<td>Note 1, all 14 pages and the relation diagrams</td>
+<td>Propositional and first-order examples, restricted quantifiers, and inference patterns</td>
+</tr>
+<tr>
+<td>Carnegie Mellon, 15-311 <em>Logic and Mechanized Reasoning</em>, Heule (2026)</td>
+<td>Entire propositional and first-order slide decks, including repeated animation frames</td>
+<td>Recursive syntax, model semantics, satisfiability, substitution, finite versus infinite models, and quantifier movement</td>
+</tr>
+</tbody>
+</table>
+<p>The source comparison is bounded by material that could be accessed and inspected. It does not establish that these are the four best courses among every course ever offered. Princeton and Illinois had directly accessible logic lectures but their complete relevant sequences were not reviewed; Oxford and ETH Zurich lacked verified open chapter texts in this audit. MIT and Berkeley sometimes use informal explanatory wording; the formal semantics below control any disagreement. CMU's “true or false?” slides include deliberately false prompts before their answers, so the response slides were read as part of the same argument. Full source links and precise review limits are in <a href="#references">References</a>.</p>
+<h2 id="foundations">2. Foundations: syntax and meaning</h2>
+<h3>2.1 The language being studied</h3>
+<p>A <strong>proposition</strong> has a definite truth value, true or false, under a stated interpretation. “The integer 7 is prime” is a proposition. “Is 7 prime?” is a question, and “<span class="math-inline">x</span> is prime” is an <strong>open predicate</strong> until <span class="math-inline">x</span> has been assigned or quantified. A mathematical formula can be syntactically well formed without having a truth value independent of an assignment: <span class="math-inline">P(x)</span> is a formula, while <span class="math-inline">∀x</span> <span class="math-inline">P(x)</span> is a closed sentence.</p>
+<p>In this chapter the truth-value set is {0,1}; 1 means true. An atomic propositional variable such as <span class="math-inline">p</span> receives a value from a <strong>valuation</strong> <span class="math-inline">v</span>. Compound formulas are built from atoms using <span class="math-inline">¬</span> (not), <span class="math-inline">∧</span> (and), <span class="math-inline">∨</span> (inclusive or), <span class="math-inline">→</span> (material implication), and <span class="math-inline">↔</span> (biconditional). Exclusive or, <span class="math-inline">p ⊕ q</span>, means exactly one operand is true. Parentheses state scope. When parentheses are omitted, do not rely on an unstated precedence convention in a difficult expression: rewrite the expression with explicit grouping first.</p>
+<p>The semantics are determined recursively. For example, <span class="math-inline">v(¬A)=1−v(A)</span>; <span class="math-inline">v(A∧B)=1</span> exactly when both operands are 1; <span class="math-inline">v(A∨B)=1</span> when at least one operand is 1; and <span class="math-inline">v(A→B)=0</span> exactly when <span class="math-inline">v(A)=1</span> and <span class="math-inline">v(B)=0</span>. Equivalently, <span class="math-inline">A→B</span> and <span class="math-inline">¬A∨B</span> have the same value under every valuation. The following table makes the less intuitive operators explicit.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><span class="math-inline">p</span></th>
+<th style="text-align:center"><span class="math-inline">q</span></th>
+<th style="text-align:center"><span class="math-inline">¬p</span></th>
+<th style="text-align:center"><span class="math-inline">p∧q</span></th>
+<th style="text-align:center"><span class="math-inline">p∨q</span></th>
+<th style="text-align:center"><span class="math-inline">p→q</span></th>
+<th style="text-align:center"><span class="math-inline">p↔q</span></th>
+<th style="text-align:center"><span class="math-inline">p⊕q</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<p>The inclusive-or row <span class="math-inline">p=q=1</span> matters. Everyday “or” can be exclusive; formal <span class="math-inline">∨</span> is inclusive unless a different connective is defined. Material implication is true when its antecedent is false. This is <strong>vacuous truth</strong>, not a claim that the consequent was caused by the antecedent.</p>
+<h3>2.2 Formulas, valuations, and exact comparisons</h3>
+<p>For a formula <span class="math-inline">A</span>, let <span class="math-inline">Var(A)</span> be its propositional variables. A valuation on <span class="math-inline">Var(A)</span> assigns 0 or 1 to each variable. When comparing formulas <span class="math-inline">A</span> and <span class="math-inline">B</span> that use different variables, evaluate both under every valuation on <span class="math-inline">Var(A)∪Var(B)</span>. Thus <span class="math-inline">p</span> and <span class="math-inline">p∧</span>(<span class="math-inline">q∨¬q</span>) are equivalent even though only the latter mentions <span class="math-inline">q</span>.</p>
+<p><span class="math-inline">A</span> is <strong>satisfiable</strong> if at least one valuation makes it true; <strong>valid</strong> or a <strong>tautology</strong> if every valuation makes it true; and <strong>unsatisfiable</strong> or a <strong>contradiction</strong> if no valuation does. <span class="math-inline">A</span> and <span class="math-inline">B</span> are <strong>logically equivalent</strong>, written <span class="math-inline">A ≡ B</span>, if every common valuation gives equal values. A set of premises <span class="math-inline">Γ</span> <strong>entails</strong> <span class="math-inline">C</span>, written <span class="math-inline">Γ ⊨ C</span>, if no valuation makes all members of <span class="math-inline">Γ</span> true and <span class="math-inline">C</span> false. If <span class="math-inline">Γ</span> is finite, this is equivalent to validity of (<span class="math-inline">∧Γ</span>)<span class="math-inline">→C</span> and to unsatisfiability of (<span class="math-inline">∧Γ</span>)<span class="math-inline">∧¬C</span>.</p>
+<p>These are different claims. A satisfiable formula need not be valid: <span class="math-inline">p</span> is satisfiable but false when <span class="math-inline">p=0</span>. The formulas <span class="math-inline">p</span> and <span class="math-inline">¬p</span> are separately satisfiable, but their conjunction is not. The disjunction <span class="math-inline">p∨¬p</span> is valid even though neither disjunct is valid. A valid argument can have a conclusion that is false under some valuation: <span class="math-inline">p ⊨ p</span>, but <span class="math-inline">p</span> itself is not valid. Validity says what happens <strong>when the premises are all true</strong>.</p>
+<h3>2.3 The parse tree and a structural bound</h3>
+<p>Propositional syntax is recursive: each atom is a formula; if <span class="math-inline">A</span> is a formula, <span class="math-inline">¬A</span> is a formula; and if <span class="math-inline">A</span> and <span class="math-inline">B</span> are formulas, so are (<span class="math-inline">A∧B</span>), (<span class="math-inline">A∨B</span>), (<span class="math-inline">A→B</span>), and (<span class="math-inline">A↔B</span>). The parse tree of (<span class="math-inline">p∧¬q</span>)<span class="math-inline">→r</span> has <span class="math-inline">→</span> at the root, <span class="math-inline">∧</span> and <span class="math-inline">r</span> as its children, and <span class="math-inline">¬</span> above <span class="math-inline">q</span>. Its structure determines which connective is evaluated first, independently of how a sentence happens to be spoken.</p>
+<p>Let <span class="math-inline">c(A)</span> count connective occurrences, and let <span class="math-inline">d(A)</span> be the maximum number of connectives from a root to an atomic leaf. Atoms have <span class="math-inline">c=d=0</span>. Unary and binary construction obey</p>
+<div class="formula-block">c(¬A)=1+c(A), &nbsp; d(¬A)=1+d(A)<br>c(A◦B)=1+c(A)+c(B), &nbsp; d(A◦B)=1+max(d(A),d(B)).</div>
+<p>Here ◦ is any binary connective. <strong>Claim:</strong> <span class="math-inline">c(A)≤2</span><sup><span class="math-inline">d(A)</span></sup><span class="math-inline">−</span>1. Prove it by structural induction. For an atom both sides are zero. For <span class="math-inline">¬A</span>, the induction hypothesis gives <span class="math-inline">c(¬A)≤2</span><sup><span class="math-inline">d(A)</span></sup><span class="math-inline">≤</span>2<sup><span class="math-inline">d(A)+1</span></sup><span class="math-inline">−</span>1. For <span class="math-inline">A</span>◦<span class="math-inline">B</span>, each child depth is at most <span class="math-inline">d(A◦B)−1</span>; hence</p>
+<div class="formula-block">c(A◦B)≤1+(2<sup>d(A)</sup>−1)+(2<sup>d(B)</sup>−1)≤2<sup>d(A◦B)</sup>−1.</div>
+<p>The claim concerns syntax size versus tree depth, not truth or computational time. Replacing a formula by a more compact equivalent formula can change <span class="math-inline">c</span> and <span class="math-inline">d</span> while leaving its meaning unchanged.</p>
+<h2 id="propositional">3. Propositional reasoning in depth</h2>
+<h3>3.1 Equivalence laws and why they hold</h3>
+<p>Every equivalence law is a statement about <strong>all valuations</strong>. It can be proved by a truth table, by already established equivalences, or by showing both implications. The most useful laws are</p>
+<table>
+<thead>
+<tr>
+<th>Law</th>
+<th>Equivalence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Double negation</td>
+<td><span class="math-inline">¬¬A ≡ A</span></td>
+</tr>
+<tr>
+<td>De Morgan</td>
+<td><span class="math-inline">¬</span>(<span class="math-inline">A∧B</span>) <span class="math-inline">≡</span> <span class="math-inline">¬A∨¬B</span>;   <span class="math-inline">¬</span>(<span class="math-inline">A∨B</span>) <span class="math-inline">≡</span> <span class="math-inline">¬A∧¬B</span></td>
+</tr>
+<tr>
+<td>Implication</td>
+<td><span class="math-inline">A→B</span> <span class="math-inline">≡</span> <span class="math-inline">¬A∨B</span></td>
+</tr>
+<tr>
+<td>Contrapositive</td>
+<td><span class="math-inline">A→B</span> <span class="math-inline">≡</span> <span class="math-inline">¬B→¬</span>A</td>
+</tr>
+<tr>
+<td>Biconditional</td>
+<td><span class="math-inline">A↔B</span> <span class="math-inline">≡</span> (<span class="math-inline">A→B</span>)<span class="math-inline">∧</span>(<span class="math-inline">B→A</span>)</td>
+</tr>
+<tr>
+<td>Distribution</td>
+<td><span class="math-inline">A∧</span>(<span class="math-inline">B∨C</span>) <span class="math-inline">≡</span> (<span class="math-inline">A∧B</span>)<span class="math-inline">∨</span>(<span class="math-inline">A∧C</span>), and its dual</td>
+</tr>
+<tr>
+<td>Absorption</td>
+<td><span class="math-inline">A∨</span>(<span class="math-inline">A∧B</span>) <span class="math-inline">≡</span> <span class="math-inline">A</span>;   <span class="math-inline">A∧</span>(<span class="math-inline">A∨B</span>) <span class="math-inline">≡</span> A</td>
+</tr>
+<tr>
+<td>Identity</td>
+<td><span class="math-inline">A∧1 ≡ A</span>;   <span class="math-inline">A∨0 ≡ A</span></td>
+</tr>
+</tbody>
+</table>
+<p>For example, <span class="math-inline">¬</span>(<span class="math-inline">A→B</span>) <span class="math-inline">≡</span> <span class="math-inline">¬</span>(<span class="math-inline">¬A∨B</span>) <span class="math-inline">≡</span> <span class="math-inline">A∧¬B</span>. The intermediate step explains why merely negating the consequent is wrong. The converse <span class="math-inline">B→A</span> and inverse <span class="math-inline">¬A→¬B</span> are equivalent to one another, but neither is generally equivalent to <span class="math-inline">A→B</span>. A countervaluation <span class="math-inline">p=0</span>, <span class="math-inline">q=1</span> makes <span class="math-inline">p→q</span> true and <span class="math-inline">q→p</span> false.</p>
+<p>Equivalence must be distinguished from <strong>equisatisfiability</strong>. Two formulas are equisatisfiable if either both have a model or neither does; they need not agree on every valuation. If <span class="math-inline">z</span> is a fresh variable, <span class="math-inline">F=p∧q</span> and <span class="math-inline">G=</span>(<span class="math-inline">z↔</span>(<span class="math-inline">p∧q</span>))<span class="math-inline">∧z</span> are equisatisfiable. They are not formulas over the same variable set, and <span class="math-inline">G</span> is false for assignments where <span class="math-inline">p=q=1</span> but <span class="math-inline">z=0</span>. Auxiliary-variable encodings are useful in SAT solvers, but a request for an equivalent formula over the original variables requires a stronger property.</p>
+<h3>3.2 Normal forms, including the edge cases</h3>
+<p>A <strong>literal</strong> is an atom or its negation. A formula is in disjunctive normal form (DNF) if it is a disjunction of conjunctions of literals; it is in conjunctive normal form (CNF) if it is a conjunction of disjunctions of literals. “Canonical” forms specify one minterm for each true truth-table row or one maxterm for each false row.</p>
+<p>For variables <span class="math-inline">p<sub>1</sub></span>,…,<span class="math-inline">p<sub>n</sub></span>, build a minterm for a true row by using <span class="math-inline">p<sub>i</sub></span> when its row value is 1 and <span class="math-inline">¬</span><span class="math-inline">p<sub>i</sub></span> when it is 0. That minterm is true on exactly that row. The disjunction of all such minterms therefore agrees with the function on every row. For a false row, build a maxterm by using <span class="math-inline">¬</span><span class="math-inline">p<sub>i</sub></span> when the row value is 1 and <span class="math-inline">p<sub>i</sub></span> when it is 0. Its disjunction is false on exactly that row; the conjunction of all maxterms agrees with the function. This is a constructive proof that every finite Boolean function has both forms.</p>
+<p>If the function is always false, canonical DNF is the empty disjunction, conventionally 0. If it is always true, canonical CNF is the empty conjunction, conventionally 1. An unsimplified canonical form can have up to 2<sup><span class="math-inline">n</span></sup> terms or clauses. A shorter equivalent form may exist; do not confuse “canonical” with “minimal.”</p>
+<p>Resolution works on CNF clauses. From (<span class="math-inline">A∨x</span>) and (<span class="math-inline">B∨¬x</span>), the <strong>resolvent</strong> is <span class="math-inline">A∨B</span>. To justify the rule, consider <span class="math-inline">x=0</span>: the first parent requires <span class="math-inline">A</span>; if <span class="math-inline">x=1</span>, the second requires <span class="math-inline">B</span>. Thus every model of both parents satisfies <span class="math-inline">A∨B</span>. Resolution is sound, but soundness of a step alone does not mean an arbitrary sequence of steps has found every consequence. Deriving the empty clause proves the starting clauses unsatisfiable.</p>
+<h3>3.3 Satisfiability, validity, and proof search</h3>
+<p>To show a formula satisfiable, exhibit one complete valuation and evaluate the formula. To show it invalid, exhibit one valuation that makes it false. To prove it valid, establish truth for <strong>all</strong> valuations, perhaps by an exhaustive table, an equivalence chain to 1, or a sound derivation. For <span class="math-inline">n</span> independent atoms a full table has 2<sup><span class="math-inline">n</span></sup> rows, but factoring the formula can avoid listing them.</p>
+<p>For example, Sat(<span class="math-inline">A∧B</span>) does <strong>not</strong> follow from Sat(<span class="math-inline">A</span>) and Sat(<span class="math-inline">B</span>): the two witnesses might disagree. Valid(<span class="math-inline">A∨B</span>) does <strong>not</strong> imply Valid(<span class="math-inline">A</span>) or Valid(<span class="math-inline">B</span>): <span class="math-inline">p∨¬p</span> is the counterexample. By contrast, Valid(<span class="math-inline">A∧B</span>) holds exactly when both conjuncts are valid, and Sat(<span class="math-inline">A∨B</span>) holds exactly when one disjunct is satisfiable. Write down which quantifier over valuations is being moved before using one of these rules.</p>
+<p>SAT asks whether at least one satisfying assignment exists. A displayed assignment is a short certificate for a yes-instance. Failure to find an assignment is not by itself a proof of unsatisfiability; an exhaustive search, a sound refutation, or another complete argument is required. Nothing here asserts that every particular SAT instance must take exponential time.</p>
+<h2 id="first-order">4. Predicates and first-order reasoning</h2>
+<h3>4.1 Structures, assignments, and sentences</h3>
+<p>A propositional variable has a truth value. A first-order <strong>term</strong> denotes an object, and a predicate denotes a property of objects or a relation among them. To evaluate formulas precisely, specify a <strong>structure</strong> <span class="math-inline">M</span>: a domain <span class="math-inline">D</span>, the object denoted by each constant, the function assigned to each function symbol, and the relation assigned to each predicate symbol. An assignment <span class="math-inline">s</span> supplies an object in <span class="math-inline">D</span> for each free variable. The notation <span class="math-inline">M</span>,<span class="math-inline">s ⊨ P(x)</span> means that the object <span class="math-inline">s(x)</span> belongs to the relation interpreting <span class="math-inline">P</span>.</p>
+<p>The occurrence of <span class="math-inline">x</span> in <span class="math-inline">∀x</span> <span class="math-inline">P(x)</span> is bound by <span class="math-inline">∀x</span>. In <span class="math-inline">P(x)∧∀x</span> <span class="math-inline">Q(x)</span>, the first <span class="math-inline">x</span> is free and the second is bound; the presence of one quantifier does not bind every matching letter on the page. A formula with no free occurrences is a <strong>closed sentence</strong>. A formula with free occurrences can still be perfectly well formed; its truth is evaluated relative to <span class="math-inline">s</span>.</p>
+<p>Unless explicitly stated otherwise, standard first-order semantics assumes a <strong>nonempty</strong> domain. This matters for some equivalences and inference rules. The empty-domain convention used in certain applications must be declared separately. In an empty domain, <span class="math-inline">∀x</span> <span class="math-inline">P(x)</span> is vacuously true and <span class="math-inline">∃x</span> <span class="math-inline">P(x)</span> false, but a language with object-denoting constants normally cannot interpret those constants in an empty domain.</p>
+<h3>4.2 Quantifiers: witnesses and order</h3>
+<p><span class="math-inline">M</span>,<span class="math-inline">s</span> <span class="math-inline">⊨</span> <span class="math-inline">∀x</span> <span class="math-inline">A</span> exactly when <span class="math-inline">A</span> holds after replacing <span class="math-inline">s(x)</span> by <strong>every</strong> <span class="math-inline">d∈D</span>; <span class="math-inline">M</span>,<span class="math-inline">s</span> <span class="math-inline">⊨</span> <span class="math-inline">∃x</span> <span class="math-inline">A</span> exactly when it holds for <strong>some</strong> <span class="math-inline">d∈D</span>. A universal proof must address an arbitrary object; an existential proof must supply one witness. An existential counterexample needs to show no witness works, whereas one counterexample object is enough to refute a universal claim.</p>
+<p>Quantifier order records who may depend on whom:</p>
+<div class="formula-block">∀x∃y R(x,y) &nbsp; versus &nbsp; ∃y∀x R(x,y).</div>
+<p>The first permits <span class="math-inline">y</span> to vary with <span class="math-inline">x</span>; the second demands a single common <span class="math-inline">y</span>. On a nonempty domain, the second entails the first. The converse fails for equality on <span class="math-inline">D={0,1}</span>: every <span class="math-inline">x</span> equals some <span class="math-inline">y</span> (choose <span class="math-inline">y=x</span>), but no one <span class="math-inline">y</span> equals both 0 and 1. In general, swapping adjacent quantifiers of the <strong>same</strong> kind is harmless; swapping <span class="math-inline">∀</span> and <span class="math-inline">∃</span> is not.</p>
+<figure class="logic-diagram">
+<svg viewBox="0 0 680 190" role="img" aria-label="In the first statement each x may have a different y; in the second a shared y must serve all x values.">
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#577f98"/></marker></defs>
+  <rect x="10" y="12" width="318" height="165" rx="12" fill="#edf6f9" stroke="#b8d3e1"/>
+  <rect x="352" y="12" width="318" height="165" rx="12" fill="#f3f5fa" stroke="#cbd5e5"/>
+  <text x="27" y="38" font-size="17" font-family="Segoe UI,Arial" fill="#1b4059">∀x∃y R(x,y): witness may vary</text>
+  <text x="369" y="38" font-size="17" font-family="Segoe UI,Arial" fill="#304661">∃y∀x R(x,y): one shared witness</text>
+  <circle cx="63" cy="80" r="19" fill="#fff" stroke="#7aa8bb"/><circle cx="63" cy="135" r="19" fill="#fff" stroke="#7aa8bb"/>
+  <circle cx="260" cy="80" r="19" fill="#fff" stroke="#7aa8bb"/><circle cx="260" cy="135" r="19" fill="#fff" stroke="#7aa8bb"/>
+  <text x="53" y="86" font-size="17">x<tspan baseline-shift="sub" font-size="12">1</tspan></text><text x="53" y="141" font-size="17">x<tspan baseline-shift="sub" font-size="12">2</tspan></text><text x="250" y="86" font-size="17">y<tspan baseline-shift="sub" font-size="12">1</tspan></text><text x="250" y="141" font-size="17">y<tspan baseline-shift="sub" font-size="12">2</tspan></text>
+  <path d="M82 80 L237 80" stroke="#577f98" stroke-width="2" marker-end="url(#arrow)"/><path d="M82 135 L237 135" stroke="#577f98" stroke-width="2" marker-end="url(#arrow)"/>
+  <circle cx="405" cy="80" r="19" fill="#fff" stroke="#8397bf"/><circle cx="405" cy="135" r="19" fill="#fff" stroke="#8397bf"/>
+  <circle cx="610" cy="107" r="19" fill="#fff" stroke="#8397bf"/>
+  <text x="395" y="86" font-size="17">x<tspan baseline-shift="sub" font-size="12">1</tspan></text><text x="395" y="141" font-size="17">x<tspan baseline-shift="sub" font-size="12">2</tspan></text><text x="603" y="113" font-size="17">y</text>
+  <path d="M424 80 L588 103" stroke="#577f98" stroke-width="2" marker-end="url(#arrow)"/><path d="M424 135 L588 111" stroke="#577f98" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>
+<figcaption>The arrows represent witness choices, not a required one-to-one relation.</figcaption>
+</figure>
+<p>Restricted quantifiers have two distinct translations:</p>
+<div class="formula-block">∀x∈S: P(x) &nbsp; means &nbsp; ∀x(S(x)→P(x));<br>∃x∈S: P(x) &nbsp; means &nbsp; ∃x(S(x)∧P(x)).</div>
+<p>If <span class="math-inline">S</span> is empty, the universal claim is true and the existential claim false. Replacing <span class="math-inline">→</span> <span class="math-inline">by ∧ in</span> the universal expression would wrongly require every domain object to belong to <span class="math-inline">S</span>. Replacing <span class="math-inline">∧</span> <span class="math-inline">by → in</span> the existential expression would allow an object outside <span class="math-inline">S</span> to witness the claim.</p>
+<h3>4.3 Negation, uniqueness, and direction</h3>
+<p>Negation crosses each quantifier and flips its kind:</p>
+<div class="formula-block">¬∀x A ≡ ∃x ¬A, &nbsp; ¬∃x A ≡ ∀x ¬A.</div>
+<p>For a nested statement, move the negation one operator at a time. For example,</p>
+<div class="formula-block">¬∀x∃y(P(x,y)→Q(y)) ≡ ∃x∀y(P(x,y)∧¬Q(y)).</div>
+<p>The final <span class="math-inline">x</span> is a counterexample to the original universal statement: every possible <span class="math-inline">y</span> fails because it satisfies <span class="math-inline">P</span> while violating <span class="math-inline">Q</span>. This is stronger than merely finding one pair on which the implication fails.</p>
+<p>“Exactly one <span class="math-inline">x</span> satisfies <span class="math-inline">P</span>” requires both existence and uniqueness:</p>
+<div class="formula-block">∃x[P(x)∧∀y(P(y)→y=x)].</div>
+<p>The formula <span class="math-inline">∀x∀y</span>((<span class="math-inline">P(x)∧P(y)</span>)<span class="math-inline">→x=y</span>) says <strong>at most one</strong>, since it remains true when there are no <span class="math-inline">P</span>-objects. Conversely, <span class="math-inline">∃x</span> <span class="math-inline">P(x)</span> says <strong>at least one</strong>. A relation <span class="math-inline">R(a,b)</span> must also keep its argument order: “a likes <span class="math-inline">b</span>” does not imply “<span class="math-inline">b</span> likes <span class="math-inline">a</span>.” If symmetry is intended, state it as an additional premise.</p>
+<h3>4.4 Scope, renaming, and capture-free substitution</h3>
+<p>The scope of a quantifier is the formula it binds, ordinarily delimited by parentheses. In (<span class="math-inline">∀x</span> <span class="math-inline">P(x,y)</span>)<span class="math-inline">∧Q(x)</span>, the <span class="math-inline">x</span> inside <span class="math-inline">P</span> is bound; the <span class="math-inline">x</span> in <span class="math-inline">Q</span> and the occurrence of <span class="math-inline">y</span> in <span class="math-inline">P</span> are free. Parentheses are part of the reasoning, not decorative typography. Renaming a bound variable to a <strong>fresh</strong> name leaves meaning unchanged: <span class="math-inline">∀y</span> <span class="math-inline">R(x,y)</span> <span class="math-inline">≡</span> <span class="math-inline">∀z</span> <span class="math-inline">R(x,z)</span>, provided <span class="math-inline">z</span> does not already occur in the quantified body. Choosing a genuinely fresh name prevents both capture of an existing free occurrence and interference with an inner binder.</p>
+<p>Substitution must avoid <strong>variable capture</strong>. In <span class="math-inline">A=∀y</span> <span class="math-inline">R(x,y)</span>, naively replacing free <span class="math-inline">x</span> by <span class="math-inline">y</span> produces <span class="math-inline">∀y</span> <span class="math-inline">R(y,y)</span>, where the inserted <span class="math-inline">y</span> has become bound and the meaning has changed. First rename the bound <span class="math-inline">y</span> to fresh <span class="math-inline">z</span>; then substitute:</p>
+<div class="formula-block">∀y R(x,y) &nbsp; ≡α &nbsp; ∀z R(x,z) &nbsp; ⟶<sub>x↦y</sub> &nbsp; ∀z R(y,z).</div>
+<p>Here <span class="math-inline">≡α</span> denotes alpha-equivalence, not a new logical law about arbitrary free variables. Simultaneous substitutions are also different from sequential ones. Applying {<span class="math-inline">x↦y</span>, <span class="math-inline">y↦x</span>} simultaneously to <span class="math-inline">R(x,y)</span> yields <span class="math-inline">R(y,x)</span>; blindly applying <span class="math-inline">x↦y</span> and then <span class="math-inline">y↦x</span> yields <span class="math-inline">R(x,x)</span>. State the substitution convention whenever several variables are replaced.</p>
+<h3>4.5 Sound inference and invalid patterns</h3>
+<p><strong>Modus ponens</strong> takes <span class="math-inline">A</span> and <span class="math-inline">A→B</span> to <span class="math-inline">B</span>. A valuation making both premises true must make <span class="math-inline">A</span> true and cannot make <span class="math-inline">B</span> false, so the rule is sound. <strong>Modus tollens</strong> takes <span class="math-inline">¬B</span> and <span class="math-inline">A→B</span> to <span class="math-inline">¬A</span>, using the contrapositive. The patterns <span class="math-inline">B</span>, <span class="math-inline">A→B ⊢ A</span> (“affirming the consequent”) and <span class="math-inline">¬A</span>, <span class="math-inline">A→B</span> <span class="math-inline">⊢</span> <span class="math-inline">¬B</span> (“denying the antecedent”) are invalid; take <span class="math-inline">A=0</span> and <span class="math-inline">B=1</span> for both counterexamples.</p>
+<p>First-order rules need witness conditions. From <span class="math-inline">∀x</span> <span class="math-inline">A(x)</span>, infer <span class="math-inline">A(t)</span> when <span class="math-inline">t</span> denotes an object and substitution is capture-free. From <span class="math-inline">A(c)</span> for a <strong>fresh arbitrary</strong> <span class="math-inline">c</span>, one may infer <span class="math-inline">∀x</span> <span class="math-inline">A(x)</span> only if <span class="math-inline">c</span> was not chosen using a special property of the premises. From <span class="math-inline">∃x</span> <span class="math-inline">A(x)</span>, one may reason with a fresh witness <span class="math-inline">c</span> inside a subproof, but the final conclusion must not depend on c's accidental identity. Choosing a particular favorable object from an existential premise and then announcing a universal conclusion is invalid.</p>
+<p>Semantic entailment and a specific formal proof system are separate notions. This chapter proves soundness of the basic rules and uses model counterexamples. Chapter 3 develops direct proof, contradiction, cases, witness arguments and their side conditions. A complete formal natural-deduction calculus, including its metatheory, is outside these introductory chapter boundaries.</p>
+<h3>4.6 Moving quantifiers safely</h3>
+<p>A bound variable may be moved past a connective only when its scope and the free variables in the other operand have been checked. If <span class="math-inline">x</span> is not free in <span class="math-inline">B</span> and <span class="math-inline">D</span> is nonempty, then</p>
+<div class="formula-block">(∀x A(x))∧B ≡ ∀x(A(x)∧B),<br>(∀x A(x))∨B ≡ ∀x(A(x)∨B),<br>(∃x A(x))∧B ≡ ∃x(A(x)∧B),<br>(∃x A(x))∨B ≡ ∃x(A(x)∨B).</div>
+<p>The nonempty-domain assumption is needed for the first and fourth displayed movement laws. In an empty domain, the first right side is true while its left side equals <span class="math-inline">B</span>; the fourth right side is false while its left side equals <span class="math-inline">B</span>. The second and third laws remain valid even in an empty domain under the stated free-variable condition. One convention for the whole lesson is convenient, but the precise dependency matters when an application permits an empty domain.</p>
+<p>To prove the first equivalence under its stated conditions, fix a nonempty domain and an assignment for B's free variables. If <span class="math-inline">B</span> is false, the left side is false and every instance <span class="math-inline">A(d)∧B</span> on the right is false, so the right side is false. If <span class="math-inline">B</span> is true, both sides reduce to <span class="math-inline">∀x</span> <span class="math-inline">A(x)</span>. Because <span class="math-inline">x</span> is not free in <span class="math-inline">B</span>, varying <span class="math-inline">x</span> cannot change the value of <span class="math-inline">B</span>. The fourth equivalence follows by the analogous two cases for <span class="math-inline">B</span>: when <span class="math-inline">B</span> is false both sides reduce to <span class="math-inline">∃x</span> <span class="math-inline">A(x)</span>; when <span class="math-inline">B</span> is true both sides are true because the domain is nonempty. For the second law, <span class="math-inline">B</span> true makes both sides true and <span class="math-inline">B</span> false reduces both to <span class="math-inline">∀x</span> <span class="math-inline">A(x)</span>. For the third law, <span class="math-inline">B</span> false makes both sides false and <span class="math-inline">B</span> true reduces both to <span class="math-inline">∃x</span> <span class="math-inline">A(x)</span>. These last two arguments do not require a domain object.</p>
+<p>Distinguish movement past a fixed operand from distribution over two quantified operands. Universal quantification distributes over conjunction: <span class="math-inline">∀x</span>(<span class="math-inline">A(x)∧C(x)</span>) is equivalent to (<span class="math-inline">∀x</span> <span class="math-inline">A(x)</span>)<span class="math-inline">∧</span>(<span class="math-inline">∀x</span> <span class="math-inline">C(x)</span>). Both assertions require every object to satisfy both predicates. Existential quantification distributes over disjunction: <span class="math-inline">∃x</span>(<span class="math-inline">A(x)∨C(x)</span>) is equivalent to (<span class="math-inline">∃x</span> <span class="math-inline">A(x)</span>)<span class="math-inline">∨</span>(<span class="math-inline">∃x</span> <span class="math-inline">C(x)</span>); either side has a witness for at least one predicate. The apparent dual distributions fail in general because they change witness dependencies.</p>
+<p><strong>Worked boundary model.</strong> Let <span class="math-inline">D={0,1}</span>, let <span class="math-inline">A</span> hold only at 0, and let <span class="math-inline">C</span> hold only at 1. Every object satisfies <span class="math-inline">A∨C</span>, so <span class="math-inline">∀x(A∨C)</span> is true, yet neither <span class="math-inline">∀x</span> A nor <span class="math-inline">∀x</span> <span class="math-inline">C</span> is true. Both <span class="math-inline">∃x</span> <span class="math-inline">A</span> and <span class="math-inline">∃x</span> <span class="math-inline">C</span> are true with different witnesses, yet <span class="math-inline">∃x(A∧C)</span> is false because no common witness exists. Thus only the implication (<span class="math-inline">∀x</span> <span class="math-inline">A</span>)<span class="math-inline">∨</span>(<span class="math-inline">∀x</span> <span class="math-inline">C</span>) <span class="math-inline">⇒</span> <span class="math-inline">∀x(A∨C)</span> is generally valid in the first comparison, and only <span class="math-inline">∃x(A∧C)</span> <span class="math-inline">⇒</span> (<span class="math-inline">∃x</span> <span class="math-inline">A</span>)<span class="math-inline">∧</span>(<span class="math-inline">∃x</span> <span class="math-inline">C</span>) in the second. A singleton domain conceals these failures, so a two-object model is the smallest useful test.</p>
+<p>The side condition “<span class="math-inline">x</span> not free in <span class="math-inline">B</span>” is essential. For example, (<span class="math-inline">∀x</span> <span class="math-inline">P(x)</span>)<span class="math-inline">∧Q(x)</span> is an open formula whose <span class="math-inline">Q(x)</span> refers to the external assignment. Moving <span class="math-inline">∀x</span> across the conjunction to make <span class="math-inline">∀x</span>(<span class="math-inline">P(x)∧Q(x)</span>) binds that previously free <span class="math-inline">x</span>. Choose <span class="math-inline">D={0,1}</span>, <span class="math-inline">P</span> true everywhere, <span class="math-inline">Q</span> true only at 0, and <span class="math-inline">s(x)=0</span>: the left side is true and the right side false. Rename bound variables and mark all free occurrences before any rearrangement.</p>
+<h3>4.7 Finite search versus infinite models</h3>
+<p>A finite truth table settles propositional validity because finitely many propositional atoms have finitely many valuations. A few finite structures do <strong>not</strong> settle every first-order question: an infinite domain may behave differently. One sentence can assert the existence of a total, injective, non-surjective function through a binary relation <span class="math-inline">R</span>. Its components say that each <span class="math-inline">x</span> has exactly one <span class="math-inline">R</span>-successor; different <span class="math-inline">x</span> values cannot share a successor; and some <span class="math-inline">z</span> is nobody's successor.</p>
+<p>No finite nonempty domain satisfies all three: an injective self-map of a finite set is surjective. The natural numbers with <span class="math-inline">R(x,y)</span> iff <span class="math-inline">y=x+1</span> do satisfy them: every <span class="math-inline">x</span> has one successor, successors are unique, and 0 has no predecessor. Thus checking every structure up to some finite size cannot establish universal nonexistence of a first-order model. This is a limitation of that finite search, not an instruction to use an infinite structure whenever an ordinary finite countermodel suffices.</p>
+<h2 id="worked-problems">5. Fully worked problem bank</h2>
+<p>Problems 1–10 are original to this edition. Problems 11–14 are independently worded adaptations of specific, cited university exercises; their solutions are newly derived here. This bank samples the major reasoning patterns in the chapter without reproducing archived entrance-exam questions. Read each solution as another explanation of the underlying rule before using the problems for self-checking.</p>
+<h3>Problem 1 — Count Boolean functions constrained by an implication</h3>
+<p><strong>Question.</strong> How many Boolean functions <span class="math-inline">F(p,q,r)</span> make (<span class="math-inline">p→q</span>)<span class="math-inline">→F</span> a tautology?</p>
+<p><strong>Solution.</strong> The outer implication can be false only where <span class="math-inline">p→q</span> is true and <span class="math-inline">F</span> is false. The antecedent <span class="math-inline">p→q</span> is false precisely when <span class="math-inline">p=1</span> and <span class="math-inline">q=0</span>. For each of the other three choices of (<span class="math-inline">p</span>,<span class="math-inline">q</span>), both values of <span class="math-inline">r</span> occur, giving six rows on which <span class="math-inline">F</span> is forced to 1. When (<span class="math-inline">p</span>,<span class="math-inline">q</span>)<span class="math-inline">=</span>(1,0), the outer antecedent is false, so <span class="math-inline">F</span> is unrestricted at <span class="math-inline">r=0</span> and <span class="math-inline">r=1</span>. These are two independent output bits, giving <span class="math-inline">2<sup>2</sup></span><span class="math-inline">=</span><strong>4 functions</strong>. Counting assignments instead of functions would answer a different question.</p>
+<h3>Problem 2 — Negate a statement with two quantified parts</h3>
+<p><strong>Question.</strong> Formalize and negate: “If every request is accepted, some request is retryable.” Use <span class="math-inline">R(x)</span> for “<span class="math-inline">x</span> is a request,” <span class="math-inline">A(x)</span> for “<span class="math-inline">x</span> is accepted,” and <span class="math-inline">T(x)</span> for “<span class="math-inline">x</span> is retryable.”</p>
+<p><strong>Solution.</strong> The statement is [<span class="math-inline">∀x</span>(<span class="math-inline">R(x)→A(x)</span>)]<span class="math-inline">→∃x</span>(<span class="math-inline">R(x)∧T(x)</span>). Negating an implication preserves its antecedent and negates its consequent. Thus its negation is [<span class="math-inline">∀x</span>(<span class="math-inline">R(x)→A(x)</span>)]<span class="math-inline">∧¬∃x</span>(<span class="math-inline">R(x)∧T(x)</span>), equivalently</p>
+<div class="formula-block">[∀x(R(x)→A(x))] ∧ [∀x(R(x)→¬T(x))].</div>
+<p>The result says that every request is accepted and no request is retryable. If there are no requests, the original antecedent is vacuously true and its existential consequent false, so the original implication is false; the negation above is true. This checks the empty-restricted-set edge case without adopting an empty overall domain.</p>
+<h3>Problem 3 — Prove an entailment by cases and by a single formula</h3>
+<p><strong>Question.</strong> Do <span class="math-inline">p∨q</span>, <span class="math-inline">p→r</span>, and <span class="math-inline">q→r</span> entail <span class="math-inline">r</span>?</p>
+<p><strong>Solution.</strong> The first premise says at least one of <span class="math-inline">p</span> and <span class="math-inline">q</span> is true. If <span class="math-inline">p</span> is true, <span class="math-inline">p→r</span> gives <span class="math-inline">r</span>. If <span class="math-inline">q</span> is true, <span class="math-inline">q→r</span> gives <span class="math-inline">r</span>. Both cases give <span class="math-inline">r</span>, so the entailment holds. Equivalently, the conjunction of premises and <span class="math-inline">¬r</span> is unsatisfiable: <span class="math-inline">p→r</span> and <span class="math-inline">¬r</span> force <span class="math-inline">¬p</span>, while <span class="math-inline">q→r</span> and <span class="math-inline">¬r</span> force <span class="math-inline">¬q</span>; these contradict <span class="math-inline">p∨q</span>. Notice that neither <span class="math-inline">p→r</span> alone nor <span class="math-inline">q→r</span> alone entails <span class="math-inline">r</span>.</p>
+<h3>Problem 4 — Produce both normal forms without enumerating eight rows</h3>
+<p><strong>Question.</strong> Convert <span class="math-inline">F=</span>(<span class="math-inline">p⊕q</span>)<span class="math-inline">∨r</span> into an equivalent DNF and CNF over <span class="math-inline">p</span>,<span class="math-inline">q</span>,<span class="math-inline">r</span>.</p>
+<p><strong>Solution.</strong> XOR is (<span class="math-inline">p∧¬q</span>)<span class="math-inline">∨</span>(<span class="math-inline">¬p∧q</span>), so a DNF is</p>
+<div class="formula-block">F ≡ (p∧¬q)∨(¬p∧q)∨r.</div>
+<p>XOR is also (<span class="math-inline">p∨q</span>)<span class="math-inline">∧</span>(<span class="math-inline">¬p∨¬q</span>). Distribute <span class="math-inline">r</span> over that conjunction:</p>
+<div class="formula-block">F ≡ (p∨q∨r)∧(¬p∨¬q∨r).</div>
+<p>This is a CNF. Check <span class="math-inline">p=q=1</span>,<span class="math-inline">r=0</span>: both formulas are false; <span class="math-inline">p≠q</span> or <span class="math-inline">r=1</span> makes both true. These compact forms are not the full canonical forms, which would contain one term or clause for each applicable table row.</p>
+<h3>Problem 5 — Negate nested quantifiers without losing a dependency</h3>
+<p><strong>Question.</strong> Negate <span class="math-inline">∀x∃y</span>[<span class="math-inline">P(x,y)→∀z</span> <span class="math-inline">Q(y,z)</span>].</p>
+<p><strong>Solution.</strong> First flip the outer quantifier, then the inner one:</p>
+<div class="formula-block">¬∀x∃y[P→∀z Q] ≡ ∃x∀y¬[P→∀z Q].</div>
+<p>Negating the implication yields <span class="math-inline">P(x,y)∧¬∀z</span> <span class="math-inline">Q(y,z)</span>, and negating the last universal gives</p>
+<div class="formula-block">∃x∀y[P(x,y)∧∃z¬Q(y,z)].</div>
+<p>The <span class="math-inline">z</span>-witness may depend on <span class="math-inline">y</span>, and the chosen <span class="math-inline">x</span> must work against every <span class="math-inline">y</span>. Swapping <span class="math-inline">∀y</span> and <span class="math-inline">∃z</span> would demand one <span class="math-inline">z</span> for all <span class="math-inline">y</span> and generally produce a stronger, non-equivalent claim.</p>
+<h3>Problem 6 — Refute a quantifier swap with a small model</h3>
+<p><strong>Question.</strong> Does <span class="math-inline">∀x∃y</span> <span class="math-inline">R(x,y)</span> imply <span class="math-inline">∃y∀x</span> <span class="math-inline">R(x,y)</span>?</p>
+<p><strong>Solution.</strong> No. Let <span class="math-inline">D={0,1}</span> and let <span class="math-inline">R(x,y)</span> mean <span class="math-inline">x=y</span>. For each <span class="math-inline">x</span>, choose <span class="math-inline">y=x</span>; hence <span class="math-inline">∀x∃y</span> <span class="math-inline">R(x,y)</span> is true. Neither candidate <span class="math-inline">y</span> equals both 0 and 1, so <span class="math-inline">∃y∀x</span> <span class="math-inline">R(x,y)</span> is false. The reverse implication holds on a nonempty domain: a common <span class="math-inline">y</span> works for each <span class="math-inline">x</span> separately. This model gives a complete counterexample, not merely an intuition about “changing witnesses.”</p>
+<h3>Problem 7 — Count satisfying assignments by a disjoint split</h3>
+<p><strong>Question.</strong> How many assignments satisfy <span class="math-inline">F=</span>(<span class="math-inline">p→q</span>)<span class="math-inline">∧</span>(<span class="math-inline">q∨r</span>)?</p>
+<p><strong>Solution.</strong> Split on <span class="math-inline">q</span>. If <span class="math-inline">q=1</span>, both factors are true for every <span class="math-inline">p</span> and <span class="math-inline">r</span>, giving <span class="math-inline">2<sup>2</sup>=4</span> assignments. If <span class="math-inline">q=0</span>, <span class="math-inline">p→q</span> requires <span class="math-inline">p=0</span>, and <span class="math-inline">q∨r</span> requires <span class="math-inline">r=1</span>; this gives exactly one assignment. The cases <span class="math-inline">q=1</span> and <span class="math-inline">q=0</span> are disjoint and exhaustive. The answer is <strong>5</strong>. A full eight-row table confirms the count but is not needed.</p>
+<h3>Problem 8 — Preserve a witness under a symmetry premise</h3>
+<p><strong>Question.</strong> Suppose <span class="math-inline">∀x∃y</span> <span class="math-inline">R(x,y)</span> and <span class="math-inline">∀x∀y</span>(<span class="math-inline">R(x,y)→R(y,x)</span>). Prove <span class="math-inline">∀x∃y</span>[<span class="math-inline">R(x,y)∧R(y,x)</span>]. Do the premises also imply <span class="math-inline">∀x</span> <span class="math-inline">R(x,x)</span>?</p>
+<p><strong>Solution.</strong> Let a be an arbitrary domain object. The first premise supplies a witness <span class="math-inline">b</span> with <span class="math-inline">R(a,b)</span>. The symmetry premise, instantiated at <span class="math-inline">a</span>,<span class="math-inline">b</span>, gives <span class="math-inline">R(b,a)</span>. The <strong>same</strong> <span class="math-inline">b</span> therefore witnesses <span class="math-inline">R(a,b)∧R(b,a)</span>. Since a was arbitrary, universally generalize. The reflexive conclusion does not follow: on <span class="math-inline">D={0,1}</span>, set <span class="math-inline">R={(0,1),(1,0)}</span>. Each object has an outgoing edge and <span class="math-inline">R</span> is symmetric, but neither object relates to itself. Distinguishing a valid witness argument from a plausible extra conclusion is the point of this problem.</p>
+<h3>Problem 9 — Express exactly one and test boundary models</h3>
+<p><strong>Question.</strong> Write “exactly one student solved the puzzle” with <span class="math-inline">S(x)</span> meaning student and <span class="math-inline">P(x)</span> meaning solved the puzzle.</p>
+<p><strong>Solution.</strong> Use</p>
+<div class="formula-block">∃x[S(x)∧P(x)∧∀y((S(y)∧P(y))→y=x)].</div>
+<p>The existential part supplies a student solver. The universal part says every student solver is that same object. In a model with no solver the formula is false; in a model with one solver it is true; with two distinct solvers it is false. Using only <span class="math-inline">∀x∀y</span>(((<span class="math-inline">S(x)∧P(x)</span>)<span class="math-inline">∧</span>(<span class="math-inline">S(y)∧P(y)</span>))<span class="math-inline">→x=y</span>) would express “at most one,” because it would pass the no-solver model.</p>
+<h3>Problem 10 — Repair a capture error and separate substitution conventions</h3>
+<p><strong>Question.</strong> Substitute free <span class="math-inline">x</span> by <span class="math-inline">y</span> in <span class="math-inline">∀y</span> <span class="math-inline">R(x,y)</span>. Then apply {<span class="math-inline">x↦y</span>,<span class="math-inline">y↦x</span>} simultaneously to <span class="math-inline">R(x,y)</span>.</p>
+<p><strong>Solution.</strong> Directly writing <span class="math-inline">∀y</span> <span class="math-inline">R(y,y)</span> would let the old quantifier bind the inserted free <span class="math-inline">y</span>. Rename bound <span class="math-inline">y</span> to fresh <span class="math-inline">z</span> first: <span class="math-inline">∀y</span> <span class="math-inline">R(x,y)</span> <span class="math-inline">≡α</span> <span class="math-inline">∀z</span> <span class="math-inline">R(x,z)</span>. Capture-free substitution then gives <strong><span class="math-inline">∀z</span> <span class="math-inline">R(y,z)</span></strong>, where <span class="math-inline">y</span> remains free. For the second expression, simultaneous substitution reads the original positions before either replacement, producing <strong><span class="math-inline">R(y,x)</span></strong>. Sequentially replacing <span class="math-inline">x</span> and then <span class="math-inline">y</span> would instead produce <span class="math-inline">R(x,x)</span>, a different result. State “simultaneous” or “sequential” before manipulating a substitution list.</p>
+<h3>Problem 11 — Build every basic connective from NAND</h3>
+<p><strong>Source and adaptation.</strong> MIT 6.042J, Problem Set 1, Problem 3, asks for NAND-based expressions. The variable names and presentation below are independent; the exercise type is attributed to the <a href="https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/52e4d5a499a39c41c129e1eb4e831e20_MIT6_042JF10_assn01.pdf">original sheet</a>.</p>
+<p><strong>Question.</strong> Write <span class="math-inline">¬p</span>, <span class="math-inline">p∧q</span>, <span class="math-inline">p∨q</span>, and <span class="math-inline">p→q</span> using only the binary operator <span class="math-inline">↑</span>, where <span class="math-inline">p↑q</span> means <span class="math-inline">¬</span>(<span class="math-inline">p∧q</span>). Then construct one always-true and one always-false formula without writing truth constants.</p>
+<p><strong>Solution.</strong> First observe that <span class="math-inline">p↑p=¬p</span>: repeating an input turns NAND into negation. Negating NAND gives conjunction, so (<span class="math-inline">p↑q</span>)<span class="math-inline">↑</span>(<span class="math-inline">p↑q</span>)<span class="math-inline">=p∧q</span>. De Morgan's law gives <span class="math-inline">p∨q=¬</span>(<span class="math-inline">¬p∧¬q</span>)<span class="math-inline">=</span>(<span class="math-inline">p↑p</span>)<span class="math-inline">↑</span>(<span class="math-inline">q↑q</span>). Since <span class="math-inline">p→q</span> is <span class="math-inline">¬p∨q</span>, substitute the expression for <span class="math-inline">¬p</span> into the disjunction rule; the simpler result is <strong><span class="math-inline">p↑</span>(<span class="math-inline">q↑q</span>)</strong>, because this is <span class="math-inline">¬</span>(<span class="math-inline">p∧¬q</span>). Let <span class="math-inline">N=p↑p=¬p</span>. Then <span class="math-inline">p↑N=¬</span>(<span class="math-inline">p∧¬p</span>)<span class="math-inline">=</span>1 for either value of <span class="math-inline">p</span>. Finally, (<span class="math-inline">p↑N</span>)<span class="math-inline">↑</span>(<span class="math-inline">p↑N</span>)<span class="math-inline">=¬1=0</span>. These identities also prove that NAND alone can express any formula built from <span class="math-inline">¬</span>, <span class="math-inline">∧</span>, <span class="math-inline">∨</span>, and <span class="math-inline">→</span>: replace each connective recursively with its NAND expression. The proof is about Boolean functions; actual circuit cost and timing are separate questions.</p>
+<h3>Problem 12 — Separate a familiar inference rule from its invalid converse</h3>
+<p><strong>Source and adaptation.</strong> Stanford CS103, Homework 4, Problem 1, contrasts valid and invalid implication patterns. This altered pair and its full analysis are based on that exercise type: <a href="https://cs.stanford.edu/people/trevisan/cs103-14/hw4b.pdf">official handout</a>.</p>
+<p><strong>Question.</strong> Decide whether each formula is valid: (<span class="math-inline">i</span>) ((<span class="math-inline">p→q</span>)<span class="math-inline">∧¬q</span>)<span class="math-inline">→¬p</span>; <span class="math-inline">(ii)</span> ((<span class="math-inline">p→q</span>)<span class="math-inline">∧q</span>)<span class="math-inline">→p</span>. Give a proof or a complete countervaluation, and name the inferential mistake in the invalid case.</p>
+<p><strong>Solution.</strong> For (<span class="math-inline">i</span>), assume the antecedent is true. Then <span class="math-inline">p→q</span> is true and <span class="math-inline">q=0</span>. If <span class="math-inline">p</span> were 1, <span class="math-inline">p→q</span> would be false, a contradiction; hence <span class="math-inline">p=0</span> and <span class="math-inline">¬p=1</span>. This covers every valuation with true antecedent, while an implication with false antecedent is automatically true. Thus (<span class="math-inline">i</span>) is valid; this is <em>modus tollens</em>. For <span class="math-inline">(ii)</span>, set <span class="math-inline">p=0</span> and <span class="math-inline">q=1</span>. Then <span class="math-inline">p→q=1</span>, <span class="math-inline">q=1</span>, and <span class="math-inline">p=0</span>, so the whole implication is false. This one countervaluation proves invalidity. The tempting move from <span class="math-inline">p→q</span> and <span class="math-inline">q</span> to <span class="math-inline">p</span> is <em>affirming the consequent</em>. The presence of an implication never asserts that <span class="math-inline">q</span> has only one possible cause.</p>
+<h3>Problem 13 — A dependency hidden in a choice of pebbles</h3>
+<p><strong>Source and adaptation.</strong> UC Berkeley CS70, Discussion <span class="math-inline">1B</span>, Problem 2, uses a red/blue pebble array to expose quantifier order. The explanation below is independently written from the <a href="https://su24.eecs70.org/assets/pdf/dis1b.pdf">official discussion sheet</a>.</p>
+<p><strong>Question.</strong> A nonempty finite board has several nonempty columns, and each cell holds either a red or a blue pebble. Let <span class="math-inline">A</span> mean that one column is entirely red. Let <span class="math-inline">B</span> mean that every selection of exactly one pebble from each column contains a red pebble. Prove <span class="math-inline">A↔B</span>. Explain which step fails if a column is empty.</p>
+<p><strong>Solution.</strong> If <span class="math-inline">A</span> holds, name an all-red column <span class="math-inline">C</span>. Every complete selection must pick one pebble from <span class="math-inline">C</span>, and that selected pebble is red. Therefore <span class="math-inline">B</span> holds. For the converse, prove the contrapositive. If <span class="math-inline">A</span> fails, every column has at least one blue pebble. Because the board has finitely many nonempty columns, choose one blue pebble from each column. The resulting complete selection contains no red pebble, so <span class="math-inline">B</span> fails. Consequently <span class="math-inline">B→A</span>. The finite-board assumption makes the simultaneous choice elementary. If an empty column is admitted and “entirely red” is defined to require at least one pebble, there may be no complete selection; then <span class="math-inline">B</span> can be vacuously true while <span class="math-inline">A</span> is false. For example, take one empty column and one column containing a blue pebble. The nonempty-column condition is therefore essential. Under the alternative convention that an empty column counts as vacuously all-red, the meaning of <span class="math-inline">A</span> changes and the boundary case must be reanalyzed.</p>
+<h3>Problem 14 — Detect the trap in a subformula claim</h3>
+<p><strong>Source and adaptation.</strong> CMU 15-311, “Propositional Logic,” slide 14, presents a deliberately false subformula claim and its counterexample. The formulation and extended diagnosis below follow the <a href="https://www.cs.cmu.edu/~mheule/15311-s26/slides/prop.pdf">official slide deck</a>.</p>
+<p><strong>Question.</strong> Suppose <span class="math-inline">B</span> is a subformula of <span class="math-inline">A</span> and <span class="math-inline">A</span> is a subformula of <span class="math-inline">B</span>. Must both <span class="math-inline">A</span> and <span class="math-inline">B</span> be atomic? Give the strongest conclusion justified by their syntax trees.</p>
+<p><strong>Solution.</strong> No. Take <span class="math-inline">A=B=¬p</span>. A formula is a subformula of itself, so both premises hold, yet neither formula is atomic. In fact, the premises imply <strong><span class="math-inline">A</span> and <span class="math-inline">B</span> are the same formula</strong>. A proper subformula has strictly fewer nodes than its parent. If <span class="math-inline">A</span> and <span class="math-inline">B</span> were distinct, <span class="math-inline">B</span> being a proper subformula of <span class="math-inline">A</span> would give <span class="math-inline">size(B)&lt;size(A)</span>, while A being a proper subformula of <span class="math-inline">B</span> would give <span class="math-inline">size(A)&lt;size(B)</span>, an impossibility. Equality is the only remaining case. The false claim confuses “the subformula relation is antisymmetric” with “mutual membership is possible only at a leaf.” This same size argument is useful whenever a recursive syntax relation is alleged to contain a cycle.</p>
+<h2 id="quick-reference">6. High-yield review sheet</h2>
+<p>This section is deliberately compact. It is a <strong>recall aid after the full lesson</strong>, not a substitute for the definitions, countermodels, or worked solutions above. It collects facts that can prevent avoidable errors in later timed problem solving without using any archived entrance-exam question now.</p>
+<h3>6.1 Decide what kind of claim is being asked</h3>
+<table>
+<thead>
+<tr>
+<th>Requested claim</th>
+<th>Required evidence</th>
+<th>A common insufficient response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math-inline">A</span> is satisfiable</td>
+<td>One full valuation or one explicitly defined model satisfying <span class="math-inline">A</span></td>
+<td>“It looks consistent”</td>
+</tr>
+<tr>
+<td><span class="math-inline">A</span> is invalid</td>
+<td>One countervaluation or countermodel</td>
+<td>A few confirming examples</td>
+</tr>
+<tr>
+<td><span class="math-inline">A</span> is valid</td>
+<td>A proof covering every valuation or model in the stated class</td>
+<td>One true row</td>
+</tr>
+<tr>
+<td><span class="math-inline">A ≡ B</span></td>
+<td>Agreement under every common valuation or model</td>
+<td>Both are merely satisfiable</td>
+</tr>
+<tr>
+<td><span class="math-inline">Γ ⊨ C</span></td>
+<td>Proof that <span class="math-inline">Γ∧¬C</span> has no model</td>
+<td><span class="math-inline">C</span> is true in one model of <span class="math-inline">Γ</span></td>
+</tr>
+<tr>
+<td>A first-order universal is false</td>
+<td>One domain object with the required failure</td>
+<td>A different unrelated object</td>
+</tr>
+<tr>
+<td>A first-order existential is true</td>
+<td>One witness in the declared domain</td>
+<td>An object outside the restricted set</td>
+</tr>
+</tbody>
+</table>
+<p>Keep the <strong>universe of interpretation</strong> visible. A propositional truth table over <span class="math-inline">n</span> atoms has 2<sup><span class="math-inline">n</span></sup> valuations. A first-order formula ranges over objects and interpretations of predicates as well; an arbitrary finite list of structures is not a general proof.</p>
+<h3>6.2 Conditional language and negation</h3>
+<p>“A only if <span class="math-inline">B</span>” means <span class="math-inline">A→B</span>: <span class="math-inline">B</span> is necessary for <span class="math-inline">A</span>. “A if <span class="math-inline">B</span>” means <span class="math-inline">B→A</span>: <span class="math-inline">B</span> is sufficient for <span class="math-inline">A</span>. “A if and only if <span class="math-inline">B</span>” means both implications. When a natural-language sentence is ambiguous, write the intended necessary or sufficient condition in words before translating it. The phrase “all <span class="math-inline">P</span> are <span class="math-inline">Q</span>” means <span class="math-inline">∀x</span>(<span class="math-inline">P(x)→Q(x)</span>); “some <span class="math-inline">P</span> are <span class="math-inline">Q</span>” means <span class="math-inline">∃x</span>(<span class="math-inline">P(x)∧Q(x)</span>).</p>
+<p>The negation checklist is:</p>
+<ol>
+<li>Expose the outermost connective and its parentheses.</li>
+<li>Apply <span class="math-inline">¬</span>(<span class="math-inline">A→B</span>) <span class="math-inline">≡</span> <span class="math-inline">A∧¬B</span> or the relevant De Morgan law.</li>
+<li>Change each <span class="math-inline">∀</span> to <span class="math-inline">∃</span> and each <span class="math-inline">∃</span> to <span class="math-inline">∀</span> as the negation passes it.</li>
+<li>Stop when negation reaches atomic predicates, unless their internal meaning is separately defined.</li>
+<li>Check the result in a tiny model, especially when a restricted set could be empty.</li>
+</ol>
+<p>For instance, the negation of <span class="math-inline">∀x</span>(<span class="math-inline">P(x)→Q(x)</span>) is <span class="math-inline">∃x</span>(<span class="math-inline">P(x)∧¬Q(x)</span>); it is <strong>not</strong> <span class="math-inline">∀x</span>(<span class="math-inline">P(x)∧¬Q(x)</span>). The first says one counterexample exists; the second demands every object be a counterexample.</p>
+<h3>6.3 Normal-form and inference checks</h3>
+<p>For canonical DNF, start with the <strong>true</strong> rows and create one minterm per row. For canonical CNF, start with the <strong>false</strong> rows and create one maxterm per row. In a minterm, a row value 1 gives a positive literal; in a maxterm, a row value 1 gives a negative literal. Re-evaluate at least one source row to detect a reversed sign. If a formula introduces auxiliary variables, decide whether the required guarantee is equivalence or only equisatisfiability.</p>
+<p>To test an entailment, append the negation of the proposed conclusion to the premises. A model of this conjunction refutes the entailment. Unsatisfiability proves it. Resolution of (<span class="math-inline">A∨x</span>) and (<span class="math-inline">B∨¬x</span>) produces <span class="math-inline">A∨B</span>; do not “resolve” two clauses lacking complementary occurrences of the same atom.</p>
+<h3>6.4 Quantifier and model checks</h3>
+<p>Mark every free occurrence before moving a quantifier or substituting a term. Universal restriction uses implication; existential restriction uses conjunction. A witness for <span class="math-inline">∀x∃y</span> may depend on <span class="math-inline">x</span>, while <span class="math-inline">∃y∀x</span> requires one witness shared by all <span class="math-inline">x</span>. “Exactly one” always has an existence part and a uniqueness part. A binary relation is directed unless symmetry is given. Quantifier movement across another operand requires the bound variable to be absent from that operand's free variables; the domain convention must also be checked.</p>
+<h3>6.5 Exam-oriented decision checklist</h3>
+<p>The following rules cover the recurring <em>forms of reasoning</em> that a difficult logic question can combine. They are not a catalogue of archived entrance-exam questions. For each item, first identify the requested conclusion and then apply the stated check to the whole formula, including its assumptions.</p>
+<table>
+<thead>
+<tr>
+<th>When the question asks for…</th>
+<th>Reliable procedure</th>
+<th>Trap to rule out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A truth-table count</td>
+<td>Identify the distinct atoms, count 2<sup><span class="math-inline">n</span></sup> valuations, and split into disjoint cases if a full table is long.</td>
+<td>Counting satisfying assignments when the question asks for Boolean functions, or vice versa.</td>
+</tr>
+<tr>
+<td>Validity of an implication</td>
+<td>Search for the only falsifying pattern: antecedent true and consequent false.</td>
+<td>Treating a true consequent as proof of the antecedent.</td>
+</tr>
+<tr>
+<td>Equivalence of formulas</td>
+<td>Compare outputs under the union of their atom sets, or use a law whose side conditions hold.</td>
+<td>Showing only that both formulas are satisfiable.</td>
+</tr>
+<tr>
+<td>Logical consequence</td>
+<td>Conjoin the premises with the negated conclusion and test satisfiability.</td>
+<td>Using a valuation in which one premise is false as a counterexample.</td>
+</tr>
+<tr>
+<td>Canonical DNF or CNF</td>
+<td>Use all true rows for DNF and all false rows for CNF, with the correct literal polarity.</td>
+<td>Confusing an equivalent compact form with the requested canonical form.</td>
+</tr>
+<tr>
+<td>A first-order countermodel</td>
+<td>State a nonempty domain, every relevant predicate or relation, and a concrete assignment for free variables.</td>
+<td>Giving an informal scenario that does not fix the whole interpretation.</td>
+</tr>
+<tr>
+<td>A quantified negation</td>
+<td>Move negation inward one connective or quantifier at a time and preserve parentheses.</td>
+<td>Changing <span class="math-inline">∀</span> to <span class="math-inline">∃</span> without also negating the quantified body.</td>
+</tr>
+<tr>
+<td>Restricted quantification</td>
+<td>Translate <span class="math-inline">∀x∈S</span> to an implication and <span class="math-inline">∃x∈S</span> to a conjunction.</td>
+<td>Writing <span class="math-inline">∃x</span>(<span class="math-inline">S(x)→P(x)</span>), which can be witnessed outside <span class="math-inline">S</span>.</td>
+</tr>
+<tr>
+<td>A quantifier-order claim</td>
+<td>Draw the dependency of each existential witness on earlier universal variables.</td>
+<td>Reusing a different witness as if it were one common object.</td>
+</tr>
+<tr>
+<td>Quantifier distribution</td>
+<td>Distribute <span class="math-inline">∀</span> over <span class="math-inline">∧</span> and <span class="math-inline">∃</span> over <span class="math-inline">∨</span>. Check the two-object split-predicate model before claiming either opposite distribution.</td>
+<td>Turning different existential witnesses into one common witness, or turning a per-object disjunction into one universal disjunct.</td>
+</tr>
+<tr>
+<td>Uniqueness</td>
+<td>Prove both at least one witness and at most one witness.</td>
+<td>Accepting a statement that is vacuously true when no witness exists.</td>
+</tr>
+<tr>
+<td>Variable substitution</td>
+<td>Mark free and bound occurrences; rename bound variables before a replacement could capture a free variable.</td>
+<td>Performing several substitutions sequentially when they were defined as simultaneous.</td>
+</tr>
+<tr>
+<td>A finite search result</td>
+<td>State the size bound searched and whether the target claim quantifies over all structures.</td>
+<td>Treating failure to find a small model as proof of general unsatisfiability.</td>
+</tr>
+</tbody>
+</table>
+<h3>6.6 What this chapter intentionally leaves for later</h3>
+<p>The chapter establishes the logical language needed by the plan. Detailed set identities and relation properties belong to the sets and relations chapters. Chapter 3 develops mathematical proof techniques; a complete formal natural-deduction calculus is outside the present introductory sequence. Gate delay and physical glitches belong to digital logic. Algorithmic performance of SAT solvers belongs to algorithms. This separation prevents a logic chapter from growing through unrelated material while keeping its own definitions and edge cases explicit.</p>
+<h2 id="laboratory">7. Interactive truth-table laboratory</h2>
+<p>The interactive table in the web edition evaluates a selected three-variable formula for all eight assignments. The model is classical propositional logic: each input is exactly 0 or 1, <span class="math-inline">∨</span> is inclusive, and <span class="math-inline">→</span> is material implication. It shows <strong>semantic output only</strong>. It does not simulate timing, metastability, short-circuit evaluation, or hardware hazards.</p>
+<p>Try comparing <span class="math-inline">p→q</span> with <span class="math-inline">¬p∨q</span>; their outputs match in all eight rows, including both choices of <span class="math-inline">r</span>. Then compare <span class="math-inline">p→q</span> with <span class="math-inline">q→p</span>; the row <span class="math-inline">p=0</span>,<span class="math-inline">q=1</span> separates them. These are demonstrations of the definitions, not archived examination questions.</p>
+<div class="lab">
+<label for="formula-select">Choose a formula:</label>
+<select id="formula-select">
+  <option value="imp"><span class="math-inline">p → q</span></option>
+  <option value="rewritten"><span class="math-inline">¬p ∨ q</span></option>
+  <option value="converse"><span class="math-inline">q → p</span></option>
+  <option value="biconditional"><span class="math-inline">p ↔ q</span></option>
+  <option value="composite">(<span class="math-inline">p ∨ q</span>) <span class="math-inline">∧</span> <span class="math-inline">¬r</span></option>
+</select>
+<div id="truth-output" aria-live="polite"></div>
+</div>
+<h2 id="references">8. Source references and review limits</h2>
+<ol>
+<li>Leighton, <span class="math-inline">T</span>., and van Dijk, <span class="math-inline">M</span>. (2010). “Propositions.” <em>6.042J Mathematics for Computer Science</em>, Chapter 1, MIT OpenCourseWare. <a href="https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/7853d585044ef21bce5f48ce5fc89d28_MIT6_042JF10_chap01.pdf">Original 19-page PDF</a>. All 17 substantive pages were reviewed; equation and symbol rendering was checked against the PDF images.</li>
+<li>Trevisan, <span class="math-inline">L</span>. (2014). “Mathematical Logic.” <em>CS103 Mathematical Foundations of Computing</em>, Lecture 9, Stanford University. <a href="https://cs.stanford.edu/people/trevisan/cs103-14/lecture09.pdf">Original eight-page PDF</a>. All eight pages were reviewed, including scope and free-variable examples.</li>
+<li>Shahzar, and Wu, <span class="math-inline">H</span>. (2024). “Logic.” <em>CS70 Discrete Mathematics and Probability Theory</em>, Note 1, University of California, Berkeley. <a href="https://su24.eecs70.org/assets/pdf/notes/n1.pdf">Original 14-page PDF</a>. All 14 pages and the relevant diagrams were reviewed. The chapter uses new wording and solutions throughout; Problem 13 is explicitly adapted from the course discussion sheet.</li>
+<li>Heule, <span class="math-inline">M</span>. <span class="math-inline">J</span>. <span class="math-inline">H</span>. (2026). “Propositional Logic” and “First-Order Logic.” <em>15-311 Logic and Mechanized Reasoning</em>, Carnegie Mellon University. <a href="https://www.cs.cmu.edu/~mheule/15311-s26/slides/prop.pdf">Propositional slides</a>; <a href="https://www.cs.cmu.edu/~mheule/15311-s26/slides/FOL.pdf">first-order slides</a>. Both decks, including repeated animation frames and the response slides after false prompts, were reviewed.</li>
+<li>Cornell University (2017). “Lecture 36: Logic.” <em>CS2800 Discrete Structures</em>. <a href="https://www.cs.cornell.edu/courses/cs2800/2017fa/lectures/lec36-logic.html">Lecture text</a>. Consulted as a supplementary comparison of inductive semantics; it is not counted toward the four-course minimum.</li>
+<li>MIT 6.042J (2010). <a href="https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/52e4d5a499a39c41c129e1eb4e831e20_MIT6_042JF10_assn01.pdf">Problem Set 1, Problem 3</a>. Exercise type used in Problem 11.</li>
+<li>Stanford CS103 (2014). <a href="https://cs.stanford.edu/people/trevisan/cs103-14/hw4b.pdf">Homework 4, Problem 1</a>. Exercise type used in Problem 12.</li>
+<li>UC Berkeley CS70 (2024). <a href="https://su24.eecs70.org/assets/pdf/dis1b.pdf">Discussion 1B, Problem 2</a>. Exercise type used in Problem 13.</li>
+<li>CMU 15-311 (2026). <a href="https://www.cs.cmu.edu/~mheule/15311-s26/slides/prop.pdf">Propositional Logic, slide 14</a>. Counterexample prompt developed further in Problem 14.</li>
+</ol>
+<p>The notes synthesize the selected course texts and independently derive the worked examples. A source comparison cannot establish literal coverage of every course worldwide, and no pre-publication audit can prove that a future, unseen question will be answered correctly with certainty. Identified errors or missing concepts should be corrected in the chapter and its audit rather than hidden behind a “100%” label. Archived Iranian master's and doctoral examination booklets are intentionally absent from this edition; they are reserved for joint, question-by-question study in the final month.</p>
+</article>
+  <p class="top-link"><a href="../index.html#week-1">← Back to the weekly plan</a></p>
+</main>
+<script>
+const select = document.getElementById("formula-select");
+const output = document.getElementById("truth-output");
+function evaluate(kind,p,q,r) {
+  if (kind === "imp" || kind === "rewritten") return !p || q;
+  if (kind === "converse") return !q || p;
+  if (kind === "biconditional") return p === q;
+  return (p || q) && !r;
+}
+function draw() {
+  let table = "<table><thead><tr><th>p</th><th>q</th><th>r</th><th>Formula value</th></tr></thead><tbody>";
+  for (let p=0; p<=1; p++) for (let q=0; q<=1; q++) for (let r=0; r<=1; r++)
+    table += "<tr><td>"+p+"</td><td>"+q+"</td><td>"+r+"</td><td>"+(evaluate(select.value,!!p,!!q,!!r)?1:0)+"</td></tr>";
+  output.innerHTML = table + "</tbody></table>";
+}
+select.addEventListener("change",draw); draw();
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+/* Native mathematics uses the bundled professional mathematical font throughout. */
+math{font-family:"STIX Two Math",serif;font-weight:400;font-size:1.07em}
+math[display="block"]{font-size:1em}
+math[display="inline"]{display:inline-block;max-width:100%;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;vertical-align:-.12em;padding:.1em .04em}
+.lesson>h3:has(+p strong:first-child){scroll-margin-top:1rem}
+.lesson p:has(>strong:first-child){margin-top:.85em}
+.lesson .formula-block{overflow-x:auto;padding:.8rem .2rem}
+@media(max-width:600px){.lesson math[display="inline"]{max-width:100%;overflow-x:auto;overflow-y:hidden}.lesson>h3{font-size:1.25rem}}
+@media print{.formula-block{overflow:visible}h3{break-after:avoid}math{color:#000}}

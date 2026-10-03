@@ -99,48 +99,18 @@ lessons = json.loads((ROOT / "lessons.json").read_text(encoding="utf-8"))
 assert len(plan["ielts"]["stages"]) == len(plan["weeks"]) == 11
 assert all(len(stage) == 4 for stage in plan["ielts"]["stages"])
 assert sum(block["hours"] for day in daily["days"] for block in day["blocks"] if block.get("subject") == "english") == 4
-assert lessons[0]["chapters"][0]["status"] == "ready"
-assert lessons[0]["chapters"][1]["status"] == "ready"
-assert lessons[0]["chapters"][1]["url"] == "chapters/d_sets.html"
-assert lessons[0]["chapters"][2]["status"] == "ready"
-assert lessons[0]["chapters"][2]["url"] == "chapters/d_proof.html"
-assert lessons[0]["chapters"][3]["status"] == "ready"
-assert lessons[0]["chapters"][3]["url"] == "chapters/d_induction.html"
-assert lessons[0]["chapters"][4]["status"] == "ready"
-assert lessons[0]["chapters"][4]["url"] == "chapters/a_model.html"
-assert lessons[0]["chapters"][5]["status"] == "ready"
-assert lessons[0]["chapters"][5]["url"] == "chapters/a_asym.html"
-assert lessons[0]["chapters"][6]["status"] == "ready"
-assert lessons[0]["chapters"][6]["url"] == "chapters/a_loop.html"
-assert lessons[0]["chapters"][7]["status"] == "ready"
-assert lessons[0]["chapters"][7]["url"] == "chapters/s_axioms.html"
-assert lessons[0]["chapters"][8]["status"] == "ready"
-assert lessons[0]["chapters"][8]["url"] == "chapters/s_counting.html"
-vectors = next(c for w in lessons for c in w['chapters'] if c['topicId'] == 'l_vectors')
-assert vectors['status'] == 'ready' and vectors['url'] == 'chapters/l_vectors.html'
-matrices = next(c for w in lessons for c in w['chapters'] if c['topicId'] == 'l_matrices')
-assert matrices['status'] == 'ready' and matrices['url'] == 'chapters/l_matrices.html'
-types = next(c for w in lessons for c in w['chapters'] if c['topicId'] == 'p_types')
-assert types['status'] == 'ready' and types['url'] == 'chapters/p_types.html'
-flow = next(c for w in lessons for c in w['chapters'] if c['topicId'] == 'p_flow')
-assert flow['status'] == 'ready' and flow['url'] == 'chapters/p_flow.html'
-number = next(c for w in lessons for c in w['chapters'] if c['topicId'] == 'g_number')
-assert number['status'] == 'ready' and number['url'] == 'chapters/g_number.html'
-boolean = next(c for w in lessons for c in w['chapters'] if c['topicId'] == 'g_boolean')
-assert boolean['status'] == 'ready' and boolean['url'] == 'chapters/g_boolean.html'
-gates = next(c for w in lessons for c in w['chapters'] if c['topicId'] == 'g_gates')
-assert gates['status'] == 'ready' and gates['url'] == 'chapters/g_gates.html'
-vector_html = (ROOT / 'chapters/l_vectors.html').read_text(encoding='utf-8')
-vector_text = re.sub(r'<[^>]+>', '', vector_html)
-for required in ('in a normed space', 'in an inner-product space', 'Equality means linear dependence', 'It often rejects impossible lengths'):
-    assert required in vector_text, ('vector review table lost content', required)
-for chapter_id in ("d_logic", "d_sets", "d_proof", "d_induction", "a_model", "a_asym", "a_loop", "s_axioms", "s_counting", "l_vectors", "l_matrices", "p_types", "p_flow", "g_number", "g_boolean", "g_gates"):
+chapters = [c for w in lessons for c in w['chapters']]
+assert len(chapters) == 22
+assert all(c['status'] == 'draft' and c['revisionState'] == 'rewritten_draft' for c in chapters)
+assert all(c['url'] == 'chapters/' + c['topicId'] + '.html' for c in chapters)
+for chapter_id in [c['topicId'] for c in chapters]:
     chapter_html = (ROOT / "chapters" / f"{chapter_id}.html").read_text(encoding="utf-8")
     text_without_diagrams = re.sub(r"<(?:svg|math)\b.*?</(?:svg|math)>", "", chapter_html, flags=re.S)
     assert not re.search(r"[₀-₉₊₋ₙₖᵢ⁰-⁹⁺⁻ⁿʲᵏᵗᴺⁱ]", text_without_diagrams), chapter_id
     assert "class\u2009=\u2009" not in chapter_html, chapter_id
     coverage = MathCoverage()
-    coverage.feed(chapter_html)
+    # Bibliographic initials and Roman lecture numbers are prose, not variables.
+    coverage.feed(chapter_html.split('<h2 id="references">')[0])
     assert not coverage.unstyled, (chapter_id, coverage.unstyled)
     assert coverage.styled_runs >= 100, (chapter_id, coverage.styled_runs)
 chapter_css = (ROOT / "chapters" / "chapter.en.css").read_text(encoding="utf-8")

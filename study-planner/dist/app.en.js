@@ -132,15 +132,15 @@ function renderLibrary() {
   const ready = lessons.flatMap(item => item.chapters || []).filter(chapter => chapter.status === "ready" && chapter.url);
   const drafted = lessons.flatMap(item => item.chapters || []).filter(chapter => chapter.status === "draft" && chapter.url);
   byId("library").innerHTML = `<section class="card">
-    <p class="eyebrow">Chapter library</p><h2>Read a complete chapter</h2>
+    <p class="eyebrow">Chapter library</p><h2>Review the revised chapters</h2>
     <p>A chapter is labelled complete only after its source comparison, definitions, proofs, edge cases, worked problems, concise review sheet, and presentation checks pass review. At least four genuinely reviewed courses from four universities must be synthesized. More sources are used when they resolve a real gap. Past entrance-exam booklets are reserved for the final month. <a href="sprint.html">Read the full completion standard →</a></p>
     <div class="library-grid">
       ${ready.map(chapter => `<article class="library-card"><span class="status">Ready to study</span><h3>${escapeHtml(chapter.title)}</h3><a class="chapter-link primary" href="${escapeHtml(chapter.url)}">Open chapter →</a></article>`).join("")}
-      ${drafted.map(chapter => `<article class="library-card"><span class="status draft">Awaiting student review</span><h3>${escapeHtml(chapter.title)}</h3><a class="chapter-link" href="${escapeHtml(chapter.url)}">View draft →</a></article>`).join("")}
+      ${drafted.map(chapter => `<article class="library-card"><span class="status draft">Examination revision draft</span><h3>${escapeHtml(chapter.title)}</h3><p>${chapter.questionCount || 0} original questions with explanations · ${chapter.examNotesCount || 0} examination notes</p><a class="chapter-link" href="${escapeHtml(chapter.url)}">Open revised chapter →</a></article>`).join("")}
       ${!ready.length && !drafted.length ? '<p>The first chapter is undergoing its English quality review. Its link will appear here when the review is complete.</p>' : ""}
     </div>
   </section>
-  <section class="card"><h2>What the status means</h2><p>The short weekly overview is an orientation aid, not a substitute for a chapter. A draft is open for the student's review but has not received explicit approval. A reviewed draft becomes ready only after that approval; only then does work begin on the next chapter.</p></section>`;
+  <section class="card"><h2>What the status means</h2><p>All 22 existing chapters were revised together under your explicit request. Their former approval does not approve the rewritten sections. They remain drafts until you approve them. Work on new chapters is paused during this review. The weekly overview is an orientation aid; the linked chapter contains the full instruction.</p><a href="library-review.html">Read the revision evidence and limitations →</a></section>`;
 }
 function renderIelts() {
   const path = plan.ielts;

@@ -1,0 +1,117 @@
+{
+ "d_logic":[
+ ["Empty-domain exceptions","The four movement laws for a variable absent from the other operand must track the quantifier and operator. On an empty domain, an existential side is false and a universal side true; moving a quantifier across an unrelated operand can therefore change a formula. For example, with an empty domain and a true closed $Q$, $(\\exists xP(x))\\lor Q$ is true while $\\exists x(P(x)\\lor Q)$ is false. Never use a nonempty-domain movement theorem after silently changing the domain."],
+ ["Free variables and truth assignments","A first-order formula with $k$ free variables on an $m$-object domain has $m^k$ assignments to those variables once the structure is fixed. This is not a count of structures or Boolean truth tables. Bound variables contribute no free assignment choice; repeated free occurrences of one name share one value."],
+ ["Finite and infinite models","A quantified claim can have an infinite model and no finite model, such as a strict relation where every object has a larger successor under suitable order axioms. A finite truth-table check does not decide arbitrary first-order validity. Use the stated domain class in a conceptual question."]
+ ],
+ "d_sets":[
+ ["Indexed and empty families","For complements relative to $U$, the union of an empty family is empty and the intersection of an empty family is $U$. For a decreasing tail $A_n=\\{n,n+1,\\ldots\\}$, every finite intersection is a nonempty tail, but the intersection over all positive $n$ is empty. Finite-stage nonemptiness does not imply infinite-intersection nonemptiness."],
+ ["Power-set containment reverses no direction","$\\mathcal P(A)\\subseteq\\mathcal P(B)$ holds exactly when $A\\subseteq B$: the singleton of each element tests the reverse implication. In contrast, $A\\in\\mathcal P(B)$ means $A\\subseteq B$, whereas $A\\subseteq\\mathcal P(B)$ means every element of $A$ is itself a subset of $B$. These are different types of statements."],
+ ["Set recovery and hidden regions","$A\\cup C=B\\cup C$ determines membership outside $C$ only; $A\\cap C=B\\cap C$ determines membership inside $C$ only. Both equalities together imply $A=B$. One equation alone allows differences hidden in its unobserved region."]
+ ],
+ "d_proof":[
+ ["Negating nested targets","The negation of $\\forall x\\exists yP(x,y)$ is $\\exists x\\forall y\\neg P(x,y)$. A contradiction proof assumes that whole negation, including the changed witness dependence. Choosing one bad pair instead does not refute the original dependent-witness claim."],
+ ["Contradiction need not use every assumption","A contradiction must follow validly from the stated hypotheses and the negated target. It may use only a subset of available assumptions. The failure is circular reasoning or an invalid step, not merely leaving an irrelevant premise unused."],
+ ["Exhaustive cases","A split into positive, zero and negative values covers all real numbers; a split into positive and negative omits zero. Check coverage before proving each branch. A proof can have correct algebra in every written branch and still fail because an admissible branch is missing."]
+ ],
+ "d_induction":[
+ ["Simultaneous induction","When two recursive claims depend on each other, induct on their conjunction and establish both bases. Proving one next claim may use the other claim at smaller indices, but cannot assume the other next claim without a separate valid dependency argument. A dependency diagram distinguishes mutual induction from a circular same-index proof."],
+ ["Minimal counterexample measure","Choose the least counterexample in a nonempty set of nonnegative integer measures. A supposed smaller counterexample must remain in the admissible domain. Positive reals are not well ordered; an argument selecting their least member requires an additional hypothesis."],
+ ["Uniform strengthened claims","If deleting a vertex or choosing a smaller object changes the object itself, state the induction hypothesis for every object of that smaller size. A proof about one fixed representative does not justify a recursive step on an arbitrary smaller object."]
+ ],
+ "a_model":[
+ ["Instance, best and worst costs","Worst-case cost at size $n$ is a maximum over all admissible instances of that size, while best-case cost is a minimum. An expected cost additionally needs a stated distribution or random algorithm. A measured favorable input is not evidence of a uniform worst-case bound."],
+ ["Array interface versus implementation","Constant-time indexed access does not make insertion at an arbitrary position constant time. A contiguous implementation may shift a linear suffix. Allocation, initialization and copying are separate costs, even when a language expresses them as one operation."],
+ ["Pseudo-polynomial capacity","A table with $nW$ entries is polynomial in numeric capacity $W$, but $W$ can be exponential in its binary length. If $W$ uses $L$ bits, the table can have order $n2^L$ entries. The encoding and numeric range determine whether the polynomial claim is appropriate."]
+ ],
+ "a_asym":[
+ ["Little relations and transitivity","$f\\in o(g)$ implies $f\\in O(g)$ but not conversely. $f\\in\\Theta(g)$ is symmetric, while big-oh is not. With positive functions, transitivity preserves upper bounds; subtracting or exponentiating their class labels generally does not preserve a tight relation."],
+ ["Floors and shifts","For fixed positive $c$, $\\lfloor cn\\rfloor$ is tightly linear once $n$ is large. A fixed additive shift does not alter a monotone polynomial's order, but applying it inside an arbitrary oscillating or exponential-indexed function requires analysis of that actual function."],
+ ["Upper algorithm versus lower problem bound","An algorithm's upper bound establishes existence of one method with that cost. A problem lower bound quantifies over every algorithm in the specified model. A slow algorithm cannot prove a problem requires its runtime."]
+ ],
+ "a_loop":[
+ ["Early-exit witnesses","An unsorted search can inspect one item in the best case and all $n$ in the worst case. State a concrete input realizing each bound. Multiplying maximum branch counts can be non-tight if those maxima cannot occur together on any one input."],
+ ["Independent dimensions","A rectangular loop with $n$ rows and $m$ columns costs $nm$ unit visits. A square specialization $m=n$ gives $n^2$, but the general result must retain both parameters. Constant-size one dimension does not justify dropping it when it is independently variable."],
+ ["Nontermination before complexity","A counter initialized to zero and updated by doubling remains zero. A positive-limit guard can then stay true forever, so no finite logarithmic runtime applies. Verify progress and arithmetic semantics before deriving iteration formulas."]
+ ],
+ "s_axioms":[
+ ["Probability zero is not emptiness","Under a uniform continuous law, the event of one specified point is nonempty but has probability zero. Its complement has probability one without being the whole sample space. Almost sure statements exclude a null set, not necessarily every conceivable outcome."],
+ ["Three-event coefficients","For three events, union probability is the singleton sum minus pair-intersection sum plus triple intersection. Exactly-one probability subtracts twice the pair sum and adds three times the triple. Inclusive pair intersections already contain the triple mass; pair-only data must be handled differently."],
+ ["Event-family measurability","A probability is assigned only to members of the specified sigma-algebra. A finite partition model allows unions of whole atoms, not arbitrary subsets splitting an atom. A question may be about observability rather than merely cardinality."]
+ ],
+ "s_counting":[
+ ["Vandermonde decomposition","$\\sum_j\\binom aj\\binom b{r-j}=\\binom{a+b}r$ partitions all $r$-subsets by their first-group count. Terms with inadmissible indices are zero. Restricting the summation to a smaller range counts an additional constraint, not the full identity."],
+ ["Weighted subset counts","$\\sum_{j=0}^n j\\binom nj=n2^{n-1}$ counts a subset with one distinguished included element. A second distinct ordered distinguished element gives $\\sum j(j-1)\\binom nj=n(n-1)2^{n-2}$. Replacing $j(j-1)$ by $j^2$ requires adding the one-element term."],
+ ["Collision probability complement","For $r$ independent uniform choices from $n$ types, no collision has probability $n!/[ (n-r)!n^r]$ when $r\\le n$. Collision probability is one minus that value. Independence of choices does not mean the pairwise collision events are independent."]
+ ],
+ "l_vectors":[
+ ["Orthogonal complement dimensions","In a finite-dimensional inner-product space of dimension $d$, a $k$-dimensional subspace has orthogonal complement dimension $d-k$. Only the zero vector lies in both. This formula applies to the span's dimension, not automatically to the number of possibly dependent listed vectors."],
+ ["Pythagorean scope","For orthogonal vectors, squared norms add. Triangle and reverse-triangle inequalities hold in any normed space, but the dot-product projection and Pythagorean identities require inner-product geometry. Do not treat every norm as Euclidean without a stated metric."],
+ ["Polynomial vector geometry","Polynomials form a vector space under coefficient-wise addition, and an integral inner product can supply different geometry from their coefficient dot product. Compute the specified integral or weighted rule before deciding orthogonality. Sampling at too few points can give a zero measurement to a nonzero polynomial and fail positive definiteness."]
+ ],
+ "l_matrices":[
+ ["Permutation side","Left multiplication by a permutation matrix reorders rows; right multiplication reorders columns. These are different actions even for a square matrix. Check one basis row or column to establish the indexing convention before applying a long permutation."],
+ ["Symmetric and skew parts","Over real scalars, $A=(A+A^T)/2+(A-A^T)/2$ decomposes a square matrix uniquely into symmetric and skew-symmetric parts. A skew-symmetric real matrix has zero diagonal. This division-by-two argument does not transfer unchanged to a field of characteristic two."],
+ ["Frobenius norm","$\\|A\\|_F^2=\\operatorname{tr}(A^TA)$ for real matrices, the sum of all squared entries. Compatible orthogonal multiplication preserves this norm. Ordinary trace $\\operatorname{tr}(A)$ alone is not a matrix norm and can vanish for a nonzero matrix."],
+ ["Block compatibility","Block multiplication uses the ordinary sum-of-products rule with matched block dimensions. The scalar identity $ab=ba$ cannot be used to swap blocks. Triangular block formulas require invertibility of the blocks actually canceled."],
+ ["Floating association","Matrix products associate exactly over exact arithmetic, but floating implementations can round at different intermediate stages. A lower multiplication count is an arithmetic-cost result, not automatically a stability guarantee. Separate symbolic correctness from numerical error bounds."]
+ ],
+ "p_types":[
+ ["Conditional operator type","The conditional expression selects one evaluated branch, but its result type is determined by both branch types under the language rules. A signed value can be converted to unsigned even when the unsigned branch is not selected. Determine the expression type before predicting its stored value."],
+ ["Format argument types","A variadic output function requires the argument type expected by its conversion specification. Printing an integer with a floating conversion is not an implicit conversion and can be undefined behavior. Convert the supplied expression to the required type instead."],
+ ["Floating tolerance","An absolute tolerance controls error near zero while a relative tolerance scales with magnitude. A combined rule must specify both scales and special-value behavior. One fixed relative test can fail near zero; approximate equality need not be transitive."]
+ ],
+ "p_flow":[
+ ["Switch initialization bypass","Jumping to a later case can bypass initialization of an automatic scalar declared earlier in the switch body. Scope determines where the name is visible, not whether its initializer executed. Reading an indeterminate value is not a deterministic trace question."],
+ ["Loop equivalence boundaries","Replacing a do-while with a while requires explicitly preserving its initial body execution. Replacing a for with a while requires preserving update behavior on continue paths. Similar syntax is insufficient to prove equal reachable states."],
+ ["Unsigned exit condition","A loop using an unsigned counter and guard $i\\ge0$ never fails that comparison by becoming negative. Modular wrap can revisit its starting state. A signed counter reaching overflow instead has undefined behavior, not a defined negative-wrap termination."]
+ ],
+ "g_number":[
+ ["Two zero encodings","Sign-magnitude and ones-complement formats can encode both positive and negative zero; two's complement has one zero and one extra negative endpoint. Decoding or counting representable distinct values must distinguish bit patterns from numeric values."],
+ ["Narrowing and representability","Dropping high bits preserves an unsigned or two's-complement value only when the original value fits the target range under the intended conversion rule. Matching a low-bit pattern does not prove the original mathematical value was retained."],
+ ["Subnormal spacing","Subnormals use the minimum normal exponent without the hidden leading one and have uniform spacing down to zero. They extend range while sacrificing relative precision. Applying the normal hidden-one formula to an all-zero exponent invents the wrong value."],
+ ["Rounding carry into exponent","Rounding a significand can turn an all-ones fractional tail into a leading carry, requiring exponent adjustment. Overflow and underflow classification follow that adjustment. A guard, round and sticky-bit rule must state the rounding mode."]
+ ],
+ "g_boolean":[
+ ["Duality versus complement","The dual exchanges AND with OR and zero with one while retaining literal polarities. Complementing additionally negates the result and applies De Morgan to its literals. These transformations answer different algebra questions and coincide only under special structure."],
+ ["Cube coverage","A product term fixing $k$ of $n$ inputs covers $2^{n-k}$ rows. A contradictory term containing both a variable and its complement covers none. Overlapping product terms need union accounting rather than simple addition of coverage sizes."],
+ ["Universal elimination","Universal elimination over one input is the AND of its two cofactors. If $F_0=b$ and $F_1=c$, it is $bc$, while existential elimination is $b\\lor c$. Do not confuse a universal guarantee with the existence of one selecting value."],
+ ["Equivalence miter","Two complete Boolean implementations are equivalent exactly when their XOR miter is zero on every input. Under a care set, test the miter only on cared-about rows. A single legal row with miter one is a complete counterexample."]
+ ],
+ "g_gates":[
+ ["Active-low interface","A bubble labels inversion or an active-low signal convention; trace which interpretation is used at each pin. Two matched inversions can cancel logically, while an unmatched bubble changes the function. Signal name and asserted voltage level are separate data."],
+ ["Noise margin arithmetic","Low noise margin is $V_{IL}-V_{OL}$ and high noise margin is $V_{OH}-V_{IH}$ under the stated guaranteed voltage bounds. Positive margins are needed for compatible logic levels. Propagation delay does not measure a noise margin."],
+ ["Load versus logical fanout","A shared wire may avoid duplicate gates but increases input capacitance. In an elementary RC model the delay grows with load. A minimum gate-count design need not minimize physical delay or energy."],
+ ["Rise, fall and inertial filtering","A transition may use a rise-specific or fall-specific delay depending on each gate's inversion. Transport models propagate every pulse; inertial models can suppress pulses shorter than their specified rejection interval. Truth-table equivalence does not decide which waveform model applies."]
+ ],
+ "d_relations":[
+ ["Preorder quotient","For a reflexive transitive relation, define $x\\sim y$ by both $xRy$ and $yRx$. This is an equivalence relation, and its classes inherit a partial order. Antisymmetry fails on original distinct but mutually related points and is restored by quotienting."],
+ ["Partial equivalence support","A symmetric transitive relation is reflexive on points participating in some edge, but may omit diagonal pairs for isolated points. It is a partial equivalence relation, not necessarily an equivalence on the entire declared set."],
+ ["Well-founded strict orders","A finite strict partial order is well founded. On an infinite set, absence of finite directed cycles does not by itself rule out an infinite descending chain. A rank into nonnegative integers is a useful sufficient certificate."]
+ ],
+ "d_functions":[
+ ["Floor and ceiling fibers","For integer $k$, $\\lfloor x\\rfloor=k$ iff $k\\le x<k+1$, while $\\lceil x\\rceil=k$ iff $k-1<x\\le k$. Negative inputs use the same intervals, not truncation toward zero. Endpoint inclusion changes the fiber."],
+ ["Restricted codomain","Replacing a codomain by the exact image makes the same total graph surjective onto that new codomain. It does not repair collisions or create an inverse on the original codomain. Domain and codomain are part of a function's type."],
+ ["Kernel factorization","Inputs are equivalent when they have the same output. The quotient by this kernel maps bijectively to the image, while the original function may be neither injective nor onto its declared codomain. Representative choice must not change the quotient map."],
+ ["Two injections and cardinality","Injections both ways imply a bijection by Schröder–Bernstein, even for infinite sets. Two one-sided injections need not already be inverses of each other. The theorem proves existence of a new matching, not cancellation of arbitrary given maps."]
+ ],
+ "d_invariants":[
+ ["Permutation parity","A transposition changes permutation parity; a product of two transpositions preserves it. For a sliding puzzle, include the blank's permitted motion and board width in the invariant rather than using tile permutation parity alone. A physical move and an arbitrary label swap are different operations."],
+ ["Mutual recursion","Use a joint specification for mutually recursive functions and a measure decreasing across every call edge. Decrease on only one of the functions' recursive paths is insufficient. A same-size cross-call can require an additional phase component in a lexicographic measure."],
+ ["Fairness is not a ranking","An invariant can prove safety without showing a desired action eventually occurs. A nondeterministic scheduler may keep choosing an unproductive permitted transition unless a fairness assumption is stated. Distinguish termination, deadlock freedom and eventual progress."]
+ ],
+ "d_number":[
+ ["Nonnegative Diophantine bounds","After finding $x=x_0+(b/d)t$ and $y=y_0-(a/d)t$, solve both nonnegative inequalities for integer $t$. Their intersection can be empty even when the gcd criterion permits unrestricted integer solutions. Count allowed integers with floor and ceiling endpoints."],
+ ["Prime evidence boundaries","A composite can satisfy a Fermat congruence for one base, so that congruence alone is not a primality proof. Wilson's equivalence has a stronger assumption-and-conclusion structure but can be computationally expensive. Do not interchange a screening test and a certificate."],
+ ["Additive modular cycles","Adding $a$ modulo $m$ from zero reaches exactly $m/\\gcd(a,m)$ residues and returns after that many steps. Multiplicative order applies only to units and is a different orbit formula. Shared terminology about cycles does not make their counts interchangeable."]
+ ],
+ "a_recurrence":[
+ ["Roundings need a domain proof","Floor and ceiling subproblem sizes must be strictly smaller above a chosen cutoff and must satisfy the comparison theorem used. Exact node counts can change even when the tight order survives. Do not substitute fractional subproblem sizes into an integer program and claim exact equality."],
+ ["Nonconstant arithmetic costs","A recurrence counting Fibonacci additions as unit operations is a word-cost abstraction. Fibonacci values gain linearly many bits, so ordinary bit additions over all states can require quadratic total bit work. Translate the primitive cost before using a state-count recurrence."]
+ ],
+ "a_divide":[
+ ["Binary-search comparisons","Specify whether each iteration uses one three-way comparison or separate less-than and equality tests. Halving interval length gives logarithmic iterations, but exact key-comparison counts depend on that interface and on inclusive versus half-open bounds."],
+ ["Witnesses and ties","Equal optimum values can have different interval endpoints or closest-pair identities. Define a deterministic tie rule if a unique witness is required. Correct optimum value alone does not certify a requested lexicographically first or shortest witness."],
+ ["Numerical versus exact transforms","A floating FFT plus rounding needs a justified error bound smaller than the distance to a competing integer. An NTT needs a root of the specified order and a modulus or CRT product sufficient to distinguish possible coefficients. Passing small numerical tests does not provide a general exactness guarantee."]
+ ]
+}

@@ -1,0 +1,738 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Deep C17 scalar types, conversions and expressions: five reviewed university courses, rigorous boundaries, 36 worked problems, 50 examination rules, and a typed conversion laboratory.">
+<title>Data Types, Conversions, and Operators · Doctoral CSE 1406</title>
+<link rel="stylesheet" href="chapter.en.css"><link rel="stylesheet" href="p_types.css"><script src="p_types-lab.js" defer></script></head>
+<body><main class="chapter"><div class="top-link"><a href="../index.html#library">← Back to the chapter library</a></div>
+<header class="hero"><p class="eyebrow">Programming Fundamentals · Chapter 1</p><h1>Data Types, Conversions, and Operators</h1><p>Approved chapter · five reviewed university courses · 36 fully worked problems · 50 examination rules</p></header>
+<nav class="toc" aria-label="Chapter contents"><a href="#sources">Scope and sources</a> <a href="#values">Values and assignment</a> <a href="#types">Types and literals</a> <a href="#conversions">Conversion pipeline</a> <a href="#operators">Operators and parsing</a> <a href="#sequencing">Sequencing</a> <a href="#safety">Integer safety</a> <a href="#floating">Floating and languages</a> <a href="#laboratory">Laboratory</a> <a href="#worked-problems">36 worked problems</a> <a href="#quick-reference">50 examination rules</a> <a href="#references">References</a></nav><article class="lesson"><h1>Data Types, Conversions, and Operators</h1>
+<h2 id="sources">Scope, conventions, and reviewed sources</h2>
+<p><strong>Programming Fundamentals · Chapter 1 · Approved English chapter.</strong> This chapter teaches how to read an expression as a typed computation, determine its mathematical meaning, and identify the conditions under which that meaning is valid. Read the teaching sections before attempting the problem bank. The final review is a retrieval aid, not a substitute for the derivations.</p>
+<p>The primary language is <strong>ISO C17</strong>. Python 3 and Java appear in explicitly labelled comparisons. A rule from one language must never be silently imported into another. Unless a problem states otherwise, numerical machine examples use an eight-bit byte, 32-bit <code>int</code> and <code>unsigned int</code>, 16-bit <code>short</code>, and a two's-complement signed representation. Examples involving <code>long</code> state its width separately. These are a declared example model, not universal <span class="math-inline">C</span> guarantees. Floating examples that require exact numerical rounding additionally assume IEEE binary64 <code>double</code>, round to nearest with ties to even, and no reassociation or excess intermediate precision.</p>
+<p>Five written university course bodies were reviewed for this boundary. Their complementary roles were selected from a bounded seven-offering pool; this is not a claim to have examined every course worldwide. The source audit records access, selection, corrections, and exercise coverage. The original exposition, proofs, diagrams, and new problems below reconcile the course perspectives using the language specification.</p>
+<table>
+<thead>
+<tr>
+<th>Reviewed university course</th>
+<th>Written material and author or instructor</th>
+<th>Role in this chapter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stanford CS107, Winter 2020</td>
+<td><a href="https://web.stanford.edu/class/archive/cs/cs107/cs107.1204/lectures/2/Lecture2.pdf">Lecture 2</a>, Jerry Cain and Lisa Yan; relevant slides 78–101 and 109–115</td>
+<td>Signedness, range, conversions, and comparison pitfalls. Machine assumptions in the slides are made explicit here.</td>
+</tr>
+<tr>
+<td>Harvard CS50x, 2025</td>
+<td><a href="https://cs50.harvard.edu/x/2025/notes/1/">Lecture 1 notes</a>, David <span class="math-inline">J</span>. Malan; Types, Operators, Variables, More About Operators, and Truncation</td>
+<td>A foundation for moving from declarations to numeric expressions. The signed range and overflow statements require corrections.</td>
+</tr>
+<tr>
+<td>UC Berkeley CS61C course notes</td>
+<td><a href="https://notes.cs61c.org/content/c-basics/c-variables/"><span class="math-inline">C</span> Variables</a> and <a href="https://notes.cs61c.org/content/c-basics/c-syntax/"><span class="math-inline">C</span> Syntax</a>; course notes maintained by the teaching team</td>
+<td>Width portability, initialization, aliases, constants, and macro evaluation. Version-sensitive and inaccurate generalizations are corrected.</td>
+</tr>
+<tr>
+<td>Princeton COS126 course resources</td>
+<td><a href="https://introcs.cs.princeton.edu/java/12types/">Built-in Types of Data, §1.2</a>, Robert Sedgewick and Kevin Wayne</td>
+<td>A precise distinction between values, operations, and expressions, plus a Java comparison and exercise-pattern review. Java overflow and Boolean rules are kept separate.</td>
+</tr>
+<tr>
+<td>MIT 6.0001, Fall 2016</td>
+<td><a href="https://live.ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/e921a690079369751bcce3e34da6c6ee_MIT6_0001F16_Lec1.pdf">Lecture 1 slides</a>, Ana Bell; course instructors Ana Bell, Eric Grimson, and John Guttag; slides 23–34 and <a href="https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/pages/in-class-questions-and-video-solutions/lecture-1/">three written in-class questions</a></td>
+<td>Python objects, conversions, expression values, and assignment snapshots. This supplemental course prevents inappropriate transfer of <span class="math-inline">C</span> rules.</td>
+</tr>
+</tbody>
+</table>
+<p>The specification cross-check uses <a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf">WG14 N1570</a>, the public C11 committee draft, for the cited scalar-expression rules retained in C17. It is a specification reference, not a sixth university course or the published ISO C17 document. Relevant clauses are named alongside the rules. C23 changes are outside the declared language version.</p>
+<p>The boundary includes scalar types, names and objects, initialization, literals, arithmetic conversions, every basic scalar operator family, expression parsing, sequencing, integer safety, floating precision, and output-type matching. Detailed encodings belong to the later representation chapter; control-flow statements to the next chapter; functions, pointers, arrays, strings, storage management, and advanced mask algorithms each have their own later chapters. Those boundaries do not remove the prerequisite rules needed to understand an expression here. Archived Iranian examination papers remain deferred to the final month.</p>
+<h2 id="values">Values, types, objects, and assignment</h2>
+<h3>A type specifies a domain and permitted operations</h3>
+<p>A mathematical integer has no fixed maximum. A machine integer type has a finite domain. A floating type represents a finite collection of approximations and special values on implementations that support them. A type therefore answers three questions: which values can exist, which operations are legal, and how the language interprets those operations. The same written operator may have different meanings depending on operand types.</p>
+<p>An <strong>object</strong> in <span class="math-inline">C</span> is a region of storage whose contents can represent values. A variable identifier designates an object. A declaration associates that name with a type; a definition provides its object; an initializer supplies an initial value. In the ordinary local definitions used here, these actions occur together:</p>
+<pre><code class="language-c">int count = 12;
+double rate = 0.75;
+unsigned int flags = 0U;
+</code></pre>
+<p><code>count</code> is a name, <code>int</code> is its declared type, and <code>12</code> is the current value. A value is not the same as its printed spelling or bit pattern. The characters <code>&quot;12&quot;</code> form a string literal; they do not constitute the numeric integer constant <code>12</code>. The ordinary character constant <code>'2'</code> is an integer code for a character, not the number two. In <span class="math-inline">C</span>, an ordinary character constant has type <code>int</code>, even when assigned into a <code>char</code> object.</p>
+<p>An <strong>expression</strong> computes a value, designates an object, creates a side effect, or combines these purposes. A statement directs execution. The expression <code>count + 1</code> computes a value without changing <code>count</code>. The assignment expression <code>count = count + 1</code> computes a new value and stores it. Adding the semicolon makes it an expression statement.</p>
+<h3>Assignment is a state transition</h3>
+<p>Let <span class="math-inline">σ</span> denote the current association between variable names and values. For a well-defined expression <span class="math-inline">E</span>, let value(<span class="math-inline">E</span>, <span class="math-inline">σ</span>) denote its result in that state. Assignment to a variable <span class="math-inline">x</span> has the conceptual effect:</p>
+<div class="formula-block formula-steps"><div>v = value(E, σ)</div><div>σ′ = σ[x ↦ convert(v, type(x))]</div></div>
+<p>This is a model for reasoning, not a replacement for C's rules about evaluation order or side effects inside <span class="math-inline">E</span>. The crucial point is that the right-hand expression is evaluated using the relevant current values; the result is then converted for storage. A previously assigned result does not update automatically when an input variable changes.</p>
+<pre><code class="language-c">int left = 7;
+int right = 4;
+int total = left + right;
+left = 20;
+</code></pre>
+<p>The final values are <code>left = 20</code>, <code>right = 4</code>, and <code>total = 11</code>. The value eleven was stored earlier. There is no permanent algebraic equation linking the objects. In mathematics, <span class="math-inline">x = x + 1</span> has no solution over ordinary integers. In programming, <code>x = x + 1</code> is a valid state transition when the addition is representable.</p>
+<p>Python makes a name refer to an object and permits rebinding it to an object of another type. <span class="math-inline">C</span> does not change a variable's declared type after declaration. Both languages nevertheless have the same snapshot issue: assigning the current value of an expression does not install a spreadsheet-style dependency.</p>
+<h3>Lvalues and modifiability</h3>
+<p>An <strong>lvalue</strong> is an expression designating an object. A <strong>modifiable lvalue</strong> may be the target of assignment. The variable <code>count</code> is one; <code>count + 1</code> is a computed result and cannot be assigned to. A <code>const</code>-qualified object's value cannot be modified through the ordinary assignment operators. In <span class="math-inline">C</span>, an assignment result and a cast result are not lvalues. Thus <code>a = b = 5</code> is valid, while <code>(a = b) = 5</code> violates the assignment constraint.</p>
+<pre><code class="language-c">int a = 0, b = 0;
+a = b = 5;             // parsed as a = (b = 5)
+const int limit = 100; // an initialized const-qualified object
+// limit = 101;        // invalid: not a modifiable lvalue
+</code></pre>
+<p><code>const</code> does not generally make an object an integer constant expression in C17. <code>const int n = 4;</code> is an object definition; an enumeration constant such as <code>enum { N = 4 };</code> is suitable for contexts requiring an integer constant expression. <code>typedef</code> provides an alias, not a new distinct integer type: <code>typedef unsigned int Counter;</code> gives a second name for the same type.</p>
+<h3>Initialization is a semantic requirement</h3>
+<p>An automatic local scalar without an initializer has an indeterminate value. Evaluating an ordinary uninitialized automatic <code>int</code> is not a legitimate way to obtain a random number and can have undefined behavior. An object with static storage duration and no explicit initializer receives the language's zero initialization. The word “garbage” is inadequate because it conceals both the different storage-duration rules and the absence of a portable result.</p>
+<pre><code class="language-c">static int saved; // zero initialized
+int main(void) {
+    int local;   // indeterminate: do not evaluate its value
+    int valid = 0;
+    return saved + valid;
+}
+</code></pre>
+<p>Scope and lifetime are developed later. For this chapter, trace a value only after a valid initialization or assignment; an earlier declaration by itself is not proof that the object contains a usable value.</p>
+<h2 id="types">Scalar types, ranges, and literal typing</h2>
+<h3>The type families</h3>
+<p><span class="math-inline">C</span> has integer types, real floating types, complex types, and pointer types among its scalar types. This chapter concentrates on integers and real floating arithmetic. <code>_Bool</code>, plain <code>char</code>, <code>signed char</code>, <code>unsigned char</code>, <code>short</code>, <code>int</code>, <code>long</code>, and <code>long long</code>, with the relevant unsigned variants, support integer reasoning. <code>float</code>, <code>double</code>, and <code>long double</code> support real floating arithmetic. <code>void</code> signifies absence of a value in relevant contexts; it is not a numeric storage type.</p>
+<p><code>bool</code>, <code>true</code>, and <code>false</code> in C17 normally come from <code>&lt;stdbool.h&gt;</code> and refer to <code>_Bool</code>, one, and zero. <code>string</code> in CS50 is a library alias, not an ISO <span class="math-inline">C</span> built-in type. Plain <code>char</code>, <code>signed char</code>, and <code>unsigned char</code> are distinct types; plain <code>char</code> has either the signed or unsigned range as an implementation choice. Never infer that choice from the English word “character.”</p>
+<table>
+<thead>
+<tr>
+<th>Type or property</th>
+<th>Portable guarantee</th>
+<th>Declared example model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char</code></td>
+<td><code>sizeof(char)</code> is one byte; <code>CHAR_BIT</code> is at least eight</td>
+<td>Eight-bit byte; the signedness of plain <code>char</code> must still be stated</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td>It includes at least <span class="math-inline">−</span>32767 through 32767</td>
+<td><span class="math-inline">−</span>2147483648 through 2147483647</td>
+</tr>
+<tr>
+<td><code>unsigned int</code></td>
+<td>Zero through <code>UINT_MAX</code>, at least 65535</td>
+<td>Zero through 4294967295</td>
+</tr>
+<tr>
+<td><code>short</code>, <code>int</code>, <code>long</code>, <code>long long</code></td>
+<td>Their storage sizes are nondecreasing in this order; equal sizes are possible</td>
+<td>Usually 16, 32, 32 or 64, and 64 bits; <code>long</code> requires a model choice</td>
+</tr>
+<tr>
+<td><code>uint8_t</code>, <code>int32_t</code></td>
+<td>Exact-width aliases are supplied only when suitable types exist</td>
+<td>Eight-bit unsigned and 32-bit two's-complement signed types</td>
+</tr>
+<tr>
+<td><code>size_t</code></td>
+<td>Unsigned integer type returned by <code>sizeof</code></td>
+<td>Width depends on the implementation; do not equate it with <code>unsigned int</code></td>
+</tr>
+<tr>
+<td><code>float</code>, <code>double</code>, <code>long double</code></td>
+<td>The later type has at least the range and precision of the earlier type</td>
+<td>Binary32 and binary64 are common examples, not universal requirements</td>
+</tr>
+</tbody>
+</table>
+<p>For an unsigned integer with <span class="math-inline">w</span> value bits, the domain is:</p>
+<div class="formula-block">0 ≤ u ≤ 2<sup>w</sup> − 1.</div>
+<p>For the declared two's-complement signed model with <span class="math-inline">w</span> total bits and no padding, the domain is:</p>
+<div class="formula-block">−2<sup>w−1</sup> ≤ s ≤ 2<sup>w−1</sup> − 1.</div>
+<p>There are 2<sup><span class="math-inline">w</span></sup> representations in both models. The unsigned domain allocates them to nonnegative values; the signed model allocates half to negative values. The asymmetry explains why negating the minimum signed value cannot produce a representable positive value. C17 also permits other signed representations; the formula for that signed example must not be presented as an unconditional C17 rule. Exact-width <code>intN_t</code> types, when supplied, carry stricter representation requirements.</p>
+<p>The fact that a machine or operating system is described as 64-bit does not imply 64-bit <code>int</code>. The common LP64 model has 64-bit <code>long</code>; Windows LLP64 has 32-bit <code>long</code> and 64-bit pointers and <code>long long</code>. Verify the relevant limits with <code>&lt;limits.h&gt;</code> and precision with <code>&lt;float.h&gt;</code> instead of guessing from the platform label.</p>
+<h3>Literals have types before assignment</h3>
+<p>For an unsuffixed decimal integer constant, <span class="math-inline">C</span> tries <code>int</code>, then <code>long</code>, then <code>long long</code>, selecting the first type that can hold the value. For an unsuffixed octal or hexadecimal constant, it interleaves signed and unsigned candidates: <code>int</code>, <code>unsigned int</code>, <code>long</code>, <code>unsigned long</code>, <code>long long</code>, <code>unsigned long long</code>. The base therefore can affect the type even when the mathematical value is the same. Suffixes such as <code>U</code>, <code>L</code>, and <code>ULL</code> select the applicable candidate list. See N1570 §6.4.4.1.</p>
+<p>Under a 32-bit <code>int</code> model, <code>2147483648</code> is not an <code>int</code>; it becomes <code>long</code> on LP64 or typically <code>long long</code> on LLP64. In contrast, <code>0x80000000</code> fits <code>unsigned int</code>, so that is its type. The expression <code>-2147483648</code> consists of unary minus applied to the positive literal. The minus sign is not part of an integer literal token. Use <code>INT_MIN</code> when the purpose is the minimum of the actual implementation's <code>int</code> type.</p>
+<p>An initial zero denotes octal in C17: <code>010</code> means eight. <code>0x10</code> means sixteen. A <code>0b</code> binary literal is not part of ISO C17, even though some compilers accept it as an extension. A floating constant such as <code>2.5</code> or <code>1e3</code> normally has type <code>double</code>; <code>2.5f</code> has type <code>float</code>, and <code>2.5L</code> has type <code>long double</code>. Hexadecimal floating constants such as <code>0x1.8p1</code> are allowed and mean three. The exponent marker is <code>p</code> because the exponent scales by powers of two.</p>
+<p>Character codes require their own assumptions. <span class="math-inline">C</span> guarantees contiguous codes for the decimal digits, so <code>c - '0'</code> converts a character known to be a decimal digit to its value. It does not guarantee that letter codes are ASCII or that all alphabetic letters are contiguous. Strings, Unicode encodings, escape sequences, and representation layouts are taught later.</p>
+<h3><code>sizeof</code> measures storage, not numeric magnitude</h3>
+<p><code>sizeof</code> is an operator whose result has type <code>size_t</code>; it reports a size in <span class="math-inline">C</span> bytes. It does not report a maximum value or evaluate an ordinary non-VLA operand. For <code>int i = 3;</code>, <code>sizeof(i++)</code> gives the size of <code>int</code> and leaves <code>i</code> at three. The operator still checks the expression's type and constraints. Variable-length-array types are an important exception: their size can depend on run-time evaluation. This chapter uses fixed-size operands; it does not pretend the exception is absent.</p>
+<h2 id="conversions">Conversions: the complete reasoning pipeline</h2>
+<h3>Conversion changes a typed value</h3>
+<p>A conversion can preserve a mathematical value, change it by truncation or reduction, or lose information. It is not generally a reinterpretation of unchanged bytes. For instance, converting integer seven to <code>double</code> creates the floating value seven; its floating representation is different from the integer representation. An explicit cast and an implicit conversion invoke the same applicable numeric conversion rules. A cast documents a request; it does not grant immunity from undefined behavior.</p>
+<p>The conceptual pipeline for a binary arithmetic expression followed by assignment is:</p>
+<figure class="type-diagram"><svg viewBox="0 0 780 230" role="img" aria-label="Four stages: obtain operand values, promote and choose a common type, perform the operation, and convert for storage"><g fill="#eef5f8" stroke="#7399b0"><rect x="15" y="25" width="350" height="70" rx="10"/><rect x="415" y="25" width="350" height="70" rx="10"/><rect x="415" y="145" width="350" height="70" rx="10"/><rect x="15" y="145" width="350" height="70" rx="10"/></g><g fill="#213c50" font-size="18" text-anchor="middle"><text x="190" y="54">1. Read values and declared types</text><text x="190" y="80">The destination does not decide the operation</text><text x="590" y="54">2. Promote; choose the common type</text><text x="590" y="80">Check rank, signedness, and range</text><text x="590" y="174">3. Compute in the expression type</text><text x="590" y="200">Check overflow and operator conditions</text><text x="190" y="174">4. Convert the result for storage</text><text x="190" y="200">Information may be lost here too</text></g><g stroke="#326d8c" stroke-width="3" fill="none"><path d="M365 60H400l-10 -6m10 6l-10 6"/><path d="M590 95V130l-6 -10m6 10l6 -10"/><path d="M415 180H380l10 -6m-10 6l10 6"/></g></svg><figcaption>Type the intermediate expression before consulting the receiving variable. Shifts and logical operators have their own conversion rules.</figcaption></figure>
+<h3>Integer conversion to unsigned: a congruence proof</h3>
+<p>For an integer value <span class="math-inline">z</span> converted to an unsigned type with modulus <span class="math-inline">M = 2</span><sup><span class="math-inline">w</span></sup>, the unique resulting value <span class="math-inline">u</span> satisfies:</p>
+<div class="formula-block formula-steps"><div>u ≡ z (mod M),</div><div>0 ≤ u &lt; M.</div></div>
+<p>Existence follows from division with remainder: <span class="math-inline">z = qM + u</span> for some integer <span class="math-inline">q</span> and a remainder <span class="math-inline">u</span> in the stated interval. Uniqueness follows because two such remainders differ by a multiple of <span class="math-inline">M</span> but have absolute difference smaller than <span class="math-inline">M</span>, so their difference is zero. This proof works for negative <span class="math-inline">z</span> as well. In an eight-bit unsigned destination, converting <span class="math-inline">−</span>1 gives 255 because <span class="math-inline">−</span>1 <span class="math-inline">=</span> <span class="math-inline">−</span>1·<span class="math-inline">256 + 255</span>. Converting 300 gives 44 because <span class="math-inline">300 = 1</span>·<span class="math-inline">256 + 44</span>.</p>
+<p>This is a rule for <strong>integer-to-unsigned conversion</strong>. It must not be applied to an out-of-range floating-to-unsigned conversion. Converting the floating value <span class="math-inline">−</span>1.0 to an unsigned type is not made valid by a modulo argument.</p>
+<p>For conversion to a signed destination, a representable value is preserved. If an integer value is outside the signed destination's range, C17 specifies an implementation-defined result or an implementation-defined signal. This differs from signed arithmetic overflow, which has undefined behavior. With two's-complement hardware, a common implementation discards upper bits when narrowing, but the language-level classification must still be stated.</p>
+<h3>Integer promotions happen before many operators</h3>
+<p><code>_Bool</code>, <code>char</code>, and integer types of rank below <code>int</code> are promoted when the operator requires it. If <code>int</code> represents every value of the original type, the promotion yields <code>int</code>; otherwise it yields <code>unsigned int</code>. This preserves the value. In the usual 32-bit <code>int</code>, eight-bit character model, both signed and unsigned characters promote to <code>int</code>.</p>
+<pre><code class="language-c">unsigned char a = 240;
+unsigned char b = 20;
+int total = a + b;            // int result: 260
+unsigned char stored = a + b; // storage conversion: 4
+</code></pre>
+<p>The operands' small storage width does not force small-width arithmetic. The addition computes 260 in <code>int</code>; the destination conversion subsequently reduces it modulo 256. The difference matters for multiplication too: two promoted 16-bit unsigned shorts can multiply in 32-bit signed <code>int</code> and overflow it, even though their original storage types are unsigned.</p>
+<p>Promotions apply to unary <code>+</code>, unary <code>-</code>, <code>~</code>, both shift operands, and the integer stages of usual arithmetic conversions. They also occur in default argument promotions. They do not mean that every stored <code>float</code> automatically becomes <code>double</code> in every expression: <code>float + float</code> has type <code>float</code> under the usual arithmetic conversions.</p>
+<h3>Usual arithmetic conversions: use the decision tree</h3>
+<p>For the real arithmetic types considered here, most binary arithmetic, arithmetic comparison, equality, and bitwise binary operations choose a common type. The conditional operator also uses this rule to determine its arithmetic result type. N1570 §6.3.1.8 gives the following procedure:</p>
+<ol>
+<li>If either operand is <code>long double</code>, convert the other to <code>long double</code>.</li>
+<li>Otherwise, if either is <code>double</code>, use <code>double</code>.</li>
+<li>Otherwise, if either is <code>float</code>, use <code>float</code>.</li>
+<li>Otherwise, perform integer promotions.</li>
+<li>If the promoted types agree, stop. If they have the same signedness, use the type with higher integer conversion rank.</li>
+<li>If the unsigned type has rank at least that of the signed type, convert the signed operand to the unsigned type.</li>
+<li>Otherwise, if the signed type represents all values of the unsigned type, use the signed type.</li>
+<li>Otherwise, use the unsigned counterpart of the higher-rank signed type.</li>
+</ol>
+<p>Rank is not merely storage size. The rank order is <code>signed char</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>long long</code>, even when adjacent types occupy the same number of bytes. An unsigned counterpart has the same rank as its signed type. The final range test is essential.</p>
+<p><code>-1 &lt; 1U</code> is false in the declared model: the equal-rank signed operand becomes <code>unsigned int</code>, yielding 4294967295, and that is not less than one. <code>-1L &lt; 1U</code> is true in LP64 because 64-bit signed <code>long</code> represents the entire unsigned 32-bit range. The same source expression is false in LLP64 because 32-bit signed <code>long</code> cannot do so, and the common type becomes <code>unsigned long</code>. The rule is deterministic once the model is known.</p>
+<p>Comparisons have an important extra step: their operands may be converted to an unsigned or floating common type, but the <strong>result</strong> is <code>int</code> zero or one in C17. Calling a comparison's result “unsigned” because the comparison used unsigned operands confuses operand interpretation with result type.</p>
+<h3>Floating conversions and the timing of casts</h3>
+<p>For a finite floating value converted to an integer, discard the fractional part toward zero. Both <code>3.9</code> and <code>-3.9</code> therefore convert to three and negative three respectively. The resulting integral value must be representable in the destination; otherwise the behavior is undefined. This includes a finite value outside the integer range. NaNs and infinities also do not provide a portable valid integer conversion.</p>
+<p>For integer-to-floating conversion, an exactly representable value is preserved. If the value lies in range but is not exactly representable, the nearby result follows the implementation's specified conversion behavior; the declared binary64 examples use round-to-nearest-even. A larger range does not imply exact representation of every integer. In binary64 all integers through 2<sup>53</sup> are exactly representable, but the immediately following integer is not.</p>
+<p>Compare these expressions for positive integers seven and four:</p>
+<pre><code class="language-c">double first = 7 / 4;          // int division, then conversion: 1.0
+double second = (double)(7/4); // same loss before the cast: 1.0
+double third = (double)7 / 4;  // double division: 1.75
+</code></pre>
+<p>The destination type cannot reach backward and change an operation already specified by operand types. A cast after an integer product likewise cannot repair overflow that happened in that product. If a wider type is sufficient, convert an operand before multiplication, and prove that the widened result fits.</p>
+<h2 id="operators">Operators, parsing, and mathematical translation</h2>
+<h3>Build a syntax tree before evaluating values</h3>
+<p>Precedence determines which operators bind their operands. Associativity determines grouping among operators at the same precedence. Neither, by itself, specifies when operands with side effects are evaluated. This distinction is developed in the sequencing section.</p>
+<table>
+<thead>
+<tr>
+<th>Binding level, highest first</th>
+<th>Operator family</th>
+<th>Grouping</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Postfix</td>
+<td>Calls, indexing, member access, postfix <code>++</code> and <code>--</code></td>
+<td>Left</td>
+</tr>
+<tr>
+<td>Unary and casts</td>
+<td>Prefix <code>++</code> and <code>--</code>, unary <code>+ - ! ~</code>, address/indirection, <code>sizeof</code>, casts</td>
+<td>Right</td>
+</tr>
+<tr>
+<td>Multiplicative</td>
+<td><code>* / %</code></td>
+<td>Left</td>
+</tr>
+<tr>
+<td>Additive</td>
+<td><code>+ -</code></td>
+<td>Left</td>
+</tr>
+<tr>
+<td>Shift</td>
+<td><code>&lt;&lt; &gt;&gt;</code></td>
+<td>Left</td>
+</tr>
+<tr>
+<td>Relational</td>
+<td><code>&lt; &lt;= &gt; &gt;=</code></td>
+<td>Left</td>
+</tr>
+<tr>
+<td>Equality</td>
+<td><code>== !=</code></td>
+<td>Left</td>
+</tr>
+<tr>
+<td>Bitwise AND</td>
+<td><code>&amp;</code></td>
+<td>Left</td>
+</tr>
+<tr>
+<td>Bitwise XOR</td>
+<td><code>^</code></td>
+<td>Left</td>
+</tr>
+<tr>
+<td>Bitwise OR</td>
+<td><code>|</code></td>
+<td>Left</td>
+</tr>
+<tr>
+<td>Logical AND</td>
+<td><code>&amp;&amp;</code></td>
+<td>Left</td>
+</tr>
+<tr>
+<td>Logical OR</td>
+<td><code>||</code></td>
+<td>Left</td>
+</tr>
+<tr>
+<td>Conditional</td>
+<td><code>?:</code></td>
+<td>Right; its middle expression is parsed with special grammar</td>
+</tr>
+<tr>
+<td>Assignment</td>
+<td><code>= += -= *= /= %= &lt;&lt;= &gt;&gt;= &amp;= ^= |=</code></td>
+<td>Right</td>
+</tr>
+<tr>
+<td>Comma operator</td>
+<td><code>,</code></td>
+<td>Left</td>
+</tr>
+</tbody>
+</table>
+<p>Use this table as a parsing aid; exact syntactic constraints still apply. For example, a left assignment operand must be suitable, and a conditional middle operand is treated as an expression, not simply restricted by the surrounding table. Parentheses make the intended tree explicit, but they do not create a sequencing guarantee for otherwise unsequenced arithmetic operands.</p>
+<p>The expression <code>a + b * c</code> has an addition root with multiplication as its right child. For values two, three, and four, its result is fourteen. <code>(a + b) * c</code> has a multiplication root and produces twenty. The altered tree changes the operation dependencies.</p>
+<figure class="type-diagram"><svg viewBox="0 0 650 230" role="img" aria-label="Two expression trees compare a plus b times c with parenthesized a plus b times c"><g stroke="#7399b0" stroke-width="2"><path d="M155 45L75 115M155 45L235 115M235 115L195 195M235 115L285 195M495 45L415 115M495 45L575 115M415 115L365 195M415 115L455 195"/></g><g fill="#eef5f8" stroke="#7399b0"><circle cx="155" cy="45" r="23"/><circle cx="235" cy="115" r="23"/><circle cx="495" cy="45" r="23"/><circle cx="415" cy="115" r="23"/></g><g fill="#213c50" font-size="24" text-anchor="middle" font-family="STIX Two Math"><text x="155" y="53">+</text><text x="75" y="123">a</text><text x="235" y="123">×</text><text x="195" y="203">b</text><text x="285" y="203">c</text><text x="495" y="53">×</text><text x="415" y="123">+</text><text x="575" y="123">c</text><text x="365" y="203">a</text><text x="455" y="203">b</text></g></svg><figcaption>The left tree represents addition after forming the product. The right tree represents multiplication after forming the sum. The tree alone does not order independent side effects.</figcaption></figure>
+<h3>Arithmetic and remainder</h3>
+<p>After conversions, <code>+</code>, <code>-</code>, and <code>*</code> perform addition, subtraction, and multiplication subject to the result type's rules. <code>/</code> performs integer division if both converted operands are integers; otherwise it performs floating division. <code>%</code> requires integer operands in <span class="math-inline">C</span>. It is not a percent-of operator and does not accept <code>double</code> operands.</p>
+<p>For integer division, let a be the dividend and <span class="math-inline">b</span> the nonzero divisor. If the quotient is representable, C17 computes <span class="math-inline">q</span> by truncating the rational <span class="math-inline">a/b</span> toward zero, and the remainder <span class="math-inline">r</span> satisfies:</p>
+<div class="formula-block formula-steps"><div>a = bq + r,</div><div>|r| &lt; |b|.</div></div>
+<p>A nonzero remainder has the dividend's sign. To derive this, first divide the magnitudes using nonnegative quotient and remainder. Reattach the quotient's sign according to the operand signs. The amount subtracted from the dividend then has magnitude no larger than the dividend, and the residual retains its sign. For <span class="math-inline">−</span>17 divided by five, <span class="math-inline">q</span> <span class="math-inline">=</span> <span class="math-inline">−</span>3 and <span class="math-inline">r</span> <span class="math-inline">=</span> <span class="math-inline">−</span>2 because <span class="math-inline">−17 = 5(−3) − 2</span>. For seventeen divided by negative five, <span class="math-inline">q</span> <span class="math-inline">=</span> <span class="math-inline">−</span>3 and <span class="math-inline">r = 2</span>.</p>
+<p>Python <code>//</code> instead rounds downward, giving <code>-17 // 5 == -4</code> and <code>-17 % 5 == 3</code>. Both languages maintain their quotient–remainder identity, but with different quotient rules. C's <code>%</code> can be negative; a mathematical nonnegative residue for a positive modulus needs an explicit correction.</p>
+<p>For nonnegative integer <span class="math-inline">n</span> and positive integer <span class="math-inline">d</span>, a ceiling quotient can be computed safely as:</p>
+<div class="formula-block"><math display="block"><mrow><mo>⌈</mo><mfrac><mi>n</mi><mi>d</mi></mfrac><mo>⌉</mo><mo>=</mo><mo>⌊</mo><mfrac><mi>n</mi><mi>d</mi></mfrac><mo>⌋</mo><mo>+</mo><mo>[</mo><mi>n</mi><mo>mod</mo><mi>d</mi><mo>≠</mo><mn>0</mn><mo>]</mo></mrow></math></div>
+<p>The brackets denote an indicator equal to one when the condition holds. Euclidean division gives <span class="math-inline">n = dq + r</span> with <span class="math-inline">0 ≤ r &lt; d</span>. If <span class="math-inline">r</span> is zero, <span class="math-inline">n/d</span> is <span class="math-inline">q</span>; otherwise its ceiling is <span class="math-inline">q + 1</span>. This derivation avoids the overflow-prone expression <code>(n + d - 1) / d</code>. In <span class="math-inline">C</span>, <code>n/d + (n%d != 0)</code> realizes the indicator directly when its types and domain conditions are valid.</p>
+<h3>Equality, comparisons, and truth</h3>
+<p><code>=</code> stores a value; <code>==</code> compares two values. <code>!=</code> tests inequality. <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, and <code>&gt;=</code> compare ordered real arithmetic values after the required conversions. A chain such as <code>2 &lt; x &lt; 8</code> means <code>(2 &lt; x) &lt; 8</code>, so its first comparison produces zero or one, both less than eight. Use <code>2 &lt; x &amp;&amp; x &lt; 8</code> for the intended interval.</p>
+<p><span class="math-inline">C</span> conditions consider a scalar value false when it compares equal to zero, and true otherwise. Negative integers are true. <code>_Bool</code> conversion stores exactly zero or one. Logical <code>!</code> returns one for a false operand and zero for a true operand. <code>&amp;&amp;</code> and <code>||</code> similarly return an <code>int</code> zero or one; they do not return one of their original operands as Python's <code>and</code> and <code>or</code> can.</p>
+<table>
+<thead>
+<tr>
+<th>Left truth</th>
+<th>Right truth</th>
+<th><code>&amp;&amp;</code></th>
+<th><code>||</code></th>
+<th>Exclusive truth difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>False</td>
+<td>False</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>False</td>
+<td>True</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>True</td>
+<td>False</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>True</td>
+<td>True</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math-inline">C</span> has no distinct logical XOR token. For arbitrary scalar integers, compare normalized truth values: <code>!!a != !!b</code>. <code>a ^ b</code> computes a bitwise XOR and can differ from Boolean XOR unless the operands are already normalized. The negation <code>!a</code> normalizes truth, while <code>~a</code> complements bits after promotion; these are different operations.</p>
+<h3>Bitwise operators and shifts</h3>
+<p>The integer operators <code>&amp;</code>, <code>|</code>, and <code>^</code> combine corresponding bits as AND, inclusive OR, and exclusive OR. Unary <code>~</code> complements each bit of the promoted operand. Binary bitwise operators use usual arithmetic conversions; unary complement uses integer promotion. For unsigned <span class="math-inline">u</span> with modulus <span class="math-inline">M</span>, <code>~u</code> has value <span class="math-inline">M − 1 − u</span>. This follows because each complemented value bit adds the contribution missing from an all-one pattern.</p>
+<p>For unsigned 32-bit values twelve and ten, the low patterns are <code>1100</code> and <code>1010</code>: AND gives eight (<code>1000</code>), OR gives fourteen (<code>1110</code>), and XOR gives six (<code>0110</code>). <code>^</code> never means exponentiation in <span class="math-inline">C</span>. Multiplying a value by itself or calling a mathematical power function is necessary for powers, subject to the applicable overflow or precision analysis.</p>
+<p>Shifts promote each operand <strong>individually</strong>. The result has the promoted left operand's type. They do not choose a common type using the usual arithmetic conversions. If the promoted left width is <span class="math-inline">w</span>, the shift count <span class="math-inline">k</span> must satisfy <span class="math-inline">0 ≤ k &lt; w</span>. A negative count or a count at least <span class="math-inline">w</span> gives undefined behavior, even for a zero left operand.</p>
+<p>For unsigned <span class="math-inline">u</span> and a valid count, the left shift computes <span class="math-inline">u</span>·2<sup><span class="math-inline">k</span></sup> modulo 2<sup><span class="math-inline">w</span></sup>, and the right shift computes ⌊<span class="math-inline">u/2</span><sup><span class="math-inline">k</span></sup>⌋. For a signed nonnegative value, left shift is valid only when the mathematical product fits the result type. Signed negative left shift is undefined in C17. Signed negative right shift is implementation-defined; arithmetic right shift is common, but must not be assumed as a universal language guarantee.</p>
+<p>An eight-bit <code>unsigned char</code> promoted to 32-bit <code>int</code> can be shifted by eight; the relevant width is 32, not eight. Conversely, storing the result into an eight-bit destination can then discard its value modulo 256. Advanced masks and encodings belong to their later chapters, but these promotion and shift preconditions already apply here.</p>
+<h2 id="sequencing">Sequencing, short-circuiting, and state changes</h2>
+<h3>Precedence is not execution order</h3>
+<p>In <code>f() + g() * h()</code>, the multiplication groups more tightly than addition. C17 does not generally prescribe the order in which those independent calls are evaluated. A compiler may choose allowable orders. If there are no interacting side effects and all operations are valid, the grouping still determines the numeric result.</p>
+<p>Three terms must be separated. <strong>Sequenced before</strong> establishes that one evaluation finishes before another. <strong>Indeterminately sequenced</strong> guarantees one precedes the other without specifying which. <strong>Unsequenced</strong> establishes neither ordering. The distinction becomes decisive when the same scalar object is modified or read in conflicting evaluations. N1570 §6.5 paragraph 2 makes an unsequenced modification relative to another modification or a value computation using the same object undefined.</p>
+<pre><code class="language-c">int i = 3;
+int a = i++;   // a becomes 3; i becomes 4 before the next full expression
+int b = ++i;   // i becomes 5; b becomes 5
+// int c = i++ + i; // undefined: conflicting unsequenced evaluations
+</code></pre>
+<p>Postfix increment yields the old value and causes an update; prefix increment yields the new value. The value computation of a postfix increment precedes its update, but “postfix” does not mean “wait until the entire program line is finished before doing anything.” What matters is the language's sequencing relation. Separate full expressions, such as successive ordinary statements, provide the clear ordering used in the valid trace above.</p>
+<p><code>i = i + 1</code> is valid because the assignment update occurs after the value computations needed to determine it. <code>i = i++</code> is undefined in C17 because the postfix update and the assignment update are not ordered appropriately. Parentheses around the postfix expression do not repair the conflict. The same warning applies to <code>printf(&quot;%d %d&quot;, i++, i++)</code>: commas separating function arguments are not sequencing operators.</p>
+<h3>Short-circuiting is a semantic protection</h3>
+<p>For <code>A &amp;&amp; B</code>, evaluate A first. If it is false, do not evaluate <span class="math-inline">B</span>; the result is zero. Otherwise evaluate <span class="math-inline">B</span> after A's relevant effects and normalize its truth. For <code>A || B</code>, skip <span class="math-inline">B</span> when <span class="math-inline">A</span> is true. These rules allow a guard to establish the preconditions of a later operation.</p>
+<pre><code class="language-c">int divisor = 0;
+int numerator = 12;
+int allowed = divisor != 0 &amp;&amp; numerator / divisor &gt; 2;
+</code></pre>
+<p>The left operand is false, so the division is not evaluated and <code>allowed</code> is zero. Reversing the operands would evaluate division first. Replacing <code>&amp;&amp;</code> with <code>&amp;</code> loses the short-circuit guarantee and requires both integer operands. A valid guard must establish every relevant condition: a nonzero divisor does not by itself protect the two's-complement minimum signed integer divided by negative one.</p>
+<p>De Morgan's laws describe normalized logical values. With state-changing operands, algebraically reordering terms can change observable effects or remove a precondition guard. Preserve operand order and the intended guarded domain when transforming a Boolean expression. The truth table alone cannot justify every program rewrite.</p>
+<h3>Conditional, assignment, and comma operators</h3>
+<p>In <code>condition ? yes : no</code>, evaluate the condition and then only the selected branch. The arithmetic result type is nevertheless determined from both branch types. In <code>1 ? -1 : 1U</code>, the selected value negative one is converted to <code>unsigned int</code>, giving <code>UINT_MAX</code>. The unselected branch contributes to type determination without being evaluated. A bad operation confined to an unselected branch is not executed, but both branches still must satisfy syntax and type constraints.</p>
+<p>Simple assignment converts the right operand to the target's type. Compound assignment, such as <code>x += y</code>, computes the applicable operation and stores its converted result, evaluating the left target expression only once. It is therefore not universally interchangeable with a textual expansion that duplicates a complex left expression.</p>
+<p>For <code>unsigned char x = 250; x += 10;</code>, the addition uses promoted <code>int</code> operands and computes 260; conversion back to the target stores four in the eight-bit byte model. For <code>int x = INT_MAX; x += 1;</code>, the signed operation overflows and is undefined. The shorthand does not alter overflow policy.</p>
+<p>The comma <strong>operator</strong> evaluates its left operand, completes the required effects, then evaluates its right operand; the result has the right operand's type and value. <code>int answer = (i++, i);</code> is defined for a representable increment and stores the updated value. A comma between separate arguments or declarators is punctuation with a different grammatical role. Parse the code before assigning the comma operator's guarantee.</p>
+<h3>Macros can repeat evaluation</h3>
+<p>A function-like preprocessor macro expands tokens. Parenthesizing arguments protects grouping but does not ensure one evaluation. Consider <code>#define MIN(a,b) ((a) &lt; (b) ? (a) : (b))</code>. Passing expressions with effects can evaluate one argument in the comparison and again in the selected branch. If two effects occur unsequenced in the comparison, the result may already be undefined. With effect-free local variables, the expression behaves as the intended minimum.</p>
+<p>There are two separate repairs: parenthesize each occurrence and the whole expansion to fix parsing; avoid effectful repeated arguments or use a properly typed function to fix repeated evaluation. The latter topic is developed in the functions chapter. A correct syntax tree does not prove a macro safe.</p>
+<h2 id="safety">Integer safety and behavior classification</h2>
+<h3>Four classifications before output prediction</h3>
+<table>
+<thead>
+<tr>
+<th>Classification</th>
+<th>Meaning</th>
+<th>Example within this chapter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Defined under stated assumptions</td>
+<td>The rules and model determine the result</td>
+<td>Unsigned wrap; representable signed addition</td>
+</tr>
+<tr>
+<td>Implementation-defined</td>
+<td>The implementation must document its chosen behavior</td>
+<td>Out-of-range integer-to-signed conversion; negative signed right shift; plain <code>char</code> signedness</td>
+</tr>
+<tr>
+<td>Unspecified</td>
+<td>Several choices are permitted without requiring a documented choice for each occurrence</td>
+<td>The order of independent arithmetic operands or independent call arguments</td>
+</tr>
+<tr>
+<td>Undefined behavior</td>
+<td>The language imposes no result requirement for the offending execution</td>
+<td>Signed arithmetic overflow, integer division by zero, invalid shift count, conflicting unsequenced updates</td>
+</tr>
+</tbody>
+</table>
+<p>A constraint violation is an additional category: the implementation must issue a diagnostic for a syntax or constraint error in a translation unit, such as applying integer <code>%</code> to <code>double</code> operands. A diagnostic is not an output. If a compiler accepts such code as an extension, its extension behavior does not become an ISO C17 rule.</p>
+<p>An observed output from an undefined program proves no portable result. Likewise, wrapping on two's-complement hardware does not make signed overflow valid <span class="math-inline">C</span>. The language's abstract machine determines which assumptions an optimizer may use. For example, <code>x + 1 &gt; x</code> holds on every execution where a signed addition is representable; this does not license computing <code>INT_MAX + 1</code> to “test” the maximum.</p>
+<h3>Unsigned arithmetic has a mathematical model</h3>
+<p>For unsigned type modulus <span class="math-inline">M</span>, addition, subtraction, and multiplication reduce the mathematical result to its unique residue in [0, <span class="math-inline">M</span>). Congruence is preserved by these operations, so an unsigned expression consisting of these operations can be analysed in the ring of residues modulo <span class="math-inline">M</span>. Its order comparisons do not inherit ordinary integer ordering across wrap.</p>
+<p>For example, with an eight-bit unsigned arithmetic model, <span class="math-inline">250 + 10</span> gives four. Thus adding a positive value can produce a smaller stored residue. A wrap detector for an actual unsigned addition <code>sum = a + b</code> can use <code>sum &lt; a</code>. To prove it, if <span class="math-inline">a + b &lt; M</span> then sum <span class="math-inline">=</span> <span class="math-inline">a + b ≥ a</span>. If <span class="math-inline">a + b ≥ M</span>, the inputs are each less than <span class="math-inline">M</span>, so sum <span class="math-inline">=</span> <span class="math-inline">a + b − M &lt; a</span>. This proof applies to the <strong>type in which the addition occurs</strong>, not automatically to a promoted <code>unsigned char</code> expression.</p>
+<h3>Check signed addition before performing it</h3>
+<p>Let <span class="math-inline">L</span> and <span class="math-inline">H</span> denote the signed type's minimum and maximum. To compute <span class="math-inline">a + b</span> safely, the following conditions reject precisely the out-of-range sums:</p>
+<div class="formula-block formula-steps"><div>b &gt; 0 and a &gt; H − b: reject.</div><div>b &lt; 0 and a &lt; L − b: reject.</div><div>Otherwise L ≤ a + b ≤ H.</div></div>
+<p>When <span class="math-inline">b</span> is positive, <span class="math-inline">H − b</span> is representable; exceeding it is equivalent to exceeding the upper bound after addition. The lower bound cannot fail because adding a positive value increases <span class="math-inline">a</span>. When <span class="math-inline">b</span> is negative, <span class="math-inline">L − b</span> is representable; falling below it is equivalent to falling below the lower bound after addition. The upper bound cannot fail. The test itself does not calculate the dangerous sum.</p>
+<pre><code class="language-c">#include &lt;limits.h&gt;
+int safe = !((b &gt; 0 &amp;&amp; a &gt; INT_MAX - b)
+          || (b &lt; 0 &amp;&amp; a &lt; INT_MIN - b));
+// Compute a + b only when safe is true.
+</code></pre>
+<p>For subtraction <span class="math-inline">a − b</span>, reject if positive <span class="math-inline">b</span> exceeds the available lower margin, <code>a &lt; INT_MIN + b</code>, or if negative <span class="math-inline">b</span> makes <code>a &gt; INT_MAX + b</code>. These threshold expressions are representable in the corresponding guarded cases. Do not turn subtraction into addition of <code>-b</code> without first checking that negation is representable.</p>
+<p>For nonnegative a and <span class="math-inline">b</span>, multiplication is safe if <span class="math-inline">b</span> is zero or <span class="math-inline">a</span> <span class="math-inline">≤</span> ⌊<span class="math-inline">H/b</span>⌋. The corresponding expression <code>b == 0 || a &lt;= INT_MAX / b</code> short-circuits the division. Mixed-sign multiplication requires careful sign cases and the minimum-value exception; a casual absolute-value reduction can overflow. Widening before the operation is sufficient only if the wider type's range provably contains the product.</p>
+<h3>Division has a second exceptional boundary</h3>
+<p>Integer division and remainder require a nonzero divisor and a representable quotient. In the declared two's-complement signed model, <code>INT_MIN / -1</code> would produce the unavailable positive magnitude. Both that division and <code>INT_MIN % -1</code> are undefined, even though the mathematical remainder would be zero. The representable-quotient condition is part of the language rule, not an optional performance consideration.</p>
+<p>The same asymmetry invalidates <code>-INT_MIN</code> and <code>abs(INT_MIN)</code> when the return type cannot represent the positive magnitude. Use a sufficiently wide representation before negation where available, or devise an unsigned-magnitude conversion with explicit reasoning. The question “what prints?” must first become “is this expression permitted to have a defined result?”</p>
+<h2 id="floating">Floating arithmetic and language boundaries</h2>
+<h3>Finite precision is not decimal accuracy by default</h3>
+<p>A binary floating type represents values using a finite significand and exponent range. A rational number has a terminating binary expansion only when its reduced denominator is a power of two. To prove the necessary direction, a finite binary expansion equals an integer divided by a power of two; cancelling common factors leaves no odd denominator factor. Conversely, a denominator that is a power of two can be represented by finitely many binary places. Consequently one eighth terminates; one tenth does not.</p>
+<p>The familiar stored binary64 approximation to 0.1 therefore cannot generally equal the exact rational one tenth. Displaying fewer digits does not improve the stored value; it only rounds the textual display. Under the explicitly declared binary64 evaluation model, <code>0.1 + 0.2 == 0.3</code> is false. This is an example of approximation and rounding, not a universal rule that every sum of decimal-looking values fails equality.</p>
+<p>An operation may round away a small contribution when magnitudes differ substantially. A nonassociativity demonstration under binary64 nearest-even uses a large positive <span class="math-inline">a</span>, its negative, and one:</p>
+<pre><code class="language-c">double a = 1e16;
+double left = (a + -a) + 1.0; // 1.0 under the declared model
+double right = a + (-a + 1.0); // 0.0 under the declared model
+</code></pre>
+<p>The first grouping cancels equal magnitudes before adding one. The second grouping loses the one while combining it with the large negative value, then cancels to zero. Regrouping an expression is therefore not an identity for finite-precision arithmetic even when it is an identity over real numbers. An optimizer mode that allows reassociation changes the assumptions of the example.</p>
+<h3>Comparison tolerances need a model</h3>
+<p>If approximate results are expected, one useful criterion is:</p>
+<div class="formula-block">|x − y| ≤ τ<sub>abs</sub> + τ<sub>rel</sub> max(|x|, |y|).</div>
+<p>The absolute tolerance addresses values near zero; the relative tolerance scales with magnitude. Both tolerances must come from the problem's accuracy requirement or an error analysis, not an unexplained universal constant. This relation is generally not transitive: three progressively separated values can make adjacent pairs pass while the endpoints fail. It must not silently replace an equivalence relation in an algorithm.</p>
+<p>If IEEE special values are supported, positive and negative zero compare equal but may differ in operations that inspect their signs. A NaN is unordered: equality with itself is false, inequality is true, and ordered comparisons are false. In <span class="math-inline">C</span> it converts to true under the scalar-to-<code>_Bool</code> rule because it does not compare equal to zero. Infinity and NaN handling for arithmetic depends on the applicable floating implementation rules; baseline <span class="math-inline">C</span> division-by-zero rules must not be replaced with Java's specified outcomes without stating a stronger floating model.</p>
+<h3>Output formatting does not convert the supplied type</h3>
+<p><code>printf</code> is variadic. In its variadic arguments, <code>float</code> is promoted to <code>double</code> and small integer types undergo integer promotions. The format string tells the function what type and textual representation to expect; it does not retroactively change an incompatible supplied argument to that type.</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stddef.h&gt;
+int count = 12;
+double ratio = 1.75;
+printf(&quot;%d %.2f %zu\n&quot;, count, ratio, sizeof count);
+</code></pre>
+<p>Use <code>%d</code> for <code>int</code>, <code>%u</code> for <code>unsigned int</code>, <code>%ld</code> for <code>long</code>, <code>%lld</code> for <code>long long</code>, <code>%zu</code> for <code>size_t</code>, and <code>%f</code> for a <code>double</code> argument to <code>printf</code>. A <code>long double</code> requires <code>%Lf</code>. Exact-width integers have portable macros in <code>&lt;inttypes.h&gt;</code> because their underlying standard integer type may differ across implementations. A mismatched <code>printf(&quot;%d&quot;, 1.5)</code> has undefined behavior; it is not a truncating conversion. Input-format pointer requirements are a separate topic and must not be inferred from these output rules.</p>
+<h3>A compact cross-language comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>C17</th>
+<th>Python 3</th>
+<th>Java</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Integer size</td>
+<td>Finite implementation-dependent types</td>
+<td>Ordinary <code>int</code> has arbitrary precision subject to resources</td>
+<td><code>int</code> is 32-bit; <code>long</code> is 64-bit</td>
+</tr>
+<tr>
+<td>Integer division</td>
+<td><code>/</code> truncates toward zero</td>
+<td><code>/</code> produces a floating result; <code>//</code> floors</td>
+<td>Integer <code>/</code> truncates toward zero</td>
+</tr>
+<tr>
+<td>Integer overflow</td>
+<td>Signed overflow is undefined; unsigned arithmetic reduces modulo its range</td>
+<td>Arbitrary-precision arithmetic avoids fixed-width integer overflow</td>
+<td>Ordinary <code>int</code> and <code>long</code> arithmetic wrap within their widths</td>
+</tr>
+<tr>
+<td>Truth operands</td>
+<td>Scalar zero is false; logical results are <code>int</code> zero or one</td>
+<td>Truth testing includes more object types; <code>and</code> and <code>or</code> can return operands</td>
+<td><code>&amp;&amp;</code> and <code>||</code> require Boolean operands</td>
+</tr>
+<tr>
+<td>Chained comparison</td>
+<td>Repeated binary comparisons of zero/one results</td>
+<td><code>a &lt; b &lt; c</code> has comparison-chain semantics</td>
+<td>A numeric comparison chain usually fails type checking</td>
+</tr>
+<tr>
+<td>Exponentiation</td>
+<td><code>^</code> is integer XOR; multiply or use a power function</td>
+<td><code>**</code> is exponentiation</td>
+<td><code>^</code> is XOR; use multiplication or <code>Math.pow</code></td>
+</tr>
+</tbody>
+</table>
+<p>For the Java comparison, this chapter follows the named Princeton material's ordinary primitive operations, not Java library methods designed to detect overflow. For Python, the stated major version matters; Python 2's integer division and old <code>int</code>/<code>long</code> distinction do not apply here. CMU's C0 arithmetic is also distinct from C17 and is not used as a C17 authority.</p>
+<h2 id="laboratory">Conversion and division laboratory</h2>
+<p>The laboratory shows <strong>typed stages</strong>. It uses exact integer arithmetic for the unsigned storage demonstration and explicitly truncates the division model toward zero for the <span class="math-inline">C</span> comparison. It does not compile arbitrary <span class="math-inline">C</span>, model pointers, simulate undefined executions, or reproduce every platform's floating rounding rules. Select a case, adjust the inputs, and read both the result and its explanation. The lesson remains readable without JavaScript; the worked problems contain the same reasoning.</p>
+<section class="lab types-lab" aria-label="Typed expression laboratory"><label for="type-case">Expression model</label><select id="type-case"><option value="store">unsigned char addition: promote, add, store</option><option value="divide"><span class="math-inline">C</span> integer division versus Python floor division</option><option value="cast">Cast before versus after integer division</option><option value="compare">int compared with unsigned int</option><option value="guard">Short-circuit division guard</option></select><div class="type-inputs"><label for="type-a">First integer<input id="type-a" type="number" min="-2147483648" max="2147483647" value="250" step="1"></label><label for="type-b">Second integer<input id="type-b" type="number" min="-2147483648" max="2147483647" value="10" step="1"></label></div><output id="type-result" aria-live="polite"></output><ol id="type-stages"></ol><p id="type-explanation"></p></section>
+<p>For the initial storage example, the intermediate sum is 260 in <code>int</code> and the stored byte is four. Switching to division with negative inputs shows why memorizing “discard the remainder” is insufficient: the direction of quotient rounding determines the remainder's sign. A zero divisor is reported as a rejected operation; no fabricated numeric output is produced.</p>
+<h2 id="worked-problems">Fully worked problem bank</h2>
+<p>Each problem gives its assumptions before its solution. The bank includes original questions and independently worded applications of explicitly identified course exercise patterns. It does not reproduce an entire course assignment or any archived Iranian paper. An undefined expression is classified without running it to guess a result. All code uses C17 unless another language is named.</p>
+<h3>Problem 1 — Assignment stores a snapshot</h3>
+<p><strong>Task.</strong> Trace <code>int x = 6, y = 9; int z = x + y; x = 2; y = z - x;</code> and explain whether the final objects satisfy <code>z == x + y</code> by a lasting dependency.</p>
+<p><strong>Solution.</strong> First record <span class="math-inline">x = 6</span> and <span class="math-inline">y = 9</span>. The addition computes fifteen and stores it in <span class="math-inline">z</span>. Reassigning <span class="math-inline">x</span> stores two without recomputing <span class="math-inline">z</span>. Finally <code>z - x</code> uses fifteen and two, so <span class="math-inline">y</span> becomes thirteen. The final tuple is (2, 13, 15). It happens to satisfy the equality because the last assignment was constructed from <span class="math-inline">z</span> and <span class="math-inline">x</span>, not because a permanent relationship was installed. Replacing the last statement with <code>y = 100</code> would immediately destroy that equality. This distinction prevents treating a program trace as simultaneous algebraic equations. <strong>Pattern:</strong> MIT Lecture 1, Bindings; all numbers and this explanation are original.</p>
+<h3>Problem 2 — Copying is not swapping</h3>
+<p><strong>Task.</strong> Starting with <code>int a = 4, b = 11;</code>, compare <code>a = b; b = a;</code> with <code>int t = a; a = b; b = t;</code>.</p>
+<p><strong>Solution.</strong> In the first sequence the first statement stores eleven in <span class="math-inline">a</span>, destroying a's old value. The second statement therefore copies eleven into <span class="math-inline">b</span>. Both end at eleven. In the second sequence <span class="math-inline">t</span> first preserves four. Reassigning a to eleven leaves <span class="math-inline">t</span> untouched; the last statement copies four into <span class="math-inline">b</span>. The final pair is (11, 4). The temporary object preserves information that would otherwise be lost. A swap expressed through arithmetic may overflow, while this version does not perform arithmetic. <strong>Pattern:</strong> Princeton §1.2, assignment and swap exercises.</p>
+<h3>Problem 3 — Literal base changes type</h3>
+<p><strong>Task.</strong> Assume LP64, 32-bit <code>int</code>, and 64-bit <code>long</code>. Determine the types and values of <code>010</code>, <code>0x10</code>, <code>2147483648</code>, <code>0x80000000</code>, and <code>1.0f + 1.0</code>.</p>
+<p><strong>Solution.</strong> An initial zero makes <code>010</code> octal, so its value is eight and its type is <code>int</code>. Hexadecimal <code>0x10</code> is sixteen and also fits <code>int</code>. The decimal value 2147483648 exceeds <code>INT_MAX</code>; the next decimal candidate is signed <code>long</code>, which fits it. The hexadecimal value with the same magnitude fits the earlier hexadecimal candidate <code>unsigned int</code>. The suffix on <code>1.0f</code> creates a <code>float</code>, while <code>1.0</code> is <code>double</code>; usual arithmetic conversions select <code>double</code>, and the result is the exact floating value two. Determine each literal's type before considering a destination.</p>
+<h3>Problem 4 — Character code is not numeric value</h3>
+<p><strong>Task.</strong> With ASCII for this example, find the values and types of <code>'7'</code>, <code>'7' - '0'</code>, and a <code>char c = '7';</code> promoted in <code>c + 1</code>.</p>
+<p><strong>Solution.</strong> The character constant <code>'7'</code> has type <code>int</code> and ASCII value 55. Subtracting the code for <code>'0'</code>, which is 48, gives seven in <code>int</code>. The <code>char</code> object stores 55; with the declared eight-bit character and 32-bit <code>int</code> model, its promotion preserves 55 and <code>c + 1</code> computes 56 in <code>int</code>. That is the code for <code>'8'</code> under ASCII, but the expression is still integer arithmetic. The digit subtraction remains valid for decimal digits without assuming ASCII because their codes are contiguous by the <span class="math-inline">C</span> requirements.</p>
+<h3>Problem 5 — <code>sizeof</code> does not increment this operand</h3>
+<p><strong>Task.</strong> For 32-bit <code>int</code>, <code>int i = 7; size_t n = sizeof(i++);</code>, determine <span class="math-inline">n</span> and <span class="math-inline">i</span>. Would replacing the operand with a variable-length-array type justify the same general rule?</p>
+<p><strong>Solution.</strong> With an eight-bit byte and 32-bit <code>int</code>, the fixed-size operand has storage size four bytes. <code>sizeof</code> does not evaluate this <code>i++</code>, so <span class="math-inline">n</span> is four and <span class="math-inline">i</span> remains seven. The result's type is <code>size_t</code>, not <code>int</code>. The VLA case requires separate analysis because the size can depend on run-time bounds and relevant evaluation. Therefore “sizeof never evaluates anything” is too broad. This problem illustrates both the ordinary rule and the boundary that prevents an invalid generalization.</p>
+<h3>Problem 6 — Promotion before byte storage</h3>
+<p><strong>Task.</strong> In the declared model, let <code>unsigned char a = 250, b = 10; int s = a + b; unsigned char t = a + b;</code>. Find both values and the expression type.</p>
+<p><strong>Solution.</strong> Every possible value of either byte fits in <code>int</code>, so both operands promote to <code>int</code>. The mathematical sum 260 is representable in that expression type. Storing into <span class="math-inline">s</span> preserves it. Storing into <span class="math-inline">t</span> converts the already computed integer 260 modulo 256, giving four. The different destinations do not change the intermediate sum's type. The stored tuple is (260, 4). Calling the addition itself “eight-bit wrap” would misidentify the stage at which the reduction occurs.</p>
+<h3>Problem 7 — Unary minus of a promoted unsigned byte</h3>
+<p><strong>Task.</strong> For <code>unsigned char c = 1;</code>, determine the type and value of <code>-c</code> and of <code>(unsigned char)-c</code> in the declared model.</p>
+<p><strong>Solution.</strong> Unary minus first promotes <span class="math-inline">c</span> to <code>int</code>. Its negation is therefore the signed <code>int</code> value negative one, which is representable. The outer cast in the second expression converts that integer to an eight-bit unsigned value. Its residue is 255, because <span class="math-inline">−1 ≡ 255</span> modulo 256. Thus the first expression is <code>int</code> negative one; the second is <code>unsigned char</code> 255. The operand's stored unsigned type does not bypass promotion.</p>
+<h3>Problem 8 — General unsigned conversion</h3>
+<p><strong>Task.</strong> Find the residues <span class="math-inline">of −513</span>, <span class="math-inline">−</span>256, <span class="math-inline">−</span>1, 256, and 769 in an eight-bit unsigned destination. Prove one answer without appealing to a machine bit pattern.</p>
+<p><strong>Solution.</strong> The required interval is zero through 255. The residues are respectively 255, zero, 255, zero, and one. For the first value, <span class="math-inline">−</span>513 <span class="math-inline">=</span> (<span class="math-inline">−</span>3)·<span class="math-inline">256 + 255</span>, so 255 lies in the allowed interval and is congruent to the source. Uniqueness of the interval representative proves the result. This calculation is an integer conversion; attempting the same argument for a floating source outside the destination's allowed integral range would be invalid.</p>
+<h3>Problem 9 — Equal-rank signed and unsigned comparison</h3>
+<p><strong>Task.</strong> Under 32-bit <code>int</code>, evaluate <code>-3 &lt; 2U</code>, <code>-3 == (unsigned int)-3</code>, and <code>-3 &gt; -4</code>.</p>
+<p><strong>Solution.</strong> The first comparison has equal-rank signed and unsigned operands, so negative three converts to <code>unsigned int</code> 4294967293. That is not less than two, and the comparison returns <code>int</code> zero. In the equality, both sides compare as <code>unsigned int</code> with the same value, so its result is <code>int</code> one. The final comparison has two signed <code>int</code> operands; negative three is greater than negative four, giving one. Signedness changes operand interpretation; it does not change comparison results into unsigned values. <strong>Pattern:</strong> Stanford CS107 Lecture 2, mixed-type comparisons.</p>
+<h3>Problem 10 — The higher-rank signed range test</h3>
+<p><strong>Task.</strong> Evaluate <code>-1L &lt; 1U</code> on LP64 and LLP64, both with 32-bit <code>int</code>. Explain why “unsigned always wins” is incorrect.</p>
+<p><strong>Solution.</strong> <code>long</code> outranks <code>unsigned int</code> in both models. On LP64 its 64-bit signed range contains all 32-bit unsigned values, so the common type is signed <code>long</code>; negative one is less than one. On LLP64, signed <code>long</code> is 32-bit and cannot contain the entire unsigned <code>int</code> range. The common type becomes <code>unsigned long</code>, and negative one converts to its maximum, making the comparison false. The answer is true on LP64 and false on LLP64. Rank decides which range question to ask; range decides whether the higher signed type can prevail.</p>
+<h3>Problem 11 — Conditional branches determine type together</h3>
+<p><strong>Task.</strong> With 32-bit <code>int</code>, determine the value and type of <code>1 ? -2 : 3U</code>. Is the unsigned branch evaluated?</p>
+<p><strong>Solution.</strong> The condition one is true, so only the middle branch's value is evaluated. However, the result type is chosen from both arithmetic branch types, <code>int</code> and <code>unsigned int</code>, yielding <code>unsigned int</code>. The selected negative two is converted to that type and becomes 4294967294. The unselected branch is not evaluated. Type determination and dynamic branch evaluation are different stages. Assigning this result to <code>long long</code> afterward preserves the large unsigned value rather than restoring negative two.</p>
+<h3>Problem 12 — Cast placement in division</h3>
+<p><strong>Task.</strong> Compare <code>double a = 9/4;</code>, <code>double b = (double)(9/4);</code>, and <code>double c = 9/(double)4;</code>.</p>
+<p><strong>Solution.</strong> The first two divisions use <code>int</code> operands and truncate to two. Conversion of that result yields 2.0, whether requested by assignment or by an explicit outer cast. The third division converts nine to <code>double</code> because the other operand is <code>double</code>; it computes 2.25. All three are defined, but only the third preserves the fractional quotient. The receiving type and an outer cast are too late to alter the division operator's operand types. <strong>Pattern:</strong> Harvard truncation example and Princeton §1.2 Web Exercise 5.</p>
+<h3>Problem 13 — Four signs of quotient and remainder</h3>
+<p><strong>Task.</strong> Find <code>(a/b, a%b)</code> for the pairs (17, 5), (<span class="math-inline">−</span>17, 5), (17, <span class="math-inline">−</span>5), and (<span class="math-inline">−</span>17, <span class="math-inline">−</span>5), then check the identity.</p>
+<p><strong>Solution.</strong> Truncation toward zero gives the tuples (3, 2), (<span class="math-inline">−</span>3, <span class="math-inline">−</span>2), (<span class="math-inline">−</span>3, 2), and (3, <span class="math-inline">−</span>2). For example, seventeen divided by negative five has quotient negative three; multiplying gives fifteen, leaving positive two. In every case <span class="math-inline">bq + r</span> equals <span class="math-inline">a</span>, and the remainder's absolute value is less than five. Its sign follows the dividend when nonzero, not the divisor. Python floor division for (<span class="math-inline">−</span>17, 5) instead gives (<span class="math-inline">−</span>4, 3), also satisfying its identity with a different quotient rule.</p>
+<h3>Problem 14 — Ceiling without dangerous addition</h3>
+<p><strong>Task.</strong> For nonnegative <code>int n</code> and positive <code>int d</code>, show how to compute the number of <span class="math-inline">d</span>-item groups needed, including at <code>n = INT_MAX</code>. Explain why <code>(n+d-1)/d</code> can fail.</p>
+<p><strong>Solution.</strong> Compute <code>n/d + (n%d != 0)</code>. Euclidean division gives <span class="math-inline">n = dq + r</span>. If <span class="math-inline">r</span> is zero, <span class="math-inline">q</span> groups suffice; otherwise one additional group is required. At <code>INT_MAX</code> and <span class="math-inline">d = 2</span>, <span class="math-inline">q</span> is 1073741823, <span class="math-inline">r</span> is one, and the result is 1073741824, which fits. The alternative expression would add one to <code>INT_MAX</code> before dividing, causing signed overflow. If <span class="math-inline">d</span> is one, the correction is zero, so the safe expression never increments the maximum. This proof addresses the intermediate expression, not merely the final mathematical result.</p>
+<h3>Problem 15 — A nonnegative residue from a signed remainder</h3>
+<p><strong>Task.</strong> For arbitrary representable integer <span class="math-inline">a</span> and positive representable integer <span class="math-inline">m</span>, compute the representative of a modulo <span class="math-inline">m</span> in zero through <span class="math-inline">m−1</span> without risking an unnecessary large addition.</p>
+<p><strong>Solution.</strong> First calculate <code>int r = a % m;</code>. Positive <span class="math-inline">m</span> excludes the negative-one quotient exception and zero division. If <span class="math-inline">r</span> is negative, add <span class="math-inline">m</span>; otherwise leave it unchanged. In the negative case, <span class="math-inline">−m &lt; r &lt; 0</span>, so zero <span class="math-inline">&lt;</span> <span class="math-inline">r + m &lt; m</span> and the addition fits. For <span class="math-inline">a</span> <span class="math-inline">=</span> <span class="math-inline">−</span>17 and <span class="math-inline">m = 5</span>, the first remainder <span class="math-inline">is −2</span> and the corrected result is three. <code>(a % m + m) % m</code> unnecessarily adds <span class="math-inline">m</span> when the remainder is already nonnegative and can overflow for large <span class="math-inline">m</span>. The conditional correction has a proved range.</p>
+<h3>Problem 16 — A wider destination cannot repair multiplication</h3>
+<p><strong>Task.</strong> Under 32-bit <code>int</code> and at least 64-bit <code>long long</code>, analyse <code>int x = 50000; long long y = x * x;</code> and give a correct repair.</p>
+<p><strong>Solution.</strong> Both operands are <code>int</code>, so the product is computed in <code>int</code>. Its mathematical value is 2500000000, greater than 2147483647, so the original execution has undefined behavior. Assignment to <code>long long</code> happens after that invalid operation and cannot repair it. Use <code>long long y = (long long)x * x;</code>. The common type is now <code>long long</code> before multiplication. Its required range contains 2500000000, so the operation and storage are valid. An outer cast <code>(long long)(x*x)</code> is still too late. <strong>Pattern:</strong> Princeton §1.2 Web Exercise 6, with C17 classification replacing Java wrapping.</p>
+<h3>Problem 17 — Unsigned source operands can overflow signed arithmetic</h3>
+<p><strong>Task.</strong> Under 16-bit <code>unsigned short</code> and 32-bit <code>int</code>, analyse <code>unsigned short a = 60000, b = 60000; unsigned int p = a*b;</code>.</p>
+<p><strong>Solution.</strong> <code>int</code> represents every value of a 16-bit unsigned short, so both operands promote to <code>int</code>. Their product 3600000000 does not fit 32-bit signed <code>int</code>. The execution is undefined before storage into the unsigned destination. To obtain a defined unsigned 32-bit product here, convert an operand first: <code>(unsigned int)a * b</code>. The other promoted operand then converts to unsigned by the usual conversions, and 3600000000 lies below <code>UINT_MAX</code>. Larger inputs in another type might still wrap; the repair's range proof is specific to these source ranges.</p>
+<h3>Problem 18 — Derive an addition guard</h3>
+<p><strong>Task.</strong> With <span class="math-inline">a = 2147483640</span> and <span class="math-inline">b = 20</span> in the 32-bit signed model, apply the chapter's overflow guard. Repeat with <span class="math-inline">a</span> <span class="math-inline">=</span> <span class="math-inline">−</span>2147483640 and <span class="math-inline">b</span> <span class="math-inline">=</span> <span class="math-inline">−</span>20.</p>
+<p><strong>Solution.</strong> For positive <span class="math-inline">b</span>, <code>INT_MAX - b</code> is 2147483627. Since a exceeds it, reject the first sum without evaluating the sum. For negative <span class="math-inline">b</span>, <code>INT_MIN - b</code> <span class="math-inline">is −2147483628</span>. The second a is smaller than that threshold, so reject the second sum. Both threshold computations are representable. The guards are obtained by solving the appropriate upper- or lower-bound inequality; they do not rely on observing a wrapped result. A post-operation test would already execute undefined arithmetic.</p>
+<h3>Problem 19 — Negation, division, remainder, and narrowing are different</h3>
+<p><strong>Task.</strong> Classify <code>-INT_MIN</code>, <code>INT_MIN/-1</code>, <code>INT_MIN%-1</code>, and conversion of <code>UINT_MAX</code> to <code>int</code> in the declared model.</p>
+<p><strong>Solution.</strong> The first three have undefined behavior. Negation and division require the unavailable positive magnitude 2147483648; remainder shares the division's representable-quotient precondition even though its mathematical residue would be zero. The final integer-to-signed conversion is instead implementation-defined or raises an implementation-defined signal in C17. A common implementation yields negative one, but that is not a portable C17 answer. These expressions must not be grouped under a single vague word such as “overflow.”</p>
+<h3>Problem 20 — Precedence tree with mixed operations</h3>
+<p><strong>Task.</strong> Evaluate <code>2 + 3 * 4 &lt;&lt; 1</code> and <code>(2 + 3) * (4 &lt;&lt; 1)</code> for <code>int</code> operands. Check every intermediate range.</p>
+<p><strong>Solution.</strong> Multiplication binds before addition, and addition before shifting. The first tree is <code>(2 + (3*4)) &lt;&lt; 1</code>: multiply to twelve, add to fourteen, then shift the nonnegative representable value to 28. In the second tree the sum is five and the inner shift is eight, so multiplication gives forty. Each value and doubled value fits <code>int</code>, and each shift count is within range. Grouping determines the different results; no issue of conflicting side effects arises because the operands are constants.</p>
+<h3>Problem 21 — Chained comparisons are not interval membership</h3>
+<p><strong>Task.</strong> For <code>int x = 100;</code>, evaluate <code>10 &lt;= x &lt;= 20</code>, and write the intended test.</p>
+<p><strong>Solution.</strong> Left associativity parses the expression as <code>(10 &lt;= x) &lt;= 20</code>. The first comparison yields one, and one is at most twenty, so the expression is true despite <span class="math-inline">x</span> lying outside the intended interval. For any ordinary integer <span class="math-inline">x</span>, the first comparison yields zero or one and the final test still succeeds. The correct expression is <code>10 &lt;= x &amp;&amp; x &lt;= 20</code>, which is false for one hundred. Both expressions have result type <code>int</code>. <strong>Pattern:</strong> Princeton §1.2 Web Exercise 2; <span class="math-inline">C</span> accepts a misleading chain while Java rejects its operand types.</p>
+<h3>Problem 22 — Logical and bitwise operations disagree</h3>
+<p><strong>Task.</strong> Compare <code>6 &amp;&amp; 3</code>, <code>6 &amp; 3</code>, <code>6 || 3</code>, <code>6 | 3</code>, <code>6 ^ 3</code>, and <code>!!6 != !!3</code>.</p>
+<p><strong>Solution.</strong> Six and three are both nonzero, so logical AND and logical OR each return one. Their low binary patterns are <code>110</code> and <code>011</code>. Bitwise AND gives <code>010</code>, which is two; bitwise OR gives <code>111</code>, which is seven; XOR gives <code>101</code>, which is five. Both normalized truths are one, so logical truth inequality gives zero. A nonzero bitwise XOR is not proof that exactly one operand was truthy. Distinguish numerical bit differences from Boolean differences.</p>
+<h3>Problem 23 — A shift uses the promoted left width</h3>
+<p><strong>Task.</strong> For <code>unsigned char c = 1;</code>, evaluate <code>c &lt;&lt; 8</code>, <code>c &lt;&lt; 31</code>, <code>1U &lt;&lt; 31</code>, and <code>1U &lt;&lt; 32</code> under the declared model.</p>
+<p><strong>Solution.</strong> <span class="math-inline">c</span> promotes to 32-bit <code>int</code>, so the first shift count is valid and its product 256 is representable. The second count is within 32, but the signed product 2147483648 is not representable, so that expression is undefined. The unsigned literal in the third expression has 32-bit unsigned type, and its shift yields 2147483648 with a valid count. The fourth has an invalid count equal to the width, so it is undefined even though the left operand is unsigned. Count validity and result representability are separate checks.</p>
+<h3>Problem 24 — Short-circuiting protects a division</h3>
+<p><strong>Task.</strong> With <code>int d = 0, n = 8;</code>, compare <code>d != 0 &amp;&amp; n/d &gt; 2</code> with <code>n/d &gt; 2 &amp;&amp; d != 0</code> and <code>(d != 0) &amp; (n/d &gt; 2)</code>.</p>
+<p><strong>Solution.</strong> The first expression evaluates the false left guard and skips the division; its result is zero. The second attempts division first and is undefined. The bitwise AND evaluates both required operands without a short-circuit guarantee, so division by zero is still attempted and undefined. Truth-table similarity cannot replace sequencing semantics. For arbitrary signed inputs, a complete safety guard must also exclude the minimum-integer divided by negative-one case.</p>
+<h3>Problem 25 — Defined increment traces</h3>
+<p><strong>Task.</strong> Trace <code>int i=2; int a=i++; int b=++i; int c=(i++,i);</code>.</p>
+<p><strong>Solution.</strong> The first initializer yields the old value two for <span class="math-inline">a</span>, then completes the update so <span class="math-inline">i</span> is three before the next full expression. Prefix increment raises <span class="math-inline">i</span> to four and yields four for <span class="math-inline">b</span>. In the comma expression, postfix increment's old result is discarded and its update completes before the right operand reads <span class="math-inline">i</span>. Therefore <span class="math-inline">c</span> is five and final <span class="math-inline">i</span> is five. The tuple (<span class="math-inline">a</span>, <span class="math-inline">b</span>, <span class="math-inline">c</span>, <span class="math-inline">i</span>) is (2, 4, 5, 5). All increments are representable, and the comma operator supplies the sequencing needed inside the final expression.</p>
+<h3>Problem 26 — Reject a plausible output puzzle</h3>
+<p><strong>Task.</strong> For a fresh <code>int i=2;</code>, classify separately <code>i++ + i</code>, <code>i = i++</code>, <code>printf(&quot;%d %d&quot;, i++, i++)</code>, and <code>(i++, i+1)</code>.</p>
+<p><strong>Solution.</strong> The first has an unsequenced update and a read of the same object; the second has conflicting unsequenced updates; the third has two unsequenced argument updates, since the separating comma is punctuation. All three are undefined in C17, and assigning an imagined evaluation order does not fix them. The final comma operator completes the update from two to three before computing the right operand, so it is defined and gives four, leaving <span class="math-inline">i</span> at three. These are separate experiments with a fresh initial state, not a combined trace.</p>
+<h3>Problem 27 — Macro parentheses do not prevent duplicate effects</h3>
+<p><strong>Task.</strong> Let <code>#define MIN(a,b) ((a)&lt;(b)?(a):(b))</code>. Starting from <code>int i=3;</code>, analyse <code>int z=MIN(i++,10);</code> and separately <code>MIN(i++,i++)</code>.</p>
+<p><strong>Solution.</strong> The first expansion is <code>((i++)&lt;(10)?(i++):(10))</code>. The comparison uses three and increments <span class="math-inline">i</span> to four. The conditional operator sequences that condition before the selected branch. Since three is less than ten, the branch yields four and increments <span class="math-inline">i</span> to five. Thus <span class="math-inline">z</span> is four and final <span class="math-inline">i</span> is five: the execution is defined but not the intended single evaluation. In the second expansion, the condition compares two unsequenced modifications of <span class="math-inline">i</span> and is already undefined. The remedy is to avoid effectful arguments or use a suitable function. <strong>Pattern:</strong> Berkeley <span class="math-inline">C</span> Syntax, macro evaluation; this analysis corrects the claim that a selected argument is always repeated.</p>
+<h3>Problem 28 — Binary fractions and exactness</h3>
+<p><strong>Task.</strong> Decide whether the reduced rational values <span class="math-inline">3/8</span>, <span class="math-inline">1/10</span>, and <span class="math-inline">7/20</span> have finite binary expansions. Explain why a <code>double</code> can still approximate all three.</p>
+<p><strong>Solution.</strong> Eight is a power of two, so three eighths terminates as binary <code>0.011</code>. Ten and twenty have a factor five remaining in their reduced denominators, so neither other fraction terminates in base two. A finite binary format rounds a nonterminating value to a nearby representable number; existence of such an approximation is different from exact equality. Precision and exponent-range conditions still determine whether a particular rational fits exactly in a given format. The argument proves termination, not unlimited storage precision.</p>
+<h3>Problem 29 — A lost integer unit at binary64 precision</h3>
+<p><strong>Task.</strong> Assume binary64 nearest-even conversions. For the exactly represented integer <span class="math-inline">p = 2</span><sup>53</sup>, predict converting <span class="math-inline">p + 1</span> and <span class="math-inline">p + 2</span> to <code>double</code>. Is an integer equality necessarily preserved by conversion?</p>
+<p><strong>Solution.</strong> Around <span class="math-inline">p</span> on the higher-magnitude side, consecutive binary64 values are two units apart. The integer <span class="math-inline">p + 1</span> is halfway between <span class="math-inline">p</span> and <span class="math-inline">p + 2</span>; ties-to-even chooses <span class="math-inline">p</span>, whose significand endpoint is even. The integer <span class="math-inline">p + 2</span> is exactly representable and remains <span class="math-inline">p + 2</span>. Thus distinct integers <span class="math-inline">p</span> and <span class="math-inline">p + 1</span> can become the same floating value. Converting before an equality can lose distinctions. This is a precision limitation within range, not overflow of a floating exponent.</p>
+<h3>Problem 30 — Finite-precision associativity fails</h3>
+<p><strong>Task.</strong> Under the declared binary64 evaluation model, compare <code>(a + b) + c</code> with <code>a + (b + c)</code> for <span class="math-inline">a = 10</span><sup>16</sup>, <span class="math-inline">b</span> <span class="math-inline">=</span> <span class="math-inline">−</span>10<sup>16</sup>, and <span class="math-inline">c = 1</span>.</p>
+<p><strong>Solution.</strong> The first parenthesized sum cancels the equal opposite magnitudes exactly to zero, then adds one, giving one. In the second grouping, the unit is too small to change <span class="math-inline">b</span> after nearest-even rounding at its magnitude. The inner sum rounds to <span class="math-inline">b</span>, and adding a cancels it to zero. The different results arise from rounding at different intermediate nodes. The assumptions exclude excess precision and compiler reassociation; without them, a concrete <span class="math-inline">C</span> execution needs its own model. An exact-real algebra identity cannot justify this finite-precision rewrite.</p>
+<h3>Problem 31 — Formatting is not a numeric cast</h3>
+<p><strong>Task.</strong> Explain <code>printf(&quot;%d&quot;, 2.75)</code>, <code>printf(&quot;%f&quot;, 2.75f)</code>, and <code>printf(&quot;%zu&quot;, sizeof(int))</code>.</p>
+<p><strong>Solution.</strong> The first supplies <code>double</code> where the format requires an <code>int</code>, so it is undefined; <code>%d</code> does not truncate the argument. In the second, default variadic promotion changes the <code>float</code> argument to <code>double</code>, matching <code>%f</code>. In the third, the unsigned type <code>size_t</code> returned by <code>sizeof</code> matches <code>%zu</code>, regardless of whether its width equals that of an <code>int</code>. If the desired result is integer two, explicitly convert the representable finite value with <code>(int)2.75</code> and pass that to <code>%d</code>.</p>
+<h3>Problem 32 — An integrated expression audit</h3>
+<p><strong>Task.</strong> Under 32-bit <code>int</code>, evaluate <code>unsigned char c=250; int x=-1; unsigned int u=1U; int r=(c+10&gt;255) &amp;&amp; (x&lt;u); unsigned char t=c+10;</code>.</p>
+<p><strong>Solution.</strong> Promote <span class="math-inline">c</span> to <code>int</code>, add ten to obtain 260, and compare it with 255; the first logical operand is one. Because it is true, evaluate the second comparison. The equal-rank unsigned common type converts <span class="math-inline">x</span> to 4294967295, which is not less than <span class="math-inline">u</span>, so the second logical operand is zero. The conjunction gives <span class="math-inline">r = 0</span>. The separate final addition again computes 260 in <code>int</code>, then unsigned byte storage gives <span class="math-inline">t = 4</span>. The trace combines promotions, comparison result types, short-circuit choice, and a later storage conversion without any undefined arithmetic.</p>
+<h3>Problem 33 — Python file output and rebinding</h3>
+<p><strong>Task.</strong> In a Python 3 script, consider <code>type(8)</code> followed by <code>print(4.0-1)</code>; then <code>x=4; y=x*3; x=9; print(y)</code>. Explain what is printed and whether <span class="math-inline">x</span> can later refer to a string.</p>
+<p><strong>Solution.</strong> The bare <code>type(8)</code> expression computes a type object but the file execution does not automatically display it. The explicit first print emits <code>3.0</code>. The next sequence computes and binds <span class="math-inline">y</span> to twelve before rebinding <span class="math-inline">x</span> to nine; its print emits <code>12</code>. Assigning <code>x=&quot;nine&quot;</code> later is permitted in Python because the name can be rebound to an object of another type. The corresponding <span class="math-inline">C</span> object cannot acquire a new declared type. <strong>Pattern:</strong> MIT Lecture 1, all three written questions: file output, assignment legality, and binding snapshots. In either language, an assignment target must be valid; Python permits <code>xy=2</code> as an identifier assignment but not <code>x*y=2</code> as an equation-solving request.</p>
+<h3>Problem 34 — Formula translation with explicit types</h3>
+<p><strong>Task.</strong> A dimensionless ratio is <math><mfrac><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow><mi>d</mi></mfrac></math> for integers <span class="math-inline">a = 5</span>, <span class="math-inline">b = 8</span>, <span class="math-inline">d = 4</span>. Write <span class="math-inline">C</span> code preserving its fractional part. Then explain why <code>double value = a + b / d;</code> changes two aspects of the intended computation.</p>
+<p><strong>Solution.</strong> Use <code>double value = ((double)a + b) / d;</code>. The early conversion causes the sum and quotient to be computed in <code>double</code>; the result is 3.25. The proposed expression instead groups as <code>a + (b/d)</code>, because division binds before addition. That division is also integer division, giving two; adding five gives seven, then assignment yields 7.0. Correcting only grouping to <code>(a+b)/d</code> still leaves integer division and gives 3.0. Correcting only the destination type solves neither issue. This original problem consolidates the mathematical-translation patterns reviewed in Princeton §1.2.</p>
+<h3>Problem 35 — Approximate equality need not be transitive</h3>
+<p><strong>Task.</strong> For the rule <span class="math-inline">|x − y|</span> <span class="math-inline">≤</span> 0.1 with exact real numbers, use <span class="math-inline">x = 0</span>, <span class="math-inline">y = 0</span>.075, and <span class="math-inline">z = 0</span>.15 to test transitivity. Explain the consequence for replacing equality in a grouping algorithm.</p>
+<p><strong>Solution.</strong> The adjacent distances are both 0.075, which pass the tolerance. The endpoint distance is 0.15, which fails. Thus <span class="math-inline">x</span> can be approximately equal to <span class="math-inline">y</span> and <span class="math-inline">y</span> to <span class="math-inline">z</span> without <span class="math-inline">x</span> being approximately equal to <span class="math-inline">z</span>. Exact equality is transitive; this approximate relation is not. An algorithm that merges equality classes therefore needs a specified clustering policy or a genuine equivalence relation, rather than blindly substituting a tolerance check. The example uses exact reals to show that the issue is inherent in the criterion, not merely binary rounding.</p>
+<h3>Problem 36 — A full safety precondition for signed division</h3>
+<p><strong>Task.</strong> In the two's-complement <code>int</code> model, build a logical condition that permits evaluating <code>a/b</code>, including all boundary cases, and trace it for <code>(INT_MIN,-1)</code>, <code>(8,0)</code>, and <code>(8,-2)</code>.</p>
+<p><strong>Solution.</strong> Use <code>b != 0 &amp;&amp; !(a == INT_MIN &amp;&amp; b == -1)</code>. For the first pair, the divisor is nonzero but the inner conjunction is true, so its negation rejects the operation. For the second, the first guard is false and the rest need not establish permission. For the third, the divisor is nonzero and the exceptional pair is absent, so division is allowed and gives negative four. This condition must guard the actual evaluation, for example as the condition selecting an appropriate branch. Computing the quotient earlier and then examining the guard would not protect it.</p>
+<h2 id="quick-reference">Final review: decision procedures and examination rules</h2>
+<h3>A seven-step method for an unfamiliar expression</h3>
+<ol>
+<li><strong>Fix the language and model.</strong> Identify the language version, integer widths and ranges, plain-character signedness, and any floating assumptions the question supplies. If a result depends on omitted implementation choices, state that dependency.</li>
+<li><strong>Check validity and initialization.</strong> Confirm that every evaluated variable has a usable value, operator operands satisfy the constraints, and assignment targets are modifiable lvalues.</li>
+<li><strong>Parse the expression.</strong> Insert conceptual parentheses using precedence and associativity. Separate the syntax tree from evaluation order; mark short-circuit, conditional, and comma sequencing boundaries.</li>
+<li><strong>Annotate every intermediate type.</strong> Type literals first. Apply promotions where required, then the common-type decision tree for applicable operators. For shifts, promote the operands separately.</li>
+<li><strong>Establish execution preconditions.</strong> Reject invalid division, signed overflow, invalid shift counts, and unsequenced conflicts before predicting a numeric value. Determine which guarded branches actually execute.</li>
+<li><strong>Compute and convert stage by stage.</strong> Apply the correct quotient rule, unsigned residue rule, floating model, and final storage conversion. A receiving type cannot repair an invalid earlier stage.</li>
+<li><strong>Report the full conclusion.</strong> State the value, expression type, final stored state, and behavior classification. When printing is involved, verify the promoted argument types against the format requirements.</li>
+</ol>
+<h3>Fifty complete examination rules</h3>
+<ol>
+<li>A variable's name, declared type, stored value, and representation are different concepts; identify which one a question is asking about.</li>
+<li>Assignment stores the current result of an expression, so later changes to its former inputs do not recompute that stored result.</li>
+<li><span class="math-inline">C</span> requires a modifiable lvalue as an assignment target; an arithmetic result, cast result, or assignment result cannot serve as that target.</li>
+<li>Right-associative assignment permits <code>a=b=c</code>, but the receiving objects can have different stored values when their conversions differ.</li>
+<li>An uninitialized automatic scalar must not be treated as a random usable value; static-storage objects follow a different zero-initialization rule.</li>
+<li><code>const</code> prevents ordinary modification of its object but does not generally create an integer constant expression in C17.</li>
+<li><code>typedef</code> gives an existing type an additional name; it does not by itself create a different arithmetic conversion rank.</li>
+<li>One <span class="math-inline">C</span> byte is the size of <code>char</code>; it need not be eight bits unless the implementation or question fixes <code>CHAR_BIT</code> to eight.</li>
+<li>C17 <code>int</code> represents at least <span class="math-inline">−</span>32767 through 32767; a claim that the only guarantee is eight bits is incorrect.</li>
+<li>A 64-bit platform label does not determine the width of <code>int</code> or <code>long</code>; distinguish LP64 from LLP64 when those types interact.</li>
+<li>Plain <code>char</code> has implementation-defined signedness and is a distinct type from both <code>signed char</code> and <code>unsigned char</code>.</li>
+<li>Exact-width aliases such as <code>uint8_t</code> exist only when the implementation provides a suitable type; state their availability in a machine-specific problem.</li>
+<li>An ordinary <span class="math-inline">C</span> character constant such as <code>'7'</code> has type <code>int</code>, while a string literal and a numeric constant have different meanings.</li>
+<li>The codes for decimal digits are contiguous, so subtracting <code>'0'</code> from a known digit works without assuming that all characters use ASCII.</li>
+<li>An unsuffixed decimal integer literal selects the first fitting signed candidate; an octal or hexadecimal literal can select an unsigned candidate sooner.</li>
+<li>The leading minus sign is an operator applied to a positive literal, so determine the positive literal's type before analysing the negation.</li>
+<li>A leading zero denotes an octal integer constant in C17, and binary <code>0b</code> spelling requires an extension outside this version's standard grammar.</li>
+<li>A floating literal normally has type <code>double</code>; the <code>f</code> and <code>L</code> suffixes request <code>float</code> and <code>long double</code> respectively.</li>
+<li><code>sizeof</code> returns <code>size_t</code> and measures bytes of storage; it does not report a numeric maximum or normally evaluate a fixed-size operand.</li>
+<li>A variable-length-array size is a relevant exception to the ordinary unevaluated-operand rule for <code>sizeof</code>.</li>
+<li>Integer promotions preserve the value, selecting <code>int</code> if it contains the source range and <code>unsigned int</code> otherwise.</li>
+<li>An eight-bit unsigned character usually promotes to signed <code>int</code>, so small unsigned storage does not imply unsigned intermediate arithmetic.</li>
+<li>A small target can reduce an already computed integer during storage even when the intermediate addition itself did not wrap.</li>
+<li>A representable integer-to-integer conversion preserves value; an integer-to-unsigned conversion outside the destination range selects its modulo representative.</li>
+<li>An out-of-range integer-to-signed conversion is implementation-defined or signals in C17, whereas signed arithmetic overflow is undefined.</li>
+<li>A cast performs the applicable conversion rule; it does not generally reinterpret unchanged bits or make an invalid operation safe.</li>
+<li>Integer conversion rank and storage width are separate properties, so equal-width <code>int</code> and <code>long</code> still have different ranks.</li>
+<li>Mixed signed and unsigned arithmetic requires both a rank comparison and, when applicable, a full-range containment test.</li>
+<li>Arithmetic comparisons may use an unsigned common operand type while still returning <code>int</code> zero or one.</li>
+<li>A cast before division can select floating division; a cast after integer division preserves the already truncated integer quotient.</li>
+<li>A wider receiving variable or outer cast cannot repair signed overflow in a narrower intermediate product.</li>
+<li>A finite floating-to-integer conversion truncates toward zero and requires its integral result to fit; the unsigned integer modulo rule does not rescue an out-of-range floating source.</li>
+<li>Integer division truncates toward zero in C17, so a nonzero remainder follows the dividend's sign rather than the divisor's sign.</li>
+<li>Division and remainder both reject a zero divisor and a nonrepresentable quotient, including the two's-complement minimum divided by negative one.</li>
+<li>A ceiling quotient for nonnegative input can use quotient plus a nonzero-remainder indicator, avoiding a potentially overflowing preliminary addition.</li>
+<li>A nonnegative modular representative can be obtained by adding a positive modulus only when the signed remainder is negative.</li>
+<li>Precedence and associativity define grouping, while separate sequencing rules determine which side effects precede other evaluations.</li>
+<li>Parentheses clarify grouping but do not order independent arithmetic operands or repair conflicting unsequenced changes to one object.</li>
+<li>Postfix increment yields the old value and prefix increment yields the new one; both still require representable arithmetic and valid sequencing.</li>
+<li>A comma operator sequences its operands, but a comma separating function arguments does not provide that operator's guarantee.</li>
+<li><code>&amp;&amp;</code> and <code>||</code> normalize truth and short-circuit; bitwise <code>&amp;</code> and <code>\|</code> combine bits without those evaluation guarantees.</li>
+<li>A guard must precede the dangerous operation and establish every precondition; a later test cannot undo an earlier invalid evaluation.</li>
+<li>Both arithmetic branches of <code>?:</code> contribute to result type even though only one branch is evaluated.</li>
+<li>A chained comparison in <span class="math-inline">C</span> compares the first comparison's zero-or-one result with the next operand; use two comparisons connected by a logical operator for an interval.</li>
+<li>Bitwise XOR is not exponentiation, and bitwise complement is not logical negation; normalize truth when computing exclusive truth difference.</li>
+<li>Shift counts must lie below the promoted left operand's width; signed left-shift representability and negative-right-shift implementation choices require separate checks.</li>
+<li>A well-parenthesized macro can still evaluate an effectful argument twice, so parsing correctness and evaluation count must be audited independently.</li>
+<li>A finite binary expansion requires a reduced denominator that is a power of two, and floating range does not imply exact representation of every integer.</li>
+<li>Finite-precision regrouping can change a result, and a chosen approximate-equality tolerance is generally not a transitive equality relation.</li>
+<li>A <code>printf</code> format describes the required promoted argument type and textual output; it is not a substitute for a numeric conversion.</li>
+</ol>
+<h3>Compact failure-to-repair map</h3>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Correct diagnosis</th>
+<th>Repair with its condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A fraction unexpectedly becomes an integer</td>
+<td>Integer division occurred before assignment or casting</td>
+<td>Convert an operand before <code>/</code>; require a nonzero divisor and suitable floating accuracy</td>
+</tr>
+<tr>
+<td>A supposedly unsigned product is undefined</td>
+<td>Small unsigned operands promoted to signed <code>int</code></td>
+<td>Choose a suitable unsigned or sufficiently wide expression type before multiplication</td>
+</tr>
+<tr>
+<td>A negative value appears larger than a positive one</td>
+<td>Mixed signed/unsigned conversion changed the operand interpretation</td>
+<td>Apply the full common-type tree; avoid unsafe casts used solely to silence a warning</td>
+</tr>
+<tr>
+<td>A comparison chain always passes</td>
+<td>The first comparison yielded zero or one</td>
+<td>Express interval membership with two comparisons and <code>&amp;&amp;</code></td>
+</tr>
+<tr>
+<td>A guard did not prevent a failure</td>
+<td>Evaluation occurred before the guard or used a bitwise operator</td>
+<td>Place a complete precondition first in a short-circuiting expression</td>
+</tr>
+<tr>
+<td>An output puzzle has different observed answers</td>
+<td>The execution may be undefined or depend on an implementation choice</td>
+<td>Classify the behavior before computing output; do not choose a guessed evaluation order</td>
+</tr>
+<tr>
+<td>A formula differs from its mathematics</td>
+<td>Parsing, operand types, overflow, or rounding changed a stage</td>
+<td>Draw its expression tree and annotate types and valid ranges at every node</td>
+</tr>
+</tbody>
+</table>
+<h2 id="references">References and audit limits</h2>
+<ol>
+<li>Stanford University, CS107, Winter 2020. Jerry Cain and Lisa Yan. <em>Lecture 2: Bits and Bytes; Integer Representations</em>, slides 78–101 and 109–115, with earlier representation context consulted. <a href="https://web.stanford.edu/class/archive/cs/cs107/cs107.1204/lectures/2/Lecture2.pdf">Lecture PDF</a>. <a href="https://web.stanford.edu/class/archive/cs/cs107/cs107.1204/">Course archive</a>.</li>
+<li>Harvard University, CS50x, 2025. David <span class="math-inline">J</span>. Malan. <em>Lecture 1 notes</em>: Types, Operators, Variables, logical-operator examples, More About Operators, and Truncation. <a href="https://cs50.harvard.edu/x/2025/notes/1/">Written notes</a>.</li>
+<li>University of California, Berkeley, CS61C. Course teaching-team notes. <em><span class="math-inline">C</span> Variables</em> and relevant sections of <em><span class="math-inline">C</span> Syntax</em>: aliases, constants/enums, and macros. <a href="https://notes.cs61c.org/content/c-basics/c-variables/"><span class="math-inline">C</span> Variables</a>. <a href="https://notes.cs61c.org/content/c-basics/c-syntax/"><span class="math-inline">C</span> Syntax</a>. Embedded 2020 videos were not needed for the written review; the current notes are not attributed to a sole lecturer without evidence.</li>
+<li>Princeton University, COS126 course-resource family. Robert Sedgewick and Kevin Wayne. <em>Introduction to Programming in Java</em>, §1.2, Built-in Types of Data, including the exercise inventory. <a href="https://introcs.cs.princeton.edu/java/12types/">Written chapter</a>. <a href="https://www.cs.princeton.edu/courses/archive/fall17/cos126/lectures.html">Fall 2017 lecture-resource index</a>.</li>
+<li>Massachusetts Institute of Technology, 6.0001, Fall 2016. Ana Bell, Eric Grimson, and John Guttag. <em>Lecture 1</em>, particularly slides 23–34 and its three written in-class questions. <a href="https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/">Course</a>. <a href="https://live.ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/e921a690079369751bcce3e34da6c6ee_MIT6_0001F16_Lec1.pdf">Slides</a>. <a href="https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/pages/in-class-questions-and-video-solutions/lecture-1/">Questions</a>.</li>
+<li>ISO/IEC JTC1/<span class="math-inline">SC22/WG14</span>. <em>N1570: Committee Draft, April 12, 2011</em>. Specification cross-check for the scalar rules retained in C17: §§5.2.4.2.1, 6.2.5–6.2.6, 6.3.1.1–6.3.1.8, 6.4.4, 6.5–6.5.17, 6.7.9, and 7.21.6.1. <a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf">Public draft</a>.</li>
+</ol>
+<p><strong>Review scope.</strong> These are reviewed in-scope written sections, not claims of full-course transcription. The bounded source survey and corrected source statements are recorded in the project's source audit. The problem bank covers the chapter's reasoning patterns; it does not claim to contain every question in all university offerings. In-scope reasoning from the selected exercises is represented, while whole applications requiring later algorithms, strings, input processing, or advanced mathematics are deferred with their chapter boundaries.</p>
+<p><strong>Accuracy limits.</strong> The mathematical arguments establish their conclusions under the stated domains and model. Numerical and presentation checks supplement those arguments; they do not prove that an unknown future question has been anticipated or that studying alone guarantees an examination result. Language-version changes, implementation choices, and unexplored course material remain explicit limits. The student approved this chapter on 2026-10-02; it is promoted to the finished library.</p>
+<p>Student approved this chapter on 2026-10-02 and authorized <span class="math-inline">p</span>_flow.</p>
+</article><p class="top-link"><a href="../index.html#library">← Back to the chapter library</a></p></main></body></html>

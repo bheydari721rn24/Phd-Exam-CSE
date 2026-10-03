@@ -1,0 +1,792 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Conditionals, Loops, and Execution Order · Doctoral CSE 1406</title><meta name="description" content="Deep C17 control flow: five reviewed university courses, proofs, exact execution traces, 36 solved problems, 60 examination rules and an interactive laboratory."><link rel="stylesheet" href="chapter.en.css"><link rel="stylesheet" href="p_flow.css"><script src="p_flow-lab.js" defer></script></head><body><main class="chapter"><p class="top-link"><a href="../index.html#library">← Back to the chapter library</a></p><header class="hero"><p class="eyebrow">Programming Fundamentals · Chapter 2</p><h1>Conditionals, Loops, and Execution Order</h1><p>Approved chapter · five reviewed university courses · 36 fully worked problems · 60 examination rules</p></header><nav class="toc" aria-label="Chapter contents"><a href="#sources">Scope and sources</a> <a href="#state">State and statements</a> <a href="#conditionals">Conditionals</a> <a href="#switch">Switch</a> <a href="#loops">Loop order</a> <a href="#transfers">Transfers</a> <a href="#proofs">Proofs</a> <a href="#termination">Counts and termination</a> <a href="#laboratory">Laboratory</a> <a href="#worked-problems">36 worked problems</a> <a href="#quick-reference">60 examination rules</a> <a href="#references">References</a></nav><article class="lesson"><h2 id="sources">Scope, prerequisites, and reviewed sources</h2>
+<p>This chapter teaches how to determine which statement executes next, how to construct correct branches and loops, and how to justify the result rather than guess it from a few runs. Read the approved <a href="p_types.html">scalar types and expressions chapter</a> first. You need assignment, integer promotions, short-circuit evaluation, representable ranges, and the distinction between an expression's value and its side effects. The <a href="a_loop.html">loop-analysis chapter</a> supplies the broader asymptotic counting methods; here we establish the execution paths that those counts assume.</p>
+<p><strong>Language contract.</strong> Unless a block is marked Python or pseudocode, code uses C17. Small numerical examples fit every conforming C17 <code>int</code> unless a different machine model is stated. <code>INT_MAX</code> and <code>UINT_MAX</code> denote the implementation's limits from <code>&lt;limits.h&gt;</code>; unsigned arithmetic is modular, while signed arithmetic outside its representable range is undefined. A fragment belongs inside a function with the displayed declarations. Complete input/output scaffolding is omitted when it does not affect the control-flow question. <code>emit(x)</code> in pseudocode means append a value to an output sequence; it is not an undeclared <span class="math-inline">C</span> library function.</p>
+<p>The documented discovery pool contains eight offerings. Four complementary core courses were selected for this chapter, with a fifth university source used for <span class="math-inline">C</span>-specific scope, comma-expression, and jump details. Selection considered accessible written substance, coverage within this chapter's boundary, explicit assumptions, proof depth, and exercise value. This is an evaluated accessible pool, not a claim that every course in the world was discoverable or that these courses are globally optimal.</p>
+<table>
+<thead>
+<tr>
+<th>Reviewed course</th>
+<th>Exact written material</th>
+<th>Role and reconciliation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Harvard University, CS50x 2025, David <span class="math-inline">J</span>. Malan</td>
+<td><a href="https://cs50.harvard.edu/x/2025/notes/1/">Lecture 1 notes</a>, Conditionals, compare.c, agree.c, Loops, input validation, and Mario</td>
+<td>Core foundation. Branching and iteration are connected to explicit state tables; teaching examples do not establish universal termination or overflow safety.</td>
+</tr>
+<tr>
+<td>Massachusetts Institute of Technology, 6.0001, Fall 2016, Ana Bell, Eric Grimson, John Guttag</td>
+<td><a href="https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/ba2947b25b1580e4a84df0ec5dbe5cdd_MIT6_0001F16_Lec2.pdf">Lecture 2 slides</a>, pages 7–23</td>
+<td>Core cross-language comparison. Python iteration over a range is distinguished from a <span class="math-inline">C</span> three-clause loop.</td>
+</tr>
+<tr>
+<td>Princeton University, COS126 resource family, Robert Sedgewick and Kevin Wayne</td>
+<td><a href="https://introcs.cs.princeton.edu/java/13flow/">§1.3 Conditionals and Loops</a>, instructional body and exercise inventory</td>
+<td>Core tracing and numerical-loop perspective. Java typing, labeled jumps, and overflow behavior are not imported into <span class="math-inline">C</span>.</td>
+</tr>
+<tr>
+<td>Cornell University, CS2110, Spring 2026, course teaching staff</td>
+<td><a href="https://courses.cis.cornell.edu/courses/cs2110/2026sp/lectures/lec04/">Lecture 4: Loop Invariants</a>, loop anatomy, invariant construction, and exercise families</td>
+<td>Core proof method. Prefix and boundary diagrams motivate independently developed scalar examples; array partition algorithms belong to later chapters. Individual authorship is not guessed from an unavailable staff page.</td>
+</tr>
+<tr>
+<td>University of Cambridge, Programming in <span class="math-inline">C</span>, 2017–18, Neel Krishnaswami</td>
+<td><a href="https://www.cl.cam.ac.uk/teaching/1718/ProgC/lectures/lecture1.pdf">Lecture 1</a>, pages 14–18 and 20–23</td>
+<td>Supplement. The comma-controlled loop exercise and scope/jump distinctions receive explicit initialization and C17 assumptions.</td>
+</tr>
+</tbody>
+</table>
+<p>Stanford CS106A's written robot-control lecture and Berkeley CS61C's short control-flow reference were screened but provide less additional depth for this boundary. CMU 15-122 Spring 2024 was screened through its index; its linked contracts PDF returned 404 and is not counted as reviewed. Exact selection evidence and source hashes are retained in the research audit. The <span class="math-inline">C</span> rules below were checked against the public <a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf">WG14 N1570 draft</a>, particularly §§6.8–6.8.6. This is a C11 committee draft used to check rules that carry into the stated C17 scope, not a falsely labeled copy of the published C17 standard.</p>
+<p><strong>Study route.</strong> First understand the state-and-control model. Then learn branch selection, each loop's execution order, and the targets of abrupt transfers. Next study proof obligations and machine boundaries. Finish with the worked problems, the decision procedure, and the final rules. The laboratory can replay execution while you read; it does not replace the proofs. No Iranian entrance-exam paper is used in this chapter, consistent with the final-month reservation. The problem set is a curated set of original and attributed, independently formulated course-inspired problems, not a reproduction of every exercise in the source courses.</p>
+<h2 id="state">Statements, state, and execution checkpoints</h2>
+<h3>A program needs both data and a next location</h3>
+<p>A state maps each in-scope variable to its current value. Write <span class="math-inline">σ</span> for that mapping, and pc for the next execution location. A trace is a sequence of pairs (pc, <span class="math-inline">σ</span>). The location matters: the same values immediately before a loop test and immediately after a loop body can lead to different next actions. A final value alone hides the reasoning that established it.</p>
+<p>For <code>x = x + 2; y = x * 3;</code>, with initial <code>x = 4</code>, the second statement reads the updated value 6. It assigns 18 to <code>y</code>. A trace should have one row after each full expression, not one row per physical source line. Multiple statements can share a line, and one statement can span several lines. Comments and visual indentation do not create execution steps in <span class="math-inline">C</span>.</p>
+<table>
+<thead>
+<tr>
+<th>Checkpoint</th>
+<th><code>x</code></th>
+<th><code>y</code></th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Before first assignment</td>
+<td>4</td>
+<td>Not yet assigned</td>
+<td>Reading <code>y</code> here would need a valid earlier initialization.</td>
+</tr>
+<tr>
+<td>After first assignment</td>
+<td>6</td>
+<td>Not yet assigned</td>
+<td>The update is complete before the second full expression.</td>
+</tr>
+<tr>
+<td>After second assignment</td>
+<td>6</td>
+<td>18</td>
+<td>Both values are now established.</td>
+</tr>
+</tbody>
+</table>
+<p>An expression statement evaluates an optional expression and ends in a semicolon. Its value is discarded, but its side effects matter. <code>x + 1;</code> does not change <code>x</code>; <code>x += 1;</code> does. A null statement is simply <code>;</code>. It performs no operation and can legally be a branch or loop body. A block <code>{ ... }</code> groups declarations and statements so the block can occupy a single statement position.</p>
+<pre><code class="language-c">int x = 3;
+if (x &gt; 0)
+    ;
+{
+    x = 7;
+}
+</code></pre>
+<p>The <code>if</code> controls the null statement. The block following it executes independently, so <code>x</code> becomes 7. The braces do not retroactively attach themselves to the preceding condition. Draw a tree of statements when layout is misleading: an <code>if</code> owns its immediate substatement, which can be a block, another <code>if</code>, a loop, or a null statement.</p>
+<h3>Scope is a name rule; execution is a path rule</h3>
+<p>An inner declaration can hide an outer variable without changing the outer object. Each iteration entering a body block can create a fresh automatic local object. Its initializer executes on that entry; it does not remember an earlier iteration's value unless its storage duration says otherwise. Scope determines which object a name denotes; it does not establish that an assignment actually executed.</p>
+<pre><code class="language-c">int total = 0;
+for (int i = 0; i &lt; 3; ++i) {
+    int local = 2;
+    total += local;
+    ++local;
+}
+</code></pre>
+<p>Each entry initializes <code>local</code> to 2. <code>total</code> receives 2 three times and finishes at 6. The increment of <code>local</code> is discarded when that iteration's object lifetime ends. The <code>i</code> declared in the header is in scope for the loop's remaining header and body, not after the loop. A preexisting outer <code>i</code> would be a different object if hidden by this declaration.</p>
+<p>A control-flow graph represents execution locations as nodes and possible next steps as directed edges. A decision has outgoing edges marked by guard results. A loop has a backward edge. <code>break</code> and <code>continue</code> create edges that bypass some statements. A graph is more reliable than saying “go to the next line,” because the next executed statement often lies above or outside the current block.</p>
+<h3>Trace only defined executions</h3>
+<p>Before calculating output, check syntax, scope, initialization, arithmetic safety, and sequencing. A convenient branch can prevent an unsafe expression from being evaluated, but an unsafe expression already evaluated in the guard is too late to prevent. <code>if (b != 0 &amp;&amp; a / b &gt; 2)</code> excludes zero division, yet a signed minimum divided <span class="math-inline">by −1</span> can still be unrepresentable on the specified machine. A fully appropriate precondition or additional guard is required.</p>
+<p>Undefined behavior is not a branch with an unusual numerical answer. The language imposes no requirements on that execution. Keep such cases classified as undefined instead of extending a trace with an invented wraparound. A missing compiler diagnostic does not establish defined behavior. Conversely, a constraint violation such as <code>continue</code> outside any loop requires a diagnostic; it is different from a valid program containing a possible undefined execution.</p>
+<h2 id="conditionals">Conditional selection and decision design</h2>
+<h3>Truth and evaluation order</h3>
+<p>In C17 an <code>if</code> controlling expression must have scalar type, including arithmetic and pointer types. It selects its first substatement when the expression compares unequal to zero. Negative values are true as well as positive values. A null pointer is false; “zero” here is a semantic comparison, not a claim about raw pointer bits. Java requires a boolean condition. Python uses its own truth-testing protocol. These rules are not interchangeable.</p>
+<p><code>if (x = 5)</code> is valid <span class="math-inline">C</span> when <code>x</code> is a suitable scalar: it assigns 5, and the assigned value is nonzero, so the branch is taken. <code>if (x == 5)</code> compares without assigning. Parentheses around an intentional assignment improve clarity, but they do not convert assignment to comparison. Similarly, <code>if (0 &lt; x &lt; 10)</code> parses as <code>(0 &lt; x) &lt; 10</code>; the first comparison yields 0 or 1, so the second comparison is true for every ordinary integer <code>x</code>. The intended interval test is <code>0 &lt; x &amp;&amp; x &lt; 10</code>.</p>
+<p>For <code>A &amp;&amp; B</code>, evaluate <code>A</code> first; evaluate <code>B</code> only if <code>A</code> is nonzero. For <code>A || B</code>, evaluate <code>B</code> only if <code>A</code> is zero. The first operand is sequenced before the second when the second executes. Bitwise <code>&amp;</code> and <code>|</code> do not supply those short-circuit guarantees. A guard therefore has both a Boolean function and an evaluation policy. Algebraically equivalent formulas can differ when operands have side effects or unsafe operations.</p>
+<pre><code class="language-c">int i = 0;
+if (i++ == 0 &amp;&amp; ++i == 2) {
+    i += 10;
+}
+</code></pre>
+<p>The first operand compares old value 0 and increments <code>i</code> to 1. Because that operand is true, the second increments it to 2 and compares 2 to 2. Both are true; the body makes <code>i</code> 12. The operations are sequenced by <code>&amp;&amp;</code>. Replacing <code>&amp;&amp;</code> by <code>&amp;</code> introduces unsequenced modifications of the same scalar and gives undefined behavior; it is not merely a less efficient version.</p>
+<h3>Independent conditions versus a priority chain</h3>
+<p>Several independent <code>if</code> statements can all execute. An <code>if</code>/<code>else if</code>/<code>else</code> chain selects the first true guard and skips all later guards. In the chain, the last <code>else</code> is the residual case under the domain assumptions. It is not an additional condition evaluated separately.</p>
+<p>For integer scores restricted to 0 through 100, thresholds should be ordered so the first selected branch has the intended priority. To assign categories 3 for at least 80, 2 for at least 50, and 1 otherwise, test 80 before 50. Testing 50 first swallows all values at least 80. An ascending chain works when its predicates are upper bounds: below 50, then below 80, then the residual case.</p>
+<p>Decision design has three obligations. <strong>Coverage:</strong> every allowed input reaches an intended outcome. <strong>Exclusivity or priority:</strong> either predicates are disjoint, or their order deliberately resolves overlap. <strong>Boundary correctness:</strong> equality belongs to the specified interval. Write categories as mathematical intervals before writing code. Include a separate invalid-input outcome when the contract admits inputs outside the classification range.</p>
+<p>Independent conditions that assign to the same result implement “last true assignment wins.” They do not implement “first matching category.” Furthermore, an early assignment can change a later guard. For <code>if (x &lt; 5) x += 4; if (x &gt; 5) x -= 2;</code>, an initial 3 becomes 7, then 5. A trace must recompute the second guard from the new state.</p>
+<h3>The dangling else and explicit blocks</h3>
+<p>An <code>else</code> binds to the nearest preceding unmatched <code>if</code> permitted by the grammar, regardless of indentation.</p>
+<pre><code class="language-c">if (a &gt; 0)
+    if (b &gt; 0)
+        result = 1;
+    else
+        result = 2;
+</code></pre>
+<p>The <code>else</code> belongs to <code>if (b &gt; 0)</code>. If <code>a</code> is nonpositive, neither assignment executes. To give the <code>else</code> to the outer test, enclose the inner test in braces and put <code>else</code> after that block. The distinction is especially important when <code>result</code> would otherwise remain indeterminate. Initializing a default makes the no-assignment path explicit but does not repair a wrongly specified branch.</p>
+<h3>Conditional expressions are expressions</h3>
+<p><code>condition ? yes : no</code> chooses one operand after evaluating its condition. Only the selected operand executes. It produces a value whose type depends on both operand types, even when only one operand executes. Thus a ternary expression can have conversion consequences absent from an <code>if</code> with two independent assignments. Review the usual arithmetic conversions before assuming <code>-1</code> remains signed in <code>flag ? -1 : 1u</code>.</p>
+<p>Avoid repeatedly evaluating stateful conditions while simplifying code. <code>if (read()) ...</code> and a rewritten expression that calls <code>read()</code> twice need not behave alike. A sound transformation preserves evaluated operations, their sequencing, chosen paths, relevant scope, and observable effects. “Same truth table for pure inputs” is a narrower statement than “same program behavior.”</p>
+<h2 id="switch">Switch dispatch, labels, and fallthrough</h2>
+<h3>Dispatch is one entry jump</h3>
+<p>A C17 <code>switch</code> controlling expression has integer type. Integer promotions apply. Each case is an integer constant expression converted to that promoted controlling type; converted case values must be distinct. There can be at most one <code>default</code> in a given switch. An ordinary <code>const int</code> variable is not, merely by being <code>const</code>, an integer constant expression in C17. An enumeration constant or appropriate constant expression can be used.</p>
+<p>After evaluating the controlling expression, execution jumps to the matching label, or to <code>default</code> if no case matches. If neither exists, the body is skipped. A label is an entry location, not an automatically guarded independent branch. From the entry point, statements execute in ordinary order, including across later labels, until a jump or the end of the body intervenes. This is fallthrough. A <code>default</code> in the middle can fall through into a later case.</p>
+<pre><code class="language-c">int value = 2, sum = 0;
+switch (value) {
+case 1: sum += 10;
+case 2: sum += 20;
+default: sum += 30;
+case 4: sum += 40; break;
+}
+</code></pre>
+<p>Input 2 enters at <code>case 2</code>; additions 20, 30, and 40 execute, yielding 90. Input 3 enters at <code>default</code>, yielding 70. Input 4 yields 40. Input 1 yields 100. The controlling value is not retested at each label. Changing <code>value</code> in the body does not redirect the switch to a different case.</p>
+<h3>Break targets the nearest eligible construct</h3>
+<p><code>break</code> exits the smallest enclosing switch or loop. A switch inside a loop therefore intercepts a <code>break</code> located directly inside that switch. A loop inside a switch intercepts a <code>break</code> located inside the loop. <code>if</code> creates no break target. Trace the nesting tree before deciding which construct ends.</p>
+<p><code>continue</code> has a different rule: it targets the smallest enclosing loop, ignoring any intervening switch. In a switch inside a <code>for</code>, <code>continue</code> proceeds to that <code>for</code>'s update expression. It skips both the remaining switch statements and the remaining statements of that loop body. A switch with no enclosing loop cannot contain a valid <code>continue</code> merely because it resembles a selection among iterations.</p>
+<h3>Scope does not force initialization to execute</h3>
+<p>Declarations placed before the first case are skipped by the dispatch jump. An automatic object can be in scope while its initializer was bypassed. Reading its indeterminate value is not justified by the declaration's visual position. Place case-local declarations inside an explicit block entered after the label.</p>
+<pre><code class="language-c">switch (tag) {
+case 1: {
+    int temporary = 7;
+    result = temporary;
+    break;
+}
+default:
+    result = 0;
+}
+</code></pre>
+<p>In C17 a label prefixes a statement, not a declaration. <code>case 1: int x = 7;</code> is not the portable form assumed here. A compound statement after the label provides the required statement and a useful local scope. <span class="math-inline">C</span> versions and compiler extensions can differ; the declared C17 contract decides the answer.</p>
+<h2 id="loops">While, do-while, and for execution order</h2>
+<h3>Pretest loops: while</h3>
+<p><code>while (guard) body</code> tests first. If the guard is zero, it executes the body zero times. After a normally completed body, it returns to the guard. There is no implicit update unless code actually performs one. A loop can be syntactically valid yet never progress. <code>while (i &lt; 4) total += i;</code> does not change <code>i</code> and may repeatedly accumulate until arithmetic itself becomes unsafe.</p>
+<p>For <code>i = 0; while (i &lt; 4) { sum += i; ++i; }</code>, the body sees 0, 1, 2, 3. The terminating guard sees 4. Body entries and guard evaluations are different counts: four entries, five guards. This rule presumes normal termination by a false guard, a pretest loop entered in the ordinary way, and no other transfer. An early <code>break</code> can remove the final guard. Guard expressions with side effects can change state even when false.</p>
+<h3>Posttest loops: do-while</h3>
+<p><code>do body while (guard);</code> enters the body before the first test. The trailing semicolon belongs to the syntax. Ordinary entry guarantees one body entry, but not that every statement of that body completes: an early <code>break</code>, <code>return</code>, or other jump can skip the trailing test. If termination occurs through a false guard after each completed body, the numbers of body entries and tests are equal.</p>
+<p>Input validation often uses this structure because obtaining an input is necessary before deciding whether to repeat. The loop can still fail to terminate if an input source supplies invalid values forever. “A valid value will eventually be supplied” is an environmental assumption, not a mathematical fact implied by the syntax. Robust real input handling must also distinguish end-of-input and parse failure; advanced <span class="math-inline">I/O</span> belongs to its later chapter.</p>
+<h3>Three-clause loops: for</h3>
+<p>For <code>for (init; guard; update) body</code>, the normal order is initialization once, guard, body, update, guard, body, update, and so on. The update follows each normally completed body and each <code>continue</code> targeting this loop. It does not follow <code>break</code> or <code>return</code> leaving this loop. The final guard evaluation can be false without another body entry.</p>
+<p>The clauses are not function arguments. Initialization and update may be omitted. An omitted guard is treated as a nonzero constant, so <code>for (;;) { ... }</code> does not terminate by a false guard. A comma operator can sequence multiple expressions in a clause. However, a comma in a declaration separates declarators rather than forming the same comma operator. A declared header variable is local to the loop.</p>
+<figure class="flow-diagram"><svg viewBox="0 0 700 330" role="img" aria-labelledby="order-title"><title id="order-title">The execution graph of a for loop</title><defs><marker id="flow-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#446c7b"/></marker></defs><g fill="#f0f7f8" stroke="#446c7b" stroke-width="1.5"><rect x="25" y="125" width="110" height="55" rx="8"/><path d="M240 100L310 152L240 204L170 152Z"/><rect x="355" y="125" width="115" height="55" rx="8"/><rect x="520" y="125" width="115" height="55" rx="8"/><rect x="185" y="265" width="110" height="45" rx="8"/></g><g stroke="#446c7b" stroke-width="1.8" fill="none" marker-end="url(#flow-arrow)"><path d="M135 152H170"/><path d="M310 152H355"/><path d="M470 152H520"/><path d="M578 125V45H240V100"/><path d="M240 204V265"/><path d="M412 180V288H295"/><path d="M412 125V85H578V125"/></g><g fill="#153448" text-anchor="middle" font-size="18"><text x="80" y="159">Initialize</text><text x="240" y="158">Guard</text><text x="412" y="159">Body</text><text x="578" y="159">Update</text><text x="240" y="293">After loop</text><text x="332" y="140" font-size="14">true</text><text x="267" y="239" font-size="14">false</text><text x="377" y="280" font-size="14">break</text><text x="484" y="76" font-size="14">continue</text><text x="410" y="32" font-size="14">Normal completion returns through update</text></g></svg><figcaption>Figure 1. In a for loop, continue reaches the update; break reaches the statement after the loop. The update is not an automatic effect of leaving the body by any route.</figcaption></figure>
+<h3>The for-to-while rewrite has a condition</h3>
+<p>The simple rewrite <code>init; while (guard) { body; update; }</code> preserves behavior only when relevant paths through <code>body</code> reach the update correctly. A <code>continue</code> in the original body reaches the for-update; a <code>continue</code> in the rewritten while skips the appended update. It can change termination, result, and safety. Scope also needs preserving when initialization declares a variable.</p>
+<p>For a structural rewrite, use a dedicated update label inside an enclosing block, replace only <code>continue</code> statements targeting the original loop by jumps to that label, and preserve inner-loop continues. Alternatively, restructure the body so every continuation path explicitly performs the update. A mechanical text replacement of every <code>continue</code> is wrong in nested loops. A label must not introduce an invalid jump into the scope of a variably modified object.</p>
+<h3>The guard can modify the exit state</h3>
+<p>With <code>int i = 0; while (i++ &lt; 3) { ... }</code>, successful tests compare 0, 1, and 2 but body entries see 1, 2, and 3. The false test compares 3 and still increments <code>i</code> to 4. Therefore, the post-loop value is 4. With <code>++i &lt; 3</code>, body entries see 1 and 2, and the exit value is 3. Treat postfix and prefix operations as state transitions, not decorative typography.</p>
+<h2 id="transfers">Abrupt transfers, nesting, and reachability</h2>
+<h3>A destination table</h3>
+<table>
+<thead>
+<tr>
+<th>Transfer</th>
+<th>Destination</th>
+<th>Effects skipped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>break</code></td>
+<td>After nearest enclosing loop or switch</td>
+<td>Remaining body and a departed for-update are skipped.</td>
+</tr>
+<tr>
+<td><code>continue</code> in while</td>
+<td>That loop's next guard evaluation</td>
+<td>Remaining body, including manual updates below it, is skipped.</td>
+</tr>
+<tr>
+<td><code>continue</code> in do-while</td>
+<td>That loop's trailing guard</td>
+<td>Remaining body is skipped; the test still executes.</td>
+</tr>
+<tr>
+<td><code>continue</code> in for</td>
+<td>That loop's update, then guard</td>
+<td>Remaining body is skipped; the header update still executes.</td>
+</tr>
+<tr>
+<td><code>return</code></td>
+<td>Caller of current function</td>
+<td>All remaining local loops and statements in that invocation are skipped.</td>
+</tr>
+<tr>
+<td><code>goto label</code></td>
+<td>Named statement in same function</td>
+<td>Intervening statements are skipped; scope restrictions still apply.</td>
+</tr>
+</tbody>
+</table>
+<p>Nested loops keep separate control states. Breaking the inner loop leaves the outer body active, so statements after the inner loop still run. An outer loop update then occurs if the outer body completes normally. To leave several loops, use a propagated flag, a function return when appropriate, or a carefully constrained label. C17 has no Java-style labeled <code>break</code> or labeled <code>continue</code>.</p>
+<p>Reachability follows the graph, not the apparent intent. Statements after an unconditional <code>break</code> in the same path are unreachable on that path. A statement following the entire loop may be reachable through a false guard, a break, or a jump; each route can supply a different postcondition. A <code>return</code> inside a nested loop can make an otherwise visible final assignment unreachable for some inputs.</p>
+<h3>A label can bypass the normal entry</h3>
+<p>Ordinary “while can run zero times” and “init runs once” statements assume entry through the loop statement. <span class="math-inline">C</span> permits certain jumps into a loop body; such a jump can skip the initial guard and a for-initialization. This is an advanced tracing boundary, not a recommended design. A valid loop proof must account for every reachable entry edge.</p>
+<pre><code class="language-c">int i = 0, visits = 0;
+goto inside;
+while (i &lt; 0) {
+inside:
+    ++visits;
+    ++i;
+}
+</code></pre>
+<p>The jump enters the body once. Afterwards the guard tests <code>i &lt; 0</code> with <code>i = 1</code> and ends the loop. Final <code>visits</code> is 1 despite the initially false ordinary guard. No forbidden scope is entered in this fragment. A jump from outside into the scope of an identifier with variably modified type would violate a separate constraint. Distinguish the syntax boundary from a valid but surprising control path.</p>
+<h2 id="proofs">Invariants, termination, and constructing loops</h2>
+<h3>Four proof obligations</h3>
+<p>A useful invariant is a property required at a stated checkpoint, commonly just before each guard. It need not hold after every intermediate assignment. Let <span class="math-inline">I</span> denote that property and <span class="math-inline">B</span> the guard. For a side-effect-free guard and an ordinary while loop, establish:</p>
+<div class="formula-block">Precondition ⇒ I<br>I ∧ B ⇒ body is safe and re-establishes I<br>I ∧ ¬B ⇒ Postcondition</div>
+<p>These establish <strong>partial correctness</strong>: if the loop terminates through its normal guard, the specified result holds. Add a <strong>termination</strong> argument for total correctness. A common variant <span class="math-inline">V</span> maps each guard checkpoint satisfying the guard to a nonnegative integer and strictly decreases across every iteration that returns to the guard. A strictly decreasing sequence of nonnegative integers cannot continue forever. Also establish termination of each body execution; a variant at the outer guard cannot rescue an inner loop that never returns.</p>
+<p>Break exits require a separate postcondition at the break edge. Continue paths require preservation and progress at their actual return checkpoint. A stateful guard requires modeling its state transformation; using <span class="math-inline">I</span> <span class="math-inline">∧</span> <span class="math-inline">¬B</span> without accounting for the final guard's side effects can produce a false postcondition. Name the checkpoints before doing algebra.</p>
+<h3>Derive an accumulator rather than memorize it</h3>
+<p>Suppose the task is to add all integers from 1 through <code>n</code>, where <code>n</code> is a nonnegative <code>int</code> and the final sum is representable. Choose <code>i</code> as the number already processed and <code>sum</code> as their sum. At the guard:</p>
+<div class="formula-block"><span class="math-inline">0 ≤ i ≤ n</span><br><math display="block"><mrow><mi>sum</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>i</mi></munderover><mi>k</mi><mo>=</mo><mfrac><mrow><mi>i</mi><mo>(</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow><mn>2</mn></mfrac></mrow></math></div>
+<p>The empty processed prefix at <code>i = 0</code> has sum zero, so initialize both to zero. The postcondition needs <code>i = n</code>, giving guard <code>i &lt; n</code>. To extend the prefix, increment <code>i</code> and add that newly processed number. With <code>n = 0</code>, the guard is initially false and the correct result remains zero.</p>
+<pre><code class="language-c">int i = 0, sum = 0;
+while (i &lt; n) {
+    ++i;
+    sum += i;
+}
+</code></pre>
+<p>Initialization follows from the empty sum. Preservation follows because the new sum is the old sum plus the new endpoint. The bounds become <code>i + 1 &lt;= n</code> under the old guard. The variant is <code>n - i</code>, a nonnegative integer strictly reduced by one. Upon the false guard, the invariant supplies <code>i &lt;= n</code> and the guard supplies <code>i &gt;= n</code>, hence equality. All partial sums are nonnegative and at most the final sum, so the stated representability assumption covers the updates. The mathematical expression <code>i(i + 1)/2</code> in the proof does not require computing that product in <span class="math-inline">C</span>, where its intermediate value might overflow.</p>
+<h3>A moving boundary picture</h3>
+<figure class="flow-diagram"><svg viewBox="0 0 700 205" role="img" aria-labelledby="prefix-title"><title id="prefix-title">Processed and unprocessed prefixes in an accumulation invariant</title><defs><marker id="prefix-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#446c7b"/></marker></defs><rect x="35" y="60" width="300" height="64" fill="#dbeee7" stroke="#446c7b"/><rect x="335" y="60" width="330" height="64" fill="#f0f3f8" stroke="#446c7b"/><g fill="#153448" text-anchor="middle" font-size="17"><text x="185" y="88">Processed values: 1 through <tspan class="math-label">i</tspan></text><text x="185" y="111">Their sum is stored</text><text x="500" y="88">Unprocessed values</text><text x="500" y="111"><tspan class="math-label">i + 1</tspan> through <tspan class="math-label">n</tspan></text><text x="35" y="43" class="math-label">0</text><text x="335" y="43" class="math-label">i</text><text x="665" y="43" class="math-label">n</text><text x="350" y="183">One update moves the boundary right by one</text></g><path d="M270 150H405" stroke="#446c7b" stroke-width="2" marker-end="url(#prefix-arrow)"/></svg><figcaption>Figure 2. The boundary is a count of processed values. It is not an array-cell address. At initialization the processed region is empty; at termination it covers the whole interval.</figcaption></figure>
+<h3>Weak invariants and circular reasoning</h3>
+<p>“The sum is correct” is too vague unless “correct for which prefix?” is answered. “The algorithm eventually produces the desired sum” is a goal, not an invariant. <span class="math-inline">A</span> true property such as <code>i &gt;= 0</code> may be preserved but too weak to imply the desired sum at exit. Choose enough state relationships to connect progress to meaning.</p>
+<p>An invariant can be temporarily false within a body. In the summation loop, immediately after <code>++i</code> and before <code>sum += i</code>, the sum still covers the previous prefix. The proof is valid because the declared checkpoint occurs after the entire body and before the next guard. A <code>continue</code> inserted between those two assignments would return to the checkpoint with the relationship broken.</p>
+<h3>Euclid's algorithm and a non-counter loop</h3>
+<p>For nonnegative mathematical integers <span class="math-inline">A</span> and <span class="math-inline">B</span>, not both zero, maintain <code>gcd(a, b) = gcd(A, B)</code> while applying <code>(a, b) ← (b, a mod b)</code> whenever <code>b &gt; 0</code>. The equality follows because an integer divides both <code>a</code> and <code>b</code> exactly when it divides both <code>b</code> and <code>a - qb</code>, where <code>q</code> is the quotient. The remainder lies between zero and <code>b - 1</code>. Thus <code>b</code> is a strictly decreasing nonnegative variant. At exit <code>b = 0</code>, and <code>gcd(a, 0) = a</code> gives the result.</p>
+<pre><code class="language-c">unsigned int a = A, b = B;
+while (b != 0u) {
+    unsigned int remainder = a % b;
+    a = b;
+    b = remainder;
+}
+</code></pre>
+<p>Here <code>A</code> and <code>B</code> must fit <code>unsigned int</code>, and at least one is nonzero. No multiplication is needed, and remainder is evaluated only with a nonzero divisor. The temporary preserves the old pair. Replacing the three body statements by <code>a = b; b = a % b;</code> uses the changed <code>a</code> and destroys the invariant. The mathematical meaning determines the necessary sequencing.</p>
+<h2 id="termination">Exact counts and machine-level termination</h2>
+<h3>Arithmetic progression counts</h3>
+<p>For mathematical integers, start value <span class="math-inline">a</span>, positive step <span class="math-inline">s</span>, and guard <code>i &lt; b</code>, body-entry values are <span class="math-inline">a + ks</span> for nonnegative <span class="math-inline">k</span> satisfying <span class="math-inline">a + ks &lt; b</span>. The count is:</p>
+<div class="formula-block"><math display="block"><mrow><mi>T</mi><mo>=</mo><mi>max</mi><mo>(</mo><mn>0</mn><mo>,</mo><mo>⌈</mo><mfrac><mrow><mi>b</mi><mo>−</mo><mi>a</mi></mrow><mi>s</mi></mfrac><mo>⌉</mo><mo>)</mo></mrow></math></div>
+<p>For inclusive <code>i &lt;= b</code>, when <span class="math-inline">a ≤ b</span>, the count is floor((<span class="math-inline">b − a</span>)/s) <span class="math-inline">+</span> 1; otherwise it is zero. A descending loop with positive decrement <span class="math-inline">s</span> and <code>i &gt; b</code> has the analogous ceiling of (<span class="math-inline">a − b</span>)/s, clipped at zero. Derive these by solving the inequality for <span class="math-inline">k</span>, then count integer solutions. Do not apply them when the body changes the index, guard has side effects, an early exit intervenes, or finite arithmetic alters the progression.</p>
+<p>For a normal terminating pretest loop with <span class="math-inline">T</span> entries and no early exit, the guard runs <span class="math-inline">T + 1</span> times; the for-update runs <span class="math-inline">T</span> times. If the <span class="math-inline">T</span>-th body entry breaks, the guard has run <span class="math-inline">T</span> times and the update <span class="math-inline">T − 1</span> times, assuming earlier entries completed normally and no other transfers. For a do-while with normal guard termination, tests run <span class="math-inline">T</span> times. A break in its <span class="math-inline">T</span>-th entry leaves only <span class="math-inline">T − 1</span> tests. Initialization counts once under ordinary entry in every such for case.</p>
+<h3>Unsigned cycles have number theory</h3>
+<p>An unsigned loop index updated by <code>i += step</code> follows modular arithmetic with modulus <span class="math-inline">M = UI</span>NT_MAX <span class="math-inline">+</span> 1 as a mathematical integer. It can wrap instead of passing an expected bound. If it begins at zero, it reaches exactly <span class="math-inline">M/gcd(M, step)</span> distinct residues before returning to zero. A guard testing for equality to target <span class="math-inline">t</span> can be reached only if <span class="math-inline">gcd(M, step)</span> divides <span class="math-inline">t</span>. More generally from a start <span class="math-inline">a</span>, reachability requires <span class="math-inline">gcd(M, step)</span> to divide <span class="math-inline">t − a</span>.</p>
+<p>Proof: after <span class="math-inline">k</span> updates the residue is <span class="math-inline">a + k</span>·step modulo <span class="math-inline">M</span>. Target reachability is a linear congruence. If <span class="math-inline">d</span> is the greatest common divisor, every reachable difference is divisible by <span class="math-inline">d</span>. Conversely, dividing by <span class="math-inline">d</span> leaves a step coprime to <span class="math-inline">M/d</span>, which has a multiplicative inverse modulo <span class="math-inline">M/d</span>, so a solution for <span class="math-inline">k</span> exists. This yields a precise termination argument for equality-based loops under a specified modular model. It does not make a guard like <code>i &lt;= UINT_MAX</code> false: that comparison is always true for an unsigned variable of that type.</p>
+<p><code>for (unsigned int i = n; i &gt;= 0u; --i)</code> never exits through its guard because every unsigned value is at least zero. At zero the decrement wraps. A safe reverse count is <code>for (unsigned int i = n; i &gt; 0u; ) { --i; ... }</code>, whose body sees <span class="math-inline">n − 1</span> through zero and whose decrement occurs only from a positive value. The postdecrement idiom <code>while (i-- &gt; 0u)</code> has the same body-entry count but leaves <code>i</code> wrapped after its final false test; it has a different exit state.</p>
+<h3>Signed and floating progression</h3>
+<p>For <code>for (int i = 0; i &lt;= INT_MAX; ++i)</code>, the guard admits <code>i = INT_MAX</code>; the subsequent increment overflows. It is not a defined infinite wraparound. Even if every body access is safe, the update can violate the arithmetic contract. Prefer an exclusive guard when it expresses the desired interval, or explicitly stop before performing an unrepresentable final update.</p>
+<p>Floating-point addition can stop changing a large counter when the step is smaller than the rounding resolution. Repeated addition of a decimal fraction can also miss an intended endpoint. Exact equality is therefore not a general termination argument for floating iteration. With a declared binary floating model, ask whether each update changes the stored value, whether values stay finite, and whether NaNs are possible. A NaN fails ordinary ordered comparisons, so “not less than” need not mean “greater than or equal to.” Counting discrete iterations with an integer and deriving the floating value from the index often separates progress from numerical approximation; it does not remove all numerical error.</p>
+<h3>Optimizer and environmental boundaries</h3>
+<p>The <span class="math-inline">C</span> rule for certain loops with nonconstant controlling expressions and no <span class="math-inline">I/O</span>, volatile accesses, or atomic/synchronization operations permits an implementation to assume termination. Consequently, a source-level modular cycle in a nonobservable empty loop is not a portable timing device. A trace of the abstract progression remains useful for identifying a missing termination argument, but do not promise a particular optimized execution of such a loop. A constant guard such as <code>for (;;)</code> is a separate case under that rule.</p>
+<p>Input loops depend on future inputs. Busy-wait loops for concurrently changing state require appropriate concurrency and memory rules; an ordinary local variable is not a synchronization mechanism. Such systems issues are deferred to their chapters. For this chapter, distinguish three claims: the guard and update mathematically lead to termination; the <span class="math-inline">C</span> operations remain defined; and the environment eventually permits an exit. All three may matter.</p>
+<h2 id="laboratory">Execution-order laboratory</h2>
+<p>The laboratory replays a declared, bounded integer model. It supports a normal for-loop, the corresponding while-loop, a posttest loop, a continue-skipping update bug, and early break. Choose a case, the nonnegative limit, and the starting index. Advance one checkpoint at a time. Read the active phase and state together. A repeated full state is reported as a cycle in this deterministic model; a trace cap is a separate stop condition, never a claim of proven nontermination. The model does not interpret arbitrary <span class="math-inline">C</span> or simulate undefined behavior.</p>
+<section class="flow-lab" aria-label="Execution order laboratory">
+<label for="flow-case">Execution case</label>
+<select id="flow-case"><option value="for">for: continue still reaches update</option><option value="while">while: ordinary accumulator</option><option value="do">do-while: body before first test</option><option value="bug">while: continue skips manual update</option><option value="break">for: break skips header update</option></select>
+<div class="flow-inputs"><label>Limit, 0 through 12<input id="flow-limit" type="number" min="0" max="12" value="5"></label><label>Starting index, 0 through 12<input id="flow-start" type="number" min="0" max="12" value="0"></label></div>
+<pre id="flow-code"></pre>
+<div class="flow-actions"><button id="flow-prev" type="button">Previous checkpoint</button><button id="flow-next" type="button">Next checkpoint</button><button id="flow-end" type="button">Show full trace</button></div>
+<output id="flow-state" aria-live="polite"></output><p id="flow-explanation"></p>
+<div class="flow-track" aria-label="Execution phases"><span data-phase="init">Initialize</span><span data-phase="guard">Guard</span><span data-phase="body">Body</span><span data-phase="update">Update</span><span data-phase="exit">Exit</span></div>
+<div class="flow-table"><table><thead><tr><th>Checkpoint</th><th>Phase</th><th>Index</th><th>Sum</th><th>Reason</th></tr></thead><tbody id="flow-trace"></tbody></table></div>
+</section>
+<p>For limit 5 and start 0, the for-case skips accumulating even indices but updates on every completed or continued entry; its sum is 4 and exit index is 5. The bug-case reaches an even index, continues without changing it, and repeats the same state. The posttest case with limit zero still adds its initial index and increments once before its false guard. The break-case stops at index 3 when that index is entered and skips the header update. Vary the initial state to see why one path diagram must cover both ordinary and boundary inputs.</p>
+<h2 id="worked-problems">Worked problems with complete reasoning</h2>
+<p>Every problem includes its assumptions, the reasoning path, and a reusable lesson. These are study examples with answers already provided. Read them after the teaching sections; there is no request to take a test before learning. Most problems are original. Where a university exercise family supplied a pattern, the attribution identifies that family, while parameters, formulation, explanation, and boundary analysis here are independently developed. The set covers this chapter's scalar control-flow boundary; array sorting, partitioning, merging, and reference-course exercises outside that boundary remain assigned to their later chapters.</p>
+<h3>Problem 1. Separate conditions can both execute</h3>
+<p><strong>Original problem.</strong> Find the final value for initial <code>x = 3</code>, then give the result for initial <code>x = 1</code>.</p>
+<pre><code class="language-c">if (x &lt; 5) x += 4;
+if (x &gt; 5) x -= 2;
+</code></pre>
+<p><strong>Solution.</strong> For 3, the first guard is true and changes <code>x</code> to 7. The second guard is evaluated afterwards against 7, so it too is true and leaves 5. For 1, the first assignment gives 5; <code>5 &gt; 5</code> is false, leaving 5. There is no implicit exclusivity between the conditions. Replacing the second <code>if</code> by <code>else if</code> changes the result for initial 3 to 7, because its guard is skipped after the first branch executes. This example separates a syntactic priority chain from two sequential decisions about evolving state.</p>
+<h3>Problem 2. A threshold classifier and its domain</h3>
+<p><strong>Course-pattern attribution:</strong> Harvard CS50's mutually exclusive branch examples motivate interval classification; this specification and solution are original. Classify an integer <code>score</code> into invalid outside 0–100, low below 40, middle from 40 through 74, and high from 75 through 100.</p>
+<pre><code class="language-c">int category;
+if (score &lt; 0 || score &gt; 100) category = -1;
+else if (score &lt; 40) category = 0;
+else if (score &lt; 75) category = 1;
+else category = 2;
+</code></pre>
+<p><strong>Solution.</strong> The first branch removes values outside the domain. On the next branch, previous falsity establishes <span class="math-inline">0 ≤ sc</span>ore <span class="math-inline">≤</span> 100, and <code>score &lt; 40</code> identifies [0, 40). On the third branch, previous falsity adds score <span class="math-inline">≥</span> 40, giving [40, 75). The residual branch has score <span class="math-inline">≥</span> 75 and at most 100. Boundary checks <span class="math-inline">−</span>1, 0, 39, 40, 74, 75, 100, and 101 each select exactly the intended outcome. Writing a chain testing <code>score &gt;= 40</code> before <code>score &gt;= 75</code> would wrongly classify all high scores as middle. The correctness argument uses the accumulated path conditions, not only each guard in isolation.</p>
+<h3>Problem 3. The nearest unmatched if</h3>
+<p><strong>Original problem.</strong> Start with <code>r = 9</code>. Evaluate this fragment for pairs <code>(a,b)</code> equal to <code>(1,-1)</code>, <code>(-1,1)</code>, and <code>(1,1)</code>.</p>
+<pre><code class="language-c">if (a &gt; 0)
+    if (b &gt; 0)
+        r = 1;
+    else
+        r = 2;
+</code></pre>
+<p><strong>Solution.</strong> The else belongs to the inner if. For <code>(1,-1)</code> the outer guard admits entry, the inner guard fails, and <code>r</code> becomes 2. For <code>(-1,1)</code> the outer guard fails; no inner statement executes, so <code>r</code> remains 9. For <code>(1,1)</code> both guards succeed and <code>r</code> becomes 1. A common incorrect answer gives 2 for the second pair by attaching the else to the outer if according to indentation. Add braces around the inner conditional if that is the intended grammar. Notice that the initial value matters on the path with no assignment; omitting its initialization would introduce an indeterminate-value issue when the result is later read.</p>
+<h3>Problem 4. A null statement defeats apparent indentation</h3>
+<p><strong>Course-pattern attribution:</strong> Princeton §1.3's spurious-semicolon exercise family. This fragment and reasoning use different values and C17 semantics.</p>
+<pre><code class="language-c">int x = 1, y = 8;
+if (x &gt; y);
+{
+    x = 6;
+    y = 2;
+}
+</code></pre>
+<p><strong>Solution.</strong> The controlled statement is <code>;</code>, so the condition has no useful side effect here. The following block is a separate statement and executes unconditionally. Final values are <code>x = 6</code> and <code>y = 2</code>. Removing the semicolon changes the grammar: now the block is controlled, and because the original condition is false, values stay 1 and 8. To diagnose such a question, identify the immediate substatement before calculating any branch result. Whitespace can mislead a human, but <span class="math-inline">C</span> syntax is determined by tokens.</p>
+<h3>Problem 5. Chained comparisons do not form an interval</h3>
+<p><strong>Original problem.</strong> Determine whether <code>if (2 &lt; x &lt; 8)</code> distinguishes the interval 3 through 7 for integer <code>x</code>.</p>
+<p><strong>Solution.</strong> Relational operators group left to right. <code>2 &lt; x</code> yields integer 0 or 1. Both 0 and 1 are below 8, so the complete guard is always true, even for <span class="math-inline">−</span>100 or 100. The correct <span class="math-inline">C</span> interval test is <code>2 &lt; x &amp;&amp; x &lt; 8</code>. The latter admits precisely integers 3, 4, 5, 6, and 7. This is not a defect in precedence; it is an incorrect transfer of mathematical chained-inequality syntax into <span class="math-inline">C</span>. In Python, <code>2 &lt; x &lt; 8</code> has dedicated chained-comparison semantics, so the language must be established first.</p>
+<h3>Problem 6. Sequenced short-circuit state changes</h3>
+<p><strong>Original problem.</strong> Evaluate the final <code>i</code> and <code>r</code>.</p>
+<pre><code class="language-c">int i = 1, r = 0;
+if (i++ == 0 || ++i == 3) r = i;
+</code></pre>
+<p><strong>Solution.</strong> The first comparison uses old value 1, fails, and leaves <code>i = 2</code>. <span class="math-inline">A</span> false first operand of <code>||</code> allows the second operand to execute. Prefix increment leaves 3 and compares 3 to 3, true. The body reads that completed state and assigns 3 to <code>r</code>. Final values are <code>(3,3)</code>. If initial <code>i</code> were 0, the first operand would be true and leave 1, the second increment would be skipped, and the body would assign 1. These are defined evaluations because short-circuit operators sequence their operands. Replacing <code>||</code> by bitwise <code>|</code> would create unsequenced modifications and invalidate numerical output reasoning.</p>
+<h3>Problem 7. Build a division guard that actually protects</h3>
+<p><strong>Original problem.</strong> For a declared 32-bit two's-complement signed <code>int</code>, construct a guard before evaluating <code>a / b</code>, rejecting precisely zero divisor and the unrepresentable minimum divided <span class="math-inline">by −1</span>.</p>
+<pre><code class="language-c">if (b == 0 || (a == INT_MIN &amp;&amp; b == -1)) {
+    valid = 0;
+} else {
+    quotient = a / b;
+    valid = 1;
+}
+</code></pre>
+<p><strong>Solution.</strong> On the else path, <code>b != 0</code> is known and the special pair is excluded. All other signed-int quotients in this declared model are representable. The guard itself uses only comparisons and logical operations, so it cannot divide first. Cases <code>(8,0)</code> and <code>(INT_MIN,-1)</code> are rejected; <code>(INT_MIN,1)</code> and <code>(17,-3)</code> are accepted, with quotients INT_MIN and <span class="math-inline">−</span>5 respectively. Checking <code>a / b</code> before checking <code>b</code> defeats the protection. The minimum-overflow pair depends on the specified signed range; the chapter does not silently substitute this asymmetric model for every C17 implementation.</p>
+<h3>Problem 8. Default is an entry label in the middle</h3>
+<p><strong>Original problem.</strong> Find <code>r</code> for tags 1, 2, 3, and 4.</p>
+<pre><code class="language-c">int r = 0;
+switch (tag) {
+case 1: r += 1;
+default: r += 4;
+case 2: r += 8; break;
+case 4: r += 16;
+}
+</code></pre>
+<p><strong>Solution.</strong> Tag 1 enters at the first label and falls through two additions, producing 13. Tag 2 enters at its label and yields 8. Tag 3 has no matching case, so it enters at default and yields 12. Tag 4 yields 16 and reaches the end. The values of unselected cases do not prevent their statements from executing after fallthrough. Moving default to the bottom would change the results unless transfers are also changed. Treat dispatch and subsequent sequential execution as two distinct phases.</p>
+<h3>Problem 9. Case constants and converted duplicates</h3>
+<p><strong>Original problem.</strong> Explain the problems with these two independent switch sketches in C17.</p>
+<pre><code class="language-c">const int limit = 3;
+switch (x) { case limit: break; }
+</code></pre>
+<pre><code class="language-c">switch (u) { case -1: break; case UINT_MAX: break; }
+</code></pre>
+<p><strong>Solution.</strong> In the first, an ordinary <code>const int</code> object is not an integer constant expression, so it does not provide a valid case label. An enumeration constant such as <code>enum { limit = 3 };</code> can supply the intended constant. In the second, assume <code>u</code> has type <code>unsigned int</code>. Its promoted controlling type is still unsigned int. Converting <span class="math-inline">−</span>1 to that type produces UINT_MAX, duplicating the second converted case value. Duplicate case values violate a constraint even if the source tokens look different. Labels must be compared after the standard's required conversion, not by textual spelling or mathematical signed value.</p>
+<h3>Problem 10. Continue crosses a switch, break does not</h3>
+<p><strong>Original problem.</strong> Determine final <code>sum</code> and the body values that reach the last assignment.</p>
+<pre><code class="language-c">int sum = 0;
+for (int i = 0; i &lt; 5; ++i) {
+    switch (i) {
+    case 1: continue;
+    case 3: break;
+    default: sum += i;
+    }
+    sum += 10;
+}
+</code></pre>
+<p><strong>Solution.</strong> At <code>i = 0</code>, default adds zero, then 10. At 1, continue targets the enclosing for, bypassing the bottom assignment but still executing the header increment. At 2, default adds 2 and the bottom adds 10. At 3, break exits only the switch, so the bottom adds 10. At 4, default adds 4 and the bottom adds 10. Total is 46. The bottom is reached for indices 0, 2, 3, and 4. A trace that stops the entire loop at 3 confuses the target of break; a trace that skips the update at 1 confuses continue with break.</p>
+<h3>Problem 11. A visible declaration can have a skipped initializer</h3>
+<p><strong>Original problem.</strong> Diagnose this fragment instead of inventing an output.</p>
+<pre><code class="language-c">int result = 0;
+switch (tag) {
+    int temporary = 7;
+case 1:
+    result = temporary;
+    break;
+default:
+    result = 0;
+}
+</code></pre>
+<p><strong>Solution.</strong> Dispatch to case 1 bypasses the initializer. The automatic local is in scope, but no executed statement established its value. Reading it as if it contained 7 is unjustified and can cause undefined behavior through an indeterminate value. The default route does not read it, so this defect is path-dependent. Move the declaration inside a block after the label, as shown in the teaching section. Initialization is an executed operation. Scope alone does not prove it happened, and assigning a different variable named <code>temporary</code> outside this block would not initialize this inner object.</p>
+<h3>Problem 12. Three loop forms at an empty boundary</h3>
+<p><strong>Original problem.</strong> Begin each independent fragment with <code>i = 0</code>, <code>sum = 0</code>, and <code>n = 0</code>.</p>
+<pre><code class="language-c">while (i &lt; n) { sum += i; ++i; }
+</code></pre>
+<pre><code class="language-c">do { sum += i; ++i; } while (i &lt; n);
+</code></pre>
+<pre><code class="language-c">for (i = 0; i &lt; n; ++i) { sum += i; }
+</code></pre>
+<p><strong>Solution.</strong> The while and for guards fail immediately. Their bodies execute zero times; both finish with <code>(i,sum) = (0,0)</code>. The do-loop executes once, adding zero and increasing <code>i</code> to 1 before its false test; it finishes <code>(1,0)</code>. Equal sums conceal different state and execution counts. With start <code>i = 2</code>, the do-loop instead finishes <code>(3,2)</code>, while the while-loop leaves <code>(2,0)</code>. Choose a posttest loop for a required initial attempt, not merely because its layout seems shorter.</p>
+<h3>Problem 13. <span class="math-inline">A</span> false postfix guard still changes state</h3>
+<p><strong>Original problem.</strong> Trace this loop and count guard evaluations.</p>
+<pre><code class="language-c">int i = 0, sum = 0;
+while (i++ &lt; 3) sum += i;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Guard uses old <code>i</code></th>
+<th>Guard result</th>
+<th><code>i</code> after guard</th>
+<th><code>sum</code> after possible body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>True</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>True</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>True</td>
+<td>3</td>
+<td>6</td>
+</tr>
+<tr>
+<td>3</td>
+<td>False</td>
+<td>4</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Solution.</strong> Final values are <code>i = 4</code> and <code>sum = 6</code>. There are three body entries but four guard evaluations. Replacing postfix by prefix gives only two entries, accumulating <span class="math-inline">1 + 2 = 3</span> and exiting with <code>i = 3</code>. The table explicitly includes the failed guard because it performs a side effect. Recording only successful iterations loses necessary information about the exit state.</p>
+<h3>Problem 14. A for-continue preserves the update</h3>
+<p><strong>Original problem.</strong> Determine the sum and exit index.</p>
+<pre><code class="language-c">int i, sum = 0;
+for (i = 0; i &lt; 6; ++i) {
+    if (i % 2 == 0) continue;
+    sum += i;
+}
+</code></pre>
+<p><strong>Solution.</strong> Body entries occur at indices 0 through 5. Even entries go directly to <code>++i</code>; odd entries add 1, 3, and 5, then also execute the update. The sum is 9, and final <code>i</code> is 6. Six updates and seven tests occur. The continuation guard does not remove an iteration from the execution count; it removes only selected work within that entry. Thus the number of accumulator updates is three while the number of loop updates is six. Specify which operation is being counted.</p>
+<h3>Problem 15. A tempting while rewrite creates a cycle</h3>
+<p><strong>Original problem.</strong> Explain the behavior of this rewrite of Problem 14.</p>
+<pre><code class="language-c">int i = 0, sum = 0;
+while (i &lt; 6) {
+    if (i % 2 == 0) continue;
+    sum += i;
+    ++i;
+}
+</code></pre>
+<p><strong>Solution.</strong> At the first guard, <code>i = 0</code>, so the body is entered. The even test succeeds and continue returns directly to the while guard. The manual increment is skipped; state remains <code>(0,0)</code>. The same deterministic source state repeats. The intended progression never occurs. For source-level semantics this is a cycle; for an otherwise nonobservable loop, the separate optimizer termination permission must also be remembered before claiming portable runtime behavior. A repair places <code>++i</code> on every continuing path, or keeps the original for-loop. Copying the for-update to the bottom is not an equivalence proof.</p>
+<h3>Problem 16. Break removes the last update and last failed test</h3>
+<p><strong>Original problem.</strong> Count body entries, guard tests, and updates.</p>
+<pre><code class="language-c">int i, sum = 0;
+for (i = 0; i &lt; 8; ++i) {
+    if (i == 3) break;
+    sum += i;
+}
+</code></pre>
+<p><strong>Solution.</strong> Entries occur at 0, 1, 2, and 3. The last entry breaks before accumulation. The sum is 3, and <code>i</code> remains 3. Guard tests occur four times, all true; the for-update occurs only three times. There is no later false guard. The invariant “sum contains all processed earlier indices” at the break point yields <span class="math-inline">0 + 1 + 2</span>, not a sum including 3. The body-entry count is four even though only three entries reach the accumulator. Off-by-one errors often come from conflating entry, completed body, and processed element.</p>
+<h3>Problem 17. Continue in a do-loop still reaches its test</h3>
+<p><strong>Original problem.</strong> Find the result.</p>
+<pre><code class="language-c">int i = 0, sum = 0;
+do {
+    ++i;
+    if (i % 2 == 0) continue;
+    sum += i;
+} while (i &lt; 5);
+</code></pre>
+<p><strong>Solution.</strong> After each initial increment the body sees 1 through 5. Even values skip accumulation but still reach <code>i &lt; 5</code>. Odd values 1, 3, and 5 accumulate, so sum is 9 and final <code>i</code> is 5. There are five body entries and five tests. If the increment were below the continue, an even entry could repeat unchanged. The posttest form does not grant an implicit increment; its continuation target is merely the trailing test.</p>
+<h3>Problem 18. Inner break does not stop the outer body</h3>
+<p><strong>Original problem.</strong> Evaluate the total.</p>
+<pre><code class="language-c">int total = 0;
+for (int i = 1; i &lt;= 3; ++i) {
+    for (int j = 1; j &lt;= 4; ++j) {
+        if (j == i) break;
+        ++total;
+    }
+    total += 10;
+}
+</code></pre>
+<p><strong>Solution.</strong> At outer index 1, the inner loop breaks on its first entry and adds zero. At 2 it adds once for <code>j = 1</code>. At 3 it adds twice for <code>j = 1,2</code>. The outer bottom assignment executes after every inner break and contributes 30. Final total is 33. Inner body entries count <span class="math-inline">1 + 2 + 3 = 6</span>, while inner increments of total count <span class="math-inline">0 + 1 + 2 = 3</span>. If the intended task were to exit both loops at the first equality, a single unlabeled break would be insufficient in C17.</p>
+<h3>Problem 19. Prove an exact nested count</h3>
+<p><strong>Original problem.</strong> For mathematical nonnegative <code>n</code>, with <span class="math-inline">C</span> updates and <code>count</code> representable, count this operation.</p>
+<pre><code class="language-c">int count = 0;
+for (int i = 0; i &lt; n; ++i)
+    for (int j = 0; j &lt; i; ++j)
+        ++count;
+</code></pre>
+<p><strong>Solution.</strong> Fix the outer index <code>i</code>. The inner body sees precisely 0 through <code>i - 1</code>, giving <code>i</code> increments. Outer indices range from 0 through <code>n - 1</code>. Therefore:</p>
+<div class="formula-block"><math display="block"><mrow><mi>count</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></munderover><mi>i</mi><mo>=</mo><mfrac><mrow><mi>n</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><mn>2</mn></mfrac></mrow></math></div>
+<p>For zero or one the count is zero; for four it is six. The empty inner loop at <code>i = 0</code> still evaluates its guard once. If counting inner guard evaluations, add one per outer entry, producing <span class="math-inline">n(n + 1)/2</span>. This demonstrates why a count must name its operation and why a nested structure does not automatically imply exactly <span class="math-inline">n</span> squared executions.</p>
+<h3>Problem 20. A loop-local variable starts fresh</h3>
+<p><strong>Original problem.</strong> Predict the total and explain the scope of <code>i</code>.</p>
+<pre><code class="language-c">int i = 99, total = 0;
+for (int i = 0; i &lt; 3; ++i) {
+    int x = 2;
+    total += x++;
+}
+</code></pre>
+<p><strong>Solution.</strong> The header introduces an inner <code>i</code> hiding the outer one. Its values 0, 1, and 2 control three entries. Each body creates and initializes <code>x</code> to 2. Postfix increment contributes 2, then changes the local to 3, whose lifetime ends with the iteration. Total is 6; after the loop the visible outer <code>i</code> is still 99. A model that carries <code>x</code> as 2, 3, then 4 across iterations would require a different declaration placement or storage duration. The identity of each object is part of the state, not just its name.</p>
+<h3>Problem 21. Positive-step count with an exclusive endpoint</h3>
+<p><strong>Original problem.</strong> How many times does the body execute, and what is the final <code>i</code>?</p>
+<pre><code class="language-c">int i;
+for (i = 4; i &lt; 23; i += 5) {
+    /* body does not alter i */
+}
+</code></pre>
+<p><strong>Solution.</strong> Body indices are 4, 9, 14, and 19. The next update yields 24, whose guard fails. Count is ceiling((<span class="math-inline">23 − 4</span>)/5) <span class="math-inline">=</span> ceiling(<span class="math-inline">19/5</span>) <span class="math-inline">=</span> 4. Final <code>i</code> is 24, not 23. With guard <code>i &lt;= 24</code>, one extra body entry occurs at 24, then final index becomes 29. Under a mathematical progression proof all values are safe here for every conforming <code>int</code>. In general, use the formula only after checking that the last update is representable and that no body path changes the progression.</p>
+<h3>Problem 22. Inclusive descent and overshoot</h3>
+<p><strong>Original problem.</strong> Count <code>for (i = 20; i &gt;= 3; i -= 4)</code> under signed integer arithmetic where all shown values fit.</p>
+<p><strong>Solution.</strong> The body sees 20, 16, 12, 8, and 4. The next update yields 0, which fails the guard. Count is floor((<span class="math-inline">20 − 3</span>)/4) <span class="math-inline">+</span> <span class="math-inline">1 = 5</span>. Final index is 0. A variant such as ceiling((<span class="math-inline">i − 2</span>)/4) on true-guard states is a positive integer that decreases each iteration. Simply using <code>i - 3</code> as a nonnegative variant at every checkpoint fails at the final false checkpoint, although nonnegativity is needed only on the appropriate continuation domain for the termination argument. Be precise about where the variant claim is required.</p>
+<h3>Problem 23. Construct and prove summation</h3>
+<p><strong>Original problem.</strong> Derive a loop that computes the sum of odd integers from 1 through <code>2*n - 1</code> for <code>0 &lt;= n &lt;= 100</code>, using no multiplication in its body.</p>
+<pre><code class="language-c">int i = 0, odd = 1, sum = 0;
+while (i &lt; n) {
+    sum += odd;
+    odd += 2;
+    ++i;
+}
+</code></pre>
+<p><strong>Solution.</strong> At each guard use invariant <span class="math-inline">0 ≤ i ≤ n</span>, <code>odd = 2*i + 1</code>, and <code>sum = i*i</code>, interpreted as mathematical relationships. Initialization satisfies all three. Under <code>i &lt; n</code>, adding the next odd value gives <span class="math-inline">i<sup>2</sup> + 2i + 1</span> <span class="math-inline">=</span> <span class="math-inline">(i + 1)<sup>2</sup></span>. Updating odd by two and index by one restores the relationships for the next checkpoint. Variant <span class="math-inline">n − i</span> decreases strictly and is nonnegative. Exit gives <span class="math-inline">i = n</span> and sum <span class="math-inline">n<sup>2</sup></span>. With the bound 100, sum is at most 10000, odd is at most 201, and all body arithmetic fits every C17 <code>int</code>. The proof relationships need not be computed as multiplications in the program.</p>
+<h3>Problem 24. An invariant that is true but insufficient</h3>
+<p><strong>Course-pattern attribution:</strong> Cornell CS2110's emphasis on explicit processed-region invariants. The scalar counterexample and proof below are original.</p>
+<p>Consider <code>i = 0; sum = 0; while (i &lt; n) { sum += 2; ++i; }</code> for <code>0 &lt;= n &lt;= 100</code>. Does invariant <code>0 &lt;= i &amp;&amp; i &lt;= n</code> prove the final sum is <span class="math-inline">n</span>?</p>
+<p><strong>Solution.</strong> The bound is initialized and preserved, and it proves <code>i = n</code> at normal exit. It says nothing about sum. The actual stronger invariant is <code>sum = 2*i</code>, which follows from the update and gives sum <span class="math-inline">2n</span>. For <span class="math-inline">n = 3</span> the result is 6, so the desired postcondition is false. A valid invariant cannot imply a false result when combined with valid termination facts; the missing relationship is the diagnostic. An invariant should connect the output accumulator to the processed work rather than only state index bounds.</p>
+<h3>Problem 25. Break needs a separate proof exit</h3>
+<p><strong>Original problem.</strong> For <code>0 &lt;= n &lt;= 100</code>, compute the largest prefix sum not exceeding budget <code>b</code>, where <code>0 &lt;= b &lt;= 10000</code>.</p>
+<pre><code class="language-c">int i = 0, sum = 0;
+while (i &lt; n) {
+    if (sum + (i + 1) &gt; b) break;
+    ++i;
+    sum += i;
+}
+</code></pre>
+<p><strong>Solution.</strong> At the guard, sum is the sum of 1 through <span class="math-inline">i</span> and does not exceed <span class="math-inline">b</span>. The maximum speculative sum is at most 5050 under the bounds, so the guard arithmetic fits a conforming int. If a break occurs, adding the next value would exceed <span class="math-inline">b</span>, so the current feasible prefix is maximal. If normal guard exit occurs, <span class="math-inline">i = n</span> and all available values fit the budget. Variant <span class="math-inline">n − i</span> decreases on every continuing iteration. For <span class="math-inline">n = 10</span> and <span class="math-inline">b = 12</span>, successive accepted sums are 1, 3, 6, 10; the next candidate 15 fails, leaving <span class="math-inline">i = 4</span> and sum <span class="math-inline">=</span> 10. The postcondition is a disjunction: exhausted input or next prefix is infeasible. It is wrong to infer <span class="math-inline">i = n</span> merely because the loop ended.</p>
+<h3>Problem 26. Euclid's old values must survive</h3>
+<p><strong>Original problem.</strong> Trace the Euclid loop for initial <span class="math-inline">A = 84</span>, <span class="math-inline">B = 30</span>, and diagnose a two-assignment replacement.</p>
+<table>
+<thead>
+<tr>
+<th>Guard pair <code>(a,b)</code></th>
+<th>Remainder</th>
+<th>Next pair</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(84,30)</td>
+<td>24</td>
+<td>(30,24)</td>
+</tr>
+<tr>
+<td>(30,24)</td>
+<td>6</td>
+<td>(24,6)</td>
+</tr>
+<tr>
+<td>(24,6)</td>
+<td>0</td>
+<td>(6,0)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Solution.</strong> The false guard at <code>(6,0)</code> stops before any remainder with divisor zero. The invariant gcd preservation gives result 6; the second component decreases 30, 24, 6, 0, proving termination. Replacing the body by <code>a = b; b = a % b;</code> changes the first pair to <code>(30,0)</code> immediately and returns 30, because the second assignment sees the new <code>a</code>. A temporary is needed for the original remainder. Simultaneous mathematical assignment and sequential <span class="math-inline">C</span> assignment have different semantics unless old values are explicitly preserved.</p>
+<h3>Problem 27. Decimal digit accumulation, including zero</h3>
+<p><strong>Original problem.</strong> For an unsigned input <span class="math-inline">N</span>, compute its decimal digit sum. Explain whether a while-loop and a do-loop differ at <span class="math-inline">N = 0</span>.</p>
+<pre><code class="language-c">unsigned int rest = N, sum = 0;
+while (rest != 0u) {
+    sum += rest % 10u;
+    rest /= 10u;
+}
+</code></pre>
+<p><strong>Solution.</strong> The remainder extracts the least significant digit, and quotient removes it. For 5072 the successive <code>(rest,sum)</code> checkpoints are <code>(5072,0)</code>, <code>(507,2)</code>, <code>(50,9)</code>, <code>(5,9)</code>, <code>(0,14)</code>. The invariant says sum contains the removed digits' sum and rest contains the unprocessed prefix. A positive rest strictly decreases when divided by ten; no zero divisor is involved. The sum is bounded by <span class="math-inline">N</span> for positive <span class="math-inline">N</span>, so its accumulation fits unsigned int without wrap. For zero, the body executes zero times and the digit sum is zero. A do-loop also yields zero but makes one entry. If the task is digit <strong>count</strong>, zero conventionally has one decimal digit, so the entry-count difference matters and must be handled explicitly.</p>
+<h3>Problem 28. Signed overflow is not another loop iteration</h3>
+<p><strong>Original problem.</strong> Does this loop have a defined final <code>i</code> on a 32-bit two's-complement signed-int machine?</p>
+<pre><code class="language-c">for (int i = 0; i &lt;= INT_MAX; ++i) {
+    /* no early exit */
+}
+</code></pre>
+<p><strong>Solution.</strong> The index reaches INT_MAX, and that guard is true. After the body the update attempts INT_MAX <span class="math-inline">+</span> 1, which is outside the type's range. Signed overflow is undefined; no defined wrapped negative value or normal final state follows. If the requirement is to process every value through INT_MAX, a safe structure processes the current value, checks <code>i == INT_MAX</code> and breaks, then increments only otherwise. An exclusive bound <code>i &lt; INT_MAX</code> avoids overflow but omits the last value, so it repairs a different specification. Safety and task coverage must both be checked.</p>
+<h3>Problem 29. Unsigned reverse counting has a false stopping idea</h3>
+<p><strong>Original problem.</strong> Compare <code>for (unsigned int i = 3; i &gt;= 0u; --i)</code> with a safe reverse traversal of three positions.</p>
+<p><strong>Solution.</strong> Every value of unsigned int is at least zero, so the guard can never fail. The abstract sequence is 3, 2, 1, 0, UINT_MAX, and so on; decrementation is defined modulo the unsigned range. If the loop has no observable actions, optimizer assumptions add another reason not to use it as a runtime timing experiment. A safe version initializes <code>i = 3</code>, loops while <code>i &gt; 0u</code>, and decrements at the start of the body. Its processed positions are 2, 1, 0 and its exit value is zero. Merely changing <code>&gt;=</code> to <code>&gt;</code> in the original loop would process 3, 2, 1, a different set of positions.</p>
+<h3>Problem 30. Equality exit can be unreachable in a modular cycle</h3>
+<p><strong>Original problem.</strong> In a declared abstract four-bit unsigned model, start at zero and add six modulo 16 on each iteration. Can an equality guard ever reach target 5? What about target 10?</p>
+<p><strong>Solution.</strong> <span class="math-inline">gcd(16,6)</span> <span class="math-inline">=</span> 2. Every reachable residue is even, so 5 is unreachable. The complete cycle is 0, 6, 12, 2, 8, 14, 4, 10, then 0. Target 10 is reached after seven updates. The cycle length is <span class="math-inline">16/2 = 8</span>. This is a deliberately small mathematical model, not a claim that C17 offers a four-bit unsigned int. The congruence analysis transfers to an actual specified unsigned modulus. A source loop stopping only on target 5 lacks a termination argument even though its update is defined.</p>
+<h3>Problem 31. Fractional updates to an integer can stagnate</h3>
+<p><strong>Course-pattern attribution:</strong> Princeton §1.3's fractional compound-update trap. Parameters and <span class="math-inline">C</span> reasoning are independently developed.</p>
+<pre><code class="language-c">int x = 0;
+while (x &lt; 4) {
+    x += 0.25;
+}
+</code></pre>
+<p><strong>Solution.</strong> The addition uses a floating operand; the compound assignment converts the result back to int. Starting at zero, 0.25 is representable in the floating model and truncates to integer zero on assignment. The same state recurs, so the source progression does not advance. This is not signed overflow and is not a compiler syntax error. Use an integer iteration counter when counting quarters, or use a suitable floating variable with an explicit numerical termination argument. Java's compound-assignment rule is similar in this example, but that similarity does not establish identical language semantics for every update or arithmetic boundary.</p>
+<h3>Problem 32. A floating step can disappear</h3>
+<p><strong>Original problem.</strong> In binary64 with round-to-nearest ties-to-even and stored binary64 results after each assignment, consider <code>x = 2^53</code> and repeatedly execute <code>x = x + 1</code>. Does a guard <code>x &lt; 2^53 + 4</code> guarantee progress?</p>
+<p><strong>Solution.</strong> Adjacent representable values at this magnitude are spaced by 2. The exact sum 2^<span class="math-inline">53 + 1</span> is halfway between 2^53 and 2^<span class="math-inline">53 + 2</span>. Ties-to-even selects 2^53, so the stored value does not change. The guard remains true and the same state repeats in this declared model. Extra intermediate precision, a different rounding mode, or different storage rules could change the analysis, so the assumptions are part of the problem. A real-number proof that adding one strictly increases <span class="math-inline">x</span> does not apply automatically to floating state. Count iterations with an integer when the task is discrete, and separately analyze the numerical value being generated.</p>
+<h3>Problem 33. Python range binds successive iterator values</h3>
+<p><strong>Course-pattern attribution:</strong> MIT 6.0001 Lecture 2's range-and-accumulator examples. This mutation experiment and explanation are original.</p>
+<pre><code class="language-python">total = 0
+for i in range(2, 8, 2):
+    total += i
+    i = 100
+</code></pre>
+<p><strong>Solution.</strong> The iterator supplies 2, 4, and 6 on successive entries. Assigning 100 to the loop variable does not mutate the range iterator. Total becomes 12, and after the final body <code>i</code> is 100. A <span class="math-inline">C</span> loop <code>for (i = 2; i &lt; 8; i += 2)</code> whose body sets <code>i = 100</code> would instead update to 102 and end after one body entry, giving total 2. Python's range excludes its stop and can use a negative step; it is not generally described by “stop minus one” when the step is not one. Establish iterator semantics before transferring a counting formula.</p>
+<h3>Problem 34. A comma guard discards its first truth value</h3>
+<p><strong>Course-pattern attribution:</strong> Cambridge Programming in <span class="math-inline">C</span> Lecture 1's comma-controlled loop question. This repaired specification uses initialized int variables and safe bounds.</p>
+<pre><code class="language-c">int i = 0, j = 0, count = 0;
+for (; i &lt; 2, j != 5; ++i, ++j) {
+    ++count;
+}
+</code></pre>
+<p><strong>Solution.</strong> The comma operator evaluates <code>i &lt; 2</code> then discards its value; the guard's value is <code>j != 5</code>. Thus the loop executes five times and exits with <code>i = j = count = 5</code>. The update's comma sequences both increments. Replacing the guard comma with <code>&amp;&amp;</code> yields only two entries and final values 2. Leaving <code>j</code> uninitialized would invalidate the trace before any useful count. Cambridge's original uses a character-type setting that also raises signedness and narrowing issues; this version isolates the control rule before introducing those representation boundaries later.</p>
+<h3>Problem 35. Ordinary entry is an assumption</h3>
+<p><strong>Original problem.</strong> Explain why this fragment enters a while body whose guard would initially be false.</p>
+<pre><code class="language-c">int i = 0, visits = 0;
+goto work;
+while (i &lt; 0) {
+work:
+    ++visits;
+    ++i;
+}
+</code></pre>
+<p><strong>Solution.</strong> The jump reaches the labeled statement directly and bypasses the initial test. It increments visits to 1 and <span class="math-inline">i</span> to 1. On normal body completion, control returns to the guard, which now fails. These values are the defined result in this fragment. No variably modified declaration is entered illegally. The familiar pretest-loop body count of zero for an initially false guard assumes control reaches the loop through its standard entry. An invariant established only on that entry would need an additional proof at this jump edge. Avoiding such entry paths makes structured code easier to reason about.</p>
+<h3>Problem 36. Integrated trace and proof under continue and break</h3>
+<p><strong>Original capstone.</strong> For <code>0 &lt;= n &lt;= 100</code> and <code>0 &lt;= budget &lt;= 10000</code>, sum positive odd values below <span class="math-inline">n</span> without exceeding budget. Prove the result is the maximal accepted prefix of those odd values.</p>
+<pre><code class="language-c">int i, sum = 0;
+for (i = 0; i &lt; n; ++i) {
+    if (i % 2 == 0) continue;
+    if (sum + i &gt; budget) break;
+    sum += i;
+}
+</code></pre>
+<p><strong>Solution.</strong> At each guard, <code>sum</code> equals the sum of all odd nonnegative indices already encountered below <code>i</code>, and <code>sum &lt;= budget</code>. Initialization holds because the processed interval is empty. On an even entry, continue adds nothing and the header increment moves the boundary; the same sum correctly covers the enlarged interval because the added index is even. On an odd accepted entry, adding <code>i</code> extends the sum by precisely the newly processed odd value, and the header increment restores the checkpoint relationship. The bound on inputs ensures every speculative sum and update is safely representable.</p>
+<p>If an odd entry breaks, its addition would exceed budget; all later candidate odd values are positive, so a longer prefix cannot fit. If the guard fails, every candidate below <span class="math-inline">n</span> has been considered. Variant <span class="math-inline">n − i</span> decreases on every edge returning to the guard, including continue, while break ends immediately. For <span class="math-inline">n = 12</span> and budget <span class="math-inline">=</span> 18, accepted values are 1, 3, 5, 7, giving 16; the attempt at 9 would give 25, so exit has <code>i = 9</code>. This proves a prefix optimum, not an arbitrary subset optimum: skipping an unaffordable odd value and choosing a different subset is a different specification.</p>
+<h2 id="quick-reference">Complete summary and examination decision rules</h2>
+<h3>Conceptual summary</h3>
+<p>Control flow selects the next execution location, and state records the values at that location. <span class="math-inline">C</span> statement grammar determines ownership of branches and loop bodies; indentation does not. A condition can change state and then select a path, so its value and its side effects must both appear in a trace. A priority chain chooses the first matching branch, whereas separate conditions can execute sequentially against changing values.</p>
+<p>A switch evaluates one controlling expression and dispatches once to an entry label. Labels do not impose independent guards on later statements. Fallthrough continues until a transfer or the end of the switch. Break targets the nearest enclosing switch or loop; continue targets the nearest loop and reaches different checkpoints for while, do-while, and for. Normal loop exit, break exit, and function return do not establish the same postconditions.</p>
+<p>For a correct loop, explain what its state means at a named checkpoint. Establish the invariant initially, prove it is restored on every returning path, and combine it with each exit condition. Prove termination separately using a well-founded measure and safe arithmetic. Exact counting formulas assume the path and progression actually described by the program. Machine integers, rounding, input behavior, and optimizer permissions can invalidate a casual mathematical termination claim.</p>
+<h3>An eight-step solving procedure</h3>
+<ol>
+<li><strong>Fix the contract.</strong> Identify the language/version, type ranges, initial state, allowed input domain, and any rounding or modular model.</li>
+<li><strong>Parse the ownership.</strong> Mark blocks, null statements, the matching if for every else, and each label's associated statement.</li>
+<li><strong>Mark transfer targets.</strong> Give every break, continue, return, and goto its actual destination in the nesting tree.</li>
+<li><strong>Screen validity.</strong> Check required constant expressions, scope, initialization on every read path, unsequenced effects, and arithmetic boundaries before predicting output.</li>
+<li><strong>Choose checkpoints.</strong> Record guard input, guard output when state changes, body entry, update, and final exit separately when needed.</li>
+<li><strong>Derive the progression.</strong> Determine which statements run on ordinary, continued, and broken paths. Count a specified operation, not an unnamed “iteration.”</li>
+<li><strong>Prove the result.</strong> State a meaningful invariant, establish preservation and all exit postconditions, and justify termination or its failure under the contract.</li>
+<li><strong>Challenge boundaries.</strong> Recheck empty input, one entry, first and last reachable break, equality at a threshold, extremal representable values, and unusual entry edges.</li>
+</ol>
+<h3>Sixty high-yield rules with reasons and traps</h3>
+<h4>Statement grammar and state</h4>
+<ol>
+<li>A semicolon can be a complete null statement. Locate it before assuming that the following visible block belongs to a condition.</li>
+<li>An expression statement discards its computed value but retains side effects. <code>x + 1;</code> and <code>++x;</code> therefore have different effects on state.</li>
+<li>A block occupies one statement position. Braces are the reliable way to control several statements with one if or loop.</li>
+<li>A physical source line is not an execution unit. Trace complete expressions and control checkpoints even when several share one line.</li>
+<li>Scope identifies an object; it does not prove that its initializer executed. Switch dispatch and goto can bypass initialization.</li>
+<li>A body-local automatic variable with an initializer starts fresh on each entry. Move its declaration outside the loop when its state must persist.</li>
+<li>A header declaration can hide an outer variable. The outer object can remain unchanged even though the same name appears in a loop.</li>
+<li>An undefined execution has no required numerical output. Stop the output trace at the violated semantic condition.</li>
+</ol>
+<h4>Conditions and branch chains</h4>
+<ol start="9">
+<li>A negative arithmetic scalar is true in a <span class="math-inline">C</span> condition when it is nonzero. Do not equate true with “positive.”</li>
+<li>An assignment inside a condition can be valid <span class="math-inline">C</span> and can select the true branch. Check the operator token before reading a guard as equality.</li>
+<li>Chained mathematical inequalities require explicit conjunction in <span class="math-inline">C</span>. Two relational operators do not create a range test.</li>
+<li>Each independent if evaluates in the state left by earlier statements. Recompute later guards after earlier assignments.</li>
+<li>An else-if chain stops at its first true guard. Put overlapping thresholds in the priority required by the specification.</li>
+<li>The final else denotes the residual case under previous falsities and the input domain. It does not automatically mean mathematical equality for floating values with NaNs.</li>
+<li>Every interval boundary must have a deliberate owner. Test both equality and neighboring allowed values at each threshold.</li>
+<li>The else binds to the nearest unmatched if allowed by grammar. Visual alignment cannot override this rule.</li>
+<li>Short-circuit conjunction can protect a right operand only after its left guard has safely evaluated. A dangerous left operand is already too early.</li>
+<li>Bitwise operators do not replace logical short-circuit operators when safety or sequencing depends on skipping work.</li>
+<li>Conditional-expression type formation can convert the chosen value using the types of both alternatives. Branch selection does not prevent all conversion effects.</li>
+<li>Boolean algebra preserves truth for pure operands, not automatically the behavior of stateful code. Count and order evaluated operations when rewriting guards.</li>
+</ol>
+<h4>Switch dispatch</h4>
+<ol start="21">
+<li>A C17 switch needs an integer controlling expression. A floating controlling expression is a constraint problem, not a different kind of switch trace.</li>
+<li>Case values are compared after conversion to the promoted controlling type. Textually different cases can become forbidden duplicates.</li>
+<li>An ordinary const-qualified object is not automatically an integer constant expression in C17. Enumeration constants provide a different mechanism.</li>
+<li>A switch chooses one entry point and then executes sequentially. Do not retest the control value at every later case.</li>
+<li>Default handles the absence of a matching case, wherever its label is placed. Its position still affects later fallthrough.</li>
+<li>A switch without a match or default skips its body entirely. Result variables need an established value on that path if subsequently read.</li>
+<li>A break inside a switch nested in a loop usually exits only that switch. Draw the smallest enclosing eligible construct.</li>
+<li>A continue inside a switch targets an enclosing loop. It can skip code following the switch within the same body.</li>
+<li>A case-local declaration should be placed in a block after the label for the C17 syntax used here. Do not rely on extensions from a different language version.</li>
+<li>A declaration before the first case may have its initializer skipped. A visible initializer is not a path-independent assignment.</li>
+</ol>
+<h4>Loop ordering and transfers</h4>
+<ol start="31">
+<li>An ordinarily entered while-loop can have zero body entries. Its guard is evaluated before the first body.</li>
+<li>An ordinarily entered do-loop has an initial body entry. Break or return can still prevent that entry from reaching its trailing test.</li>
+<li>A for-loop initializes once under ordinary entry. Its repeated order is guard, body, update, then guard again.</li>
+<li>Continue in a for-loop reaches the header update. Moving that update to the bottom of a while body can change the behavior.</li>
+<li>Continue in a while-loop reaches its guard. Manual updates below the continue are skipped and can cause a repeated state.</li>
+<li>Continue in a do-loop reaches the trailing guard. The posttest syntax supplies a test, not an implicit index update.</li>
+<li>Break skips the remaining body and the update of a departed for-loop. Count completed updates separately from body entries.</li>
+<li>Break affects the nearest loop or switch, not an enclosing if. An if is a selection node without a break destination.</li>
+<li>An inner-loop break leaves the outer body active. Statements after the inner loop still run unless another transfer intervenes.</li>
+<li>Return leaves the current function invocation. It is stronger than break and can bypass all surrounding loops in that invocation.</li>
+<li>An omitted for-guard is nonzero. Such a loop needs another exit or deliberately continues indefinitely under its contract.</li>
+<li><span class="math-inline">A</span> false guard can still have side effects. Include the terminating evaluation when predicting the final state.</li>
+<li>Postfix tests compare the old value and then update. Prefix tests update first; body-entry values and counts can differ.</li>
+<li>A comma expression's result is its right operand's value. A left comparison in a comma guard does not restrict iteration by itself.</li>
+<li>A goto can bypass ordinary loop entry. Standard zero-entry and one-time-initialization statements need their entry assumptions stated.</li>
+</ol>
+<h4>Proofs, counts, and safety</h4>
+<ol start="46">
+<li>An invariant needs a checkpoint and a precise relationship. “The answer is correct” does not identify what processed work it describes.</li>
+<li>Invariants need not hold between every pair of body statements. They must be restored before all edges returning to their declared checkpoint.</li>
+<li>A continue path needs both invariant preservation and progress. Restoring only on the bottom path leaves a proof gap.</li>
+<li>A break path needs its own exit argument. The negation of the loop guard is not established merely because a break ended the loop.</li>
+<li>Partial correctness and termination are separate obligations. A preserved relationship can coexist with an endless cycle.</li>
+<li>A decreasing nonnegative integer variant proves finite repetition only when each body execution returns. An infinite inner loop invalidates that premise.</li>
+<li>Exact progression counts assume the body leaves the index progression intact. Early exits, side effects, wraparound, and rounding must be analyzed first.</li>
+<li>A normal pretest exit gives one more guard evaluation than body entries. A break can remove that final false guard.</li>
+<li>A posttest loop normally has equal body-entry and test counts. A break before the trailing test creates a different count.</li>
+<li>Unsigned reverse loops cannot end through an always-true comparison with zero. Check the intended processed values before choosing a repair.</li>
+<li>Signed overflow is undefined rather than mandated wraparound. The final update can be unsafe even after every useful body operation completed safely.</li>
+<li>Modular equality reachability is governed by a greatest-common-divisor condition. A nonzero step does not guarantee every target is visited.</li>
+<li>Floating updates can stagnate or miss equality endpoints. A real-number increase is not automatically a stored-value increase.</li>
+<li>Input-driven termination requires an environmental assumption or a bounded failure policy. Loop syntax cannot guarantee that a user supplies a valid response.</li>
+<li>A finite collection of successful traces is evidence for those traces, not a universal proof. Combine boundary checks with invariants, safety arguments, and a declared coverage boundary.</li>
+</ol>
+<h3>Boundary review table</h3>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Required decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Empty input interval</td>
+<td>Decide whether zero attempts or one initial attempt is intended.</td>
+</tr>
+<tr>
+<td>Final failed guard mutates index</td>
+<td>Record its side effects in the post-loop state.</td>
+</tr>
+<tr>
+<td>First entry breaks</td>
+<td>Count one body entry, zero prior updates, and only the evaluated guards.</td>
+</tr>
+<tr>
+<td>Continue occurs before manual update</td>
+<td>Follow the actual continuation edge and test whether state changes.</td>
+</tr>
+<tr>
+<td>Switch appears inside a loop</td>
+<td>Give break and continue different target analyses.</td>
+</tr>
+<tr>
+<td>Mathematical proof uses products</td>
+<td>Check whether code computes those products or uses only safe incremental updates.</td>
+</tr>
+<tr>
+<td>Counter can reach a type extremum</td>
+<td>Audit the subsequent update before calling the progression defined.</td>
+</tr>
+<tr>
+<td>Guard depends on external input</td>
+<td>Separate source correctness from assumptions about future input.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="references">References and chapter review boundary</h2>
+<p>The chapter is an original synthesis with independently developed explanations, proofs, diagrams, laboratory, and solutions. Course material is used selectively with attribution; entire lecture bodies and exercise inventories are not redistributed.</p>
+<ol>
+<li><strong>Harvard University.</strong> David <span class="math-inline">J</span>. Malan. <em>CS50x 2025, Lecture 1.</em> Written lecture notes: Conditionals, compare.c, agree.c, Loops and meow.c, input validation, and Mario. <a href="https://cs50.harvard.edu/x/2025/notes/1/">Official notes</a>.</li>
+<li><strong>Massachusetts Institute of Technology.</strong> Ana Bell, Eric Grimson, John Guttag. <em>6.0001 Introduction to Computer Science and Programming in Python, Fall 2016. Lecture 2: Branching, Iteration.</em> Slides, pages 7–23, including the range and break examples. <a href="https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/ba2947b25b1580e4a84df0ec5dbe5cdd_MIT6_0001F16_Lec2.pdf">Official slides</a>; <a href="https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/resources/mit6_0001f16_lec2/">offering and instructor metadata</a>.</li>
+<li><strong>Princeton University.</strong> Robert Sedgewick and Kevin Wayne. <em>Introduction to Programming in Java, §1.3: Conditionals and Loops</em>, the COS126 resource family. <a href="https://introcs.cs.princeton.edu/java/13flow/">Official section and exercises</a>. Language-specific assumptions are kept separate from C17.</li>
+<li><strong>Cornell University.</strong> CS2110 course teaching staff. <em>Spring 2026, Lecture 4: Loop Invariants.</em> Loop anatomy, diagram conventions, invariant construction, and exercise families. <a href="https://courses.cis.cornell.edu/courses/cs2110/2026sp/lectures/lec04/">Official written lecture</a>. No unverified individual authorship is assigned.</li>
+<li><strong>University of Cambridge.</strong> Neel Krishnaswami, with source-note credits to Anil Madhavapeddy, Alan Mycroft, Alastair Beresford, and Andrew Moore. <em>Programming in <span class="math-inline">C</span>, Michaelmas 2017–18, Lecture 1: Types, Variables, Expressions and Statements.</em> Pages 14–18 and 20–23. <a href="https://www.cl.cam.ac.uk/teaching/1718/ProgC/lectures/lecture1.pdf">Official slides</a>; <a href="https://www.cl.cam.ac.uk/teaching/1718/ProgC/">official offering</a>.</li>
+<li><strong>ISO/IEC JTC1/<span class="math-inline">SC22/WG14</span>.</strong> <em>N1570, Committee Draft, 12 April 2011.</em> §§6.8–6.8.6 for statements and jumps; §§6.5, 6.5.13–6.5.17 for expressions and sequencing; §6.3 for conversions; §6.6 for constant expressions. <a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf">Public committee draft</a>.</li>
+</ol>
+<p><strong>Review boundary.</strong> Five substantive course bodies were read in the stated scope. The chapter covers scalar statement sequencing, selection, dispatch, loop order, abrupt transfers, checkpoint invariants, exact basic counts, and termination boundaries. Functions, arrays, pointer lifetime, full input parsing, concurrent loops, complete numerical methods, and arbitrary-program verification require their own chapters. Course exercise patterns within scope are curated, not exhaustive. The numerical and state models can be checked exhaustively over specified finite domains; those checks do not certify all possible programs or future exam questions. <span class="math-inline">C</span> snippets were specification-reviewed and model-checked where documented, but were not compiled in this environment. No literal 100% correctness, global course completeness, or guaranteed performance on unseen examinations is asserted.</p>
+<p><strong>Status:</strong> Approved English chapter. The student explicitly approved promotion and continuation on 2026-10-02.</p>
+</article><p class="top-link"><a href="../index.html#library">← Back to the chapter library</a></p></main></body></html>
