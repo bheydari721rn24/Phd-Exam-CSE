@@ -33,4 +33,6 @@ CATALOG={
 'p_arrays':{'representation':['arr-boundary'],'layouts':['arr-row','arr-column','arr-transpose'],'traversals':['arr-prefix'],'mutation':['arr-copy-bad','arr-copy-right','arr-copy-left','arr-insert','arr-reverse','arr-rotate','arr-difference','arr-compact'],'python':['arr-sharing'],'strings':['arr-search'],'growth':['arr-growth'],'packed':['arr-packed','arr-ring']}
 ,
 'g_kmap':{'geometry':['km-gray','km-corners','km-planes'],'covers':['km-chart','km-cycle','km-greedy','km-petrick'],'care-sets':['km-dc','km-pos'],'tabulation':['km-merge','km-qm'],'implementation':['km-hazard-cover','km-hazard-time','km-sharing']}
+,
+'g_combin':{'contract':['comb-priority'],'netlists':['comb-dag','comb-feedback'],'structure':['comb-arrival'],'cofactors':['comb-cofactor','comb-rom'],'mapping':['comb-nand','comb-active-low','comb-word'],'hdl':['comb-latch'],'verification':['comb-miter','comb-fault'],'timing':['comb-interval','comb-falsepath']}
 }

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "Phd_CE_1405_Q23",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 6,
+    "questionNumber": 23,
+    "topics": [
+      "g_gates",
+      "g_boolean"
+    ],
+    "title": "Recognize a NAND network",
+    "stem": "A circuit has $t=\\overline{xy}$, $u=\\overline{xt}$, $v=\\overline{yt}$, $F_1=\\overline{uv}$, and $F_2=\\overline{vv}$. These equations transcribe the connected NAND gates in the original diagram. Which describes $F_1,F_2$?",
+    "options": [
+      "Comparator outputs for equality and $x>y$, respectively.",
+      "Comparator outputs for equality and $x<y$, respectively.",
+      "Half-adder sum and carry for $x+y$, respectively.",
+      "Half-subtractor difference and borrow for $x-y$, respectively."
+    ],
+    "answer": 4,
+    "solution": "1. The first four NAND gates form an XOR: substituting $t$ gives $F_1=x\\oplus y$.\n2. The final NAND has tied inputs and inverts $v$. Thus $F_2=yt=y\\overline{xy}=\\overline{x}y$.\n3. In one-bit subtraction, difference is XOR and a borrow is needed exactly when $x=0,y=1$. These are precisely the two derived outputs.\n4. A comparator equality output would be XNOR, eliminating options 1 and 2. A half-adder carry is $xy$, not $\\overline{x}y$, eliminating option 3.\n\n**Transfer rule.** Label internal nets and calculate every output; matching one familiar subcircuit does not identify a two-output circuit.",
+    "pattern": "internal-net derivation and arithmetic interpretation",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "qNumber": 23
+  },
+  {
+    "id": "MS_CE_1404_Q80",
+    "booklet": "MS_CE_1404",
+    "pdfPage": 19,
+    "questionNumber": 80,
+    "topics": [
+      "g_gates",
+      "g_boolean"
+    ],
+    "title": "Two cascaded multiplexers",
+    "stem": "Two 2:1 multiplexers use select values zero and one to choose inputs $I_0$ and $I_1$. The first has $(I_0,I_1)=(1,0)$ and select $b$. Its output feeds $I_0$ of the second, whose $I_1=0$ and select is $a$. Which function is implemented?",
+    "options": [
+      "XNOR",
+      "XOR",
+      "NAND",
+      "NOR"
+    ],
+    "answer": 4,
+    "solution": "1. The first multiplexer produces $\\overline b$: it is one when its select is zero and zero when the select is one.\n2. The second produces the first output only when $a=0$, so its output is $\\overline a\\overline b=\\overline{a+b}$.\n3. This is NOR. NAND differs at inputs 01 and 10; XOR differs at 00 and the mixed inputs; XNOR is also one at 11, which the second multiplexer forces to zero.\n4. A multiplexer selects data; its select pin is not simply another OR input.\n\n**Transfer rule.** Derive each multiplexer by its select cases and then substitute the intermediate signal.",
+    "pattern": "cofactor substitution and gate recognition",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CE/1404/Daftarche-Soalat-Konkur-Arshad-Computer-1404 (konkurcomputer.ir).pdf",
+    "sourceSha256": "909e4efaaad96f4d39e526104bc9dc6de6d52be11fd7716e583476b0e62ff654",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "qNumber": 80
+  }
+]

@@ -824,13 +824,52 @@
         ]
       },
       "questionCount": 84,
-      "htmlSha256": "0f914cd7dce49c31591aab1a9fa40c8daca48a47caf2c6bea749e1b574375de1"
+      "htmlSha256": "52f0c251e1b49af7a39b0742d6e2ee97eac59c930a624445595e969b084fa3be"
+    },
+    {
+      "topicId": "g_combin",
+      "placements": 8,
+      "scenarios": 14,
+      "sections": {
+        "contract": [
+          "comb-priority"
+        ],
+        "netlists": [
+          "comb-dag",
+          "comb-feedback"
+        ],
+        "structure": [
+          "comb-arrival"
+        ],
+        "cofactors": [
+          "comb-cofactor",
+          "comb-rom"
+        ],
+        "mapping": [
+          "comb-nand",
+          "comb-active-low",
+          "comb-word"
+        ],
+        "hdl": [
+          "comb-latch"
+        ],
+        "verification": [
+          "comb-miter",
+          "comb-fault"
+        ],
+        "timing": [
+          "comb-interval",
+          "comb-falsepath"
+        ]
+      },
+      "questionCount": 82,
+      "htmlSha256": "f4728566e83fecc8e423e9493d97df5df38ab2ec6ce01094df6487924ee718c7"
     }
   ],
-  "uniqueScenarios": 192,
-  "checkpoints": 1139,
-  "placements": 161,
-  "constructionAssertions": 3833,
+  "uniqueScenarios": 206,
+  "checkpoints": 1211,
+  "placements": 169,
+  "constructionAssertions": 4049,
   "scope": "Original bounded explanatory models embedded in existing instructional sections. Written proofs remain authoritative; finite examples do not certify all inputs.",
   "checkpointsPrint": "Uninitialized players retain a printable first checkpoint. Initialized players print the currently selected exact checkpoint. No blank animation is required for offline reading."
 }

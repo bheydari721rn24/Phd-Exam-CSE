@@ -1,0 +1,2657 @@
+[
+  {
+    "id": "COMBIN_001",
+    "title": "Priority with fallback \u2014 select BC",
+    "stem": "$F(A,B,C)=\\sum m(1,2,3,5,7)$. Implement it with one 4:1 mux whose select order is $BC$ and residual input is $A$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 4 | 00 | $0$ |\n| 01 | 1, 5 | 11 | $1$ |\n| 10 | 2, 6 | 10 | $\\overline A$ |\n| 11 | 3, 7 | 11 | $1$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(0,1,\\overline A,1)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 1 distinct nonconstant functions. Only 1 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is not satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "remaining": 0,
+        "data": [
+          "0",
+          "1",
+          "\\overline A",
+          "1"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_002",
+    "title": "Priority with fallback \u2014 select AC",
+    "stem": "$F(A,B,C)=\\sum m(1,2,3,5,7)$. Implement it with one 4:1 mux whose select order is $AC$ and residual input is $B$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 2 | 01 | $B$ |\n| 01 | 1, 3 | 11 | $1$ |\n| 10 | 4, 6 | 00 | $0$ |\n| 11 | 5, 7 | 11 | $1$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(B,1,0,1)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 1 distinct nonconstant functions. Only 0 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is not satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "remaining": 1,
+        "data": [
+          "B",
+          "1",
+          "0",
+          "1"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_003",
+    "title": "Priority with fallback \u2014 select AB",
+    "stem": "$F(A,B,C)=\\sum m(1,2,3,5,7)$. Implement it with one 4:1 mux whose select order is $AB$ and residual input is $C$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 1 | 01 | $C$ |\n| 01 | 2, 3 | 11 | $1$ |\n| 10 | 4, 5 | 01 | $C$ |\n| 11 | 6, 7 | 01 | $C$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(C,1,C,C)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 1 distinct nonconstant functions. Only 0 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is not satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "remaining": 2,
+        "data": [
+          "C",
+          "1",
+          "C",
+          "C"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_004",
+    "title": "Odd parity \u2014 select BC",
+    "stem": "$F(A,B,C)=\\sum m(1,2,4,7)$. Implement it with one 4:1 mux whose select order is $BC$ and residual input is $A$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 4 | 01 | $A$ |\n| 01 | 1, 5 | 10 | $\\overline A$ |\n| 10 | 2, 6 | 10 | $\\overline A$ |\n| 11 | 3, 7 | 01 | $A$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(A,\\overline A,\\overline A,A)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 2 distinct nonconstant functions. Only 1 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          1,
+          2,
+          4,
+          7
+        ],
+        "remaining": 0,
+        "data": [
+          "A",
+          "\\overline A",
+          "\\overline A",
+          "A"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_005",
+    "title": "Odd parity \u2014 select AC",
+    "stem": "$F(A,B,C)=\\sum m(1,2,4,7)$. Implement it with one 4:1 mux whose select order is $AC$ and residual input is $B$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 2 | 01 | $B$ |\n| 01 | 1, 3 | 10 | $\\overline B$ |\n| 10 | 4, 6 | 10 | $\\overline B$ |\n| 11 | 5, 7 | 01 | $B$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(B,\\overline B,\\overline B,B)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 2 distinct nonconstant functions. Only 1 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          1,
+          2,
+          4,
+          7
+        ],
+        "remaining": 1,
+        "data": [
+          "B",
+          "\\overline B",
+          "\\overline B",
+          "B"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_006",
+    "title": "Odd parity \u2014 select AB",
+    "stem": "$F(A,B,C)=\\sum m(1,2,4,7)$. Implement it with one 4:1 mux whose select order is $AB$ and residual input is $C$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 1 | 01 | $C$ |\n| 01 | 2, 3 | 10 | $\\overline C$ |\n| 10 | 4, 5 | 10 | $\\overline C$ |\n| 11 | 6, 7 | 01 | $C$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(C,\\overline C,\\overline C,C)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 2 distinct nonconstant functions. Only 1 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          1,
+          2,
+          4,
+          7
+        ],
+        "remaining": 2,
+        "data": [
+          "C",
+          "\\overline C",
+          "\\overline C",
+          "C"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_007",
+    "title": "Majority \u2014 select BC",
+    "stem": "$F(A,B,C)=\\sum m(3,5,6,7)$. Implement it with one 4:1 mux whose select order is $BC$ and residual input is $A$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 4 | 00 | $0$ |\n| 01 | 1, 5 | 01 | $A$ |\n| 10 | 2, 6 | 01 | $A$ |\n| 11 | 3, 7 | 11 | $1$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(0,A,A,1)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 1 distinct nonconstant functions. Only 0 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          3,
+          5,
+          6,
+          7
+        ],
+        "remaining": 0,
+        "data": [
+          "0",
+          "A",
+          "A",
+          "1"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_008",
+    "title": "Majority \u2014 select AC",
+    "stem": "$F(A,B,C)=\\sum m(3,5,6,7)$. Implement it with one 4:1 mux whose select order is $AC$ and residual input is $B$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 2 | 00 | $0$ |\n| 01 | 1, 3 | 01 | $B$ |\n| 10 | 4, 6 | 01 | $B$ |\n| 11 | 5, 7 | 11 | $1$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(0,B,B,1)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 1 distinct nonconstant functions. Only 0 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          3,
+          5,
+          6,
+          7
+        ],
+        "remaining": 1,
+        "data": [
+          "0",
+          "B",
+          "B",
+          "1"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_009",
+    "title": "Majority \u2014 select AB",
+    "stem": "$F(A,B,C)=\\sum m(3,5,6,7)$. Implement it with one 4:1 mux whose select order is $AB$ and residual input is $C$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 1 | 00 | $0$ |\n| 01 | 2, 3 | 01 | $C$ |\n| 10 | 4, 5 | 01 | $C$ |\n| 11 | 6, 7 | 11 | $1$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(0,C,C,1)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 1 distinct nonconstant functions. Only 0 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          3,
+          5,
+          6,
+          7
+        ],
+        "remaining": 2,
+        "data": [
+          "0",
+          "C",
+          "C",
+          "1"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_010",
+    "title": "Exactly one request \u2014 select BC",
+    "stem": "$F(A,B,C)=\\sum m(1,2,4)$. Implement it with one 4:1 mux whose select order is $BC$ and residual input is $A$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 4 | 01 | $A$ |\n| 01 | 1, 5 | 10 | $\\overline A$ |\n| 10 | 2, 6 | 10 | $\\overline A$ |\n| 11 | 3, 7 | 00 | $0$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(A,\\overline A,\\overline A,0)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 2 distinct nonconstant functions. Only 1 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          1,
+          2,
+          4
+        ],
+        "remaining": 0,
+        "data": [
+          "A",
+          "\\overline A",
+          "\\overline A",
+          "0"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_011",
+    "title": "Exactly one request \u2014 select AC",
+    "stem": "$F(A,B,C)=\\sum m(1,2,4)$. Implement it with one 4:1 mux whose select order is $AC$ and residual input is $B$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 2 | 01 | $B$ |\n| 01 | 1, 3 | 10 | $\\overline B$ |\n| 10 | 4, 6 | 10 | $\\overline B$ |\n| 11 | 5, 7 | 00 | $0$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(B,\\overline B,\\overline B,0)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 2 distinct nonconstant functions. Only 1 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          1,
+          2,
+          4
+        ],
+        "remaining": 1,
+        "data": [
+          "B",
+          "\\overline B",
+          "\\overline B",
+          "0"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_012",
+    "title": "Exactly one request \u2014 select AB",
+    "stem": "$F(A,B,C)=\\sum m(1,2,4)$. Implement it with one 4:1 mux whose select order is $AB$ and residual input is $C$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 1 | 01 | $C$ |\n| 01 | 2, 3 | 10 | $\\overline C$ |\n| 10 | 4, 5 | 10 | $\\overline C$ |\n| 11 | 6, 7 | 00 | $0$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(C,\\overline C,\\overline C,0)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 2 distinct nonconstant functions. Only 1 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          1,
+          2,
+          4
+        ],
+        "remaining": 2,
+        "data": [
+          "C",
+          "\\overline C",
+          "\\overline C",
+          "0"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_013",
+    "title": "A conditional implication \u2014 select BC",
+    "stem": "$F(A,B,C)=\\sum m(0,1,3,4,5,7)$. Implement it with one 4:1 mux whose select order is $BC$ and residual input is $A$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 4 | 11 | $1$ |\n| 01 | 1, 5 | 11 | $1$ |\n| 10 | 2, 6 | 00 | $0$ |\n| 11 | 3, 7 | 11 | $1$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(1,1,0,1)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 0 distinct nonconstant functions. Only 0 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is not satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          7
+        ],
+        "remaining": 0,
+        "data": [
+          "1",
+          "1",
+          "0",
+          "1"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_014",
+    "title": "A conditional implication \u2014 select AC",
+    "stem": "$F(A,B,C)=\\sum m(0,1,3,4,5,7)$. Implement it with one 4:1 mux whose select order is $AC$ and residual input is $B$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 2 | 10 | $\\overline B$ |\n| 01 | 1, 3 | 11 | $1$ |\n| 10 | 4, 6 | 10 | $\\overline B$ |\n| 11 | 5, 7 | 11 | $1$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(\\overline B,1,\\overline B,1)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 1 distinct nonconstant functions. Only 1 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is not satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          7
+        ],
+        "remaining": 1,
+        "data": [
+          "\\overline B",
+          "1",
+          "\\overline B",
+          "1"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_015",
+    "title": "A conditional implication \u2014 select AB",
+    "stem": "$F(A,B,C)=\\sum m(0,1,3,4,5,7)$. Implement it with one 4:1 mux whose select order is $AB$ and residual input is $C$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 1 | 11 | $1$ |\n| 01 | 2, 3 | 01 | $C$ |\n| 10 | 4, 5 | 11 | $1$ |\n| 11 | 6, 7 | 01 | $C$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(1,C,1,C)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 1 distinct nonconstant functions. Only 0 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is not satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          7
+        ],
+        "remaining": 2,
+        "data": [
+          "1",
+          "C",
+          "1",
+          "C"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_016",
+    "title": "A sparse alarm \u2014 select BC",
+    "stem": "$F(A,B,C)=\\sum m(0,3,5,6)$. Implement it with one 4:1 mux whose select order is $BC$ and residual input is $A$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 4 | 10 | $\\overline A$ |\n| 01 | 1, 5 | 01 | $A$ |\n| 10 | 2, 6 | 01 | $A$ |\n| 11 | 3, 7 | 10 | $\\overline A$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(\\overline A,A,A,\\overline A)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 2 distinct nonconstant functions. Only 1 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          0,
+          3,
+          5,
+          6
+        ],
+        "remaining": 0,
+        "data": [
+          "\\overline A",
+          "A",
+          "A",
+          "\\overline A"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_017",
+    "title": "A sparse alarm \u2014 select AC",
+    "stem": "$F(A,B,C)=\\sum m(0,3,5,6)$. Implement it with one 4:1 mux whose select order is $AC$ and residual input is $B$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 2 | 10 | $\\overline B$ |\n| 01 | 1, 3 | 01 | $B$ |\n| 10 | 4, 6 | 01 | $B$ |\n| 11 | 5, 7 | 10 | $\\overline B$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(\\overline B,B,B,\\overline B)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 2 distinct nonconstant functions. Only 1 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          0,
+          3,
+          5,
+          6
+        ],
+        "remaining": 1,
+        "data": [
+          "\\overline B",
+          "B",
+          "B",
+          "\\overline B"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_018",
+    "title": "A sparse alarm \u2014 select AB",
+    "stem": "$F(A,B,C)=\\sum m(0,3,5,6)$. Implement it with one 4:1 mux whose select order is $AB$ and residual input is $C$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 1 | 10 | $\\overline C$ |\n| 01 | 2, 3 | 01 | $C$ |\n| 10 | 4, 5 | 01 | $C$ |\n| 11 | 6, 7 | 10 | $\\overline C$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(\\overline C,C,C,\\overline C)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 2 distinct nonconstant functions. Only 1 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          0,
+          3,
+          5,
+          6
+        ],
+        "remaining": 2,
+        "data": [
+          "\\overline C",
+          "C",
+          "C",
+          "\\overline C"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_019",
+    "title": "A guarded selection \u2014 select BC",
+    "stem": "$F(A,B,C)=\\sum m(1,3,4,5)$. Implement it with one 4:1 mux whose select order is $BC$ and residual input is $A$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 4 | 01 | $A$ |\n| 01 | 1, 5 | 11 | $1$ |\n| 10 | 2, 6 | 00 | $0$ |\n| 11 | 3, 7 | 10 | $\\overline A$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(A,1,0,\\overline A)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 2 distinct nonconstant functions. Only 1 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is not satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "remaining": 0,
+        "data": [
+          "A",
+          "1",
+          "0",
+          "\\overline A"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_020",
+    "title": "A guarded selection \u2014 select AC",
+    "stem": "$F(A,B,C)=\\sum m(1,3,4,5)$. Implement it with one 4:1 mux whose select order is $AC$ and residual input is $B$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 2 | 00 | $0$ |\n| 01 | 1, 3 | 11 | $1$ |\n| 10 | 4, 6 | 10 | $\\overline B$ |\n| 11 | 5, 7 | 10 | $\\overline B$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(0,1,\\overline B,\\overline B)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 1 distinct nonconstant functions. Only 1 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is not satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "remaining": 1,
+        "data": [
+          "0",
+          "1",
+          "\\overline B",
+          "\\overline B"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_021",
+    "title": "A guarded selection \u2014 select AB",
+    "stem": "$F(A,B,C)=\\sum m(1,3,4,5)$. Implement it with one 4:1 mux whose select order is $AB$ and residual input is $C$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 1 | 01 | $C$ |\n| 01 | 2, 3 | 01 | $C$ |\n| 10 | 4, 5 | 11 | $1$ |\n| 11 | 6, 7 | 00 | $0$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(C,C,1,0)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 1 distinct nonconstant functions. Only 0 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is not satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "remaining": 2,
+        "data": [
+          "C",
+          "C",
+          "1",
+          "0"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_022",
+    "title": "A threshold exception \u2014 select BC",
+    "stem": "$F(A,B,C)=\\sum m(0,2,3,7)$. Implement it with one 4:1 mux whose select order is $BC$ and residual input is $A$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 4 | 10 | $\\overline A$ |\n| 01 | 1, 5 | 00 | $0$ |\n| 10 | 2, 6 | 10 | $\\overline A$ |\n| 11 | 3, 7 | 11 | $1$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(\\overline A,0,\\overline A,1)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 1 distinct nonconstant functions. Only 1 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is not satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          0,
+          2,
+          3,
+          7
+        ],
+        "remaining": 0,
+        "data": [
+          "\\overline A",
+          "0",
+          "\\overline A",
+          "1"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_023",
+    "title": "A threshold exception \u2014 select AC",
+    "stem": "$F(A,B,C)=\\sum m(0,2,3,7)$. Implement it with one 4:1 mux whose select order is $AC$ and residual input is $B$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 2 | 11 | $1$ |\n| 01 | 1, 3 | 01 | $B$ |\n| 10 | 4, 6 | 00 | $0$ |\n| 11 | 5, 7 | 01 | $B$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(1,B,0,B)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 1 distinct nonconstant functions. Only 0 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is not satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          0,
+          2,
+          3,
+          7
+        ],
+        "remaining": 1,
+        "data": [
+          "1",
+          "B",
+          "0",
+          "B"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_024",
+    "title": "A threshold exception \u2014 select AB",
+    "stem": "$F(A,B,C)=\\sum m(0,2,3,7)$. Implement it with one 4:1 mux whose select order is $AB$ and residual input is $C$. Derive every data connection, count distinct nonconstant data functions and required shared residual inversions, and explain whether exchanging the select pins without rewiring is legal.",
+    "solution": "**1. Preserve row significance.** The original minterm number is $4A+2B+C$, independent of which variable becomes a data signal. For each selected pair, explicitly enumerate residual values zero and one. This avoids treating a select pair as two adjacent decimal indices when the free coordinate is a more significant bit.\n\n**2. Read the four cofactors.**\n\n| Select pair | Original indices, residual 0 then 1 | Output pair | Data function |\n|---|---|---|---|\n| 00 | 0, 1 | 10 | $\\overline C$ |\n| 01 | 2, 3 | 11 | $1$ |\n| 10 | 4, 5 | 00 | $0$ |\n| 11 | 6, 7 | 01 | $C$ |\n\n**3. Construct the exact function.** A residual output pair 00 is constant zero, 01 is the residual variable, 10 is its complement, and 11 is constant one. The data tuple is $(\\overline C,1,0,C)$. Each mux-selected branch now reproduces both rows belonging to its select pair, so all eight rows are correct by the four exhaustive cases.\n\n**4. Count external data preparation.** There are 2 distinct nonconstant functions. Only 1 shared residual inverter is needed under a library with free direct wires and constants; repeated use of the same complement does not require a separate inverter for every pin. The mux itself remains a physical component and must be counted if total cost is requested.\n\n**5. Diagnose a select exchange.** Swapping the two select pins exchanges addresses 01 and 10, while 00 and 11 remain fixed. Leaving the data tuple unchanged is legal precisely when $D_1=D_2$ as functions, not merely when they agree for one tested residual value. Here that condition is not satisfied. A different select choice can reduce external logic, but it must be recomputed from the table; apparent geometric adjacency is not a cofactor proof.",
+    "difficulty": "Hard",
+    "origin": "Original extension of reviewed MIT/Cambridge cofactor implementation families",
+    "certificate": {
+      "kind": "cofactor",
+      "data": {
+        "on": [
+          0,
+          2,
+          3,
+          7
+        ],
+        "remaining": 2,
+        "data": [
+          "\\overline C",
+          "1",
+          "0",
+          "C"
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_025",
+    "title": "Complete multi-output design: enabled priority",
+    "stem": "Design the **enabled priority** block with input order $E,R_1,R_0$. Outputs are G1 then G0. Enable E=0 suppresses both; when E=1 and both requests are high, R1 has priority. Give a complete output table, independent Boolean equations, a ROM content list, and the output active-low transformation. For incrementers, explicitly distinguish saturation from modulo-four arithmetic.",
+    "solution": "**1. Interpret each row numerically or by its request predicate.** Do not use a previous input value. The complete output words, in increasing input index, are `00, 00, 00, 00, 00, 01, 10, 10`. Each word follows directly from the named predicate: the enabled high-priority request suppresses the lower grant.\n\n**2. Derive one-sets.** Output zero is one on $\\{6,7\\}$; output one is one on $\\{5\\}$. These sets provide a canonical sum-of-minterms construction even if a shorter formula is later chosen.\n\n**3. Simplify with semantic structure.** The equations are $Y_0=ER_1$ and $Y_1=E\\overline{R_1}R_0$. Substitution in every listed row proves both outputs, including the endpoint and zero-request cases. Recognizing only one equation is insufficient for a two-output design.\n\n**4. Give a technology-independent implementation.** A $8\\times2$ ROM stores the displayed words and uses 16 bits. A shared decoder can instead OR each output\u2019s required one rows. The word order must remain the declared output order; reversing it transposes the meanings without changing the address sequence.\n\n**5. Transform polarity and test the boundary.** If the interface requires active-low outputs, use $Y_{0n}=\\overline{Y_0}$ and $Y_{1n}=\\overline{Y_1}$, complementing each displayed output bit rather than its index. Saturating increment sends input three to three; modular increment sends it to zero. The correct arithmetic convention is an obligation, not a freedom that Boolean minimization can decide. The complete table is also an independent reference for checking an HDL implementation.",
+    "difficulty": "Hard",
+    "origin": "Original extensions of reviewed Cornell/Berkeley multi-output design families",
+    "certificate": {
+      "kind": "contract",
+      "data": {
+        "name": "enabled priority",
+        "n": 3,
+        "words": [
+          "00",
+          "00",
+          "00",
+          "00",
+          "00",
+          "01",
+          "10",
+          "10"
+        ],
+        "ones": [
+          [
+            6,
+            7
+          ],
+          [
+            5
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_026",
+    "title": "Complete multi-output design: exclusive request alarm",
+    "stem": "Design the **exclusive request alarm** block with input order $E,R_1,R_0$. Outputs are P then K. P is high exactly when E=1 and exactly one of R1,R0 is high; K is high exactly when both requests are high, regardless of E. Give a complete output table, independent Boolean equations, a ROM content list, and the output active-low transformation. For incrementers, explicitly distinguish saturation from modulo-four arithmetic.",
+    "solution": "**1. Interpret each row numerically or by its request predicate.** Do not use a previous input value. The complete output words, in increasing input index, are `00, 00, 00, 01, 00, 10, 10, 01`. Each word follows directly from the named predicate: evaluate each stated output independently before combining their bits into a word.\n\n**2. Derive one-sets.** Output zero is one on $\\{5,6\\}$; output one is one on $\\{3,7\\}$. These sets provide a canonical sum-of-minterms construction even if a shorter formula is later chosen.\n\n**3. Simplify with semantic structure.** The equations are $Y_0=E(R_1\\oplus R_0)$ and $Y_1=R_1R_0$. Substitution in every listed row proves both outputs, including the endpoint and zero-request cases. Recognizing only one equation is insufficient for a two-output design.\n\n**4. Give a technology-independent implementation.** A $8\\times2$ ROM stores the displayed words and uses 16 bits. A shared decoder can instead OR each output\u2019s required one rows. The word order must remain the declared output order; reversing it transposes the meanings without changing the address sequence.\n\n**5. Transform polarity and test the boundary.** If the interface requires active-low outputs, use $Y_{0n}=\\overline{Y_0}$ and $Y_{1n}=\\overline{Y_1}$, complementing each displayed output bit rather than its index. Saturating increment sends input three to three; modular increment sends it to zero. The correct arithmetic convention is an obligation, not a freedom that Boolean minimization can decide. The complete table is also an independent reference for checking an HDL implementation.",
+    "difficulty": "Hard",
+    "origin": "Original extensions of reviewed Cornell/Berkeley multi-output design families",
+    "certificate": {
+      "kind": "contract",
+      "data": {
+        "name": "exclusive request alarm",
+        "n": 3,
+        "words": [
+          "00",
+          "00",
+          "00",
+          "01",
+          "00",
+          "10",
+          "10",
+          "01"
+        ],
+        "ones": [
+          [
+            5,
+            6
+          ],
+          [
+            3,
+            7
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_027",
+    "title": "Complete multi-output design: saturating increment",
+    "stem": "Design the **saturating increment** block with input order $A,B$. Input x=2A+B. Output word Y0Y1 represents min(x+1,3), with Y0 most significant. Give a complete output table, independent Boolean equations, a ROM content list, and the output active-low transformation. For incrementers, explicitly distinguish saturation from modulo-four arithmetic.",
+    "solution": "**1. Interpret each row numerically or by its request predicate.** Do not use a previous input value. The complete output words, in increasing input index, are `01, 10, 11, 11`. Each word follows directly from the named predicate: evaluate each stated output independently before combining their bits into a word.\n\n**2. Derive one-sets.** Output zero is one on $\\{1,2,3\\}$; output one is one on $\\{0,2,3\\}$. These sets provide a canonical sum-of-minterms construction even if a shorter formula is later chosen.\n\n**3. Simplify with semantic structure.** The equations are $Y_0=A+B$ and $Y_1=A+\\overline B$. Substitution in every listed row proves both outputs, including the endpoint and zero-request cases. Recognizing only one equation is insufficient for a two-output design.\n\n**4. Give a technology-independent implementation.** A $4\\times2$ ROM stores the displayed words and uses 8 bits. A shared decoder can instead OR each output\u2019s required one rows. The word order must remain the declared output order; reversing it transposes the meanings without changing the address sequence.\n\n**5. Transform polarity and test the boundary.** If the interface requires active-low outputs, use $Y_{0n}=\\overline{Y_0}$ and $Y_{1n}=\\overline{Y_1}$, complementing each displayed output bit rather than its index. Saturating increment sends input three to three; modular increment sends it to zero. The correct arithmetic convention is an obligation, not a freedom that Boolean minimization can decide. The complete table is also an independent reference for checking an HDL implementation.",
+    "difficulty": "Hard",
+    "origin": "Original extensions of reviewed Cornell/Berkeley multi-output design families",
+    "certificate": {
+      "kind": "contract",
+      "data": {
+        "name": "saturating increment",
+        "n": 2,
+        "words": [
+          "01",
+          "10",
+          "11",
+          "11"
+        ],
+        "ones": [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            0,
+            2,
+            3
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_028",
+    "title": "Complete multi-output design: two-bit modular increment",
+    "stem": "Design the **two-bit modular increment** block with input order $A,B$. Input x=2A+B. Output word Y0Y1 represents (x+1) modulo four, with Y0 most significant. Give a complete output table, independent Boolean equations, a ROM content list, and the output active-low transformation. For incrementers, explicitly distinguish saturation from modulo-four arithmetic.",
+    "solution": "**1. Interpret each row numerically or by its request predicate.** Do not use a previous input value. The complete output words, in increasing input index, are `01, 10, 11, 00`. Each word follows directly from the named predicate: evaluate each stated output independently before combining their bits into a word.\n\n**2. Derive one-sets.** Output zero is one on $\\{1,2\\}$; output one is one on $\\{0,2\\}$. These sets provide a canonical sum-of-minterms construction even if a shorter formula is later chosen.\n\n**3. Simplify with semantic structure.** The equations are $Y_0=A\\oplus B$ and $Y_1=\\overline B$. Substitution in every listed row proves both outputs, including the endpoint and zero-request cases. Recognizing only one equation is insufficient for a two-output design.\n\n**4. Give a technology-independent implementation.** A $4\\times2$ ROM stores the displayed words and uses 8 bits. A shared decoder can instead OR each output\u2019s required one rows. The word order must remain the declared output order; reversing it transposes the meanings without changing the address sequence.\n\n**5. Transform polarity and test the boundary.** If the interface requires active-low outputs, use $Y_{0n}=\\overline{Y_0}$ and $Y_{1n}=\\overline{Y_1}$, complementing each displayed output bit rather than its index. Saturating increment sends input three to three; modular increment sends it to zero. The correct arithmetic convention is an obligation, not a freedom that Boolean minimization can decide. The complete table is also an independent reference for checking an HDL implementation.",
+    "difficulty": "Hard",
+    "origin": "Original extensions of reviewed Cornell/Berkeley multi-output design families",
+    "certificate": {
+      "kind": "contract",
+      "data": {
+        "name": "two-bit modular increment",
+        "n": 2,
+        "words": [
+          "01",
+          "10",
+          "11",
+          "00"
+        ],
+        "ones": [
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_029",
+    "title": "Complete multi-output design: one-bit equality and greater",
+    "stem": "Design the **one-bit equality and greater** block with input order $A,B$. Outputs are equality of A,B followed by the unsigned one-bit predicate A>B. Give a complete output table, independent Boolean equations, a ROM content list, and the output active-low transformation. For incrementers, explicitly distinguish saturation from modulo-four arithmetic.",
+    "solution": "**1. Interpret each row numerically or by its request predicate.** Do not use a previous input value. The complete output words, in increasing input index, are `10, 00, 01, 10`. Each word follows directly from the named predicate: evaluate each stated output independently before combining their bits into a word.\n\n**2. Derive one-sets.** Output zero is one on $\\{0,3\\}$; output one is one on $\\{2\\}$. These sets provide a canonical sum-of-minterms construction even if a shorter formula is later chosen.\n\n**3. Simplify with semantic structure.** The equations are $Y_0=\\overline{A\\oplus B}$ and $Y_1=A\\overline B$. Substitution in every listed row proves both outputs, including the endpoint and zero-request cases. Recognizing only one equation is insufficient for a two-output design.\n\n**4. Give a technology-independent implementation.** A $4\\times2$ ROM stores the displayed words and uses 8 bits. A shared decoder can instead OR each output\u2019s required one rows. The word order must remain the declared output order; reversing it transposes the meanings without changing the address sequence.\n\n**5. Transform polarity and test the boundary.** If the interface requires active-low outputs, use $Y_{0n}=\\overline{Y_0}$ and $Y_{1n}=\\overline{Y_1}$, complementing each displayed output bit rather than its index. Saturating increment sends input three to three; modular increment sends it to zero. The correct arithmetic convention is an obligation, not a freedom that Boolean minimization can decide. The complete table is also an independent reference for checking an HDL implementation.",
+    "difficulty": "Hard",
+    "origin": "Original extensions of reviewed Cornell/Berkeley multi-output design families",
+    "certificate": {
+      "kind": "contract",
+      "data": {
+        "name": "one-bit equality and greater",
+        "n": 2,
+        "words": [
+          "10",
+          "00",
+          "01",
+          "10"
+        ],
+        "ones": [
+          [
+            0,
+            3
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_030",
+    "title": "Complete multi-output design: one-bit difference and borrow",
+    "stem": "Design the **one-bit difference and borrow** block with input order $A,B$. Outputs are the low bit of A\u2212B followed by its one-bit borrow flag. Give a complete output table, independent Boolean equations, a ROM content list, and the output active-low transformation. For incrementers, explicitly distinguish saturation from modulo-four arithmetic.",
+    "solution": "**1. Interpret each row numerically or by its request predicate.** Do not use a previous input value. The complete output words, in increasing input index, are `00, 11, 10, 00`. Each word follows directly from the named predicate: evaluate each stated output independently before combining their bits into a word.\n\n**2. Derive one-sets.** Output zero is one on $\\{1,2\\}$; output one is one on $\\{1\\}$. These sets provide a canonical sum-of-minterms construction even if a shorter formula is later chosen.\n\n**3. Simplify with semantic structure.** The equations are $Y_0=A\\oplus B$ and $Y_1=\\overline A B$. Substitution in every listed row proves both outputs, including the endpoint and zero-request cases. Recognizing only one equation is insufficient for a two-output design.\n\n**4. Give a technology-independent implementation.** A $4\\times2$ ROM stores the displayed words and uses 8 bits. A shared decoder can instead OR each output\u2019s required one rows. The word order must remain the declared output order; reversing it transposes the meanings without changing the address sequence.\n\n**5. Transform polarity and test the boundary.** If the interface requires active-low outputs, use $Y_{0n}=\\overline{Y_0}$ and $Y_{1n}=\\overline{Y_1}$, complementing each displayed output bit rather than its index. Saturating increment sends input three to three; modular increment sends it to zero. The correct arithmetic convention is an obligation, not a freedom that Boolean minimization can decide. The complete table is also an independent reference for checking an HDL implementation.",
+    "difficulty": "Hard",
+    "origin": "Original extensions of reviewed Cornell/Berkeley multi-output design families",
+    "certificate": {
+      "kind": "contract",
+      "data": {
+        "name": "one-bit difference and borrow",
+        "n": 2,
+        "words": [
+          "00",
+          "11",
+          "10",
+          "00"
+        ],
+        "ones": [
+          [
+            1,
+            2
+          ],
+          [
+            1
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_031",
+    "title": "Complete multi-output design: parity and majority",
+    "stem": "Design the **parity and majority** block with input order $A,B,C$. Outputs are odd parity of ABC followed by a flag high exactly when at least two input bits are high. Give a complete output table, independent Boolean equations, a ROM content list, and the output active-low transformation. For incrementers, explicitly distinguish saturation from modulo-four arithmetic.",
+    "solution": "**1. Interpret each row numerically or by its request predicate.** Do not use a previous input value. The complete output words, in increasing input index, are `00, 10, 10, 01, 10, 01, 01, 11`. Each word follows directly from the named predicate: evaluate each stated output independently before combining their bits into a word.\n\n**2. Derive one-sets.** Output zero is one on $\\{1,2,4,7\\}$; output one is one on $\\{3,5,6,7\\}$. These sets provide a canonical sum-of-minterms construction even if a shorter formula is later chosen.\n\n**3. Simplify with semantic structure.** The equations are $Y_0=A\\oplus B\\oplus C$ and $Y_1=AB+AC+BC$. Substitution in every listed row proves both outputs, including the endpoint and zero-request cases. Recognizing only one equation is insufficient for a two-output design.\n\n**4. Give a technology-independent implementation.** A $8\\times2$ ROM stores the displayed words and uses 16 bits. A shared decoder can instead OR each output\u2019s required one rows. The word order must remain the declared output order; reversing it transposes the meanings without changing the address sequence.\n\n**5. Transform polarity and test the boundary.** If the interface requires active-low outputs, use $Y_{0n}=\\overline{Y_0}$ and $Y_{1n}=\\overline{Y_1}$, complementing each displayed output bit rather than its index. Saturating increment sends input three to three; modular increment sends it to zero. The correct arithmetic convention is an obligation, not a freedom that Boolean minimization can decide. The complete table is also an independent reference for checking an HDL implementation.",
+    "difficulty": "Hard",
+    "origin": "Original extensions of reviewed Cornell/Berkeley multi-output design families",
+    "certificate": {
+      "kind": "contract",
+      "data": {
+        "name": "parity and majority",
+        "n": 3,
+        "words": [
+          "00",
+          "10",
+          "10",
+          "01",
+          "10",
+          "01",
+          "01",
+          "11"
+        ],
+        "ones": [
+          [
+            1,
+            2,
+            4,
+            7
+          ],
+          [
+            3,
+            5,
+            6,
+            7
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_032",
+    "title": "Complete multi-output design: exactly-one and any request",
+    "stem": "Design the **exactly-one and any request** block with input order $A,B,C$. Outputs are a flag for exactly one asserted ABC bit followed by a flag for at least one asserted bit. Give a complete output table, independent Boolean equations, a ROM content list, and the output active-low transformation. For incrementers, explicitly distinguish saturation from modulo-four arithmetic.",
+    "solution": "**1. Interpret each row numerically or by its request predicate.** Do not use a previous input value. The complete output words, in increasing input index, are `00, 11, 11, 01, 11, 01, 01, 01`. Each word follows directly from the named predicate: evaluate each stated output independently before combining their bits into a word.\n\n**2. Derive one-sets.** Output zero is one on $\\{1,2,4\\}$; output one is one on $\\{1,2,3,4,5,6,7\\}$. These sets provide a canonical sum-of-minterms construction even if a shorter formula is later chosen.\n\n**3. Simplify with semantic structure.** The equations are $Y_0=A\\overline B\\overline C+\\overline A B\\overline C+\\overline A\\overline B C$ and $Y_1=A+B+C$. Substitution in every listed row proves both outputs, including the endpoint and zero-request cases. Recognizing only one equation is insufficient for a two-output design.\n\n**4. Give a technology-independent implementation.** A $8\\times2$ ROM stores the displayed words and uses 16 bits. A shared decoder can instead OR each output\u2019s required one rows. The word order must remain the declared output order; reversing it transposes the meanings without changing the address sequence.\n\n**5. Transform polarity and test the boundary.** If the interface requires active-low outputs, use $Y_{0n}=\\overline{Y_0}$ and $Y_{1n}=\\overline{Y_1}$, complementing each displayed output bit rather than its index. Saturating increment sends input three to three; modular increment sends it to zero. The correct arithmetic convention is an obligation, not a freedom that Boolean minimization can decide. The complete table is also an independent reference for checking an HDL implementation.",
+    "difficulty": "Hard",
+    "origin": "Original extensions of reviewed Cornell/Berkeley multi-output design families",
+    "certificate": {
+      "kind": "contract",
+      "data": {
+        "name": "exactly-one and any request",
+        "n": 3,
+        "words": [
+          "00",
+          "11",
+          "11",
+          "01",
+          "11",
+          "01",
+          "01",
+          "01"
+        ],
+        "ones": [
+          [
+            1,
+            2,
+            4
+          ],
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_033",
+    "title": "Complete multi-output design: even parity with validity",
+    "stem": "Design the **even parity with validity** block with input order $A,B,C$. Outputs are validity V followed by parity P. V is high on binary indices 0\u20135; P indicates even bit parity on valid rows and is forced zero on invalid rows. Give a complete output table, independent Boolean equations, a ROM content list, and the output active-low transformation. For incrementers, explicitly distinguish saturation from modulo-four arithmetic.",
+    "solution": "**1. Interpret each row numerically or by its request predicate.** Do not use a previous input value. The complete output words, in increasing input index, are `11, 10, 10, 11, 10, 11, 00, 00`. Each word follows directly from the named predicate: evaluate each stated output independently before combining their bits into a word.\n\n**2. Derive one-sets.** Output zero is one on $\\{0,1,2,3,4,5\\}$; output one is one on $\\{0,3,5\\}$. These sets provide a canonical sum-of-minterms construction even if a shorter formula is later chosen.\n\n**3. Simplify with semantic structure.** The equations are $Y_0=\\overline{AB}$ and $Y_1=\\overline{AB}\\overline{A\\oplus B\\oplus C}$. Substitution in every listed row proves both outputs, including the endpoint and zero-request cases. Recognizing only one equation is insufficient for a two-output design.\n\n**4. Give a technology-independent implementation.** A $8\\times2$ ROM stores the displayed words and uses 16 bits. A shared decoder can instead OR each output\u2019s required one rows. The word order must remain the declared output order; reversing it transposes the meanings without changing the address sequence.\n\n**5. Transform polarity and test the boundary.** If the interface requires active-low outputs, use $Y_{0n}=\\overline{Y_0}$ and $Y_{1n}=\\overline{Y_1}$, complementing each displayed output bit rather than its index. Saturating increment sends input three to three; modular increment sends it to zero. The correct arithmetic convention is an obligation, not a freedom that Boolean minimization can decide. The complete table is also an independent reference for checking an HDL implementation.",
+    "difficulty": "Hard",
+    "origin": "Original extensions of reviewed Cornell/Berkeley multi-output design families",
+    "certificate": {
+      "kind": "contract",
+      "data": {
+        "name": "even parity with validity",
+        "n": 3,
+        "words": [
+          "11",
+          "10",
+          "10",
+          "11",
+          "10",
+          "11",
+          "00",
+          "00"
+        ],
+        "ones": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            5
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_034",
+    "title": "Complete multi-output design: two-bit Gray and inverse",
+    "stem": "Design the **two-bit Gray and inverse** block with input order $A,B$. For binary input AB, output the two-bit Gray encoding G1G0. Also explain why applying the same mapping again recovers the binary input. Give a complete output table, independent Boolean equations, a ROM content list, and the output active-low transformation. For incrementers, explicitly distinguish saturation from modulo-four arithmetic.",
+    "solution": "**1. Interpret each row numerically or by its request predicate.** Do not use a previous input value. The complete output words, in increasing input index, are `00, 01, 11, 10`. Each word follows directly from the named predicate: evaluate each stated output independently before combining their bits into a word.\n\n**2. Derive one-sets.** Output zero is one on $\\{2,3\\}$; output one is one on $\\{1,2\\}$. These sets provide a canonical sum-of-minterms construction even if a shorter formula is later chosen.\n\n**3. Simplify with semantic structure.** The equations are $Y_0=A$ and $Y_1=A\\oplus B$. Substitution in every listed row proves both outputs, including the endpoint and zero-request cases. Recognizing only one equation is insufficient for a two-output design.\n\n**4. Give a technology-independent implementation.** A $4\\times2$ ROM stores the displayed words and uses 8 bits. A shared decoder can instead OR each output\u2019s required one rows. The word order must remain the declared output order; reversing it transposes the meanings without changing the address sequence.\n\n**5. Transform polarity and test the boundary.** If the interface requires active-low outputs, use $Y_{0n}=\\overline{Y_0}$ and $Y_{1n}=\\overline{Y_1}$, complementing each displayed output bit rather than its index. Saturating increment sends input three to three; modular increment sends it to zero. The correct arithmetic convention is an obligation, not a freedom that Boolean minimization can decide. The complete table is also an independent reference for checking an HDL implementation.\n\n**6. Prove inversion.** Applying the same two-bit map twice gives first bit A and second bit $A\\oplus(A\\oplus B)=B$. This involution is specific to this two-bit mapping; larger Gray-code inverses require a prefix XOR rather than blindly repeating the same adjacent-bit transformation.",
+    "difficulty": "Hard",
+    "origin": "Original extensions of reviewed Cornell/Berkeley multi-output design families",
+    "certificate": {
+      "kind": "contract",
+      "data": {
+        "name": "two-bit Gray and inverse",
+        "n": 2,
+        "words": [
+          "00",
+          "01",
+          "11",
+          "10"
+        ],
+        "ones": [
+          [
+            2,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_035",
+    "title": "Counterexample surgery: masked product",
+    "stem": "A proposed circuit changes $F=AB+C$ to $G=A+B+C$. Use input order $A,B,C,D$; in the priority case rename $A,B,C$ as $E,R_1,R_0$. Derive the full equivalence miter, list all detecting rows, choose one smallest-index counterexample, and state whether a care restriction could legitimize the change.",
+    "solution": "**1. Compare settled functions, not visual similarity.** Form $M=F\\oplus G$. Each input row is evaluated with exactly the same primary bits in both networks. Constants or an unused D do not alter the declared index width.\n\n**2. Exhaust the miter.** Its one-set is $\\{4,5,8,9\\}$. These and only these rows reject equivalence. Thus agreement on zero input, all-one input, or one familiar subnetwork cannot replace a complete comparison.\n\n**3. Exhibit a minimal-index witness.** Row `0100` has $F=0$ and $G=1$. Substituting those bits into the displayed equations supplies a concrete failure rather than an unsupported claim of difference.\n\n**4. State the only possible care exception.** A care predicate C could make the change acceptable only if it excludes **every** listed discrepancy row: $CM=0$. Excluding one witness is not enough. Such a restriction must come from the environment contract; inventing it after discovering a circuit error changes the task.\n\n**5. Transfer the lesson to multiple outputs.** If these are one output of a larger block, include every other output discrepancy in an OR miter. A shared gate modification may create several observable failures. The reference should be independently specified from predicates or arithmetic behavior, because copying the same wrong netlist into both sides produces a vacuous pass. This problem concerns functional equality, not whether the two circuits also have identical timing.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "miter",
+      "data": {
+        "name": "masked product",
+        "reference": "AB+C",
+        "candidate": "A+B+C",
+        "values": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "diff": [
+          4,
+          5,
+          8,
+          9
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_036",
+    "title": "Counterexample surgery: factored select",
+    "stem": "A proposed circuit changes $F=A(B+C)$ to $G=AB+C$. Use input order $A,B,C,D$; in the priority case rename $A,B,C$ as $E,R_1,R_0$. Derive the full equivalence miter, list all detecting rows, choose one smallest-index counterexample, and state whether a care restriction could legitimize the change.",
+    "solution": "**1. Compare settled functions, not visual similarity.** Form $M=F\\oplus G$. Each input row is evaluated with exactly the same primary bits in both networks. Constants or an unused D do not alter the declared index width.\n\n**2. Exhaust the miter.** Its one-set is $\\{2,3,6,7\\}$. These and only these rows reject equivalence. Thus agreement on zero input, all-one input, or one familiar subnetwork cannot replace a complete comparison.\n\n**3. Exhibit a minimal-index witness.** Row `0010` has $F=0$ and $G=1$. Substituting those bits into the displayed equations supplies a concrete failure rather than an unsupported claim of difference.\n\n**4. State the only possible care exception.** A care predicate C could make the change acceptable only if it excludes **every** listed discrepancy row: $CM=0$. Excluding one witness is not enough. Such a restriction must come from the environment contract; inventing it after discovering a circuit error changes the task.\n\n**5. Transfer the lesson to multiple outputs.** If these are one output of a larger block, include every other output discrepancy in an OR miter. A shared gate modification may create several observable failures. The reference should be independently specified from predicates or arithmetic behavior, because copying the same wrong netlist into both sides produces a vacuous pass. This problem concerns functional equality, not whether the two circuits also have identical timing.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "miter",
+      "data": {
+        "name": "factored select",
+        "reference": "A(B+C)",
+        "candidate": "AB+C",
+        "values": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "diff": [
+          2,
+          3,
+          6,
+          7
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_037",
+    "title": "Counterexample surgery: consensus branch",
+    "stem": "A proposed circuit changes $F=AB+\\overline A C$ to $G=AB+AC$. Use input order $A,B,C,D$; in the priority case rename $A,B,C$ as $E,R_1,R_0$. Derive the full equivalence miter, list all detecting rows, choose one smallest-index counterexample, and state whether a care restriction could legitimize the change.",
+    "solution": "**1. Compare settled functions, not visual similarity.** Form $M=F\\oplus G$. Each input row is evaluated with exactly the same primary bits in both networks. Constants or an unused D do not alter the declared index width.\n\n**2. Exhaust the miter.** Its one-set is $\\{2,3,6,7,10,11\\}$. These and only these rows reject equivalence. Thus agreement on zero input, all-one input, or one familiar subnetwork cannot replace a complete comparison.\n\n**3. Exhibit a minimal-index witness.** Row `0010` has $F=1$ and $G=0$. Substituting those bits into the displayed equations supplies a concrete failure rather than an unsupported claim of difference.\n\n**4. State the only possible care exception.** A care predicate C could make the change acceptable only if it excludes **every** listed discrepancy row: $CM=0$. Excluding one witness is not enough. Such a restriction must come from the environment contract; inventing it after discovering a circuit error changes the task.\n\n**5. Transfer the lesson to multiple outputs.** If these are one output of a larger block, include every other output discrepancy in an OR miter. A shared gate modification may create several observable failures. The reference should be independently specified from predicates or arithmetic behavior, because copying the same wrong netlist into both sides produces a vacuous pass. This problem concerns functional equality, not whether the two circuits also have identical timing.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "miter",
+      "data": {
+        "name": "consensus branch",
+        "reference": "AB+\\overline A C",
+        "candidate": "AB+AC",
+        "values": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "diff": [
+          2,
+          3,
+          6,
+          7,
+          10,
+          11
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_038",
+    "title": "Counterexample surgery: three-input parity",
+    "stem": "A proposed circuit changes $F=A\\oplus B\\oplus C$ to $G=A\\oplus(B+C)$. Use input order $A,B,C,D$; in the priority case rename $A,B,C$ as $E,R_1,R_0$. Derive the full equivalence miter, list all detecting rows, choose one smallest-index counterexample, and state whether a care restriction could legitimize the change.",
+    "solution": "**1. Compare settled functions, not visual similarity.** Form $M=F\\oplus G$. Each input row is evaluated with exactly the same primary bits in both networks. Constants or an unused D do not alter the declared index width.\n\n**2. Exhaust the miter.** Its one-set is $\\{6,7,14,15\\}$. These and only these rows reject equivalence. Thus agreement on zero input, all-one input, or one familiar subnetwork cannot replace a complete comparison.\n\n**3. Exhibit a minimal-index witness.** Row `0110` has $F=0$ and $G=1$. Substituting those bits into the displayed equations supplies a concrete failure rather than an unsupported claim of difference.\n\n**4. State the only possible care exception.** A care predicate C could make the change acceptable only if it excludes **every** listed discrepancy row: $CM=0$. Excluding one witness is not enough. Such a restriction must come from the environment contract; inventing it after discovering a circuit error changes the task.\n\n**5. Transfer the lesson to multiple outputs.** If these are one output of a larger block, include every other output discrepancy in an OR miter. A shared gate modification may create several observable failures. The reference should be independently specified from predicates or arithmetic behavior, because copying the same wrong netlist into both sides produces a vacuous pass. This problem concerns functional equality, not whether the two circuits also have identical timing.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "miter",
+      "data": {
+        "name": "three-input parity",
+        "reference": "A\\oplus B\\oplus C",
+        "candidate": "A\\oplus(B+C)",
+        "values": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "diff": [
+          6,
+          7,
+          14,
+          15
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_039",
+    "title": "Counterexample surgery: two-product shared logic",
+    "stem": "A proposed circuit changes $F=AB+CD$ to $G=(A+B)(C+D)$. Use input order $A,B,C,D$; in the priority case rename $A,B,C$ as $E,R_1,R_0$. Derive the full equivalence miter, list all detecting rows, choose one smallest-index counterexample, and state whether a care restriction could legitimize the change.",
+    "solution": "**1. Compare settled functions, not visual similarity.** Form $M=F\\oplus G$. Each input row is evaluated with exactly the same primary bits in both networks. Constants or an unused D do not alter the declared index width.\n\n**2. Exhaust the miter.** Its one-set is $\\{3,5,6,9,10,12\\}$. These and only these rows reject equivalence. Thus agreement on zero input, all-one input, or one familiar subnetwork cannot replace a complete comparison.\n\n**3. Exhibit a minimal-index witness.** Row `0011` has $F=1$ and $G=0$. Substituting those bits into the displayed equations supplies a concrete failure rather than an unsupported claim of difference.\n\n**4. State the only possible care exception.** A care predicate C could make the change acceptable only if it excludes **every** listed discrepancy row: $CM=0$. Excluding one witness is not enough. Such a restriction must come from the environment contract; inventing it after discovering a circuit error changes the task.\n\n**5. Transfer the lesson to multiple outputs.** If these are one output of a larger block, include every other output discrepancy in an OR miter. A shared gate modification may create several observable failures. The reference should be independently specified from predicates or arithmetic behavior, because copying the same wrong netlist into both sides produces a vacuous pass. This problem concerns functional equality, not whether the two circuits also have identical timing.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "miter",
+      "data": {
+        "name": "two-product shared logic",
+        "reference": "AB+CD",
+        "candidate": "(A+B)(C+D)",
+        "values": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "diff": [
+          3,
+          5,
+          6,
+          9,
+          10,
+          12
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_040",
+    "title": "Counterexample surgery: product of sums",
+    "stem": "A proposed circuit changes $F=(A+B)(C+D)$ to $G=AC+BD$. Use input order $A,B,C,D$; in the priority case rename $A,B,C$ as $E,R_1,R_0$. Derive the full equivalence miter, list all detecting rows, choose one smallest-index counterexample, and state whether a care restriction could legitimize the change.",
+    "solution": "**1. Compare settled functions, not visual similarity.** Form $M=F\\oplus G$. Each input row is evaluated with exactly the same primary bits in both networks. Constants or an unused D do not alter the declared index width.\n\n**2. Exhaust the miter.** Its one-set is $\\{6,9\\}$. These and only these rows reject equivalence. Thus agreement on zero input, all-one input, or one familiar subnetwork cannot replace a complete comparison.\n\n**3. Exhibit a minimal-index witness.** Row `0110` has $F=1$ and $G=0$. Substituting those bits into the displayed equations supplies a concrete failure rather than an unsupported claim of difference.\n\n**4. State the only possible care exception.** A care predicate C could make the change acceptable only if it excludes **every** listed discrepancy row: $CM=0$. Excluding one witness is not enough. Such a restriction must come from the environment contract; inventing it after discovering a circuit error changes the task.\n\n**5. Transfer the lesson to multiple outputs.** If these are one output of a larger block, include every other output discrepancy in an OR miter. A shared gate modification may create several observable failures. The reference should be independently specified from predicates or arithmetic behavior, because copying the same wrong netlist into both sides produces a vacuous pass. This problem concerns functional equality, not whether the two circuits also have identical timing.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "miter",
+      "data": {
+        "name": "product of sums",
+        "reference": "(A+B)(C+D)",
+        "candidate": "AC+BD",
+        "values": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "diff": [
+          6,
+          9
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_041",
+    "title": "Counterexample surgery: majority omission",
+    "stem": "A proposed circuit changes $F=AB+AC+BC$ to $G=AB+AC$. Use input order $A,B,C,D$; in the priority case rename $A,B,C$ as $E,R_1,R_0$. Derive the full equivalence miter, list all detecting rows, choose one smallest-index counterexample, and state whether a care restriction could legitimize the change.",
+    "solution": "**1. Compare settled functions, not visual similarity.** Form $M=F\\oplus G$. Each input row is evaluated with exactly the same primary bits in both networks. Constants or an unused D do not alter the declared index width.\n\n**2. Exhaust the miter.** Its one-set is $\\{6,7\\}$. These and only these rows reject equivalence. Thus agreement on zero input, all-one input, or one familiar subnetwork cannot replace a complete comparison.\n\n**3. Exhibit a minimal-index witness.** Row `0110` has $F=1$ and $G=0$. Substituting those bits into the displayed equations supplies a concrete failure rather than an unsupported claim of difference.\n\n**4. State the only possible care exception.** A care predicate C could make the change acceptable only if it excludes **every** listed discrepancy row: $CM=0$. Excluding one witness is not enough. Such a restriction must come from the environment contract; inventing it after discovering a circuit error changes the task.\n\n**5. Transfer the lesson to multiple outputs.** If these are one output of a larger block, include every other output discrepancy in an OR miter. A shared gate modification may create several observable failures. The reference should be independently specified from predicates or arithmetic behavior, because copying the same wrong netlist into both sides produces a vacuous pass. This problem concerns functional equality, not whether the two circuits also have identical timing.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "miter",
+      "data": {
+        "name": "majority omission",
+        "reference": "AB+AC+BC",
+        "candidate": "AB+AC",
+        "values": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "diff": [
+          6,
+          7
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_042",
+    "title": "Counterexample surgery: priority low grant",
+    "stem": "A proposed circuit changes $F=E\\overline{R_1}R_0$ to $G=ER_0$. Use input order $A,B,C,D$; in the priority case rename $A,B,C$ as $E,R_1,R_0$. Derive the full equivalence miter, list all detecting rows, choose one smallest-index counterexample, and state whether a care restriction could legitimize the change.",
+    "solution": "**1. Compare settled functions, not visual similarity.** Form $M=F\\oplus G$. Each input row is evaluated with exactly the same primary bits in both networks. Constants or an unused D do not alter the declared index width.\n\n**2. Exhaust the miter.** Its one-set is $\\{14,15\\}$. These and only these rows reject equivalence. Thus agreement on zero input, all-one input, or one familiar subnetwork cannot replace a complete comparison.\n\n**3. Exhibit a minimal-index witness.** Row `1110` has $F=0$ and $G=1$. Substituting those bits into the displayed equations supplies a concrete failure rather than an unsupported claim of difference.\n\n**4. State the only possible care exception.** A care predicate C could make the change acceptable only if it excludes **every** listed discrepancy row: $CM=0$. Excluding one witness is not enough. Such a restriction must come from the environment contract; inventing it after discovering a circuit error changes the task.\n\n**5. Transfer the lesson to multiple outputs.** If these are one output of a larger block, include every other output discrepancy in an OR miter. A shared gate modification may create several observable failures. The reference should be independently specified from predicates or arithmetic behavior, because copying the same wrong netlist into both sides produces a vacuous pass. This problem concerns functional equality, not whether the two circuits also have identical timing.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "miter",
+      "data": {
+        "name": "priority low grant",
+        "reference": "E\\overline{R_1}R_0",
+        "candidate": "ER_0",
+        "values": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "diff": [
+          14,
+          15
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_043",
+    "title": "Counterexample surgery: active-low confusion",
+    "stem": "A proposed circuit changes $F=\\overline{A(B+C)}$ to $G=\\overline A(B+C)$. Use input order $A,B,C,D$; in the priority case rename $A,B,C$ as $E,R_1,R_0$. Derive the full equivalence miter, list all detecting rows, choose one smallest-index counterexample, and state whether a care restriction could legitimize the change.",
+    "solution": "**1. Compare settled functions, not visual similarity.** Form $M=F\\oplus G$. Each input row is evaluated with exactly the same primary bits in both networks. Constants or an unused D do not alter the declared index width.\n\n**2. Exhaust the miter.** Its one-set is $\\{0,1,8,9\\}$. These and only these rows reject equivalence. Thus agreement on zero input, all-one input, or one familiar subnetwork cannot replace a complete comparison.\n\n**3. Exhibit a minimal-index witness.** Row `0000` has $F=1$ and $G=0$. Substituting those bits into the displayed equations supplies a concrete failure rather than an unsupported claim of difference.\n\n**4. State the only possible care exception.** A care predicate C could make the change acceptable only if it excludes **every** listed discrepancy row: $CM=0$. Excluding one witness is not enough. Such a restriction must come from the environment contract; inventing it after discovering a circuit error changes the task.\n\n**5. Transfer the lesson to multiple outputs.** If these are one output of a larger block, include every other output discrepancy in an OR miter. A shared gate modification may create several observable failures. The reference should be independently specified from predicates or arithmetic behavior, because copying the same wrong netlist into both sides produces a vacuous pass. This problem concerns functional equality, not whether the two circuits also have identical timing.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "miter",
+      "data": {
+        "name": "active-low confusion",
+        "reference": "\\overline{A(B+C)}",
+        "candidate": "\\overline A(B+C)",
+        "values": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "diff": [
+          0,
+          1,
+          8,
+          9
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_044",
+    "title": "Counterexample surgery: NAND associativity",
+    "stem": "A proposed circuit changes $F=\\overline{ABC}$ to $G=\\overline{\\overline{AB}C}$. Use input order $A,B,C,D$; in the priority case rename $A,B,C$ as $E,R_1,R_0$. Derive the full equivalence miter, list all detecting rows, choose one smallest-index counterexample, and state whether a care restriction could legitimize the change.",
+    "solution": "**1. Compare settled functions, not visual similarity.** Form $M=F\\oplus G$. Each input row is evaluated with exactly the same primary bits in both networks. Constants or an unused D do not alter the declared index width.\n\n**2. Exhaust the miter.** Its one-set is $\\{2,3,6,7,10,11,14,15\\}$. These and only these rows reject equivalence. Thus agreement on zero input, all-one input, or one familiar subnetwork cannot replace a complete comparison.\n\n**3. Exhibit a minimal-index witness.** Row `0010` has $F=1$ and $G=0$. Substituting those bits into the displayed equations supplies a concrete failure rather than an unsupported claim of difference.\n\n**4. State the only possible care exception.** A care predicate C could make the change acceptable only if it excludes **every** listed discrepancy row: $CM=0$. Excluding one witness is not enough. Such a restriction must come from the environment contract; inventing it after discovering a circuit error changes the task.\n\n**5. Transfer the lesson to multiple outputs.** If these are one output of a larger block, include every other output discrepancy in an OR miter. A shared gate modification may create several observable failures. The reference should be independently specified from predicates or arithmetic behavior, because copying the same wrong netlist into both sides produces a vacuous pass. This problem concerns functional equality, not whether the two circuits also have identical timing.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "miter",
+      "data": {
+        "name": "NAND associativity",
+        "reference": "\\overline{ABC}",
+        "candidate": "\\overline{\\overline{AB}C}",
+        "values": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "diff": [
+          2,
+          3,
+          6,
+          7,
+          10,
+          11,
+          14,
+          15
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_045",
+    "title": "Counterexample surgery: one-hot confusion",
+    "stem": "A proposed circuit changes $F=A\\oplus B\\oplus C$ to $G=A\\overline B\\overline C+\\overline A B\\overline C+\\overline A\\overline B C$. Use input order $A,B,C,D$; in the priority case rename $A,B,C$ as $E,R_1,R_0$. Derive the full equivalence miter, list all detecting rows, choose one smallest-index counterexample, and state whether a care restriction could legitimize the change.",
+    "solution": "**1. Compare settled functions, not visual similarity.** Form $M=F\\oplus G$. Each input row is evaluated with exactly the same primary bits in both networks. Constants or an unused D do not alter the declared index width.\n\n**2. Exhaust the miter.** Its one-set is $\\{14,15\\}$. These and only these rows reject equivalence. Thus agreement on zero input, all-one input, or one familiar subnetwork cannot replace a complete comparison.\n\n**3. Exhibit a minimal-index witness.** Row `1110` has $F=1$ and $G=0$. Substituting those bits into the displayed equations supplies a concrete failure rather than an unsupported claim of difference.\n\n**4. State the only possible care exception.** A care predicate C could make the change acceptable only if it excludes **every** listed discrepancy row: $CM=0$. Excluding one witness is not enough. Such a restriction must come from the environment contract; inventing it after discovering a circuit error changes the task.\n\n**5. Transfer the lesson to multiple outputs.** If these are one output of a larger block, include every other output discrepancy in an OR miter. A shared gate modification may create several observable failures. The reference should be independently specified from predicates or arithmetic behavior, because copying the same wrong netlist into both sides produces a vacuous pass. This problem concerns functional equality, not whether the two circuits also have identical timing.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "miter",
+      "data": {
+        "name": "one-hot confusion",
+        "reference": "A\\oplus B\\oplus C",
+        "candidate": "A\\overline B\\overline C+\\overline A B\\overline C+\\overline A\\overline B C",
+        "values": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "diff": [
+          14,
+          15
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_046",
+    "title": "Counterexample surgery: shared-output mutation",
+    "stem": "A proposed circuit changes $F=AB$ to $G=AB(C+D)$. Use input order $A,B,C,D$; in the priority case rename $A,B,C$ as $E,R_1,R_0$. Derive the full equivalence miter, list all detecting rows, choose one smallest-index counterexample, and state whether a care restriction could legitimize the change.",
+    "solution": "**1. Compare settled functions, not visual similarity.** Form $M=F\\oplus G$. Each input row is evaluated with exactly the same primary bits in both networks. Constants or an unused D do not alter the declared index width.\n\n**2. Exhaust the miter.** Its one-set is $\\{12\\}$. These and only these rows reject equivalence. Thus agreement on zero input, all-one input, or one familiar subnetwork cannot replace a complete comparison.\n\n**3. Exhibit a minimal-index witness.** Row `1100` has $F=1$ and $G=0$. Substituting those bits into the displayed equations supplies a concrete failure rather than an unsupported claim of difference.\n\n**4. State the only possible care exception.** A care predicate C could make the change acceptable only if it excludes **every** listed discrepancy row: $CM=0$. Excluding one witness is not enough. Such a restriction must come from the environment contract; inventing it after discovering a circuit error changes the task.\n\n**5. Transfer the lesson to multiple outputs.** If these are one output of a larger block, include every other output discrepancy in an OR miter. A shared gate modification may create several observable failures. The reference should be independently specified from predicates or arithmetic behavior, because copying the same wrong netlist into both sides produces a vacuous pass. This problem concerns functional equality, not whether the two circuits also have identical timing.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "miter",
+      "data": {
+        "name": "shared-output mutation",
+        "reference": "AB",
+        "candidate": "AB(C+D)",
+        "values": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "diff": [
+          12
+        ]
+      }
+    }
+  },
+  {
+    "id": "COMBIN_047",
+    "title": "Arrival-sensitive AND design, width 3",
+    "stem": "An n-way AND has $n=3$ independent inputs, one arriving at time 5 and the others at time zero. Only two-input AND gates of unit propagation delay are allowed. Compare a balanced tree for simultaneous inputs, a chain with the late input last, and a balanced early-input subtree followed by the late input. Give gate count, depth lower bound, and arrival-time reasoning. Do not infer physical delay from literal count.",
+    "solution": "**1. Count binary combination gates.** A full binary tree with 3 leaves has 2 internal vertices, so each listed AND-tree realization uses 2 gates. This count excludes wires and supplies no claim about a different gate library.\n\n**2. Prove the simultaneous-arrival depth.** At depth d, fan-in two can combine at most $2^d$ independent leaves. Since this function depends on all 3 inputs, $d\\ge\\lceil\\log_2 3\\rceil=2$. A balanced construction achieves this lower bound; a chain instead has worst-case depth 2.\n\n**3. Use arrival recurrences rather than the depth slogan.** Place the late input at the last chain gate. The early chain settles at time 1, so the output latest bound is $\\max(1,5)+1=6$. It is not 5+2, because that late input does not traverse every gate.\n\n**4. Balance only the early subtree.** Its latest bound is $\\lceil\\log_2(2)\\rceil=1$. The final gate combines this with the late input, giving $\\max(1,5)+1=6$. It retains a shallow path for the slow signal and improves the early inputs compared with a long chain.\n\n**5. Qualify comparisons with a fully balanced tree.** The exact delay for its late leaf is its leaf depth added to 5; for a non-power-of-two tree, leaf depths can differ. Knowing only the maximum balanced depth does not specify which depth the late input receives. A delay claim needs the actual placement. Gate count ties can therefore coexist with different arrival bounds; the best structure depends on input timing, not merely on n. Each bound assumes the AND side inputs permit a transition and ignores electrical loading.",
+    "difficulty": "Hard",
+    "origin": "Original extension of MIT bounded-fan-in and arrival-time analysis",
+    "certificate": {
+      "kind": "tree",
+      "data": {
+        "n": 3,
+        "late": 5,
+        "gates": 2,
+        "balancedDepth": 2,
+        "lateLast": 6
+      }
+    }
+  },
+  {
+    "id": "COMBIN_048",
+    "title": "Arrival-sensitive AND design, width 4",
+    "stem": "An n-way AND has $n=4$ independent inputs, one arriving at time 6 and the others at time zero. Only two-input AND gates of unit propagation delay are allowed. Compare a balanced tree for simultaneous inputs, a chain with the late input last, and a balanced early-input subtree followed by the late input. Give gate count, depth lower bound, and arrival-time reasoning. Do not infer physical delay from literal count.",
+    "solution": "**1. Count binary combination gates.** A full binary tree with 4 leaves has 3 internal vertices, so each listed AND-tree realization uses 3 gates. This count excludes wires and supplies no claim about a different gate library.\n\n**2. Prove the simultaneous-arrival depth.** At depth d, fan-in two can combine at most $2^d$ independent leaves. Since this function depends on all 4 inputs, $d\\ge\\lceil\\log_2 4\\rceil=2$. A balanced construction achieves this lower bound; a chain instead has worst-case depth 3.\n\n**3. Use arrival recurrences rather than the depth slogan.** Place the late input at the last chain gate. The early chain settles at time 2, so the output latest bound is $\\max(2,6)+1=7$. It is not 6+3, because that late input does not traverse every gate.\n\n**4. Balance only the early subtree.** Its latest bound is $\\lceil\\log_2(3)\\rceil=2$. The final gate combines this with the late input, giving $\\max(2,6)+1=7$. It retains a shallow path for the slow signal and improves the early inputs compared with a long chain.\n\n**5. Qualify comparisons with a fully balanced tree.** The exact delay for its late leaf is its leaf depth added to 6; for a non-power-of-two tree, leaf depths can differ. Knowing only the maximum balanced depth does not specify which depth the late input receives. A delay claim needs the actual placement. Gate count ties can therefore coexist with different arrival bounds; the best structure depends on input timing, not merely on n. Each bound assumes the AND side inputs permit a transition and ignores electrical loading.",
+    "difficulty": "Hard",
+    "origin": "Original extension of MIT bounded-fan-in and arrival-time analysis",
+    "certificate": {
+      "kind": "tree",
+      "data": {
+        "n": 4,
+        "late": 6,
+        "gates": 3,
+        "balancedDepth": 2,
+        "lateLast": 7
+      }
+    }
+  },
+  {
+    "id": "COMBIN_049",
+    "title": "Arrival-sensitive AND design, width 5",
+    "stem": "An n-way AND has $n=5$ independent inputs, one arriving at time 7 and the others at time zero. Only two-input AND gates of unit propagation delay are allowed. Compare a balanced tree for simultaneous inputs, a chain with the late input last, and a balanced early-input subtree followed by the late input. Give gate count, depth lower bound, and arrival-time reasoning. Do not infer physical delay from literal count.",
+    "solution": "**1. Count binary combination gates.** A full binary tree with 5 leaves has 4 internal vertices, so each listed AND-tree realization uses 4 gates. This count excludes wires and supplies no claim about a different gate library.\n\n**2. Prove the simultaneous-arrival depth.** At depth d, fan-in two can combine at most $2^d$ independent leaves. Since this function depends on all 5 inputs, $d\\ge\\lceil\\log_2 5\\rceil=3$. A balanced construction achieves this lower bound; a chain instead has worst-case depth 4.\n\n**3. Use arrival recurrences rather than the depth slogan.** Place the late input at the last chain gate. The early chain settles at time 3, so the output latest bound is $\\max(3,7)+1=8$. It is not 7+4, because that late input does not traverse every gate.\n\n**4. Balance only the early subtree.** Its latest bound is $\\lceil\\log_2(4)\\rceil=2$. The final gate combines this with the late input, giving $\\max(2,7)+1=8$. It retains a shallow path for the slow signal and improves the early inputs compared with a long chain.\n\n**5. Qualify comparisons with a fully balanced tree.** The exact delay for its late leaf is its leaf depth added to 7; for a non-power-of-two tree, leaf depths can differ. Knowing only the maximum balanced depth does not specify which depth the late input receives. A delay claim needs the actual placement. Gate count ties can therefore coexist with different arrival bounds; the best structure depends on input timing, not merely on n. Each bound assumes the AND side inputs permit a transition and ignores electrical loading.",
+    "difficulty": "Hard",
+    "origin": "Original extension of MIT bounded-fan-in and arrival-time analysis",
+    "certificate": {
+      "kind": "tree",
+      "data": {
+        "n": 5,
+        "late": 7,
+        "gates": 4,
+        "balancedDepth": 3,
+        "lateLast": 8
+      }
+    }
+  },
+  {
+    "id": "COMBIN_050",
+    "title": "Arrival-sensitive AND design, width 6",
+    "stem": "An n-way AND has $n=6$ independent inputs, one arriving at time 8 and the others at time zero. Only two-input AND gates of unit propagation delay are allowed. Compare a balanced tree for simultaneous inputs, a chain with the late input last, and a balanced early-input subtree followed by the late input. Give gate count, depth lower bound, and arrival-time reasoning. Do not infer physical delay from literal count.",
+    "solution": "**1. Count binary combination gates.** A full binary tree with 6 leaves has 5 internal vertices, so each listed AND-tree realization uses 5 gates. This count excludes wires and supplies no claim about a different gate library.\n\n**2. Prove the simultaneous-arrival depth.** At depth d, fan-in two can combine at most $2^d$ independent leaves. Since this function depends on all 6 inputs, $d\\ge\\lceil\\log_2 6\\rceil=3$. A balanced construction achieves this lower bound; a chain instead has worst-case depth 5.\n\n**3. Use arrival recurrences rather than the depth slogan.** Place the late input at the last chain gate. The early chain settles at time 4, so the output latest bound is $\\max(4,8)+1=9$. It is not 8+5, because that late input does not traverse every gate.\n\n**4. Balance only the early subtree.** Its latest bound is $\\lceil\\log_2(5)\\rceil=3$. The final gate combines this with the late input, giving $\\max(3,8)+1=9$. It retains a shallow path for the slow signal and improves the early inputs compared with a long chain.\n\n**5. Qualify comparisons with a fully balanced tree.** The exact delay for its late leaf is its leaf depth added to 8; for a non-power-of-two tree, leaf depths can differ. Knowing only the maximum balanced depth does not specify which depth the late input receives. A delay claim needs the actual placement. Gate count ties can therefore coexist with different arrival bounds; the best structure depends on input timing, not merely on n. Each bound assumes the AND side inputs permit a transition and ignores electrical loading.",
+    "difficulty": "Hard",
+    "origin": "Original extension of MIT bounded-fan-in and arrival-time analysis",
+    "certificate": {
+      "kind": "tree",
+      "data": {
+        "n": 6,
+        "late": 8,
+        "gates": 5,
+        "balancedDepth": 3,
+        "lateLast": 9
+      }
+    }
+  },
+  {
+    "id": "COMBIN_051",
+    "title": "Arrival-sensitive AND design, width 7",
+    "stem": "An n-way AND has $n=7$ independent inputs, one arriving at time 9 and the others at time zero. Only two-input AND gates of unit propagation delay are allowed. Compare a balanced tree for simultaneous inputs, a chain with the late input last, and a balanced early-input subtree followed by the late input. Give gate count, depth lower bound, and arrival-time reasoning. Do not infer physical delay from literal count.",
+    "solution": "**1. Count binary combination gates.** A full binary tree with 7 leaves has 6 internal vertices, so each listed AND-tree realization uses 6 gates. This count excludes wires and supplies no claim about a different gate library.\n\n**2. Prove the simultaneous-arrival depth.** At depth d, fan-in two can combine at most $2^d$ independent leaves. Since this function depends on all 7 inputs, $d\\ge\\lceil\\log_2 7\\rceil=3$. A balanced construction achieves this lower bound; a chain instead has worst-case depth 6.\n\n**3. Use arrival recurrences rather than the depth slogan.** Place the late input at the last chain gate. The early chain settles at time 5, so the output latest bound is $\\max(5,9)+1=10$. It is not 9+6, because that late input does not traverse every gate.\n\n**4. Balance only the early subtree.** Its latest bound is $\\lceil\\log_2(6)\\rceil=3$. The final gate combines this with the late input, giving $\\max(3,9)+1=10$. It retains a shallow path for the slow signal and improves the early inputs compared with a long chain.\n\n**5. Qualify comparisons with a fully balanced tree.** The exact delay for its late leaf is its leaf depth added to 9; for a non-power-of-two tree, leaf depths can differ. Knowing only the maximum balanced depth does not specify which depth the late input receives. A delay claim needs the actual placement. Gate count ties can therefore coexist with different arrival bounds; the best structure depends on input timing, not merely on n. Each bound assumes the AND side inputs permit a transition and ignores electrical loading.",
+    "difficulty": "Hard",
+    "origin": "Original extension of MIT bounded-fan-in and arrival-time analysis",
+    "certificate": {
+      "kind": "tree",
+      "data": {
+        "n": 7,
+        "late": 9,
+        "gates": 6,
+        "balancedDepth": 3,
+        "lateLast": 10
+      }
+    }
+  },
+  {
+    "id": "COMBIN_052",
+    "title": "Arrival-sensitive AND design, width 8",
+    "stem": "An n-way AND has $n=8$ independent inputs, one arriving at time 10 and the others at time zero. Only two-input AND gates of unit propagation delay are allowed. Compare a balanced tree for simultaneous inputs, a chain with the late input last, and a balanced early-input subtree followed by the late input. Give gate count, depth lower bound, and arrival-time reasoning. Do not infer physical delay from literal count.",
+    "solution": "**1. Count binary combination gates.** A full binary tree with 8 leaves has 7 internal vertices, so each listed AND-tree realization uses 7 gates. This count excludes wires and supplies no claim about a different gate library.\n\n**2. Prove the simultaneous-arrival depth.** At depth d, fan-in two can combine at most $2^d$ independent leaves. Since this function depends on all 8 inputs, $d\\ge\\lceil\\log_2 8\\rceil=3$. A balanced construction achieves this lower bound; a chain instead has worst-case depth 7.\n\n**3. Use arrival recurrences rather than the depth slogan.** Place the late input at the last chain gate. The early chain settles at time 6, so the output latest bound is $\\max(6,10)+1=11$. It is not 10+7, because that late input does not traverse every gate.\n\n**4. Balance only the early subtree.** Its latest bound is $\\lceil\\log_2(7)\\rceil=3$. The final gate combines this with the late input, giving $\\max(3,10)+1=11$. It retains a shallow path for the slow signal and improves the early inputs compared with a long chain.\n\n**5. Qualify comparisons with a fully balanced tree.** The exact delay for its late leaf is its leaf depth added to 10; for a non-power-of-two tree, leaf depths can differ. Knowing only the maximum balanced depth does not specify which depth the late input receives. A delay claim needs the actual placement. Gate count ties can therefore coexist with different arrival bounds; the best structure depends on input timing, not merely on n. Each bound assumes the AND side inputs permit a transition and ignores electrical loading.",
+    "difficulty": "Hard",
+    "origin": "Original extension of MIT bounded-fan-in and arrival-time analysis",
+    "certificate": {
+      "kind": "tree",
+      "data": {
+        "n": 8,
+        "late": 10,
+        "gates": 7,
+        "balancedDepth": 3,
+        "lateLast": 11
+      }
+    }
+  },
+  {
+    "id": "COMBIN_053",
+    "title": "Arrival-sensitive AND design, width 9",
+    "stem": "An n-way AND has $n=9$ independent inputs, one arriving at time 11 and the others at time zero. Only two-input AND gates of unit propagation delay are allowed. Compare a balanced tree for simultaneous inputs, a chain with the late input last, and a balanced early-input subtree followed by the late input. Give gate count, depth lower bound, and arrival-time reasoning. Do not infer physical delay from literal count.",
+    "solution": "**1. Count binary combination gates.** A full binary tree with 9 leaves has 8 internal vertices, so each listed AND-tree realization uses 8 gates. This count excludes wires and supplies no claim about a different gate library.\n\n**2. Prove the simultaneous-arrival depth.** At depth d, fan-in two can combine at most $2^d$ independent leaves. Since this function depends on all 9 inputs, $d\\ge\\lceil\\log_2 9\\rceil=4$. A balanced construction achieves this lower bound; a chain instead has worst-case depth 8.\n\n**3. Use arrival recurrences rather than the depth slogan.** Place the late input at the last chain gate. The early chain settles at time 7, so the output latest bound is $\\max(7,11)+1=12$. It is not 11+8, because that late input does not traverse every gate.\n\n**4. Balance only the early subtree.** Its latest bound is $\\lceil\\log_2(8)\\rceil=3$. The final gate combines this with the late input, giving $\\max(3,11)+1=12$. It retains a shallow path for the slow signal and improves the early inputs compared with a long chain.\n\n**5. Qualify comparisons with a fully balanced tree.** The exact delay for its late leaf is its leaf depth added to 11; for a non-power-of-two tree, leaf depths can differ. Knowing only the maximum balanced depth does not specify which depth the late input receives. A delay claim needs the actual placement. Gate count ties can therefore coexist with different arrival bounds; the best structure depends on input timing, not merely on n. Each bound assumes the AND side inputs permit a transition and ignores electrical loading.",
+    "difficulty": "Hard",
+    "origin": "Original extension of MIT bounded-fan-in and arrival-time analysis",
+    "certificate": {
+      "kind": "tree",
+      "data": {
+        "n": 9,
+        "late": 11,
+        "gates": 8,
+        "balancedDepth": 4,
+        "lateLast": 12
+      }
+    }
+  },
+  {
+    "id": "COMBIN_054",
+    "title": "Arrival-sensitive AND design, width 10",
+    "stem": "An n-way AND has $n=10$ independent inputs, one arriving at time 12 and the others at time zero. Only two-input AND gates of unit propagation delay are allowed. Compare a balanced tree for simultaneous inputs, a chain with the late input last, and a balanced early-input subtree followed by the late input. Give gate count, depth lower bound, and arrival-time reasoning. Do not infer physical delay from literal count.",
+    "solution": "**1. Count binary combination gates.** A full binary tree with 10 leaves has 9 internal vertices, so each listed AND-tree realization uses 9 gates. This count excludes wires and supplies no claim about a different gate library.\n\n**2. Prove the simultaneous-arrival depth.** At depth d, fan-in two can combine at most $2^d$ independent leaves. Since this function depends on all 10 inputs, $d\\ge\\lceil\\log_2 10\\rceil=4$. A balanced construction achieves this lower bound; a chain instead has worst-case depth 9.\n\n**3. Use arrival recurrences rather than the depth slogan.** Place the late input at the last chain gate. The early chain settles at time 8, so the output latest bound is $\\max(8,12)+1=13$. It is not 12+9, because that late input does not traverse every gate.\n\n**4. Balance only the early subtree.** Its latest bound is $\\lceil\\log_2(9)\\rceil=4$. The final gate combines this with the late input, giving $\\max(4,12)+1=13$. It retains a shallow path for the slow signal and improves the early inputs compared with a long chain.\n\n**5. Qualify comparisons with a fully balanced tree.** The exact delay for its late leaf is its leaf depth added to 12; for a non-power-of-two tree, leaf depths can differ. Knowing only the maximum balanced depth does not specify which depth the late input receives. A delay claim needs the actual placement. Gate count ties can therefore coexist with different arrival bounds; the best structure depends on input timing, not merely on n. Each bound assumes the AND side inputs permit a transition and ignores electrical loading.",
+    "difficulty": "Hard",
+    "origin": "Original extension of MIT bounded-fan-in and arrival-time analysis",
+    "certificate": {
+      "kind": "tree",
+      "data": {
+        "n": 10,
+        "late": 12,
+        "gates": 9,
+        "balancedDepth": 4,
+        "lateLast": 13
+      }
+    }
+  },
+  {
+    "id": "COMBIN_055",
+    "title": "Arrival-sensitive AND design, width 12",
+    "stem": "An n-way AND has $n=12$ independent inputs, one arriving at time 14 and the others at time zero. Only two-input AND gates of unit propagation delay are allowed. Compare a balanced tree for simultaneous inputs, a chain with the late input last, and a balanced early-input subtree followed by the late input. Give gate count, depth lower bound, and arrival-time reasoning. Do not infer physical delay from literal count.",
+    "solution": "**1. Count binary combination gates.** A full binary tree with 12 leaves has 11 internal vertices, so each listed AND-tree realization uses 11 gates. This count excludes wires and supplies no claim about a different gate library.\n\n**2. Prove the simultaneous-arrival depth.** At depth d, fan-in two can combine at most $2^d$ independent leaves. Since this function depends on all 12 inputs, $d\\ge\\lceil\\log_2 12\\rceil=4$. A balanced construction achieves this lower bound; a chain instead has worst-case depth 11.\n\n**3. Use arrival recurrences rather than the depth slogan.** Place the late input at the last chain gate. The early chain settles at time 10, so the output latest bound is $\\max(10,14)+1=15$. It is not 14+11, because that late input does not traverse every gate.\n\n**4. Balance only the early subtree.** Its latest bound is $\\lceil\\log_2(11)\\rceil=4$. The final gate combines this with the late input, giving $\\max(4,14)+1=15$. It retains a shallow path for the slow signal and improves the early inputs compared with a long chain.\n\n**5. Qualify comparisons with a fully balanced tree.** The exact delay for its late leaf is its leaf depth added to 14; for a non-power-of-two tree, leaf depths can differ. Knowing only the maximum balanced depth does not specify which depth the late input receives. A delay claim needs the actual placement. Gate count ties can therefore coexist with different arrival bounds; the best structure depends on input timing, not merely on n. Each bound assumes the AND side inputs permit a transition and ignores electrical loading.",
+    "difficulty": "Hard",
+    "origin": "Original extension of MIT bounded-fan-in and arrival-time analysis",
+    "certificate": {
+      "kind": "tree",
+      "data": {
+        "n": 12,
+        "late": 14,
+        "gates": 11,
+        "balancedDepth": 4,
+        "lateLast": 15
+      }
+    }
+  },
+  {
+    "id": "COMBIN_056",
+    "title": "Arrival-sensitive AND design, width 16",
+    "stem": "An n-way AND has $n=16$ independent inputs, one arriving at time 18 and the others at time zero. Only two-input AND gates of unit propagation delay are allowed. Compare a balanced tree for simultaneous inputs, a chain with the late input last, and a balanced early-input subtree followed by the late input. Give gate count, depth lower bound, and arrival-time reasoning. Do not infer physical delay from literal count.",
+    "solution": "**1. Count binary combination gates.** A full binary tree with 16 leaves has 15 internal vertices, so each listed AND-tree realization uses 15 gates. This count excludes wires and supplies no claim about a different gate library.\n\n**2. Prove the simultaneous-arrival depth.** At depth d, fan-in two can combine at most $2^d$ independent leaves. Since this function depends on all 16 inputs, $d\\ge\\lceil\\log_2 16\\rceil=4$. A balanced construction achieves this lower bound; a chain instead has worst-case depth 15.\n\n**3. Use arrival recurrences rather than the depth slogan.** Place the late input at the last chain gate. The early chain settles at time 14, so the output latest bound is $\\max(14,18)+1=19$. It is not 18+15, because that late input does not traverse every gate.\n\n**4. Balance only the early subtree.** Its latest bound is $\\lceil\\log_2(15)\\rceil=4$. The final gate combines this with the late input, giving $\\max(4,18)+1=19$. It retains a shallow path for the slow signal and improves the early inputs compared with a long chain.\n\n**5. Qualify comparisons with a fully balanced tree.** The exact delay for its late leaf is its leaf depth added to 18; for a non-power-of-two tree, leaf depths can differ. Knowing only the maximum balanced depth does not specify which depth the late input receives. A delay claim needs the actual placement. Gate count ties can therefore coexist with different arrival bounds; the best structure depends on input timing, not merely on n. Each bound assumes the AND side inputs permit a transition and ignores electrical loading.",
+    "difficulty": "Hard",
+    "origin": "Original extension of MIT bounded-fan-in and arrival-time analysis",
+    "certificate": {
+      "kind": "tree",
+      "data": {
+        "n": 16,
+        "late": 18,
+        "gates": 15,
+        "balancedDepth": 4,
+        "lateLast": 19
+      }
+    }
+  },
+  {
+    "id": "COMBIN_057",
+    "title": "Bit-vector contract and signedness 3/6/3",
+    "stem": "Two w-bit buses have $w=3$, unsigned bit patterns $X=6$ and $Y=3$. Compute bitwise complement of X, logical negation of X, unsigned and signed less-than flags, and the low-w-bit arithmetic sum with carry. Then state which results change under zero-extension versus sign-extension. All comparison and addition semantics are explicitly fixed-width hardware semantics.",
+    "solution": "**1. Fix the range.** The unsigned range is $0$ through 7, while the signed two\u2019s-complement range is $-4$ through 3. The patterns are `110` and `011`.\n\n**2. Keep complement operations distinct.** Bitwise complement flips each of the 3 bits and equals $7-6=1$. Logical negation asks whether X equals zero; because X is nonzero, the one-bit result is zero. Signed arithmetic negation would be a third operation and cannot be substituted for either.\n\n**3. Decode the comparison operands.** Unsigned comparison yields 0. Signed values are -2 and 3, so signed comparison yields 1. A comparator\u2019s truth table must encode the intended interpretation, not just the visible bus width.\n\n**4. Separate low bits from carry.** The mathematical unsigned sum is 9. Division by $2^{3}$ gives carry 1 and remainder 1. That remainder is the low-word result. Carry is not a signed-overflow flag; the latter requires checking the signed mathematical sum against its representable range.\n\n**5. Explain extension.** Zero-extension preserves the unsigned numbers 6 and 3. Sign-extension preserves signed values -2 and 3 by replicating the sign bit. It consequently gives different unsigned extended values for a negative pattern. A bitwise complement at the larger width flips the newly added bits too, so its numerical result changes even if its original low bits match. State operand widths before manipulating an HDL expression; unsized-literal defaults must not be inferred from this deliberately explicit hardware model.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "word",
+      "data": {
+        "w": 3,
+        "x": 6,
+        "y": 3,
+        "signed": [
+          -2,
+          3
+        ],
+        "results": {
+          "bitNot": 1,
+          "logicalNot": 0,
+          "unsignedLess": 0,
+          "signedLess": 1,
+          "modsum": 1,
+          "carry": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "COMBIN_058",
+    "title": "Bit-vector contract and signedness 4/12/5",
+    "stem": "Two w-bit buses have $w=4$, unsigned bit patterns $X=12$ and $Y=5$. Compute bitwise complement of X, logical negation of X, unsigned and signed less-than flags, and the low-w-bit arithmetic sum with carry. Then state which results change under zero-extension versus sign-extension. All comparison and addition semantics are explicitly fixed-width hardware semantics.",
+    "solution": "**1. Fix the range.** The unsigned range is $0$ through 15, while the signed two\u2019s-complement range is $-8$ through 7. The patterns are `1100` and `0101`.\n\n**2. Keep complement operations distinct.** Bitwise complement flips each of the 4 bits and equals $15-12=3$. Logical negation asks whether X equals zero; because X is nonzero, the one-bit result is zero. Signed arithmetic negation would be a third operation and cannot be substituted for either.\n\n**3. Decode the comparison operands.** Unsigned comparison yields 0. Signed values are -4 and 5, so signed comparison yields 1. A comparator\u2019s truth table must encode the intended interpretation, not just the visible bus width.\n\n**4. Separate low bits from carry.** The mathematical unsigned sum is 17. Division by $2^{4}$ gives carry 1 and remainder 1. That remainder is the low-word result. Carry is not a signed-overflow flag; the latter requires checking the signed mathematical sum against its representable range.\n\n**5. Explain extension.** Zero-extension preserves the unsigned numbers 12 and 5. Sign-extension preserves signed values -4 and 5 by replicating the sign bit. It consequently gives different unsigned extended values for a negative pattern. A bitwise complement at the larger width flips the newly added bits too, so its numerical result changes even if its original low bits match. State operand widths before manipulating an HDL expression; unsized-literal defaults must not be inferred from this deliberately explicit hardware model.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "word",
+      "data": {
+        "w": 4,
+        "x": 12,
+        "y": 5,
+        "signed": [
+          -4,
+          5
+        ],
+        "results": {
+          "bitNot": 3,
+          "logicalNot": 0,
+          "unsignedLess": 0,
+          "signedLess": 1,
+          "modsum": 1,
+          "carry": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "COMBIN_059",
+    "title": "Bit-vector contract and signedness 4/15/1",
+    "stem": "Two w-bit buses have $w=4$, unsigned bit patterns $X=15$ and $Y=1$. Compute bitwise complement of X, logical negation of X, unsigned and signed less-than flags, and the low-w-bit arithmetic sum with carry. Then state which results change under zero-extension versus sign-extension. All comparison and addition semantics are explicitly fixed-width hardware semantics.",
+    "solution": "**1. Fix the range.** The unsigned range is $0$ through 15, while the signed two\u2019s-complement range is $-8$ through 7. The patterns are `1111` and `0001`.\n\n**2. Keep complement operations distinct.** Bitwise complement flips each of the 4 bits and equals $15-15=0$. Logical negation asks whether X equals zero; because X is nonzero, the one-bit result is zero. Signed arithmetic negation would be a third operation and cannot be substituted for either.\n\n**3. Decode the comparison operands.** Unsigned comparison yields 0. Signed values are -1 and 1, so signed comparison yields 1. A comparator\u2019s truth table must encode the intended interpretation, not just the visible bus width.\n\n**4. Separate low bits from carry.** The mathematical unsigned sum is 16. Division by $2^{4}$ gives carry 1 and remainder 0. That remainder is the low-word result. Carry is not a signed-overflow flag; the latter requires checking the signed mathematical sum against its representable range.\n\n**5. Explain extension.** Zero-extension preserves the unsigned numbers 15 and 1. Sign-extension preserves signed values -1 and 1 by replicating the sign bit. It consequently gives different unsigned extended values for a negative pattern. A bitwise complement at the larger width flips the newly added bits too, so its numerical result changes even if its original low bits match. State operand widths before manipulating an HDL expression; unsized-literal defaults must not be inferred from this deliberately explicit hardware model.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "word",
+      "data": {
+        "w": 4,
+        "x": 15,
+        "y": 1,
+        "signed": [
+          -1,
+          1
+        ],
+        "results": {
+          "bitNot": 0,
+          "logicalNot": 0,
+          "unsignedLess": 0,
+          "signedLess": 1,
+          "modsum": 0,
+          "carry": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "COMBIN_060",
+    "title": "Bit-vector contract and signedness 5/24/9",
+    "stem": "Two w-bit buses have $w=5$, unsigned bit patterns $X=24$ and $Y=9$. Compute bitwise complement of X, logical negation of X, unsigned and signed less-than flags, and the low-w-bit arithmetic sum with carry. Then state which results change under zero-extension versus sign-extension. All comparison and addition semantics are explicitly fixed-width hardware semantics.",
+    "solution": "**1. Fix the range.** The unsigned range is $0$ through 31, while the signed two\u2019s-complement range is $-16$ through 15. The patterns are `11000` and `01001`.\n\n**2. Keep complement operations distinct.** Bitwise complement flips each of the 5 bits and equals $31-24=7$. Logical negation asks whether X equals zero; because X is nonzero, the one-bit result is zero. Signed arithmetic negation would be a third operation and cannot be substituted for either.\n\n**3. Decode the comparison operands.** Unsigned comparison yields 0. Signed values are -8 and 9, so signed comparison yields 1. A comparator\u2019s truth table must encode the intended interpretation, not just the visible bus width.\n\n**4. Separate low bits from carry.** The mathematical unsigned sum is 33. Division by $2^{5}$ gives carry 1 and remainder 1. That remainder is the low-word result. Carry is not a signed-overflow flag; the latter requires checking the signed mathematical sum against its representable range.\n\n**5. Explain extension.** Zero-extension preserves the unsigned numbers 24 and 9. Sign-extension preserves signed values -8 and 9 by replicating the sign bit. It consequently gives different unsigned extended values for a negative pattern. A bitwise complement at the larger width flips the newly added bits too, so its numerical result changes even if its original low bits match. State operand widths before manipulating an HDL expression; unsized-literal defaults must not be inferred from this deliberately explicit hardware model.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "word",
+      "data": {
+        "w": 5,
+        "x": 24,
+        "y": 9,
+        "signed": [
+          -8,
+          9
+        ],
+        "results": {
+          "bitNot": 7,
+          "logicalNot": 0,
+          "unsignedLess": 0,
+          "signedLess": 1,
+          "modsum": 1,
+          "carry": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "COMBIN_061",
+    "title": "Bit-vector contract and signedness 5/31/7",
+    "stem": "Two w-bit buses have $w=5$, unsigned bit patterns $X=31$ and $Y=7$. Compute bitwise complement of X, logical negation of X, unsigned and signed less-than flags, and the low-w-bit arithmetic sum with carry. Then state which results change under zero-extension versus sign-extension. All comparison and addition semantics are explicitly fixed-width hardware semantics.",
+    "solution": "**1. Fix the range.** The unsigned range is $0$ through 31, while the signed two\u2019s-complement range is $-16$ through 15. The patterns are `11111` and `00111`.\n\n**2. Keep complement operations distinct.** Bitwise complement flips each of the 5 bits and equals $31-31=0$. Logical negation asks whether X equals zero; because X is nonzero, the one-bit result is zero. Signed arithmetic negation would be a third operation and cannot be substituted for either.\n\n**3. Decode the comparison operands.** Unsigned comparison yields 0. Signed values are -1 and 7, so signed comparison yields 1. A comparator\u2019s truth table must encode the intended interpretation, not just the visible bus width.\n\n**4. Separate low bits from carry.** The mathematical unsigned sum is 38. Division by $2^{5}$ gives carry 1 and remainder 6. That remainder is the low-word result. Carry is not a signed-overflow flag; the latter requires checking the signed mathematical sum against its representable range.\n\n**5. Explain extension.** Zero-extension preserves the unsigned numbers 31 and 7. Sign-extension preserves signed values -1 and 7 by replicating the sign bit. It consequently gives different unsigned extended values for a negative pattern. A bitwise complement at the larger width flips the newly added bits too, so its numerical result changes even if its original low bits match. State operand widths before manipulating an HDL expression; unsized-literal defaults must not be inferred from this deliberately explicit hardware model.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "word",
+      "data": {
+        "w": 5,
+        "x": 31,
+        "y": 7,
+        "signed": [
+          -1,
+          7
+        ],
+        "results": {
+          "bitNot": 0,
+          "logicalNot": 0,
+          "unsignedLess": 0,
+          "signedLess": 1,
+          "modsum": 6,
+          "carry": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "COMBIN_062",
+    "title": "Bit-vector contract and signedness 6/40/25",
+    "stem": "Two w-bit buses have $w=6$, unsigned bit patterns $X=40$ and $Y=25$. Compute bitwise complement of X, logical negation of X, unsigned and signed less-than flags, and the low-w-bit arithmetic sum with carry. Then state which results change under zero-extension versus sign-extension. All comparison and addition semantics are explicitly fixed-width hardware semantics.",
+    "solution": "**1. Fix the range.** The unsigned range is $0$ through 63, while the signed two\u2019s-complement range is $-32$ through 31. The patterns are `101000` and `011001`.\n\n**2. Keep complement operations distinct.** Bitwise complement flips each of the 6 bits and equals $63-40=23$. Logical negation asks whether X equals zero; because X is nonzero, the one-bit result is zero. Signed arithmetic negation would be a third operation and cannot be substituted for either.\n\n**3. Decode the comparison operands.** Unsigned comparison yields 0. Signed values are -24 and 25, so signed comparison yields 1. A comparator\u2019s truth table must encode the intended interpretation, not just the visible bus width.\n\n**4. Separate low bits from carry.** The mathematical unsigned sum is 65. Division by $2^{6}$ gives carry 1 and remainder 1. That remainder is the low-word result. Carry is not a signed-overflow flag; the latter requires checking the signed mathematical sum against its representable range.\n\n**5. Explain extension.** Zero-extension preserves the unsigned numbers 40 and 25. Sign-extension preserves signed values -24 and 25 by replicating the sign bit. It consequently gives different unsigned extended values for a negative pattern. A bitwise complement at the larger width flips the newly added bits too, so its numerical result changes even if its original low bits match. State operand widths before manipulating an HDL expression; unsized-literal defaults must not be inferred from this deliberately explicit hardware model.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "word",
+      "data": {
+        "w": 6,
+        "x": 40,
+        "y": 25,
+        "signed": [
+          -24,
+          25
+        ],
+        "results": {
+          "bitNot": 23,
+          "logicalNot": 0,
+          "unsignedLess": 0,
+          "signedLess": 1,
+          "modsum": 1,
+          "carry": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "COMBIN_063",
+    "title": "Bit-vector contract and signedness 6/63/2",
+    "stem": "Two w-bit buses have $w=6$, unsigned bit patterns $X=63$ and $Y=2$. Compute bitwise complement of X, logical negation of X, unsigned and signed less-than flags, and the low-w-bit arithmetic sum with carry. Then state which results change under zero-extension versus sign-extension. All comparison and addition semantics are explicitly fixed-width hardware semantics.",
+    "solution": "**1. Fix the range.** The unsigned range is $0$ through 63, while the signed two\u2019s-complement range is $-32$ through 31. The patterns are `111111` and `000010`.\n\n**2. Keep complement operations distinct.** Bitwise complement flips each of the 6 bits and equals $63-63=0$. Logical negation asks whether X equals zero; because X is nonzero, the one-bit result is zero. Signed arithmetic negation would be a third operation and cannot be substituted for either.\n\n**3. Decode the comparison operands.** Unsigned comparison yields 0. Signed values are -1 and 2, so signed comparison yields 1. A comparator\u2019s truth table must encode the intended interpretation, not just the visible bus width.\n\n**4. Separate low bits from carry.** The mathematical unsigned sum is 65. Division by $2^{6}$ gives carry 1 and remainder 1. That remainder is the low-word result. Carry is not a signed-overflow flag; the latter requires checking the signed mathematical sum against its representable range.\n\n**5. Explain extension.** Zero-extension preserves the unsigned numbers 63 and 2. Sign-extension preserves signed values -1 and 2 by replicating the sign bit. It consequently gives different unsigned extended values for a negative pattern. A bitwise complement at the larger width flips the newly added bits too, so its numerical result changes even if its original low bits match. State operand widths before manipulating an HDL expression; unsized-literal defaults must not be inferred from this deliberately explicit hardware model.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "word",
+      "data": {
+        "w": 6,
+        "x": 63,
+        "y": 2,
+        "signed": [
+          -1,
+          2
+        ],
+        "results": {
+          "bitNot": 0,
+          "logicalNot": 0,
+          "unsignedLess": 0,
+          "signedLess": 1,
+          "modsum": 1,
+          "carry": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "COMBIN_064",
+    "title": "Bit-vector contract and signedness 7/96/33",
+    "stem": "Two w-bit buses have $w=7$, unsigned bit patterns $X=96$ and $Y=33$. Compute bitwise complement of X, logical negation of X, unsigned and signed less-than flags, and the low-w-bit arithmetic sum with carry. Then state which results change under zero-extension versus sign-extension. All comparison and addition semantics are explicitly fixed-width hardware semantics.",
+    "solution": "**1. Fix the range.** The unsigned range is $0$ through 127, while the signed two\u2019s-complement range is $-64$ through 63. The patterns are `1100000` and `0100001`.\n\n**2. Keep complement operations distinct.** Bitwise complement flips each of the 7 bits and equals $127-96=31$. Logical negation asks whether X equals zero; because X is nonzero, the one-bit result is zero. Signed arithmetic negation would be a third operation and cannot be substituted for either.\n\n**3. Decode the comparison operands.** Unsigned comparison yields 0. Signed values are -32 and 33, so signed comparison yields 1. A comparator\u2019s truth table must encode the intended interpretation, not just the visible bus width.\n\n**4. Separate low bits from carry.** The mathematical unsigned sum is 129. Division by $2^{7}$ gives carry 1 and remainder 1. That remainder is the low-word result. Carry is not a signed-overflow flag; the latter requires checking the signed mathematical sum against its representable range.\n\n**5. Explain extension.** Zero-extension preserves the unsigned numbers 96 and 33. Sign-extension preserves signed values -32 and 33 by replicating the sign bit. It consequently gives different unsigned extended values for a negative pattern. A bitwise complement at the larger width flips the newly added bits too, so its numerical result changes even if its original low bits match. State operand widths before manipulating an HDL expression; unsized-literal defaults must not be inferred from this deliberately explicit hardware model.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "word",
+      "data": {
+        "w": 7,
+        "x": 96,
+        "y": 33,
+        "signed": [
+          -32,
+          33
+        ],
+        "results": {
+          "bitNot": 31,
+          "logicalNot": 0,
+          "unsignedLess": 0,
+          "signedLess": 1,
+          "modsum": 1,
+          "carry": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "COMBIN_065",
+    "title": "Bit-vector contract and signedness 8/200/70",
+    "stem": "Two w-bit buses have $w=8$, unsigned bit patterns $X=200$ and $Y=70$. Compute bitwise complement of X, logical negation of X, unsigned and signed less-than flags, and the low-w-bit arithmetic sum with carry. Then state which results change under zero-extension versus sign-extension. All comparison and addition semantics are explicitly fixed-width hardware semantics.",
+    "solution": "**1. Fix the range.** The unsigned range is $0$ through 255, while the signed two\u2019s-complement range is $-128$ through 127. The patterns are `11001000` and `01000110`.\n\n**2. Keep complement operations distinct.** Bitwise complement flips each of the 8 bits and equals $255-200=55$. Logical negation asks whether X equals zero; because X is nonzero, the one-bit result is zero. Signed arithmetic negation would be a third operation and cannot be substituted for either.\n\n**3. Decode the comparison operands.** Unsigned comparison yields 0. Signed values are -56 and 70, so signed comparison yields 1. A comparator\u2019s truth table must encode the intended interpretation, not just the visible bus width.\n\n**4. Separate low bits from carry.** The mathematical unsigned sum is 270. Division by $2^{8}$ gives carry 1 and remainder 14. That remainder is the low-word result. Carry is not a signed-overflow flag; the latter requires checking the signed mathematical sum against its representable range.\n\n**5. Explain extension.** Zero-extension preserves the unsigned numbers 200 and 70. Sign-extension preserves signed values -56 and 70 by replicating the sign bit. It consequently gives different unsigned extended values for a negative pattern. A bitwise complement at the larger width flips the newly added bits too, so its numerical result changes even if its original low bits match. State operand widths before manipulating an HDL expression; unsized-literal defaults must not be inferred from this deliberately explicit hardware model.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "word",
+      "data": {
+        "w": 8,
+        "x": 200,
+        "y": 70,
+        "signed": [
+          -56,
+          70
+        ],
+        "results": {
+          "bitNot": 55,
+          "logicalNot": 0,
+          "unsignedLess": 0,
+          "signedLess": 1,
+          "modsum": 14,
+          "carry": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "COMBIN_066",
+    "title": "Bit-vector contract and signedness 8/255/129",
+    "stem": "Two w-bit buses have $w=8$, unsigned bit patterns $X=255$ and $Y=129$. Compute bitwise complement of X, logical negation of X, unsigned and signed less-than flags, and the low-w-bit arithmetic sum with carry. Then state which results change under zero-extension versus sign-extension. All comparison and addition semantics are explicitly fixed-width hardware semantics.",
+    "solution": "**1. Fix the range.** The unsigned range is $0$ through 255, while the signed two\u2019s-complement range is $-128$ through 127. The patterns are `11111111` and `10000001`.\n\n**2. Keep complement operations distinct.** Bitwise complement flips each of the 8 bits and equals $255-255=0$. Logical negation asks whether X equals zero; because X is nonzero, the one-bit result is zero. Signed arithmetic negation would be a third operation and cannot be substituted for either.\n\n**3. Decode the comparison operands.** Unsigned comparison yields 0. Signed values are -1 and -127, so signed comparison yields 0. A comparator\u2019s truth table must encode the intended interpretation, not just the visible bus width.\n\n**4. Separate low bits from carry.** The mathematical unsigned sum is 384. Division by $2^{8}$ gives carry 1 and remainder 128. That remainder is the low-word result. Carry is not a signed-overflow flag; the latter requires checking the signed mathematical sum against its representable range.\n\n**5. Explain extension.** Zero-extension preserves the unsigned numbers 255 and 129. Sign-extension preserves signed values -1 and -127 by replicating the sign bit. It consequently gives different unsigned extended values for a negative pattern. A bitwise complement at the larger width flips the newly added bits too, so its numerical result changes even if its original low bits match. State operand widths before manipulating an HDL expression; unsized-literal defaults must not be inferred from this deliberately explicit hardware model.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "word",
+      "data": {
+        "w": 8,
+        "x": 255,
+        "y": 129,
+        "signed": [
+          -1,
+          -127
+        ],
+        "results": {
+          "bitNot": 0,
+          "logicalNot": 0,
+          "unsignedLess": 0,
+          "signedLess": 0,
+          "modsum": 128,
+          "carry": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "COMBIN_067",
+    "title": "Correlated output freedom",
+    "stem": "A legal input permits output pairs 01 or 10, but never 00 or 11. Can both output bits independently be treated as don\u2019t-cares? Count the permitted completions for three such independent input rows.",
+    "solution": "No. Independent X bits permit four words, including both forbidden words. The relational requirement is $Y_0\\oplus Y_1=1$. Each row has two permissible words, so three independent rows admit $2^3=8$ completions, not $2^6=64$. To construct an implementation, choose a Boolean function for the first bit on those rows and set the second to its complement. This imposes the correlation for every chosen completion. A minimizer that handles separate output care sets cannot silently preserve a cross-output restriction it was never given. A validity bit can safely make both data bits irrelevant only if the environment permits every data word at that validity. The word \u201cunspecified\u201d must therefore identify allowed vectors, not merely isolated output marks. A useful verification reference tests membership in the allowed relation rather than equality to one arbitrarily chosen output word.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "reasoning",
+      "data": null
+    }
+  },
+  {
+    "id": "COMBIN_068",
+    "title": "Acyclic closure by induction",
+    "stem": "Prove that a finite acyclic network of total Boolean gates with one driver per net produces a unique output for every primary input. Does the converse forbid every possible redundant feedback equation?",
+    "solution": "Topologically order the gates. The first gate consumes only known primary inputs and therefore has one output. Inductively, all inputs of the next gate are outputs of earlier gates or primary inputs and have unique values, so its total Boolean truth function gives one value. Finite repetition computes every observed output. Substituting predecessor functions also proves that each output is a function of current primary inputs alone. Uniqueness here concerns the settled Boolean model; finite propagation needs each block\u2019s delay bound. The converse is not a theorem about every algebraic feedback equation: $q=q\\cdot0$ has the unique Boolean fixed point zero, while $q=q$ has two and $q=\\overline q$ has none. The structural DAG restriction provides a general construction and settling guarantee without needing a special feedback analysis. It must not be strengthened into an unsupported claim that every loop has exactly two stable states.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "reasoning",
+      "data": null
+    }
+  },
+  {
+    "id": "COMBIN_069",
+    "title": "Missing assignment stores history",
+    "stem": "Analyze `if (en) y = d;` with no assignment when en is false. Exhibit two histories reaching identical current inputs but different outputs. Give a correction for a disabled-zero contract.",
+    "solution": "History one enables with d=0, producing y=0, then disables while the current d becomes 1. History two enables with d=1, producing y=1, then disables while d stays 1. Both have current inputs (en,d)=(0,1), yet their retained y values differ. This is the decisive history-dependence counterexample. A disabled-zero contract instead requires y=0 whenever en=0, so `y = en ? d : 1'b0;` supplies both branches. In a procedural block, assigning a default zero before the conditional has the same functional effect when later branches deliberately override it. An `always_comb` keyword expresses intent and enables diagnostics; it does not supply a mathematically missing branch value. If the desired disabled behavior is hold, then the requirement intentionally calls for storage and should be represented as a sequential element. One initial disabled test cannot distinguish these histories.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "reasoning",
+      "data": null
+    }
+  },
+  {
+    "id": "COMBIN_070",
+    "title": "Fault activation is not detection",
+    "stem": "For Y=AB+C, find all tests detecting stuck-at-zero and stuck-at-one at internal net t=AB. Explain the masking condition.",
+    "solution": "For stuck-at-zero, the correct t must be one, so A=B=1. To observe its loss, the other OR input C must be zero. Therefore only 110 detects this fault. For stuck-at-one, the correct t must be zero and C must again be zero; the detecting rows are 000,010,100. A row with C=1 masks either internal discrepancy by forcing both correct and faulty outputs to one. These conditions separate activation from propagation: activation creates the wrong internal value, propagation allows it to change an observed output. The union of the two detecting sets does not mean one test detects both opposing faults. In fact their activation conditions are disjoint, so at least two tests are required to cover this pair; 110 and 000 achieve that lower bound. This proof refers to the stated single stuck-at fault model, not arbitrary electrical faults.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "reasoning",
+      "data": null
+    }
+  },
+  {
+    "id": "COMBIN_071",
+    "title": "Exact minimum test cover",
+    "stem": "Four allowed tests detect faults as T0={a,b}, T1={b,c}, T2={c,d}, T3={a,d}. Find every minimum cover of all four faults and explain why a greedy tie can be harmless here but not generally.",
+    "solution": "A single test detects only two distinct faults, so at least two tests are necessary. T0 with T2 covers all four, as does T1 with T3. No other pair covers the universe: neighboring pairs in the cycle leave the opposite fault uncovered. Therefore these are exactly the two optimum covers of size two. Selecting T0 then the test with greatest new coverage chooses T2 and succeeds, but this instance supplies no general greedy-optimality theorem. A cover with three selected tests can be redundant or merely nonminimum depending on its members; verifying its union proves coverage but not optimum size. Set-cover optimality needs a lower bound plus attainment, exhaustive subset enumeration, or another valid certificate under the same fault universe. This test-selection problem is structurally related to choosing prime implicants, but its elements are faults rather than truth-table one rows.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "reasoning",
+      "data": null
+    }
+  },
+  {
+    "id": "COMBIN_072",
+    "title": "Functional irrelevance versus transient sensitivity",
+    "stem": "A network implements Y=A times NOT A. Is its stable function zero? Can a structural path prove a stable output transition, and does stable constancy prove no glitches?",
+    "solution": "The stable Boolean identity $A\\overline A=0$ holds for A=0 and A=1. Thus no change in A can alter the settled output. Structural paths still exist through the direct and inverted branches, but their correlated side conditions cannot be treated as independent assignments to prove a settled functional transition. Conversely, after A rises, the direct signal can briefly be one before its delayed complement falls. An AND may then produce a transient one depending on gate delays and pulse rejection. The existence and width of that pulse require a stated timing model. These are separate conclusions: the truth function is constant; a structural path need not be a sensitizable settled change; and physical glitch freedom is not implied by constancy. Replacing the circuit with a constant-zero source preserves the stable function but may change its waveform and loading.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "reasoning",
+      "data": null
+    }
+  },
+  {
+    "id": "COMBIN_073",
+    "title": "NAND is not associative",
+    "stem": "Find a counterexample to NAND(NAND(A,B),C)=NAND(A,B,C), and give a valid all-two-input-NAND construction of the latter.",
+    "solution": "Set A=B=0 and C=1. The inner NAND is one, so the nested NAND is zero. The desired three-input NAND is one because ABC=0. Thus associativity fails. A correct construction computes t=NAND(A,B), u=NAND(t,t)=AB, and Y=NAND(u,C)=complement(ABC), using three two-input NANDs. The tied-input operation is a real gate unless complemented internal signals are explicitly free. The intermediate u restores the polarity before combining with C; omitting it gives the wrong expression. Checking 111 alone would not reveal the error because the two circuits already differ in other rows, and a familiar symbol sequence does not establish a truth function. The gate count is a cost for this construction under the stated library. A proof that no other two-input realization uses fewer gates would require a separate lower-bound argument.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "reasoning",
+      "data": null
+    }
+  },
+  {
+    "id": "COMBIN_074",
+    "title": "Shared logic and fan-out buffering",
+    "stem": "One shared internal net must drive seven receiving pins. Every source may drive at most two loads, and each inserted noninverting buffer also may drive two. What minimum number of such buffers is needed to distribute the net without duplicating its logic?",
+    "solution": "Without buffers, the original source has two available load slots. Replacing one slot by a buffer consumes that one slot but creates two downstream slots, a net increase of one. To support seven leaf loads, at least five buffers are required. A binary distribution tree with the original source as root, five inserted buffer vertices and seven receiving leaves attains that count. Its buffer placement can be balanced to reduce the longest distribution path; the exact leaf delays depend on the chosen topology. This result assumes binary fan-out for every source, no inverter pairs, no load weighting, and a noninverting buffer counted as one component. It does not claim that a physical pin can always drive any two gates equally fast. Sharing a product across many outputs is not free under such a fan-out contract; buffers must enter the total cost and timing analysis.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "reasoning",
+      "data": null
+    }
+  },
+  {
+    "id": "COMBIN_075",
+    "title": "ROM capacity and programmability",
+    "stem": "Compare a fixed asynchronous ROM implementing a 6-input, 5-output function with a programmable 6-input LUT. Count logical stored bits and independent functions, and state whether a clocked read is combinational.",
+    "solution": "There are 64 addresses and five output bits per address, so the logical truth table stores 320 bits. There are $2^{320}$ completely specified functions with this interface. A single-output 6-input LUT stores 64 bits and can represent $2^{64}$ Boolean functions. Five independent such LUTs can represent the same function count as the five-output ROM, but their physical storage, decoder sharing and routing need not match. A fixed asynchronous read gives a settled word determined by the present address after access delay. A clocked read produces a word associated with sampled address state and is a sequential interface. Logical capacity does not establish electrical delay, minimum gate cost, hazard freedom or a transistor count. The address bits and output word order must be named to reproduce the intended table.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "reasoning",
+      "data": null
+    }
+  },
+  {
+    "id": "COMBIN_076",
+    "title": "Active-low decoder union",
+    "stem": "An enabled decoder gives outputs d_i_n that are zero on their selected rows. Implement the active-high union of rows 1,3,6 with one combining gate, then derive its disabled result if all decoder outputs go high.",
+    "solution": "Each d_i_n is the complement of the active-high minterm d_i. The requested function is $d_1+d_3+d_6=\\overline{d_{1n}d_{3n}d_{6n}}$, so one three-input NAND combines the selected active-low outputs. Using OR would yield one on almost every row rather than the required union. When disabled and all decoder outputs are high, the NAND output is zero, consistent with a disabled-no-selection contract. If the final interface instead needs an active-low union indication, the required result is the AND of the three decoder outputs and is one when disabled. This distinction is driven by both source and destination polarity. Complemented-output notation cannot be dropped between schematic blocks; label internal nets and evaluate at least one selected row and one unselected row before declaring the mapping correct.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "reasoning",
+      "data": null
+    }
+  },
+  {
+    "id": "COMBIN_077",
+    "title": "Independent care miters",
+    "stem": "Two implementations disagree on input indices 2,5,7 of a three-bit input. One environment promises A=0; another promises B=0. Is either contract sufficient for equivalence? Give every surviving discrepancy.",
+    "solution": "With order A,B,C, care A=0 includes indices 0,1,2,3, so discrepancy 2 survives and equivalence fails. Care B=0 includes indices 0,1,4,5, so discrepancy 5 survives and equivalence also fails. Combining both promises includes only indices 0 and 1, so the discrepancy intersection is empty and equivalence holds on that restricted domain. The check is set intersection with care, or algebraically care AND the miter, not simply asking whether one chosen counterexample is illegal. A user must justify those environmental assumptions independently. An implementation satisfying a stronger care restriction does not automatically satisfy a broader input domain. A truth-table verifier should record both the reference table and the exact care set so that a passing result can be interpreted correctly.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "reasoning",
+      "data": null
+    }
+  },
+  {
+    "id": "COMBIN_078",
+    "title": "Cost reduction with changed gate library",
+    "stem": "Compare Y=A(B+C) mapped as two ANDs followed by OR and as a factored OR followed by AND. Then map both into two-input NAND with no free input complements.",
+    "solution": "In an AND/OR library, the expanded form AB+AC uses three gates while the factored form uses two, both with depth two for relevant paths. In a NAND-only library, the expansion uses p=NAND(A,B), q=NAND(A,C), Y=NAND(p,q), totaling three. The direct factored mapping complements B and C, forms their OR by NAND, forms the complemented product with A, and inverts the result, totaling five. Thus the expression with fewer algebraic operations can yield more gates in a particular naive mapping. One can of course refactor again during technology mapping to recover the better construction; the example warns against mechanically freezing a representation. It does not prove the five-gate result is the optimal NAND mapping of the factored specification. Complement availability, fan-in, desired output polarity and sharing all change the objective.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "reasoning",
+      "data": null
+    }
+  },
+  {
+    "id": "COMBIN_079",
+    "title": "Propagation and contamination are different extrema",
+    "stem": "For p=AB, q=p+C, Y=qD, use propagation bounds 3,4,2 and contamination bounds 1,2,1. All inputs may change at zero. Compute bounds and sensitize the longest path.",
+    "solution": "The latest arrival of p is 3, q is max(3,0)+4=7, and Y is max(7,0)+2=9. The earliest possible p change is 1, q is min(1,0)+2=2, and Y is min(2,0)+1=1. The resulting structural bounds are contamination 1 and propagation 9, not a claim that one chosen transition takes nine or can occur continuously throughout that interval. To propagate an A transition through all gates, choose B=1,C=0,D=1. Then each gate\u2019s side input is noncontrolling, so this path is logically sensitized. With D=0, the output remains zero irrespective of the internal transition. Physical rise/fall differences and loading are outside the declared interval model. Compute minima and maxima separately; adding the minimum delay along the longest path does not find the shortest path.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "reasoning",
+      "data": null
+    }
+  },
+  {
+    "id": "COMBIN_080",
+    "title": "Priority controller invariants",
+    "stem": "Prove mutual exclusion, enabled-service completeness and disabled suppression for G1=ER1, G0=E NOT R1 R0. Is one-hot correctness sufficient to prove the selected payload?",
+    "solution": "Mutual exclusion follows from $G_1G_0=E^2R_1\\overline{R_1}R_0=0$. Service completeness follows from $G_1+G_0=E(R_1+\\overline{R_1}R_0)=E(R_1+R_0)$. With E=0 both grants are zero, proving suppression. These identities quantify over all inputs and therefore include simultaneous requests; priority grants requester one in that case. They do not prove the payload data follows the granted requester. A circuit that gives the correct one-hot grants but swaps the two data sources satisfies all three properties while delivering the wrong word whenever sources differ. Add a fourth obligation that the payload equals the selected requester\u2019s data under each grant. Keeping grant and payload checks separate prevents a misleading partial certificate. An active-low grant interface needs complemented observed outputs before interpreting these same invariants.",
+    "difficulty": "Hard",
+    "origin": "Original mathematical/conceptual problem",
+    "certificate": {
+      "kind": "reasoning",
+      "data": null
+    }
+  }
+]

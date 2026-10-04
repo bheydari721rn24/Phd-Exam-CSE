@@ -2015,6 +2015,156 @@
           "sha256": "9b4e20fd82df7d9189b5b208b0ab670c7fe090a7c7f55bb0e0a6681b05b000be"
         }
       ]
+    },
+    {
+      "id": "mit-combin-design-written",
+      "subject": "logic",
+      "university": "MIT",
+      "course": "6.004 Computation Structures, Spring 2017; Chris Terman",
+      "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/c4s1/",
+      "evidence": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/c4s1/",
+      "topics": [
+        "g_combin"
+      ],
+      "advantage": "Specification completeness, arrival-sensitive tree choice, table-lookup universality; Lecture 4 written annotations: specification and fan-in/tree passages, and slides 21\u201329 multiplexer/decoder/ROM annotations read in full. Earlier Boolean sections previously reviewed.",
+      "limit": "Bounded accessible comparison, not a worldwide exhaustive ranking.",
+      "access": "Official public written course material",
+      "reviewed": true,
+      "reviewScope": "Lecture 4 written annotations: specification and fan-in/tree passages, and slides 21\u201329 multiplexer/decoder/ROM annotations read in full. Earlier Boolean sections previously reviewed.",
+      "selectionRole": "Specification completeness, arrival-sensitive tree choice, table-lookup universality",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 5,
+        "semanticDepth": 5,
+        "exerciseValue": 4
+      },
+      "sourceDocuments": [
+        {
+          "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/c4s1/",
+          "sha256": "0500cca3040049d8fe9907ccac8b87177a6b87998f2bbb281c680cd7a2b4554a",
+          "readingScope": "Lecture 4 written annotations: specification and fan-in/tree passages, and slides 21\u201329 multiplexer/decoder/ROM annotations read in full. Earlier Boolean sections previously reviewed."
+        }
+      ]
+    },
+    {
+      "id": "stanford-combin-design-written",
+      "subject": "logic",
+      "university": "Stanford",
+      "course": "EE108A, Winter 2008; Philip Levis; reader author William J. Dally",
+      "url": "https://web.stanford.edu/class/archive/ee/ee108a/ee108a.1082/reader/ch1to12.pdf",
+      "evidence": "https://web.stanford.edu/class/archive/ee/ee108a/ee108a.1082/reader/ch1to12.pdf",
+      "topics": [
+        "g_combin"
+      ],
+      "advantage": "Acyclic-closure proof and design procedure from a mathematical contract; Chapter 6 PDF pages 83\u2013105 previously read in full; pages 83\u201386 and 95\u201396 reread for acyclic composition and mapping.",
+      "limit": "Bounded accessible comparison, not a worldwide exhaustive ranking.",
+      "access": "Official public written course material",
+      "reviewed": true,
+      "reviewScope": "Chapter 6 PDF pages 83\u2013105 previously read in full; pages 83\u201386 and 95\u201396 reread for acyclic composition and mapping.",
+      "selectionRole": "Acyclic-closure proof and design procedure from a mathematical contract",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 5,
+        "semanticDepth": 5,
+        "exerciseValue": 5
+      },
+      "sourceDocuments": [
+        {
+          "url": "https://web.stanford.edu/class/archive/ee/ee108a/ee108a.1082/reader/ch1to12.pdf",
+          "sha256": "e1be9e7e4780d5fd8baa4ce7afa7a959e1d50c60d80d6c0fc2f551afd0d617b6",
+          "readingScope": "Chapter 6 PDF pages 83\u2013105 previously read in full; pages 83\u201386 and 95\u201396 reread for acyclic composition and mapping."
+        }
+      ]
+    },
+    {
+      "id": "cambridge-combin-design-written",
+      "subject": "logic",
+      "university": "Cambridge",
+      "course": "Digital Electronics, 2025\u201326; Ian J. Wassell",
+      "url": "https://www.cl.cam.ac.uk/teaching/2526/DigElec/materials.html",
+      "evidence": "https://www.cl.cam.ac.uk/teaching/2526/DigElec/materials.html",
+      "topics": [
+        "g_combin"
+      ],
+      "advantage": "Multilevel factoring, shared expressions, block implementation tradeoffs; Combined slides pages 55\u201370 read in full; page 57 visually checked against original PDF. Earlier pages 21\u201343 and Examples Paper 1 previously reviewed.",
+      "limit": "Bounded accessible comparison, not a worldwide exhaustive ranking.",
+      "access": "Official public written course material",
+      "reviewed": true,
+      "reviewScope": "Combined slides pages 55\u201370 read in full; page 57 visually checked against original PDF. Earlier pages 21\u201343 and Examples Paper 1 previously reviewed.",
+      "selectionRole": "Multilevel factoring, shared expressions, block implementation tradeoffs",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 5,
+        "semanticDepth": 4,
+        "exerciseValue": 4
+      },
+      "sourceDocuments": [
+        {
+          "url": "https://www.cl.cam.ac.uk/teaching/2526/DigElec/materials.html",
+          "sha256": "e4790943453a7562a3f93a51180e4db72819fe48131aca7b5231ac4631c37c2e",
+          "readingScope": "Combined slides pages 55\u201370 read in full; page 57 visually checked against original PDF. Earlier pages 21\u201343 and Examples Paper 1 previously reviewed."
+        }
+      ]
+    },
+    {
+      "id": "cornell-combin-design-written",
+      "subject": "logic",
+      "university": "Cornell",
+      "course": "ECE2300 / ENGRD2300, Fall 2026; Christopher Batten",
+      "url": "https://www.csl.cornell.edu/courses/ece2300/handouts/ece2300-T02-comb-logic.pdf",
+      "evidence": "https://www.csl.cornell.edu/courses/ece2300/handouts/ece2300-T02-comb-logic.pdf",
+      "topics": [
+        "g_combin"
+      ],
+      "advantage": "Internal net derivation, multiple outputs, structural Verilog and interval timing; T02 Combinational Logic, all 34 PDF pages read; revision 2026-09-03-23-48.",
+      "limit": "Bounded accessible comparison, not a worldwide exhaustive ranking.",
+      "access": "Official public written course material",
+      "reviewed": true,
+      "reviewScope": "T02 Combinational Logic, all 34 PDF pages read; revision 2026-09-03-23-48.",
+      "selectionRole": "Internal net derivation, multiple outputs, structural Verilog and interval timing",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 5,
+        "semanticDepth": 5,
+        "exerciseValue": 5
+      },
+      "sourceDocuments": [
+        {
+          "url": "https://www.csl.cornell.edu/courses/ece2300/handouts/ece2300-T02-comb-logic.pdf",
+          "sha256": "f47a58773bcbd5d106edd324511b647b80d1870f7609aeb15f2d69a7869474ae",
+          "readingScope": "T02 Combinational Logic, all 34 PDF pages read; revision 2026-09-03-23-48."
+        }
+      ]
+    },
+    {
+      "id": "berkeley-combin-design-written",
+      "subject": "logic",
+      "university": "Berkeley",
+      "course": "CS150, Fall 2005; Randy H. Katz",
+      "url": "https://people.eecs.berkeley.edu/~randy/Courses/CS150.F05/Lectures/02-CombLogic.pdf",
+      "evidence": "https://people.eecs.berkeley.edu/~randy/Courses/CS150.F05/Lectures/02-CombLogic.pdf",
+      "topics": [
+        "g_combin"
+      ],
+      "advantage": "Explicit cost models, multi-output examples and polarity-preserving NAND/NOR mapping; Lecture 2, all 37 PDF pages / 73 slides read, especially 18\u201324, 52\u201358 and 63\u201372.",
+      "limit": "Bounded accessible comparison, not a worldwide exhaustive ranking.",
+      "access": "Official public written course material",
+      "reviewed": true,
+      "reviewScope": "Lecture 2, all 37 PDF pages / 73 slides read, especially 18\u201324, 52\u201358 and 63\u201372.",
+      "selectionRole": "Explicit cost models, multi-output examples and polarity-preserving NAND/NOR mapping",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 5,
+        "semanticDepth": 4,
+        "exerciseValue": 5
+      },
+      "sourceDocuments": [
+        {
+          "url": "https://people.eecs.berkeley.edu/~randy/Courses/CS150.F05/Lectures/02-CombLogic.pdf",
+          "sha256": "0c4072c22d4c4732136dab681e1cd9a628120d5b1c0976069b0be115b8876062",
+          "readingScope": "Lecture 2, all 37 PDF pages / 73 slides read, especially 18\u201324, 52\u201358 and 63\u201372."
+        }
+      ]
     }
   ],
   "scope": "Chapter-specific course entries across the authored weeks; each entry states its actual reading boundary."

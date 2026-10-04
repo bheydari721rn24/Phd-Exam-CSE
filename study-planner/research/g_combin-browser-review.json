@@ -1,0 +1,710 @@
+{
+  "state": "passed",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\g-combin-browser",
+  "chapters": [
+    {
+      "topicId": "g_combin",
+      "figures": [
+        {
+          "index": 0,
+          "title": "Three exhaustive priority cases",
+          "viewBox": [
+            700,
+            410
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Specify priority before simplifying",
+              "x": 185.33102416992188,
+              "y": 12.459892272949219,
+              "w": 329.3685302734375,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "E=0 \u2192 G\u2081=G\u2080=0",
+              "x": 265.1646728515625,
+              "y": 107.95989227294922,
+              "w": 169.67063903808594,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "E=1, R\u2081=1 \u2192 G\u2081=1, G\u2080=0",
+              "x": 223.05845642089844,
+              "y": 202.9598846435547,
+              "w": 253.88307189941406,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "E=1, R\u2081=0 \u2192 G\u2080=R\u2080",
+              "x": 248.02943420410156,
+              "y": 297.95989990234375,
+              "w": 204.0231475830078,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "g_combin-figure-1.png"
+        },
+        {
+          "index": 1,
+          "title": "Shared-net dependency graph",
+          "viewBox": [
+            700,
+            390
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "A directed acyclic network shares r",
+              "x": 179.3921356201172,
+              "y": 12.45959186553955,
+              "w": 341.2464904785156,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "p = AB",
+              "x": 84.78214263916016,
+              "y": 120.45958709716797,
+              "w": 70.57124328613281,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "q = C + D",
+              "x": 70.54924774169922,
+              "y": 255.4595947265625,
+              "w": 98.90148162841797,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "r = pq",
+              "x": 319.7839050292969,
+              "y": 187.4595947265625,
+              "w": 60.43218231201172,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Y = r + E",
+              "x": 533.0594482421875,
+              "y": 120.45958709716797,
+              "w": 93.08374786376953,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Z = r \u2295 H",
+              "x": 530.8731079101562,
+              "y": 255.4595947265625,
+              "w": 98.72425079345703,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Rank: inputs 0; p,q 1; r 2; Y,Z 3",
+              "x": 215.44464111328125,
+              "y": 339.0541687011719,
+              "w": 269.1106872558594,
+              "h": 20.729572296142578,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "g_combin-figure-2.png"
+        },
+        {
+          "index": 2,
+          "title": "Factoring with explicit fan-in assumptions",
+          "viewBox": [
+            700,
+            370
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Factor common products under a declared library",
+              "x": 119.85407257080078,
+              "y": 13.257129669189453,
+              "w": 461.6204833984375,
+              "h": 22.323827743530273,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "adf + aef + bdf + bef + cdf + cef + g",
+              "x": 169.83352661132812,
+              "y": 107.95984649658203,
+              "w": 360.3645935058594,
+              "h": 23.12110710144043,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "(a + b + c)(d + e)f + g",
+              "x": 241.00941467285156,
+              "y": 227.95985412597656,
+              "w": 218.0116729736328,
+              "h": 23.12110710144043,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Wide-gate cost: 7 \u2192 4; two-input mapping differs",
+              "x": 142.7260284423828,
+              "y": 309.8516845703125,
+              "w": 413.8241882324219,
+              "h": 19.931987762451172,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "g_combin-figure-3.png"
+        },
+        {
+          "index": 3,
+          "title": "Cofactor table becomes mux wiring",
+          "viewBox": [
+            700,
+            415
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Read each residual pair in C=0, C=1 order",
+              "x": 152.5719757080078,
+              "y": 13.25698471069336,
+              "w": 395.2595520019531,
+              "h": 22.324018478393555,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "AB=00",
+              "x": 97.23029327392578,
+              "y": 89.05427551269531,
+              "w": 64.74214935302734,
+              "h": 20.729446411132812,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "output pair 01",
+              "x": 287.40679931640625,
+              "y": 89.05427551269531,
+              "w": 125.1864242553711,
+              "h": 20.729446411132812,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "D0=C",
+              "x": 557.5496826171875,
+              "y": 89.05427551269531,
+              "w": 54.90064239501953,
+              "h": 20.729446411132812,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "AB=01",
+              "x": 97.23029327392578,
+              "y": 149.0542755126953,
+              "w": 64.74214935302734,
+              "h": 20.729446411132812,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "output pair 11",
+              "x": 287.40679931640625,
+              "y": 149.0542755126953,
+              "w": 125.1864242553711,
+              "h": 20.729446411132812,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "D1=1",
+              "x": 559.3871459960938,
+              "y": 149.0542755126953,
+              "w": 51.225650787353516,
+              "h": 20.729446411132812,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "AB=10",
+              "x": 97.23029327392578,
+              "y": 209.0542755126953,
+              "w": 64.74214935302734,
+              "h": 20.729446411132812,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "output pair 01",
+              "x": 287.40679931640625,
+              "y": 209.0542755126953,
+              "w": 125.1864242553711,
+              "h": 20.729446411132812,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "D2=C",
+              "x": 557.5496826171875,
+              "y": 209.0542755126953,
+              "w": 54.90064239501953,
+              "h": 20.729446411132812,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "AB=11",
+              "x": 97.23029327392578,
+              "y": 269.0542907714844,
+              "w": 64.74214935302734,
+              "h": 20.729446411132812,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "output pair 01",
+              "x": 287.40679931640625,
+              "y": 269.0542907714844,
+              "w": 125.1864242553711,
+              "h": 20.729446411132812,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "D3=C",
+              "x": 557.5496826171875,
+              "y": 269.0542907714844,
+              "w": 54.90064239501953,
+              "h": 20.729446411132812,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "F = \u03a3m(1,2,3,5,7) = C + A\u0305B",
+              "x": 220.3350830078125,
+              "y": 357.459716796875,
+              "w": 259.3298645019531,
+              "h": 23.121305465698242,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "g_combin-figure-4.png"
+        },
+        {
+          "index": 4,
+          "title": "Explicit multi-output ROM contents",
+          "viewBox": [
+            700,
+            385
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Eight addresses; two independent output columns",
+              "x": 117.7854232788086,
+              "y": 13.257079124450684,
+              "w": 464.50384521484375,
+              "h": 22.323894500732422,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "000 \u2192 00",
+              "x": 82.74007415771484,
+              "y": 117.95980072021484,
+              "w": 89.51982116699219,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "001 \u2192 10",
+              "x": 242.74009704589844,
+              "y": 117.95980072021484,
+              "w": 89.51982116699219,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "010 \u2192 10",
+              "x": 402.7401123046875,
+              "y": 117.95980072021484,
+              "w": 89.51982116699219,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "011 \u2192 01",
+              "x": 562.7401123046875,
+              "y": 117.95980072021484,
+              "w": 89.51982116699219,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "100 \u2192 10",
+              "x": 82.74007415771484,
+              "y": 227.9597930908203,
+              "w": 89.51982116699219,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "101 \u2192 01",
+              "x": 242.74009704589844,
+              "y": 227.9597930908203,
+              "w": 89.51982116699219,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "110 \u2192 01",
+              "x": 402.7401123046875,
+              "y": 227.9597930908203,
+              "w": 89.51982116699219,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "111 \u2192 11",
+              "x": 562.7401123046875,
+              "y": 227.9597930908203,
+              "w": 89.51982116699219,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Word order: odd parity, then majority; 16 stored bits",
+              "x": 131.40773010253906,
+              "y": 329.8516540527344,
+              "w": 436.46075439453125,
+              "h": 19.932048797607422,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "g_combin-figure-5.png"
+        },
+        {
+          "index": 5,
+          "title": "A verified three-NAND mapping",
+          "viewBox": [
+            700,
+            410
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Two complemented products feed a final NAND",
+              "x": 126.50688934326172,
+              "y": 13.257169723510742,
+              "w": 446.9862060546875,
+              "h": 22.323772430419922,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "p = (AB)\u0305",
+              "x": 116.57328033447266,
+              "y": 120.45988464355469,
+              "w": 87.64360046386719,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "q = (AC)\u0305",
+              "x": 116.61688232421875,
+              "y": 265.4598693847656,
+              "w": 87.55165100097656,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Y = (pq)\u0305",
+              "x": 477.9373474121094,
+              "y": 192.4598846435547,
+              "w": 84.11813354492188,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Y = AB + AC = A(B + C)",
+              "x": 225.1388397216797,
+              "y": 352.4598693847656,
+              "w": 248.9250030517578,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "g_combin-figure-6.png"
+        },
+        {
+          "index": 6,
+          "title": "Complete multi-output comparison",
+          "viewBox": [
+            700,
+            410
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Every output discrepancy contributes to the miter",
+              "x": 120.02900695800781,
+              "y": 13.257169723510742,
+              "w": 460.3439025878906,
+              "h": 22.323772430419922,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "reference F\u2080, F\u2081",
+              "x": 94.5638427734375,
+              "y": 120.45988464355469,
+              "w": 150.87232971191406,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "candidate G\u2080, G\u2081",
+              "x": 449.3005676269531,
+              "y": 120.45988464355469,
+              "w": 161.3988800048828,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "e\u2080 = F\u2080 \u2295 G\u2080",
+              "x": 151.4171142578125,
+              "y": 260.45989990234375,
+              "w": 127.24794006347656,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "e\u2081 = F\u2081 \u2295 G\u2081",
+              "x": 424.1452941894531,
+              "y": 260.45989990234375,
+              "w": 121.70940399169922,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "M = e\u2080 + e\u2081; care equivalence requires CM = 0",
+              "x": 144.25877380371094,
+              "y": 349.054443359375,
+              "w": 411.482421875,
+              "h": 20.729217529296875,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "g_combin-figure-7.png"
+        },
+        {
+          "index": 7,
+          "title": "Contamination and propagation bounds",
+          "viewBox": [
+            700,
+            435
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Timing recurrences use different extrema",
+              "x": 158.18716430664062,
+              "y": 13.257251739501953,
+              "w": 384.2270812988281,
+              "h": 22.323665618896484,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "primary",
+              "x": 102.634033203125,
+              "y": 78.25725555419922,
+              "w": 76.05769348144531,
+              "h": 22.323665618896484,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "earliest 0",
+              "x": 325.1549987792969,
+              "y": 79.05452728271484,
+              "w": 79.69000244140625,
+              "h": 20.72911834716797,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "latest 0",
+              "x": 548.7506103515625,
+              "y": 79.05452728271484,
+              "w": 62.49878692626953,
+              "h": 20.72911834716797,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "p = AB",
+              "x": 106.30896759033203,
+              "y": 143.25726318359375,
+              "w": 67.38208770751953,
+              "h": 22.323665618896484,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "earliest 1",
+              "x": 325.1549987792969,
+              "y": 144.05453491210938,
+              "w": 79.69000244140625,
+              "h": 20.72911834716797,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "latest 3",
+              "x": 548.7506103515625,
+              "y": 144.05453491210938,
+              "w": 62.49878692626953,
+              "h": 20.72911834716797,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "q = p + C",
+              "x": 94.81700897216797,
+              "y": 208.25726318359375,
+              "w": 90.36599731445312,
+              "h": 22.323665618896484,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "earliest 2",
+              "x": 325.1549987792969,
+              "y": 209.05453491210938,
+              "w": 79.69000244140625,
+              "h": 20.72911834716797,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "latest 7",
+              "x": 548.7506103515625,
+              "y": 209.05453491210938,
+              "w": 62.49878692626953,
+              "h": 20.72911834716797,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Y = qD",
+              "x": 105.45563507080078,
+              "y": 273.25726318359375,
+              "w": 68.2914810180664,
+              "h": 22.323665618896484,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "earliest 1",
+              "x": 325.1549987792969,
+              "y": 274.0545349121094,
+              "w": 79.69000244140625,
+              "h": 20.72911834716797,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "latest 9",
+              "x": 548.7506103515625,
+              "y": 274.0545349121094,
+              "w": 62.49878692626953,
+              "h": 20.72911834716797,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Bounds are structural; a masked transition may not occur",
+              "x": 108.45716094970703,
+              "y": 379.851806640625,
+              "w": 483.44842529296875,
+              "h": 19.93184471130371,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "g_combin-figure-8.png"
+        }
+      ],
+      "solutionPrint": {
+        "count": 82,
+        "allOpened": true,
+        "restored": true
+      },
+      "fonts": {
+        "loaded": [
+          "Source Sans 3",
+          "Newsreader",
+          "STIX Two Math",
+          "JetBrains Mono",
+          "Math Glyphs"
+        ],
+        "math": [
+          "\"STIX Two Math\", serif"
+        ]
+      },
+      "laboratory": {
+        "exactInputCases": 96,
+        "renderedModeVariants": 6,
+        "invalidCalls": 4,
+        "controls": true,
+        "motion": true,
+        "reducedMotion": true,
+        "labelBounds": true
+      },
+      "dedicatedFonts": {
+        "body": "\"Math Glyphs\", \"Source Sans 3\", sans-serif",
+        "title": "Newsreader, \"STIX Two Math\", serif",
+        "code": "\"JetBrains Mono\", ui-monospace, monospace",
+        "math": true,
+        "underline": false
+      },
+      "mobile": {
+        "viewport": 390,
+        "document": 390,
+        "formulaOverflow": [],
+        "inlineMathOverflow": [],
+        "figureSizes": [
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "22px"
+          },
+          {
+            "width": 324,
+            "fontSize": "22px"
+          },
+          {
+            "width": 324,
+            "fontSize": "22px"
+          },
+          {
+            "width": 324,
+            "fontSize": "22px"
+          },
+          {
+            "width": 324,
+            "fontSize": "22px"
+          },
+          {
+            "width": 324,
+            "fontSize": "22px"
+          }
+        ],
+        "problems": 82,
+        "codeFonts": [
+          "\"JetBrains Mono\", ui-monospace, monospace"
+        ]
+      },
+      "printStyle": {
+        "diagramOverflow": 0,
+        "mathFonts": [
+          "\"STIX Two Math\", serif"
+        ]
+      }
+    }
+  ]
+}
