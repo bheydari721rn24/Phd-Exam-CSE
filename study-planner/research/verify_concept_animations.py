@@ -43,6 +43,6 @@ verify('Gray all consecutive distances',[f['metrics']['Changed Gray bits'] for f
 verify('single-error syndrome',data['hamming-code']['frames'][-1]['metrics']['Syndrome']==5)
 verify('binary32 exact cases',[f['metrics']['Binary32 result'] for f in data['float-rounding']['frames']]==[16777216,16777216,16777218,16777220])
 approved=json.loads((ROOT/'research/animation-approval.json').read_text())['approvedTopics']
-verify('all approved-library questions retained',sum(len(re.findall(r'class="exam-question"',(ROOT/f'dist/chapters/{id}.html').read_text(encoding='utf-8'))) for id in approved)==1498)
+verify('all approved-library questions retained',sum(len(re.findall(r'class="exam-question"',(ROOT/f'dist/chapters/{id}.html').read_text(encoding='utf-8'))) for id in approved)==1581)
 result=dict(state='passed',assertions=len(audit),scenarioCount=len(data),checkpointCount=sum(len(s['frames']) for s in data.values()),checks=audit,limitations='Finite serialized checkpoint and selected reference-result checks. Construction assertions and browser layout checks are recorded separately. These are not universal proofs or physical-circuit validation.')
 (ROOT/'research/animation-model-audit.json').write_text(json.dumps(result,indent=2)+'\n');print(f'Passed {len(audit)} independent checkpoint and reference assertions.')

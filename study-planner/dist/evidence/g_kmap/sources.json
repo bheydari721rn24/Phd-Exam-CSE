@@ -1,0 +1,206 @@
+{
+  "state": "reviewed",
+  "readingDate": "2026-10-04",
+  "courses": [
+    {
+      "id": "mit-minimization-written",
+      "subject": "logic",
+      "university": "MIT",
+      "course": "6.004 Computation Structures, Spring 2017; Chris Terman",
+      "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/c4s1/",
+      "evidence": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/c4s1/",
+      "topics": [
+        "g_kmap"
+      ],
+      "advantage": "Primary: specification, SOP, implicants, care sets and hazard coverage; Lecture 4 written annotations, slides 1\u20134 and 10\u201320 in depth; slides 21\u201329 screened for implementation context",
+      "limit": "Accessible bounded pool; exact reading and source corrections are documented.",
+      "access": "Official public written material",
+      "reviewed": true,
+      "reviewScope": "Lecture 4 written annotations, slides 1\u20134 and 10\u201320 in depth; slides 21\u201329 screened for implementation context",
+      "selectionRole": "Primary: specification, SOP, implicants, care sets and hazard coverage",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 4,
+        "semanticDepth": 4,
+        "exerciseValue": 3
+      },
+      "sourceDocuments": [
+        {
+          "id": "mit",
+          "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/c4s1/",
+          "sha256": "ae62ba5c1fcc526db9bbc2d26b26497fd0710b612ac670f350da09ce9a07e14e",
+          "pages": null
+        }
+      ]
+    },
+    {
+      "id": "cambridge-minimization-written",
+      "subject": "logic",
+      "university": "Cambridge",
+      "course": "Digital Electronics, 2025\u201326; Ian J. Wassell",
+      "url": "https://www.cl.cam.ac.uk/teaching/2526/DigElec/combined_25.pdf",
+      "evidence": "https://www.cl.cam.ac.uk/teaching/2526/DigElec/combined_25.pdf",
+      "topics": [
+        "g_kmap"
+      ],
+      "advantage": "Primary: canonical polarity, Gray maps, POS, don\u2019t-cares and tabular simplification; Combined slides 21\u201343 and Examples Paper 1, all three pages; POS slide 34 and exercise page 2 visually checked",
+      "limit": "Accessible bounded pool; exact reading and source corrections are documented.",
+      "access": "Official public written material",
+      "reviewed": true,
+      "reviewScope": "Combined slides 21\u201343 and Examples Paper 1, all three pages; POS slide 34 and exercise page 2 visually checked",
+      "selectionRole": "Primary: canonical polarity, Gray maps, POS, don\u2019t-cares and tabular simplification",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 5,
+        "semanticDepth": 4,
+        "exerciseValue": 5
+      },
+      "sourceDocuments": [
+        {
+          "id": "cambridge",
+          "url": "https://www.cl.cam.ac.uk/teaching/2526/DigElec/combined_25.pdf",
+          "sha256": "e4790943453a7562a3f93a51180e4db72819fe48131aca7b5231ac4631c37c2e",
+          "pages": 190
+        },
+        {
+          "id": "cambridge-ex",
+          "url": "https://www.cl.cam.ac.uk/teaching/2526/DigElec/examples_25_1.pdf",
+          "sha256": "d1f7e495befe3bf7371a5a2691ea363f1453182c5fe0f91031e3ee23e842c278",
+          "pages": 3
+        }
+      ]
+    },
+    {
+      "id": "stanford-minimization-written",
+      "subject": "logic",
+      "university": "Stanford",
+      "course": "EE108A, Winter 2008; Philip Levis; reader author William J. Dally, 2002\u20132006",
+      "url": "https://web.stanford.edu/class/archive/ee/ee108a/ee108a.1082/reader/ch1to12.pdf",
+      "evidence": "https://web.stanford.edu/class/archive/ee/ee108a/ee108a.1082/reader/ch1to12.pdf",
+      "topics": [
+        "g_kmap"
+      ],
+      "advantage": "Primary: cubes, essential primes, nonunique covers, greedy counterexample and delay hazards; Reader Chapter 6, PDF pages 83\u2013105, all text and exercise families read",
+      "limit": "Accessible bounded pool; exact reading and source corrections are documented.",
+      "access": "Official public written material",
+      "reviewed": true,
+      "reviewScope": "Reader Chapter 6, PDF pages 83\u2013105, all text and exercise families read",
+      "selectionRole": "Primary: cubes, essential primes, nonunique covers, greedy counterexample and delay hazards",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 5,
+        "semanticDepth": 5,
+        "exerciseValue": 5
+      },
+      "sourceDocuments": [
+        {
+          "id": "stanford",
+          "url": "https://web.stanford.edu/class/archive/ee/ee108a/ee108a.1082/reader/ch1to12.pdf",
+          "sha256": "e1be9e7e4780d5fd8baa4ce7afa7a959e1d50c60d80d6c0fc2f551afd0d617b6",
+          "pages": 232
+        }
+      ]
+    },
+    {
+      "id": "cornell-minimization-written",
+      "subject": "logic",
+      "university": "Cornell",
+      "course": "ECE2300 / ENGRD2300, Fall 2026; Christopher Batten",
+      "url": "https://www.csl.cornell.edu/courses/ece2300/handouts/ece2300-T03-bool-algebra.pdf",
+      "evidence": "https://www.csl.cornell.edu/courses/ece2300/handouts/ece2300-T03-bool-algebra.pdf",
+      "topics": [
+        "g_kmap"
+      ],
+      "advantage": "Primary: algebra-to-map connection, stepwise grouping and abstraction; T03 Boolean Algebra, all 26 pages; revision 2026-09-08",
+      "limit": "Accessible bounded pool; exact reading and source corrections are documented.",
+      "access": "Official public written material",
+      "reviewed": true,
+      "reviewScope": "T03 Boolean Algebra, all 26 pages; revision 2026-09-08",
+      "selectionRole": "Primary: algebra-to-map connection, stepwise grouping and abstraction",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 4,
+        "semanticDepth": 4,
+        "exerciseValue": 4
+      },
+      "sourceDocuments": [
+        {
+          "id": "cornell",
+          "url": "https://www.csl.cornell.edu/courses/ece2300/handouts/ece2300-T03-bool-algebra.pdf",
+          "sha256": "55cee1c88bef89a8807a2618961d0f72d4b872deaf06701e27875f1a08b0da17",
+          "pages": 26
+        }
+      ]
+    },
+    {
+      "id": "columbia-minimization-written",
+      "subject": "logic",
+      "university": "Columbia",
+      "course": "CSEE E6861, 2016; Steven Nowick",
+      "url": "https://www.cs.columbia.edu/~cs6861/handouts/quine-mccluskey-handout.pdf",
+      "evidence": "https://www.cs.columbia.edu/~cs6861/handouts/quine-mccluskey-handout.pdf",
+      "topics": [
+        "g_kmap"
+      ],
+      "advantage": "Selected fifth complement: chart dominance, secondary essentials and Petrick\u2019s method; Handout 5, Quine\u2013McCluskey, all 15 pages; three exact covering examples",
+      "limit": "Accessible bounded pool; exact reading and source corrections are documented.",
+      "access": "Official public written material",
+      "reviewed": true,
+      "reviewScope": "Handout 5, Quine\u2013McCluskey, all 15 pages; three exact covering examples",
+      "selectionRole": "Selected fifth complement: chart dominance, secondary essentials and Petrick\u2019s method",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 5,
+        "semanticDepth": 5,
+        "exerciseValue": 5
+      },
+      "sourceDocuments": [
+        {
+          "id": "columbia",
+          "url": "https://www.cs.columbia.edu/~cs6861/handouts/quine-mccluskey-handout.pdf",
+          "pages": 15,
+          "sha256": "9b4e20fd82df7d9189b5b208b0ab670c7fe090a7c7f55bb0e0a6681b05b000be"
+        }
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "mit",
+      "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/c4s1/",
+      "sha256": "ae62ba5c1fcc526db9bbc2d26b26497fd0710b612ac670f350da09ce9a07e14e",
+      "pages": null
+    },
+    {
+      "id": "cambridge",
+      "url": "https://www.cl.cam.ac.uk/teaching/2526/DigElec/combined_25.pdf",
+      "sha256": "e4790943453a7562a3f93a51180e4db72819fe48131aca7b5231ac4631c37c2e",
+      "pages": 190
+    },
+    {
+      "id": "cambridge-ex",
+      "url": "https://www.cl.cam.ac.uk/teaching/2526/DigElec/examples_25_1.pdf",
+      "sha256": "d1f7e495befe3bf7371a5a2691ea363f1453182c5fe0f91031e3ee23e842c278",
+      "pages": 3
+    },
+    {
+      "id": "stanford",
+      "url": "https://web.stanford.edu/class/archive/ee/ee108a/ee108a.1082/reader/ch1to12.pdf",
+      "sha256": "e1be9e7e4780d5fd8baa4ce7afa7a959e1d50c60d80d6c0fc2f551afd0d617b6",
+      "pages": 232
+    },
+    {
+      "id": "cornell",
+      "url": "https://www.csl.cornell.edu/courses/ece2300/handouts/ece2300-T03-bool-algebra.pdf",
+      "sha256": "55cee1c88bef89a8807a2618961d0f72d4b872deaf06701e27875f1a08b0da17",
+      "pages": 26
+    },
+    {
+      "id": "columbia",
+      "url": "https://www.cs.columbia.edu/~cs6861/handouts/quine-mccluskey-handout.pdf",
+      "pages": 15,
+      "sha256": "9b4e20fd82df7d9189b5b208b0ab670c7fe090a7c7f55bb0e0a6681b05b000be"
+    }
+  ],
+  "scope": "Nine university candidates discovered/screened. Five courses actually read. Four complementary primary courses and a fifth advanced source selected; no worldwide exhaustive claim."
+}

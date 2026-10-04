@@ -1,0 +1,21 @@
+# Logic minimization: quality and verification audit
+
+## Delivered scope
+
+This English review draft combines five actually read university courses, with documented selection from a bounded nine-university discovery pool. It includes ten detailed lesson examples, 84 fully solved problems (81 independently authored/course-inspired and three authentic archive revisits), 80 full review rules, seven original SVG diagrams, fourteen exact concept models with 51 checkpoints, and an adjustable four-variable SOP/POS exact-cover lab. Source URLs, instructors, reading ranges, acquisition hashes and corrections are documented separately. No original course PDFs or figures are redistributed.
+
+## Observed independent verification
+
+Independent verification passed 2,472 checks. The reference model enumerates cubes using bit masks separately from the authoring implementation, compares every authored exact-cover result with iterative QM and Petrick, exhausts all 256 three-input Boolean functions and all 81 two-input incomplete contracts, and verifies explicit algebraic identities and threshold families through six inputs. It checks all fourteen animations against exact snapshot semantics and preserves the mathematical token sequence when long formulas are reflowed. All three original examination PDF fingerprints match their pinned archive provenance.
+
+The archive revisit corrects the shortened earlier transcription of MSc CE 1405 Q78 option 4: the original has five terms. The new tutorial explains why that option violates zero row 4 and why a minimum-literal result protecting O-to-O transitions is not automatically hazard-free on its entire selected DC completion. Independent checks expose the new edge (1,5), validate a consensus repair and validate the alternative zero-DC completion. Earlier approved question banks are preserved; the correction is explicitly documented in this chapter.
+
+## Observed browser verification
+
+The browser independently checked 530 exact laboratory inputs, including 18 rendered cases and nine rejected-input cases. All optimum candidate sets, costs, tied covers and animated checkpoint unions match the separate Python model. Playback, previous/next, reset, seeking, enlargement and reduced-motion behavior passed; actual moving-token positions were checked. All seven figures have no clipped or overlapping labels. All 84 solutions open for printing and restore their previous states afterward. Desktop, 390-pixel mobile and print contain the formulas and figures without page-width overflow. Source Sans 3, Newsreader, STIX Two Math and JetBrains Mono load in their respective roles; no link underline appears.
+
+The final library animation review rendered 192 models across 30 chapters with zero label-layout findings. All 29 approved chapters and their 1,581 existing question entries are preserved. The library now contains 1,665 question entries and 1,139 animation checkpoints.
+
+## Limits and approval
+
+The lesson’s exact cost is lexicographic (terms/factors, then literal occurrences), not arbitrary technology-mapping cost. The functional laboratory does not certify hazards; hazard proofs separately state the allowed transition set, two-level structure and delay assumptions. Difficulty labels are author judgments, not observed score calibration. Course completeness worldwide, absolute scientific perfection and performance on every conceivable unseen question are not guaranteed by finite checks. The current chapter remains a draft and awaits explicit user approval before the next chapter is started.

@@ -31,4 +31,6 @@ CATALOG={
 'p_functions':{'frames':['fn-nested','fn-recursion'],'values':['fn-copy'],'scope':['fn-lookup','fn-static'],'pointers':['fn-pointer','fn-alias','fn-output'],'order':['fn-orders'],'python':['fn-sharing','fn-closure','fn-default']}
 ,
 'p_arrays':{'representation':['arr-boundary'],'layouts':['arr-row','arr-column','arr-transpose'],'traversals':['arr-prefix'],'mutation':['arr-copy-bad','arr-copy-right','arr-copy-left','arr-insert','arr-reverse','arr-rotate','arr-difference','arr-compact'],'python':['arr-sharing'],'strings':['arr-search'],'growth':['arr-growth'],'packed':['arr-packed','arr-ring']}
+,
+'g_kmap':{'geometry':['km-gray','km-corners','km-planes'],'covers':['km-chart','km-cycle','km-greedy','km-petrick'],'care-sets':['km-dc','km-pos'],'tabulation':['km-merge','km-qm'],'implementation':['km-hazard-cover','km-hazard-time','km-sharing']}
 }

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "MS_CS_1405_Q99",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 22,
+    "questionNumber": 99,
+    "topics": [
+      "d_logic",
+      "g_boolean"
+    ],
+    "title": "Canonical CNF from true rows",
+    "stem": "A formula in $A,B,C$ is true exactly on rows $110,100,011,001$. Does its canonical conjunctive normal form include (a) $\\neg A\\lor\\neg B\\lor\\neg C$ and (b) $A\\lor B\\lor C$?",
+    "options": [
+      "Only (a).",
+      "Only (b).",
+      "Both.",
+      "Neither."
+    ],
+    "answer": 3,
+    "solution": "1. Canonical CNF contains one maxterm for each false row. A maxterm is false at its designated row.\n2. Clause (a) is false at 111; that row is absent from the true-row list, so (a) occurs. Clause (b) is false at 000; that row is also false, so (b) occurs.\n3. The other false rows are 010 and 101. Their clauses complete the canonical CNF. The function simplifies to $A\\oplus C$, but the question asks which canonical clauses occur, not which survive minimization.\n4. Options 1 and 2 omit a required maxterm; option 4 omits both.\n\n**Transfer rule.** Minterms are indexed by true rows; maxterms by false rows. Canonical and minimized forms answer different questions.",
+    "pattern": "canonical versus minimized form",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "qNumber": 99
+  },
+  {
+    "id": "Phd_CS_1405_Q22",
+    "booklet": "Phd_CS_1405",
+    "pdfPage": 8,
+    "questionNumber": 22,
+    "topics": [
+      "g_boolean",
+      "d_logic"
+    ],
+    "title": "Canonical product of maxterms",
+    "stem": "What is the canonical product-of-maxterms form of $(p\\Rightarrow r)\\land(p\\Leftrightarrow q)$, with index order $p,q,r$?",
+    "options": [
+      "$\\sum m(0,1,7)$",
+      "$\\prod M(0,1,3,4,6)$",
+      "$\\sum m(2,5,7)$",
+      "$\\prod M(2,3,4,5,6)$"
+    ],
+    "answer": 4,
+    "solution": "1. The equivalence forces $p=q$. If both are zero, the implication is true regardless of $r$, giving indices 0 and 1. If both are one, $r$ must be one, giving index 7.\n2. All remaining indices 2, 3, 4, 5, and 6 are false. The canonical product includes the corresponding maxterms, giving option 4.\n3. Option 1 is the equivalent canonical sum, but the question requests a product. Option 2 uses the wrong zero rows; option 3 is both the wrong form and the wrong function.\n4. Keep the source variable order: permuting bit significance changes the indices.\n\n**Transfer rule.** Enumerate satisfying rows, then complement their index set when a product-of-maxterms form is requested.",
+    "pattern": "canonical indices and requested representation",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "qNumber": 22
+  },
+  {
+    "id": "MS_CE_1405_Q78",
+    "booklet": "MS_CE_1405",
+    "pdfPage": 16,
+    "questionNumber": 78,
+    "topics": [
+      "g_gates",
+      "g_boolean"
+    ],
+    "title": "A hazard-free SOP with unspecified cells",
+    "stem": "For $F(a,b,c,d)=\\prod M(2,3,4,10,11,12,13,14)$ with don't-care indices 0 and 1, which is the simplified SOP so that it is hazard-free? Index order is $a,b,c,d$.",
+    "options": [
+      "$\\overline a bc+bcd+\\overline b\\overline c+\\overline a\\overline c d$",
+      "$\\overline a bd+\\overline a bc+bcd+\\overline b\\overline c$",
+      "$\\overline a bd+\\overline a bc+bcd+a\\overline b\\overline c$",
+      "$\\overline a bd+\\overline a bc+bcd+\\overline b\\overline c+\\overline a\\overline c$"
+    ],
+    "answer": null,
+    "solution": "1. The required one-set is $\\{5,6,7,8,9,15\\}$. Specified zero cells must remain zero; don't-care cells 0 and 1 may be chosen freely.\n2. Option 2 covers the adjacent required-one pairs 5\u20137, 6\u20137, 7\u201315 and 8\u20139 with common implicants. It has eleven literals and includes the four-cell group $\\{0,1,8,9\\}$.\n3. Option 1 lacks common coverage for transition 5\u20137 and can have a static-one hazard. Option 4 includes specified zero row 4 through its extra term $\\overline a\\overline c$, so it violates the truth-table contract. The fifth product in the original printed option is retained in this corrected transcription. Option 3 preserves the required outputs and covers every required-one adjacency when don't-cares 0 and 1 are assigned zero, but has twelve literals; its group covering 8 and 9 is not prime once the don't-cares are available for expansion.\n4. The source also asks for a simplified expression. Interpreting that as minimum-literal prime-implicant coverage selects option 2; interpreting the question as hazard freedom alone admits option 3 as well. This is a convention-sensitive item, not proof that the conventional simplified answer is wrong. We exclude it from unqualified single-answer practice and state the minimization convention in original exercises.\n\n**Explicitly costed extension.** Under two-level prime SOP, single-input transitions with both endpoints in O, and lexicographic (terms, literals), the required edge owners force $\\overline a bd$, $\\overline a bc$, $bcd$, and $\\overline b\\overline c$. These give cost (4,11). A twelve-literal candidate with both DC outputs zero and complete realized-one edge protection is not optimal under that declared objective. The original question is retained as an ambiguity tutorial, not an unqualified single-answer test.",
+    "pattern": "functional correctness before hazard coverage; source ambiguity",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "qNumber": 78
+  }
+]

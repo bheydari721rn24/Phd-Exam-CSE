@@ -791,13 +791,46 @@
         ]
       },
       "questionCount": 83,
-      "htmlSha256": "8bb0e6637d40203e721229917a0d406d70dbfb04ff16dc673ac6d28ee32b2cb0"
+      "htmlSha256": "71822010e77c905528c2dd13483e0a02ed1d7738d4b8892a2faa9bb5b7f25f2f"
+    },
+    {
+      "topicId": "g_kmap",
+      "placements": 5,
+      "scenarios": 14,
+      "sections": {
+        "geometry": [
+          "km-gray",
+          "km-corners",
+          "km-planes"
+        ],
+        "covers": [
+          "km-chart",
+          "km-cycle",
+          "km-greedy",
+          "km-petrick"
+        ],
+        "care-sets": [
+          "km-dc",
+          "km-pos"
+        ],
+        "tabulation": [
+          "km-merge",
+          "km-qm"
+        ],
+        "implementation": [
+          "km-hazard-cover",
+          "km-hazard-time",
+          "km-sharing"
+        ]
+      },
+      "questionCount": 84,
+      "htmlSha256": "0f914cd7dce49c31591aab1a9fa40c8daca48a47caf2c6bea749e1b574375de1"
     }
   ],
-  "uniqueScenarios": 178,
-  "checkpoints": 1088,
-  "placements": 156,
-  "constructionAssertions": 3680,
+  "uniqueScenarios": 192,
+  "checkpoints": 1139,
+  "placements": 161,
+  "constructionAssertions": 3833,
   "scope": "Original bounded explanatory models embedded in existing instructional sections. Written proofs remain authoritative; finite examples do not certify all inputs.",
   "checkpointsPrint": "Uninitialized players retain a printable first checkpoint. Initialized players print the currently selected exact checkpoint. No blank animation is required for offline reading."
 }

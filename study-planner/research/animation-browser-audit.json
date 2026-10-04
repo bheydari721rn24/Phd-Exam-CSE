@@ -202,6 +202,13 @@
       "overflow": false,
       "underlined": false,
       "topicId": "p_arrays"
+    },
+    {
+      "players": 6,
+      "questions": 84,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "g_kmap"
     }
   ],
   "scenarios": {
@@ -1094,13 +1101,83 @@
       "frames": 4,
       "entityMotion": true,
       "finalCounterexample": false
+    },
+    "km-gray": {
+      "frames": 5,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "km-corners": {
+      "frames": 2,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "km-planes": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "km-chart": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "km-cycle": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "km-greedy": {
+      "frames": 5,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "km-petrick": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "km-dc": {
+      "frames": 2,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "km-pos": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "km-merge": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "km-qm": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "km-hazard-cover": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "km-hazard-time": {
+      "frames": 6,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "km-sharing": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": false
     }
   },
   "layoutIssues": [],
   "motionSample": {
     "busy": true,
     "record": "L0",
-    "transform": "translate(96.36856640618751 156.26010547006229)",
+    "transform": "translate(96.37684402369358 156.0862755024349)",
     "start": {
       "x": 100,
       "y": 80
