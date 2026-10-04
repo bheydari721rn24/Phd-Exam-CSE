@@ -1,0 +1,22 @@
+.gauss-diagram svg text{font-family:"STIX Two Math",serif;font-weight:400}
+.gauss-diagram svg{width:100%;height:auto}
+.gauss-matrix{padding:.8rem 0;max-width:100%}
+.gauss-matrix math{font-size:1.22rem}
+#gauss-form{display:grid;gap:1rem}
+#gauss-form label{display:grid;gap:.6rem}
+#gauss-form textarea{font-family:"JetBrains Mono",monospace;line-height:1.8;font-size:.94rem;min-height:9rem;width:100%;padding:.8rem;border:1px solid #a8bebd;border-radius:.5rem;box-sizing:border-box}
+.lab-result{border-top:1px solid #b8cbc8;margin-top:1rem;padding-top:1rem}
+.lab button,.gauss-figure-toggle{font:inherit;font-weight:400;color:#245a61;background:#f8fcfc;border:1px solid #90b6be;padding:.6rem .85rem;border-radius:.5rem;cursor:pointer;line-height:1.4}
+.lab button:hover,.gauss-figure-toggle:hover{background:#e4f0ee}
+.lab button:disabled{opacity:.5;cursor:default}
+.lab-actions{display:flex;gap:.55rem;flex-wrap:wrap;margin:1rem 0}
+.lab label{font-weight:400}
+.review-rule{margin:1.3rem 0;padding:1rem 1.2rem;background:#f0f6f5;border-left:3px solid #56877e;border-radius:.4rem}
+.review-rule h4{margin:.1rem 0 .5rem}
+.gauss-figure-toggle{display:none}
+.lab-phase{font-weight:400;color:#28625c}
+.gauss-step-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0}
+.chapter math{max-width:100%}
+@media(max-width:600px){.gauss-matrix math{font-size:1.08rem}.lesson .formula-block math:has(mtable mtd + mtd){font-size:1.12rem}}
+@media screen and (max-width:650px){.lesson .gauss-diagram svg{width:100%;min-width:0;max-width:100%}.lesson .gauss-diagram.expanded svg{width:700px;min-width:700px;max-width:none}.gauss-figure-toggle{display:block;margin:.6rem 0}.gauss-diagram{scrollbar-width:thin}}
+@media print{.gauss-step-controls,.lab-actions,#gauss-form button{display:none}.gauss-matrix{break-inside:avoid}}

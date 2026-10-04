@@ -1,0 +1,55 @@
+[
+  {
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 8,
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "id": "Phd_CS_1404_Q33",
+    "questionNumber": 33,
+    "topics": [
+      "l_gauss"
+    ],
+    "title": "An unnormalized LU column",
+    "stem": "Let $L$ be lower triangular and $U$ upper triangular, with $LU=\\begin{bmatrix}3&-2&4\\\\0&5&1\\\\6&2&3\\end{bmatrix}$. Which vector can be the first column of $L$?",
+    "options": [
+      "$(-1,0,2)^T$",
+      "$(1,0,-2)^T$",
+      "$(-1,0,-2)^T$",
+      "$(1,2,0)^T$"
+    ],
+    "answer": 3,
+    "difficulty": "Hard",
+    "pattern": "first-column proportionality and normalization freedom",
+    "solution": "The first column of an upper triangular $U$ is $(u_{11},0,0)^T$. Therefore $(LU)_{:,1}=u_{11}L_{:,1}=(3,0,6)^T$. Any possible first column of $L$ must have middle coordinate zero and third coordinate twice its first. Among the options, only $(-1,0,-2)^T$ has that ratio, with $u_{11}=-3$. To verify existence rather than merely necessity, Doolittle factors are $L_0=\\begin{bmatrix}1&0&0\\\\0&1&0\\\\2&6/5&1\\end{bmatrix}$ and $U_0=\\begin{bmatrix}3&-2&4\\\\0&5&1\\\\0&0&-31/5\\end{bmatrix}$. Set $D=\\operatorname{diag}(-1,1,1)$, $L=L_0D$, $U=D^{-1}U_0$. Their product stays unchanged and the first column becomes the third option. A unit diagonal was not assumed in the source question; imposing it would incorrectly reject the legitimate negative scaling. The answer is independently derived, not taken from an official key."
+  },
+  {
+    "id": "MS_CS_1405_Q113",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 25,
+    "questionNumber": 113,
+    "topics": [
+      "l_gauss"
+    ],
+    "title": "Coupled nonnegative equations",
+    "stem": "How many nonnegative integer solutions satisfy $x_1+x_2+x_3=5$ and $x_1+x_2+x_3+x_4+x_5=20$?",
+    "options": [
+      "32",
+      "$\\binom{24}{4}+\\binom72$",
+      "$\\binom{24}{4}\\binom72$",
+      "336"
+    ],
+    "answer": 4,
+    "solution": "1. Subtract the first equation from the second to obtain $x_4+x_5=15$.\n2. The first group has $\\binom{5+3-1}{3-1}=21$ solutions. The second group has $\\binom{15+2-1}{2-1}=16$ solutions.\n3. The two groups are independent once subtraction is performed, so multiply: $21\\cdot16=336$.\n4. Option 1 adds small counts rather than multiplying independent choices. Options 2 and 3 count unrestricted solutions of the second equation and therefore fail to enforce the first equation simultaneously.\n\n**Transfer rule.** Eliminate shared sums before applying stars and bars. Linear rank gives the real solution dimension, not the count of nonnegative integer points.",
+    "pattern": "constraint elimination before counting",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "origin": "Authentic MS examination revisit; continuous versus integer interpretation expanded"
+  }
+]

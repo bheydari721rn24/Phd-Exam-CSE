@@ -1,0 +1,715 @@
+{
+  "state": "passed",
+  "chapter": "l_gauss",
+  "rendered": [
+    {
+      "topicId": "l_gauss",
+      "figures": [
+        {
+          "index": 0,
+          "title": "Two original lines and their eliminated equation",
+          "viewBox": [
+            700,
+            390
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Same intersection before and after elimination",
+              "x": 134.67530822753906,
+              "y": 13.256882667541504,
+              "w": 430.7264709472656,
+              "h": 22.324153900146484,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "(1, 2)",
+              "x": 365.975341796875,
+              "y": 133.2568817138672,
+              "w": 48.04925537109375,
+              "h": 22.324153900146484,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "x \u2212 y = \u22121",
+              "x": 456.365234375,
+              "y": 59.05417251586914,
+              "w": 96.47223663330078,
+              "h": 20.729572296142578,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "6y = 12",
+              "x": 481.8501281738281,
+              "y": 224.05416870117188,
+              "w": 66.29975128173828,
+              "h": 20.729572296142578,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "4x + 2y = 8",
+              "x": 354.3283996582031,
+              "y": 339.0541687011719,
+              "w": 101.34318542480469,
+              "h": 20.729572296142578,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "x",
+              "x": 584.1697998046875,
+              "y": 289.0541687011719,
+              "w": 11.162076950073242,
+              "h": 20.729572296142578,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "y",
+              "x": 224.13243103027344,
+              "y": 54.054176330566406,
+              "w": 11.959368705749512,
+              "h": 20.729572296142578,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "l_gauss-figure-1.png"
+        },
+        {
+          "index": 1,
+          "title": "Synchronized exact matrix transformation",
+          "viewBox": [
+            700,
+            385
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Every complete row operation has an inverse",
+              "x": 132.76559448242188,
+              "y": 12.459796905517578,
+              "w": 434.4688415527344,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "original array M\u2080",
+              "x": 86.85220336914062,
+              "y": 112.95979309082031,
+              "w": 166.3837127685547,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "current array M",
+              "x": 453.4983215332031,
+              "y": 112.95979309082031,
+              "w": 153.00338745117188,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "T",
+              "x": 343.0673828125,
+              "y": 87.45980072021484,
+              "w": 14.351076126098633,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "identity I",
+              "x": 125.68855285644531,
+              "y": 252.95980834960938,
+              "w": 88.62287139892578,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "recorded transform T",
+              "x": 427.1817626953125,
+              "y": 252.95980834960938,
+              "w": 206.11769104003906,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "same",
+              "x": 329.1834716796875,
+              "y": 230.64892578125,
+              "w": 41.6330680847168,
+              "h": 19.134767532348633,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "M = T M\u2080; reverse with T\u207b\u00b9",
+              "x": 205.517578125,
+              "y": 330.865234375,
+              "w": 288.9648742675781,
+              "h": 24.715742111206055,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "l_gauss-figure-2.png"
+        },
+        {
+          "index": 2,
+          "title": "Nonconsecutive coefficient pivot columns",
+          "viewBox": [
+            700,
+            340
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Coefficients 1\u20134; last column is a load",
+              "x": 167.51144409179688,
+              "y": 12.459970474243164,
+              "w": 365.336669921875,
+              "h": 23.120946884155273,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1",
+              "x": 103.55951690673828,
+              "y": 80.06815338134766,
+              "w": 12.880958557128906,
+              "h": 26.310049057006836,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "2",
+              "x": 223.55953979492188,
+              "y": 80.06815338134766,
+              "w": 12.880958557128906,
+              "h": 26.310049057006836,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0",
+              "x": 343.55950927734375,
+              "y": 80.06815338134766,
+              "w": 12.880958557128906,
+              "h": 26.310049057006836,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "-1",
+              "x": 459.46728515625,
+              "y": 80.06815338134766,
+              "w": 21.065475463867188,
+              "h": 26.310049057006836,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "3",
+              "x": 583.5595703125,
+              "y": 80.06815338134766,
+              "w": 12.880958557128906,
+              "h": 26.310049057006836,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0",
+              "x": 103.55951690673828,
+              "y": 155.06814575195312,
+              "w": 12.880958557128906,
+              "h": 26.310043334960938,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0",
+              "x": 223.55953979492188,
+              "y": 155.06814575195312,
+              "w": 12.880958557128906,
+              "h": 26.310043334960938,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1",
+              "x": 343.55950927734375,
+              "y": 155.06814575195312,
+              "w": 12.880958557128906,
+              "h": 26.310043334960938,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "3",
+              "x": 463.5595397949219,
+              "y": 155.06814575195312,
+              "w": 12.880958557128906,
+              "h": 26.310043334960938,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "-2",
+              "x": 579.46728515625,
+              "y": 155.06814575195312,
+              "w": 21.065475463867188,
+              "h": 26.310043334960938,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0",
+              "x": 103.55951690673828,
+              "y": 230.0681610107422,
+              "w": 12.880958557128906,
+              "h": 26.310043334960938,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0",
+              "x": 223.55953979492188,
+              "y": 230.0681610107422,
+              "w": 12.880958557128906,
+              "h": 26.310043334960938,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0",
+              "x": 343.55950927734375,
+              "y": 230.0681610107422,
+              "w": 12.880958557128906,
+              "h": 26.310043334960938,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0",
+              "x": 463.5595397949219,
+              "y": 230.0681610107422,
+              "w": 12.880958557128906,
+              "h": 26.310043334960938,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0",
+              "x": 583.5595703125,
+              "y": 230.0681610107422,
+              "w": 12.880958557128906,
+              "h": 26.310043334960938,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "pivot",
+              "x": 86.60498809814453,
+              "y": 283.25726318359375,
+              "w": 47.033634185791016,
+              "h": 22.323673248291016,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "free",
+              "x": 212.34164428710938,
+              "y": 283.25726318359375,
+              "w": 35.46290588378906,
+              "h": 22.323673248291016,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "pivot",
+              "x": 326.60498046875,
+              "y": 283.25726318359375,
+              "w": 47.03362274169922,
+              "h": 22.323673248291016,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "free",
+              "x": 452.3416442871094,
+              "y": 283.25726318359375,
+              "w": 35.4628791809082,
+              "h": 22.323673248291016,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "load",
+              "x": 570.0245971679688,
+              "y": 283.25726318359375,
+              "w": 40.049007415771484,
+              "h": 22.323673248291016,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "l_gauss-figure-3.png"
+        },
+        {
+          "index": 3,
+          "title": "A particular point and one homogeneous direction",
+          "viewBox": [
+            700,
+            380
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Affine solution set: x + y = 3",
+              "x": 204.25485229492188,
+              "y": 11.662732124328613,
+              "w": 290.6930236816406,
+              "h": 23.918174743652344,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "x\u209a = (3, 0)",
+              "x": 483.5277099609375,
+              "y": 323.25726318359375,
+              "w": 92.14726257324219,
+              "h": 22.32362937927246,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "x\u209a + v = (2, 1)",
+              "x": 313.0743103027344,
+              "y": 194.05453491210938,
+              "w": 123.05403137207031,
+              "h": 20.72908592224121,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "v = (\u22121, 1)",
+              "x": 306.6014404296875,
+              "y": 67.45999908447266,
+              "w": 105.99987030029297,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "3",
+              "x": 104.7990493774414,
+              "y": 109.0545425415039,
+              "w": 10.401914596557617,
+              "h": 20.72908592224121,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0",
+              "x": 154.79904174804688,
+              "y": 324.0545349121094,
+              "w": 10.401914596557617,
+              "h": 20.72908592224121,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "x",
+              "x": 584.169921875,
+              "y": 309.0545654296875,
+              "w": 11.16181468963623,
+              "h": 20.72908592224121,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "y",
+              "x": 119.132568359375,
+              "y": 49.05454635620117,
+              "w": 11.959087371826172,
+              "h": 20.72908592224121,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "l_gauss-figure-4.png"
+        },
+        {
+          "index": 4,
+          "title": "An original-equation inconsistency witness",
+          "viewBox": [
+            700,
+            385
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "A load mismatch survives coefficient cancellation",
+              "x": 119.12460327148438,
+              "y": 13.257079124450684,
+              "w": 461.0387268066406,
+              "h": 22.323894500732422,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "row 1: x + 2y \u2212 z = 1",
+              "x": 248.558349609375,
+              "y": 105.45980072021484,
+              "w": 202.8833465576172,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "row 2: 2x + 4y \u2212 2z = 3",
+              "x": 237.1783905029297,
+              "y": 205.4597930908203,
+              "w": 225.6432647705078,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "row 2 \u2212 2 \u00d7 row 1 \u2192 0 = 1",
+              "x": 215.62063598632812,
+              "y": 266.6625061035156,
+              "w": 268.7587585449219,
+              "h": 23.918458938598633,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "w = (\u22122, 1):  w\u1d40A = 0,  w\u1d40b = 1",
+              "x": 210.22653198242188,
+              "y": 328.257080078125,
+              "w": 278.7497253417969,
+              "h": 22.323894500732422,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "l_gauss-figure-5.png"
+        },
+        {
+          "index": 5,
+          "title": "Exceptional values from undivided equations",
+          "viewBox": [
+            700,
+            375
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "inspect \u03b1 and \u03b1 + 2 before division",
+              "x": 182.1892852783203,
+              "y": 55.45964050292969,
+              "w": 335.92706298828125,
+              "h": 23.121387481689453,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "\u03b1 = 0",
+              "x": 94.17530822753906,
+              "y": 175.4596405029297,
+              "w": 51.649391174316406,
+              "h": 23.121387481689453,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "\u03b1 = \u22122",
+              "x": 315.8971862792969,
+              "y": 175.4596405029297,
+              "w": 68.20559692382812,
+              "h": 23.121387481689453,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "\u03b1 \u2260 0, \u22122",
+              "x": 534.685302734375,
+              "y": 175.4596405029297,
+              "w": 90.62935638427734,
+              "h": 23.121387481689453,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "contradiction",
+              "x": 54.97110366821289,
+              "y": 295.4596252441406,
+              "w": 130.3624267578125,
+              "h": 23.121387481689453,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "one free coordinate",
+              "x": 256.5614318847656,
+              "y": 295.4596252441406,
+              "w": 186.87710571289062,
+              "h": 23.121387481689453,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "unique solution",
+              "x": 503.27960205078125,
+              "y": 295.4596252441406,
+              "w": 153.74717712402344,
+              "h": 23.121387481689453,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "l_gauss-figure-6.png"
+        },
+        {
+          "index": 6,
+          "title": "Persistent earlier multiplier bookkeeping",
+          "viewBox": [
+            700,
+            400
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "A stage-two row exchange must move earlier L entries",
+              "x": 97.66576385498047,
+              "y": 13.257031440734863,
+              "w": 503.9513244628906,
+              "h": 22.323959350585938,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "old row 2: 1/2",
+              "x": 103.4330062866211,
+              "y": 112.95974731445312,
+              "w": 133.13401794433594,
+              "h": 23.12124252319336,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "old row 3: 1/4",
+              "x": 463.4330139160156,
+              "y": 112.95974731445312,
+              "w": 133.71070861816406,
+              "h": 23.12124252319336,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "new row 2: 1/4",
+              "x": 98.21951293945312,
+              "y": 267.9597473144531,
+              "w": 144.12681579589844,
+              "h": 23.12124252319336,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "new row 3: 1/2",
+              "x": 458.2195129394531,
+              "y": 267.9597473144531,
+              "w": 143.5609893798828,
+              "h": 23.12124252319336,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Exchange completed columns only; verify P A = L U",
+              "x": 106.63520812988281,
+              "y": 348.25701904296875,
+              "w": 486.93011474609375,
+              "h": 22.323959350585938,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "l_gauss-figure-7.png"
+        }
+      ],
+      "solutionPrint": {
+        "count": 71,
+        "allOpened": true,
+        "restored": true
+      },
+      "fonts": {
+        "loaded": [
+          "Source Sans 3",
+          "Newsreader",
+          "STIX Two Math",
+          "JetBrains Mono",
+          "Math Glyphs"
+        ],
+        "math": [
+          "\"STIX Two Math\", serif"
+        ]
+      },
+      "mobile": {
+        "viewport": 390,
+        "document": 390,
+        "formulaOverflow": [],
+        "inlineMathOverflow": [],
+        "figureSizes": [
+          {
+            "width": 324,
+            "fontSize": "22px"
+          },
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "24px"
+          },
+          {
+            "width": 324,
+            "fontSize": "22px"
+          },
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "22px"
+          }
+        ],
+        "problems": 71,
+        "codeFonts": [
+          "\"JetBrains Mono\", ui-monospace, monospace"
+        ]
+      },
+      "labCases": [
+        {
+          "preset": "unique",
+          "state": "unique",
+          "steps": 10
+        },
+        {
+          "preset": "free",
+          "state": "affine",
+          "steps": 6
+        },
+        {
+          "preset": "affine",
+          "state": "affine",
+          "steps": 4
+        },
+        {
+          "preset": "inconsistent",
+          "state": "inconsistent",
+          "steps": 5
+        },
+        {
+          "preset": "fractions",
+          "state": "unique",
+          "steps": 11
+        },
+        {
+          "preset": "zero",
+          "state": "affine",
+          "steps": 4
+        }
+      ],
+      "rowExchangeMotion": {
+        "busy": true,
+        "start": {
+          "x": 140,
+          "y": 100
+        },
+        "end": {
+          "id": "m0-0",
+          "label": "0",
+          "x": 140,
+          "y": 175,
+          "w": 85,
+          "h": 50,
+          "tone": "done",
+          "kind": "card",
+          "size": 23
+        },
+        "actual": "translate(140 108.693922759707)"
+      },
+      "printStyle": {
+        "diagramOverflow": 0,
+        "mathFonts": [
+          "\"STIX Two Math\", serif"
+        ]
+      }
+    }
+  ],
+  "labChecks": "six exact presets and every transform checkpoint; eight rejected input cases; next/back/reset controls",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\l-gauss-browser",
+  "limits": "Local Edge desktop, 390-pixel mobile and print; finite tested interactions, not a universal browser claim."
+}

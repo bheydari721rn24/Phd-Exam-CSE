@@ -174,6 +174,13 @@
       "overflow": false,
       "underlined": false,
       "topicId": "s_bayes"
+    },
+    {
+      "players": 10,
+      "questions": 71,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "l_gauss"
     }
   ],
   "scenarios": {
@@ -796,13 +803,73 @@
       "frames": 6,
       "entityMotion": true,
       "finalCounterexample": false
+    },
+    "gauss-geometry": {
+      "frames": 2,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "gauss-coordinate": {
+      "frames": 2,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "gauss-swap": {
+      "frames": 10,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "gauss-skip": {
+      "frames": 6,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "gauss-affine": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "gauss-inconsistent": {
+      "frames": 8,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "gauss-parameters": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "gauss-lu": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "gauss-plu": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "gauss-inverse": {
+      "frames": 6,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "gauss-rounding": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "gauss-binary": {
+      "frames": 3,
+      "entityMotion": false,
+      "finalCounterexample": false
     }
   },
   "layoutIssues": [],
   "motionSample": {
     "busy": true,
     "record": "L0",
-    "transform": "translate(96.35614320699709 156.52099265306123)",
+    "transform": "translate(96.43468421295724 154.8716315278981)",
     "start": {
       "x": 100,
       "y": 80

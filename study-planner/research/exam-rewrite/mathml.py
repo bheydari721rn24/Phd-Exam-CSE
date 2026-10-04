@@ -10,6 +10,7 @@ SYMBOLS['varphi']='ϕ'
 SYMBOLS['leftarrow']='←'
 SYMBOLS['subsetneq']='⊊'
 SYMBOLS['triangle']='△'
+SYMBOLS.update(Delta='Δ',kappa='κ')
 def tag(t,s):return '<'+t+'>'+s+'</'+t+'>'
 def atom(t,s):return tag(t,html.escape(s))
 class Parser:
@@ -35,6 +36,19 @@ class Parser:
    name=m.group();self.i+=len(name)
    if name in ('quad','qquad'):return '<mspace width="'+('1em' if name=='quad' else '2em')+'"/>'
    if name in ('left','right'):return self.base()
+   if name=='begin':
+    self.skip();m=re.match(r'\{(bmatrix|pmatrix|matrix)\}',self.s[self.i:])
+    if not m:raise ValueError('Unsupported matrix environment in '+self.s)
+    env=m.group(1);self.i+=len(m.group());end='\\end{'+env+'}'
+    stop=self.s.find(end,self.i)
+    if stop<0:raise ValueError('Unclosed matrix in '+self.s)
+    content=self.s[self.i:stop];self.i=stop+len(end)
+    rows=[row.strip().split('&') for row in re.split(r'\\\\',content.strip())]
+    if not rows or len({len(row) for row in rows})!=1:raise ValueError('Ragged matrix in '+self.s)
+    table='<mtable columnspacing=".6em" rowspacing=".3em">'+''.join('<mtr>'+''.join('<mtd>'+Parser(cell.strip() or '0').seq()+'</mtd>' for cell in row)+'</mtr>' for row in rows)+'</mtable>'
+    if env=='matrix':return table
+    brackets=('[',']') if env=='bmatrix' else ('(',')')
+    return tag('mrow',atom('mo',brackets[0])+table+atom('mo',brackets[1]))
    if name=='frac':return tag('mfrac',self.group()+self.group())
    if name=='sqrt':return tag('msqrt',self.group())
    if name=='not':
@@ -54,6 +68,7 @@ class Parser:
    if name in ('mod','bmod'):return atom('mo','mod')
    if name=='pmod':return tag('mrow',atom('mo','(')+atom('mo','mod')+self.group()+atom('mo',')'))
    if name in ('bar','overline'):return tag('mover',self.group()+atom('mo','¯'))
+   if name in ('hat','widehat'):return tag('mover',self.group()+atom('mo','^'))
    if name in ('ldots','cdots'):return atom('mo','…')
    if name in SYMBOLS:return atom('mi' if len(SYMBOLS[name])==1 and SYMBOLS[name].isalpha() else 'mo',SYMBOLS[name])
    raise ValueError('Unsupported TeX command: '+name+' in '+self.s)
@@ -91,6 +106,8 @@ def width(e):
  if e.tag=='mfrac':return max(map(width,children))+.7
  if e.tag in ('msup','msub','msubsup'):return width(children[0])+max(map(width,children[1:]))*.7
  if e.tag in ('mover','munder','munderover'):return max(map(width,children))
+ if e.tag=='mtable':return max(map(width,children))
+ if e.tag=='mtr':return sum(map(width,children))+.6*max(0,len(children)-1)
  return sum(map(width,children))
 def wrap_display(value):
  root=ET.fromstring(value);children=list(root)

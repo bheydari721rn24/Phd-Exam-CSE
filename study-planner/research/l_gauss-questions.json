@@ -1,0 +1,1471 @@
+[
+  {
+    "id": "LG01",
+    "title": "A row exchange before any division",
+    "stem": "Find and certify the complete real solution of the augmented system $$[A\\mid b]=\\begin{bmatrix}0&2&1&1\\\\1&-1&1&2\\\\2&1&-1&0\\end{bmatrix}$$ Explain every row operation and the meaning of its coefficient pivots.",
+    "solution": "**Swap rows 2 and 1.** $$\\begin{bmatrix}1&-1&1&2\\\\0&2&1&1\\\\2&1&-1&0\\end{bmatrix}$$\n\n**Row 3 minus (2) times row 1.** $$\\begin{bmatrix}1&-1&1&2\\\\0&2&1&1\\\\0&3&-3&-4\\end{bmatrix}$$\n\n**Divide row 2 by 2.** $$\\begin{bmatrix}1&-1&1&2\\\\0&1&\\frac{1}{2}&\\frac{1}{2}\\\\0&3&-3&-4\\end{bmatrix}$$\n\n**Row 1 minus (-1) times row 2.** $$\\begin{bmatrix}1&0&\\frac{3}{2}&\\frac{5}{2}\\\\0&1&\\frac{1}{2}&\\frac{1}{2}\\\\0&3&-3&-4\\end{bmatrix}$$\n\n**Row 3 minus (3) times row 2.** $$\\begin{bmatrix}1&0&\\frac{3}{2}&\\frac{5}{2}\\\\0&1&\\frac{1}{2}&\\frac{1}{2}\\\\0&0&-\\frac{9}{2}&-\\frac{11}{2}\\end{bmatrix}$$\n\n**Divide row 3 by -9/2.** $$\\begin{bmatrix}1&0&\\frac{3}{2}&\\frac{5}{2}\\\\0&1&\\frac{1}{2}&\\frac{1}{2}\\\\0&0&1&\\frac{11}{9}\\end{bmatrix}$$\n\n**Row 1 minus (3/2) times row 3.** $$\\begin{bmatrix}1&0&0&\\frac{2}{3}\\\\0&1&\\frac{1}{2}&\\frac{1}{2}\\\\0&0&1&\\frac{11}{9}\\end{bmatrix}$$\n\n**Row 2 minus (1/2) times row 3.** $$\\begin{bmatrix}1&0&0&\\frac{2}{3}\\\\0&1&0&-\\frac{1}{9}\\\\0&0&1&\\frac{11}{9}\\end{bmatrix}$$\n\nSet every free coefficient variable to zero to obtain $x_p=\\begin{bmatrix}\\frac{2}{3}\\\\-\\frac{1}{9}\\\\\\frac{11}{9}\\end{bmatrix}$. Every coefficient column contains a pivot, so this solution is unique. Substitution verifies $Ax_p=b$ and every displayed direction satisfies $Av=0$. Conversely, the pivot equations determine all remaining coordinates from those free variables, so this description loses no solutions.\n\nThe initial top-left zero is not evidence of singularity. Swapping equations changes their order while preserving variable order and the entire solution set.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          0,
+          2,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          -1,
+          0
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "0",
+          "0",
+          "2/3"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "-1/9"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "11/9"
+        ]
+      ],
+      "pivots": [
+        0,
+        1,
+        2
+      ],
+      "particular": [
+        "2/3",
+        "-1/9",
+        "11/9"
+      ],
+      "basis": [],
+      "transform": [
+        [
+          "0",
+          "1/3",
+          "1/3"
+        ],
+        [
+          "1/3",
+          "-2/9",
+          "1/9"
+        ],
+        [
+          "1/3",
+          "4/9",
+          "-2/9"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "LG02",
+    "title": "A skipped first coefficient column",
+    "stem": "Find and certify the complete real solution of the augmented system $$[A\\mid b]=\\begin{bmatrix}0&1&2&3\\\\0&2&4&6\\\\0&0&1&1\\end{bmatrix}$$ Explain every row operation and the meaning of its coefficient pivots.",
+    "solution": "**Skip coefficient column 1: no available pivot.** $$\\begin{bmatrix}0&1&2&3\\\\0&2&4&6\\\\0&0&1&1\\end{bmatrix}$$\n\n**Row 2 minus (2) times row 1.** $$\\begin{bmatrix}0&1&2&3\\\\0&0&0&0\\\\0&0&1&1\\end{bmatrix}$$\n\n**Swap rows 3 and 2.** $$\\begin{bmatrix}0&1&2&3\\\\0&0&1&1\\\\0&0&0&0\\end{bmatrix}$$\n\n**Row 1 minus (2) times row 2.** $$\\begin{bmatrix}0&1&0&1\\\\0&0&1&1\\\\0&0&0&0\\end{bmatrix}$$\n\nSet every free coefficient variable to zero to obtain $x_p=\\begin{bmatrix}0\\\\1\\\\1\\end{bmatrix}$. The complete solution is $x=x_p+t_1\\begin{bmatrix}1\\\\0\\\\0\\end{bmatrix}$, with independently arbitrary real parameters. Each direction has one distinct free coordinate equal to one, so the directions are independent. Substitution verifies $Ax_p=b$ and every displayed direction satisfies $Av=0$. Conversely, the pivot equations determine all remaining coordinates from those free variables, so this description loses no solutions.\n\nColumn one is free even though it occurs before the first pivot. Free variables are identified from coefficient columns, never from a diagonal-position assumption.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ]
+      ],
+      "rref": [
+        [
+          "0",
+          "1",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "pivots": [
+        1,
+        2
+      ],
+      "particular": [
+        "0",
+        "1",
+        "1"
+      ],
+      "basis": [
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ],
+      "transform": [
+        [
+          "1",
+          "0",
+          "-2"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "-2",
+          "1",
+          "0"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "LG03",
+    "title": "Two free coordinates and a redundant equation",
+    "stem": "Find and certify the complete real solution of the augmented system $$[A\\mid b]=\\begin{bmatrix}1&-1&1&3&2\\\\2&-1&1&2&4\\\\4&-3&3&8&8\\end{bmatrix}$$ Explain every row operation and the meaning of its coefficient pivots.",
+    "solution": "**Row 2 minus (2) times row 1.** $$\\begin{bmatrix}1&-1&1&3&2\\\\0&1&-1&-4&0\\\\4&-3&3&8&8\\end{bmatrix}$$\n\n**Row 3 minus (4) times row 1.** $$\\begin{bmatrix}1&-1&1&3&2\\\\0&1&-1&-4&0\\\\0&1&-1&-4&0\\end{bmatrix}$$\n\n**Row 1 minus (-1) times row 2.** $$\\begin{bmatrix}1&0&0&-1&2\\\\0&1&-1&-4&0\\\\0&1&-1&-4&0\\end{bmatrix}$$\n\n**Row 3 minus (1) times row 2.** $$\\begin{bmatrix}1&0&0&-1&2\\\\0&1&-1&-4&0\\\\0&0&0&0&0\\end{bmatrix}$$\n\n**Skip coefficient column 3: no available pivot.** $$\\begin{bmatrix}1&0&0&-1&2\\\\0&1&-1&-4&0\\\\0&0&0&0&0\\end{bmatrix}$$\n\n**Skip coefficient column 4: no available pivot.** $$\\begin{bmatrix}1&0&0&-1&2\\\\0&1&-1&-4&0\\\\0&0&0&0&0\\end{bmatrix}$$\n\nSet every free coefficient variable to zero to obtain $x_p=\\begin{bmatrix}2\\\\0\\\\0\\\\0\\end{bmatrix}$. The complete solution is $x=x_p+t_1\\begin{bmatrix}0\\\\1\\\\1\\\\0\\end{bmatrix}+t_2\\begin{bmatrix}1\\\\4\\\\0\\\\1\\end{bmatrix}$, with independently arbitrary real parameters. Each direction has one distinct free coordinate equal to one, so the directions are independent. Substitution verifies $Ax_p=b$ and every displayed direction satisfies $Av=0$. Conversely, the pivot equations determine all remaining coordinates from those free variables, so this description loses no solutions.\n\n",
+    "origin": "Course-derived task: Oxford M1, Example 7(a); independently expanded certificate",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          1,
+          -1,
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          -1,
+          1,
+          2,
+          4
+        ],
+        [
+          4,
+          -3,
+          3,
+          8,
+          8
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "0",
+          "0",
+          "-1",
+          "2"
+        ],
+        [
+          "0",
+          "1",
+          "-1",
+          "-4",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "pivots": [
+        0,
+        1
+      ],
+      "particular": [
+        "2",
+        "0",
+        "0",
+        "0"
+      ],
+      "basis": [
+        [
+          "0",
+          "1",
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "4",
+          "0",
+          "1"
+        ]
+      ],
+      "transform": [
+        [
+          "-1",
+          "1",
+          "0"
+        ],
+        [
+          "-2",
+          "1",
+          "0"
+        ],
+        [
+          "-2",
+          "-1",
+          "1"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "LG04",
+    "title": "An inconsistent rectangular system",
+    "stem": "Find and certify the complete real solution of the augmented system $$[A\\mid b]=\\begin{bmatrix}1&1&1&1&4\\\\2&3&-2&-3&1\\\\1&0&5&6&1\\end{bmatrix}$$ Explain every row operation and the meaning of its coefficient pivots.",
+    "solution": "**Row 2 minus (2) times row 1.** $$\\begin{bmatrix}1&1&1&1&4\\\\0&1&-4&-5&-7\\\\1&0&5&6&1\\end{bmatrix}$$\n\n**Row 3 minus (1) times row 1.** $$\\begin{bmatrix}1&1&1&1&4\\\\0&1&-4&-5&-7\\\\0&-1&4&5&-3\\end{bmatrix}$$\n\n**Row 1 minus (1) times row 2.** $$\\begin{bmatrix}1&0&5&6&11\\\\0&1&-4&-5&-7\\\\0&-1&4&5&-3\\end{bmatrix}$$\n\n**Row 3 minus (-1) times row 2.** $$\\begin{bmatrix}1&0&5&6&11\\\\0&1&-4&-5&-7\\\\0&0&0&0&-10\\end{bmatrix}$$\n\n**Skip coefficient column 3: no available pivot.** $$\\begin{bmatrix}1&0&5&6&11\\\\0&1&-4&-5&-7\\\\0&0&0&0&-10\\end{bmatrix}$$\n\n**Skip coefficient column 4: no available pivot.** $$\\begin{bmatrix}1&0&5&6&11\\\\0&1&-4&-5&-7\\\\0&0&0&0&-10\\end{bmatrix}$$\n\nThe final coefficient-zero row requires $0=-10$, so the system has no solution. The row combination $y^T=\\begin{bmatrix}-3&1&1\\end{bmatrix}$ satisfies $y^TA=0$ but $y^Tb=-10\\ne0$. This is a certificate that no missing free-variable choice can repair the contradiction.\n\n",
+    "origin": "Course-derived task: Oxford M1, Example 7(b); independently expanded certificate",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          1,
+          1,
+          1,
+          1,
+          4
+        ],
+        [
+          2,
+          3,
+          -2,
+          -3,
+          1
+        ],
+        [
+          1,
+          0,
+          5,
+          6,
+          1
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "0",
+          "5",
+          "6",
+          "11"
+        ],
+        [
+          "0",
+          "1",
+          "-4",
+          "-5",
+          "-7"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "-10"
+        ]
+      ],
+      "pivots": [
+        0,
+        1
+      ],
+      "particular": null,
+      "basis": [],
+      "transform": [
+        [
+          "3",
+          "-1",
+          "0"
+        ],
+        [
+          "-2",
+          "1",
+          "0"
+        ],
+        [
+          "-3",
+          "1",
+          "1"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "LG05",
+    "title": "Three equations with a unit pivot after swapping",
+    "stem": "Find and certify the complete real solution of the augmented system $$[A\\mid b]=\\begin{bmatrix}3&1&-2&-2\\\\1&1&1&2\\\\2&4&1&0\\end{bmatrix}$$ Explain every row operation and the meaning of its coefficient pivots.",
+    "solution": "**Divide row 1 by 3.** $$\\begin{bmatrix}1&\\frac{1}{3}&-\\frac{2}{3}&-\\frac{2}{3}\\\\1&1&1&2\\\\2&4&1&0\\end{bmatrix}$$\n\n**Row 2 minus (1) times row 1.** $$\\begin{bmatrix}1&\\frac{1}{3}&-\\frac{2}{3}&-\\frac{2}{3}\\\\0&\\frac{2}{3}&\\frac{5}{3}&\\frac{8}{3}\\\\2&4&1&0\\end{bmatrix}$$\n\n**Row 3 minus (2) times row 1.** $$\\begin{bmatrix}1&\\frac{1}{3}&-\\frac{2}{3}&-\\frac{2}{3}\\\\0&\\frac{2}{3}&\\frac{5}{3}&\\frac{8}{3}\\\\0&\\frac{10}{3}&\\frac{7}{3}&\\frac{4}{3}\\end{bmatrix}$$\n\n**Divide row 2 by 2/3.** $$\\begin{bmatrix}1&\\frac{1}{3}&-\\frac{2}{3}&-\\frac{2}{3}\\\\0&1&\\frac{5}{2}&4\\\\0&\\frac{10}{3}&\\frac{7}{3}&\\frac{4}{3}\\end{bmatrix}$$\n\n**Row 1 minus (1/3) times row 2.** $$\\begin{bmatrix}1&0&-\\frac{3}{2}&-2\\\\0&1&\\frac{5}{2}&4\\\\0&\\frac{10}{3}&\\frac{7}{3}&\\frac{4}{3}\\end{bmatrix}$$\n\n**Row 3 minus (10/3) times row 2.** $$\\begin{bmatrix}1&0&-\\frac{3}{2}&-2\\\\0&1&\\frac{5}{2}&4\\\\0&0&-6&-12\\end{bmatrix}$$\n\n**Divide row 3 by -6.** $$\\begin{bmatrix}1&0&-\\frac{3}{2}&-2\\\\0&1&\\frac{5}{2}&4\\\\0&0&1&2\\end{bmatrix}$$\n\n**Row 1 minus (-3/2) times row 3.** $$\\begin{bmatrix}1&0&0&1\\\\0&1&\\frac{5}{2}&4\\\\0&0&1&2\\end{bmatrix}$$\n\n**Row 2 minus (5/2) times row 3.** $$\\begin{bmatrix}1&0&0&1\\\\0&1&0&-1\\\\0&0&1&2\\end{bmatrix}$$\n\nSet every free coefficient variable to zero to obtain $x_p=\\begin{bmatrix}1\\\\-1\\\\2\\end{bmatrix}$. Every coefficient column contains a pivot, so this solution is unique. Substitution verifies $Ax_p=b$ and every displayed direction satisfies $Av=0$. Conversely, the pivot equations determine all remaining coordinates from those free variables, so this description loses no solutions.\n\n",
+    "origin": "Course-derived task: Oxford M1, Examples 2 and 5; independently verified derivation",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          3,
+          1,
+          -2,
+          -2
+        ],
+        [
+          1,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          4,
+          1,
+          0
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "2"
+        ]
+      ],
+      "pivots": [
+        0,
+        1,
+        2
+      ],
+      "particular": [
+        "1",
+        "-1",
+        "2"
+      ],
+      "basis": [],
+      "transform": [
+        [
+          "1/4",
+          "3/4",
+          "-1/4"
+        ],
+        [
+          "-1/12",
+          "-7/12",
+          "5/12"
+        ],
+        [
+          "-1/6",
+          "5/6",
+          "-1/6"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "LG06",
+    "title": "Intersecting planes rather than a single point",
+    "stem": "Find and certify the complete real solution of the augmented system $$[A\\mid b]=\\begin{bmatrix}1&3&5&1\\\\1&1&7&2\\end{bmatrix}$$ Explain every row operation and the meaning of its coefficient pivots.",
+    "solution": "**Row 2 minus (1) times row 1.** $$\\begin{bmatrix}1&3&5&1\\\\0&-2&2&1\\end{bmatrix}$$\n\n**Divide row 2 by -2.** $$\\begin{bmatrix}1&3&5&1\\\\0&1&-1&-\\frac{1}{2}\\end{bmatrix}$$\n\n**Row 1 minus (3) times row 2.** $$\\begin{bmatrix}1&0&8&\\frac{5}{2}\\\\0&1&-1&-\\frac{1}{2}\\end{bmatrix}$$\n\nSet every free coefficient variable to zero to obtain $x_p=\\begin{bmatrix}\\frac{5}{2}\\\\-\\frac{1}{2}\\\\0\\end{bmatrix}$. The complete solution is $x=x_p+t_1\\begin{bmatrix}-8\\\\1\\\\1\\end{bmatrix}$, with independently arbitrary real parameters. Each direction has one distinct free coordinate equal to one, so the directions are independent. Substitution verifies $Ax_p=b$ and every displayed direction satisfies $Av=0$. Conversely, the pivot equations determine all remaining coordinates from those free variables, so this description loses no solutions.\n\nThere are two independent plane normals and three unknowns. Their intersection is an affine line, not a plane and not a unique point.",
+    "origin": "Course-derived task: Berkeley Math 54, Systems note, p. 2",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          1,
+          3,
+          5,
+          1
+        ],
+        [
+          1,
+          1,
+          7,
+          2
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "0",
+          "8",
+          "5/2"
+        ],
+        [
+          "0",
+          "1",
+          "-1",
+          "-1/2"
+        ]
+      ],
+      "pivots": [
+        0,
+        1
+      ],
+      "particular": [
+        "5/2",
+        "-1/2",
+        "0"
+      ],
+      "basis": [
+        [
+          "-8",
+          "1",
+          "1"
+        ]
+      ],
+      "transform": [
+        [
+          "-1/2",
+          "3/2"
+        ],
+        [
+          "1/2",
+          "-1/2"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "LG07",
+    "title": "Five variables with nonconsecutive pivot columns",
+    "stem": "Find and certify the complete real solution of the augmented system $$[A\\mid b]=\\begin{bmatrix}0&0&1&4&-1&1\\\\2&-2&4&6&3&7\\\\1&-1&1&-1&2&1\\end{bmatrix}$$ Explain every row operation and the meaning of its coefficient pivots.",
+    "solution": "**Swap rows 2 and 1.** $$\\begin{bmatrix}2&-2&4&6&3&7\\\\0&0&1&4&-1&1\\\\1&-1&1&-1&2&1\\end{bmatrix}$$\n\n**Divide row 1 by 2.** $$\\begin{bmatrix}1&-1&2&3&\\frac{3}{2}&\\frac{7}{2}\\\\0&0&1&4&-1&1\\\\1&-1&1&-1&2&1\\end{bmatrix}$$\n\n**Row 3 minus (1) times row 1.** $$\\begin{bmatrix}1&-1&2&3&\\frac{3}{2}&\\frac{7}{2}\\\\0&0&1&4&-1&1\\\\0&0&-1&-4&\\frac{1}{2}&-\\frac{5}{2}\\end{bmatrix}$$\n\n**Skip coefficient column 2: no available pivot.** $$\\begin{bmatrix}1&-1&2&3&\\frac{3}{2}&\\frac{7}{2}\\\\0&0&1&4&-1&1\\\\0&0&-1&-4&\\frac{1}{2}&-\\frac{5}{2}\\end{bmatrix}$$\n\n**Row 1 minus (2) times row 2.** $$\\begin{bmatrix}1&-1&0&-5&\\frac{7}{2}&\\frac{3}{2}\\\\0&0&1&4&-1&1\\\\0&0&-1&-4&\\frac{1}{2}&-\\frac{5}{2}\\end{bmatrix}$$\n\n**Row 3 minus (-1) times row 2.** $$\\begin{bmatrix}1&-1&0&-5&\\frac{7}{2}&\\frac{3}{2}\\\\0&0&1&4&-1&1\\\\0&0&0&0&-\\frac{1}{2}&-\\frac{3}{2}\\end{bmatrix}$$\n\n**Skip coefficient column 4: no available pivot.** $$\\begin{bmatrix}1&-1&0&-5&\\frac{7}{2}&\\frac{3}{2}\\\\0&0&1&4&-1&1\\\\0&0&0&0&-\\frac{1}{2}&-\\frac{3}{2}\\end{bmatrix}$$\n\n**Divide row 3 by -1/2.** $$\\begin{bmatrix}1&-1&0&-5&\\frac{7}{2}&\\frac{3}{2}\\\\0&0&1&4&-1&1\\\\0&0&0&0&1&3\\end{bmatrix}$$\n\n**Row 1 minus (7/2) times row 3.** $$\\begin{bmatrix}1&-1&0&-5&0&-9\\\\0&0&1&4&-1&1\\\\0&0&0&0&1&3\\end{bmatrix}$$\n\n**Row 2 minus (-1) times row 3.** $$\\begin{bmatrix}1&-1&0&-5&0&-9\\\\0&0&1&4&0&4\\\\0&0&0&0&1&3\\end{bmatrix}$$\n\nSet every free coefficient variable to zero to obtain $x_p=\\begin{bmatrix}-9\\\\0\\\\4\\\\0\\\\3\\end{bmatrix}$. The complete solution is $x=x_p+t_1\\begin{bmatrix}1\\\\1\\\\0\\\\0\\\\0\\end{bmatrix}+t_2\\begin{bmatrix}5\\\\0\\\\-4\\\\1\\\\0\\end{bmatrix}$, with independently arbitrary real parameters. Each direction has one distinct free coordinate equal to one, so the directions are independent. Substitution verifies $Ax_p=b$ and every displayed direction satisfies $Av=0$. Conversely, the pivot equations determine all remaining coordinates from those free variables, so this description loses no solutions.\n\nThe rightmost column is data, not a sixth variable. The coefficient pivot columns are one, three and five; the second and fourth coordinates remain free.",
+    "origin": "Course-derived task: Berkeley Math 54, Systems note, pp. 5\u20137",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          0,
+          0,
+          1,
+          4,
+          -1,
+          1
+        ],
+        [
+          2,
+          -2,
+          4,
+          6,
+          3,
+          7
+        ],
+        [
+          1,
+          -1,
+          1,
+          -1,
+          2,
+          1
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "-1",
+          "0",
+          "-5",
+          "0",
+          "-9"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "4",
+          "0",
+          "4"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "3"
+        ]
+      ],
+      "pivots": [
+        0,
+        2,
+        4
+      ],
+      "particular": [
+        "-9",
+        "0",
+        "4",
+        "0",
+        "3"
+      ],
+      "basis": [
+        [
+          "1",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "5",
+          "0",
+          "-4",
+          "1",
+          "0"
+        ]
+      ],
+      "transform": [
+        [
+          "5",
+          "-3",
+          "7"
+        ],
+        [
+          "-1",
+          "1",
+          "-2"
+        ],
+        [
+          "-2",
+          "1",
+          "-2"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "LG08",
+    "title": "Exact fractions without a decimal tolerance",
+    "stem": "Find and certify the complete real solution of the augmented system $$[A\\mid b]=\\begin{bmatrix}\\frac{1}{2}&\\frac{1}{3}&\\frac{1}{6}&1\\\\1&-1&2&0\\\\\\frac{3}{2}&\\frac{2}{3}&\\frac{7}{6}&2\\end{bmatrix}$$ Explain every row operation and the meaning of its coefficient pivots.",
+    "solution": "**Divide row 1 by 1/2.** $$\\begin{bmatrix}1&\\frac{2}{3}&\\frac{1}{3}&2\\\\1&-1&2&0\\\\\\frac{3}{2}&\\frac{2}{3}&\\frac{7}{6}&2\\end{bmatrix}$$\n\n**Row 2 minus (1) times row 1.** $$\\begin{bmatrix}1&\\frac{2}{3}&\\frac{1}{3}&2\\\\0&-\\frac{5}{3}&\\frac{5}{3}&-2\\\\\\frac{3}{2}&\\frac{2}{3}&\\frac{7}{6}&2\\end{bmatrix}$$\n\n**Row 3 minus (3/2) times row 1.** $$\\begin{bmatrix}1&\\frac{2}{3}&\\frac{1}{3}&2\\\\0&-\\frac{5}{3}&\\frac{5}{3}&-2\\\\0&-\\frac{1}{3}&\\frac{2}{3}&-1\\end{bmatrix}$$\n\n**Divide row 2 by -5/3.** $$\\begin{bmatrix}1&\\frac{2}{3}&\\frac{1}{3}&2\\\\0&1&-1&\\frac{6}{5}\\\\0&-\\frac{1}{3}&\\frac{2}{3}&-1\\end{bmatrix}$$\n\n**Row 1 minus (2/3) times row 2.** $$\\begin{bmatrix}1&0&1&\\frac{6}{5}\\\\0&1&-1&\\frac{6}{5}\\\\0&-\\frac{1}{3}&\\frac{2}{3}&-1\\end{bmatrix}$$\n\n**Row 3 minus (-1/3) times row 2.** $$\\begin{bmatrix}1&0&1&\\frac{6}{5}\\\\0&1&-1&\\frac{6}{5}\\\\0&0&\\frac{1}{3}&-\\frac{3}{5}\\end{bmatrix}$$\n\n**Divide row 3 by 1/3.** $$\\begin{bmatrix}1&0&1&\\frac{6}{5}\\\\0&1&-1&\\frac{6}{5}\\\\0&0&1&-\\frac{9}{5}\\end{bmatrix}$$\n\n**Row 1 minus (1) times row 3.** $$\\begin{bmatrix}1&0&0&3\\\\0&1&-1&\\frac{6}{5}\\\\0&0&1&-\\frac{9}{5}\\end{bmatrix}$$\n\n**Row 2 minus (-1) times row 3.** $$\\begin{bmatrix}1&0&0&3\\\\0&1&0&-\\frac{3}{5}\\\\0&0&1&-\\frac{9}{5}\\end{bmatrix}$$\n\nSet every free coefficient variable to zero to obtain $x_p=\\begin{bmatrix}3\\\\-\\frac{3}{5}\\\\-\\frac{9}{5}\\end{bmatrix}$. Every coefficient column contains a pivot, so this solution is unique. Substitution verifies $Ax_p=b$ and every displayed direction satisfies $Av=0$. Conversely, the pivot equations determine all remaining coordinates from those free variables, so this description loses no solutions.\n\nConvert fractions exactly. A rounded near-zero entry does not justify dropping an equation in an exact examination calculation.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          "1/2",
+          "1/3",
+          "1/6",
+          1
+        ],
+        [
+          1,
+          -1,
+          2,
+          0
+        ],
+        [
+          "3/2",
+          "2/3",
+          "7/6",
+          2
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "0",
+          "0",
+          "3"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "-3/5"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "-9/5"
+        ]
+      ],
+      "pivots": [
+        0,
+        1,
+        2
+      ],
+      "particular": [
+        "3",
+        "-3/5",
+        "-9/5"
+      ],
+      "basis": [],
+      "transform": [
+        [
+          "9",
+          "1",
+          "-3"
+        ],
+        [
+          "-33/5",
+          "-6/5",
+          "3"
+        ],
+        [
+          "-39/5",
+          "-3/5",
+          "3"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "LG09",
+    "title": "An overdetermined but consistent system",
+    "stem": "Find and certify the complete real solution of the augmented system $$[A\\mid b]=\\begin{bmatrix}1&2&3\\\\2&-1&1\\\\3&1&4\\\\4&3&7\\end{bmatrix}$$ Explain every row operation and the meaning of its coefficient pivots.",
+    "solution": "**Row 2 minus (2) times row 1.** $$\\begin{bmatrix}1&2&3\\\\0&-5&-5\\\\3&1&4\\\\4&3&7\\end{bmatrix}$$\n\n**Row 3 minus (3) times row 1.** $$\\begin{bmatrix}1&2&3\\\\0&-5&-5\\\\0&-5&-5\\\\4&3&7\\end{bmatrix}$$\n\n**Row 4 minus (4) times row 1.** $$\\begin{bmatrix}1&2&3\\\\0&-5&-5\\\\0&-5&-5\\\\0&-5&-5\\end{bmatrix}$$\n\n**Divide row 2 by -5.** $$\\begin{bmatrix}1&2&3\\\\0&1&1\\\\0&-5&-5\\\\0&-5&-5\\end{bmatrix}$$\n\n**Row 1 minus (2) times row 2.** $$\\begin{bmatrix}1&0&1\\\\0&1&1\\\\0&-5&-5\\\\0&-5&-5\\end{bmatrix}$$\n\n**Row 3 minus (-5) times row 2.** $$\\begin{bmatrix}1&0&1\\\\0&1&1\\\\0&0&0\\\\0&-5&-5\\end{bmatrix}$$\n\n**Row 4 minus (-5) times row 2.** $$\\begin{bmatrix}1&0&1\\\\0&1&1\\\\0&0&0\\\\0&0&0\\end{bmatrix}$$\n\nSet every free coefficient variable to zero to obtain $x_p=\\begin{bmatrix}1\\\\1\\end{bmatrix}$. Every coefficient column contains a pivot, so this solution is unique. Substitution verifies $Ax_p=b$ and every displayed direction satisfies $Av=0$. Conversely, the pivot equations determine all remaining coordinates from those free variables, so this description loses no solutions.\n\nHaving more equations than unknowns does not force inconsistency. Redundant equations supply checks; the independent equations determine the solution.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          -1,
+          1
+        ],
+        [
+          3,
+          1,
+          4
+        ],
+        [
+          4,
+          3,
+          7
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "pivots": [
+        0,
+        1
+      ],
+      "particular": [
+        "1",
+        "1"
+      ],
+      "basis": [],
+      "transform": [
+        [
+          "1/5",
+          "2/5",
+          "0",
+          "0"
+        ],
+        [
+          "2/5",
+          "-1/5",
+          "0",
+          "0"
+        ],
+        [
+          "-1",
+          "-1",
+          "1",
+          "0"
+        ],
+        [
+          "-2",
+          "-1",
+          "0",
+          "1"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "LG10",
+    "title": "A homogeneous system with no diagonal shortcut",
+    "stem": "Find and certify the complete real solution of the augmented system $$[A\\mid b]=\\begin{bmatrix}0&1&-2&3&0\\\\0&2&-4&6&0\\\\0&0&1&-1&0\\end{bmatrix}$$ Explain every row operation and the meaning of its coefficient pivots.",
+    "solution": "**Skip coefficient column 1: no available pivot.** $$\\begin{bmatrix}0&1&-2&3&0\\\\0&2&-4&6&0\\\\0&0&1&-1&0\\end{bmatrix}$$\n\n**Row 2 minus (2) times row 1.** $$\\begin{bmatrix}0&1&-2&3&0\\\\0&0&0&0&0\\\\0&0&1&-1&0\\end{bmatrix}$$\n\n**Swap rows 3 and 2.** $$\\begin{bmatrix}0&1&-2&3&0\\\\0&0&1&-1&0\\\\0&0&0&0&0\\end{bmatrix}$$\n\n**Row 1 minus (-2) times row 2.** $$\\begin{bmatrix}0&1&0&1&0\\\\0&0&1&-1&0\\\\0&0&0&0&0\\end{bmatrix}$$\n\n**Skip coefficient column 4: no available pivot.** $$\\begin{bmatrix}0&1&0&1&0\\\\0&0&1&-1&0\\\\0&0&0&0&0\\end{bmatrix}$$\n\nSet every free coefficient variable to zero to obtain $x_p=\\begin{bmatrix}0\\\\0\\\\0\\\\0\\end{bmatrix}$. The complete solution is $x=x_p+t_1\\begin{bmatrix}1\\\\0\\\\0\\\\0\\end{bmatrix}+t_2\\begin{bmatrix}0\\\\-1\\\\1\\\\1\\end{bmatrix}$, with independently arbitrary real parameters. Each direction has one distinct free coordinate equal to one, so the directions are independent. Substitution verifies $Ax_p=b$ and every displayed direction satisfies $Av=0$. Conversely, the pivot equations determine all remaining coordinates from those free variables, so this description loses no solutions.\n\nA homogeneous system always contains the zero vector. A coefficient-zero row is an identity, not a contradiction, and every free direction can be scaled.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          0,
+          1,
+          -2,
+          3,
+          0
+        ],
+        [
+          0,
+          2,
+          -4,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          -1,
+          0
+        ]
+      ],
+      "rref": [
+        [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "pivots": [
+        1,
+        2
+      ],
+      "particular": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "basis": [
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "1",
+          "1"
+        ]
+      ],
+      "transform": [
+        [
+          "1",
+          "0",
+          "2"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "-2",
+          "1",
+          "0"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "LG11",
+    "title": "All equations disappear",
+    "stem": "Find and certify the complete real solution of the augmented system $$[A\\mid b]=\\begin{bmatrix}0&0&0\\\\0&0&0\\end{bmatrix}$$ Explain every row operation and the meaning of its coefficient pivots.",
+    "solution": "**Skip coefficient column 1: no available pivot.** $$\\begin{bmatrix}0&0&0\\\\0&0&0\\end{bmatrix}$$\n\n**Skip coefficient column 2: no available pivot.** $$\\begin{bmatrix}0&0&0\\\\0&0&0\\end{bmatrix}$$\n\nSet every free coefficient variable to zero to obtain $x_p=\\begin{bmatrix}0\\\\0\\end{bmatrix}$. The complete solution is $x=x_p+t_1\\begin{bmatrix}1\\\\0\\end{bmatrix}+t_2\\begin{bmatrix}0\\\\1\\end{bmatrix}$, with independently arbitrary real parameters. Each direction has one distinct free coordinate equal to one, so the directions are independent. Substitution verifies $Ax_p=b$ and every displayed direction satisfies $Av=0$. Conversely, the pivot equations determine all remaining coordinates from those free variables, so this description loses no solutions.\n\nThere are two unknowns and no restrictions. The solution is all of the real coordinate plane; counting zero rows as pivots would give a false unique solution.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "rref": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "pivots": [],
+      "particular": [
+        "0",
+        "0"
+      ],
+      "basis": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "transform": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "LG12",
+    "title": "A contradiction without any coefficient pivot",
+    "stem": "Find and certify the complete real solution of the augmented system $$[A\\mid b]=\\begin{bmatrix}0&0&0\\\\0&0&1\\end{bmatrix}$$ Explain every row operation and the meaning of its coefficient pivots.",
+    "solution": "**Skip coefficient column 1: no available pivot.** $$\\begin{bmatrix}0&0&0\\\\0&0&1\\end{bmatrix}$$\n\n**Skip coefficient column 2: no available pivot.** $$\\begin{bmatrix}0&0&0\\\\0&0&1\\end{bmatrix}$$\n\nThe final coefficient-zero row requires $0=1$, so the system has no solution. The row combination $y^T=\\begin{bmatrix}0&1\\end{bmatrix}$ satisfies $y^TA=0$ but $y^Tb=1\\ne0$. This is a certificate that no missing free-variable choice can repair the contradiction.\n\nThe row $0=1$ makes the system inconsistent even though both coefficient coordinates would otherwise be free. Classify consistency before counting solution parameters.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "rref": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "pivots": [],
+      "particular": null,
+      "basis": [],
+      "transform": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "LG13",
+    "title": "Parameter branching before cancellation",
+    "stem": "Classify the system $x+z=-5$, $2x+\\alpha y+3z=-9$, $-x-\\alpha y+\\alpha z=\\alpha^2$ for every real $\\alpha$, and derive all solutions.",
+    "solution": "Subtract twice the first equation from the second and add the first to the third. The new lower equations are $\\alpha y+z=1$ and $-\\alpha y+(\\alpha+1)z=\\alpha^2-5$. Add them to obtain $(\\alpha+2)z=\\alpha^2-4$. If $\\alpha\\ne0,-2$, division is legal and yields $z=\\alpha-2$, $y=3/\\alpha-1$, $x=-\\alpha-3$. At $\\alpha=0$, the second equation gives $z=1$ but the third reduced equation gives $2z=-4$; no solution exists. At $\\alpha=-2$, the last row is zero and $z=t$, $y=(t-1)/2$, $x=-5-t$ for arbitrary real $t$. Substitution verifies each branch. Cancelling $\\alpha+2$ before splitting would falsely assign $z=-4$ as the only value at the singular branch.",
+    "origin": "Course-derived task: Oxford M1, Example 8; independently derived complete branches",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG14",
+    "title": "Two exceptional parameters with different right sides",
+    "stem": "Classify $x+y+z=1$, $x+\\lambda y+z=2$, $x+y+\\lambda z=2$.",
+    "solution": "Subtract the first equation from each later one. The reduced equations are $(\\lambda-1)y=1$ and $(\\lambda-1)z=1$. Thus for $\\lambda\\ne1$, $y=z=1/(\\lambda-1)$ and $x=1-2/(\\lambda-1)$. At $\\lambda=1$, each later equation demands $0=1$, so there is no solution. Although the coefficient rank falls at that parameter, the decisive check is the transformed right side. Setting the later right sides equal to one instead would produce infinitely many solutions there; singularity alone does not choose between those two outcomes.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG15",
+    "title": "A removable expression is not a removable constraint",
+    "stem": "Solve $x+y=1$, $x+\\lambda y=\\lambda$ for every real $\\lambda$. Explain why extending a simplified formula to $\\lambda=1$ does not classify that branch.",
+    "solution": "The row difference is $(\\lambda-1)y=\\lambda-1$. For $\\lambda\\ne1$, $y=1$ and $x=0$. For $\\lambda=1$, both equations are the same, and the full solution is $(x,y)=(1-t,t)$. The simplified generic expression approaches $(0,1)$, which is one valid exceptional solution but not the complete exceptional solution set. Algebraic cancellation uses a nonzero divisor; continuity of one selected solution does not preserve uniqueness when an independent constraint vanishes.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG16",
+    "title": "An exceptional branch with a free early column",
+    "stem": "Classify $\\lambda x+y=1$ and $\\lambda x+\\lambda y=\\lambda$.",
+    "solution": "Subtract the first equation from the second to obtain $(\\lambda-1)y=\\lambda-1$. For $\\lambda\\ne0,1$, this gives $y=1$ and $x=0$. If $\\lambda=0$, the equations become $y=1$ and $0=0$, so $x$ is arbitrary. If $\\lambda=1$, both become $x+y=1$, so $(x,y)=(1-t,t)$. The generic solution is contained in both exceptional families. Two separate factors must be branched: the coefficient of $y$ in the row difference and the coefficient of $x$ in the remaining equation.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG17",
+    "title": "A quadratic factor with distinct compatibility outcomes",
+    "stem": "Classify the triangular family $x+y=2$, $(\\lambda-1)y=\\lambda^2-1$, $(\\lambda+1)z=\\lambda-1$.",
+    "solution": "For $\\lambda\\ne\\pm1$, $y=\\lambda+1$, $z=(\\lambda-1)/(\\lambda+1)$ and $x=1-\\lambda$. At $\\lambda=1$, the second row is $0=0$, the third gives $z=0$, and $y=t$, $x=2-t$. At $\\lambda=-1$, the second row gives $y=0$ but the third gives $0=-2$, so the system has no solution. The factored numerator in row two must not conceal the denominator-zero branch. Write the residual equations at each exceptional value instead of guessing from the generic formula.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG18",
+    "title": "Compatibility conditions for arbitrary loads",
+    "stem": "For $A=\\begin{bmatrix}1&2&-1\\\\2&4&-2\\\\3&6&-3\\end{bmatrix}$, characterize every $b=(b_1,b_2,b_3)^T$ for which $Ax=b$ is consistent and give all solutions.",
+    "solution": "Apply $R_2\\leftarrow R_2-2R_1$ and $R_3\\leftarrow R_3-3R_1$. Consistency is exactly $b_2=2b_1$ and $b_3=3b_1$. When these hold, set $x_2=s$, $x_3=t$, obtaining $x_1=b_1-2s+t$. The solution has two free parameters because there is one coefficient pivot. If either compatibility equality fails, its transformed zero row proves inconsistency. This also identifies the attainable load vectors as $b_1(1,2,3)^T$; row reduction changes their coordinates but does not make every load attainable.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG19",
+    "title": "A left-null certificate extracted without complete reduction",
+    "stem": "Show that $x+2y-z=1$, $2x+4y-2z=3$ has no solution. Produce a vector $w$ proving this without solving for any variable.",
+    "solution": "Take $w=(-2,1)^T$. The weighted coefficient row is $w^TA=-2(1,2,-1)+(2,4,-2)=0$, but $w^Tb=-2+3=1$. If a solution existed, multiplying $Ax=b$ by $w^T$ would give $0=1$. The certificate is a contradiction among equations and is independent of variable parametrization. Completing RREF would reveal the same row but is unnecessary once this nonzero right-side combination is found.\n\nThe weighted right side is an exact nonzero integer. A floating-point near-zero test is unnecessary, and neither equation individually is contradictory.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG20",
+    "title": "The full family of compatible right sides",
+    "stem": "For $A=\\begin{bmatrix}1&0\\\\0&1\\\\1&1\\end{bmatrix}$, determine all loads, whether each compatible solution is unique, and an inconsistency certificate.",
+    "solution": "The first two equations require $x_1=b_1$ and $x_2=b_2$. The third is compatible exactly when $b_3=b_1+b_2$. Therefore every compatible solution is unique, although not every vector in $\\mathbb R^3$ is an attainable load. The vector $w=(-1,-1,1)^T$ satisfies $w^TA=0$, so a violating load is certified by $w^Tb=b_3-b_1-b_2\\ne0$. This rectangular example separates uniqueness for compatible loads from existence for all loads.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG21",
+    "title": "Why two distinct real solutions force infinitely many",
+    "stem": "Prove that a real linear system cannot have exactly two solutions. State the finite-field exception.",
+    "solution": "If $u$ and $v$ solve $Ax=b$, then $A(v-u)=0$. For every real $t$, $A(u+t(v-u))=b$. Distinct parameters give distinct vectors because $v-u\\ne0$, yielding infinitely many solutions. Over a finite field of size $q$, the same construction gives only $q$ points on a line. More generally a consistent system with $n-r$ free coordinates has exactly $q^{n-r}$ solutions. Thus exactly two solutions is possible over the two-element field with one free coordinate; the real-field assumption is essential.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG22",
+    "title": "All solutions from one particular solution",
+    "stem": "Let $x_p=(2,-1,0)^T$ solve a system with nullspace spanned by $v=(1,2,-1)^T$. Find the solution with coordinate sum zero, or prove none exists.",
+    "solution": "Every solution is $(2+t,-1+2t,-t)$. Its coordinate sum is $1+2t$. The additional condition therefore gives $t=-1/2$, so the selected solution is $(3/2,-2,1/2)$. Substitution into the sum confirms zero; membership in the affine family confirms the original equations. A supplementary linear condition can select one point, retain the entire family, or destroy compatibility depending on whether its coefficient on the null direction is nonzero, zero with compatible constant, or zero with incompatible constant.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG23",
+    "title": "A free coordinate is not automatically an independent variable choice",
+    "stem": "The RREF equations are $x_1+2x_3-x_4=3$, $x_2-x_3+4x_4=-1$. Is choosing $x_1$ and $x_3$ as arbitrary parameters valid?",
+    "solution": "The standard free coordinates are $x_3=s$, $x_4=t$. However $x_1=3-2s+t$ can replace $t$ because this map has nonzero coefficient one on $t$. Given arbitrary $x_1=a$ and $x_3=s$, obtain $t=a-3+2s$ and then $x_2=-1+s-4t$. Thus this alternative pair is valid, but not because any two coordinates are always independent. For example replacing the equations by $x_1+2x_3=3$ would make $x_1$ and $x_3$ linked. Check invertibility of the proposed parameter map rather than counting chosen names.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG24",
+    "title": "REF is not canonical",
+    "stem": "Give two different echelon matrices row-equivalent to $A=\\begin{bmatrix}1&1\\\\1&2\\end{bmatrix}$ and determine their common RREF.",
+    "solution": "Keeping the first row and subtracting it from the second gives $\\begin{bmatrix}1&1\\\\0&1\\end{bmatrix}$. Scaling that second row by two gives $\\begin{bmatrix}1&1\\\\0&2\\end{bmatrix}$. Both satisfy echelon conditions and are row-equivalent, yet are different. Normalize and clear the second pivot column above the pivot to obtain $I_2$ in each case. Unique RREF does not imply a unique elimination trace, unique unnormalized pivots, or a unique REF matrix.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG25",
+    "title": "A proof of canonical pivot positions",
+    "stem": "Explain why two row-equivalent RREF matrices have the same pivot columns without invoking determinant formulas.",
+    "solution": "Row operations preserve the row space. For any prefix length $j$, project every row-space vector onto its first $j$ coordinates. In RREF, rows whose pivot lies after $j$ project to zero, while earlier pivot rows project to independent vectors because their pivot columns form identity columns. Therefore the projected dimension equals the number of pivots at or before $j$. This dimension depends only on the common row space. Its increases identify exactly the same pivot columns in both matrices. With matching pivot columns, each pivot row is the unique row-space vector having one at its own pivot coordinate and zero at the other pivot coordinates, proving equal rows as well.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG26",
+    "title": "Invalid replacement that silently removes information",
+    "stem": "A student replaces the pair $x+y=1$, $x-y=3$ by two copies of their sum $2x=4$. Explain the error and compute the extra solutions introduced.",
+    "solution": "The original equations give $x=2$, $y=-1$. The proposed new pair only gives $x=2$ with arbitrary $y$. Its transformation matrix is $E=\\begin{bmatrix}1&1\\\\1&1\\end{bmatrix}$, which is singular, so the reverse implication is unavailable. Replacing one row by its sum with the other while leaving the other unchanged would be reversible. Replacing both by the same combination erases the difference equation and enlarges the solution set.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG27",
+    "title": "Right-side synchronization is mandatory",
+    "stem": "A student reduces $A=\\begin{bmatrix}1&1\\\\1&-1\\end{bmatrix}$ to $\\begin{bmatrix}1&1\\\\0&-2\\end{bmatrix}$ but leaves $b=(3,1)^T$ unchanged. Compare the resulting answer with the true solution.",
+    "solution": "The correct operation is $R_2\\leftarrow R_2-R_1$ on the augmented matrix, so the new right side is $(3,-2)^T$. Hence $y=1$ and $x=2$. Leaving the right side unchanged instead gives $y=-1/2$, $x=7/2$. The first original equation still holds, but the second becomes $4$, not $1$. Always verify in the original system: checking only the altered system cannot detect an unsynchronized right-side update.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG28",
+    "title": "Elementary matrices and composition order",
+    "stem": "First swap the two rows of $A$, then add three times its new first row to its second. Find the left transformation and its inverse.",
+    "solution": "The swap is $S=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}$ and the addition is $T=\\begin{bmatrix}1&0\\\\3&1\\end{bmatrix}$. The final matrix is $TSA$, so $E=TS=\\begin{bmatrix}0&1\\\\1&3\\end{bmatrix}$. Undo in reverse order: $E^{-1}=S T^{-1}=\\begin{bmatrix}-3&1\\\\1&0\\end{bmatrix}$. Multiplying the two displayed matrices in either order gives the identity. Chronological row operations appear right-to-left in the transformation product; their inverses reverse that product order.\n\nFor example the top-left entry of $EE^{-1}$ is $0(-3)+1(1)=1$, while its top-right entry is zero. This direct check detects an accidentally reversed inverse order.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG29",
+    "title": "Row operation versus column operation",
+    "stem": "Let $A=\\begin{bmatrix}1&2\\\\3&4\\end{bmatrix}$ and $b=(5,11)^T$. Swap coefficient columns, solve for a vector $y$, and recover the original vector $x$.",
+    "solution": "The column permutation is $Q=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}$. The transformed system is $AQy=b$, with $AQ=\\begin{bmatrix}2&1\\\\4&3\\end{bmatrix}$. Its solution is $y=(2,1)^T$. The original variable vector is $x=Qy=(1,2)^T$, and $Ax=b$. A column exchange is a coordinate relabeling, not a row operation preserving the same coordinate vector. Returning $y$ directly would fail substitution in the original equations.\n\nThe recovered vector satisfies $1+2(2)=5$ and $3+4(2)=11$. The unrecovered vector instead gives four and ten, exposing the error in both original equations.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG30",
+    "title": "Column addition needs a coordinate map",
+    "stem": "For $A=\\begin{bmatrix}1&2\\\\0&1\\end{bmatrix}$, replace column two by column two minus twice column one. If the load is $(5,2)^T$, solve correctly.",
+    "solution": "The right transformation is $Q=\\begin{bmatrix}1&-2\\\\0&1\\end{bmatrix}$, giving $AQ=I$. Solve $AQy=b$, so $y=(5,2)^T$. Recover $x=Qy=(1,2)^T$. The new coefficient array is simpler, but its variables are different linear coordinates. The original vector cannot be read from the new right side unless the coordinate transformation is undone. Notice that $Q$ acts on coefficient columns only; mixing the right-side column into coefficient columns would require a different analysis and generally changes the problem.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG31",
+    "title": "An exact inverse from synchronized right sides",
+    "stem": "Compute the inverse of $A=\\begin{bmatrix}2&1\\\\1&1\\end{bmatrix}$ using row reduction and certify it.",
+    "solution": "Start with $[A\\mid I]$. Swap rows to get left block $\\begin{bmatrix}1&1\\\\2&1\\end{bmatrix}$ and right block $\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}$. Subtract twice row one from row two, then multiply row two by minus one. The left block becomes $\\begin{bmatrix}1&1\\\\0&1\\end{bmatrix}$ and right block $\\begin{bmatrix}0&1\\\\-1&2\\end{bmatrix}$. Subtract row two from row one to obtain $I$ on the left and $B=\\begin{bmatrix}1&-1\\\\-1&2\\end{bmatrix}$ on the right. Direct multiplication gives both $AB=I$ and $BA=I$. The synchronized right block records the entire inverse row transformation.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG32",
+    "title": "A singular inverse attempt is informative",
+    "stem": "Explain the result of reducing $[A\\mid I]$ for $A=\\begin{bmatrix}1&2\\\\2&4\\end{bmatrix}$.",
+    "solution": "The operation $R_2\\leftarrow R_2-2R_1$ makes the left second row zero but leaves the right row $(-2,1)$. Thus the coefficient block cannot become the identity. The transformed right block remains an invertible row transformation, not an inverse of the singular $A$. Applied to a load $b$, the same row produces the compatibility condition $b_2-2b_1=0$. The inverse attempt therefore reveals which loads are inconsistent and why a universal solve matrix cannot exist.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG33",
+    "title": "A rectangular left inverse without an identity on every row",
+    "stem": "Find a left inverse for $A=\\begin{bmatrix}1&0\\\\0&1\\\\1&1\\end{bmatrix}$. Explain why it is not a two-sided inverse.",
+    "solution": "Let $B=\\begin{bmatrix}1&0&0\\\\0&1&0\\end{bmatrix}$. Then $BA=I_2$. But $AB=\\begin{bmatrix}1&0&0\\\\0&1&0\\\\1&1&0\\end{bmatrix}\\ne I_3$. A left inverse guarantees at most one solution and recovers that solution for a compatible load; it does not make every three-dimensional load compatible. Adding any multiples of the left-null row $(-1,-1,1)$ to the rows of $B$ yields other left inverses, so uniqueness of a square inverse must not be transferred to this rectangular case.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG34",
+    "title": "Doolittle factors from elimination multipliers",
+    "stem": "Compute $A=LU$ with unit diagonal $L$ for $A=\\begin{bmatrix}2&1&1\\\\4&-6&0\\\\-2&7&2\\end{bmatrix}$, then solve $Ax=(5,-2,9)^T$.",
+    "solution": "The first multipliers are $l_{21}=2$ and $l_{31}=-1$. The new lower rows are $(0,-8,-2)$ and $(0,8,3)$, so $l_{32}=-1$. Thus $L=\\begin{bmatrix}1&0&0\\\\2&1&0\\\\-1&-1&1\\end{bmatrix}$ and $U=\\begin{bmatrix}2&1&1\\\\0&-8&-2\\\\0&0&1\\end{bmatrix}$. Multiplication verifies $LU=A$. Forward substitution gives $y=(5,-12,2)^T$, and backward substitution gives $x=(1,1,2)^T$. Multipliers belong to the matrices at their respective elimination stages; reading $7/(-6)$ from the original array would give the wrong second multiplier.",
+    "origin": "Course-derived task: Stanford CME108/MATH114, Gaussian elimination and LU examples",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG35",
+    "title": "Invertibility does not guarantee unpivoted LU",
+    "stem": "Prove that $A=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}$ has no factorization $A=LU$ with lower triangular $L$ and upper triangular $U$, and give a pivoted factorization.",
+    "solution": "Since $A$ is invertible, both triangular factors would be invertible. Their first diagonal entries would therefore be nonzero, and $(LU)_{11}=l_{11}u_{11}\\ne0$, contradicting $a_{11}=0$. Set $P=A$; then $PA=I$, so $L=U=I$ gives a valid $PA=LU$. A zero pivot in a fixed ordering can be a failure of that ordering while the matrix itself is nonsingular.\n\nTriangular factors of an invertible product cannot be singular: a singular square factor would force the product determinant to vanish. This justifies the nonzero-diagonal step in the impossibility proof.",
+    "origin": "Course-derived task: Stanford CME108/MATH114, Permuted LU, initial example",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG36",
+    "title": "A later row swap must move earlier multipliers",
+    "stem": "Compute partial-pivot factors of $A=\\begin{bmatrix}4&2&0\\\\2&1&1\\\\1&3&1\\end{bmatrix}$. Explain the second-stage swap.",
+    "solution": "The first pivot four gives multipliers $1/2$ and $1/4$, leaving lower rows $(0,0,1)$ and $(0,5/2,1)$. Swap those rows at stage two. The stored first-column multipliers must swap as well. Therefore $P=\\begin{bmatrix}1&0&0\\\\0&0&1\\\\0&1&0\\end{bmatrix}$, $L=\\begin{bmatrix}1&0&0\\\\1/4&1&0\\\\1/2&0&1\\end{bmatrix}$ and $U=\\begin{bmatrix}4&2&0\\\\0&5/2&1\\\\0&0&1\\end{bmatrix}$. Their product is $PA$. Keeping the old first column in $L$ would reconstruct the wrong first entries of rows two and three; a local triangular appearance is not enough to certify a factorization.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG37",
+    "title": "Permutation orientation matters",
+    "stem": "If software returns $A=P_0LU$, explain the load transformation required to solve $Ax=b$ and compare with the convention $PA=LU$.",
+    "solution": "From $A=P_0LU$, premultiply by $P_0^{-1}=P_0^T$ to get $LUx=P_0^Tb$. Thus solve $Ly=P_0^Tb$, then $Ux=y$. Under $PA=LU$, solve $Ly=Pb$ instead. The two conventions agree when $P=P_0^T$. A single exchange is symmetric, so small examples can hide an orientation error; a three-cycle permutation is not symmetric and exposes it. Verify the defining factorization before applying any remembered permutation formula.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG38",
+    "title": "Scaling makes an unrestricted LU nonunique",
+    "stem": "If $A=LU$ and $D$ is any invertible diagonal matrix, construct another triangular factorization. Why does unit diagonal resolve the ambiguity for nonsingular factors?",
+    "solution": "Write $A=(LD)(D^{-1}U)$. Diagonal multiplication preserves lower and upper triangular structure, so there are generally many unrestricted factorizations. If $L_1U_1=L_2U_2$ with both lower factors unit diagonal and all factors nonsingular, then $L_2^{-1}L_1=U_2U_1^{-1}$. The left side is unit lower triangular and the right side upper triangular; their common value is diagonal with all diagonal entries one, hence the identity. Consequently both factors agree. This proof requires invertibility and the fixed normalization.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG39",
+    "title": "Leading principal minors and pivot existence",
+    "stem": "For a nonsingular square $A$, prove that nonzero leading principal minors are equivalent to existence of Doolittle elimination without row swaps and nonzero pivots.",
+    "solution": "If $A=LU$ with unit lower triangular $L$ and nonzero upper diagonal, each leading $k$ by $k$ block satisfies $A_k=L_kU_k$, so $\\det A_k=\\prod_{i=1}^k u_{ii}\\ne0$. Conversely the first minor makes $a_{11}\\ne0$. Eliminate its column. The determinant of each subsequent leading block equals this pivot times the corresponding leading Schur-complement determinant. Induction supplies a nonzero next pivot at every stage. The resulting factors exist and are nonsingular. The criterion is for a fixed ordering and a nonsingular matrix; singular matrices may have some LU factors even when this nonzero-pivot criterion fails.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG40",
+    "title": "The final pivot is a determinant ratio",
+    "stem": "A nonsingular three by three matrix has leading principal determinants $\\Delta_1=2$, $\\Delta_2=-6$, $\\Delta_3=24$. Find the unpivoted Doolittle pivots.",
+    "solution": "Since $\\Delta_k=\\prod_{i=1}^k u_{ii}$ with $\\Delta_0=1$, the pivots are $u_{11}=2$, $u_{22}=-6/2=-3$ and $u_{33}=24/(-6)=-4$. Their product is $24$, agreeing with the determinant. This rule uses the original leading principal minors and assumes unpivoted Doolittle elimination is legal. If row swaps intervene, compute minors of the appropriate permuted matrix rather than inserting unrelated original minors.\n\nEvery displayed leading determinant is nonzero, so the assumed nonzero-pivot ordering is valid. A zero denominator would instead require an exceptional branch or permutation.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG41",
+    "title": "Schur complement as the lower subsystem",
+    "stem": "Eliminate $x$ from $2x+y+z=1$, $4x+3y-z=2$, $-2x+y+2z=0$ and solve the resulting two by two system.",
+    "solution": "The first equation gives $x=(1-y-z)/2$. Subtract twice row one from row two and add row one to row three, obtaining $y-3z=0$ and $2y+3z=1$. Thus $y=3z$, then $9z=1$, so $z=1/9$, $y=1/3$ and $x=5/18$. In block notation the lower coefficient block becomes $D-ca^{-1}r$ and the lower load becomes $d-ca^{-1}\\beta$. Both must be updated. Substitution in the original three equations confirms all three loads.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG42",
+    "title": "Reusable factors for two loads",
+    "stem": "Use $L=\\begin{bmatrix}1&0\\\\2&1\\end{bmatrix}$ and $U=\\begin{bmatrix}3&1\\\\0&2\\end{bmatrix}$ to solve loads $b^{(1)}=(4,10)^T$ and $b^{(2)}=(1,0)^T$.",
+    "solution": "The common coefficient matrix is $A=LU=\\begin{bmatrix}3&1\\\\6&4\\end{bmatrix}$. For the first load, forward substitution gives $y=(4,2)^T$, then $x_2=1$ and $x_1=1$. For the second, $y=(1,-2)^T$, then $x_2=-1$ and $x_1=2/3$. The same factors are reused, but each load requires its own forward and backward substitution. Forming a full inverse would compute more information than the requested solves and is unnecessary.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG43",
+    "title": "Exact backward-substitution work",
+    "stem": "Count scalar multiplications, subtractions and divisions in straightforward backward substitution for a dense nonsingular upper triangular $n$ by $n$ matrix.",
+    "solution": "Row $i$ uses $n-i$ known entries in its dot product, requiring $n-i$ multiplications and $n-i$ subtractions from the running right side. Summing gives $n(n-1)/2$ of each. There is one division per row, giving $n$ divisions. With every scalar operation counted once, the total is $n(n-1)+n=n^2$. This count excludes loop/index work and differs from a convention that treats each fused multiply-add as one operation. State the convention before comparing formulas.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG44",
+    "title": "Factorization operation count from the loops",
+    "stem": "For unpivoted dense elimination, count divisions, multiplications and subtractions needed to factor a square coefficient matrix when known pivot-column zeros are assigned directly.",
+    "solution": "At stage $k$, there are $n-k$ divisions for multipliers and $(n-k)^2$ trailing entries, each using one multiplication and one subtraction. Thus divisions total $n(n-1)/2$, and each update operation totals $(n-1)n(2n-1)/6$. Counting all scalar operations gives $2n^3/3-n^2/2-n/6$. Right-side updates are additional: $n(n-1)/2$ multiplications and the same number of subtractions for one load. This is an exact count for the specified implementation; it is not a universal cost for every elimination variant.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG45",
+    "title": "A tiny pivot under declared rounding",
+    "stem": "Solve $10^{-4}x+y=1$, $x+y=2$ exactly. Then show unpivoted elimination with rounding to three significant decimal digits after every scalar operation can fail.",
+    "solution": "Exactly, subtracting the equations gives $x=10000/9999$, then $y=9998/9999$. Without pivoting the multiplier is $10000$. The lower coefficient $1-10000=-9999$ rounds to $-10000$, and the lower load $2-10000=-9998$ also rounds to $-10000$. Their quotient gives $\\widehat y=1$, and back substitution gives $\\widehat x=0$. Swapping equations first makes the multiplier $10^{-4}$. The lower coefficient $0.9999$ and load $0.9998$ both round to one, so $\\widehat y=1$ and $\\widehat x=1$. The exact and rounded models are different; the pivoted rounded answer is near the exact solution, whereas the unpivoted answer is not.",
+    "origin": "Course-derived task: Stanford CME108/MATH114, Permuted LU, rounding example",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG46",
+    "title": "Small residual does not imply small forward error",
+    "stem": "For $A=\\begin{bmatrix}1&1\\\\1&1+\\varepsilon\\end{bmatrix}$, $b=(2,2+\\varepsilon)^T$, compare the exact solution with $\\widehat x=(2,0)^T$, where $\\varepsilon>0$ is small.",
+    "solution": "The exact solution is $(1,1)^T$. The computed residual is $r=b-A\\widehat x=(0,\\varepsilon)^T$, with infinity norm $\\varepsilon$, yet the error is $\\widehat x-x=(1,-1)^T$, with infinity norm one. The matrix maps that error to a tiny vector. Indeed $A^{-1}=\\varepsilon^{-1}\\begin{bmatrix}1+\\varepsilon&-1\\\\-1&1\\end{bmatrix}$, so $\\Vert A^{-1}\\Vert_\\infty=(2+\\varepsilon)/\\varepsilon$. A tiny residual is only a useful forward-error guarantee when the inverse amplification is also controlled.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG47",
+    "title": "Pivoting is a stability strategy, not a rank theorem",
+    "stem": "Does choosing the largest available coefficient pivot prove that every numerical rank decision is exact or that every computed solution is accurate? Give precise limits.",
+    "solution": "No. In exact arithmetic a nonzero available pivot permits elimination and an all-zero available column must be skipped. In floating-point arithmetic, comparisons use perturbed values and a tolerance depends on scaling and the problem. Partial pivoting bounds multiplier magnitudes by one in ordinary real/complex arithmetic, but trailing growth and conditioning still affect accuracy. Near-singular input may have a tiny true pivot whose status cannot be inferred from a universal fixed threshold. Verify residuals, inspect scale and conditioning, and distinguish exact algebraic classification from a numerical estimate. The chapter laboratory deliberately uses exact rational arithmetic rather than claiming numerical rank certification.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG48",
+    "title": "Magnitude of multipliers under partial pivoting",
+    "stem": "Prove $|l_{ik}|\\le1$ after partial pivot selection, and explain why this does not bound every entry of $U$ by the largest original entry.",
+    "solution": "The selected pivot has magnitude at least that of every entry below it in the current column. Hence $|a_{ik}/a_{kk}|\\le1$ whenever the pivot is nonzero. However an updated entry is $a_{ij}-l_{ik}a_{kj}$, whose magnitude can be as large as the sum of the two current magnitudes. Repeated stages can cause growth. The multiplier bound controls one source of error amplification, not all intermediate entries. It also requires the maximum to be taken from the current transformed column, not from the original input.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG49",
+    "title": "Binary-field elimination changes the arithmetic",
+    "stem": "Over $\\mathbb F_2$, solve $x+y=1$, $y+z=0$, $x+z=1$. Compare with the same equations over the reals.",
+    "solution": "In the binary field, subtraction equals addition. Add the first two rows to the third: its left side and right side become zero. Set $z=t\\in\\{0,1\\}$; then $y=t$ and $x=1+t$. There are two solutions, $(1,0,0)$ and $(0,1,1)$. Over the reals, the first two equations give $y=-z$ and $x=1+z$, and the third requires $1+2z=1$, so $z=0$ and the unique solution is $(1,0,0)$. Rank and compatibility depend on the field; division by two is legal over the reals and impossible in $\\mathbb F_2$.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG50",
+    "title": "A parameter family over a finite field",
+    "stem": "Over $\\mathbb F_5$, solve $x+2y=1$ and $2x+4y=2$. List all solutions.",
+    "solution": "The second row is twice the first and reduces to zero. For every $y=t\\in\\{0,1,2,3,4\\}$, $x=1-2t$ modulo five. The solutions are $(1,0)$, $(4,1)$, $(2,2)$, $(0,3)$ and $(3,4)$. A single free field coordinate gives five solutions, not infinitely many. The exact rational laboratory does not operate modulo five; this task uses explicitly declared finite-field arithmetic.\n\nModulo five, every nonzero coefficient has an inverse; for instance two has inverse three. This field property permits the same reversible division logic as ordinary elimination.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG51",
+    "title": "A rank change caused by field characteristic",
+    "stem": "Compare the solutions of $x+y=0$, $x-y=0$ over $\\mathbb R$ and over $\\mathbb F_2$.",
+    "solution": "Over the reals, adding the equations gives $2x=0$, so $x=y=0$. Over the binary field, minus one equals plus one, so the two equations are identical and the solutions are $(0,0)$ and $(1,1)$. The real determinant minus two is nonzero, while its reduction modulo two is zero. A matrix formula must be interpreted in its coefficient field before division, determinant or rank claims are used.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG52",
+    "title": "An invariant for a correct in-place implementation",
+    "stem": "Explain why an elimination implementation must save the old multiplier before overwriting its pivot-column entry with zero. Give a failing two by two example.",
+    "solution": "For $[A\\mid b]=\\begin{bmatrix}2&1&3\\\\4&3&7\\end{bmatrix}$, the multiplier is two. The correct lower row is $(0,1,1)$. If code first overwrites $a_{21}=0$ and then recomputes $a_{21}/a_{11}$, it uses zero and leaves the trailing entries $(3,7)$ unchanged. The corrupted row gives $y=7/3$ rather than one. Store the factor, use the unchanged pivot row for every trailing update, and only then assign the known zero. The invariant is equality to a reversible row transform of the original augmented matrix.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG53",
+    "title": "A linear dependence among equations is a load test",
+    "stem": "Rows satisfy $r_3=2r_1-r_2$. What condition on loads is necessary for consistency, and is it sufficient if the first two rows are independent?",
+    "solution": "Any solution must satisfy $b_3=2b_1-b_2$ by the same linear combination. If the first two coefficient rows are independent, the map defined by those two rows has full row rank and can realize any pair of real loads; solving those two equations yields at least one vector. The compatibility equality then makes the third equation automatic, so it is sufficient. If the first two rows themselves are dependent, additional compatibility conditions may exist. Every dependence in the coefficient rows must have the corresponding dependence in the load vector.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG54",
+    "title": "A linear constraint after elimination",
+    "stem": "The general solution is $x=(1,0,2)^T+s(1,1,0)^T+t(0,1,-1)^T$. Add the conditions $x_1-x_2=0$ and $x_2+x_3=4$ and solve.",
+    "solution": "The first condition gives $1+s-(s+t)=0$, so $t=1$. The second gives $(s+t)+(2-t)=4$, so $s=2$. Hence $x=(3,3,1)^T$. The original affine parametrization is retained and the additional constraints become a smaller linear system in free parameters. Substitution checks both new equations. This method avoids re-eliminating all original equations and makes independence of the extra restrictions explicit.\n\nThe two new conditions act independently on the two parameter coordinates. Their unique parameter solution proves that no second point in the original affine plane meets both.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG55",
+    "title": "Row space is preserved; column space generally moves",
+    "stem": "For $A=\\begin{bmatrix}1&0\\\\1&0\\end{bmatrix}$, apply $R_2\\leftarrow R_2-R_1$. Compare row spaces, column spaces and kernels.",
+    "solution": "The new matrix is $R=\\begin{bmatrix}1&0\\\\0&0\\end{bmatrix}$. Both row spaces are the span of $(1,0)$, and both kernels are the span of $(0,1)^T$. But the original column space is the span of $(1,1)^T$, while the new column space is the span of $(1,0)^T$. The invertible left transformation maps the column space to a different subspace of the same dimension. Confusing invariance of column rank with equality of column spaces can give incorrect original-system load tests.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG56",
+    "title": "Original pivot columns versus reduced pivot columns",
+    "stem": "Reduce $A=\\begin{bmatrix}1&2&3\\\\2&4&7\\end{bmatrix}$ and identify a basis of its original column space.",
+    "solution": "Subtract twice the first row from the second to obtain $\\begin{bmatrix}1&2&3\\\\0&0&1\\end{bmatrix}$. The pivot columns are one and three. A basis of the original column space is therefore the original columns $(1,2)^T$ and $(3,7)^T$, which are independent. The reduced columns $(1,0)^T$ and $(3,1)^T$ span the transformed column space, not the original one. The invertible row transform preserves dependence relations among column indices; use those indices to select columns from the original matrix.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG57",
+    "title": "No equations and no variables are distinct boundaries",
+    "stem": "Classify a system with zero equations and $n$ real unknowns. Then classify one with $m$ equations and zero unknowns.",
+    "solution": "With no equations, every vector in $\\mathbb R^n$ satisfies the empty conjunction, so the solution set is all of that space. With no unknowns, the only possible variable vector is the empty vector; every equation reads $0=b_i$. There is one solution if every load is zero and none otherwise. When both counts are zero, there is exactly one empty vector. These mathematical boundaries need not be accepted by a practical input interface, but they prevent mistaken claims that zero pivots always mean infinitely many solutions.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG58",
+    "title": "An integer restriction requires more than real consistency",
+    "stem": "The real system is $2x+y=1$ and $x-2y=0$. Does its unique real solution give an integer solution?",
+    "solution": "The second equation gives $x=2y$. Substituting into the first gives $5y=1$, hence $(x,y)=(2/5,1/5)$. The system is consistent and uniquely solvable over the reals and rationals, but has no integer solution. Integer domains are not fields and elementary division may leave the domain. Solve over the declared field first, then impose the additional integer restriction; do not infer an integer count from real pivot information.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG59",
+    "title": "Nonnegative real solutions in an affine family",
+    "stem": "Find all nonnegative real solutions of $x+y+z=4$, $x-y=0$, and the extreme points of their solution set.",
+    "solution": "The second equation gives $x=y=t$. The first gives $z=4-2t$. Nonnegativity is exactly $0\\le t\\le2$. Therefore the feasible set is the line segment joining $(0,0,4)$ and $(2,2,0)$. Row reduction alone gives an entire affine line with unrestricted real $t$; the inequalities cut it to a bounded segment. The endpoints, not all points on the affine line, are its extreme points.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG60",
+    "title": "A determinant sign from row swaps and pivots",
+    "stem": "Elimination makes a three by three matrix upper triangular with pivots $2,-3,5$ after two row swaps and no row scaling. Find its determinant.",
+    "solution": "The triangular determinant is $2(-3)5=-30$. Every row exchange multiplies the determinant by minus one; two exchanges give factor one, so the original determinant is also $-30$. Row additions do not change the determinant. If pivot rows had been normalized, their scale factors would also have to be recorded. Multiplying final RREF diagonal entries would otherwise lose the determinant magnitude.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG61",
+    "title": "A zero determinant is not a consistency verdict",
+    "stem": "Provide singular two by two systems with the same coefficient matrix but respectively no solution and infinitely many solutions.",
+    "solution": "Use $A=\\begin{bmatrix}1&1\\\\2&2\\end{bmatrix}$. For $b=(1,2)^T$, the second row reduces to $0=0$, so $(x,y)=(1-t,t)$ for arbitrary real $t$. For $b=(1,3)^T$, the same coefficient row operation yields $0=1$, so there is no solution. Both determinants are zero because the coefficient matrix is identical. Consistency depends on the augmented right side, while the determinant only decides invertibility for square coefficients.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG62",
+    "title": "Block elimination with a matrix pivot",
+    "stem": "Let $A=\\begin{bmatrix}B&C\\\\D&E\\end{bmatrix}$ with square invertible $B$. Derive the lower subsystem for $A(x,y)^T=(f,g)^T$ and its load.",
+    "solution": "The upper equation is $Bx+Cy=f$, so $x=B^{-1}f-B^{-1}Cy$. Substitute into the lower equation to obtain $(E-DB^{-1}C)y=g-DB^{-1}f$. Once this subsystem is solved, recover $x$ from the upper formula. The order of matrix factors is fixed by dimensions and cannot be commuted. In computation, solve systems with $B$ to obtain the needed products instead of explicitly forming its inverse. If $B$ is singular, this derivation is unavailable even when the full matrix might be invertible.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG63",
+    "title": "A lower-triangular inverse by a finite series",
+    "stem": "For $L=\\begin{bmatrix}1&0&0\\\\2&1&0\\\\-1&3&1\\end{bmatrix}$, compute its inverse and distinguish it from negating all subdiagonal entries.",
+    "solution": "Write $L=I+N$, where $N$ is strictly lower triangular and $N^3=0$. Thus $L^{-1}=I-N+N^2$. Here $N^2$ has only entry $(3,1)=6$, so $L^{-1}=\\begin{bmatrix}1&0&0\\\\-2&1&0\\\\7&-3&1\\end{bmatrix}$. Negating the subdiagonal alone would give entry $(3,1)=1$ instead of seven and fail multiplication. The cross term records the indirect path through row two. Direct multiplication in both orders gives the identity.\n\nThe third-row first-column product is $-1-6+7=0$. This checks the entry most likely to be missed when the indirect lower-triangular cross term is omitted.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG64",
+    "title": "A Gauss transform has a simple inverse for a reason",
+    "stem": "Let $G=I-ge_k^T$ with $g_i=0$ for every $i\\le k$. Prove $G^{-1}=I+ge_k^T$ and identify the assumption that makes this true.",
+    "solution": "Because $e_k^Tg=g_k=0$, the rank-one matrix $N=ge_k^T$ satisfies $N^2=g(e_k^Tg)e_k^T=0$. Therefore $(I-N)(I+N)=I-N^2=I$ in both orders. The inverse formula depends on the zero kth coordinate, not merely on the rank-one appearance. If $g_k\\ne0$, the square is generally nonzero and this inverse expression fails. The elimination multipliers lie strictly below the pivot position, precisely supplying the required condition.\n\nThe nonzero entries of an elimination multiplier vector occur strictly below the pivot, so the zero kth coordinate follows from its construction rather than an extra numerical coincidence.",
+    "origin": "Course-derived proof task: Stanford CME108/MATH114, LU, Gauss-transform prompt",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG65",
+    "title": "Why multiple contradictions add only one augmented rank",
+    "stem": "An eliminated single-load system has several coefficient-zero rows with nonzero right sides. Can the augmented rank exceed the coefficient rank by more than one?",
+    "solution": "No. Appending one column can increase rank by at most one. All coefficient-zero augmented rows have the form $(0,\\ldots,0,c_i)$ and are scalar multiples of the same last-coordinate row when their entries are nonzero. They expose inconsistency but add only one independent augmented direction. In full augmented RREF, there is one right-side pivot row, not several independent right-side pivots. For a matrix of several right sides, rank can increase by more than one because several columns are appended.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG66",
+    "title": "Same kernel need not mean the same nonhomogeneous solutions",
+    "stem": "Let $A=[1\\;0]$ and $C=[2\\;0]$. Compare the systems $Ax=1$ and $Cx=1$, and their homogeneous kernels.",
+    "solution": "Both kernels are the y-axis because each homogeneous equation requires only $x_1=0$. But the first nonhomogeneous solution set is $x_1=1$, while the second is $x_1=1/2$. Row-equivalent coefficient matrices preserve the kernel, but preserving a nonhomogeneous solution set requires transforming the right side too. Scaling the first equation by two should produce $Cx=2$, not $Cx=1$.\n\nThe homogeneous kernel records allowable differences between solutions. It does not specify the affine offset required by a particular nonzero load.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG67",
+    "title": "A complete elimination certificate for an asserted solution family",
+    "stem": "A proposed family for $x+y+z=2$, $2x-y+z=1$ is $(1,1,0)+t(1,1,-2)$. Accept or reject it and repair the result.",
+    "solution": "The proposed particular point satisfies both equations. The proposed direction satisfies the first homogeneous equation but gives $2(1)-1-2=-1$ in the second, so it is not a null direction. Subtract the first equation from the second to get $x-2y=-1$, hence $x=2y-1$ and $z=3-3y$. Taking $y=1+t$ gives the correct family $(1,1,0)+t(2,1,-3)$. Checking the particular point alone would miss the defect; every spanning direction must satisfy every homogeneous equation.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG68",
+    "title": "Minimum-length member of an affine line",
+    "stem": "The solutions are $x=(1,2)^T+t(1,-1)^T$. Find the unique solution of minimum Euclidean norm using the parametrization.",
+    "solution": "The squared norm is $(1+t)^2+(2-t)^2=5-2t+2t^2$. Completing the square gives $2(t-1/2)^2+9/2$, whose minimum occurs at $t=1/2$. Thus $x=(3/2,3/2)^T$. Its inner product with the null direction is zero, which is the geometric optimality condition. This extension selects one representative but does not change the full solution set of the original equations; minimum norm is an additional criterion, not a claim that free variables must be zero.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LG69",
+    "title": "Deterministic pivot search versus maximum-magnitude search",
+    "stem": "In exact rational arithmetic, must one select the largest available pivot to obtain the correct RREF? Discuss work and the canonical result.",
+    "solution": "Any nonzero available pivot is algebraically valid because its row scaling and row additions are reversible. Different selections can produce different intermediate fractions and different REF matrices, but the RREF is canonical. A largest-magnitude rule is primarily a floating-point stability strategy; in exact arithmetic one may prefer a pivot reducing fraction growth. The correctness conditions are that a chosen pivot is nonzero, that its column is cleared correctly, that the full augmented row is transformed, and that skipped columns contain no eligible pivot. There is no magnitude order intrinsic to an arbitrary field.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  }
+]

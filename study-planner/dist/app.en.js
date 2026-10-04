@@ -160,12 +160,12 @@ function renderResources() {
   const list = courses?.courses || [];
   const universities = new Set(list.map(item => item.university)).size;
   byId("resources").innerHTML = `<section class="card"><p class="eyebrow">Source evaluation</p>
-    <h2>${list.length} candidate courses · ${universities} universities</h2>
+    <h2>${list.length} chapter-specific course entries · ${universities} universities</h2>
     <p>A candidate appears here after its course page and topic match have been checked. A catalogue match is not evidence that its full lecture text was read. For each chapter, the source audit distinguishes candidates from the four or more course texts actually synthesized.</p>
     <div class="actions"><a href="courses-week1.html">Open the detailed course register →</a></div>
     <div class="source-grid">${Object.entries(plan.subjects).map(([id, subject]) => {
       const matching = list.filter(course => course.subject === id);
-      return `<section class="source-card"><h3>${escapeHtml(subject.title)}</h3><p>${matching.length} candidate courses</p>
+      return `<section class="source-card"><h3>${escapeHtml(subject.title)}</h3><p>${matching.length} chapter-specific course entries</p>
         ${matching.map(course => `<p><a href="${escapeHtml(course.evidence)}" target="_blank" rel="noopener noreferrer">${escapeHtml(course.university)} · ${escapeHtml(course.course)} ↗</a></p>`).join("")}</section>`;
     }).join("")}</div></section>
     <section class="card"><h2>How sources are selected</h2><p>We compare the accessible lecture text, topic coverage, mathematical precision, proof quality, and explanatory strengths for the exact chapter. The result is a documented selection, not a claim that every course in the world has been exhaustively inspected.</p></section>`;

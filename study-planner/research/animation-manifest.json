@@ -637,13 +637,54 @@
         ]
       },
       "questionCount": 65,
-      "htmlSha256": "63ae70b2989cc78396573221f5a18d1d9a343b0db677623027f0b641f865d9f8"
+      "htmlSha256": "1e789c0a35fc2cf39b6f39ccf56a95ea8b6877254def1b5d383b11177fcc95bf"
+    },
+    {
+      "topicId": "l_gauss",
+      "placements": 10,
+      "scenarios": 12,
+      "sections": {
+        "geometry": [
+          "gauss-geometry"
+        ],
+        "operations": [
+          "gauss-coordinate"
+        ],
+        "elimination": [
+          "gauss-swap",
+          "gauss-skip"
+        ],
+        "solutions": [
+          "gauss-affine"
+        ],
+        "canonical": [
+          "gauss-inconsistent"
+        ],
+        "parameters": [
+          "gauss-parameters"
+        ],
+        "factorization": [
+          "gauss-lu",
+          "gauss-plu"
+        ],
+        "inverses": [
+          "gauss-inverse"
+        ],
+        "numerics": [
+          "gauss-rounding"
+        ],
+        "fields": [
+          "gauss-binary"
+        ]
+      },
+      "questionCount": 71,
+      "htmlSha256": "f34221d1d64d3973a7a214318b0c4b8e386544b947876541fd10b4286811d8f8"
     }
   ],
-  "uniqueScenarios": 124,
-  "checkpoints": 808,
-  "placements": 124,
-  "constructionAssertions": 2795,
+  "uniqueScenarios": 136,
+  "checkpoints": 868,
+  "placements": 134,
+  "constructionAssertions": 3020,
   "scope": "Original bounded explanatory models embedded in existing instructional sections. Written proofs remain authoritative; finite examples do not certify all inputs.",
   "checkpointsPrint": "Uninitialized players retain a printable first checkpoint. Initialized players print the currently selected exact checkpoint. No blank animation is required for offline reading."
 }
