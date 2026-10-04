@@ -715,13 +715,46 @@
         ]
       },
       "questionCount": 90,
-      "htmlSha256": "eceb192e61d39180b445e52e0ff16e37730a27c2661b729a05d0441217249455"
+      "htmlSha256": "17cfbaa6f76aff28fec001a49f06a4ab78fded9140b2d7adb7e86e561c3095f7"
+    },
+    {
+      "topicId": "p_functions",
+      "placements": 6,
+      "scenarios": 12,
+      "sections": {
+        "frames": [
+          "fn-nested",
+          "fn-recursion"
+        ],
+        "values": [
+          "fn-copy"
+        ],
+        "scope": [
+          "fn-lookup",
+          "fn-static"
+        ],
+        "pointers": [
+          "fn-pointer",
+          "fn-alias",
+          "fn-output"
+        ],
+        "order": [
+          "fn-orders"
+        ],
+        "python": [
+          "fn-sharing",
+          "fn-closure",
+          "fn-default"
+        ]
+      },
+      "questionCount": 91,
+      "htmlSha256": "870649453f8477afa7e2ec9642e5dbff28359daa0486f83a3d4fff94114eaa67"
     }
   ],
-  "uniqueScenarios": 148,
-  "checkpoints": 916,
-  "placements": 142,
-  "constructionAssertions": 3164,
+  "uniqueScenarios": 160,
+  "checkpoints": 974,
+  "placements": 148,
+  "constructionAssertions": 3338,
   "scope": "Original bounded explanatory models embedded in existing instructional sections. Written proofs remain authoritative; finite examples do not certify all inputs.",
   "checkpointsPrint": "Uninitialized players retain a printable first checkpoint. Initialized players print the currently selected exact checkpoint. No blank animation is required for offline reading."
 }

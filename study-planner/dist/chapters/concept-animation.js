@@ -60,5 +60,5 @@
   document.addEventListener("visibilitychange",()=>{if(document.hidden)players.forEach(p=>{p.pause();p.show(p.index,false);});});
   addEventListener("beforeprint",()=>{document.querySelectorAll(".concept-animation").forEach(init);players.forEach(p=>{p.pause();p.show(p.index,false);});});
   // Deterministic access is used by the chapter's finite-example browser audit.
-  window.ConceptAnimations={ready:init,players};
+  window.ConceptAnimations={ready:init,players,mount:(host,scenes)=>new Player(host,scenes)};
 })();

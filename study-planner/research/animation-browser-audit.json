@@ -188,6 +188,13 @@
       "overflow": false,
       "underlined": false,
       "topicId": "l_rank"
+    },
+    {
+      "players": 7,
+      "questions": 91,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "p_functions"
     }
   ],
   "scenarios": {
@@ -930,13 +937,73 @@
       "frames": 5,
       "entityMotion": true,
       "finalCounterexample": false
+    },
+    "fn-nested": {
+      "frames": 5,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "fn-recursion": {
+      "frames": 8,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "fn-copy": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "fn-lookup": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "fn-static": {
+      "frames": 9,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "fn-pointer": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "fn-alias": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "fn-output": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "fn-orders": {
+      "frames": 6,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "fn-sharing": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "fn-closure": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "fn-default": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
     }
   },
   "layoutIssues": [],
   "motionSample": {
     "busy": true,
     "record": "L0",
-    "transform": "translate(96.70066973107872 149.28593564734683)",
+    "transform": "translate(96.3644262401234 156.34704895740862)",
     "start": {
       "x": 100,
       "y": 80

@@ -1,0 +1,501 @@
+{
+  "state": "passed",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\p-functions-browser",
+  "chapters": [
+    {
+      "topicId": "p_functions",
+      "figures": [
+        {
+          "index": 0,
+          "title": "Sequential nested helper frames",
+          "viewBox": [
+            700,
+            390
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "One caller waits; helper invocations are sequential",
+              "x": 116.96672058105469,
+              "y": 13.256882667541504,
+              "w": 466.20892333984375,
+              "h": 22.324153900146484,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "combine: first pending",
+              "x": 62.965885162353516,
+              "y": 107.95958709716797,
+              "w": 219.09561157226562,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "affine(2) \u2192 7",
+              "x": 463.6792907714844,
+              "y": 107.95958709716797,
+              "w": 127.64134216308594,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "combine: first = 7",
+              "x": 86.08732604980469,
+              "y": 242.95957946777344,
+              "w": 172.82533264160156,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "affine(7) \u2192 22",
+              "x": 457.98614501953125,
+              "y": 242.95957946777344,
+              "w": 139.02764892578125,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "combine returns 7 + 22 = 29",
+              "x": 211.41458129882812,
+              "y": 332.4595947265625,
+              "w": 277.1708068847656,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "p_functions-figure-1.png"
+        },
+        {
+          "index": 1,
+          "title": "Copy state and returned result",
+          "viewBox": [
+            700,
+            410
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Three separate quantities in one scalar call",
+              "x": 143.51754760742188,
+              "y": 12.459892272949219,
+              "w": 412.9648742675781,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "caller a = 4",
+              "x": 65.54841613769531,
+              "y": 122.95989227294922,
+              "w": 109.4744644165039,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "parameter x = 4",
+              "x": 272.6142272949219,
+              "y": 122.95989227294922,
+              "w": 155.34645080566406,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "local x = 7",
+              "x": 529.3541259765625,
+              "y": 122.95989227294922,
+              "w": 101.2916259765625,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "returned result = 14",
+              "x": 252.38954162597656,
+              "y": 267.95989990234375,
+              "w": 195.79197692871094,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Caller a stays 4; only the copied parameter changes",
+              "x": 113.92485046386719,
+              "y": 353.25714111328125,
+              "w": 472.2221984863281,
+              "h": 22.323772430419922,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "p_functions-figure-2.png"
+        },
+        {
+          "index": 2,
+          "title": "Lexical lookup and caller continuation",
+          "viewBox": [
+            700,
+            410
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Lexical environment is not the active call tree",
+              "x": 139.73670959472656,
+              "y": 13.257169723510742,
+              "w": 420.6723327636719,
+              "h": 22.323772430419922,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "file object x = 10",
+              "x": 89.49365234375,
+              "y": 122.95989227294922,
+              "w": 161.0126953125,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "caller local x = 3",
+              "x": 449.7926330566406,
+              "y": 122.95989227294922,
+              "w": 160.41473388671875,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "read_x selects file object",
+              "x": 232.9123077392578,
+              "y": 272.9598693847656,
+              "w": 234.89532470703125,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "read_x() + caller x = 13",
+              "x": 235.2854461669922,
+              "y": 357.45989990234375,
+              "w": 229.4290771484375,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "p_functions-figure-3.png"
+        },
+        {
+          "index": 3,
+          "title": "Alias-mediated sequential composition",
+          "viewBox": [
+            700,
+            415
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Two copied pointers; one shared target",
+              "x": 162.6065673828125,
+              "y": 12.459698677062988,
+              "w": 375.5046081542969,
+              "h": 23.121305465698242,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "parameter p \u2192 a",
+              "x": 74.4927749633789,
+              "y": 112.95970153808594,
+              "w": 161.9243927001953,
+              "h": 23.121305465698242,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "parameter q \u2192 a",
+              "x": 464.67962646484375,
+              "y": 112.95970153808594,
+              "w": 161.55648803710938,
+              "h": 23.121305465698242,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "a: 4 \u2192 6 \u2192 18",
+              "x": 283.58856201171875,
+              "y": 262.959716796875,
+              "w": 132.82293701171875,
+              "h": 23.121305465698242,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "The second statement reads the first statement\u2019s update",
+              "x": 104.7908935546875,
+              "y": 364.0542907714844,
+              "w": 490.4183349609375,
+              "h": 20.729446411132812,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "p_functions-figure-4.png"
+        },
+        {
+          "index": 4,
+          "title": "C17 indeterminately sequenced helper bodies",
+          "viewBox": [
+            700,
+            405
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Two permitted alternatives from the same initial state",
+              "x": 113.22990417480469,
+              "y": 14.054627418518066,
+              "w": 473.5401916503906,
+              "h": 20.728984832763672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "left call 1; right call 2",
+              "x": 73.77803039550781,
+              "y": 117.96009063720703,
+              "w": 202.44393920898438,
+              "h": 23.120790481567383,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "right call 1; left call 2",
+              "x": 423.77801513671875,
+              "y": 117.96009063720703,
+              "w": 202.44393920898438,
+              "h": 23.120790481567383,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "difference = \u22121",
+              "x": 98.81101989746094,
+              "y": 257.9600830078125,
+              "w": 152.37796020507812,
+              "h": 23.120790481567383,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "difference = 1",
+              "x": 457.0888977050781,
+              "y": 257.9600830078125,
+              "w": 135.8221893310547,
+              "h": 23.120790481567383,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "counter ends at 2 in both branches",
+              "x": 182.74176025390625,
+              "y": 352.4600830078125,
+              "w": 334.5164794921875,
+              "h": 23.120790481567383,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "p_functions-figure-5.png"
+        },
+        {
+          "index": 5,
+          "title": "Caller and callee proof obligations",
+          "viewBox": [
+            700,
+            410
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Modular reasoning across a function boundary",
+              "x": 123.36138153076172,
+              "y": 12.459892272949219,
+              "w": 454.12359619140625,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "caller proves precondition",
+              "x": 43.7311897277832,
+              "y": 112.95988464355469,
+              "w": 252.84677124023438,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "callee assumes it",
+              "x": 449.0514221191406,
+              "y": 112.95988464355469,
+              "w": 162.62686157226562,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "caller uses postcondition",
+              "x": 50.0159797668457,
+              "y": 267.95989990234375,
+              "w": 240.2693634033203,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "callee proves each return",
+              "x": 409.01934814453125,
+              "y": 267.95989990234375,
+              "w": 242.26980590820312,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Frame conditions and termination are separate obligations",
+              "x": 91.02803802490234,
+              "y": 359.054443359375,
+              "w": 517.9439086914062,
+              "h": 20.729217529296875,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "p_functions-figure-6.png"
+        },
+        {
+          "index": 6,
+          "title": "Python object mutation versus name rebinding",
+          "viewBox": [
+            700,
+            420
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "A shared object survives a local rebinding",
+              "x": 147.8917236328125,
+              "y": 12.460033416748047,
+              "w": 403.44281005859375,
+              "h": 23.120866775512695,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "caller data \u2192 original",
+              "x": 40.49518966674805,
+              "y": 112.96003723144531,
+              "w": 209.0096435546875,
+              "h": 23.120866775512695,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "local values \u2192 new",
+              "x": 461.8064880371094,
+              "y": 112.96003723144531,
+              "w": 187.49884033203125,
+              "h": 23.120866775512695,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "original list: [2, 7]",
+              "x": 59.36809539794922,
+              "y": 277.9600524902344,
+              "w": 171.26382446289062,
+              "h": 23.120866775512695,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "new list: [99]",
+              "x": 492.1090087890625,
+              "y": 277.9600524902344,
+              "w": 125.78199768066406,
+              "h": 23.120866775512695,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Mutation affected the original; rebinding selected another object",
+              "x": 79.09593963623047,
+              "y": 369.85186767578125,
+              "w": 542.6763305664062,
+              "h": 19.931781768798828,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "p_functions-figure-7.png"
+        }
+      ],
+      "solutionPrint": {
+        "count": 91,
+        "allOpened": true,
+        "restored": true
+      },
+      "fonts": {
+        "loaded": [
+          "Source Sans 3",
+          "Newsreader",
+          "STIX Two Math",
+          "JetBrains Mono",
+          "Math Glyphs"
+        ],
+        "math": [
+          "\"STIX Two Math\", serif"
+        ]
+      },
+      "laboratory": {
+        "models": 5,
+        "acceptedInputCases": 205,
+        "invalidInputCases": 8,
+        "exactTransitions": true,
+        "tokenMotion": true,
+        "controlChecks": true,
+        "textBounds": true
+      },
+      "dedicatedFonts": {
+        "body": "\"Math Glyphs\", \"Source Sans 3\", sans-serif",
+        "title": "Newsreader, \"STIX Two Math\", serif",
+        "code": "\"JetBrains Mono\", ui-monospace, monospace",
+        "math": true,
+        "underline": false
+      },
+      "mobile": {
+        "viewport": 390,
+        "document": 390,
+        "formulaOverflow": [],
+        "inlineMathOverflow": [],
+        "figureSizes": [
+          {
+            "width": 324,
+            "fontSize": "22px"
+          },
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "22px"
+          },
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "21px"
+          },
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "23px"
+          }
+        ],
+        "problems": 91,
+        "codeFonts": [
+          "\"JetBrains Mono\", ui-monospace, monospace"
+        ]
+      },
+      "printStyle": {
+        "diagramOverflow": 0,
+        "mathFonts": [
+          "\"STIX Two Math\", serif"
+        ]
+      }
+    }
+  ]
+}

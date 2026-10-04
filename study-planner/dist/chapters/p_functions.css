@@ -1,0 +1,12 @@
+.functions-diagram svg text{font-family:"STIX Two Math",serif;font-weight:400}
+.functions-diagram svg{width:100%;height:auto}
+#functions-form{display:grid;gap:1rem}
+#functions-form label{display:grid;gap:.5rem}
+#functions-form input,#functions-form select{font:inherit;padding:.6rem;border:1px solid #90b6be;border-radius:.5rem;max-width:100%;min-width:0;box-sizing:border-box}
+.lab button,.functions-figure-toggle{font:inherit;font-weight:400;background:#f8fcfc;color:#245a61;border:1px solid #90b6be;border-radius:.5rem;padding:.6rem .85rem;cursor:pointer}
+.review-rule{margin:1.3rem 0;padding:1rem 1.2rem;background:#f0f6f5;border-left:3px solid #56877e;border-radius:.4rem}
+.review-rule h4{margin:.1rem 0 .5rem}
+.functions-figure-toggle{display:none}
+.chapter math{max-width:100%}
+@media screen and (max-width:650px){.lesson .functions-diagram svg{width:100%;min-width:0;max-width:100%}.lesson .functions-diagram.expanded svg{width:700px;min-width:700px;max-width:none}.functions-figure-toggle{display:block;margin:.6rem 0}}
+@media print{#functions-form,.functions-figure-toggle{display:none}}

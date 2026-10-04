@@ -1,0 +1,285 @@
+{
+  "state": "reviewed",
+  "courses": [
+    {
+      "id": "cambridge-functions-written",
+      "subject": "programming",
+      "university": "Cambridge",
+      "course": "Programming in C, Michaelmas 2017\u201318; Neel Krishnaswami",
+      "url": "https://www.cl.cam.ac.uk/teaching/1718/ProgC/lectures/lecture2.pdf",
+      "evidence": "https://www.cl.cam.ac.uk/teaching/1718/ProgC/lectures/lecture2.pdf",
+      "topics": [
+        "p_functions"
+      ],
+      "advantage": "Primary: C interfaces, storage/linkage and macro contrast; All 19 slides; selected emphasis pp. 2\u20138,14\u201319",
+      "limit": "Bounded written chapter scope; no claim of global exhaustiveness. See source audit for language reconciliation.",
+      "access": "Official publicly accessible written text",
+      "reviewed": true,
+      "reviewScope": "All 19 slides; selected emphasis pp. 2\u20138,14\u201319",
+      "selectionRole": "Primary: C interfaces, storage/linkage and macro contrast",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 5,
+        "semanticDepth": 4,
+        "exerciseValue": 4
+      },
+      "sourceDocuments": [
+        {
+          "id": "cambridge",
+          "url": "https://www.cl.cam.ac.uk/teaching/1718/ProgC/lectures/lecture2.pdf",
+          "sha256": "ffda80f131c139091ca98ebced1b1d1bdb53b19dc09a459f8cea046e4d95e15f",
+          "pages": 19,
+          "retrievalURL": "https://www.cl.cam.ac.uk/teaching/1718/ProgC/lectures/lecture2.pdf?chapter=functions"
+        }
+      ]
+    },
+    {
+      "id": "berkeley13-functions-written",
+      "subject": "programming",
+      "university": "UC Berkeley",
+      "course": "CS61A, Composing Programs; John DeNero",
+      "url": "https://composingprograms.com/pages/13-defining-new-functions.html",
+      "evidence": "https://composingprograms.com/pages/13-defining-new-functions.html",
+      "topics": [
+        "p_functions"
+      ],
+      "advantage": "Primary: environment identity, lexical parents and closures; \u00a71.3 all; \u00a71.6.3\u20131.6.4 all; \u00a72.4.2 sequence sharing and mutation",
+      "limit": "Bounded written chapter scope; no claim of global exhaustiveness. See source audit for language reconciliation.",
+      "access": "Official publicly accessible written text",
+      "reviewed": true,
+      "reviewScope": "\u00a71.3 all; \u00a71.6.3\u20131.6.4 all; \u00a72.4.2 sequence sharing and mutation",
+      "selectionRole": "Primary: environment identity, lexical parents and closures",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 4,
+        "semanticDepth": 5,
+        "exerciseValue": 4
+      },
+      "sourceDocuments": [
+        {
+          "id": "berkeley13",
+          "url": "https://composingprograms.com/pages/13-defining-new-functions.html",
+          "sha256": "77a4245e235267f3b1409995ba0fb01466228d08aeeb7ed622a0459d9ee29317",
+          "pages": null
+        },
+        {
+          "id": "berkeley16",
+          "url": "https://composingprograms.com/pages/16-higher-order-functions.html",
+          "sha256": "dfe25e40463062648510b1165f66df761e2ecc45df8bc06059f59232c55feb27",
+          "pages": null
+        },
+        {
+          "id": "berkeley24",
+          "url": "https://composingprograms.com/pages/24-mutable-data.html",
+          "sha256": "7a66af669941b362b4201e5c516206942311edd36abd3b93e0b02c211210cfc8",
+          "pages": null
+        }
+      ]
+    },
+    {
+      "id": "harvard4-functions-written",
+      "subject": "programming",
+      "university": "Harvard",
+      "course": "CS50x 2025; David J. Malan",
+      "url": "https://cs50.harvard.edu/x/2025/notes/4/",
+      "evidence": "https://cs50.harvard.edu/x/2025/notes/4/",
+      "topics": [
+        "p_functions"
+      ],
+      "advantage": "Primary: direct caller/callee target comparison; Lecture 1 Functions; Lecture 4 Swapping including both pointer/value examples",
+      "limit": "Bounded written chapter scope; no claim of global exhaustiveness. See source audit for language reconciliation.",
+      "access": "Official publicly accessible written text",
+      "reviewed": true,
+      "reviewScope": "Lecture 1 Functions; Lecture 4 Swapping including both pointer/value examples",
+      "selectionRole": "Primary: direct caller/callee target comparison",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 4,
+        "semanticDepth": 4,
+        "exerciseValue": 3
+      },
+      "sourceDocuments": [
+        {
+          "id": "harvard1",
+          "url": "https://cs50.harvard.edu/x/2025/notes/1/",
+          "sha256": "474b80b131768e19cc3736d452108edd6b70c45f3de47328eb602651726f2789",
+          "pages": null
+        },
+        {
+          "id": "harvard4",
+          "url": "https://cs50.harvard.edu/x/2025/notes/4/",
+          "sha256": "12c121fb47ba5a9aafeeb70c1f940541db05558a0ac45217da4547b3e56b53d6",
+          "pages": null
+        }
+      ]
+    },
+    {
+      "id": "cmu-functions-written",
+      "subject": "programming",
+      "university": "CMU",
+      "course": "15-122 Fall 2026; Frank Pfenning, Iliano Cervesato",
+      "url": "https://www.cs.cmu.edu/~15122/handouts/lectures/01-contracts.pdf",
+      "evidence": "https://www.cs.cmu.edu/~15122/handouts/lectures/01-contracts.pdf",
+      "topics": [
+        "p_functions"
+      ],
+      "advantage": "Primary: modular specifications and proof obligations; pp. 19\u201339 read; pp. 1\u201310 introductory example context",
+      "limit": "Bounded written chapter scope; no claim of global exhaustiveness. See source audit for language reconciliation.",
+      "access": "Official publicly accessible written text",
+      "reviewed": true,
+      "reviewScope": "pp. 19\u201339 read; pp. 1\u201310 introductory example context",
+      "selectionRole": "Primary: modular specifications and proof obligations",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 4,
+        "semanticDepth": 5,
+        "exerciseValue": 5
+      },
+      "sourceDocuments": [
+        {
+          "id": "cmu",
+          "url": "https://www.cs.cmu.edu/~15122/handouts/lectures/01-contracts.pdf",
+          "sha256": "d5abca5e73b27ba770fb99c2efbfce34986e42a24def068bc6b13099c22276e0",
+          "pages": 39
+        }
+      ]
+    },
+    {
+      "id": "stanford-functions-written",
+      "subject": "programming",
+      "university": "Stanford",
+      "course": "CS106B, Winter 2016; course teaching staff",
+      "url": "https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1164/handouts/1-PassbyReference.pdf",
+      "evidence": "https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1164/handouts/1-PassbyReference.pdf",
+      "topics": [
+        "p_functions"
+      ],
+      "advantage": "Selected supplemental comparison: true C++ references; Functions and Pass by Reference, both pages",
+      "limit": "Bounded written chapter scope; no claim of global exhaustiveness. See source audit for language reconciliation.",
+      "access": "Official publicly accessible written text",
+      "reviewed": true,
+      "reviewScope": "Functions and Pass by Reference, both pages",
+      "selectionRole": "Selected supplemental comparison: true C++ references",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 3,
+        "semanticDepth": 3,
+        "exerciseValue": 3
+      },
+      "sourceDocuments": [
+        {
+          "id": "stanford",
+          "url": "https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1164/handouts/1-PassbyReference.pdf",
+          "sha256": "5dfbd2aa55697b52e6c43b84ec2c87ee491d236f82acaf37f91a2eaee5f29646",
+          "pages": 2,
+          "retrievalURL": "https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1164/handouts/1-PassbyReference.pdf?chapter=functions"
+        }
+      ]
+    },
+    {
+      "id": "mit-functions-written",
+      "subject": "programming",
+      "university": "MIT",
+      "course": "6.0001, Fall 2016; Ana Bell, Eric Grimson, John Guttag",
+      "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/6ba59859535f1566dd57a7279aeba5d1_MIT6_0001F16_Lec4.pdf",
+      "evidence": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/6ba59859535f1566dd57a7279aeba5d1_MIT6_0001F16_Lec4.pdf",
+      "topics": [
+        "p_functions"
+      ],
+      "advantage": "Selected supplemental comparison: return, scope, decomposition; Lecture 4 slides 3\u201335 read",
+      "limit": "Bounded written chapter scope; no claim of global exhaustiveness. See source audit for language reconciliation.",
+      "access": "Official publicly accessible written text",
+      "reviewed": true,
+      "reviewScope": "Lecture 4 slides 3\u201335 read",
+      "selectionRole": "Selected supplemental comparison: return, scope, decomposition",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 4,
+        "semanticDepth": 4,
+        "exerciseValue": 3
+      },
+      "sourceDocuments": [
+        {
+          "id": "mit",
+          "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/6ba59859535f1566dd57a7279aeba5d1_MIT6_0001F16_Lec4.pdf",
+          "sha256": "eac916af74cd039a9f1a85a611e1ef5776a14e1ae0f4a0e6b3fccbcb2e782530",
+          "pages": 35,
+          "retrievalURL": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/6ba59859535f1566dd57a7279aeba5d1_MIT6_0001F16_Lec4.pdf?chapter=functions"
+        }
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "cambridge",
+      "url": "https://www.cl.cam.ac.uk/teaching/1718/ProgC/lectures/lecture2.pdf",
+      "sha256": "ffda80f131c139091ca98ebced1b1d1bdb53b19dc09a459f8cea046e4d95e15f",
+      "pages": 19,
+      "retrievalURL": "https://www.cl.cam.ac.uk/teaching/1718/ProgC/lectures/lecture2.pdf?chapter=functions"
+    },
+    {
+      "id": "stanford",
+      "url": "https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1164/handouts/1-PassbyReference.pdf",
+      "sha256": "5dfbd2aa55697b52e6c43b84ec2c87ee491d236f82acaf37f91a2eaee5f29646",
+      "pages": 2,
+      "retrievalURL": "https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1164/handouts/1-PassbyReference.pdf?chapter=functions"
+    },
+    {
+      "id": "cmu",
+      "url": "https://www.cs.cmu.edu/~15122/handouts/lectures/01-contracts.pdf",
+      "sha256": "d5abca5e73b27ba770fb99c2efbfce34986e42a24def068bc6b13099c22276e0",
+      "pages": 39
+    },
+    {
+      "id": "berkeley13",
+      "url": "https://composingprograms.com/pages/13-defining-new-functions.html",
+      "sha256": "77a4245e235267f3b1409995ba0fb01466228d08aeeb7ed622a0459d9ee29317",
+      "pages": null
+    },
+    {
+      "id": "berkeley16",
+      "url": "https://composingprograms.com/pages/16-higher-order-functions.html",
+      "sha256": "dfe25e40463062648510b1165f66df761e2ecc45df8bc06059f59232c55feb27",
+      "pages": null
+    },
+    {
+      "id": "berkeley24",
+      "url": "https://composingprograms.com/pages/24-mutable-data.html",
+      "sha256": "7a66af669941b362b4201e5c516206942311edd36abd3b93e0b02c211210cfc8",
+      "pages": null
+    },
+    {
+      "id": "harvard1",
+      "url": "https://cs50.harvard.edu/x/2025/notes/1/",
+      "sha256": "474b80b131768e19cc3736d452108edd6b70c45f3de47328eb602651726f2789",
+      "pages": null
+    },
+    {
+      "id": "harvard4",
+      "url": "https://cs50.harvard.edu/x/2025/notes/4/",
+      "sha256": "12c121fb47ba5a9aafeeb70c1f940541db05558a0ac45217da4547b3e56b53d6",
+      "pages": null
+    },
+    {
+      "id": "python",
+      "url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "sha256": "400a1a3e5a7472b18e56c21882ea6801e8f0203837e00e73aebfb64d60574d3f",
+      "pages": null
+    },
+    {
+      "id": "wg14",
+      "url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf",
+      "sha256": "208969fec021e4f4ce87a1873765298c73e7bbb5209b1c5868967c7adfc8492e",
+      "pages": 701
+    },
+    {
+      "id": "mit",
+      "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/6ba59859535f1566dd57a7279aeba5d1_MIT6_0001F16_Lec4.pdf",
+      "sha256": "eac916af74cd039a9f1a85a611e1ef5776a14e1ae0f4a0e6b3fccbcb2e782530",
+      "pages": 35,
+      "retrievalURL": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/6ba59859535f1566dd57a7279aeba5d1_MIT6_0001F16_Lec4.pdf?chapter=functions"
+    }
+  ],
+  "readingDate": "2026-10-04",
+  "scope": "Six reviewed courses, four primary universities and two supplemental comparisons; hashes identify the actually acquired documents."
+}
