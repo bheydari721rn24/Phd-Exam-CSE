@@ -1,0 +1,709 @@
+{
+  "state": "passed",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\p-arrays-browser",
+  "chapters": [
+    {
+      "topicId": "p_arrays",
+      "figures": [
+        {
+          "index": 0,
+          "title": "Element indices and exclusive end",
+          "viewBox": [
+            700,
+            340
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Six live elements, seven logical boundaries",
+              "x": 144.3905029296875,
+              "y": 12.459970474243164,
+              "w": 411.218994140625,
+              "h": 23.120946884155273,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "2",
+              "x": 59.30696487426758,
+              "y": 130.45997619628906,
+              "w": 11.386070251464844,
+              "h": 23.120946884155273,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "i = 0",
+              "x": 44.32070541381836,
+              "y": 189.05453491210938,
+              "w": 41.35859298706055,
+              "h": 20.7291259765625,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "4",
+              "x": 159.3069610595703,
+              "y": 130.45997619628906,
+              "w": 11.959111213684082,
+              "h": 23.120946884155273,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "i = 1",
+              "x": 144.32069396972656,
+              "y": 189.05453491210938,
+              "w": 41.35859298706055,
+              "h": 20.7291259765625,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "6",
+              "x": 259.3069763183594,
+              "y": 130.45997619628906,
+              "w": 11.386070251464844,
+              "h": 23.120946884155273,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "i = 2",
+              "x": 244.32070922851562,
+              "y": 189.05453491210938,
+              "w": 41.35859298706055,
+              "h": 20.7291259765625,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "8",
+              "x": 359.3069763183594,
+              "y": 130.45997619628906,
+              "w": 11.386070251464844,
+              "h": 23.120946884155273,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "i = 3",
+              "x": 344.3207092285156,
+              "y": 189.05453491210938,
+              "w": 41.35859298706055,
+              "h": 20.7291259765625,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "10",
+              "x": 453.61395263671875,
+              "y": 130.45997619628906,
+              "w": 22.772140502929688,
+              "h": 23.120946884155273,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "i = 4",
+              "x": 444.3207092285156,
+              "y": 189.05453491210938,
+              "w": 41.35859298706055,
+              "h": 20.7291259765625,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "12",
+              "x": 553.6139526367188,
+              "y": 130.45997619628906,
+              "w": 22.772140502929688,
+              "h": 23.120946884155273,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "i = 5",
+              "x": 544.3206787109375,
+              "y": 189.05453491210938,
+              "w": 41.35859298706055,
+              "h": 20.7291259765625,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "end",
+              "x": 632.628173828125,
+              "y": 123.25724792480469,
+              "w": 34.835777282714844,
+              "h": 22.323673248291016,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0 \u2264 i < 6 permits reads; boundary 6 is one-past",
+              "x": 134.03216552734375,
+              "y": 273.25726318359375,
+              "w": 432.1752014160156,
+              "h": 22.323673248291016,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "p_arrays-figure-1.png"
+        },
+        {
+          "index": 1,
+          "title": "Dense layout and inverse map",
+          "viewBox": [
+            700,
+            380
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Row-major strides: four elements per row",
+              "x": 148.95652770996094,
+              "y": 12.460004806518555,
+              "w": 403.1995544433594,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0,0 \u2192 0",
+              "x": 63.80507278442383,
+              "y": 87.95999908447266,
+              "w": 72.38985443115234,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0,1 \u2192 1",
+              "x": 228.80506896972656,
+              "y": 87.95999908447266,
+              "w": 72.38985443115234,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0,2 \u2192 2",
+              "x": 393.8050842285156,
+              "y": 87.95999908447266,
+              "w": 72.38985443115234,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0,3 \u2192 3",
+              "x": 558.8050537109375,
+              "y": 87.95999908447266,
+              "w": 72.38985443115234,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1,0 \u2192 4",
+              "x": 63.80507278442383,
+              "y": 162.9600067138672,
+              "w": 72.96037292480469,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1,1 \u2192 5",
+              "x": 228.80506896972656,
+              "y": 162.9600067138672,
+              "w": 72.38985443115234,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1,2 \u2192 6",
+              "x": 393.8050842285156,
+              "y": 162.9600067138672,
+              "w": 72.38985443115234,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1,3 \u2192 7",
+              "x": 558.8050537109375,
+              "y": 162.9600067138672,
+              "w": 72.38985443115234,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "2,0 \u2192 8",
+              "x": 63.80507278442383,
+              "y": 237.9600067138672,
+              "w": 72.38985443115234,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "2,1 \u2192 9",
+              "x": 228.80506896972656,
+              "y": 237.9600067138672,
+              "w": 72.38985443115234,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "2,2 \u2192 10",
+              "x": 388.112060546875,
+              "y": 237.9600067138672,
+              "w": 83.7759017944336,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "2,3 \u2192 11",
+              "x": 553.112060546875,
+              "y": 237.9600067138672,
+              "w": 83.7759017944336,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Inverse: row = floor(offset / 4); column = offset mod 4",
+              "x": 121.66863250732422,
+              "y": 319.851806640625,
+              "w": 457.1258544921875,
+              "h": 19.931812286376953,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "p_arrays-figure-2.png"
+        },
+        {
+          "index": 2,
+          "title": "Prefix boundaries and cancellation",
+          "viewBox": [
+            700,
+            330
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Prefix values belong to boundaries",
+              "x": 183.5923309326172,
+              "y": 12.459796905517578,
+              "w": 332.8153991699219,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0",
+              "x": 64.3069076538086,
+              "y": 117.95980072021484,
+              "w": 11.386183738708496,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "P[0]",
+              "x": 51.50056457519531,
+              "y": 184.0543670654297,
+              "w": 36.99886703491211,
+              "h": 20.72934341430664,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "3",
+              "x": 174.30690002441406,
+              "y": 117.95980072021484,
+              "w": 11.386183738708496,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "P[1]",
+              "x": 161.50057983398438,
+              "y": 184.0543670654297,
+              "w": 36.99886703491211,
+              "h": 20.72934341430664,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1",
+              "x": 284.3069152832031,
+              "y": 117.95980072021484,
+              "w": 11.386183738708496,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "P[2]",
+              "x": 271.5005798339844,
+              "y": 184.0543670654297,
+              "w": 36.99886703491211,
+              "h": 20.72934341430664,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "6",
+              "x": 394.306884765625,
+              "y": 117.95980072021484,
+              "w": 11.386183738708496,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "P[3]",
+              "x": 381.50054931640625,
+              "y": 184.0543670654297,
+              "w": 36.99886703491211,
+              "h": 20.72934341430664,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "7",
+              "x": 504.306884765625,
+              "y": 117.95980072021484,
+              "w": 11.386183738708496,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "P[4]",
+              "x": 491.50054931640625,
+              "y": 184.0543670654297,
+              "w": 36.99886703491211,
+              "h": 20.72934341430664,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "3",
+              "x": 614.306884765625,
+              "y": 117.95980072021484,
+              "w": 11.386183738708496,
+              "h": 23.121177673339844,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "P[5]",
+              "x": 601.5005493164062,
+              "y": 184.0543670654297,
+              "w": 36.99886703491211,
+              "h": 20.72934341430664,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Sum A[1:4) = P[4] \u2212 P[1] = 7 \u2212 3 = 4",
+              "x": 176.45416259765625,
+              "y": 268.257080078125,
+              "w": 347.3640441894531,
+              "h": 22.323894500732422,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "p_arrays-figure-3.png"
+        },
+        {
+          "index": 3,
+          "title": "Overlap counterexample and safe direction",
+          "viewBox": [
+            700,
+            400
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Rightward overlap: preserve the original source",
+              "x": 130.5848846435547,
+              "y": 13.257031440734863,
+              "w": 438.9773864746094,
+              "h": 22.323959350585938,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "forward \u2192 [1,1,1,1]",
+              "x": 76.23814392089844,
+              "y": 112.95974731445312,
+              "w": 187.52374267578125,
+              "h": 23.12124252319336,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "reverse \u2192 [1,1,2,3]",
+              "x": 439.8134460449219,
+              "y": 112.95974731445312,
+              "w": 180.37310791015625,
+              "h": 23.12124252319336,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "original source segment: [1,2,3]",
+              "x": 198.01768493652344,
+              "y": 247.95973205566406,
+              "w": 303.9646301269531,
+              "h": 23.12124252319336,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Copy high indices first when destination is to the right",
+              "x": 109.26375579833984,
+              "y": 344.0543212890625,
+              "w": 482.0255432128906,
+              "h": 20.72939109802246,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "p_arrays-figure-4.png"
+        },
+        {
+          "index": 4,
+          "title": "Nested row sharing",
+          "viewBox": [
+            700,
+            410
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "New outer list, shared inner row",
+              "x": 193.40968322753906,
+              "y": 12.459892272949219,
+              "w": 314.286376953125,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "A: outer object 1",
+              "x": 84.58706665039062,
+              "y": 110.45989227294922,
+              "w": 160.028564453125,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "B: outer object 2",
+              "x": 456.5304260253906,
+              "y": 110.45989227294922,
+              "w": 156.93910217285156,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "one shared row: [2,7]",
+              "x": 247.73045349121094,
+              "y": 262.95989990234375,
+              "w": 204.5390625,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "An outer slice copies references, not inner objects",
+              "x": 119.76117706298828,
+              "y": 353.25714111328125,
+              "w": 459.75537109375,
+              "h": 22.323772430419922,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "p_arrays-figure-5.png"
+        },
+        {
+          "index": 5,
+          "title": "Distinct backing objects during growth",
+          "viewBox": [
+            700,
+            410
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Expansion: length 3, capacity 3 \u2192 6",
+              "x": 177.86900329589844,
+              "y": 12.459892272949219,
+              "w": 344.261962890625,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "old: [2,4,6]",
+              "x": 113.38871765136719,
+              "y": 117.95989227294922,
+              "w": 103.22252655029297,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "new: [2,4,6,_,_,_]",
+              "x": 447.0706787109375,
+              "y": 117.95989227294922,
+              "w": 165.858642578125,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "peak storage: 3 + 6 = 9 slots",
+              "x": 214.83029174804688,
+              "y": 262.95989990234375,
+              "w": 270.3393859863281,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Release old storage only after copying all live entries",
+              "x": 119.26910400390625,
+              "y": 354.054443359375,
+              "w": 461.4617614746094,
+              "h": 20.729217529296875,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "p_arrays-figure-6.png"
+        },
+        {
+          "index": 6,
+          "title": "Packed lower-triangle positions",
+          "viewBox": [
+            700,
+            395
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Lower triangle: row starts are triangular counts",
+              "x": 131.29122924804688,
+              "y": 13.257221221923828,
+              "w": 437.4878234863281,
+              "h": 22.323705673217773,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0,0 \u2192 0",
+              "x": 88.8049545288086,
+              "y": 107.95994567871094,
+              "w": 72.39009857177734,
+              "h": 23.120981216430664,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1,0 \u2192 1",
+              "x": 88.8049545288086,
+              "y": 182.95994567871094,
+              "w": 72.39009857177734,
+              "h": 23.12099266052246,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1,1 \u2192 2",
+              "x": 268.8049621582031,
+              "y": 182.95994567871094,
+              "w": 72.39009857177734,
+              "h": 23.12099266052246,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "2,0 \u2192 3",
+              "x": 88.8049545288086,
+              "y": 257.9599609375,
+              "w": 72.39009857177734,
+              "h": 23.120981216430664,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "2,1 \u2192 4",
+              "x": 268.8049621582031,
+              "y": 257.9599609375,
+              "w": 72.96060943603516,
+              "h": 23.120981216430664,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "2,2 \u2192 5",
+              "x": 448.8049621582031,
+              "y": 257.9599609375,
+              "w": 72.39009857177734,
+              "h": 23.120981216430664,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "offset = i(i + 1)/2 + j, with 0 \u2264 j \u2264 i",
+              "x": 186.7890625,
+              "y": 333.2572326660156,
+              "w": 326.51971435546875,
+              "h": 22.323705673217773,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "p_arrays-figure-7.png"
+        }
+      ],
+      "solutionPrint": {
+        "count": 83,
+        "allOpened": true,
+        "restored": true
+      },
+      "fonts": {
+        "loaded": [
+          "Source Sans 3",
+          "Newsreader",
+          "STIX Two Math",
+          "JetBrains Mono",
+          "Math Glyphs"
+        ],
+        "math": [
+          "\"STIX Two Math\", serif"
+        ]
+      },
+      "laboratory": {
+        "models": 6,
+        "acceptedInputCases": 540,
+        "invalidInputCases": 11,
+        "exactTransitions": true,
+        "tokenMotion": true,
+        "controlChecks": true,
+        "textBounds": true
+      },
+      "dedicatedFonts": {
+        "body": "\"Math Glyphs\", \"Source Sans 3\", sans-serif",
+        "title": "Newsreader, \"STIX Two Math\", serif",
+        "code": "\"JetBrains Mono\", ui-monospace, monospace",
+        "math": true,
+        "underline": false
+      },
+      "mobile": {
+        "viewport": 390,
+        "document": 390,
+        "formulaOverflow": [],
+        "inlineMathOverflow": [],
+        "figureSizes": [
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "22px"
+          },
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "22px"
+          }
+        ],
+        "problems": 83,
+        "codeFonts": [
+          "\"JetBrains Mono\", ui-monospace, monospace"
+        ]
+      },
+      "printStyle": {
+        "diagramOverflow": 0,
+        "mathFonts": [
+          "\"STIX Two Math\", serif"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "MS_CS_1393_Q167",
+    "booklet": "MS_CS_1393",
+    "pdfPage": 34,
+    "questionNumber": 167,
+    "topics": [
+      "p_flow",
+      "d_invariants"
+    ],
+    "title": "Recursive reverse-stride copying",
+    "stem": "Copy every other element of an $N$-element array `a`, starting at its last element, into array `b` from index zero upward. Call `store(N-1,0)`. Which pseudocode is correct? Syntax below treats parameters as integers and arrays as available in the procedure.",
+    "options": [
+      "`if(n<0)return; b[i]=a[n]; store(n-2,i+1);`",
+      "`if(n<i)return; b[i+1]=a[n]; store(n-2,i+1);`",
+      "`if(n<i)return; b[i]=a[n]; store(n-1,i+1);`",
+      "`if(n<0)return; b[i++]=a[n]; store(n-1,i+2);`"
+    ],
+    "answer": 1,
+    "solution": "1. After $t$ calls, the intended state is $n=N-1-2t$ and $i=t$. Thus the next recursive call must decrease the source index by two and increase the destination by one.\n2. Option 1 preserves this state and stops precisely when the source index becomes negative. It writes $\\lceil N/2\\rceil$ elements.\n3. Option 2 leaves `b[0]` unwritten and stops too early through an unrelated comparison. Option 3 uses stride one. Option 4 also uses source stride one and has incompatible destination updates.\n4. The source lists pseudocode resembling C without parameter type declarations; it is not a strictly compilable C17 function. We assess its specified indexing algorithm, not missing declarations.\n\n**Transfer rule.** Express the intended source and destination indices as functions of recursion depth.",
+    "pattern": "index invariant and stop condition",
+    "difficulty": "Medium\u2013Hard",
+    "repoPath": "Exams/MS/CS/1393/olum_93_konkurcomputer.pdf",
+    "sourceSha256": "7ed89fae8eb601a964355fde5e5d297cbb30844e5240b9e3908b798fb86e349d",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "origin": "Authentic examination bridge revisit",
+    "qNumber": 167,
+    "sourceSHA": "7ed89fae8eb601a964355fde5e5d297cbb30844e5240b9e3908b798fb86e349d",
+    "provenance": "Original scan rechecked this turn. Explicit bridge revisit of an already taught archive item; not a new unique question."
+  },
+  {
+    "id": "Phd_CS_1404_Q72",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 16,
+    "questionNumber": 72,
+    "topics": [
+      "a_loop",
+      "a_model",
+      "s_axioms"
+    ],
+    "title": "Expected running-minimum updates",
+    "stem": "An array contains $n$ distinct values in a uniformly random permutation. Set `min` to positive infinity, scan from index 1 to $n$, and replace it whenever the next value is smaller. If $Y$ counts replacements, which expression is closest to its mean for large $n$?",
+    "options": [
+      "1",
+      "$\\ln n$",
+      "n",
+      "$n\\ln n$"
+    ],
+    "answer": 2,
+    "solution": "1. Let $I_i$ indicate that position $i$ contains the smallest of the first $i$ values. Uniform permutation symmetry gives $P(I_i=1)=1/i$.\n2. Linearity of expectation requires no independence between these indicators: $E[Y]=\\sum_{i=1}^n1/i=H_n$.\n3. Integral bounds give $\\ln(n+1)\\le H_n\\le1+\\ln n$, so $\\ln n$ is the listed large-$n$ approximation.\n4. The exact mean is $H_n$, not exactly $\\ln n$. One counts only the first update; $n$ assumes every position is a record; $n\\ln n$ multiplies counts that should be summed.\n\n**Transfer rule.** Distinguish the number of loop tests (always $n$) from the number of successful updates (random).",
+    "pattern": "indicator expectation versus loop count",
+    "difficulty": "Medium\u2013Hard",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "origin": "Authentic examination bridge revisit",
+    "qNumber": 72,
+    "sourceSHA": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "provenance": "Original scan rechecked this turn. Explicit bridge revisit of an already taught archive item; not a new unique question."
+  }
+]

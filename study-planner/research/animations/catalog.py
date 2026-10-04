@@ -29,4 +29,6 @@ CATALOG={
 ,
 'l_rank':{'reduction':['rank-pivots','rank-column-transform'],'nullity':['rank-collapse'],'solutions':['rank-fibers','rank-witness'],'inverses':['rank-projection'],'factorization':['rank-factorization'],'inequalities':['rank-composition','rank-cancellation'],'parameters':['rank-parameters'],'structures':['rank-update','rank-powers']},
 'p_functions':{'frames':['fn-nested','fn-recursion'],'values':['fn-copy'],'scope':['fn-lookup','fn-static'],'pointers':['fn-pointer','fn-alias','fn-output'],'order':['fn-orders'],'python':['fn-sharing','fn-closure','fn-default']}
+,
+'p_arrays':{'representation':['arr-boundary'],'layouts':['arr-row','arr-column','arr-transpose'],'traversals':['arr-prefix'],'mutation':['arr-copy-bad','arr-copy-right','arr-copy-left','arr-insert','arr-reverse','arr-rotate','arr-difference','arr-compact'],'python':['arr-sharing'],'strings':['arr-search'],'growth':['arr-growth'],'packed':['arr-packed','arr-ring']}
 }

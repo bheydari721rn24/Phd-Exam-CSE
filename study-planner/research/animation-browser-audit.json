@@ -195,6 +195,13 @@
       "overflow": false,
       "underlined": false,
       "topicId": "p_functions"
+    },
+    {
+      "players": 9,
+      "questions": 83,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "p_arrays"
     }
   ],
   "scenarios": {
@@ -997,13 +1004,103 @@
       "frames": 4,
       "entityMotion": true,
       "finalCounterexample": false
+    },
+    "arr-boundary": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-row": {
+      "frames": 12,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-column": {
+      "frames": 12,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-transpose": {
+      "frames": 12,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-prefix": {
+      "frames": 6,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-copy-bad": {
+      "frames": 5,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-copy-right": {
+      "frames": 5,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-copy-left": {
+      "frames": 5,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-insert": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-reverse": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-rotate": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-difference": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-compact": {
+      "frames": 7,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-sharing": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-search": {
+      "frames": 12,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-growth": {
+      "frames": 5,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-packed": {
+      "frames": 6,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "arr-ring": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
     }
   },
   "layoutIssues": [],
   "motionSample": {
     "busy": true,
     "record": "L0",
-    "transform": "translate(96.3644262401234 156.34704895740862)",
+    "transform": "translate(96.36856640618751 156.26010547006229)",
     "start": {
       "x": 100,
       "y": 80

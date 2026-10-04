@@ -1,0 +1,249 @@
+{
+  "state": "reviewed",
+  "readingDate": "2026-10-04",
+  "courses": [
+    {
+      "id": "cambridge-arrays-written",
+      "subject": "programming",
+      "university": "Cambridge",
+      "course": "Programming in C, 2017\u201318; Neel Krishnaswami",
+      "url": "https://www.cl.cam.ac.uk/teaching/1718/ProgC/lectures/lecture3.pdf",
+      "evidence": "https://www.cl.cam.ac.uk/teaching/1718/ProgC/lectures/lecture3.pdf",
+      "topics": [
+        "p_arrays"
+      ],
+      "advantage": "Primary: typed array objects, strides and C pointer boundaries; Lecture 3, all 25 slides; arrays and pointer arithmetic slides 2\u201313, exercise slide 25",
+      "limit": "Bounded accessible written-source pool; language differences and source corrections are recorded in the chapter audit.",
+      "access": "Official publicly accessible written text",
+      "reviewed": true,
+      "reviewScope": "Lecture 3, all 25 slides; arrays and pointer arithmetic slides 2\u201313, exercise slide 25",
+      "selectionRole": "Primary: typed array objects, strides and C pointer boundaries",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 5,
+        "semanticDepth": 5,
+        "exerciseValue": 4
+      },
+      "sourceDocuments": [
+        {
+          "id": "cambridge3",
+          "url": "https://www.cl.cam.ac.uk/teaching/1718/ProgC/lectures/lecture3.pdf",
+          "sha256": "11a25cb24b7ebcb62d226c7fd90ed44fbcb5941d379e1bab5f005eead040f1b4",
+          "pages": 25
+        }
+      ]
+    },
+    {
+      "id": "cmu-arrays-written",
+      "subject": "programming",
+      "university": "CMU",
+      "course": "15-122, Fall 2026; Frank Pfenning and Andr\u00e9 Platzer",
+      "url": "https://www.cs.cmu.edu/~15122/handouts/lectures/03-arrays.pdf",
+      "evidence": "https://www.cs.cmu.edu/~15122/handouts/lectures/03-arrays.pdf",
+      "topics": [
+        "p_arrays"
+      ],
+      "advantage": "Primary: invariants, lengths, segment copying and proof obligations; Lecture 03 Arrays, all 19 pages including exercises",
+      "limit": "Bounded accessible written-source pool; language differences and source corrections are recorded in the chapter audit.",
+      "access": "Official publicly accessible written text",
+      "reviewed": true,
+      "reviewScope": "Lecture 03 Arrays, all 19 pages including exercises",
+      "selectionRole": "Primary: invariants, lengths, segment copying and proof obligations",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 5,
+        "semanticDepth": 5,
+        "exerciseValue": 5
+      },
+      "sourceDocuments": [
+        {
+          "id": "cmu",
+          "url": "https://www.cs.cmu.edu/~15122/handouts/lectures/03-arrays.pdf",
+          "sha256": "25c541509dd240b7146d8d44c9441edbea490e257e2f336aed0cab2eafb08dce",
+          "pages": 19
+        }
+      ]
+    },
+    {
+      "id": "harvard-arrays-written",
+      "subject": "programming",
+      "university": "Harvard",
+      "course": "CS50x 2025; David J. Malan",
+      "url": "https://cs50.harvard.edu/x/2025/notes/2/",
+      "evidence": "https://cs50.harvard.edu/x/2025/notes/2/",
+      "topics": [
+        "p_arrays"
+      ],
+      "advantage": "Primary: initialization, strings, termination and practical traversals; Notes 2: Arrays through Strings, String Length and Command-Line Arguments",
+      "limit": "Bounded accessible written-source pool; language differences and source corrections are recorded in the chapter audit.",
+      "access": "Official publicly accessible written text",
+      "reviewed": true,
+      "reviewScope": "Notes 2: Arrays through Strings, String Length and Command-Line Arguments",
+      "selectionRole": "Primary: initialization, strings, termination and practical traversals",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 4,
+        "semanticDepth": 4,
+        "exerciseValue": 4
+      },
+      "sourceDocuments": [
+        {
+          "id": "harvard",
+          "url": "https://cs50.harvard.edu/x/2025/notes/2/",
+          "sha256": "56ab89cca73e293ecb09c52bcd9caa13cd068f964a1543fac4bdbdcdd4a338b4",
+          "pages": null
+        }
+      ]
+    },
+    {
+      "id": "berkeley-arrays-written",
+      "subject": "programming",
+      "university": "UC Berkeley",
+      "course": "CS61A / Composing Programs; John DeNero",
+      "url": "https://composingprograms.com/pages/23-sequences.html",
+      "evidence": "https://composingprograms.com/pages/23-sequences.html",
+      "topics": [
+        "p_arrays"
+      ],
+      "advantage": "Primary: sequence interfaces, mutability and nested sharing; Sections 2.3.1\u20132.3.5 and 2.4.2 read; sequence construction, slicing and identity",
+      "limit": "Bounded accessible written-source pool; language differences and source corrections are recorded in the chapter audit.",
+      "access": "Official publicly accessible written text",
+      "reviewed": true,
+      "reviewScope": "Sections 2.3.1\u20132.3.5 and 2.4.2 read; sequence construction, slicing and identity",
+      "selectionRole": "Primary: sequence interfaces, mutability and nested sharing",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 5,
+        "semanticDepth": 5,
+        "exerciseValue": 4
+      },
+      "sourceDocuments": [
+        {
+          "id": "berkeley23",
+          "url": "https://composingprograms.com/pages/23-sequences.html",
+          "sha256": "f7b6cb1bde1edf7235e14f6e2931ddbf19517373726414b585f77ecb4e498df3",
+          "pages": null
+        },
+        {
+          "id": "berkeley24",
+          "url": "https://composingprograms.com/pages/24-mutable-data.html",
+          "sha256": "7a66af669941b362b4201e5c516206942311edd36abd3b93e0b02c211210cfc8",
+          "pages": null
+        }
+      ]
+    },
+    {
+      "id": "stanford-arrays-written",
+      "subject": "programming",
+      "university": "Stanford",
+      "course": "CS106B, Fall 2016; Chris Gregg",
+      "url": "https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1172/lectures/17-ImplementingVector/17-ImplementingVector.pdf",
+      "evidence": "https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1172/lectures/17-ImplementingVector/17-ImplementingVector.pdf",
+      "topics": [
+        "p_arrays"
+      ],
+      "advantage": "Selected supplement: geometric growth, capacity, release and lifetime; Implementing Vector, all 29 slides; core allocation and growth slides 3\u201328",
+      "limit": "Bounded accessible written-source pool; language differences and source corrections are recorded in the chapter audit.",
+      "access": "Official publicly accessible written text",
+      "reviewed": true,
+      "reviewScope": "Implementing Vector, all 29 slides; core allocation and growth slides 3\u201328",
+      "selectionRole": "Selected supplement: geometric growth, capacity, release and lifetime",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 4,
+        "semanticDepth": 5,
+        "exerciseValue": 4
+      },
+      "sourceDocuments": [
+        {
+          "id": "stanford",
+          "url": "https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1172/lectures/17-ImplementingVector/17-ImplementingVector.pdf",
+          "sha256": "21a36167d21c2d27fc00898cdf82f5851f06352f6d83706f11241ac8cb728ec7",
+          "pages": 29
+        }
+      ]
+    },
+    {
+      "id": "mit-arrays-written",
+      "subject": "programming",
+      "university": "MIT",
+      "course": "6.0001, Fall 2016; Ana Bell, Eric Grimson and John Guttag",
+      "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/1776670e271578eeb99fc25975f20586_MIT6_0001F16_Lec5.pdf",
+      "evidence": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/1776670e271578eeb99fc25975f20586_MIT6_0001F16_Lec5.pdf",
+      "topics": [
+        "p_arrays"
+      ],
+      "advantage": "Selected supplement: cloning, nested aliases and mutation during iteration; Lecture 5, all 24 slides; list mechanics and aliasing slides 7\u201323",
+      "limit": "Bounded accessible written-source pool; language differences and source corrections are recorded in the chapter audit.",
+      "access": "Official publicly accessible written text",
+      "reviewed": true,
+      "reviewScope": "Lecture 5, all 24 slides; list mechanics and aliasing slides 7\u201323",
+      "selectionRole": "Selected supplement: cloning, nested aliases and mutation during iteration",
+      "selectionScores": {
+        "writtenAccess": 5,
+        "boundaryCoverage": 4,
+        "semanticDepth": 4,
+        "exerciseValue": 4
+      },
+      "sourceDocuments": [
+        {
+          "id": "mit",
+          "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/1776670e271578eeb99fc25975f20586_MIT6_0001F16_Lec5.pdf",
+          "sha256": "a5f0a9da11b4209292e592e4fbfd152e932385847aa26c99c2cacd9eee143f54",
+          "pages": 24
+        }
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "cambridge3",
+      "url": "https://www.cl.cam.ac.uk/teaching/1718/ProgC/lectures/lecture3.pdf",
+      "sha256": "11a25cb24b7ebcb62d226c7fd90ed44fbcb5941d379e1bab5f005eead040f1b4",
+      "pages": 25
+    },
+    {
+      "id": "cmu",
+      "url": "https://www.cs.cmu.edu/~15122/handouts/lectures/03-arrays.pdf",
+      "sha256": "25c541509dd240b7146d8d44c9441edbea490e257e2f336aed0cab2eafb08dce",
+      "pages": 19
+    },
+    {
+      "id": "berkeley23",
+      "url": "https://composingprograms.com/pages/23-sequences.html",
+      "sha256": "f7b6cb1bde1edf7235e14f6e2931ddbf19517373726414b585f77ecb4e498df3",
+      "pages": null
+    },
+    {
+      "id": "berkeley24",
+      "url": "https://composingprograms.com/pages/24-mutable-data.html",
+      "sha256": "7a66af669941b362b4201e5c516206942311edd36abd3b93e0b02c211210cfc8",
+      "pages": null
+    },
+    {
+      "id": "harvard",
+      "url": "https://cs50.harvard.edu/x/2025/notes/2/",
+      "sha256": "56ab89cca73e293ecb09c52bcd9caa13cd068f964a1543fac4bdbdcdd4a338b4",
+      "pages": null
+    },
+    {
+      "id": "stanford",
+      "url": "https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1172/lectures/17-ImplementingVector/17-ImplementingVector.pdf",
+      "sha256": "21a36167d21c2d27fc00898cdf82f5851f06352f6d83706f11241ac8cb728ec7",
+      "pages": 29
+    },
+    {
+      "id": "mit",
+      "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/1776670e271578eeb99fc25975f20586_MIT6_0001F16_Lec5.pdf",
+      "sha256": "a5f0a9da11b4209292e592e4fbfd152e932385847aa26c99c2cacd9eee143f54",
+      "pages": 24
+    },
+    {
+      "id": "python",
+      "url": "https://docs.python.org/3/library/stdtypes.html",
+      "sha256": "dca4dfd9dc67578f4fdd044e10c49900ff20daea24dd1ce3988f23e446e87b38",
+      "pages": null
+    }
+  ],
+  "scope": "Eight universities screened, six written courses actually read, four primary and two complementary selected courses. Not a worldwide exhaustive search."
+}
