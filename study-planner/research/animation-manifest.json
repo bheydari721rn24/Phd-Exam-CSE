@@ -678,13 +678,50 @@
         ]
       },
       "questionCount": 71,
-      "htmlSha256": "f34221d1d64d3973a7a214318b0c4b8e386544b947876541fd10b4286811d8f8"
+      "htmlSha256": "6a5500269829afdae08cf96eb7dddb7c14600523c48761e2b9e3231492faa7fc"
+    },
+    {
+      "topicId": "l_rank",
+      "placements": 8,
+      "scenarios": 12,
+      "sections": {
+        "reduction": [
+          "rank-pivots",
+          "rank-column-transform"
+        ],
+        "nullity": [
+          "rank-collapse"
+        ],
+        "solutions": [
+          "rank-fibers",
+          "rank-witness"
+        ],
+        "inverses": [
+          "rank-projection"
+        ],
+        "factorization": [
+          "rank-factorization"
+        ],
+        "inequalities": [
+          "rank-composition",
+          "rank-cancellation"
+        ],
+        "parameters": [
+          "rank-parameters"
+        ],
+        "structures": [
+          "rank-update",
+          "rank-powers"
+        ]
+      },
+      "questionCount": 90,
+      "htmlSha256": "eceb192e61d39180b445e52e0ff16e37730a27c2661b729a05d0441217249455"
     }
   ],
-  "uniqueScenarios": 136,
-  "checkpoints": 868,
-  "placements": 134,
-  "constructionAssertions": 3020,
+  "uniqueScenarios": 148,
+  "checkpoints": 916,
+  "placements": 142,
+  "constructionAssertions": 3164,
   "scope": "Original bounded explanatory models embedded in existing instructional sections. Written proofs remain authoritative; finite examples do not certify all inputs.",
   "checkpointsPrint": "Uninitialized players retain a printable first checkpoint. Initialized players print the currently selected exact checkpoint. No blank animation is required for offline reading."
 }

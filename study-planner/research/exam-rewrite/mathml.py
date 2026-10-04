@@ -11,6 +11,8 @@ SYMBOLS['leftarrow']='←'
 SYMBOLS['subsetneq']='⊊'
 SYMBOLS['triangle']='△'
 SYMBOLS.update(Delta='Δ',kappa='κ')
+SYMBOLS.update(prime='′',longrightarrow='⟶',longmapsto='⟼')
+SYMBOLS.update(Longleftrightarrow='⟺')
 def tag(t,s):return '<'+t+'>'+s+'</'+t+'>'
 def atom(t,s):return tag(t,html.escape(s))
 class Parser:

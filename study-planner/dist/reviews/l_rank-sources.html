@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rank chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/l_rank.html">← Rank chapter</a></p><article class="lesson"><h1>Written-source evaluation: rank, invertibility, and solution sets</h1>
+<h2>Search and selection boundary</h2>
+<p>Five accessible written course offerings from five universities were individually inspected. The pool was located through official university course indexes and written-material links, then the actual in-scope pages were read. It is a bounded documented pool, not a claim to have enumerated all university courses worldwide. Four primary courses and one additional comparison are used because no single retrieved source supplies all proofs, exact rectangular examples, conceptual interpretations and error checks.</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Actual reading</th>
+<th>Scientific contribution</th>
+<th>Limitation and decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Oxford M1, 2022; Andrew Wathen, lecturer</td>
+<td>PDF 42–51, 57–61, 68–69; all these pages read</td>
+<td>Basis exchange, rank–nullity proof, restriction dimensions, invertibility and factorization proofs</td>
+<td>Highest theoretical coverage in this pool; primary. The PDF's note author is not separately credited. Infinite-dimensional and later determinant topics are not counted as this chapter's full coverage.</td>
+</tr>
+<tr>
+<td>MIT 18.700, Fall 2013; David Vogan</td>
+<td>PDF 13–20, especially 17–20</td>
+<td>Exact row/null/column transformation distinctions, canonical subspace bases, rectangular left inverse</td>
+<td>Primary for transformation and coordinate precision. The displayed “pivot in every row” wording on <span class="math-inline">p</span>. 19 must be “every column” for a tall injective map.</td>
+</tr>
+<tr>
+<td>Stanford EE263, Autumn 2007–08; Stephen Boyd</td>
+<td>Lecture 3 slides 3–1 through 3–19</td>
+<td>Measurements, attainable outputs, ambiguity, left/right inverses, conservation of dimension</td>
+<td>Primary for interpretation. The slide claims of Gram invertibility are proved in the lesson with their real Euclidean hypotheses. No protected homework or transcript is claimed read.</td>
+</tr>
+<tr>
+<td>Berkeley Math 54, Spring 2018; Alexander Paulin</td>
+<td>Both pages of Rank and Nullity rendered and visually read</td>
+<td>Original pivot-column extraction and an exact four-by-five example with two kernel directions</td>
+<td>Primary for concrete basis construction. This compact note does not replace the deeper proofs from the other sources.</td>
+</tr>
+<tr>
+<td>CMU 21-241, Summer <span class="math-inline">I</span> 2014; William Gunther</td>
+<td>Days 9 and 10: all six pages; Day 24: all four pages</td>
+<td>Row-basis and subspace prompts, rectangular cases and polynomial transfers</td>
+<td>Additional genuinely reviewed comparison. Numerous transcription slips are corrected; not used as the sole authority for any theorem.</td>
+</tr>
+</tbody>
+</table>
+<p>The ordering is by chapter-specific proof coverage, precision and complementary teaching value, not a purported university ranking or an invented universal numerical score. Four primary courses meet the four-university minimum; CMU adds accessible written prompts and independent error comparison.</p>
+<h2>Corrections and reconciliation</h2>
+<p>MIT's tall full-column-rank matrix need not have a pivot in every row. Its <span class="math-inline">p</span>. 20 construction uses the first <span class="math-inline">n</span> rows of the invertible reduction transform to obtain a left inverse, which is explained consistently in the lesson.</p>
+<p>CMU Day 9's displayed row-basis first vector ends <span class="math-inline">in −2</span>, while its own RREF has <span class="math-inline">−</span>1. The original four-by-five matrix is independently reduced and a complete exact certificate is supplied in the bank. Day 10 <span class="math-inline">p</span>. 3 writes “number of zero rows” where its rank argument needs nonzero rows. The statements that “the column space is a basis” and “the row space is a basis” must instead say that the respective columns or rows form bases. The spaces are not lists. Day 24 <span class="math-inline">p</span>. 1 calls more than <span class="math-inline">n</span> vectors independent where dependent is required. Day 24 <span class="math-inline">p</span>. 2 calls three quadratic polynomials a basis in P3; they form a basis in P2 and do not span P3. Day 24 <span class="math-inline">p</span>. 3 wrongly lists <span class="math-inline">x</span> mapped to <span class="math-inline">2x</span> as a nonlinear nonexample. Its extension-from-a-basis theorem also omits the phrase “extending the assigned basis values.” These slips are explicitly corrected rather than imported.</p>
+<p>Stanford's conservation-of-dimension picture is interpreted in an adapted basis. It does not imply that individual original coordinates are independently deleted. Its comment about infinite dimension is not adopted as “no basis”: an infinite-dimensional vector space can have a basis; its dimension is not a finite integer.</p>
+<p>Plain-transpose orthogonality, positive Gram forms and rank–trace interpretations are restricted to their stated scalar fields. Complex cases use conjugate transpose; the bank includes an explicit failure of the plain-transpose shortcut.</p>
+<h2>Accessible written prompt inventory</h2>
+<p>Berkeley's sole matrix example is expanded into all four basis calculations and exact checks. MIT's canonical subspace and one-sided-inverse constructions are developed in the lesson and factorization/inverse tasks. Oxford's Example 138 is reproduced as a course-derived calculation; its rank–nullity, invertibility, basis-exchange, restriction-dimension and factorization proof prompts have complete lesson derivations and bank tasks. Oxford Example 121 is the additional row-space membership task recorded at the end of the bank.</p>
+<p>CMU Days 9–10's concrete prompts about the identity, shifted lines, the sign-constrained set, a line given by two constraints, proportional vectors, row-space membership, the four-by-five row-basis example and the zero space are answered in the lesson or explicitly labeled tasks. Day 24's finite polynomial examples and the listed linear/nonlinear examples are addressed with corrected hypotheses. Abstract continuous-function spaces, infinite cardinality classifications and unsupplied book exercises are outside this chapter's finite matrix rank boundary; they are not falsely counted as acquired questions.</p>
+<p>Stanford slides in the read range contain statements and interpretations rather than a separate exercise sheet. They are taught and proved; no invented Stanford homework provenance is assigned to original questions. Original tasks additionally cover medium/hard rank inequalities, parameter strata, block matrices, updates, projections, nilpotent powers, polynomial constraints and graph incidence.</p>
+<h2>Examination provenance and rights</h2>
+<p>The two authentic archive questions are explicit revisits: MSc CS 1405 Q41, PDF <span class="math-inline">p</span>. 9; PhD CS 1404 Q30, PDF <span class="math-inline">p</span>. 8. Both source pages were visually rechecked, and the source SHA-256 fingerprints match the pinned repository commit. Answers are independently derived and are not represented as official answer-key entries.</p>
+<p>Private source PDFs remain outside Site assets. Public evidence records URLs, page ranges and hashes. The chapter is original mathematical exposition and independent diagrams; it does not copy full university publications or inaccessible exercise banks.</p>
+<h2>Remaining limits</h2>
+<p>All stated scopes are finite. Broader sources may be added when a concrete coverage gap is identified. No claim of exhaustive worldwide course access, universal scientific certainty or guaranteed performance on every unseen examination is made.</p>
+</article></main></body></html>

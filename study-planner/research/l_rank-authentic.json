@@ -1,0 +1,62 @@
+[
+  {
+    "id": "MS_CS_1405_Q41",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 9,
+    "questionNumber": 41,
+    "topics": [
+      "l_matrices",
+      "l_vectors"
+    ],
+    "title": "Explicit rank-theorem revisit: Dimension with simultaneous constraints",
+    "stem": "Let $W$ be the real vector space of symmetric $4\\times4$ matrices with trace zero. What is $\\dim W$?",
+    "options": [
+      "10",
+      "9",
+      "8",
+      "7"
+    ],
+    "answer": 2,
+    "solution": "1. A symmetric matrix is determined by four diagonal entries and six entries above the diagonal, giving ten free coordinates before the trace condition.\n2. The trace equation is one nonzero homogeneous linear constraint. It permits the fourth diagonal entry to be determined by the first three.\n3. Three diagonal degrees of freedom and six off-diagonal degrees of freedom remain, giving nine. A basis consists of six symmetric off-diagonal pair matrices and three diagonal matrices $E_{ii}-E_{44}$ for $i=1,2,3$.\n4. Ten ignores trace; eight and seven subtract additional constraints that are not independent requirements of this space.\n\n**Transfer rule.** Count independent parameters, then subtract the rank of the imposed linear constraints, not the number of times a constraint is written.",
+    "pattern": "dimension after independent constraints",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "provenance": "English translation rechecked against the original rendered PDF; independently derived answer; authentic revisit, not a new distinct archive question.",
+    "qNumber": 41,
+    "sourceSHA": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527"
+  },
+  {
+    "id": "Phd_CS_1404_Q30",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 8,
+    "questionNumber": 30,
+    "topics": [
+      "l_matrices",
+      "l_vectors"
+    ],
+    "title": "Explicit rank-theorem revisit: A lower norm bound does not imply positivity",
+    "stem": "A real square matrix $A$ satisfies $\\Vert Ax\\Vert\\ge\\theta\\Vert x\\Vert$ for every real $x$, with $\\theta>0$. Which assertion is false?",
+    "options": [
+      "$\\Vert A^{-1}\\Vert\\le\\theta^{-1}$ for the induced norm.",
+      "$A$ is positive definite.",
+      "$A$ is nonsingular.",
+      "If $\\lambda$ is an eigenvalue of $A$, then $|\\lambda|\\ge\\theta$."
+    ],
+    "answer": 2,
+    "solution": "1. If $Ax=0$, the inequality forces $x=0$. A square matrix with trivial kernel is invertible.\n2. Put $x=A^{-1}y$: $\\Vert A^{-1}y\\Vert\\le\\Vert y\\Vert/\\theta$. Taking the supremum gives the inverse norm bound.\n3. For the Euclidean norm, the real inequality extends to complex vectors by applying its squared form to real and imaginary parts. For an eigenvector, $\\Vert Ax\\Vert=|\\lambda|\\Vert x\\Vert$, giving the eigenvalue modulus bound.\n4. Positivity does not follow: $A=-I$ satisfies the norm bound with $\\theta=1$, but $x^TAx=-\\Vert x\\Vert^2<0$ for nonzero $x$. Thus option 2 is false.\n\n**Model note.** The source uses the standard matrix/vector norm convention; the eigenvalue discussion above explicitly uses the Euclidean induced norm. Norm preservation of magnitude says nothing about the sign of a quadratic form.",
+    "pattern": "counterexample versus magnitude bound",
+    "difficulty": "Hard",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "provenance": "English translation rechecked against the original rendered PDF; independently derived answer; authentic revisit, not a new distinct archive question.",
+    "qNumber": 30,
+    "sourceSHA": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40"
+  }
+]

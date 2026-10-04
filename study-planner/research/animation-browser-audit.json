@@ -181,6 +181,13 @@
       "overflow": false,
       "underlined": false,
       "topicId": "l_gauss"
+    },
+    {
+      "players": 8,
+      "questions": 90,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "l_rank"
     }
   ],
   "scenarios": {
@@ -863,13 +870,73 @@
       "frames": 3,
       "entityMotion": false,
       "finalCounterexample": false
+    },
+    "rank-pivots": {
+      "frames": 6,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "rank-column-transform": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "rank-collapse": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "rank-fibers": {
+      "frames": 5,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "rank-witness": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "rank-projection": {
+      "frames": 5,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "rank-factorization": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "rank-composition": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "rank-cancellation": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "rank-parameters": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "rank-update": {
+      "frames": 3,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "rank-powers": {
+      "frames": 5,
+      "entityMotion": true,
+      "finalCounterexample": false
     }
   },
   "layoutIssues": [],
   "motionSample": {
     "busy": true,
     "record": "L0",
-    "transform": "translate(96.43468421295724 154.8716315278981)",
+    "transform": "translate(96.70066973107872 149.28593564734683)",
     "start": {
       "x": 100,
       "y": 80

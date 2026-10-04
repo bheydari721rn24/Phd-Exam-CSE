@@ -1,0 +1,1591 @@
+[
+  {
+    "id": "LR01",
+    "title": "Original columns versus transformed columns",
+    "stem": "Find bases of all four fundamental spaces for $$A=\\begin{bmatrix}1&2&1\\\\2&4&0\\\\0&0&1\\end{bmatrix}$$ State their ambient spaces, dimensions, and the complete conditions for an arbitrary load to be attainable.",
+    "solution": "**Row 2 minus (2) times row 1.** $$\\begin{bmatrix}1&2&1\\\\0&0&-2\\\\0&0&1\\end{bmatrix}$$\n\n**Skip coefficient column 2: no available pivot.** $$\\begin{bmatrix}1&2&1\\\\0&0&-2\\\\0&0&1\\end{bmatrix}$$\n\n**Divide row 2 by -2.** $$\\begin{bmatrix}1&2&1\\\\0&0&1\\\\0&0&1\\end{bmatrix}$$\n\n**Row 1 minus (1) times row 2.** $$\\begin{bmatrix}1&2&0\\\\0&0&1\\\\0&0&1\\end{bmatrix}$$\n\n**Row 3 minus (1) times row 2.** $$\\begin{bmatrix}1&2&0\\\\0&0&1\\\\0&0&0\\end{bmatrix}$$\n\n**Coefficient reduction complete.** $$\\begin{bmatrix}1&2&0\\\\0&0&1\\\\0&0&0\\end{bmatrix}$$\n\nThere are 2 pivots at one-based columns 1, 3. \n\n**Column space.** Use those columns of the ORIGINAL matrix. The columns of this matrix form its basis: $$C=\\begin{bmatrix}1&1\\\\2&0\\\\0&1\\end{bmatrix}.$$\n\n**Row space.** The nonzero reduced rows form its basis. They are the rows of $$R_*=\\begin{bmatrix}1&2&0\\\\0&0&1\\end{bmatrix}.$$\n\n**Kernel.** Solve the pivot equations with one unit free coordinate at a time. The resulting basis is the column list of $$N=\\begin{bmatrix}-2\\\\1\\\\0\\end{bmatrix}.$$\n\n**Left kernel.** Reduce the transpose by the same procedure. Its basis is the column list of $$Y=\\begin{bmatrix}-1\\\\\\frac{1}{2}\\\\1\\end{bmatrix}.$$\n\nThe four dimensions are 2, 2, 1, 1, respectively. Each null vector is annihilated by its matrix; independent free-coordinate patterns and the rank\u2013nullity counts prove completeness. For any load $b$, compatibility is exactly the vanishing of its dot product with every listed left-kernel vector. The second original column is twice the first. The independent third column is not replaced by its transformed standard vector when answering a column-space question.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "pivots": [
+        0,
+        2
+      ],
+      "null": [
+        [
+          "-2",
+          "1",
+          "0"
+        ]
+      ],
+      "left": [
+        [
+          "-1",
+          "1/2",
+          "1"
+        ]
+      ],
+      "rank": 2
+    }
+  },
+  {
+    "id": "LR02",
+    "title": "Berkeley nonconsecutive pivots",
+    "stem": "Find bases of all four fundamental spaces for $$A=\\begin{bmatrix}1&2&0&1&0\\\\0&0&1&1&0\\\\1&2&0&1&1\\\\-1&-2&0&-1&0\\end{bmatrix}$$ State their ambient spaces, dimensions, and the complete conditions for an arbitrary load to be attainable.",
+    "solution": "**Row 3 minus (1) times row 1.** $$\\begin{bmatrix}1&2&0&1&0\\\\0&0&1&1&0\\\\0&0&0&0&1\\\\-1&-2&0&-1&0\\end{bmatrix}$$\n\n**Row 4 minus (-1) times row 1.** $$\\begin{bmatrix}1&2&0&1&0\\\\0&0&1&1&0\\\\0&0&0&0&1\\\\0&0&0&0&0\\end{bmatrix}$$\n\n**Skip coefficient column 2: no available pivot.** $$\\begin{bmatrix}1&2&0&1&0\\\\0&0&1&1&0\\\\0&0&0&0&1\\\\0&0&0&0&0\\end{bmatrix}$$\n\n**Skip coefficient column 4: no available pivot.** $$\\begin{bmatrix}1&2&0&1&0\\\\0&0&1&1&0\\\\0&0&0&0&1\\\\0&0&0&0&0\\end{bmatrix}$$\n\n**Coefficient reduction complete.** $$\\begin{bmatrix}1&2&0&1&0\\\\0&0&1&1&0\\\\0&0&0&0&1\\\\0&0&0&0&0\\end{bmatrix}$$\n\nThere are 3 pivots at one-based columns 1, 3, 5. \n\n**Column space.** Use those columns of the ORIGINAL matrix. The columns of this matrix form its basis: $$C=\\begin{bmatrix}1&0&0\\\\0&1&0\\\\1&0&1\\\\-1&0&0\\end{bmatrix}.$$\n\n**Row space.** The nonzero reduced rows form its basis. They are the rows of $$R_*=\\begin{bmatrix}1&2&0&1&0\\\\0&0&1&1&0\\\\0&0&0&0&1\\end{bmatrix}.$$\n\n**Kernel.** Solve the pivot equations with one unit free coordinate at a time. The resulting basis is the column list of $$N=\\begin{bmatrix}-2&-1\\\\1&0\\\\0&-1\\\\0&1\\\\0&0\\end{bmatrix}.$$\n\n**Left kernel.** Reduce the transpose by the same procedure. Its basis is the column list of $$Y=\\begin{bmatrix}1\\\\0\\\\0\\\\1\\end{bmatrix}.$$\n\nThe four dimensions are 3, 3, 2, 1, respectively. Each null vector is annihilated by its matrix; independent free-coordinate patterns and the rank\u2013nullity counts prove completeness. For any load $b$, compatibility is exactly the vanishing of its dot product with every listed left-kernel vector. ",
+    "origin": "Course-derived: Berkeley Math 54, Rank and Nullity, pp. 1\u20132",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          1,
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          -1,
+          -2,
+          0,
+          -1,
+          0
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "2",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "pivots": [
+        0,
+        2,
+        4
+      ],
+      "null": [
+        [
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-1",
+          "0",
+          "-1",
+          "1",
+          "0"
+        ]
+      ],
+      "left": [
+        [
+          "1",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "rank": 3
+    }
+  },
+  {
+    "id": "LR03",
+    "title": "CMU row-basis example with a corrected transcription",
+    "stem": "Find bases of all four fundamental spaces for $$A=\\begin{bmatrix}1&1&3&1&6\\\\2&-1&0&1&-1\\\\-3&2&1&-2&1\\\\4&1&6&1&3\\end{bmatrix}$$ State their ambient spaces, dimensions, and the complete conditions for an arbitrary load to be attainable.",
+    "solution": "**Row 2 minus (2) times row 1.** $$\\begin{bmatrix}1&1&3&1&6\\\\0&-3&-6&-1&-13\\\\-3&2&1&-2&1\\\\4&1&6&1&3\\end{bmatrix}$$\n\n**Row 3 minus (-3) times row 1.** $$\\begin{bmatrix}1&1&3&1&6\\\\0&-3&-6&-1&-13\\\\0&5&10&1&19\\\\4&1&6&1&3\\end{bmatrix}$$\n\n**Row 4 minus (4) times row 1.** $$\\begin{bmatrix}1&1&3&1&6\\\\0&-3&-6&-1&-13\\\\0&5&10&1&19\\\\0&-3&-6&-3&-21\\end{bmatrix}$$\n\n**Divide row 2 by -3.** $$\\begin{bmatrix}1&1&3&1&6\\\\0&1&2&\\frac{1}{3}&\\frac{13}{3}\\\\0&5&10&1&19\\\\0&-3&-6&-3&-21\\end{bmatrix}$$\n\n**Row 1 minus (1) times row 2.** $$\\begin{bmatrix}1&0&1&\\frac{2}{3}&\\frac{5}{3}\\\\0&1&2&\\frac{1}{3}&\\frac{13}{3}\\\\0&5&10&1&19\\\\0&-3&-6&-3&-21\\end{bmatrix}$$\n\n**Row 3 minus (5) times row 2.** $$\\begin{bmatrix}1&0&1&\\frac{2}{3}&\\frac{5}{3}\\\\0&1&2&\\frac{1}{3}&\\frac{13}{3}\\\\0&0&0&-\\frac{2}{3}&-\\frac{8}{3}\\\\0&-3&-6&-3&-21\\end{bmatrix}$$\n\n**Row 4 minus (-3) times row 2.** $$\\begin{bmatrix}1&0&1&\\frac{2}{3}&\\frac{5}{3}\\\\0&1&2&\\frac{1}{3}&\\frac{13}{3}\\\\0&0&0&-\\frac{2}{3}&-\\frac{8}{3}\\\\0&0&0&-2&-8\\end{bmatrix}$$\n\n**Skip coefficient column 3: no available pivot.** $$\\begin{bmatrix}1&0&1&\\frac{2}{3}&\\frac{5}{3}\\\\0&1&2&\\frac{1}{3}&\\frac{13}{3}\\\\0&0&0&-\\frac{2}{3}&-\\frac{8}{3}\\\\0&0&0&-2&-8\\end{bmatrix}$$\n\n**Divide row 3 by -2/3.** $$\\begin{bmatrix}1&0&1&\\frac{2}{3}&\\frac{5}{3}\\\\0&1&2&\\frac{1}{3}&\\frac{13}{3}\\\\0&0&0&1&4\\\\0&0&0&-2&-8\\end{bmatrix}$$\n\n**Row 1 minus (2/3) times row 3.** $$\\begin{bmatrix}1&0&1&0&-1\\\\0&1&2&\\frac{1}{3}&\\frac{13}{3}\\\\0&0&0&1&4\\\\0&0&0&-2&-8\\end{bmatrix}$$\n\n**Row 2 minus (1/3) times row 3.** $$\\begin{bmatrix}1&0&1&0&-1\\\\0&1&2&0&3\\\\0&0&0&1&4\\\\0&0&0&-2&-8\\end{bmatrix}$$\n\n**Row 4 minus (-2) times row 3.** $$\\begin{bmatrix}1&0&1&0&-1\\\\0&1&2&0&3\\\\0&0&0&1&4\\\\0&0&0&0&0\\end{bmatrix}$$\n\n**Skip coefficient column 5: no available pivot.** $$\\begin{bmatrix}1&0&1&0&-1\\\\0&1&2&0&3\\\\0&0&0&1&4\\\\0&0&0&0&0\\end{bmatrix}$$\n\n**Coefficient reduction complete.** $$\\begin{bmatrix}1&0&1&0&-1\\\\0&1&2&0&3\\\\0&0&0&1&4\\\\0&0&0&0&0\\end{bmatrix}$$\n\nThere are 3 pivots at one-based columns 1, 2, 4. \n\n**Column space.** Use those columns of the ORIGINAL matrix. The columns of this matrix form its basis: $$C=\\begin{bmatrix}1&1&1\\\\2&-1&1\\\\-3&2&-2\\\\4&1&1\\end{bmatrix}.$$\n\n**Row space.** The nonzero reduced rows form its basis. They are the rows of $$R_*=\\begin{bmatrix}1&0&1&0&-1\\\\0&1&2&0&3\\\\0&0&0&1&4\\end{bmatrix}.$$\n\n**Kernel.** Solve the pivot equations with one unit free coordinate at a time. The resulting basis is the column list of $$N=\\begin{bmatrix}-1&1\\\\-2&-3\\\\1&0\\\\0&-4\\\\0&1\\end{bmatrix}.$$\n\n**Left kernel.** Reduce the transpose by the same procedure. Its basis is the column list of $$Y=\\begin{bmatrix}-1\\\\-6\\\\-3\\\\1\\end{bmatrix}.$$\n\nThe four dimensions are 3, 3, 2, 1, respectively. Each null vector is annihilated by its matrix; independent free-coordinate patterns and the rank\u2013nullity counts prove completeness. For any load $b$, compatibility is exactly the vanishing of its dot product with every listed left-kernel vector. The course lists a final row-basis coordinate as \u22122, although its own RREF has \u22121. The exact calculation above supplies the corrected value.",
+    "origin": "Course-derived: CMU 21-241, Day 9 p. 3 and Day 10 p. 2",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          1,
+          1,
+          3,
+          1,
+          6
+        ],
+        [
+          2,
+          -1,
+          0,
+          1,
+          -1
+        ],
+        [
+          -3,
+          2,
+          1,
+          -2,
+          1
+        ],
+        [
+          4,
+          1,
+          6,
+          1,
+          3
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "0",
+          "1",
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "1",
+          "2",
+          "0",
+          "3"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1",
+          "4"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "pivots": [
+        0,
+        1,
+        3
+      ],
+      "null": [
+        [
+          "-1",
+          "-2",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "-3",
+          "0",
+          "-4",
+          "1"
+        ]
+      ],
+      "left": [
+        [
+          "-1",
+          "-6",
+          "-3",
+          "1"
+        ]
+      ],
+      "rank": 3
+    }
+  },
+  {
+    "id": "LR04",
+    "title": "Oxford arithmetic progression of rows",
+    "stem": "Find bases of all four fundamental spaces for $$A=\\begin{bmatrix}0&1&2&3\\\\1&2&3&4\\\\2&3&4&5\\end{bmatrix}$$ State their ambient spaces, dimensions, and the complete conditions for an arbitrary load to be attainable.",
+    "solution": "**Swap rows 2 and 1.** $$\\begin{bmatrix}1&2&3&4\\\\0&1&2&3\\\\2&3&4&5\\end{bmatrix}$$\n\n**Row 3 minus (2) times row 1.** $$\\begin{bmatrix}1&2&3&4\\\\0&1&2&3\\\\0&-1&-2&-3\\end{bmatrix}$$\n\n**Row 1 minus (2) times row 2.** $$\\begin{bmatrix}1&0&-1&-2\\\\0&1&2&3\\\\0&-1&-2&-3\\end{bmatrix}$$\n\n**Row 3 minus (-1) times row 2.** $$\\begin{bmatrix}1&0&-1&-2\\\\0&1&2&3\\\\0&0&0&0\\end{bmatrix}$$\n\n**Skip coefficient column 3: no available pivot.** $$\\begin{bmatrix}1&0&-1&-2\\\\0&1&2&3\\\\0&0&0&0\\end{bmatrix}$$\n\n**Skip coefficient column 4: no available pivot.** $$\\begin{bmatrix}1&0&-1&-2\\\\0&1&2&3\\\\0&0&0&0\\end{bmatrix}$$\n\n**Coefficient reduction complete.** $$\\begin{bmatrix}1&0&-1&-2\\\\0&1&2&3\\\\0&0&0&0\\end{bmatrix}$$\n\nThere are 2 pivots at one-based columns 1, 2. \n\n**Column space.** Use those columns of the ORIGINAL matrix. The columns of this matrix form its basis: $$C=\\begin{bmatrix}0&1\\\\1&2\\\\2&3\\end{bmatrix}.$$\n\n**Row space.** The nonzero reduced rows form its basis. They are the rows of $$R_*=\\begin{bmatrix}1&0&-1&-2\\\\0&1&2&3\\end{bmatrix}.$$\n\n**Kernel.** Solve the pivot equations with one unit free coordinate at a time. The resulting basis is the column list of $$N=\\begin{bmatrix}1&2\\\\-2&-3\\\\1&0\\\\0&1\\end{bmatrix}.$$\n\n**Left kernel.** Reduce the transpose by the same procedure. Its basis is the column list of $$Y=\\begin{bmatrix}1\\\\-2\\\\1\\end{bmatrix}.$$\n\nThe four dimensions are 2, 2, 2, 1, respectively. Each null vector is annihilated by its matrix; independent free-coordinate patterns and the rank\u2013nullity counts prove completeness. For any load $b$, compatibility is exactly the vanishing of its dot product with every listed left-kernel vector. ",
+    "origin": "Course-derived: Oxford M1, Example 138, printed p. 49",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "0",
+          "-1",
+          "-2"
+        ],
+        [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "pivots": [
+        0,
+        1
+      ],
+      "null": [
+        [
+          "1",
+          "-2",
+          "1",
+          "0"
+        ],
+        [
+          "2",
+          "-3",
+          "0",
+          "1"
+        ]
+      ],
+      "left": [
+        [
+          "1",
+          "-2",
+          "1"
+        ]
+      ],
+      "rank": 2
+    }
+  },
+  {
+    "id": "LR05",
+    "title": "An injective map with an output restriction",
+    "stem": "Find bases of all four fundamental spaces for $$A=\\begin{bmatrix}1&0\\\\0&1\\\\1&1\\end{bmatrix}$$ State their ambient spaces, dimensions, and the complete conditions for an arbitrary load to be attainable.",
+    "solution": "**Row 3 minus (1) times row 1.** $$\\begin{bmatrix}1&0\\\\0&1\\\\0&1\\end{bmatrix}$$\n\n**Row 3 minus (1) times row 2.** $$\\begin{bmatrix}1&0\\\\0&1\\\\0&0\\end{bmatrix}$$\n\n**Coefficient reduction complete.** $$\\begin{bmatrix}1&0\\\\0&1\\\\0&0\\end{bmatrix}$$\n\nThere are 2 pivots at one-based columns 1, 2. \n\n**Column space.** Use those columns of the ORIGINAL matrix. The columns of this matrix form its basis: $$C=\\begin{bmatrix}1&0\\\\0&1\\\\1&1\\end{bmatrix}.$$\n\n**Row space.** The nonzero reduced rows form its basis. They are the rows of $$R_*=\\begin{bmatrix}1&0\\\\0&1\\end{bmatrix}.$$\n\n**Kernel.** Solve the pivot equations with one unit free coordinate at a time. There is no free coordinate, so its basis is the empty list.\n\n**Left kernel.** Reduce the transpose by the same procedure. Its basis is the column list of $$Y=\\begin{bmatrix}-1\\\\-1\\\\1\\end{bmatrix}.$$\n\nThe four dimensions are 2, 2, 0, 1, respectively. Each null vector is annihilated by its matrix; independent free-coordinate patterns and the rank\u2013nullity counts prove completeness. For any load $b$, compatibility is exactly the vanishing of its dot product with every listed left-kernel vector. Only loads with third component equal to the sum of the first two are attainable. Compatible loads have one input.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "pivots": [
+        0,
+        1
+      ],
+      "null": [],
+      "left": [
+        [
+          "-1",
+          "-1",
+          "1"
+        ]
+      ],
+      "rank": 2
+    }
+  },
+  {
+    "id": "LR06",
+    "title": "A surjective map with input ambiguity",
+    "stem": "Find bases of all four fundamental spaces for $$A=\\begin{bmatrix}1&0&1\\\\0&1&1\\end{bmatrix}$$ State their ambient spaces, dimensions, and the complete conditions for an arbitrary load to be attainable.",
+    "solution": "**Coefficient reduction complete.** $$\\begin{bmatrix}1&0&1\\\\0&1&1\\end{bmatrix}$$\n\nThere are 2 pivots at one-based columns 1, 2. \n\n**Column space.** Use those columns of the ORIGINAL matrix. The columns of this matrix form its basis: $$C=\\begin{bmatrix}1&0\\\\0&1\\end{bmatrix}.$$\n\n**Row space.** The nonzero reduced rows form its basis. They are the rows of $$R_*=\\begin{bmatrix}1&0&1\\\\0&1&1\\end{bmatrix}.$$\n\n**Kernel.** Solve the pivot equations with one unit free coordinate at a time. The resulting basis is the column list of $$N=\\begin{bmatrix}-1\\\\-1\\\\1\\end{bmatrix}.$$\n\n**Left kernel.** Reduce the transpose by the same procedure. Every output coordinate is independently attainable, so its basis is the empty list.\n\nThe four dimensions are 2, 2, 1, 0, respectively. Each null vector is annihilated by its matrix; independent free-coordinate patterns and the rank\u2013nullity counts prove completeness. For any load $b$, compatibility is exactly the vanishing of its dot product with every listed left-kernel vector. Every two-component load is attainable, with one free input direction.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "1"
+        ]
+      ],
+      "pivots": [
+        0,
+        1
+      ],
+      "null": [
+        [
+          "-1",
+          "-1",
+          "1"
+        ]
+      ],
+      "left": [],
+      "rank": 2
+    }
+  },
+  {
+    "id": "LR07",
+    "title": "Zero rank with nonzero ambient dimensions",
+    "stem": "Find bases of all four fundamental spaces for $$A=\\begin{bmatrix}0&0&0\\\\0&0&0\\end{bmatrix}$$ State their ambient spaces, dimensions, and the complete conditions for an arbitrary load to be attainable.",
+    "solution": "**Skip coefficient column 1: no available pivot.** $$\\begin{bmatrix}0&0&0\\\\0&0&0\\end{bmatrix}$$\n\n**Skip coefficient column 2: no available pivot.** $$\\begin{bmatrix}0&0&0\\\\0&0&0\\end{bmatrix}$$\n\n**Skip coefficient column 3: no available pivot.** $$\\begin{bmatrix}0&0&0\\\\0&0&0\\end{bmatrix}$$\n\n**Coefficient reduction complete.** $$\\begin{bmatrix}0&0&0\\\\0&0&0\\end{bmatrix}$$\n\nThere are 0 pivots at one-based columns none. \n\n**Column space.** Use those columns of the ORIGINAL matrix. Its basis is the empty list because the image is the zero subspace.\n\n**Row space.** The nonzero reduced rows form its basis. Its basis is the empty list.\n\n**Kernel.** Solve the pivot equations with one unit free coordinate at a time. The resulting basis is the column list of $$N=\\begin{bmatrix}1&0&0\\\\0&1&0\\\\0&0&1\\end{bmatrix}.$$\n\n**Left kernel.** Reduce the transpose by the same procedure. Its basis is the column list of $$Y=\\begin{bmatrix}1&0\\\\0&1\\end{bmatrix}.$$\n\nThe four dimensions are 0, 0, 3, 2, respectively. Each null vector is annihilated by its matrix; independent free-coordinate patterns and the rank\u2013nullity counts prove completeness. For any load $b$, compatibility is exactly the vanishing of its dot product with every listed left-kernel vector. Only the zero load is attainable. The zero spaces have empty bases, while both kernels are whole coordinate spaces.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "rref": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "pivots": [],
+      "null": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "left": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "rank": 0
+    }
+  },
+  {
+    "id": "LR08",
+    "title": "Every original row nonzero, rank only one",
+    "stem": "Find bases of all four fundamental spaces for $$A=\\begin{bmatrix}1&-2&3\\\\2&-4&6\\\\-1&2&-3\\end{bmatrix}$$ State their ambient spaces, dimensions, and the complete conditions for an arbitrary load to be attainable.",
+    "solution": "**Row 2 minus (2) times row 1.** $$\\begin{bmatrix}1&-2&3\\\\0&0&0\\\\-1&2&-3\\end{bmatrix}$$\n\n**Row 3 minus (-1) times row 1.** $$\\begin{bmatrix}1&-2&3\\\\0&0&0\\\\0&0&0\\end{bmatrix}$$\n\n**Skip coefficient column 2: no available pivot.** $$\\begin{bmatrix}1&-2&3\\\\0&0&0\\\\0&0&0\\end{bmatrix}$$\n\n**Skip coefficient column 3: no available pivot.** $$\\begin{bmatrix}1&-2&3\\\\0&0&0\\\\0&0&0\\end{bmatrix}$$\n\n**Coefficient reduction complete.** $$\\begin{bmatrix}1&-2&3\\\\0&0&0\\\\0&0&0\\end{bmatrix}$$\n\nThere are 1 pivots at one-based columns 1. \n\n**Column space.** Use those columns of the ORIGINAL matrix. The columns of this matrix form its basis: $$C=\\begin{bmatrix}1\\\\2\\\\-1\\end{bmatrix}.$$\n\n**Row space.** The nonzero reduced rows form its basis. They are the rows of $$R_*=\\begin{bmatrix}1&-2&3\\end{bmatrix}.$$\n\n**Kernel.** Solve the pivot equations with one unit free coordinate at a time. The resulting basis is the column list of $$N=\\begin{bmatrix}2&-3\\\\1&0\\\\0&1\\end{bmatrix}.$$\n\n**Left kernel.** Reduce the transpose by the same procedure. Its basis is the column list of $$Y=\\begin{bmatrix}-2&1\\\\1&0\\\\0&1\\end{bmatrix}.$$\n\nThe four dimensions are 1, 1, 2, 2, respectively. Each null vector is annihilated by its matrix; independent free-coordinate patterns and the rank\u2013nullity counts prove completeness. For any load $b$, compatibility is exactly the vanishing of its dot product with every listed left-kernel vector. Counting three nonzero original rows overestimates rank. Two independent left-kernel conditions must be imposed on a load.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          1,
+          -2,
+          3
+        ],
+        [
+          2,
+          -4,
+          6
+        ],
+        [
+          -1,
+          2,
+          -3
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "-2",
+          "3"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "pivots": [
+        0
+      ],
+      "null": [
+        [
+          "2",
+          "1",
+          "0"
+        ],
+        [
+          "-3",
+          "0",
+          "1"
+        ]
+      ],
+      "left": [
+        [
+          "-2",
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "1"
+        ]
+      ],
+      "rank": 1
+    }
+  },
+  {
+    "id": "LR09",
+    "title": "A shifted pivot before a final independent column",
+    "stem": "Find bases of all four fundamental spaces for $$A=\\begin{bmatrix}0&2&4&-2\\\\0&1&2&-1\\\\0&0&0&3\\end{bmatrix}$$ State their ambient spaces, dimensions, and the complete conditions for an arbitrary load to be attainable.",
+    "solution": "**Skip coefficient column 1: no available pivot.** $$\\begin{bmatrix}0&2&4&-2\\\\0&1&2&-1\\\\0&0&0&3\\end{bmatrix}$$\n\n**Divide row 1 by 2.** $$\\begin{bmatrix}0&1&2&-1\\\\0&1&2&-1\\\\0&0&0&3\\end{bmatrix}$$\n\n**Row 2 minus (1) times row 1.** $$\\begin{bmatrix}0&1&2&-1\\\\0&0&0&0\\\\0&0&0&3\\end{bmatrix}$$\n\n**Skip coefficient column 3: no available pivot.** $$\\begin{bmatrix}0&1&2&-1\\\\0&0&0&0\\\\0&0&0&3\\end{bmatrix}$$\n\n**Swap rows 3 and 2.** $$\\begin{bmatrix}0&1&2&-1\\\\0&0&0&3\\\\0&0&0&0\\end{bmatrix}$$\n\n**Divide row 2 by 3.** $$\\begin{bmatrix}0&1&2&-1\\\\0&0&0&1\\\\0&0&0&0\\end{bmatrix}$$\n\n**Row 1 minus (-1) times row 2.** $$\\begin{bmatrix}0&1&2&0\\\\0&0&0&1\\\\0&0&0&0\\end{bmatrix}$$\n\n**Coefficient reduction complete.** $$\\begin{bmatrix}0&1&2&0\\\\0&0&0&1\\\\0&0&0&0\\end{bmatrix}$$\n\nThere are 2 pivots at one-based columns 2, 4. \n\n**Column space.** Use those columns of the ORIGINAL matrix. The columns of this matrix form its basis: $$C=\\begin{bmatrix}2&-2\\\\1&-1\\\\0&3\\end{bmatrix}.$$\n\n**Row space.** The nonzero reduced rows form its basis. They are the rows of $$R_*=\\begin{bmatrix}0&1&2&0\\\\0&0&0&1\\end{bmatrix}.$$\n\n**Kernel.** Solve the pivot equations with one unit free coordinate at a time. The resulting basis is the column list of $$N=\\begin{bmatrix}1&0\\\\0&-2\\\\0&1\\\\0&0\\end{bmatrix}.$$\n\n**Left kernel.** Reduce the transpose by the same procedure. Its basis is the column list of $$Y=\\begin{bmatrix}-\\frac{1}{2}\\\\1\\\\0\\end{bmatrix}.$$\n\nThe four dimensions are 2, 2, 2, 1, respectively. Each null vector is annihilated by its matrix; independent free-coordinate patterns and the rank\u2013nullity counts prove completeness. For any load $b$, compatibility is exactly the vanishing of its dot product with every listed left-kernel vector. Column one is free, but column four contains a pivot. A diagonal-only pivot test misses this structure.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          0,
+          2,
+          4,
+          -2
+        ],
+        [
+          0,
+          1,
+          2,
+          -1
+        ],
+        [
+          0,
+          0,
+          0,
+          3
+        ]
+      ],
+      "rref": [
+        [
+          "0",
+          "1",
+          "2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "pivots": [
+        1,
+        3
+      ],
+      "null": [
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-2",
+          "1",
+          "0"
+        ]
+      ],
+      "left": [
+        [
+          "-1/2",
+          "1",
+          "0"
+        ]
+      ],
+      "rank": 2
+    }
+  },
+  {
+    "id": "LR10",
+    "title": "A square singular matrix with two-dimensional kernel",
+    "stem": "Find bases of all four fundamental spaces for $$A=\\begin{bmatrix}1&2&3&4\\\\2&4&6&8\\\\0&1&1&0\\\\1&3&4&4\\end{bmatrix}$$ State their ambient spaces, dimensions, and the complete conditions for an arbitrary load to be attainable.",
+    "solution": "**Row 2 minus (2) times row 1.** $$\\begin{bmatrix}1&2&3&4\\\\0&0&0&0\\\\0&1&1&0\\\\1&3&4&4\\end{bmatrix}$$\n\n**Row 4 minus (1) times row 1.** $$\\begin{bmatrix}1&2&3&4\\\\0&0&0&0\\\\0&1&1&0\\\\0&1&1&0\\end{bmatrix}$$\n\n**Swap rows 3 and 2.** $$\\begin{bmatrix}1&2&3&4\\\\0&1&1&0\\\\0&0&0&0\\\\0&1&1&0\\end{bmatrix}$$\n\n**Row 1 minus (2) times row 2.** $$\\begin{bmatrix}1&0&1&4\\\\0&1&1&0\\\\0&0&0&0\\\\0&1&1&0\\end{bmatrix}$$\n\n**Row 4 minus (1) times row 2.** $$\\begin{bmatrix}1&0&1&4\\\\0&1&1&0\\\\0&0&0&0\\\\0&0&0&0\\end{bmatrix}$$\n\n**Skip coefficient column 3: no available pivot.** $$\\begin{bmatrix}1&0&1&4\\\\0&1&1&0\\\\0&0&0&0\\\\0&0&0&0\\end{bmatrix}$$\n\n**Skip coefficient column 4: no available pivot.** $$\\begin{bmatrix}1&0&1&4\\\\0&1&1&0\\\\0&0&0&0\\\\0&0&0&0\\end{bmatrix}$$\n\n**Coefficient reduction complete.** $$\\begin{bmatrix}1&0&1&4\\\\0&1&1&0\\\\0&0&0&0\\\\0&0&0&0\\end{bmatrix}$$\n\nThere are 2 pivots at one-based columns 1, 2. \n\n**Column space.** Use those columns of the ORIGINAL matrix. The columns of this matrix form its basis: $$C=\\begin{bmatrix}1&2\\\\2&4\\\\0&1\\\\1&3\\end{bmatrix}.$$\n\n**Row space.** The nonzero reduced rows form its basis. They are the rows of $$R_*=\\begin{bmatrix}1&0&1&4\\\\0&1&1&0\\end{bmatrix}.$$\n\n**Kernel.** Solve the pivot equations with one unit free coordinate at a time. The resulting basis is the column list of $$N=\\begin{bmatrix}-1&-4\\\\-1&0\\\\1&0\\\\0&1\\end{bmatrix}.$$\n\n**Left kernel.** Reduce the transpose by the same procedure. Its basis is the column list of $$Y=\\begin{bmatrix}-2&-1\\\\1&0\\\\0&-1\\\\0&1\\end{bmatrix}.$$\n\nThe four dimensions are 2, 2, 2, 2, respectively. Each null vector is annihilated by its matrix; independent free-coordinate patterns and the rank\u2013nullity counts prove completeness. For any load $b$, compatibility is exactly the vanishing of its dot product with every listed left-kernel vector. Singularity does not say that every nonzero load is inconsistent; the left-kernel conditions determine the allowable ones.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          3,
+          4,
+          4
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "0",
+          "1",
+          "4"
+        ],
+        [
+          "0",
+          "1",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "pivots": [
+        0,
+        1
+      ],
+      "null": [
+        [
+          "-1",
+          "-1",
+          "1",
+          "0"
+        ],
+        [
+          "-4",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "left": [
+        [
+          "-2",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "-1",
+          "0",
+          "-1",
+          "1"
+        ]
+      ],
+      "rank": 2
+    }
+  },
+  {
+    "id": "LR11",
+    "title": "Four independent columns in five output coordinates",
+    "stem": "Find bases of all four fundamental spaces for $$A=\\begin{bmatrix}1&0&0&0\\\\0&1&0&0\\\\0&0&1&0\\\\0&0&0&1\\\\1&2&3&4\\end{bmatrix}$$ State their ambient spaces, dimensions, and the complete conditions for an arbitrary load to be attainable.",
+    "solution": "**Row 5 minus (1) times row 1.** $$\\begin{bmatrix}1&0&0&0\\\\0&1&0&0\\\\0&0&1&0\\\\0&0&0&1\\\\0&2&3&4\\end{bmatrix}$$\n\n**Row 5 minus (2) times row 2.** $$\\begin{bmatrix}1&0&0&0\\\\0&1&0&0\\\\0&0&1&0\\\\0&0&0&1\\\\0&0&3&4\\end{bmatrix}$$\n\n**Row 5 minus (3) times row 3.** $$\\begin{bmatrix}1&0&0&0\\\\0&1&0&0\\\\0&0&1&0\\\\0&0&0&1\\\\0&0&0&4\\end{bmatrix}$$\n\n**Row 5 minus (4) times row 4.** $$\\begin{bmatrix}1&0&0&0\\\\0&1&0&0\\\\0&0&1&0\\\\0&0&0&1\\\\0&0&0&0\\end{bmatrix}$$\n\n**Coefficient reduction complete.** $$\\begin{bmatrix}1&0&0&0\\\\0&1&0&0\\\\0&0&1&0\\\\0&0&0&1\\\\0&0&0&0\\end{bmatrix}$$\n\nThere are 4 pivots at one-based columns 1, 2, 3, 4. \n\n**Column space.** Use those columns of the ORIGINAL matrix. The columns of this matrix form its basis: $$C=\\begin{bmatrix}1&0&0&0\\\\0&1&0&0\\\\0&0&1&0\\\\0&0&0&1\\\\1&2&3&4\\end{bmatrix}.$$\n\n**Row space.** The nonzero reduced rows form its basis. They are the rows of $$R_*=\\begin{bmatrix}1&0&0&0\\\\0&1&0&0\\\\0&0&1&0\\\\0&0&0&1\\end{bmatrix}.$$\n\n**Kernel.** Solve the pivot equations with one unit free coordinate at a time. There is no free coordinate, so its basis is the empty list.\n\n**Left kernel.** Reduce the transpose by the same procedure. Its basis is the column list of $$Y=\\begin{bmatrix}-1\\\\-2\\\\-3\\\\-4\\\\1\\end{bmatrix}.$$\n\nThe four dimensions are 4, 4, 0, 1, respectively. Each null vector is annihilated by its matrix; independent free-coordinate patterns and the rank\u2013nullity counts prove completeness. For any load $b$, compatibility is exactly the vanishing of its dot product with every listed left-kernel vector. The codomain has five coordinates, so full column rank leaves one independent load compatibility condition.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "pivots": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "null": [],
+      "left": [
+        [
+          "-1",
+          "-2",
+          "-3",
+          "-4",
+          "1"
+        ]
+      ],
+      "rank": 4
+    }
+  },
+  {
+    "id": "LR12",
+    "title": "A full-row-rank map with three free coordinates",
+    "stem": "Find bases of all four fundamental spaces for $$A=\\begin{bmatrix}1&2&0&1&3\\\\0&0&1&1&-1\\end{bmatrix}$$ State their ambient spaces, dimensions, and the complete conditions for an arbitrary load to be attainable.",
+    "solution": "**Skip coefficient column 2: no available pivot.** $$\\begin{bmatrix}1&2&0&1&3\\\\0&0&1&1&-1\\end{bmatrix}$$\n\n**Coefficient reduction complete.** $$\\begin{bmatrix}1&2&0&1&3\\\\0&0&1&1&-1\\end{bmatrix}$$\n\nThere are 2 pivots at one-based columns 1, 3. \n\n**Column space.** Use those columns of the ORIGINAL matrix. The columns of this matrix form its basis: $$C=\\begin{bmatrix}1&0\\\\0&1\\end{bmatrix}.$$\n\n**Row space.** The nonzero reduced rows form its basis. They are the rows of $$R_*=\\begin{bmatrix}1&2&0&1&3\\\\0&0&1&1&-1\\end{bmatrix}.$$\n\n**Kernel.** Solve the pivot equations with one unit free coordinate at a time. The resulting basis is the column list of $$N=\\begin{bmatrix}-2&-1&-3\\\\1&0&0\\\\0&-1&1\\\\0&1&0\\\\0&0&1\\end{bmatrix}.$$\n\n**Left kernel.** Reduce the transpose by the same procedure. Every output coordinate is independently attainable, so its basis is the empty list.\n\nThe four dimensions are 2, 2, 3, 0, respectively. Each null vector is annihilated by its matrix; independent free-coordinate patterns and the rank\u2013nullity counts prove completeness. For any load $b$, compatibility is exactly the vanishing of its dot product with every listed left-kernel vector. Five unknowns minus two independent equations leave three free directions, independently of the particular load.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": {
+      "input": [
+        [
+          1,
+          2,
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          -1
+        ]
+      ],
+      "rref": [
+        [
+          "1",
+          "2",
+          "0",
+          "1",
+          "3"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "1",
+          "-1"
+        ]
+      ],
+      "pivots": [
+        0,
+        2
+      ],
+      "null": [
+        [
+          "-2",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-1",
+          "0",
+          "-1",
+          "1",
+          "0"
+        ],
+        [
+          "-3",
+          "0",
+          "1",
+          "0",
+          "1"
+        ]
+      ],
+      "left": [],
+      "rank": 2
+    }
+  },
+  {
+    "id": "LR13",
+    "title": "The rank\u2013nullity proof cannot skip independence",
+    "stem": "Let a kernel basis of a linear map from an $n$-dimensional space be extended by $v_1,\\ldots,v_r$ to a domain basis. Prove that the images of the added vectors form an image basis.",
+    "solution": "Every input has a unique expansion in the full basis. Its kernel part maps to zero, so every output is a combination of the $Av_i$. For independence, suppose $\\sum c_iAv_i=0$. Then $\\sum c_iv_i$ lies in the kernel and is a combination of the original kernel basis. Move that combination to the left: independence of the DOMAIN basis forces every $c_i$ and every kernel coefficient to vanish. Hence the images are independent and spanning. Their number is $r=n-\\dim\\ker A$, proving the theorem. Counting a spanning list without this independence step would not establish rank.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR14",
+    "title": "Which claimed rank values are possible?",
+    "stem": "A real $5\\times8$ matrix has a four-dimensional kernel. Find its rank and left nullity; decide whether every load is attainable.",
+    "solution": "Apply rank\u2013nullity in the input space: $r+4=8$, so $r=4$. Apply it separately to the transpose: left nullity is $5-4=1$. The image is a four-dimensional proper subspace of $\\mathbb R^5$, so not every load is attained. Four kernel dimensions do not imply four compatibility conditions: input ambiguity and output restrictions live in different ambient spaces.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR15",
+    "title": "Inconsistent dimension information",
+    "stem": "Can a $3\\times7$ matrix have nullity three? Explain without constructing a matrix.",
+    "solution": "Nullity three would give rank $7-3=4$. But rank cannot exceed the number of rows, which is three. Therefore no such matrix exists. Equivalently every map from seven input coordinates to three outputs must lose at least four independent directions. The argument is valid over any field.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR16",
+    "title": "One load versus every load",
+    "stem": "A $6\\times4$ matrix gives a unique solution for one compatible load. Does this establish injectivity, surjectivity, or both?",
+    "solution": "Any nonzero kernel vector could be added to that solution and produce a second solution for the SAME load. Uniqueness therefore forces the kernel to be zero, so rank is four and the map is injective. Surjectivity onto $F^6$ is impossible because the image dimension is at most four. Thus uniqueness for one compatible load proves uniqueness for all compatible loads, but never existence for all six-component loads.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR17",
+    "title": "When a fiber is a subspace",
+    "stem": "Prove that a nonempty solution set of $Ax=b$ is a linear subspace precisely when $b=0$.",
+    "solution": "If the set is a linear subspace it contains zero, so substituting zero gives $b=A0=0$. Conversely, for $b=0$ the set is the kernel, which is closed under linear combinations. When $b\\ne0$ and a solution exists, it is the affine set $x_p+\\ker A$, whose direction space is a subspace but whose translated points do not generally close under addition.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR18",
+    "title": "Two parallel fibers",
+    "stem": "For $A=(1,1)$, describe the fibers for loads three and five and their intersection.",
+    "solution": "The kernel is $\\operatorname{span}(1,-1)^T$. The first fiber is $(3,0)^T+t(1,-1)^T$ and the second is $(5,0)^T+s(1,-1)^T$. A point in both would have coordinate sum both three and five, a contradiction. The fibers are disjoint affine lines with identical direction space. Neither coordinate is individually ignored: the map preserves their sum and loses their difference.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR19",
+    "title": "Finite-field counting",
+    "stem": "A compatible system over a field of nine elements has six unknowns and rank four. How many solutions exist? Contrast the real case.",
+    "solution": "There are two free field coordinates, each with nine independently available values. Every assignment determines all pivot coordinates uniquely, so the count is $9^2=81$. Over $\\mathbb R$ the same pivot structure gives an affine plane with infinitely many points. The rank\u2013nullity theorem is unchanged; only the cardinality of the field changes the number of assignments.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR20",
+    "title": "A left-kernel compatibility certificate",
+    "stem": "The rows of $A$ satisfy row three equal to row one plus twice row two. Rank is two. Give a necessary and sufficient condition on a three-component load.",
+    "solution": "The vector $y=(-1,-2,1)^T$ satisfies $y^TA=0$. Left nullity is $3-2=1$, so this nonzero vector spans the left kernel. Compatibility is therefore precisely $-b_1-2b_2+b_3=0$. Necessity follows by combining the original equations. Sufficiency follows because this is every independent left-kernel condition. Without the stated rank two, one relation alone would not establish sufficiency.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR21",
+    "title": "One appended column can increase rank only once",
+    "stem": "Prove the possible rank differences between $A$ and $[A\\mid b]$ and interpret both outcomes.",
+    "solution": "Appending $b$ changes the column span from $U$ to $U+\\operatorname{span}(b)$. If $b\\in U$, no basis vector is added and the difference is zero. If $b\\notin U$, append it to a basis of $U$ to obtain an independent spanning list with exactly one additional member. The difference is then one. These cases mean compatibility and incompatibility, respectively; a claimed increase of two for a single load is impossible.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR22",
+    "title": "Several loads can add several dimensions",
+    "stem": "For $A=\\begin{bmatrix}1&0\\\\0&0\\\\0&0\\end{bmatrix}$ and $B=\\begin{bmatrix}0&0\\\\1&0\\\\0&1\\end{bmatrix}$, find both ranks and decide whether $AX=B$ is solvable.",
+    "solution": "The image of $A$ is the first coordinate line, so its rank is one. The columns of $B$ add the second and third standard vectors, so the concatenated rank is three. Neither nonzero load column lies in the original image. Thus the matrix equation is not solvable, and the rank increase is two. The single-load bound cannot be transferred to a block with two load columns.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR23",
+    "title": "All matrix solutions and their dimension",
+    "stem": "Suppose an $m\\times n$ matrix has rank $r$ and $AX=B$ is compatible, with $k$ load columns. Describe all solutions and their affine dimension.",
+    "solution": "Choose a particular solution $X_p$ and a kernel basis matrix $N$ with $n-r$ columns. Every column of $X-X_p$ is independently in the kernel, so $X=X_p+NC$ with arbitrary $(n-r)\\times k$ matrix $C$. Conversely all these matrices satisfy the equation. Independence of the columns of $N$ makes the coordinates unique for each load column. The affine dimension is $k(n-r)$, not merely $n-r$.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR24",
+    "title": "An exact left inverse of a tall matrix",
+    "stem": "For $A=\\begin{bmatrix}1&0\\\\0&1\\\\1&1\\end{bmatrix}$ construct a left inverse and all left inverses.",
+    "solution": "Selecting the first two output coordinates gives $L_0=\\begin{bmatrix}1&0&0\\\\0&1&0\\end{bmatrix}$ and $L_0A=I_2$. The left kernel is spanned by $(-1,-1,1)^T$. Every row of a correction $D$ must be a multiple of its transpose. Therefore all left inverses are $L_0+\\begin{bmatrix}-s&-s&s\\\\-t&-t&t\\end{bmatrix}$ for arbitrary real $s,t$. Direct multiplication cancels both correction rows. There are two free parameters, matching $n(m-n)=2$.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR25",
+    "title": "An exact right inverse of a wide matrix",
+    "stem": "For $A=\\begin{bmatrix}1&0&1\\\\0&1&1\\end{bmatrix}$ construct a right inverse and its full family.",
+    "solution": "Use $R_0=\\begin{bmatrix}1&0\\\\0&1\\\\0&0\\end{bmatrix}$; multiplication gives $AR_0=I_2$. The kernel is spanned by $v=(-1,-1,1)^T$. Each of the two columns of any correction must lie in that kernel, so every right inverse is $R_0+v(s,t)$ with arbitrary real $s,t$. Conversely each such correction is annihilated. The output space is fully reached, but the map has no left inverse because its kernel is nonzero.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR26",
+    "title": "Why the Gram left inverse works",
+    "stem": "For a real full-column-rank matrix prove that $(A^TA)^{-1}A^T$ exists and is a left inverse.",
+    "solution": "If $A^TAx=0$, multiply by $x^T$ to obtain $\\Vert Ax\\Vert^2=0$. The Euclidean norm is positive definite, so $Ax=0$. Full column rank forces $x=0$; hence the square Gram matrix is invertible. Multiplying the proposed expression by $A$ gives $(A^TA)^{-1}(A^TA)=I$. The proof uses REAL Euclidean positivity; plain transpose over a complex field does not justify the same conclusion.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR27",
+    "title": "A rectangular lower norm bound",
+    "stem": "For $A=\\begin{bmatrix}1&0\\\\0&1\\\\0&0\\end{bmatrix}$ show a lower norm bound and explain why no two-sided inverse exists.",
+    "solution": "For the Euclidean norm, $\\Vert Ax\\Vert=\\Vert x\\Vert$, so the lower bound holds with constant one. Rank is two and the kernel is zero. But the image consists only of outputs with third coordinate zero, so it is not onto $\\mathbb R^3$. A left inverse exists by deleting that coordinate, yet no right inverse can map an output with nonzero third coordinate back through $A$. A lower bound controls input distinguishability, not full output coverage.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR28",
+    "title": "One-sided inverse of a square matrix",
+    "stem": "Let square $A,B$ satisfy $AB=I$. Prove $BA=I$ without determinant multiplication.",
+    "solution": "The relation $AB=I$ makes $A$ onto: every $y$ equals $A(By)$. In finite equal dimensions, rank\u2013nullity forces $A$ to be injective and invertible. Multiply $AB=I$ on the left by $A^{-1}$ to get $B=A^{-1}$. Then $BA=I$. The finite-dimensional square hypothesis is the essential link between onto and one-to-one; it cannot be omitted.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR29",
+    "title": "An infinite-dimensional counterexample",
+    "stem": "On all real sequences, let $S$ prepend zero and $D$ delete the first coordinate. Compute both compositions.",
+    "solution": "For any sequence $x$, prepending zero and then deleting the first entry recovers $x$, so $DS=I$. Deleting first and then prepending zero gives $(0,x_2,x_3,\\ldots)$, which differs from $x$ when $x_1\\ne0$. Thus $SD\\ne I$. The first-coordinate sequence is a nonzero kernel vector of $D$, while $D$ is onto. This explicitly locates the failure of finite-dimensional rank\u2013nullity arguments.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR30",
+    "title": "A rank factorization with minimal inner dimension",
+    "stem": "Factor $A=\\begin{bmatrix}1&2&1\\\\2&4&0\\\\0&0&1\\end{bmatrix}$ through two coordinates and prove that one coordinate cannot suffice.",
+    "solution": "The first and third columns are independent and the second is twice the first. Set $C=\\begin{bmatrix}1&1\\\\2&0\\\\0&1\\end{bmatrix}$ and $F=\\begin{bmatrix}1&2&0\\\\0&0&1\\end{bmatrix}$. Multiplication reproduces every column of $A$. Both factors have rank two. Any factorization through one coordinate is an outer product and has rank at most one, contradicting the two independent columns. Thus the inner dimension two is minimal.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR31",
+    "title": "Two rank factorizations differ by an internal basis change",
+    "stem": "If $A=CF=DG$ are full-rank factorizations of rank $r$, prove that $D=CH$ and $G=H^{-1}F$ for invertible $H$.",
+    "solution": "The columns of both $C$ and $D$ are bases of the same image. Express each column of $D$ uniquely in the basis $C$, producing $D=CH$. Since both lists are bases, the coordinate map $H$ is invertible. Substituting into $CF=CHG$, injectivity of $C$ gives $F=HG$ column by column. Multiply by $H^{-1}$ to obtain the second relation. These are different coordinates for the same intermediate $r$-dimensional space.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR32",
+    "title": "Column operations change the kernel coordinates",
+    "stem": "For $A=(1,2)$ exchange its two columns to form $AQ$. Compare their kernels and ranks.",
+    "solution": "The kernel of $A$ is spanned by $(-2,1)^T$. The exchanged matrix is $(2,1)$ with kernel spanned by $(1,-2)^T$. The two lines differ, but both have dimension one and both matrices have rank one. In general $AQx=0$ means $Qx\\in\\ker A$, hence $\\ker(AQ)=Q^{-1}\\ker A$. Keeping the old kernel without changing coordinates would solve a different system.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR33",
+    "title": "Row operations change column-space position",
+    "stem": "For $A=(1,0)^T$ swap its two rows. Which of rank, kernel and column space is preserved?",
+    "solution": "The new matrix is $(0,1)^T$. Both have rank one and trivial kernel in the one-dimensional input space. Their column spaces are distinct coordinate axes in the two-dimensional output space. The row swap acts as an invertible output-coordinate map, so dimensions and input dependencies are preserved while the image position moves. Therefore row equivalence is not equality of column spaces.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR34",
+    "title": "Exact composition rank from an intersection",
+    "stem": "Let $B:F^5\\to F^4$ have rank three and let $A:F^4\\to F^6$ have rank two. Suppose $\\dim(\\operatorname{Col}B\\cap\\ker A)=1$. Find the composition rank.",
+    "solution": "Restrict $A$ to the three-dimensional image of $B$. The restriction has the stated one-dimensional kernel and image equal to the image of $AB$. Rank\u2013nullity therefore gives rank $3-1=2$. This meets the upper bound from the rank of $A$. Multiplying the individual ranks would give six, violating both dimensions and the restriction formula.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR35",
+    "title": "Sylvester bounds and attainability",
+    "stem": "A real $4\\times5$ matrix has rank three and a $5\\times6$ matrix has rank four. Give the possible composition ranks and explicit coordinate constructions.",
+    "solution": "The common intermediate dimension is five, so the lower bound is $3+4-5=2$ and the upper bound is three. Let $A$ retain intermediate coordinates one, two and three and discard four and five. If the image of $B$ is spanned by coordinates one, two, four and five, the composition rank is two. If it is spanned by one, two, three and four, the composition rank is three. Thus both allowed integer values are attainable.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR36",
+    "title": "A dimension bound does not force a zero product",
+    "stem": "Produce square $A,B$ with rank sum at most their size but $AB\\ne0$.",
+    "solution": "Take $A=B=\\operatorname{diag}(1,0)$ of size two. Each rank is one, so their sum equals the intermediate dimension two. Their product is the same nonzero diagonal matrix. The condition rank sum at most two makes containment of the image of $B$ in the kernel of $A$ dimensionally possible, but here the image is the first axis while the kernel is the second. Actual subspace alignment is necessary.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR37",
+    "title": "A maximal square-zero rank",
+    "stem": "Find the maximum rank of a real $7\\times7$ matrix satisfying $A^2=0$ and construct one.",
+    "solution": "The image lies in the kernel, so $r\\le7-r$, giving $r\\le3$. Define $Ae_2=e_1$, $Ae_4=e_3$, $Ae_6=e_5$, and map the remaining basis vectors to zero. Its image is spanned by three independent odd-index basis vectors; applying $A$ again kills all three. Thus rank three is achieved. This proves both the bound and its sharpness.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR38",
+    "title": "Sharp sum bounds with complete cancellation",
+    "stem": "For matrices of the same shape derive a lower bound on the rank of their sum and show that cancellation can attain zero.",
+    "solution": "The upper sum inequality applied to $A=(A+B)-B$ gives $\\operatorname{rank}A\\le\\operatorname{rank}(A+B)+\\operatorname{rank}B$. Rearranging gives the first difference bound; exchanging $A,B$ gives the opposite difference. Combine them to obtain the absolute rank difference. If $B=-A$, the sum vanishes while both original ranks can be arbitrarily large within the shape bounds. Individual nonzero ranks do not prevent cancellation.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR39",
+    "title": "Disjoint images do not give additive sum rank",
+    "stem": "Construct two maps with disjoint nonzero images but whose sum rank is smaller than their rank sum.",
+    "solution": "Let both maps have one-dimensional input and two-dimensional output: $A=(1,0)^T$, $B=(0,1)^T$. Their images are different coordinate axes with intersection zero. Each has rank one, but the sum has a single nonzero column $(1,1)^T$ and rank one. A shared scalar controls both outputs; independent image directions do not provide independent input degrees of freedom. This explains the missing hypothesis in the tempting rank-additivity assertion.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR40",
+    "title": "Recover an intersection dimension",
+    "stem": "Column basis matrices $C,D$ each have rank three, while $[C\\ D]$ has rank five. Find the dimension of their image intersection.",
+    "solution": "The concatenated image is the sum of the two column spaces. The dimension formula gives intersection dimension $3+3-5=1$. The five-dimensional sum requires an output ambient dimension at least five. A one-dimensional intersection means one shared direction, not necessarily an identical column in the two chosen basis matrices; basis choices can hide the same subspace direction.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR41",
+    "title": "Stacking versus concatenating",
+    "stem": "If $A,B$ both have three input columns, interpret the kernel of their vertical stack. If both have three output rows, interpret the column space of their horizontal concatenation.",
+    "solution": "A stacked equation requires both $Ax=0$ and $Bx=0$ for the same input, so its kernel is the intersection of the two kernels. A horizontal concatenation maps independent inputs $x,y$ to $Ax+By$, so its image is the sum of the two images. These are different constructions. Use the input dimension minus the stack rank for the first intersection, and the dimension formula with the concatenation rank for the second.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR42",
+    "title": "A concrete subspace intersection",
+    "stem": "Let $U=\\operatorname{span}(e_1,e_2,e_3)$ and $W=\\operatorname{span}(e_2,e_3,e_4)$ in $\\mathbb R^4$. Find bases of the intersection and sum.",
+    "solution": "A vector in $U$ has fourth coordinate zero; a vector in $W$ has first coordinate zero. Both conditions give exactly $\\operatorname{span}(e_2,e_3)$ for the intersection. Taking both generating lists gives all four standard directions for the sum. The dimensions are two and four, and $4+2=3+3$ checks the formula. Listing all six original generators would not be a basis of their sum.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR43",
+    "title": "Frobenius with numbers",
+    "stem": "Compatible matrices have $\\operatorname{rank}B=5$, $\\operatorname{rank}(AB)=4$ and $\\operatorname{rank}(BC)=3$. Bound the rank of $ABC$.",
+    "solution": "Frobenius gives $\\operatorname{rank}(ABC)\\ge4+3-5=2$. The product upper bound gives at most three, because the image of $BC$ has dimension three. Thus only two or three are possible. The intermediate loss from applying $A$ to the full image of $B$ is one; its restriction to the image of $BC$ can lose at most that one direction. The argument explains why merely multiplying three ranks is meaningless.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR44",
+    "title": "A two-parameter rank stratification",
+    "stem": "Find the rank of $A(s,t)=\\begin{bmatrix}1&1&1\\\\1&1+s&1\\\\1&1&1+t\\end{bmatrix}$ for every real pair.",
+    "solution": "Subtract row one from rows two and three to obtain rows $(0,s,0)$ and $(0,0,t)$. The first row is always independent of any nonzero later row because its first entry is one. Rank is therefore $1$ plus the number of nonzero members of $s,t$: three when both are nonzero, two when exactly one is nonzero, and one when both vanish. This uses branch-safe row subtraction and no illegal parameter division.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR45",
+    "title": "Exceptional load compatibility",
+    "stem": "For the preceding matrix family with $s=0$ and $t\\ne0$, give all compatible loads and all inputs.",
+    "solution": "After the same row operations, the second equation is $0=b_2-b_1$, so compatibility requires $b_2=b_1$. The third equation fixes $x_3=(b_3-b_1)/t$. Choose $x_2=u$ freely and then $x_1=b_1-u-x_3$. These formulas give every solution, with one free parameter and rank two. The generic full-rank formula dividing by $s$ would be invalid on this branch.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR46",
+    "title": "A rank jump that skips two",
+    "stem": "For $A(t)=\\begin{bmatrix}1&1&1\\\\1&t&1\\\\1&1&t\\end{bmatrix}$ find all ranks; can rank two occur?",
+    "solution": "Subtracting the first row from the other rows gives independent coefficients $t-1$ in different columns. For $t\\ne1$, all three rows are independent; for $t=1$, every row coincides and only one independent row remains. Rank two never occurs. A parameter varying continuously need not make exact integer rank pass through every intermediate integer.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR47",
+    "title": "A vanished determinant does not establish rank one",
+    "stem": "At $t=0$, the matrix $\\operatorname{diag}(1,1,t)$ has determinant zero. Determine its rank and identify the necessary extra evidence.",
+    "solution": "The first two columns are distinct standard vectors, so they are independent and give rank at least two. The third column is zero and gives rank at most two. Hence rank is exactly two. Determinant zero proves only rank less than three. The upper-left two-by-two minor is nonzero and supplies the missing lower-bound evidence.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR48",
+    "title": "A selected minor can vanish while rank stays maximal",
+    "stem": "Give a $2\\times3$ matrix whose first two-column minor is zero but whose rank is two.",
+    "solution": "Take $A=\\begin{bmatrix}1&2&0\\\\0&0&1\\end{bmatrix}$. The first two columns are dependent, so their minor is zero. The first and third columns are the two standard vectors; their minor is one. Rank is two. A low-rank claim requires EVERY minor above the claimed rank to vanish, not just an inconvenient selected minor.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR49",
+    "title": "Constant off-diagonal rank family",
+    "stem": "Find all ranks of a real $4\\times4$ matrix with diagonal $d$ and all off-diagonal entries $c$.",
+    "solution": "Write $M=(d-c)I+cJ$. On the one-dimensional all-ones line the action is multiplication by $d+3c$; on the three-dimensional zero-sum space it is multiplication by $d-c$. If both scalars are nonzero, rank is four. If only the first is nonzero, rank is one. If only the second is nonzero, rank is three. If both vanish, subtracting the two equations yields $4c=0$, so $c=d=0$ over the reals and rank is zero. Rank two is impossible.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR50",
+    "title": "The field changes rank",
+    "stem": "Compute the rank of $\\begin{bmatrix}1&1\\\\1&-1\\end{bmatrix}$ over the reals and over the field with two elements.",
+    "solution": "Over the reals subtract row one from row two to get $(0,-2)$, a second nonzero pivot, so rank is two. Over characteristic two, minus one equals one and the two original rows coincide; the nonzero common row spans the row space, giving rank one. The entries written as integers must be interpreted in the stated field before deciding which pivot is zero.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR51",
+    "title": "Complex transpose is not a positive Gram construction",
+    "stem": "Let $C=(1,i)^T$. Compare the ranks of $C$, $C^TC$ and $C^*C$.",
+    "solution": "The column is nonzero, so rank is one. Plain transpose gives $C^TC=1+i^2=0$, a zero scalar of rank zero. Conjugate transpose gives $C^*C=1+(-i)i=2$, rank one. This refutes the plain-transpose Gram rank identity over complex scalars while confirming the Hermitian version. An argument using a sum of squares must use absolute squares in the complex case.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR52",
+    "title": "Exact versus numerical rank",
+    "stem": "For $A_\\epsilon=\\operatorname{diag}(1,\\epsilon)$, explain the algebraic rank and what a numerical tolerance can change.",
+    "solution": "If $\\epsilon=0$, rank is one; if $\\epsilon\\ne0$, both diagonal columns are independent and rank is two. A numerical method may treat an absolute or scaled singular value below a chosen tolerance as unresolved, assigning effective numerical rank one. That decision depends on the tolerance and scale assumptions, while exact rank does not. Rounding a nonzero input to zero changes the matrix being analyzed.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR53",
+    "title": "A Schur complement computation",
+    "stem": "Find the rank of $\\begin{bmatrix}2&1&3\\\\0&1&1\\\\2&2&t\\end{bmatrix}$ for every real $t$.",
+    "solution": "Use the top-left block $P=\\begin{bmatrix}2&1\\\\0&1\\end{bmatrix}$, which is invertible. Solving $Pz=(3,1)^T$ gives $z=(1,1)^T$. The bottom-left row is $(2,2)$, so its product with $z$ is four. The Schur complement is $t-4$. Reversible block elimination gives rank two plus the rank of this scalar: three if $t\\ne4$, two if $t=4$. The block inversion is legal for every parameter because $P$ is fixed and invertible.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR54",
+    "title": "Block triangular rank is not a diagonal count",
+    "stem": "For $M=\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix}$ compare its rank with the sum of the scalar diagonal-block ranks.",
+    "solution": "Both diagonal scalar blocks are zero and have rank zero. Nevertheless the second column of the full matrix is $(1,0)^T$, so the full matrix has rank one. The off-diagonal block contributes an independent image direction. Additive rank is automatic for block DIAGONAL matrices, not arbitrary block triangular ones with singular diagonal blocks.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR55",
+    "title": "A block diagonal calculation",
+    "stem": "If $C$ is $3\\times4$ of rank two and $D$ is $2\\times3$ of rank one, find rank, kernel dimension and left nullity of $\\operatorname{diag}(C,D)$.",
+    "solution": "The block matrix has five rows and seven columns. Its outputs from the two input blocks occupy disjoint coordinate blocks, so image dimensions add: rank is three. Kernel dimensions likewise add as $(4-2)+(3-1)=4$, matching $7-3$. Left nullity is $5-3=2$. Counting just the number of diagonal blocks would give two and ignore their internal dimensions.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR56",
+    "title": "A rank-one update that loses one direction",
+    "stem": "Let $A=I_3$, $u=(1,2,0)^T$ and $v=(-1,0,0)^T$. Find the rank and kernel of $A+uv^T$.",
+    "solution": "Here $v^Tu=-1$, so $(I+uv^T)u=u+u(v^Tu)=0$. Any kernel vector satisfies $x=-u(v^Tx)$, hence lies in the span of $u$. Since $u\\ne0$, the kernel is exactly one-dimensional and rank is two. Explicitly the updated matrix is $\\begin{bmatrix}0&0&0\\\\-2&1&0\\\\0&0&1\\end{bmatrix}$, which has the two independent nonzero rows. Both the formula and direct computation agree.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR57",
+    "title": "A rank-one update that stays invertible",
+    "stem": "With $A=I_3$, $u=(1,2,0)^T$, $v=(1,0,0)^T$, prove that the update has rank three.",
+    "solution": "If $(I+uv^T)x=0$, then $x=-u(v^Tx)$. Applying $v^T$ gives $(1+v^Tu)(v^Tx)=0$. The scalar is two, so $v^Tx=0$ and then $x=0$. Thus the square update is injective and invertible, with rank three. Unlike the previous task, the sign of the update does not create the exceptional scalar zero.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR58",
+    "title": "Rank can increase by only one under an outer-product update",
+    "stem": "Let A be any rectangular matrix and let u and v have compatible coordinate lengths. Prove that an outer-product update changes its rank by at most one, in either direction.",
+    "solution": "The outer product has rank at most one. The sum inequality gives new rank at most old rank plus one. Writing $A=(A+uv^T)-uv^T$ gives old rank at most new rank plus one. Combine the two. If either vector is zero, the update is zero and the ranks are equal. This reasoning works for rectangular matrices and does not require invertibility.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR59",
+    "title": "An oblique projection",
+    "stem": "For $P=\\begin{bmatrix}1&2\\\\0&0\\end{bmatrix}$ find its image, kernel and rank, and decide whether its decomposition is orthogonal.",
+    "solution": "Multiplication gives $P^2=P$. The image is the first coordinate line and the kernel is spanned by $(-2,1)^T$. These lines intersect only at zero, so they give a direct decomposition of $\\mathbb R^2$. Rank and trace are both one. Their spanning vectors have dot product minus two, not zero, so the decomposition is not orthogonal. Idempotence alone does not imply a symmetric orthogonal projection.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR60",
+    "title": "Why projection rank equals trace over the reals",
+    "stem": "Prove rank\u2013trace equality for a real idempotent matrix without assuming an orthonormal eigenbasis.",
+    "solution": "For each $x$, write $x=Px+(x-Px)$. The first term is in the image; applying $P$ to the second gives zero. A vector in both spaces satisfies $Py=y$ and $Py=0$, so it is zero. Choose any basis of each and combine them. In that basis the matrix is $\\operatorname{diag}(I_r,0)$, with trace $r$ and rank $r$. Trace is unchanged by a basis change because $\\operatorname{tr}(XY)=\\operatorname{tr}(YX)$ follows by exchanging the two finite entry sums.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR61",
+    "title": "Kernel stabilization controls every later power",
+    "stem": "Prove that if $\\ker A^k=\\ker A^{k+1}$, then all later kernels are the same.",
+    "solution": "If $A^{k+2}x=0$, then $Ax\\in\\ker A^{k+1}=\\ker A^k$, giving $A^{k+1}x=0$ and hence $x\\in\\ker A^k$. The reverse containment follows by applying an extra power. Thus the next two kernels also coincide. Repeating this argument proves stabilization for every later power. Equal consecutive ranks imply equal kernels because the kernels are nested and their dimensions are equal by rank\u2013nullity.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR62",
+    "title": "Ranks of powers of a nilpotent chain",
+    "stem": "On five standard basis vectors let $Ae_1=0$ and $Ae_j=e_{j-1}$ for $j=2,3,4,5$. Find ranks and nullities of powers one through five.",
+    "solution": "Applying the map $k$ times sends $e_j$ to $e_{j-k}$ when $j>k$ and to zero otherwise. The image is spanned by the first $5-k$ standard vectors for $1\\le k\\le5$. These are independent, so ranks are four, three, two, one and zero. Kernels are spanned by the first $k$ input basis vectors, giving nullities one through five. The paired dimensions always sum to five.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR63",
+    "title": "A rank bound from an annihilating power",
+    "stem": "If $A^3=0$ on an $n$-dimensional space, prove $\\operatorname{rank}A\\le\\lfloor2n/3\\rfloor$.",
+    "solution": "Sylvester applied to $A^2$ gives $\\operatorname{rank}A^2\\ge2r-n$. Applying it to $A A^2=0$ gives $0\\ge r+\\operatorname{rank}A^2-n$. Combining yields $0\\ge3r-2n$, so $r\\le2n/3$ and integrality gives the floor. This bound does not require a Jordan form; it follows directly from two composition inequalities with the same intermediate dimension.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR64",
+    "title": "Redundant constraints on symmetric matrices",
+    "stem": "On symmetric real $4\\times4$ matrices impose trace zero and twice-trace zero. Find the dimension.",
+    "solution": "There are four diagonal and six off-diagonal independent coordinates, so the ambient dimension is ten. The two displayed functionals are proportional and together have rank one, not two. Rank\u2013nullity gives dimension nine. One can solve for the fourth diagonal coordinate using the first three; all six symmetric off-diagonal coordinates remain arbitrary. Repetition of an equation does not consume a further degree of freedom.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR65",
+    "title": "Two independent matrix constraints",
+    "stem": "On symmetric real $4\\times4$ matrices impose trace zero and entry $a_{12}=0$. Find the dimension and justify independence.",
+    "solution": "The trace functional uses diagonal coordinates; the second uses one off-diagonal coordinate. A diagonal matrix with a single unit diagonal entry gives functional pair $(1,0)$, and a symmetric pair matrix in positions $(1,2),(2,1)$ gives $(0,1)$. Thus the combined map is onto $\\mathbb R^2$ and has rank two. Its kernel has dimension $10-2=8$. This witness proof prevents an unsupported subtraction of written constraints.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR66",
+    "title": "Symmetric matrices with every row sum zero",
+    "stem": "Find the dimension of symmetric real $n\\times n$ matrices whose row sums vanish.",
+    "solution": "The ambient symmetric space has dimension $n(n+1)/2$. The row-sum map sends diagonal matrices to arbitrary row-sum vectors, so it is onto and has rank $n$. Rank\u2013nullity leaves $n(n+1)/2-n=n(n-1)/2$ dimensions. Off-diagonal entries can be chosen freely and each diagonal entry is then the negative sum of the other entries in its row. Symmetry adds no extra row-sum redundancy.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR67",
+    "title": "Polynomial evaluation constraints",
+    "stem": "On polynomials of degree at most four over the reals impose $p(0)=p(1)=p(2)=0$. Find rank, nullity and a kernel basis.",
+    "solution": "The domain has dimension five. Evaluation at the three distinct points has rank three: quadratic interpolation can prescribe any three values, for example with the three Lagrange cardinal polynomials. A polynomial in the kernel is divisible by $x(x-1)(x-2)$, leaving an arbitrary polynomial of degree at most one. Thus nullity is two and a basis is $x(x-1)(x-2)$ and $x^2(x-1)(x-2)$. Distinct roots, not three repeated copies of one evaluation, ensure independent constraints.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR68",
+    "title": "Repeated polynomial evaluations",
+    "stem": "Replace the three points in the preceding task by $0,0,1$. Find the constraint rank and kernel dimension.",
+    "solution": "The first two output functionals are identical. The evaluations at zero and one are independent because linear interpolation prescribes their values independently. The map therefore has rank two, not three, and kernel dimension $5-2=3$. A kernel polynomial is $x(x-1)q(x)$ with degree of $q$ at most two. The basis is obtained by choosing $q=1,x,x^2$.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR69",
+    "title": "Differentiation on a finite polynomial space",
+    "stem": "For $D:p\\mapsto p^{\\prime}$ from degree-at-most-four polynomials to degree-at-most-three polynomials over the reals, find rank and kernel.",
+    "solution": "Constants are exactly the polynomials with zero derivative, so the kernel is the one-dimensional span of one. Every degree-at-most-three polynomial has an antiderivative of degree at most four, so the map is onto a four-dimensional codomain and has rank four. The monomial images are zero, one, $2x$, $3x^2$, $4x^3$. Their nonzero members span the codomain. In positive characteristic some of these integer coefficients may vanish, so the real-field assumption matters.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR70",
+    "title": "A field-dependent derivative rank",
+    "stem": "On degree-at-most-four polynomials over the field of characteristic two, find the derivative rank and kernel.",
+    "solution": "The monomial derivatives are zero, one, zero, $x^2$, zero, since two and four vanish while three equals one. The image is spanned by one and $x^2$, so rank is two. The kernel is spanned by one, $x^2$, $x^4$, giving nullity three and total five. Real-field antiderivative division by an integer is not legal when that integer is zero in the field.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR71",
+    "title": "Constraints encoded by a graph incidence matrix",
+    "stem": "For a connected graph on $n$ vertices, orient each edge and let its incidence column be one standard vector minus another. Prove rank $n-1$.",
+    "solution": "Each column has coordinate sum zero, so the image is contained in the $(n-1)$-dimensional zero-sum subspace. Choose a root vertex. Along a path from the root to any other vertex, add signed incidence columns; intermediate coordinates cancel and give that vertex unit vector minus the root unit vector. Connectivity provides these $n-1$ independent vectors, which span the zero-sum subspace. Hence rank is $n-1$. The left kernel consists of constant vertex vectors.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR72",
+    "title": "Adding a sensor removes a null direction only when independent",
+    "stem": "A measurement matrix $A$ has rank $r$. Append one sensor row $c^T$. Characterize whether rank increases.",
+    "solution": "The new row increases the row-space dimension by one exactly when $c^T$ is outside the old row space. Equivalently, over the reals, it increases rank when some old null vector has nonzero inner product with $c$. In that case the new kernel is the old kernel intersected with one independent hyperplane and loses one dimension. If every old null vector is annihilated, the row is in the old row space and adds no information.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR73",
+    "title": "Equality of kernels and row spaces",
+    "stem": "For real matrices with the same number of columns, prove that equal kernels imply equal row spaces.",
+    "solution": "Their row spaces are respectively the orthogonal complements of their kernels. Equal kernels therefore give equal orthogonal complements and equal row spaces. Conversely equal row spaces give equal kernels by the same relation. The matrices may have different numbers of rows, so they need not be related by an invertible square row transformation of a common size. The statement concerns the spaces of restrictions, not the literal arrays.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR74",
+    "title": "A useful equal-rank composition criterion",
+    "stem": "If $\\operatorname{rank}(AB)=\\operatorname{rank}B$, prove that $A$ is injective on the image of $B$.",
+    "solution": "The exact composition formula subtracts the dimension of $\\operatorname{Col}B\\cap\\ker A$ from the rank of $B$. Equal ranks force that intersection to have dimension zero. Thus the restriction of $A$ to the image of $B$ has trivial kernel and is injective. It may still have a nontrivial kernel elsewhere in the intermediate space. The criterion is a restricted injectivity statement, not global invertibility.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR75",
+    "title": "A lower-rank product equality condition",
+    "stem": "Assume the Sylvester lower expression $\\operatorname{rank}A+\\operatorname{rank}B-n$ is nonnegative. Characterize equality for $AB$.",
+    "solution": "The restriction formula gives rank of $AB$ as rank of $B$ minus the dimension of the intersection of its image with the kernel of $A$. Equality with the stated lower expression requires that intersection dimension equal $n-\\operatorname{rank}A$, the full kernel dimension. Since the intersection is contained in the kernel, equal finite dimensions mean the entire kernel is contained in the image of $B$. Conversely that containment supplies equality. If the formal bound is negative, equality with the sharp bound zero is a different condition.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR76",
+    "title": "Independent input and output blocks give an additive example",
+    "stem": "Give same-shaped rank-one matrices whose sum has rank two, and identify both kinds of separation.",
+    "solution": "Take $A=\\operatorname{diag}(1,0)$ and $B=\\operatorname{diag}(0,1)$. Their images are distinct axes, and their nonzero row spaces are also distinct axes, so different input coordinates independently control those output directions. Their sum is $I_2$ of rank two. In the earlier single-column counterexample only the output directions were separated, while the common one-dimensional input could not provide two degrees of freedom.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR77",
+    "title": "Ranks of complementary projections",
+    "stem": "If $P^2=P$ over the reals, prove $\\operatorname{rank}P+\\operatorname{rank}(I-P)=n$. Explain the image of the complementary projection and state whether symmetry is required.",
+    "solution": "The image of $I-P$ is exactly the kernel of $P$: applying $P$ to $(I-P)x$ gives zero, and any kernel vector $z$ equals $(I-P)z$. Its dimension is therefore $n-\\operatorname{rank}P$ by rank\u2013nullity. This gives the desired sum. No symmetry assumption is needed because the direct decomposition is algebraic; orthogonality is an additional condition.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR78",
+    "title": "Why a nonzero rank-one matrix need not have nonzero trace",
+    "stem": "Construct a rank-one real square matrix with trace zero, and compare with the projection trace theorem.",
+    "solution": "Take $A=\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix}$. Its nonzero second column gives rank one but the diagonal sum is zero. It has square zero rather than being idempotent. Rank equals trace for real idempotents because an adapted basis produces an identity-and-zero block decomposition. Trace alone is not a general measure of independent columns.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR79",
+    "title": "A constrained rank factorization cannot exceed its bottleneck",
+    "stem": "If $A=UVW$ with respective shapes $8\\times3$, $3\\times2$ and $2\\times7$, give the best dimension-only rank bound.",
+    "solution": "Every image of the product passes through the two-dimensional intermediate space after the right factor, so rank is at most two. The left intermediate dimension three gives only a weaker bound. To attain two, choose $W$ onto the two-dimensional space, $V$ injective from two to three coordinates, and $U$ injective on that image. Thus two is both an upper bound and attainable. The bound does not assert that arbitrary such factors attain it.",
+    "origin": "Original problem",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR80",
+    "title": "A shifted span fails the zero test",
+    "stem": "Compare the line $t(1,2)^T$ with $t(1,2)^T+(1,1)^T$. Which is a subspace?",
+    "solution": "The first is a span and is closed under every linear combination. In the second, obtaining zero would require $t=-1$ from the first coordinate and $t=-1/2$ from the second, which is impossible. It is therefore an affine line, not a subspace. Both have one-dimensional direction space, but only the first can be a kernel or image of a linear map.",
+    "origin": "Course-derived: CMU 21-241, Day 9 pp. 1\u20132",
+    "difficulty": "Medium",
+    "certificate": null
+  },
+  {
+    "id": "LR81",
+    "title": "A nonlinear sign constraint is not a null space",
+    "stem": "Is $\\{(x,y):xy\\ge0\\}$ a real subspace? Explain with a closure counterexample.",
+    "solution": "The vectors $(1,0)$ and $(0,-1)$ each satisfy the condition because their products are zero. Their sum $(1,-1)$ has product minus one and violates the condition. Closure under addition fails even though zero belongs and multiplying an individual vector by a scalar preserves the product sign. Consequently this set cannot be the kernel of any real linear map.",
+    "origin": "Course-derived: CMU 21-241, Day 9 p. 2",
+    "difficulty": "Medium",
+    "certificate": null
+  },
+  {
+    "id": "LR82",
+    "title": "Recover a line from homogeneous restrictions",
+    "stem": "Find a basis of the inputs satisfying $y=2x$ and $z=y$.",
+    "solution": "Write the constraints as $-2x+y=0$ and $-y+z=0$. Choosing $x=t$ gives $(x,y,z)=t(1,2,2)$. The displayed nonzero direction spans every solution and is independent as a singleton, so it is a basis. Equivalently choosing $z$ as the parameter gives $(1/2,1,1)$ as another basis; a nonzero rescaling changes a basis list without changing the line.",
+    "origin": "Course-derived: CMU 21-241, Day 9 p. 2",
+    "difficulty": "Medium",
+    "certificate": null
+  },
+  {
+    "id": "LR83",
+    "title": "Membership in a full row space",
+    "stem": "Is $(1,1)$ in the row space of $\\begin{bmatrix}3&4\\\\1&2\\end{bmatrix}$? Find explicit row coefficients.",
+    "solution": "Solve $3s+t=1$ and $4s+2t=1$. Subtract twice the first equation from the second to get $-2s=-1$, so $s=1/2$ and $t=-1/2$. Thus half the first row minus half the second is $(1,1)$. Both rows are independent because these coefficient equations have nonzero determinant, so they span all of $\\mathbb R^2$. Membership can be certified by the explicit combination rather than inferred from a sketch.",
+    "origin": "Course-derived: CMU 21-241, Days 9\u201310, row-space prompt",
+    "difficulty": "Medium",
+    "certificate": null
+  },
+  {
+    "id": "LR84",
+    "title": "A spanning list with a hidden redundant vector",
+    "stem": "Do $(1,1)^T$ and $(2,2)^T$ form a basis for their span? Construct a basis and state its dimension.",
+    "solution": "They span the same line, but the second is twice the first, so the list is dependent and is not a basis. Remove either member and retain the other nonzero vector. The remaining singleton is independent and still spans the line, proving dimension one. A generating list and a basis differ precisely by this independence requirement.",
+    "origin": "Course-derived: CMU 21-241, Day 9 p. 3",
+    "difficulty": "Medium",
+    "certificate": null
+  },
+  {
+    "id": "LR85",
+    "title": "A polynomial basis statement needs its ambient space",
+    "stem": "For $x^2-x+1$, $x+10$, and $3$, decide whether the list is a basis of $P_2$ and of $P_3$, where subscripts denote maximum degree.",
+    "solution": "Compare a zero combination coefficient by coefficient: the quadratic coefficient forces the first multiplier to zero, the linear coefficient forces the second to zero, and then the nonzero constant forces the third to zero. The three polynomials are independent and span the three-dimensional space $P_2$, so they form its basis. They cannot span the four-dimensional space $P_3$ because no combination has a nonzero cubic term. The course writes $P_3$ while claiming a basis; this is corrected explicitly.",
+    "origin": "Course-derived: CMU 21-241, Day 24 p. 2",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR86",
+    "title": "Extend two polynomial vectors to a basis",
+    "stem": "Extend $1+x$ and $1-x$ to a basis of real $P_2$.",
+    "solution": "A zero combination gives constant coefficient $a+b=0$ and linear coefficient $a-b=0$, forcing $a=b=0$. They are independent and span all degree-at-most-one polynomials because half their sum is one and half their difference is $x$. Add $x^2$, which is outside that span. Coefficient comparison now proves independence of all three, and the standard monomials are in their span. Thus the enlarged list is a basis. In characteristic two the original pair coincides and this extension argument changes.",
+    "origin": "Course-derived: CMU 21-241, Day 24 p. 2",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR87",
+    "title": "Linearity before applying rank\u2013nullity",
+    "stem": "Decide which real maps are linear: $x\\mapsto2x$, $x\\mapsto x+1$, and the determinant map on $2\\times2$ matrices.",
+    "solution": "The scaling map preserves sums and scalar multiples, so it is linear. The shifted map sends zero to one and is not linear. Determinant is not linear: $\\det(2I_2)=4$ while $2\\det(I_2)=2$. Rank\u2013nullity applies only to the linear map in this list. The written course lists the scaling map under nonexamples, a transcription slip corrected by the definition.",
+    "origin": "Course-derived: CMU 21-241, Day 24 p. 3",
+    "difficulty": "Hard",
+    "certificate": null
+  },
+  {
+    "id": "LR88",
+    "title": "Oxford row-space membership with a linear certificate",
+    "stem": "For rows $(1,2,-1,0)$, $(2,1,0,3)$ and $(0,1,1,1)$, determine when $x=(x_1,x_2,x_3,x_4)$ lies in their span.",
+    "solution": "Exact reduction gives row basis $(1,0,0,8/5)$, $(0,1,0,-1/5)$ and $(0,0,1,6/5)$. Thus a combination with first three coordinates $x_1,x_2,x_3$ has fourth coordinate $(8x_1-x_2+6x_3)/5$. Membership is exactly $8x_1+6x_3=x_2+5x_4$. This condition is sufficient as well as necessary because the three pivot coordinates freely determine the combination. It is the single left-annihilator restriction on this three-dimensional row space in four coordinates.",
+    "origin": "Course-derived: Oxford M1, Example 121, printed pp. 42\u201343",
+    "difficulty": "Hard",
+    "certificate": null
+  }
+]

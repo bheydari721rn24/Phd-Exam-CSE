@@ -1,0 +1,568 @@
+{
+  "state": "passed",
+  "chapter": "l_rank",
+  "rendered": [
+    {
+      "topicId": "l_rank",
+      "figures": [
+        {
+          "index": 0,
+          "title": "Domain and output dimensions",
+          "viewBox": [
+            700,
+            390
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Input and output are different ambient spaces",
+              "x": 127.72392272949219,
+              "y": 12.45959186553955,
+              "w": 444.5521545410156,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "input: F\u207f",
+              "x": 123.3250732421875,
+              "y": 107.95958709716797,
+              "w": 88.3498306274414,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "output: F\u1d50",
+              "x": 482.16473388671875,
+              "y": 107.95958709716797,
+              "w": 101.38250732421875,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "A",
+              "x": 340.9432678222656,
+              "y": 82.4595947265625,
+              "w": 17.540407180786133,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "kernel: dimension n \u2212 r",
+              "x": 52.17306137084961,
+              "y": 227.9595947265625,
+              "w": 231.4813232421875,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "image: dimension r",
+              "x": 438.787109375,
+              "y": 227.9595947265625,
+              "w": 188.2528533935547,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "rank \u2264 min(m, n)",
+              "x": 256.4179382324219,
+              "y": 330.864990234375,
+              "w": 187.1641082763672,
+              "h": 24.716028213500977,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "l_rank-figure-1.png"
+        },
+        {
+          "index": 1,
+          "title": "Independent and dependent original columns",
+          "viewBox": [
+            700,
+            390
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Original pivot indices select original columns",
+              "x": 130.48329162597656,
+              "y": 12.45959186553955,
+              "w": 439.03338623046875,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "a\u2081",
+              "x": 60.6505126953125,
+              "y": 117.95958709716797,
+              "w": 18.698970794677734,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "a\u2082 = 2a\u2081",
+              "x": 171.46841430664062,
+              "y": 117.95958709716797,
+              "w": 77.06317901611328,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "a\u2083",
+              "x": 340.1771240234375,
+              "y": 117.95958709716797,
+              "w": 19.807266235351562,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "a\u2084 = a\u2081 + a\u2083",
+              "x": 433.31756591796875,
+              "y": 117.95958709716797,
+              "w": 113.5302505493164,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "a\u2085",
+              "x": 620.3639526367188,
+              "y": 117.95958709716797,
+              "w": 19.272024154663086,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "column basis: a\u2081, a\u2083, a\u2085",
+              "x": 240.79600524902344,
+              "y": 252.9595947265625,
+              "w": 218.407958984375,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Reduced columns locate indices; original columns give vectors",
+              "x": 73.98778533935547,
+              "y": 334.0541687011719,
+              "w": 552.0245361328125,
+              "h": 20.729572296142578,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "l_rank-figure-2.png"
+        },
+        {
+          "index": 2,
+          "title": "Parallel solution fibers in the input plane",
+          "viewBox": [
+            700,
+            380
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Two different loads give parallel, disjoint fibers",
+              "x": 123.25071716308594,
+              "y": 12.460004806518555,
+              "w": 453.4985656738281,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "x + y = 3",
+              "x": 330.0848693847656,
+              "y": 137.4600067138672,
+              "w": 89.03291320800781,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "x + y = 5",
+              "x": 490.0848693847656,
+              "y": 217.45999145507812,
+              "w": 89.03291320800781,
+              "h": 23.12090301513672,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "common direction (1, \u22121)",
+              "x": 399.8734130859375,
+              "y": 68.25727081298828,
+              "w": 240.25308227539062,
+              "h": 22.32362937927246,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "l_rank-figure-3.png"
+        },
+        {
+          "index": 3,
+          "title": "Four real fundamental spaces",
+          "viewBox": [
+            700,
+            390
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Four spaces, two separate decompositions",
+              "x": 138.65553283691406,
+              "y": 11.662300109863281,
+              "w": 422.7728576660156,
+              "h": 23.918737411499023,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "row space: r",
+              "x": 124.43477630615234,
+              "y": 117.95958709716797,
+              "w": 116.94883728027344,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "kernel: n \u2212 r",
+              "x": 456.451171875,
+              "y": 117.95958709716797,
+              "w": 122.92727661132812,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "column space: r",
+              "x": 105.94758605957031,
+              "y": 262.9595642089844,
+              "w": 153.9229736328125,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "left kernel: m \u2212 r",
+              "x": 434.83087158203125,
+              "y": 262.9595642089844,
+              "w": 166.15570068359375,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "orthogonal pair inside R\u207f",
+              "x": 232.05694580078125,
+              "y": 178.2568817138672,
+              "w": 236.2379608154297,
+              "h": 22.324153900146484,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "orthogonal pair inside R\u1d50",
+              "x": 232.0818634033203,
+              "y": 328.2568664550781,
+              "w": 236.2379608154297,
+              "h": 22.324153900146484,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "l_rank-figure-4.png"
+        },
+        {
+          "index": 4,
+          "title": "Inverse directions and rank conditions",
+          "viewBox": [
+            700,
+            405
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "The identity acts on the space named by its subscript",
+              "x": 106.04203033447266,
+              "y": 13.25735855102539,
+              "w": 488.1537170410156,
+              "h": 22.32352066040039,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "L A = I\u2099: left inverse",
+              "x": 62.459163665771484,
+              "y": 122.9600830078125,
+              "w": 195.0816650390625,
+              "h": 23.120790481567383,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "A R = I\u2098: right inverse",
+              "x": 431.1666259765625,
+              "y": 122.9600830078125,
+              "w": 216.86952209472656,
+              "h": 23.120790481567383,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "injective; r = n",
+              "x": 88.71920013427734,
+              "y": 262.9600830078125,
+              "w": 142.86741638183594,
+              "h": 23.120790481567383,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "onto; r = m",
+              "x": 484.627197265625,
+              "y": 262.9600830078125,
+              "w": 111.0767822265625,
+              "h": 23.120790481567383,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Both conditions coincide for finite square matrices",
+              "x": 115.8521728515625,
+              "y": 343.2573547363281,
+              "w": 468.36749267578125,
+              "h": 22.32352066040039,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "l_rank-figure-5.png"
+        },
+        {
+          "index": 5,
+          "title": "Exact factorization through the image dimension",
+          "viewBox": [
+            700,
+            390
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Rank factorization of a three-by-three matrix",
+              "x": 132.3145751953125,
+              "y": 12.45959186553955,
+              "w": 436.31109619140625,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "x: 3 coordinates",
+              "x": 38.52854919433594,
+              "y": 140.4595947265625,
+              "w": 152.1455841064453,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "F x: 2 coordinates",
+              "x": 264.8642272949219,
+              "y": 140.4595947265625,
+              "w": 170.27149963378906,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "C F x: 3 coordinates",
+              "x": 489.4558410644531,
+              "y": 140.4595947265625,
+              "w": 191.08828735351562,
+              "h": 23.121444702148438,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "C has two independent columns; F has two independent rows",
+              "x": 77.07106018066406,
+              "y": 269.0541687011719,
+              "w": 545.8579711914062,
+              "h": 20.729572296142578,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "The minimal bottleneck dimension equals rank",
+              "x": 109.7724609375,
+              "y": 331.66229248046875,
+              "w": 480.9958190917969,
+              "h": 23.918737411499023,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "l_rank-figure-6.png"
+        },
+        {
+          "index": 6,
+          "title": "Exact composition rank by a restricted kernel",
+          "viewBox": [
+            700,
+            410
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Apply A only to the image reached by B",
+              "x": 148.51300048828125,
+              "y": 11.662614822387695,
+              "w": 402.17669677734375,
+              "h": 23.91832733154297,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "image of B: dimension s",
+              "x": 68.59124755859375,
+              "y": 117.95989227294922,
+              "w": 232.8175048828125,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "intersection with ker A: k",
+              "x": 391.4967041015625,
+              "y": 117.95989227294922,
+              "w": 247.2898712158203,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "rank of A B = s \u2212 k",
+              "x": 255.81533813476562,
+              "y": 267.95989990234375,
+              "w": 188.65647888183594,
+              "h": 23.121049880981445,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Intermediate alignment decides which directions are lost",
+              "x": 98.27828216552734,
+              "y": 349.054443359375,
+              "w": 504.0004577636719,
+              "h": 20.729217529296875,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "l_rank-figure-7.png"
+        }
+      ],
+      "solutionPrint": {
+        "count": 90,
+        "allOpened": true,
+        "restored": true
+      },
+      "fonts": {
+        "loaded": [
+          "Source Sans 3",
+          "Newsreader",
+          "STIX Two Math",
+          "JetBrains Mono",
+          "Math Glyphs"
+        ],
+        "math": [
+          "\"STIX Two Math\", serif"
+        ]
+      },
+      "mobile": {
+        "viewport": 390,
+        "document": 390,
+        "formulaOverflow": [],
+        "inlineMathOverflow": [],
+        "figureSizes": [
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "24px"
+          },
+          {
+            "width": 324,
+            "fontSize": "22px"
+          },
+          {
+            "width": 324,
+            "fontSize": "23px"
+          },
+          {
+            "width": 324,
+            "fontSize": "24px"
+          }
+        ],
+        "problems": 90,
+        "codeFonts": [
+          "\"JetBrains Mono\", ui-monospace, monospace"
+        ]
+      },
+      "labCases": [
+        {
+          "preset": "pivot",
+          "rank": 3,
+          "nullity": 2,
+          "leftNullity": 1
+        },
+        {
+          "preset": "tall",
+          "rank": 2,
+          "nullity": 0,
+          "leftNullity": 1
+        },
+        {
+          "preset": "wide",
+          "rank": 2,
+          "nullity": 1,
+          "leftNullity": 0
+        },
+        {
+          "preset": "zero",
+          "rank": 0,
+          "nullity": 3,
+          "leftNullity": 2
+        },
+        {
+          "preset": "fractions",
+          "rank": 1,
+          "nullity": 2,
+          "leftNullity": 1
+        },
+        {
+          "preset": "exceptional",
+          "rank": 1,
+          "nullity": 2,
+          "leftNullity": 2
+        }
+      ],
+      "fiberMotion": {
+        "busy": true,
+        "start": {
+          "x": 400,
+          "y": 235
+        },
+        "end": {
+          "id": "input",
+          "label": "",
+          "x": 345,
+          "y": 190,
+          "w": 0,
+          "h": 0,
+          "tone": "plain",
+          "kind": "point"
+        },
+        "actual": "translate(393.9827745537394 230.07681554396856)"
+      },
+      "printStyle": {
+        "diagramOverflow": 0,
+        "mathFonts": [
+          "\"STIX Two Math\", serif"
+        ]
+      }
+    }
+  ],
+  "labChecks": "six exact four-space presets; eight invalid input cases; next/back/reset; actual moving fiber input",
+  "screenshots": "Created chapter screenshots saved beside this file.",
+  "limits": "Local Edge desktop, 390-pixel mobile and print, finite interactions."
+}

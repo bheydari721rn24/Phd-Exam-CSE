@@ -26,4 +26,6 @@ CATALOG={
 's_conditional':{'conditioning':['conditional-atoms'],'multiplication':['conditional-history'],'sequential':['conditional-urn'],'partitions':['conditional-simpson'],'conditional-independence':['conditional-selection','conditional-mixture'],'information':['conditional-report'],'reliability':['conditional-bridge'],'limits':['conditional-strip']},
 's_bayes':{'partitions':['bayes-partition'],'bayes':['bayes-normalize'],'frequencies':['bayes-frequencies'],'odds':['bayes-repeat'],'repeated':['bayes-copy','bayes-predict'],'protocols':['bayes-host'],'sensitivity':['bayes-sensitivity'],'decisions':['bayes-loss'],'continuous':['bayes-density']},
 'l_gauss':{'geometry':['gauss-geometry'],'operations':['gauss-coordinate'],'elimination':['gauss-swap','gauss-skip'],'solutions':['gauss-affine'],'canonical':['gauss-inconsistent'],'parameters':['gauss-parameters'],'factorization':['gauss-lu','gauss-plu'],'inverses':['gauss-inverse'],'numerics':['gauss-rounding'],'fields':['gauss-binary']}
+,
+'l_rank':{'reduction':['rank-pivots','rank-column-transform'],'nullity':['rank-collapse'],'solutions':['rank-fibers','rank-witness'],'inverses':['rank-projection'],'factorization':['rank-factorization'],'inequalities':['rank-composition','rank-cancellation'],'parameters':['rank-parameters'],'structures':['rank-update','rank-powers']}
 }

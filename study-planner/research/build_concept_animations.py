@@ -3,7 +3,7 @@ import hashlib,html,json,re,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/'research/animations'),str(ROOT/'research/exam-rewrite'),str(ROOT/'research')]
-import algorithms,discrete,quantitative,programming_logic,advanced,conditional,bayes,gauss
+import algorithms,discrete,quantitative,programming_logic,advanced,conditional,bayes,gauss,rank
 from common import SCENES,CHECKS
 from catalog import CATALOG
 from mathml import render,markdown_math
