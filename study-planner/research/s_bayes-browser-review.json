@@ -1,0 +1,648 @@
+{
+  "state": "passed",
+  "chapter": "s_bayes",
+  "rendered": [
+    {
+      "topicId": "s_bayes",
+      "figures": [
+        {
+          "index": 0,
+          "title": "Disjoint source weighting",
+          "viewBox": [
+            700,
+            445
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Evidence is the sum of three disjoint source pieces",
+              "x": 106.53040313720703,
+              "y": 14.459824562072754,
+              "w": 486.9391784667969,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "prior 1/2",
+              "x": 82.37662506103516,
+              "y": 95.45982360839844,
+              "w": 85.24674224853516,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "likelihood 1/10",
+              "x": 51.79966735839844,
+              "y": 200.45980834960938,
+              "w": 146.40066528320312,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "joint 3/60",
+              "x": 75.1450424194336,
+              "y": 305.4598083496094,
+              "w": 96.52079010009766,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "prior 1/3",
+              "x": 312.3765869140625,
+              "y": 95.45982360839844,
+              "w": 85.24674224853516,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "likelihood 1/5",
+              "x": 287.4864807128906,
+              "y": 200.45980834960938,
+              "w": 135.02696228027344,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "joint 4/60",
+              "x": 305.14501953125,
+              "y": 305.4598083496094,
+              "w": 96.52079010009766,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "prior 1/6",
+              "x": 542.3765869140625,
+              "y": 95.45982360839844,
+              "w": 85.24674224853516,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "likelihood 3/5",
+              "x": 517.4865112304688,
+              "y": 200.45980834960938,
+              "w": 135.02696228027344,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "joint 6/60",
+              "x": 535.14501953125,
+              "y": 305.4598083496094,
+              "w": 96.52079010009766,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Add joint masses: evidence = 13/60",
+              "x": 177.3824920654297,
+              "y": 387.4598083496094,
+              "w": 344.4377136230469,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "s_bayes-figure-1.png"
+        },
+        {
+          "index": 1,
+          "title": "Mass weighting on one common probability axis",
+          "viewBox": [
+            700,
+            450
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Original prior \u2192 retained joint mass \u2192 posterior",
+              "x": 114.37240600585938,
+              "y": 14.459824562072754,
+              "w": 472.0828552246094,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "total 1",
+              "x": 319.7344665527344,
+              "y": 145.45982360839844,
+              "w": 60.531044006347656,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "total 13/60",
+              "x": 298.2265625,
+              "y": 265.4598083496094,
+              "w": 103.54682922363281,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "total 1",
+              "x": 319.7344665527344,
+              "y": 385.4598083496094,
+              "w": 60.531044006347656,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "s_bayes-figure-2.png"
+        },
+        {
+          "index": 2,
+          "title": "Natural-frequency positive and negative evidence cells",
+          "viewBox": [
+            700,
+            410
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Two thousand synthetic weighted cases",
+              "x": 158.9204559326172,
+              "y": 12.459824562072754,
+              "w": 382.1590576171875,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "target +: 18",
+              "x": 136.5283966064453,
+              "y": 102.9598159790039,
+              "w": 111.94319152832031,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "background +: 99",
+              "x": 415.9576416015625,
+              "y": 102.9598159790039,
+              "w": 172.28736877441406,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "target \u2212: 2",
+              "x": 142.2214813232422,
+              "y": 207.95980834960938,
+              "w": 100.55702209472656,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "background \u2212: 1881",
+              "x": 404.57769775390625,
+              "y": 207.95980834960938,
+              "w": 195.0472412109375,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Positive target fraction: 18/117 = 2/13",
+              "x": 167.47254943847656,
+              "y": 297.4598083496094,
+              "w": 365.0549011230469,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Negative target fraction: 2/1883",
+              "x": 197.86886596679688,
+              "y": 350.4598083496094,
+              "w": 304.2622375488281,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "s_bayes-figure-3.png"
+        },
+        {
+          "index": 3,
+          "title": "Independent report odds and probability",
+          "viewBox": [
+            700,
+            455
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Likelihood ratio four with initial prior odds 1/9",
+              "x": 121.98611450195312,
+              "y": 12.459511756896973,
+              "w": 456.0277404785156,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "n = 0",
+              "x": 74.00071716308594,
+              "y": 112.95951080322266,
+              "w": 51.998573303222656,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1/9",
+              "x": 84.1786880493164,
+              "y": 217.95950317382812,
+              "w": 31.64263916015625,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1/10",
+              "x": 78.48550415039062,
+              "y": 322.9595031738281,
+              "w": 43.02900695800781,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "n = 1",
+              "x": 244.00071716308594,
+              "y": 112.95951080322266,
+              "w": 51.998573303222656,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "4/9",
+              "x": 254.17868041992188,
+              "y": 217.95950317382812,
+              "w": 31.64263916015625,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "4/13",
+              "x": 248.48550415039062,
+              "y": 322.9595031738281,
+              "w": 43.02900695800781,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "n = 2",
+              "x": 414.0007019042969,
+              "y": 112.95951080322266,
+              "w": 51.998573303222656,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "16/9",
+              "x": 418.4855041503906,
+              "y": 217.95950317382812,
+              "w": 43.02900695800781,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "16/25",
+              "x": 412.79229736328125,
+              "y": 322.9595031738281,
+              "w": 54.415374755859375,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "n = 3",
+              "x": 584.000732421875,
+              "y": 112.95951080322266,
+              "w": 51.998573303222656,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "64/9",
+              "x": 588.4854736328125,
+              "y": 217.95950317382812,
+              "w": 43.02900695800781,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "64/73",
+              "x": 582.7922973632812,
+              "y": 322.9595031738281,
+              "w": 54.415374755859375,
+              "h": 23.121551513671875,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Rows show report count, posterior odds, posterior probability",
+              "x": 91.90692138671875,
+              "y": 404.85137939453125,
+              "w": 516.8871459960938,
+              "h": 19.932371139526367,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "s_bayes-figure-4.png"
+        },
+        {
+          "index": 4,
+          "title": "Informed host reporting likelihoods",
+          "viewBox": [
+            700,
+            420
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Observed report: the host opens empty door 3",
+              "x": 129.43975830078125,
+              "y": 12.459824562072754,
+              "w": 441.1204528808594,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "prize 1",
+              "x": 102.1869125366211,
+              "y": 97.9598159790039,
+              "w": 65.62616729736328,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "prize 2",
+              "x": 332.1869201660156,
+              "y": 97.9598159790039,
+              "w": 65.62616729736328,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "prize 3",
+              "x": 562.1868896484375,
+              "y": 97.9598159790039,
+              "w": 65.62616729736328,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "likelihood q",
+              "x": 77.31549835205078,
+              "y": 212.95982360839844,
+              "w": 115.36900329589844,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "likelihood 1",
+              "x": 307.6144714355469,
+              "y": 212.95982360839844,
+              "w": 114.77104187011719,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "likelihood 0",
+              "x": 537.614501953125,
+              "y": 212.95982360839844,
+              "w": 114.77104187011719,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "Uniform prize priors \u2192 switch posterior 1/(1 + q)",
+              "x": 108.78520965576172,
+              "y": 307.4598388671875,
+              "w": 482.4295349121094,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "The specific report and host policy are both part of the evidence",
+              "x": 81.7710952758789,
+              "y": 369.8516540527344,
+              "w": 536.736328125,
+              "h": 19.932016372680664,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "s_bayes-figure-5.png"
+        },
+        {
+          "index": 5,
+          "title": "Posterior sensitivity curve on a unit probability square",
+          "viewBox": [
+            700,
+            410
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Posterior response for likelihood ratio four",
+              "x": 144.63169860839844,
+              "y": 12.459824562072754,
+              "w": 411.56378173828125,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "prior probability p",
+              "x": 261.483154296875,
+              "y": 360.4598083496094,
+              "w": 177.03367614746094,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0",
+              "x": 85.54020690917969,
+              "y": 333.44622802734375,
+              "w": 9.567367553710938,
+              "h": 17.54017448425293,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1",
+              "x": 615.5401611328125,
+              "y": 333.44622802734375,
+              "w": 8.919577598571777,
+              "h": 17.54017448425293,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1",
+              "x": 57.54020690917969,
+              "y": 64.44622039794922,
+              "w": 8.919577598571777,
+              "h": 17.54017448425293,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "posterior",
+              "x": 178.43551635742188,
+              "y": 93.2571029663086,
+              "w": 83.53775024414062,
+              "h": 22.3238582611084,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "unchanged prior",
+              "x": 439.5340576171875,
+              "y": 264.8516540527344,
+              "w": 141.30471801757812,
+              "h": 19.932016372680664,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "s_bayes-figure-6.png"
+        },
+        {
+          "index": 6,
+          "title": "Normalized posterior densities on the unit interval",
+          "viewBox": [
+            700,
+            425
+          ],
+          "outside": [],
+          "overlap": [],
+          "labels": [
+            {
+              "text": "Uniform prior, one head, and two heads plus one tail",
+              "x": 94.29712677001953,
+              "y": 12.459824562072754,
+              "w": 511.4057312011719,
+              "h": 23.121139526367188,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0",
+              "x": 85.54020690917969,
+              "y": 333.44622802734375,
+              "w": 9.567367553710938,
+              "h": 17.54017448425293,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "1",
+              "x": 615.5401611328125,
+              "y": 333.44622802734375,
+              "w": 8.919577598571777,
+              "h": 17.54017448425293,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "0",
+              "x": 57.54020690917969,
+              "y": 301.4461975097656,
+              "w": 9.567367553710938,
+              "h": 17.54017448425293,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "2",
+              "x": 57.54020690917969,
+              "y": 91.44622802734375,
+              "w": 8.919577598571777,
+              "h": 17.54017448425293,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "parameter \u03b8; vertical axis is density",
+              "x": 187.53536987304688,
+              "y": 370.257080078125,
+              "w": 326.25177001953125,
+              "h": 22.3238582611084,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "one head: 2\u03b8",
+              "x": 203.9661102294922,
+              "y": 69.05438232421875,
+              "w": 112.06776428222656,
+              "h": 20.729297637939453,
+              "font": "\"STIX Two Math\", serif"
+            },
+            {
+              "text": "HHT: 12\u03b8\u00b2(1 \u2212 \u03b8)",
+              "x": 145.64111328125,
+              "y": 134.85166931152344,
+              "w": 148.74571228027344,
+              "h": 19.932016372680664,
+              "font": "\"STIX Two Math\", serif"
+            }
+          ],
+          "screenshot": "s_bayes-figure-7.png"
+        }
+      ],
+      "solutionPrint": {
+        "count": 65,
+        "allOpened": true,
+        "restored": true
+      },
+      "fonts": {
+        "loaded": [
+          "Source Sans 3",
+          "Newsreader",
+          "STIX Two Math",
+          "JetBrains Mono",
+          "Math Glyphs"
+        ],
+        "math": [
+          "\"STIX Two Math\", serif"
+        ]
+      },
+      "mobile": {
+        "viewport": 390,
+        "document": 390,
+        "formulaOverflow": [],
+        "inlineMathOverflow": [],
+        "figureSizes": [
+          {
+            "width": 700,
+            "fontSize": "23px"
+          },
+          {
+            "width": 700,
+            "fontSize": "23px"
+          },
+          {
+            "width": 700,
+            "fontSize": "23px"
+          },
+          {
+            "width": 700,
+            "fontSize": "23px"
+          },
+          {
+            "width": 700,
+            "fontSize": "23px"
+          },
+          {
+            "width": 700,
+            "fontSize": "23px"
+          },
+          {
+            "width": 700,
+            "fontSize": "23px"
+          }
+        ],
+        "problems": 65,
+        "codeFonts": [
+          "\"JetBrains Mono\", monospace"
+        ]
+      },
+      "printStyle": {
+        "diagramOverflow": 0,
+        "mathFonts": [
+          "\"STIX Two Math\", serif"
+        ]
+      }
+    }
+  ],
+  "labChecks": "five exact presets, six malformed fractions, no-evidence identity",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\s-bayes-browser",
+  "limits": "Local Edge desktop, 390-pixel mobile and print checks with finite interaction cases; no universal browser guarantee."
+}

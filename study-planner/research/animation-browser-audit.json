@@ -167,6 +167,13 @@
       "overflow": false,
       "underlined": false,
       "topicId": "s_conditional"
+    },
+    {
+      "players": 9,
+      "questions": 65,
+      "overflow": false,
+      "underlined": false,
+      "topicId": "s_bayes"
     }
   ],
   "scenarios": {
@@ -739,13 +746,63 @@
       "frames": 4,
       "entityMotion": false,
       "finalCounterexample": false
+    },
+    "bayes-partition": {
+      "frames": 4,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "bayes-normalize": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "bayes-frequencies": {
+      "frames": 6,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "bayes-repeat": {
+      "frames": 6,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "bayes-copy": {
+      "frames": 4,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "bayes-predict": {
+      "frames": 5,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "bayes-host": {
+      "frames": 5,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "bayes-sensitivity": {
+      "frames": 6,
+      "entityMotion": true,
+      "finalCounterexample": false
+    },
+    "bayes-loss": {
+      "frames": 5,
+      "entityMotion": false,
+      "finalCounterexample": false
+    },
+    "bayes-density": {
+      "frames": 6,
+      "entityMotion": true,
+      "finalCounterexample": false
     }
   },
   "layoutIssues": [],
   "motionSample": {
     "busy": true,
     "record": "L0",
-    "transform": "translate(96.10189551987507 161.86019408262354)",
+    "transform": "translate(96.35614320699709 156.52099265306123)",
     "start": {
       "x": 100,
       "y": 80

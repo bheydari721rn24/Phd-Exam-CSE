@@ -600,13 +600,50 @@
         ]
       },
       "questionCount": 60,
-      "htmlSha256": "2cd2b532fd8810e4e2a3ee944888a66c05ed32f1c992ceb90c9c929f9eb96596"
+      "htmlSha256": "9a40604d3ed1435be7891c1166a3489073fb86f712da62dd2073781c44636b3b"
+    },
+    {
+      "topicId": "s_bayes",
+      "placements": 9,
+      "scenarios": 10,
+      "sections": {
+        "partitions": [
+          "bayes-partition"
+        ],
+        "bayes": [
+          "bayes-normalize"
+        ],
+        "frequencies": [
+          "bayes-frequencies"
+        ],
+        "odds": [
+          "bayes-repeat"
+        ],
+        "repeated": [
+          "bayes-copy",
+          "bayes-predict"
+        ],
+        "protocols": [
+          "bayes-host"
+        ],
+        "sensitivity": [
+          "bayes-sensitivity"
+        ],
+        "decisions": [
+          "bayes-loss"
+        ],
+        "continuous": [
+          "bayes-density"
+        ]
+      },
+      "questionCount": 65,
+      "htmlSha256": "63ae70b2989cc78396573221f5a18d1d9a343b0db677623027f0b641f865d9f8"
     }
   ],
-  "uniqueScenarios": 114,
-  "checkpoints": 757,
-  "placements": 115,
-  "constructionAssertions": 2642,
+  "uniqueScenarios": 124,
+  "checkpoints": 808,
+  "placements": 124,
+  "constructionAssertions": 2795,
   "scope": "Original bounded explanatory models embedded in existing instructional sections. Written proofs remain authoritative; finite examples do not certify all inputs.",
   "checkpointsPrint": "Uninitialized players retain a printable first checkpoint. Initialized players print the currently selected exact checkpoint. No blank animation is required for offline reading."
 }

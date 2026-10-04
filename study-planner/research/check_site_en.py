@@ -39,7 +39,7 @@ class MathCoverage(HTMLParser):
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         details = dict(attrs)
         self.stack.append((tag, details))
-        if "math-inline" in (details.get("class") or ""):
+        if tag == "math" or "math-inline" in (details.get("class") or ""):
             self.styled_runs += 1
 
     def handle_endtag(self, tag: str) -> None:

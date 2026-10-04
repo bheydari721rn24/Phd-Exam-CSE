@@ -1,0 +1,221 @@
+{
+  "chapter": "s_bayes",
+  "state": "passed",
+  "checks": 7446,
+  "byKind": {
+    "numeric-answer-explicitly-in-manuscript": 73,
+    "authentic-masters-direct-enumeration": 1,
+    "minimum-repetition-threshold": 1,
+    "family-selected-child": 1,
+    "ignorant-host": 1,
+    "infeasible-evidence": 1,
+    "nonuniform-density-mean": 1,
+    "impossible-evidence-detection": 25,
+    "posterior-normalization": 704,
+    "association-sign": 560,
+    "odds-factorization": 448,
+    "base-rate-monotonicity": 576,
+    "sharp-credibility-threshold": 4032,
+    "beta-integral-expanded-polynomial": 81,
+    "predictive-integral-ratio": 81,
+    "ten-original-simulations": 1,
+    "serialized-evidence-sum": 4,
+    "complete-simulation-explanation": 51,
+    "serialized-normalization": 4,
+    "serialized-frequency-stage": 6,
+    "serialized-prior-response": 6,
+    "serialized-repeat-odds": 6,
+    "serialized-copied-report": 4,
+    "serialized-prediction": 5,
+    "serialized-host-report": 5,
+    "serialized-decision-loss": 5,
+    "serialized-density-values": 6,
+    "complete-worked-problem": 63,
+    "clean-source-characters": 63,
+    "unique-original-identities": 1,
+    "reviewed-source-fingerprint": 6,
+    "five-actually-reviewed-universities": 1,
+    "original-booklet-fingerprint": 2,
+    "authentic-family-tail": 1,
+    "artifact-bank-rules-figures": 1,
+    "well-formed-native-mathml": 617,
+    "24-approved-chapters-preserved": 1,
+    "sole-new-chapter-draft": 1
+  },
+  "numericAnswerBindings": {
+    "SB01": [
+      "13/60",
+      "3/13",
+      "4/13",
+      "6/13"
+    ],
+    "SB02": [
+      "5/8"
+    ],
+    "SB03": [
+      "3/5"
+    ],
+    "SB04": [
+      "4/5"
+    ],
+    "SB06": [
+      "6/7"
+    ],
+    "SB07": [
+      "5/8",
+      "5/32",
+      "3/40",
+      "27/40"
+    ],
+    "SB09": [
+      "1/3"
+    ],
+    "SB10": [
+      "4/9",
+      "4/9",
+      "1/9",
+      "8/3"
+    ],
+    "SB11": [
+      "117/2000",
+      "2/13",
+      "2/1883"
+    ],
+    "SB12": [
+      "1899/2000"
+    ],
+    "SB13": [
+      "100/1099"
+    ],
+    "SB14": [
+      "3/2",
+      "3/5"
+    ],
+    "SB15": [
+      "99/50",
+      "1/50"
+    ],
+    "SB16": [
+      "3/11"
+    ],
+    "SB17": [
+      "1/490"
+    ],
+    "SB19": [
+      "2/5"
+    ],
+    "SB20": [
+      "2/3"
+    ],
+    "SB21": [
+      "4/13",
+      "16/25"
+    ],
+    "SB22": [
+      "1/2"
+    ],
+    "SB23": [
+      "729/854",
+      "3593/4270"
+    ],
+    "SB24": [
+      "7/10"
+    ],
+    "SB25": [
+      "2/3"
+    ],
+    "SB26": [
+      "6/7"
+    ],
+    "SB27": [
+      "17/50",
+      "17/25"
+    ],
+    "SB28": [
+      "3/5",
+      "11/20"
+    ],
+    "SB29": [
+      "3/11"
+    ],
+    "SB30": [
+      "63/100"
+    ],
+    "SB32": [
+      "3/4"
+    ],
+    "SB33": [
+      "3/10",
+      "2/5"
+    ],
+    "SB34": [
+      "4/5"
+    ],
+    "SB36": [
+      "1/29"
+    ],
+    "SB37": [
+      "2/3"
+    ],
+    "SB40": [
+      "11/20"
+    ],
+    "SB41": [
+      "1/4",
+      "4/7"
+    ],
+    "SB43": [
+      "1/3"
+    ],
+    "SB44": [
+      "4/13",
+      "4/7"
+    ],
+    "SB45": [
+      "3/7",
+      "2/3"
+    ],
+    "SB48": [
+      "2/5"
+    ],
+    "SB49": [
+      "9/13",
+      "4/13"
+    ],
+    "SB50": [
+      "11/13",
+      "18/13"
+    ],
+    "SB51": [
+      "19/4"
+    ],
+    "SB52": [
+      "5/7",
+      "4/7"
+    ],
+    "SB53": [
+      "1/4"
+    ],
+    "SB56": [
+      "3/4",
+      "2/3"
+    ],
+    "SB57": [
+      "3/5"
+    ],
+    "SB60": [
+      "2/3"
+    ],
+    "SB61": [
+      "729/250",
+      "3439/10000"
+    ]
+  },
+  "originalProblems": 63,
+  "authenticProblems": 2,
+  "examRules": 80,
+  "figures": 7,
+  "scenarios": 10,
+  "checkpoints": 51,
+  "limits": "Exact finite/rational grids, independent enumeration/polynomial integrals and explicitly bound selected numerical answers. Symbolic proofs and conceptual cases receive editorial review; not every possible input is machine-proved. No universal completeness or unseen-score guarantee."
+}

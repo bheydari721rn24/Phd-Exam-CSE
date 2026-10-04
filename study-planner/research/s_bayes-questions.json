@@ -1,0 +1,506 @@
+[
+  {
+    "id": "SB01",
+    "title": "Three competing sources",
+    "stem": "Three mutually exclusive sources have priors $(1/2,1/3,1/6)$. An alert has conditional probabilities $(1/10,1/5,3/5)$. Find the evidence rate, complete posterior, and most likely source.",
+    "solution": "First multiply each prior by its own likelihood. The joint alert masses are $(1/20,1/15,1/10)=(3,4,6)/60$. Because the sources form a partition, their sum $13/60$ is the evidence probability. Divide every mass by this same denominator to obtain $(3/13,4/13,6/13)$. The third source is most probable after the alert, although its prior was smallest. Check that the posterior components sum to one. An unweighted average of the likelihoods would ignore unequal source frequencies; choosing the largest prior would ignore the observation.",
+    "origin": "Original problem",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "SB02",
+    "title": "Posterior without equal priors",
+    "stem": "Two factories contribute three quarters and one quarter of output. Their defect rates are $1/50$ and $1/10$. A uniformly selected product is defective. Find its source probability.",
+    "solution": "Let $H$ identify the second factory and $D$ a defect. The defect masses are $3/4\\cdot1/50=3/200$ and $1/4\\cdot1/10=5/200$. Therefore $P(D)=8/200=1/25$ and $P(H\\mid D)=5/8$. The greater defect rate does not alone yield the answer: its factory also supplies fewer products. The probability that a second-factory product is defective is $1/10$, which is the forward likelihood, not the inverse source probability. This distinction is the modeling step that must precede arithmetic.",
+    "origin": "Course-derived structure: Stanford CS109, Bayes; independently chosen factory model",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "SB03",
+    "title": "Background information changes both weights and likelihoods",
+    "stem": "Inside a known subgroup $C$, two source priors are $(2/3,1/3)$ and observation likelihoods are $(1/4,3/4)$. The population prior outside this information was $(1/2,1/2)$. Compute the posterior within $C$.",
+    "solution": "All probabilities must be calculated under the information $C$. The two joint conditional masses are $(2/3)(1/4)=1/6$ and $(1/3)(3/4)=1/4$. Their sum is $5/12$. The second source posterior is $(1/4)/(5/12)=3/5$, and the first is $2/5$. Substituting the population prior would give $3/4$, but that answers a different model. A conditional partition is normalized with $P(H_i\\mid C)$, not $P(H_i)$, and its likelihoods must likewise describe observations within the subgroup.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB04",
+    "title": "Overlapping explanations are not a partition",
+    "stem": "Two events have masses $P(A)=2/5$, $P(B)=1/2$, and $P(A\\cap B)=1/5$. A report has likelihoods $1,1/2,1/4,0$ in the cells both, A-only, B-only, neither. Find $P(A\\mid E)$.",
+    "solution": "The four disjoint cell masses are $1/5$, $1/5$, $3/10$, and $3/10$. Multiplying by their stated likelihoods gives report masses $1/5$, $1/10$, $3/40$, and zero. Thus $P(E)=3/8$. The report mass inside $A$ is $3/10$, and its posterior is $(3/10)/(3/8)=4/5$. Summing weighted probabilities for $A$ and $B$ directly would count the intersection twice. Decomposing into disjoint cells is the necessary preliminary step, and checking cell nonnegativity also verifies the supplied joint model.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB05",
+    "title": "A null hypothesis and impossible evidence",
+    "stem": "A finite model has priors $(1,0)$ and an event has likelihood zero in the first stratum. Is the posterior vector $(0,1)$, $(1,0)$, or undefined? Explain the role of a likelihood assigned to the null stratum.",
+    "solution": "The only positive-prior stratum assigns the observation zero probability, so the evidence mass is zero. The posterior conditional on that event is undefined under the elementary conditioning rule; neither proposed vector follows. A model may assign a generative observation kernel even to the null stratum, but its product with the zero prior contributes no joint mass. It does not create a positive denominator or revive that hypothesis. To infer after such an observation one must revise the prior/model or specify a limiting procedure, whose result is an additional assumption.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB06",
+    "title": "Proportional likelihoods and the lost evidence scale",
+    "stem": "Priors are $(1/4,3/4)$ and likelihoods are $(1/5,2/5)$. Someone replaces the likelihoods by $(1,2)$. Which posterior and evidence calculations survive?",
+    "solution": "The true joint masses are $1/20$ and $3/10$, with evidence $7/20$ and second posterior $6/7$. The rescaled weights are $1/4$ and $3/2$, whose normalization also yields $6/7$. This is legitimate as an unnormalized likelihood calculation because both likelihoods were multiplied by five. However, the sum $7/4$ is not a probability of the event, and the entry two is not an event likelihood. Common positive factors cancel in relative posterior weights while changing the absolute evidence scale.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB07",
+    "title": "Reconstruct a hidden joint table",
+    "stem": "$P(H)=1/5$, $P(E)=1/4$, and $P(H\\mid E)=1/2$. Find both observation likelihoods and the four joint cell masses; check feasibility.",
+    "solution": "The intersection mass is $(1/4)(1/2)=1/8$. Hence $P(E\\mid H)=(1/8)/(1/5)=5/8$. The other event mass is $1/4-1/8=1/8$, giving $P(E\\mid H^c)=(1/8)/(4/5)=5/32$. The cells are $1/8$, $3/40$, $1/8$, and $27/40$, corresponding to both, H-only, E-only, and neither. They are nonnegative and sum to one. This check matters: arbitrary prior, evidence, and posterior numbers need not determine an admissible probability table.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB08",
+    "title": "Evidence supports an event exactly when association is positive",
+    "stem": "For $0<P(H)<1$ and positive $P(E)$, prove that $P(H\\mid E)>P(H)$ if and only if $P(E\\mid H)>P(E\\mid H^c)$.",
+    "solution": "Write $p=P(H)$, $a=P(E\\mid H)$, and $b=P(E\\mid H^c)$. The difference between posterior and prior is $\\frac{pa}{pa+(1-p)b}-p=\\frac{p(1-p)(a-b)}{pa+(1-p)b}$. Its denominator is positive and $p(1-p)>0$, so its sign is exactly that of $a-b$. Equality likewise means equal likelihoods. This proof does not require independent observations, a causal interpretation, or a posterior above one half. Evidence can increase a rare hypothesis substantially while leaving it less likely than its complement.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB09",
+    "title": "Countable posterior from a random family size",
+    "stem": "Let $P(N=n)=2^{-n-1}$ for $n\\ge0$ and each child independently be a girl with probability one half. Given no boys, derive the entire posterior of $N$ and its mean.",
+    "solution": "The no-boys likelihood at size $n$ is $2^{-n}$, including one at zero. Weighted masses are $(1/2)4^{-n}$, and their nonnegative geometric sum is $2/3$. Normalize to obtain $P(N=n\\mid G)=(3/4)4^{-n}$. Its total is one. For the mean, use $\\sum_{n\\ge0}nr^n=r/(1-r)^2$ at $r=1/4$, yielding $(3/4)(4/9)=1/3$. This is an original extension of doctoral Q69: the examination asks a tail probability, whereas this problem derives the posterior distribution and mean.",
+    "origin": "Original extension of Phd CS 1404 Q69",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB10",
+    "title": "Infer first-round eligibility from a second-round count",
+    "stem": "In the four-fair-coin two-round experiment of MS CE 1405 Q35, let $K$ be first-round heads. Given exactly two second-round heads, find the posterior of $K$.",
+    "solution": "The prior is $P(K=k)=\\binom4k/16$. The likelihood of exactly two second-round heads is $\\binom k2/2^k$ for $k\\ge2$, and zero otherwise. The nonzero joint masses at $k=2,3,4$ are $3/32,3/32,3/128$. Their sum is $27/128$. Normalization gives $(4/9,4/9,1/9)$ on those three values. The posterior mean is $2(4/9)+3(4/9)+4(1/9)=8/3$. Replacing $K$ by its unconditional mean two would discard the selection induced by observing the second-round result.",
+    "origin": "Original posterior extension of MS CE 1405 Q35",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB11",
+    "title": "Rare-class alert credibility",
+    "stem": "An educational detector has prior target rate $1/100$, target alert rate $9/10$, and background alert rate $1/20$. Compute alert rate, positive posterior, and target probability after no alert.",
+    "solution": "The target-alert mass is $9/1000$ and background-alert mass is $99/2000$. The evidence is $117/2000$, so the positive posterior is $18/117=2/13$. For no alert, the masses are $1/1000$ and $1881/2000$, with posterior $2/1883$. These calculations use complements inside each class before normalizing. Sensitivity $9/10$ is not the positive posterior, and specificity $19/20$ is not the negative predictive value. The full four-cell table contains enough information to compute all of them.",
+    "origin": "Course-derived structure: CMU Chapter 2 Example 2.22; independent synthetic rates",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "SB12",
+    "title": "High accuracy can conceal weak alerts",
+    "stem": "For the same synthetic detector, find overall classification accuracy and compare it with always predicting background. Explain why the comparison does not settle all decision objectives.",
+    "solution": "The correct joint mass is true alerts plus true non-alerts: $18/2000+1881/2000=1899/2000$. Always predicting background is correct with probability $99/100=1980/2000$, which is higher. Nevertheless the latter rule detects no target cases. Under sufficiently costly false negatives, the detector can support a better expected-loss action despite lower raw accuracy. Posterior inference, accuracy, sensitivity, and cost-weighted decision quality are different quantities. The arithmetic alone cannot select an objective when no loss function has been supplied.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB13",
+    "title": "An impressive likelihood ratio still gives a minority posterior",
+    "stem": "A hypothesis has prior $1/1000$. An observation is 100 times as likely under it as under its complement, with both likelihoods positive. Find the posterior and test whether it exceeds one half.",
+    "solution": "Prior odds are $1/999$. Multiplying by the likelihood ratio gives posterior odds $100/999$. Convert odds to probability using $O/(1+O)$ to get $100/1099$, below one half. The observation strongly increases support relative to the prior, but does not overcome the large initial odds against the hypothesis. Reporting 100 percent or a probability of 100 confuses an odds multiplier with a posterior. The conclusion uses only the relative likelihood; an absolute evidence rate cannot be recovered without a likelihood scale.",
+    "origin": "Original problem",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "SB14",
+    "title": "Pairwise odds inside three hypotheses",
+    "stem": "Use priors $(1/2,1/3,1/6)$ and likelihoods $(1/10,1/5,3/5)$. Find posterior odds of source 3 versus source 2, then its posterior conditional on belonging to either 2 or 3.",
+    "solution": "The weighted masses of sources 3 and 2 are $1/10$ and $1/15$, so their posterior odds are $3/2$. Their conditional binary probability is therefore $3/5$ for source 3. The unconditional posterior among all three sources is instead $6/13$. Source 1 cancels in the pairwise odds but remains in full normalization. This demonstrates why a ratio between two hypotheses must not automatically be converted into a full posterior when additional hypotheses have positive mass.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB15",
+    "title": "Negative evidence can be stronger than a positive",
+    "stem": "An alert has target rate $99/100$ and background rate $1/2$. Find positive and negative likelihood ratios for target versus background and compare their log-evidence magnitudes.",
+    "solution": "The positive ratio is $(99/100)/(1/2)=99/50$, slightly below two. The negative ratio is $(1/100)/(1/2)=1/50$, which reduces target odds by a factor of fifty. The absolute negative log-evidence is $\\log50$, larger than $\\log(99/50)$. An absence of the alert can therefore be much more informative against the target than its presence is for it. This statement concerns the specified likelihood model and relative odds, not the posterior probability, which still requires a prior.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB16",
+    "title": "Find the prior needed for a credible alert",
+    "stem": "A detector has target alert probability $4/5$ and background alert probability $1/10$. Determine the smallest prior for an alert posterior of at least $3/4$.",
+    "solution": "Solve $\\frac{4p/5}{4p/5+(1-p)/10}\\ge3/4$. The denominator is positive, so multiplying and collecting gives $p\\ge3/11$. Equivalently use $qf/[s(1-q)+qf]$ with $q=3/4$, $s=4/5$, and $f=1/10$. At equality the prior odds are $3/8$ and likelihood ratio is eight, giving posterior odds three and probability $3/4$. This odds check independently confirms the algebra. A likelihood ratio eight does not alone guarantee the desired credibility.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB17",
+    "title": "How small must false positives be?",
+    "stem": "A target prior is $1/50$ and sensitivity is $9/10$. Find the largest false-positive rate that makes a positive report at least 90 percent credible.",
+    "solution": "With target posterior threshold $q=9/10$, solve $ps/[ps+(1-p)f]\\ge q$. Rearrangement gives $f\\le ps(1-q)/[q(1-p)]$. Substitute the stated values to get $f\\le1/490$. Equality gives target-alert mass $9/500$ and background-alert mass $1/500$, so their ratio is nine to one. The small base rate forces a very low background alert probability. A false-positive rate of one tenth would not meet this target even though the sensitivity itself is nine tenths.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB18",
+    "title": "Minimum repetitions for a posterior threshold",
+    "stem": "The prior target probability is $1/100$. Conditionally independent positive reports each have likelihood ratio five. What is the smallest number of positives giving posterior at least $9/10$?",
+    "solution": "Prior odds are $1/99$, and after $n$ positive reports they become $5^n/99$. A posterior at least $9/10$ is equivalent to odds at least nine, so require $5^n\\ge891$. The powers are $5^4=625$ and $5^5=3125$, hence the minimum is five. This is a discrete threshold: rounding a logarithmic estimate downward can violate the requirement. The calculation assumes every report supplies a fresh conditionally independent likelihood factor under the same hidden state; copied reports would not qualify.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB19",
+    "title": "Opposing reports cancel in odds",
+    "stem": "A prior is $2/5$. The full-history likelihood ratio of one report is six and that of a second report after the first is $1/6$. Determine the final posterior without assuming marginal independence.",
+    "solution": "Prior odds are $(2/5)/(3/5)=2/3$. Sequential posterior odds multiply by the conditional likelihood ratios: $(2/3)6(1/6)=2/3$. The final posterior is therefore $2/5$, the original prior. The important premise is that the second ratio is conditioned on the first report; unconditional ratios could not be multiplied without extra independence information. Individual reports can strongly alter the intermediate posterior while the complete history has likelihood ratio one. Cancellation concerns support between these two hypotheses, not the probability of the history.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB20",
+    "title": "Evidence ordering and one fixed joint model",
+    "stem": "Two reports have specified joint likelihoods $P(E\\cap F\\mid H)=3/10$ and $P(E\\cap F\\mid H^c)=1/20$. With prior $1/4$, find the posterior and explain whether observing them in the opposite order changes it.",
+    "solution": "The joint history masses are $3/40$ and $3/80$, with sum $9/80$. Thus the posterior is $2/3$. Reversing the order does not change the event $E\\cap F$ or its joint likelihood, so it cannot change the final answer under this same model. Sequential factors may differ because $P(F\\mid E,H)$ and $P(E\\mid F,H)$ need not be equal, but the products reconstruct the same joint probability. A different final answer indicates inconsistent conditional factors or a changed observation protocol.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB21",
+    "title": "Independent repetition versus duplicate report",
+    "stem": "With prior $1/10$, target positive rate $4/5$, and background positive rate $1/5$, compare two conditionally independent positives with one positive reported twice.",
+    "solution": "One positive has masses $2/25$ and $9/50$, giving posterior $4/13$. With conditional independence, two-positive masses are $8/125$ and $9/250$, yielding posterior $16/25$. A duplicated positive has the same event as the first positive; given the first, a copy occurs with probability one under either hypothesis. It therefore leaves the posterior at $4/13$. The incorrect square in the duplicate model confuses two messages with two independent measurements. The model of dependence, not the number of displayed reports, determines the update.",
+    "origin": "Original dependence counterexample",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB22",
+    "title": "A dependent second report needs history-specific likelihoods",
+    "stem": "Prior target probability is $1/3$. The first positive has likelihoods $(3/4,1/4)$. Given that positive, the second has likelihoods $(1/2,3/4)$. Find the two-positive posterior.",
+    "solution": "The joint likelihoods are $(3/4)(1/2)=3/8$ under target and $(1/4)(3/4)=3/16$ under background. Multiply by priors $1/3$ and $2/3$: both weighted masses are $1/8$. The posterior is therefore one half. After the first positive alone the posterior is $3/5$; the second positive reduces it because its history-specific likelihood ratio is $2/3$. A report called positive is not necessarily positive evidence after selection by a prior report. Ignoring the history would miss this reversal.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB23",
+    "title": "Shared coin after three heads",
+    "stem": "A fair coin and a coin with head probability $9/10$ have equal selection priors. One is chosen once and tossed independently given its identity. After three heads, find biased-coin posterior and next-head probability.",
+    "solution": "The likelihoods are $1/8$ and $729/1000$, so the biased posterior is $729/(125+729)=729/854$. Predict the next head by averaging its two type-specific probabilities under the posterior: $(125/854)(1/2)+(729/854)(9/10)=3593/4270$. The posterior probability of a coin type is not the predictive probability of a head. Choosing only the most probable coin and reporting $9/10$ discards remaining type uncertainty. This independently completes a hidden-coin calculation prompted in Berkeley Lecture 3.",
+    "origin": "Course-derived: Berkeley STAT 134 Lecture 3 p10; independently completed derivation",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB24",
+    "title": "Redrawn identity erases inference about the next trial",
+    "stem": "In the preceding coin setting, suppose coin identity is independently redrawn with equal priors before every toss. What is the next-head probability after three observed heads? Can those heads identify the next coin?",
+    "solution": "The next identity is independent of all previous identities and tosses. Its selection probabilities remain one half each after conditioning on the past. Therefore the next-head probability is $(1/2)(1/2)+(1/2)(9/10)=7/10$. The observed heads can give information about past selected identities, but not the newly selected next identity. Using the posterior $729/854$ would import the once-selected latent-state model into a different experiment. The likelihood construction must establish which unknown is shared over the complete history.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB25",
+    "title": "An unordered count has a canceling factor",
+    "stem": "Two fixed coins have head probabilities $1/3$ and $2/3$, with equal priors. In five tosses you observe exactly three heads. Find the second-coin posterior and explain the count-versus-sequence factor.",
+    "solution": "The count likelihoods are $\\binom53(1/3)^3(2/3)^2$ and $\\binom53(2/3)^3(1/3)^2$. Their ratio is two; the shared binomial coefficient and denominator $3^5$ cancel. Equal prior odds therefore become two, giving posterior $2/3$. A specified sequence of three heads and two tails omits the coefficient but produces the same posterior because that omitted factor is common. The evidence probabilities for the count and the single sequence differ by ten, so their absolute probabilities cannot be interchanged.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB26",
+    "title": "Sampling without replacement identifies the urn",
+    "stem": "Two urns are selected equally. Urn A has four red and two blue objects; urn B has two red and four blue. Two draws without replacement are both red. Find the A posterior.",
+    "solution": "The red-red likelihood is $(4/6)(3/5)=2/5$ for A and $(2/6)(1/5)=1/15$ for B. Equal priors cancel, yielding posterior $(2/5)/(2/5+1/15)=6/7$. Squaring the first red proportion would instead model replacement. Because the evidence specifies a color sequence with equal colors, no permutation factor is needed. The weighted second draw probability depends on the remaining contents inside each urn; uncertainty about the selected urn is handled only after computing those likelihoods.",
+    "origin": "Course-derived urn inference structure: CMU Chapter 2; independent urn contents",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB27",
+    "title": "A hidden source creates positive correlation",
+    "stem": "Two equally likely fixed sources have success rates $4/5$ and $1/5$. Observations are independent conditional on source. Find $P(E_2)$, $P(E_1\\cap E_2)$, and $P(E_2\\mid E_1)$.",
+    "solution": "Each marginal success rate is one half. The joint rate is $[(4/5)^2+(1/5)^2]/2=17/50$, which exceeds the product $1/4$. Conditioning on the first success gives $P(E_2\\mid E_1)=(17/50)/(1/2)=17/25$. Equivalently the first success updates source weights to $(4/5,1/5)$, and the predictive mixture is $(4/5)^2+(1/5)^2$. Conditional independence inside a hidden type does not imply independence after mixing over types. This is why Bayes is needed for prediction even when the internal sampling model is simple.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB28",
+    "title": "Posterior predictive probability after mixed evidence",
+    "stem": "A once-selected coin has head rates $1/4$ and $3/4$ with priors $(2/3,1/3)$. The observed sequence is HHT. Find the second-type posterior and next-head probability.",
+    "solution": "The HHT likelihoods are $(1/4)^2(3/4)=3/64$ and $(3/4)^2(1/4)=9/64$. Weighted masses are $2/64$ and $3/64$. The second-type posterior is $3/5$, with complement $2/5$. The next-head predictive probability is $(2/5)(1/4)+(3/5)(3/4)=11/20$. Both the prior imbalance and the mixed observation enter the posterior. Replacing HHT by a head count gives the same posterior here because all three possible orders share a common coefficient under either fixed independent coin model.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB29",
+    "title": "A stopping report with a specified protocol",
+    "stem": "A coin with head rate $1/2$ or $3/4$ has equal priors. Toss until the first head and report that it occurred on toss three. Find the second-coin posterior.",
+    "solution": "The reported event is exactly TTH, not merely one head in three tosses. Its likelihoods are $(1/2)^3=1/8$ and $(1/4)^2(3/4)=3/64$. Equal priors yield posterior $(3/64)/(8/64+3/64)=3/11$. The report favors the lower-head-rate coin because two failures preceded the success. A specified stopping rule with no additional hypothesis-dependent selection factor supplies this likelihood directly. If the report instead concealed some trials or selected among completed histories, that different protocol would need its own likelihood.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB30",
+    "title": "At least one success as coarse evidence",
+    "stem": "Equal priors select fixed success rates $1/4$ and $3/4$. Three conditionally independent trials are performed, but the report only states that at least one succeeded. Find the higher-rate posterior.",
+    "solution": "The likelihoods of at least one success are $1-(3/4)^3=37/64$ and $1-(1/4)^3=63/64$. Normalize under equal priors to get posterior $63/(37+63)=63/100$. This is lower than the posterior after three successes, which would compare $(1/4)^3$ and $(3/4)^3$. The coarse report merges many distinct histories and must sum their likelihoods. Treating it as a specific success count or as all successes introduces information that was not observed.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB31",
+    "title": "A family report chosen uniformly from children",
+    "stem": "Two-child compositions are equiprobable. Compare the probability of two boys given at least one boy with the probability given that a uniformly selected child is observed to be a boy.",
+    "solution": "For the at-least-one report, the retained compositions BB, BG, and GB have equal masses, giving one third. For the selected-child report, likelihoods are $1,1/2,1/2,0$ across BB, BG, GB, GG. With equal priors the normalized BB weight is $1/(1+1/2+1/2)=1/2$. Both reports can use similar natural language, but their likelihoods differ. The solution must state how the report was produced; truthfulness alone does not define a sampling event.",
+    "origin": "Course-derived protocol structure: CMU Exercise 2.12 and Berkeley Lecture 3; independent exposition",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB32",
+    "title": "A report-biased family",
+    "stem": "Equal-prior two-child compositions report a boy with probabilities $1,r,r,0$ for BB, BG, GB, GG. Express the BB posterior, and determine for which $r$ it equals $2/5$.",
+    "solution": "The common prior factor one quarter cancels, leaving BB posterior $1/(1+2r)$. To make it $2/5$, solve $5=2+4r$, giving $r=3/4$, which is a permissible report probability. At $r=0$, only BB produces the report, so the posterior is one; at $r=1$, the report is simply at least one boy, giving one third. The continuum of answers shows why a report protocol must be explicit rather than selected to fit a familiar textbook answer.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB33",
+    "title": "Size-biased selection of a family",
+    "stem": "Families have sizes one, two, and three with prior probabilities $(1/2,1/3,1/6)$. Select a child uniformly from all children in the population. What are the family-size probabilities of that selected child?",
+    "solution": "The expected family size is $1/2+2/3+1/2=5/3$. A size-n family contributes n opportunities to select a child, so the size weights are $(1/2,2/3,1/2)$. Dividing by $5/3$ gives $(3/10,2/5,3/10)$. This is not the original family prior because the sampling unit changed from families to children. The normalization requires a finite positive mean; a zero-child family contributes no selection opportunities. Equal selection of families followed by a child within each would define a different protocol.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB34",
+    "title": "A host with asymmetric tie-breaking",
+    "stem": "The prize is uniform among three doors, your initial choice is door one, and an informed host opens door three with probability $1/4$ when your choice is correct. Otherwise the host must open an empty unchosen door. Given door three opens, find the switching probability.",
+    "solution": "The report likelihoods for prize doors one, two, and three are $(1/4,1,0)$. Multiply by equal priors and normalize: the door-two posterior is $1/(1+1/4)=4/5$. Switching to door two therefore wins with probability four fifths for this specified report. The unconditional always-switch win rate remains two thirds because switching wins exactly when the initial choice was wrong. Conditional and unconditional winning rates can differ when the host\u2019s tie-breaking is asymmetric.",
+    "origin": "Course-derived: CMU Exercise 2.22, informed-host structure; original tie-breaking",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB35",
+    "title": "An ignorant host accidentally reveals an empty door",
+    "stem": "A uniform prize is behind one of three doors. You choose door one. An ignorant host randomly opens door two or three with equal probabilities. Given door three was opened and empty, what is the switching win probability?",
+    "solution": "If the prize is behind door one or two, the observed report occurs with probability one half. If it is behind door three, the report is impossible because the opened door would not be empty. Equal priors therefore yield posterior masses $(1/2,1/2,0)$ after normalization. Switching to door two wins with probability one half. The familiar two-thirds answer relies on a knowledgeable host who is constrained always to reveal an empty door; applying it here would silently change the mechanism that produced the evidence.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB36",
+    "title": "Heavy coins selected as a pair",
+    "stem": "Two heavy and eight light coins lie in a bag. An unordered pair is selected uniformly. The selected pair has equal weights. What is the probability both are heavy?",
+    "solution": "There are $\\binom{10}{2}=45$ equally likely pairs. Equal-weight evidence retains one heavy-heavy pair and $\\binom82=28$ light-light pairs. Therefore the posterior heavy-heavy probability is $1/(1+28)=1/29$. One can also use hypotheses HH, HL, LL with prior weights proportional to $(1,16,28)$ and equal-weight likelihoods $(1,0,1)$. A coin-type probability of one fifth cannot be squared because the pair is drawn without replacement. The partition method and direct retained-count method agree.",
+    "origin": "Course-derived: CMU Exercise 2.23; independently written complete solution",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB37",
+    "title": "Three cards and random visible faces",
+    "stem": "Cards have faces RR, RB, and BB and are chosen uniformly. A uniformly selected face is shown and is red. Find the probability the hidden face is red.",
+    "solution": "The red-face likelihoods are one, one half, and zero for the three card types. Equal card priors give normalized RR mass $1/(1+1/2)=2/3$, which is also the probability the hidden face is red. Alternatively count the three red face positions: two belong to RR and one to RB. Conditioning only on a card having at least one red face would leave RR and RB equally likely and give one half, but that is a different observation event. The visible-face selection rule is essential.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB38",
+    "title": "Different identifiers can distort source inference",
+    "stem": "Two equally likely message sources issue identifiers from disjoint sets of sizes two and eight, each uniformly inside its own set. You observe one specific identifier from the first set. What is the source posterior, and why is likelihood normalization across sources misleading?",
+    "solution": "The observed identifier has likelihood one half under source one and zero under source two, so its source posterior is one. A list of probabilities across hypotheses need not sum to one; here its sum is one half. The likelihood is normalized over all possible identifiers inside a fixed source, not over source labels at one fixed identifier. Dividing likelihoods by their sum can coincidentally reproduce the posterior with equal priors, but it does not supply the absolute evidence probability, which here is one quarter.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB39",
+    "title": "Rejection sampling produces the posterior",
+    "stem": "Independently generate pairs $(H,E)$ from a finite joint model until the first pair whose event component matches the observed positive event. Prove that the returned hypothesis has its Bayes posterior when $P(E)>0$.",
+    "solution": "Let $z=P(E)$ and $w_i=P(H_i\\cap E)$. Returning hypothesis i after exactly k rejected pairs has probability $(1-z)^kw_i$, because pairs are independently regenerated. Summing over $k\\ge0$ gives $w_i/z$, the desired posterior. The algorithm terminates with probability one since $(1-z)^k$ tends to zero. Its expected number of generated pairs is $1/z$, so rare evidence makes it inefficient. This is a proof of a sampling distribution, not permission to replace a precise posterior with a small noisy sample.",
+    "origin": "Course-derived: Oxford SC7 Section 1.3 Exercise 1.2; independently expanded proof",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB40",
+    "title": "Coarse evidence averages two refined posteriors",
+    "stem": "Two disjoint reports have probabilities $1/5$ and $3/10$, and target posteriors $1/4$ and $3/4$. Find the posterior when only their union is reported.",
+    "solution": "The target masses inside the reports are $(1/5)(1/4)=1/20$ and $(3/10)(3/4)=9/40$. Their sum is $11/40$, and the union evidence probability is one half. The coarse posterior is therefore $11/20$. Equivalently it is the weighted average $(2/5)(1/4)+(3/5)(3/4)$. It lies between the refined posteriors. Averaging them equally would give one half and ignore the unequal frequencies of the reports. Coarsening loses report identity but retains the correct conditional mixture weights.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB41",
+    "title": "Recover prevalence from an alert rate",
+    "stem": "Known target and background alert rates are $4/5$ and $1/5$. The overall alert rate is $7/20$. Recover the target prior and the alert posterior.",
+    "solution": "Total probability gives $7/20=1/5+p(4/5-1/5)$. Hence $p=(3/20)/(3/5)=1/4$. The target-alert mass is $(1/4)(4/5)=1/5$, so its posterior among alerts is $(1/5)/(7/20)=4/7$. The known unequal likelihoods make the prior identifiable. If both rates had been equal, every prior would produce the same alert rate. Solving the affine equation should always be followed by checking that the inferred prior lies in the unit interval.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB42",
+    "title": "Detect an infeasible evidence rate",
+    "stem": "A binary model has observation likelihoods $1/4$ and $3/4$. An asserted overall observation probability is $4/5$. Can any prior make this model correct?",
+    "solution": "The evidence probability is a convex combination $p(1/4)+(1-p)(3/4)$, so it lies between one quarter and three quarters for every admissible prior. Four fifths lies outside that interval, and no prior fits. Algebra would produce a negative p, which is another indication of incompatibility rather than a valid probability estimate. At least one supplied rate, observation description, or model assumption must change. Bayes cannot compensate for an internally inconsistent joint model by producing a negative or greater-than-one posterior.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB43",
+    "title": "An inverse posterior determines prior odds",
+    "stem": "An observation has likelihood ratio six and posterior target probability $3/4$. Find the prior target probability, assuming all relevant probabilities are positive.",
+    "solution": "The posterior odds are three. Divide by the likelihood ratio six to obtain prior odds one half. Convert to prior probability $(1/2)/(1+1/2)=1/3$. As a check, take any admissible likelihood pair with ratio six, such as $(3/5,1/10)$; weighted masses under prior one third are $1/5$ and $1/15$, yielding posterior three quarters. The posterior and likelihood ratio identify the prior odds, but not the absolute evidence probability, since many likelihood scales preserve the same ratio.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB44",
+    "title": "Sharp posterior interval from a prior interval",
+    "stem": "Target likelihood is $4/5$, background likelihood is $1/5$, and the prior is only known to lie in $[1/10,1/4]$. Find the sharp posterior interval.",
+    "solution": "The response is $g(p)=4p/(1+3p)$. Its derivative is $4/(1+3p)^2>0$, so extrema occur at the prior endpoints. The lower posterior is $(4/10)/(13/10)=4/13$ and the upper is $1/(7/4)=4/7$. Both endpoints are attained by admissible priors, making the interval sharp. This argument holds the likelihoods fixed. If detector rates also vary, using only the prior endpoints does not describe the full uncertainty and may underestimate the possible posterior range.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB45",
+    "title": "Likelihood uncertainty has directed effects",
+    "stem": "Fix prior $p=1/5$, sensitivity in $[3/5,4/5]$, and false-positive rate in $[1/10,1/5]$, with every pair admissible. Find the sharp positive-posterior interval.",
+    "solution": "The posterior increases with sensitivity and decreases with the false-positive rate at a fixed interior prior. The minimum uses sensitivity $3/5$ and false-positive rate $1/5$: $(3/25)/(3/25+4/25)=3/7$. The maximum uses $4/5$ and $1/10$: $(4/25)/(4/25+2/25)=2/3$. Since every pair in the rectangle is assumed admissible, the corner values can occur. If the rates were constrained jointly, these rectangle extrema might be unattainable; dependence among uncertain rates is a modeling issue, not a rounding issue.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB46",
+    "title": "Concavity reveals diminishing response to prevalence",
+    "stem": "For fixed $s>f>0$, show that $g(p)=ps/[f+p(s-f)]$ is increasing and concave in $p$. Explain what changes when $s<f$.",
+    "solution": "Differentiating gives $g^{(1)}(p)=sf/[f+p(s-f)]^2>0$ and $g^{(2)}(p)=-2sf(s-f)/[f+p(s-f)]^3$. Thus $s>f$ makes the second derivative negative: equal increases in prevalence have diminishing posterior effect along this response curve. If $s<f$, the first derivative remains positive but the second becomes positive, so the curve is convex. At $s=f$ the posterior equals p and the curve is a straight line. Concavity concerns variation of prior at fixed likelihoods, not sequential accumulation of independent evidence.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB47",
+    "title": "Uninformative evidence cannot recover prevalence",
+    "stem": "A report has equal positive likelihood $a$ under target and background. Show that it preserves every prior and explain why the evidence frequency does not identify the prior.",
+    "solution": "The weighted masses are $pa$ and $(1-p)a$, with evidence a. Dividing gives posterior p, so the report is uninformative about the class within this model. The overall report frequency is also a for every p, so even its exact frequency cannot identify prevalence. A common nonzero likelihood cancels in Bayes, but the reason is equality of the observation distributions for this event, not ignorance of the prior. Additional events with distinct class likelihoods or external prevalence information would be needed for identification.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB48",
+    "title": "Two compatible observations with incompatible independence",
+    "stem": "In each of two classes, positive rates for each of two reports are $3/4$. Can their two-positive joint likelihoods be $1/2$ in one class and $3/4$ in the other? With equal priors, find the posterior of the first class after two positives.",
+    "solution": "For two events with marginals three quarters, their intersection can lie between one half and three quarters. Both proposed class-specific joints are therefore feasible, although neither is the independent product $9/16$. Equal priors yield posterior $(1/2)/(1/2+3/4)=2/5$. Each single positive is uninformative because its class likelihoods agree, yet the joint pattern discriminates classes through dependence. Equal marginal rates cannot justify a naive product likelihood; the joint model must specify how reports co-occur.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB49",
+    "title": "Maximum likelihood and maximum posterior disagree",
+    "stem": "Two hypotheses have priors $(9/10,1/10)$ and observation likelihoods $(1/5,4/5)$. Find the maximum-likelihood and maximum-posterior decisions under equal error loss.",
+    "solution": "Maximum likelihood selects the second hypothesis because four fifths exceeds one fifth. The weighted masses are $9/50$ and $4/50$, so posterior probabilities are $9/13$ and $4/13$. Maximum posterior selects the first hypothesis, minimizing the probability of a wrong label under zero-one loss. The prior imbalance outweighs the likelihood advantage. Neither criterion should be substituted for the other without stating the objective. A common likelihood scale does not alter this disagreement, but changing priors can.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB50",
+    "title": "Unequal costs change the action but not inference",
+    "stem": "The target posterior is $2/13$. False positives cost one unit and false negatives cost nine, with zero correct-decision loss. Which label minimizes expected loss, and what are both conditional risks?",
+    "solution": "Choosing target has risk $1(1-2/13)=11/13$. Choosing background has risk $9(2/13)=18/13$. Target is preferable despite being less probable, since its risk is smaller. The threshold is $1/(1+9)=1/10$, below the posterior. Changing costs does not change the posterior $2/13$; it changes how that probability is translated into an action. If costs were equal, background would instead minimize wrong-label probability. Probability and loss therefore must be reported separately.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB51",
+    "title": "A likelihood-ratio decision threshold",
+    "stem": "Prior target probability is $1/20$, false-positive cost is two, and false-negative cost is eight. Determine the minimum likelihood ratio supporting the target decision.",
+    "solution": "The posterior-odds decision threshold is $c_{FP}/c_{FN}=1/4$. Prior odds are $1/19$, so posterior odds equal likelihood ratio divided by nineteen. The target action is optimal when the likelihood ratio is at least $19/4$. At equality the two actions tie. This threshold combines class prevalence and costs, while a fixed ratio of one merely indicates evidence favoring the target relative to its competitor. Evidence can favor a class without overcoming the decision threshold.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB52",
+    "title": "A zero-one loss proof for several classes",
+    "stem": "For a posterior vector $(2/7,3/7,2/7)$, derive the expected zero-one loss of each class label and identify all minimizing actions.",
+    "solution": "Predicting a class incurs unit loss exactly when another class is true. Its posterior expected loss is one minus that class probability. Thus the three risks are $(5/7,4/7,5/7)$, and only the second class minimizes them. This derivation shows why maximum posterior is the optimal zero-one-loss rule and how ties would be handled: every class attaining the largest probability would minimize risk. Different cost matrices replace these risks by weighted sums and need not retain the same selected class.",
+    "origin": "Course-derived: Oxford SC7 Section 1.3.5; original posterior vector",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB53",
+    "title": "An abstention action has a separate risk",
+    "stem": "Binary posterior target probability is $3/5$. Wrong-label loss is one and correct-label loss zero. Abstaining costs $1/4$ regardless of class. Which of target, background, and abstention minimizes posterior loss?",
+    "solution": "The target-label risk is $2/5$, the background-label risk is $3/5$, and abstention risk is $1/4$. The abstention action minimizes loss. Its availability changes the action space, not the inferred class probabilities. In general, with symmetric label losses and constant abstention cost c, abstention is optimal when c is below both r and $1-r$, with ties at equality. A maximum-posterior label is optimal only among label actions, not necessarily among a larger set of permitted decisions.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB54",
+    "title": "A posterior is not an intervention probability",
+    "stem": "A hidden binary variable C is fair. Define A and B to equal C deterministically. Compute $P(B=1\\mid A=1)$ and explain why this does not determine the effect of externally setting A to one.",
+    "solution": "The only positive-mass states are $(C,A,B)=(0,0,0)$ and $(1,1,1)$, each with mass one half. Conditioning on A equal to one selects the second state, giving conditional B probability one. But in a causal model where C independently generates A and B, an intervention replacing the A equation leaves B equal to C, so its probability would remain one half. The ordinary joint distribution alone does not specify that intervention operation. A Bayes reversal is an inference from observation, not an assertion about manipulating a variable.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB55",
+    "title": "Underflow in a long likelihood product",
+    "stem": "Two hypotheses with equal priors assign every one of 1,000 independent observed reports likelihoods $1/100$ and $1/200$. Describe the exact posterior of the first and a stable computation.",
+    "solution": "The joint likelihood ratio is $2^{1000}$, so the exact first posterior is $2^{1000}/(1+2^{1000})$. Multiplying tiny floating-point likelihoods may make both represented products zero and create a false impossible-evidence error. Log weights differ by $1000\\log2$; subtract the larger log weight, exponentiate, and normalize weights one and $2^{-1000}$. A floating-point result may round to one, which is an approximation to an interior probability. Stability preserves the mathematical model but does not validate independence or the supplied likelihoods.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB56",
+    "title": "One head updates a uniform parameter prior",
+    "stem": "A coin head rate has uniform density on $[0,1]$. After one head, find the posterior density, probability the rate exceeds one half, and next-head predictive probability.",
+    "solution": "The likelihood is $\\theta$, and its prior-weighted integral is $\\int_0^1\\theta\\,d\\theta=1/2$. The posterior density is $2\\theta$. Integrating from one half to one gives $1-(1/2)^2=3/4$. Averaging the next-head rate under this density gives $\\int_0^1\\theta(2\\theta)\\,d\\theta=2/3$. A density value, an interval probability, and a predictive probability are distinct outputs. The probability of any exact parameter point is zero in this continuous model, although its density need not be zero.",
+    "origin": "Course-derived continuous normalization structure: Oxford SC7; original elementary coin calculation",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB57",
+    "title": "Mixed outcomes under a uniform prior",
+    "stem": "A coin rate is uniform on $[0,1]$. Given a specified history of two heads and one tail, derive the normalized posterior and next-head probability from integrals.",
+    "solution": "The likelihood is $\\theta^2(1-\\theta)$. Its integral is $1/3-1/4=1/12$, giving posterior density $12\\theta^2(1-\\theta)$. The predictive numerator is $\\int_0^1\\theta^3(1-\\theta)d\\theta=1/4-1/5=1/20$. Divide by $1/12$ to get $3/5$. If the observation were merely two heads in three trials, its binomial coefficient three would cancel in normalization. The density result conditions on the supplied uniform prior and cannot be presented as independent of prior assumptions.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB58",
+    "title": "A nonuniform prior changes the posterior",
+    "stem": "A coin rate has prior density $2\\theta$ on $[0,1]$. After one tail, compute posterior density and next-head predictive probability; compare with a uniform prior.",
+    "solution": "The weighted likelihood is $2\\theta(1-\\theta)$, whose integral is $1/3$. Normalize to obtain $6\\theta(1-\\theta)$. Its predictive mean is $6(1/3-1/4)=1/2$. Under a uniform prior after one tail, the posterior is $2(1-\\theta)$ and the predictive mean is one third. The same observation leads to different inferences because prior knowledge differs. Both densities are valid and normalized; the distinction is a modeling choice, not a contradiction of Bayes or a numerical error.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB59",
+    "title": "The integer beta integral by induction",
+    "stem": "For nonnegative integers h and t, prove $I(h,t)=h!t!/(h+t+1)!$, where $I(h,t)=\\int_0^1u^h(1-u)^tdu$. Explain the boundary case.",
+    "solution": "When $t=0$, direct integration gives $1/(h+1)$, equal to the stated factorial expression. For $t\\ge1$, integrate by parts with antiderivative $u^{h+1}/(h+1)$ and differentiated factor $(1-u)^t$. The boundary term is zero at both endpoints, yielding $I(h,t)=t I(h+1,t-1)/(h+1)$. Repeating until t becomes zero produces the factorial expression. The recurrence must not be applied at t zero because that integration-by-parts boundary term no longer vanishes at one. This explicit base case prevents an invalid zero-factor argument.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB60",
+    "title": "Predictive success after arbitrary counts",
+    "stem": "Under a uniform coin-rate prior and independent tosses conditional on rate, derive the next-head probability after h heads and t tails, and evaluate h=7,t=3.",
+    "solution": "The posterior density is proportional to $\\theta^h(1-\\theta)^t$. Multiplying by one additional head likelihood gives predictive numerator $I(h+1,t)$, while normalization is $I(h,t)$. Their factorial ratio simplifies to $(h+1)/(h+t+2)$. At h seven and t three this is $8/12=2/3$, rather than the observed fraction $7/10$. The difference comes from the specified prior and finite-data uncertainty. This calculation is a posterior predictive mean, not a claim that the unknown true rate equals two thirds.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB61",
+    "title": "A posterior density can exceed one",
+    "stem": "After three heads under a uniform head-rate prior, find the posterior density at rate $9/10$ and the probability the rate exceeds $9/10$. Explain why neither violates probability bounds.",
+    "solution": "The posterior density is $4\\theta^3$ because the likelihood integral is one quarter. At nine tenths its density is $4(9/10)^3=729/250$, greater than one. The tail probability is $\\int_{9/10}^14\\theta^3d\\theta=1-(9/10)^4=3439/10000$, within the unit interval. A density is mass per parameter unit and can be high on a narrow interval; only integrated probabilities must be at most one. Calling the density value a point probability would be the conceptual error.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB62",
+    "title": "Uniformity is not invariant under reparameterization",
+    "stem": "A rate $\\Theta$ is uniform on $[0,1]$. Define $U=\\Theta^2$. Derive its distribution function and density; is it uniform?",
+    "solution": "For $0\\le u\\le1$, the event U at most u is the event $\\Theta\\le\\sqrt u$, so its distribution function is $\\sqrt u$. Differentiating on the open interval gives density $1/(2\\sqrt u)$, whose integral over the unit interval is one. It is not uniform and is unbounded near zero, with no atom there. Thus specifying a uniform density in one coordinate expresses particular prior information; it does not become uniform in every transformed coordinate. This elementary change of variables clarifies a prior-modeling warning in Oxford SC7.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "SB63",
+    "title": "Impossible evidence has no unique limiting posterior",
+    "stem": "Consider equal binary priors and an event whose likelihoods approach zero. Compare likelihood paths $(\\varepsilon,\\varepsilon)$ and $(\\varepsilon,\\varepsilon^2)$ as positive epsilon tends to zero. What is the posterior at the limit model?",
+    "solution": "On the first path, both positive weighted likelihoods agree and the posterior of the first hypothesis is one half for every epsilon. On the second, the posterior is $1/(1+\\varepsilon)$ and tends to one. Both limit models assign zero likelihood to the observation under both hypotheses, so the elementary posterior at the limiting event is undefined. Different approaches give different limits. Choosing one limit is additional modeling information, not a universally valid definition of Bayes on a zero-probability event.",
+    "origin": "Original problem",
+    "difficulty": "Hard"
+  }
+]
