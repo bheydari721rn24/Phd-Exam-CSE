@@ -306,6 +306,8 @@ Verified handoff: complete draft source commit afa7126; GitHub branch study-plan
 
 ## Completed draft: Stacks, Queues, and Applications
 
+Publication follow-up: the complete chapter was pushed to GitHub (`study-planner-1406`, content commit `2badc8d`) and its exact source was pushed to Sites. Online publication is unconfirmed because the native archive upload and version-list reconciliation returned connection errors. Use the working local preview until publication is confirmed. See `research/a_stackqueue-publication.json`. This is a hosting limitation; the completed chapter still awaits explicit student approval.
+
 
 Completed 5 October 2026. The sole new chapter is `a_stackqueue`. Four actually reviewed primary university courses, 84 fully solved problems, 80 final rules, 67 topic-specific models with 678 checkpoints, and five editable laboratories are included. All 35 preceding chapter bodies retain their original SHA-256 hashes and their 2,085 problems.
 
