@@ -297,3 +297,16 @@ Verified handoff: complete draft source commit afa7126; GitHub branch study-plan
 ## Whole-library visual instruction: delivered for approval
 
 5 October 2026: All 35 chapter animation placements use measured boundary/padding geometry. All 2085 original worked-problem bodies are retained; visual teaching and inspected transitions were added where relevant. The record distinguishes 317 question-linked aids, 74 separate arrays examples, and 1362 supporting concept placements. Finite saved-state, intermediate-movement, question-model, desktop/mobile/print and retention checks passed. This is a visual-instruction review, not a new exhaustive proof audit. Evidence: research/library-visual-question-review/manifest.json. Report: dist/library-visual-question-review.html. Gate: awaiting_user_approval; no new chapter begun. Publication is verified separately.
+
+
+## Active chapter: Stacks, Queues, and Applications
+
+5 October 2026: The user explicitly approved the whole-library visual revision and requested the next chapter. The sole active chapter is a_stackqueue. Preserve the 35 existing chapter HTML files byte for byte, including their 2,085 complete problem bodies and reviewed animations. The next chapter remains a draft until explicit approval. Publication remains a separate verification step.
+
+
+## Completed draft: Stacks, Queues, and Applications
+
+
+Completed 5 October 2026. The sole new chapter is `a_stackqueue`. Four actually reviewed primary university courses, 84 fully solved problems, 80 final rules, 67 topic-specific models with 678 checkpoints, and five editable laboratories are included. All 35 preceding chapter bodies retain their original SHA-256 hashes and their 2,085 problems.
+
+The chapter is available at `dist/chapters/a_stackqueue.html`; the library links it under Week 3. Source, reading, mathematical and browser audit evidence is adjacent in `research/a_stackqueue-*`. The gate is `awaiting_user_approval`. No next chapter is started. Publishing and GitHub delivery are recorded separately after their actual completion.

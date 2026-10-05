@@ -1,0 +1,112 @@
+[
+  {
+    "id": "Phd_CE_1404_Q9",
+    "booklet": "Phd_CE_1404",
+    "repoPath": "Exams/PhD/CE/1404/Q906A-PHD1404-[www.konkur.in].pdf",
+    "questionNumber": 9,
+    "pdfPage": 4,
+    "title": "Constant-time maximum with restoration",
+    "stem": "A stack S supports PUSH, POP and TOP. Design FIND-MAX(S) to return the largest currently stored value efficiently. Which proposed approach is correct and efficient?",
+    "options": [
+      "Maintain one MAX variable on PUSH. FIND-MAX is constant time, but rebuilding MAX after a POP needs linear time.",
+      "Each FIND-MAX pops all elements, computes the maximum, and restores the original order. Each query is linear.",
+      "On every PUSH, an auxiliary stack M stores the maximum of the prefix then present in S. A POP also removes M's top. FIND-MAX is constant time.",
+      "On every PUSH, recursively compute the maximum of the current stack and append it to S. FIND-MAX takes logarithmic time."
+    ],
+    "answer": 3,
+    "solution": "Option 3 stores one cached maximum per data-stack prefix. Induction proves each M entry is the maximum of the corresponding S prefix; synchronous POP exposes the prior valid prefix. PUSH, POP, TOP of M and FIND-MAX all use constant operations, and M uses O(n) space. Duplicates are retained because every push stores a prefix result. Option 1 explicitly needs a linear rebuild after removing the current maximum, so it does not give the same complete efficient interface. Option 2 preserves the answer and order only with restoration storage but scans on every query. Option 4 adds metadata as if it were data and gives no valid logarithmic recurrence. Empty-stack maximum must have a specified error/identity policy. This is an independently derived answer, not an official key.",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "sourceSha256": "9a4f63260faf8628af4118db39fd68b7775bedf42c9749b93bc5b9302ed8e713",
+    "answerProvenance": "Independently derived; no official key asserted",
+    "translationStatus": "Original full rendered PDF page visually checked",
+    "visual": {
+      "mode": "extrema",
+      "params": {
+        "values": [
+          4,
+          9,
+          9,
+          6
+        ],
+        "pops": 3
+      }
+    },
+    "modelId": "problem-Phd_CE_1404_Q9",
+    "visualScope": "Separate concrete teaching example of the source question’s general design or aggregate bound; these values are not claimed as original exam data."
+  },
+  {
+    "id": "Phd_CE_1404_Q11",
+    "booklet": "Phd_CE_1404",
+    "repoPath": "Exams/PhD/CE/1404/Q906A-PHD1404-[www.konkur.in].pdf",
+    "questionNumber": 11,
+    "pdfPage": 4,
+    "title": "Doubly linked deque end costs",
+    "stem": "A deque is implemented using a doubly linked list. Enqueue and dequeue can occur at either end. Which complexity statement is correct? Assume the endpoint handles required by this representation are available.",
+    "options": [
+      "All insertion and removal operations at either end take O(n).",
+      "Only front removal takes O(1), while all other operations take O(n).",
+      "All insertion and removal operations at either end take O(1).",
+      "Rear insertion and front removal take O(1), but rear removal takes O(n)."
+    ],
+    "answer": 3,
+    "solution": "With direct endpoint access, insertion connects a new node with its endpoint neighbor and updates the endpoint or sentinel links. Removal uses both successor and predecessor fields to reconnect neighbors, including the empty/singleton cases. Each action changes a constant number of fields, so option 3 is correct under the standard unit-cost allocation/payload model. Option 4 describes the predecessor limitation of a singly linked queue, which does not apply to a doubly linked deque. A list without endpoint handles would require locating an end; the English adaptation makes the conventional exam assumption explicit rather than hiding it.",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "sourceSha256": "9a4f63260faf8628af4118db39fd68b7775bedf42c9749b93bc5b9302ed8e713",
+    "answerProvenance": "Independently derived; no official key asserted",
+    "translationStatus": "Original full rendered PDF page visually checked",
+    "visual": {
+      "mode": "deque",
+      "params": {
+        "values": [
+          2,
+          5,
+          8
+        ],
+        "ops": [
+          "DF",
+          "ER:11",
+          "DR",
+          "EF:1"
+        ]
+      }
+    },
+    "modelId": "problem-Phd_CE_1404_Q11",
+    "visualScope": "Separate concrete teaching example of the source question’s general design or aggregate bound; these values are not claimed as original exam data."
+  },
+  {
+    "id": "MS_CE_1393_Q49",
+    "booklet": "MS_CE_1393",
+    "repoPath": "Exams/MS/CE/1393/Mohandesi93(konkurcomputer.ir)new.pdf",
+    "questionNumber": 49,
+    "pdfPage": 10,
+    "title": "Removing dominated rear elements",
+    "stem": "A doubly linked list Q stores numbers and has first/last handles. Delete(k) removes the first k elements in order. Append(c) repeatedly deletes the last element while it is greater than c, then inserts c at the rear. Starting empty, n such calls are made in any order. Which listed upper bound applies to total cost under one unit per individual node insertion/deletion?",
+    "options": [
+      "$n-k$",
+      "$n$",
+      "$2n$",
+      "$3n$"
+    ],
+    "answer": 3,
+    "solution": "Let a be the number of Append calls. Every node is created by one of these calls and can be deleted at most once, either by a later rear-dominance step or by Delete. Total individual insertions are a<=n; deletions are at most a. Therefore node primitives are at most 2a<=2n, giving the listed 2n bound. The logical Delete(k) must be legal (k no greater than length), or have a declared clamp policy. A sharper all-Append adversarial sequence has n insertions and n-1 deletions, totaling 2n-1; lower-bound scanning/guard costs modify constants but keep Theta(n). Option n undercounts insertion plus deletion work in such a sequence. The symbol k in option 1 cannot describe all calls with varying k. The original question compresses the unit model; this solution states it explicitly.",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "sourceSha256": "10eb0f0f418fdda9aeabbfb403735553fd0b824c9d0ce0ab250364ee39ae85f4",
+    "answerProvenance": "Independently derived; no official key asserted",
+    "translationStatus": "Original full rendered PDF page visually checked",
+    "visual": {
+      "mode": "dominated",
+      "params": {
+        "values": [
+          8,
+          6,
+          7,
+          3,
+          5,
+          2
+        ]
+      }
+    },
+    "modelId": "problem-MS_CE_1393_Q49",
+    "visualScope": "Separate concrete teaching example of the source question’s general design or aggregate bound; these values are not claimed as original exam data."
+  }
+]

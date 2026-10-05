@@ -1,0 +1,150 @@
+{
+  "topicId": "a_stackqueue",
+  "state": "passed",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\a-stackqueue-visual-qa",
+  "counts": {
+    "questions": 84,
+    "rules": 80,
+    "models": 67,
+    "math": 186
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "prose": "\"Math Glyphs\", \"Source Sans 3\", sans-serif",
+    "stix": true,
+    "heading": true,
+    "source": true,
+    "code": true
+  },
+  "geometry": {
+    "frames": 678,
+    "issues": [],
+    "issueCount": 0
+  },
+  "laboratoryFixtures": 66,
+  "formModes": [
+    {
+      "mode": "ring",
+      "result": {
+        "values": [
+          8
+        ],
+        "output": [
+          9
+        ],
+        "f": 0,
+        "n": 1,
+        "r": 0,
+        "storage": [
+          8
+        ]
+      }
+    },
+    {
+      "mode": "two",
+      "result": {
+        "I": [],
+        "O": [],
+        "output": [
+          1,
+          2,
+          3
+        ],
+        "e": 3,
+        "d": 3,
+        "t": 3,
+        "cost": 12,
+        "queue": []
+      }
+    },
+    {
+      "mode": "postfix",
+      "result": {
+        "value": "7/3",
+        "operations": 1
+      }
+    },
+    {
+      "mode": "permutation",
+      "result": {
+        "valid": false,
+        "peak": 3,
+        "output": [
+          3
+        ]
+      }
+    },
+    {
+      "mode": "window",
+      "result": {
+        "maxima": [
+          5,
+          5
+        ]
+      }
+    }
+  ],
+  "activeAnimations": 1,
+  "mobile": {
+    "width": 390,
+    "scroll": 390,
+    "offenders": [
+      {
+        "tag": "CODE",
+        "cls": "language-text",
+        "text": "push(x):\n    require n < C\n    A[n] = x\n    n = n + 1\n\npop():\n    requ",
+        "right": 622.078125,
+        "width": 0,
+        "scroll": 0,
+        "overflow": "visible"
+      },
+      {
+        "tag": "CODE",
+        "cls": "language-text",
+        "text": "count_histories(n, h):\n    require n >= 0 and h >= 0\n    D = (n+1)-by-",
+        "right": 465.109375,
+        "width": 0,
+        "scroll": 0,
+        "overflow": "visible"
+      },
+      {
+        "tag": "CODE",
+        "cls": "language-text",
+        "text": "evaluate_postfix(tokens):\n    S = empty value stack\n    for token in t",
+        "right": 514.671875,
+        "width": 0,
+        "scroll": 0,
+        "overflow": "visible"
+      },
+      {
+        "tag": "CODE",
+        "cls": "language-text",
+        "text": "next_strictly_greater(A):\n    answer = array of none\n    S = empty sta",
+        "right": 448.578125,
+        "width": 0,
+        "scroll": 0,
+        "overflow": "visible"
+      },
+      {
+        "tag": "CODE",
+        "cls": "language-text",
+        "text": "largest_rectangle(A):\n    require every height is nonnegative\n    S = ",
+        "right": 473.375,
+        "width": 0,
+        "scroll": 0,
+        "overflow": "visible"
+      },
+      {
+        "tag": "CODE",
+        "cls": "language-text",
+        "text": "window_maxima(A, k):\n    require 1 <= k <= length(A)\n    D = empty deq",
+        "right": 465.109375,
+        "width": 0,
+        "scroll": 0,
+        "overflow": "visible"
+      }
+    ]
+  },
+  "printFigures": 686,
+  "errors": []
+}

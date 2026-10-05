@@ -1,0 +1,1166 @@
+[
+  {
+    "id": "SQ_01",
+    "title": "One history, two removal disciplines",
+    "stem": "Apply E:4,E:7,E:9,D,E:2,D,D to an initially empty stack and queue. E means the corresponding insertion and D its removal. Give outputs, survivors, and minimum capacity.",
+    "solution": "The occupancy sequence is 1,2,3,2,3,2,1, so capacity three is necessary and sufficient. Stack outputs are 9,2,7 and bottom-to-top survivor [4]. Queue outputs are 4,7,9 and front-to-rear survivor [2]. Equal occupancy does not imply equal output order. Each output follows the newest or oldest still-live identity, not a sorted-value rule.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "order",
+      "params": {
+        "ops": [
+          "E:4",
+          "E:7",
+          "E:9",
+          "D",
+          "E:2",
+          "D",
+          "D"
+        ]
+      }
+    },
+    "modelId": "problem-SQ_01"
+  },
+  {
+    "id": "SQ_02",
+    "title": "The prefix that invalidates a final count",
+    "stem": "A capacity-four stack receives D,E:8,E:5,D. A proposed solution says that one item remains, so the trace is valid. Diagnose it.",
+    "solution": "The first removal is attempted at occupancy zero, so the history is illegal before any item is inserted. A final arithmetic balance cannot repair an earlier underflow. Under the reject-without-mutation policy, the remaining accepted history inserts 8 and 5, removes 5, and leaves 8. Under the require-legal-history interpretation, no execution of the complete given history exists. State which contract is used before reporting an output.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_03",
+    "title": "Next unused versus occupied top",
+    "stem": "A six-slot stack has count n=4 and contents [11,13,17,19]. A programmer executes x=A[n]; n--; for pop. Identify the fault and correct the indices.",
+    "solution": "Live slots are 0 through 3; A[4] is unused. Correct pop first sets n to 3, then reads A[3]=19 and clears that former live slot if required. If top means occupied index t, then t=3 and read A[t] before decrementing. Switching representations requires n=t+1. Both versions must check emptiness before indexing.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_04",
+    "title": "Shared array capacity",
+    "stem": "Two opposing stacks share 17 slots. Left top is 5; right top is 12. How many items and free slots exist, and how many further pushes fit?",
+    "solution": "Left occupancy is 6 and right occupancy is 17-12=5. Total is 11 and the free interval 6..11 has six slots. Exactly six combined pushes fit regardless of their split, provided no pops intervene. Full then means leftTop+1=rightTop. This differs from a fixed midpoint partition, which can overflow one stack while unused slots remain on the other side.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "shared",
+      "params": {
+        "C": 17,
+        "left": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "right": [
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "ops": [
+          "L:12",
+          "R:13",
+          "L:14"
+        ]
+      }
+    },
+    "modelId": "problem-SQ_04",
+    "visualScope": "Constructed payload values illustrate the question’s exact capacity and top positions; payload values were not supplied in the question."
+  },
+  {
+    "id": "SQ_05",
+    "title": "Two empty flags in shared storage",
+    "stem": "In a ten-slot opposing-stack array, leftTop=-1 and rightTop=8. Is the whole array empty, and is a left pop legal?",
+    "solution": "The left stack is empty and cannot pop. The right stack has 10-8=2 items, so the entire array is not empty. Shared overflow is a relation between the tops; independent underflow is a property of the chosen stack. Conflating these predicates lets one stack remove the other stack's data.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_06",
+    "title": "A tail pointer is insufficient for a linked stack",
+    "stem": "A singly linked stack stores top at the tail and also caches the previous tail. Can every pop now be constant time?",
+    "solution": "One pop can use the cached predecessor, but the next pop requires the predecessor of that predecessor. The two cached handles do not identify it in a general singly linked list. Repeated removal can still require traversal. Put the top at head, store backward links, or maintain a richer structure; do not infer a worst-case constant bound from one convenient state.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_07",
+    "title": "Singleton linked queue",
+    "stem": "Trace E:12,D,E:18,D for a no-sentinel linked queue. Which handles must change at each empty transition?",
+    "solution": "First insertion sets both head and tail to the new node. Removal advances head to null and must also clear tail before releasing the old singleton. The next insertion again sets both handles. Keeping a stale tail could write through released storage on the second insertion. The final state is head=tail=null and size zero.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "linked",
+      "params": {
+        "ops": [
+          "E:12",
+          "D",
+          "E:18",
+          "D"
+        ]
+      }
+    },
+    "modelId": "problem-SQ_07"
+  },
+  {
+    "id": "SQ_08",
+    "title": "Deque removal field writes",
+    "stem": "A circular sentinel deque contains a single real node x. Remove x. Count neighboring link-field writes, excluding size and release.",
+    "solution": "x.prev and x.next both identify the sentinel s. Write x.prev.next=x.next, which is s.next=s; write x.next.prev=x.prev, which is s.prev=s. Thus two neighboring link writes restore the empty invariant. The sentinel remains allocated. Nulling x's own fields would be extra writes and is not necessary to reconnect the deque.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "deque",
+      "params": {
+        "values": [
+          8
+        ],
+        "ops": [
+          "DF"
+        ]
+      }
+    },
+    "modelId": "problem-SQ_08"
+  },
+  {
+    "id": "SQ_09",
+    "title": "Ring positions from front and count",
+    "stem": "Capacity seven, front five, logical values [10,20,30,40]. Enqueue 50, dequeue twice, then enqueue 60. Give physical slots, front, count, and order.",
+    "solution": "Initially slots 5,6,0,1 hold 10,20,30,40. Enqueue writes 50 at slot 2. Removing 10 and 20 advances front 5 to 6 to 0; count becomes three. Enqueue 60 writes at (0+3) mod 7=3. Final front is 0, count four, order [30,40,50,60], and next insertion slot is 4.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "ring",
+      "params": {
+        "C": 7,
+        "f": 5,
+        "values": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "ops": [
+          "E:50",
+          "D",
+          "D",
+          "E:60"
+        ]
+      }
+    },
+    "modelId": "problem-SQ_09"
+  },
+  {
+    "id": "SQ_10",
+    "title": "All slots or one reserved slot",
+    "stem": "A ring has physical capacity eight, f=6,r=5, where f is next removal and r next insertion. It reserves one slot. Derive occupancy and remaining room.",
+    "solution": "Occupancy is (5-6+8) mod 8=7. This is full because (r+1) mod 8=6=f. No additional enqueue fits, although the physical slot at r is unused. In a count-based eight-slot ring the same rear/front pair could require additional metadata to interpret fullness; do not attach the reserved-slot count formula to a full count-based state.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_11",
+    "title": "Empty/full indistinguishability",
+    "stem": "A count-based capacity-five ring has f=3 and r=3. Give two distinct legal logical sizes.",
+    "solution": "Because r=(f+n) mod 5, n=0 and n=5 both satisfy equality. They represent empty and full respectively. If n is absent, a phase/full flag or a reserved-slot invariant is required. Observing equal handles alone does not distinguish the states; this is a representation information issue, not an arithmetic mistake.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_12",
+    "title": "Repeated wrapping",
+    "stem": "A count-based ring starts empty with C=11,f=8. It completes 50 enqueues and 47 successful dequeues without ever overflowing. Find final count, front, and next insertion slot.",
+    "solution": "Count is 50-47=3. Front depends only on successful removals: (8+47) mod 11=0. Rear is (front+count) mod 11=3, equivalently (8+50) mod 11. The interleaving must satisfy prefix capacities; these final values alone do not prove that every interleaving is legal.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_13",
+    "title": "Backward queue convention",
+    "stem": "Oxford's convention has C=6,next rear insertion i=3,n=4. Find the front slot; enqueue x and find the new front.",
+    "solution": "Old front is (3+4) mod 6=1. Enqueue writes x at 3, increments n to 5, and decreases i to 2. New front is (2+5) mod 6=1, so the oldest item is unchanged. The new item is at the rear. Using our forward front/count formula with i substituted for front would confuse two different meanings.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_14",
+    "title": "Negative remainder and masking",
+    "stem": "Explain why decrementing a ring cursor as (i-1)%6 or advancing it as (i+1)&5 can fail in C-like pseudocode.",
+    "solution": "At i=0, a signed negative remainder may be -1, producing an invalid index; use (i+6-1)%6 with a suitable integer range. Bitwise AND with C-1 is a modulo shortcut only for a power-of-two C. For C=6, (2+1)&5=1 rather than 3. Language integer overflow and signedness rules are additional constraints, not hidden mathematical assumptions.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_15",
+    "title": "A wrap-preserving resize",
+    "stem": "A full capacity-five queue has front three and physical slots [30,40,50,10,20]. Resize to ten. Give the copied order and new indices.",
+    "solution": "Logical order is [10,20,30,40,50] from slots 3,4,0,1,2. Copy that order into new slots 0..4. Set front=0,count=5,next insertion=5. The relocation performs five payload copies. Copying old physical order would incorrectly move 30 to the front. Metadata reset is part of representation correctness.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "resize",
+      "params": {
+        "C": 5,
+        "f": 3,
+        "values": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "newC": 10
+      }
+    },
+    "modelId": "problem-SQ_15"
+  },
+  {
+    "id": "SQ_16",
+    "title": "Doubling cost at 70 enqueues",
+    "stem": "An append-only ring begins at capacity one and doubles when full. Count old-item copy writes and total payload writes through 70 enqueues.",
+    "solution": "Final capacity is 128. Relocations copy $1+2+4+8+16+32+64=127$ items. New items require 70 writes, so total payload writes are 197. The 65th enqueue is the largest individual update, with 65 payload writes. Reading each source as a separately charged primitive would change the copy cost, not its asymptotic order.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_17",
+    "title": "Queue relocation peak memory",
+    "stem": "A full 1024-slot queue doubles into separate storage. Slots are eight bytes and old storage is released after copying. What is peak slot-array memory?",
+    "solution": "Old and new arrays coexist: (1024+2048)*8=24576 bytes. Steady new slot storage is 16384 bytes. Metadata, allocator headers, object payloads, and alignment are excluded. Reporting only final capacity underestimates peak memory during a separate-buffer resize.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_18",
+    "title": "Contraction thrashing",
+    "stem": "Capacity 16 is full. Grow at full insertion and shrink whenever a removal reaches half-full. Explain an alternating expensive history.",
+    "solution": "Insert once: copy 16 into capacity 32 and reach length 17. Remove once: length 16 triggers contraction to 16 and copies 16 survivors. Another insertion repeats the growth. Each pair pays linear relocation despite only two logical updates. Quarter-full shrinking would not contract at length 16 in capacity 32, leaving enough ordinary operations between rebuilds.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_19",
+    "title": "Exact quarter-shrink charge",
+    "stem": "With C=64,n=17, remove one item and shrink at quarter occupancy. Charge one basic removal and one per survivor copy. Compute actual and amortized cost.",
+    "solution": "New length is 16 and capacity 32. Actual cost is 1+16=17. Old sparse-branch potential is $64/2-17=15$. New potential at half-full is $2\\cdot16-32=0$. Amortized cost is $17+0-15=2$. The front index can wrap arbitrarily because the potential uses only count/capacity; copying must still preserve logical order.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_20",
+    "title": "Two-stack exact cost",
+    "stem": "Trace E:1,E:2,E:3,D,E:4,F,D,D,D. F means front without removal. Count primitive stack pushes/pops.",
+    "solution": "The first removal transfers three values and removes 1, costing seven. The later front sees 2 without transfer and needs no primitive push/pop if top is provided. Four enqueues cost four; four removals cost four; four transferred values cost eight. Total is 16. The last removal transfers 4 because O is then empty. Final queue is empty. A separate cost for top calls would add one for F.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "two",
+      "params": {
+        "ops": [
+          "E:1",
+          "E:2",
+          "E:3",
+          "D",
+          "E:4",
+          "F",
+          "D",
+          "D",
+          "D"
+        ]
+      }
+    },
+    "modelId": "problem-SQ_20"
+  },
+  {
+    "id": "SQ_21",
+    "title": "Potential at an unfinished queue",
+    "stem": "Perform 12 enqueues then five dequeues in a two-stack queue. Count t and primitive work; find potential after these operations.",
+    "solution": "The first dequeue transfers all 12, so t=12. Work is 12+24+5=41 push/pop primitives. I is empty afterward, O retains seven, so potential 2|I|=0. Seven surviving values do not imply potential fourteen: the credit tracks items still awaiting transfer, not all live items. Their future removals cost one each.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_22",
+    "title": "One front operation can be expensive",
+    "stem": "Enqueue n items into an empty two-stack queue and call front three times. Derive primitive work and per-front worst case.",
+    "solution": "Enqueues cost n pushes. The first front transfers n items, costing 2n primitives, and observes the output top without popping; the other fronts only observe. Push/pop work is 3n total, plus three top observations if charged. Thus front has linear individual worst case but constant amortized transfer cost over the whole initialized operation sequence. The queue still contains all n items.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_23",
+    "title": "Transfer into nonempty output is incorrect",
+    "stem": "Enqueue A,B; dequeue; enqueue C; then transfer all input into output even though output is not empty. Explain the wrong next output.",
+    "solution": "After the first dequeue, O bottom-to-top is [B] and I is empty. Enqueue C gives I=[C]. Moving C atop O creates [B,C], whose top is C. The next removal returns C before B, violating FIFO. The valid logical queue is [B,C]. Transfer-on-empty is part of the correctness invariant, not only a speed optimization.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "two-bad",
+      "params": {}
+    },
+    "modelId": "problem-SQ_23",
+    "visualScope": "Values 1,2,3 stand for the question labels A,B,C; the model deliberately demonstrates the invalid transfer."
+  },
+  {
+    "id": "SQ_24",
+    "title": "Amortization with preloaded input",
+    "stem": "A two-stack queue begins with k items in I whose creation is excluded from the measured history. Can m later operations always cost at most 3m?",
+    "solution": "No. One initial dequeue can transfer k items and cost 2k+1, even if m=1. The initial potential is 2k, so the sequence bound includes that term: actual cost $T\\le3e+d+2k$ under the stated primitive model. Constant amortization from an empty initialization cannot be quoted after silently excluding the prepaid buildup.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_25",
+    "title": "Stack from one queue",
+    "stem": "Use expensive push: enqueue x, then rotate all old items. Push 1,2,3,4 and pop twice. Count queue primitives and output values.",
+    "solution": "Push at old length j uses 2j+1 primitives, so four pushes cost 1+3+5+7=16. Queue order becomes [4,3,2,1]. Two pops cost two and return 4 then 3. Total is 18 and survivor order [2,1]. The linear expensive pushes sum quadratically; this construction is not the amortized two-stack FIFO construction.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "qstack",
+      "params": {
+        "values": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "pops": 2
+      }
+    },
+    "modelId": "problem-SQ_25"
+  },
+  {
+    "id": "SQ_26",
+    "title": "Expensive pop summation",
+    "stem": "A one-queue stack uses cheap pushes and rotates n-1 items before each pop. Build 25 items then remove all. Count primitives.",
+    "solution": "Pushes cost 25. Pops cost 2j-1 at each live size j=25 down to 1; their sum is $25^2=625$. Total is 650 queue operations. Moving all but the last item preserves arrival order until the last arrival is removed. Summing only one operation per pop ignores its rotation loop.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_27",
+    "title": "Stack size without representation access",
+    "stem": "Find a stack's size while restoring it, using only push,pop,empty and one temporary stack. Explain order and exact transfer count.",
+    "solution": "Move each of n values from S to T, counting: each movement uses one pop and one push, for 2n primitives. T reverses the original order. Move all values back, another 2n primitives and another reversal. S is exactly restored and T empty; total is 4n. The algorithm is linear and needs n temporary slots, unlike a library-maintained size counter.",
+    "difficulty": "Medium-Hard",
+    "origin": "Independent reconstruction of CMU 15-122 Lecture 9, client stack-size theme",
+    "visual": {
+      "mode": "restore",
+      "params": {
+        "values": [
+          3,
+          8,
+          2,
+          6
+        ],
+        "copy": false
+      }
+    },
+    "modelId": "problem-SQ_27",
+    "visualScope": "Separate concrete teaching example for the general n-item algorithm; not supplied problem data."
+  },
+  {
+    "id": "SQ_28",
+    "title": "Why copying on the first pass reverses the copy",
+    "stem": "S bottom-to-top is [3,8,2]. While popping S into T, also push each popped item onto C. Restore S from T. Describe C and repair the algorithm.",
+    "solution": "First-pass pops are 2,8,3, so C bottom-to-top is [2,8,3], reversed. S restores to [3,8,2]. Instead create C during the second pass: popped T values are 3,8,2, pushed to both S and C. Then both sequences match. The repaired method uses 2n first-pass and 3n second-pass primitives, totaling 5n. Container nodes are independent; referenced payload objects may still be shared.",
+    "difficulty": "Medium-Hard",
+    "origin": "Independent reconstruction of CMU Lecture 9 Exercise 1",
+    "visual": {
+      "mode": "restore",
+      "params": {
+        "values": [
+          3,
+          8,
+          2
+        ],
+        "copy": true
+      }
+    },
+    "modelId": "problem-SQ_28"
+  },
+  {
+    "id": "SQ_29",
+    "title": "Destructive reversal and restore distinction",
+    "stem": "Move every item of S to a new stack R with push(R,pop(S)). What are the final states, and how many primitives are needed?",
+    "solution": "S is empty and R is the reverse bottom-to-top sequence. Every value moves once, requiring 2n push/pop operations. This is a correct destructive reversal, not a nondestructive copy. Moving R back restores the original rather than keeping its reverse. Both postconditions and orientation must be stated.",
+    "difficulty": "Medium-Hard",
+    "origin": "Independent reconstruction of CMU Lecture 9 Exercise 2",
+    "visual": {
+      "mode": "restore",
+      "params": {
+        "values": [
+          9,
+          4,
+          7
+        ],
+        "copy": false,
+        "reverseOnly": true
+      }
+    },
+    "modelId": "problem-SQ_29",
+    "visualScope": "Separate concrete teaching example for the general n-item algorithm; not supplied problem data."
+  },
+  {
+    "id": "SQ_30",
+    "title": "Recursive size peak memory",
+    "stem": "A recursive size routine pops x, calls itself, restores x, and adds one. For n=9, give data-stack primitives and peak calls including the base call.",
+    "solution": "There are nine successful pops and nine restoration pushes, for 18 data-stack primitives. At the empty base case ten calls coexist: one for each popped item and the base invocation. Each nonbase frame retains its own x, so auxiliary call space is linear despite using no explicit temporary container. Returned counts 0..9 accumulate while restored order follows reverse return order.",
+    "difficulty": "Medium-Hard",
+    "origin": "Independent reconstruction of CMU Lecture 9 Exercise 6",
+    "visual": {
+      "mode": "recursive",
+      "params": {
+        "values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    "visualScope": "Concrete values chosen to illustrate the stated size n=9; values do not affect the primitive count.",
+    "modelId": "problem-SQ_30"
+  },
+  {
+    "id": "SQ_31",
+    "title": "Sortedness with duplicate keys",
+    "stem": "A stack bottom-to-top is [2,2,5]. Is it nondecreasing? Is it strictly increasing? Give a preserving interface-only test.",
+    "solution": "It is nondecreasing because adjacent differences are nonnegative, but not strictly increasing because the first two are equal. Copy the container preserving order, then pop and compare adjacent values from top downward; nondecreasing bottom-to-top requires each previous popped value >= the next. Strict increase requires >. The original is unchanged. Define the relation before adopting source prose or a strict comparison.",
+    "difficulty": "Medium-Hard",
+    "origin": "Independent reconstruction of CMU Lecture 9 Exercise 3; tie definition corrected",
+    "visual": {
+      "mode": "sortedness",
+      "params": {
+        "values": [
+          2,
+          2,
+          5
+        ]
+      }
+    },
+    "modelId": "problem-SQ_31"
+  },
+  {
+    "id": "SQ_32",
+    "title": "Sorting with an auxiliary stack",
+    "stem": "Sort distinct values using stacks only. Give an insertion-style invariant and explain its quadratic worst case.",
+    "solution": "Maintain temporary T nondecreasing bottom-to-top. Pop x from S; while T.top>x, move T.top back to S; then push x on T. Elements moved back are larger than x and can be reinserted later while preserving the sorted prefix invariant. Once S is empty, T holds the sorted values; moving T to S reverses the orientation, so choose the desired output orientation explicitly. In the adverse input order, an insertion crosses a linear number of earlier values, totaling Theta(n^2) transfers. Duplicates use a chosen strict or nonstrict comparison.",
+    "difficulty": "Medium-Hard",
+    "origin": "Independent reconstruction of CMU Lecture 9 Exercise 4",
+    "visual": {
+      "mode": "sort",
+      "params": {
+        "values": [
+          3,
+          1,
+          4,
+          2
+        ]
+      }
+    },
+    "visualScope": "Separate concrete teaching example for the general algorithm; not supplied problem data.",
+    "modelId": "problem-SQ_32"
+  },
+  {
+    "id": "SQ_33",
+    "title": "Queue sum with restoration",
+    "stem": "Compute the sum of Q front-to-rear [4,-2,9,4], preserving order without size().",
+    "solution": "Drain Q to temporary T while accumulating 4-2+9+4=15. This first phase uses four dequeues and four enqueues. Drain T back to Q, another eight primitives. Both phases preserve FIFO order, giving Q=[4,-2,9,4] and T empty with 16 total queue primitives. Summation overflow must follow the numeric type contract. A fixed-count rotation would work if the original count were known.",
+    "difficulty": "Medium-Hard",
+    "origin": "Independent reconstruction of CMU Lecture 9 Exercise 5",
+    "visual": {
+      "mode": "queue-restore",
+      "params": {
+        "values": [
+          4,
+          -2,
+          9,
+          4
+        ]
+      }
+    },
+    "modelId": "problem-SQ_33"
+  },
+  {
+    "id": "SQ_34",
+    "title": "Changing size as a loop bound",
+    "stem": "Starting with 11 queued values, execute for i=0; i<Q.size(); i++ and dequeue once per iteration. How many are removed?",
+    "solution": "Before iteration i, size is 11-i, so the guard is i<11-i, or $2i<11$. Iterations i=0 through 5 execute: six removals, leaving five. In general it removes $\\lceil n/2\\rceil$. Save n before the loop or use while-not-empty when complete draining is intended.",
+    "difficulty": "Medium-Hard",
+    "origin": "Independent reconstruction of Stanford CS106B Lecture 5, changing-size puzzle"
+  },
+  {
+    "id": "SQ_35",
+    "title": "Reenqueue prevents emptiness",
+    "stem": "A loop dequeues, adds the value to a sum, and reenqueues it while Q is nonempty. Q begins with three items. Does it terminate?",
+    "solution": "Each iteration decreases size by one then increases it by one. Size returns to three and the guard stays true forever under exclusive access. A fixed original iteration count would terminate after one rotation and preserve order. The invariant proving nontermination is constant positive size, not an unusually slow algorithm.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_36",
+    "title": "An attainable stack output",
+    "stem": "Validate [3,2,1,5,4] from inputs 1..5 and derive minimum capacity.",
+    "solution": "Forced pushes 1,2,3 permit pops 3,2,1. Push 4,5 then pop 5,4. Peak live size is three before the first pop. Every implementation must have kept 1,2 pending before output 3, so capacity below three is impossible. The trace has five pushes and five pops.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "permutation",
+      "params": {
+        "target": [
+          3,
+          2,
+          1,
+          5,
+          4
+        ]
+      }
+    },
+    "modelId": "problem-SQ_36"
+  },
+  {
+    "id": "SQ_37",
+    "title": "A forbidden output triple",
+    "stem": "Why can [3,1,2] not be produced by a single stack from inputs 1,2,3?",
+    "solution": "To output 3 first, all three inputs must be pushed. After popping 3, top is 2, which covers 1. Popping 2 would violate the requested second output; no more unused input exposes 1. The sequence is exactly a 312 pattern. It has correct membership and final length but fails stack accessibility.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "permutation",
+      "params": {
+        "target": [
+          3,
+          1,
+          2
+        ]
+      }
+    },
+    "modelId": "problem-SQ_37"
+  },
+  {
+    "id": "SQ_38",
+    "title": "Inverse conventions change the forbidden pattern",
+    "stem": "One statement says attainable output permutations avoid 312; another says stack-sortable input permutations avoid 231. Explain the relation.",
+    "solution": "The first maps fixed increasing input to a requested output. The second maps a given input to increasing output. These relations use inverse permutations: reversing which order is regarded as input versus output changes the pattern. The inverse of pattern 312 is 231. Test the convention on the three-element counterexample before quoting either characterization. They are not contradictory statements about the same oriented mapping.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_39",
+    "title": "Catalan probability",
+    "stem": "Choose a uniformly random permutation of 1..6. What is the probability that it is a single-stack output of increasing inputs with unlimited capacity?",
+    "solution": "There are $C_6=\\binom{12}{6}/7=132$ attainable outputs and $6!=720$ equally likely permutations. Probability is $132/720=11/60$. Uniform random legal operation histories are a different sample space and produce only attainable outputs; do not divide Catalan counts by balanced words unless that is the actual sampling rule.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "catalan",
+      "params": {
+        "n": 6,
+        "h": 6
+      }
+    },
+    "modelId": "problem-SQ_39"
+  },
+  {
+    "id": "SQ_40",
+    "title": "Capacity-limited output count",
+    "stem": "For four distinct increasing inputs, how many outputs need capacity at most two? How many need exactly two?",
+    "solution": "The bounded-height recurrence gives eight paths at height at most two. Height at most one has only the alternating push/pop history, so exactly two gives 8-1=7. The unrestricted count is C4=14; six outputs require capacity above two. Enumerating unrestricted histories and then ignoring overflow is incorrect.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "catalan",
+      "params": {
+        "n": 4,
+        "h": 2
+      }
+    },
+    "modelId": "problem-SQ_40"
+  },
+  {
+    "id": "SQ_41",
+    "title": "A complete Catalan proof",
+    "stem": "Derive C5 by first-return decomposition, not by memorized lookup.",
+    "solution": "C0..C4 are 1,1,2,5,14. A first return encloses j pairs and leaves 4-j pairs outside, so $C_5=\\sum_{j=0}^{4}C_jC_{4-j}=14+5+4+5+14=42$. The decomposition is unique because the matching return of the first push is unique. Choosing arbitrary separators would overcount. The binomial formula $\\binom{10}{5}/6=42$ independently agrees.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_42",
+    "title": "Partial-history ballot count",
+    "stem": "How many legal histories have six pushes and four pops from empty without a capacity limit?",
+    "solution": "Unrestricted words number $\\binom{10}{4}=210$. Reflect the first prefix reaching -1; the bad count is $\\binom{10}{3}=120$. Legal count is 90. Final height is two, so this is not C5 or C6. The condition $p\\ge d$ is necessary; the counted histories may end with unremoved items.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_43",
+    "title": "Typed brackets versus counts",
+    "stem": "Determine the first error in ([)] and explain why a height-only test accepts too much.",
+    "solution": "After ( then [, the stack top is [. The third token ) requires (, so the mismatch is at position three in one-based numbering. Prefix height never becomes negative and final height is zero; those checks see only opening/closing counts and miss crossing delimiter types. The typed stack enforces the newest unmatched opening rule.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "brackets",
+      "params": {
+        "tokens": [
+          "(",
+          "[",
+          ")",
+          "]"
+        ]
+      }
+    },
+    "modelId": "problem-SQ_43"
+  },
+  {
+    "id": "SQ_44",
+    "title": "Bracket memory peak",
+    "stem": "For tokens { [ ( ) ] ( [ ] ) }, find maximum simultaneous openings and final result.",
+    "solution": "The heights are 1,2,3,2,1,2,3,2,1,0. Each close matches its top type, so the sequence is valid and peak depth three. Space depends on nesting, not the total five pairs. A flat sequence of five pairs would use one stack slot.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "brackets",
+      "params": {
+        "tokens": [
+          "{",
+          "[",
+          "(",
+          ")",
+          "]",
+          "(",
+          "[",
+          "]",
+          ")",
+          "}"
+        ]
+      }
+    },
+    "modelId": "problem-SQ_44"
+  },
+  {
+    "id": "SQ_45",
+    "title": "Postfix operand order",
+    "stem": "Evaluate 18 6 3 / - 4 * over rational arithmetic. State stack content after every operator.",
+    "solution": "After / the stack is [18,2]; the first popped operand 3 is the divisor. After - it is [16], because right operand is 2 and left is 18. After * it is [64]. Final count is one. Reversing pop roles gives 2-18 instead of 18-2 and corrupts the result.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "postfix",
+      "params": {
+        "tokens": [
+          "18",
+          "6",
+          "3",
+          "/",
+          "-",
+          "4",
+          "*"
+        ]
+      }
+    },
+    "modelId": "problem-SQ_45"
+  },
+  {
+    "id": "SQ_46",
+    "title": "Necessary counts are not sufficient",
+    "stem": "Tokens 8 + 2 have two operands and one binary operator. Is the expression valid?",
+    "solution": "No. The operator arrives with only one stack value and underflows. The final operand/operator total is necessary but does not establish prefix feasibility. In a valid binary postfix stream, every operator must find two completed subexpressions, and the stream must finish with one value.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "postfix",
+      "params": {
+        "tokens": [
+          "8",
+          "+",
+          "2"
+        ]
+      }
+    },
+    "modelId": "problem-SQ_46"
+  },
+  {
+    "id": "SQ_47",
+    "title": "Extra result and zero divisor",
+    "stem": "Classify 2 3 and 7 0 / separately.",
+    "solution": "The first never underflows but ends with two values, so it is not one complete expression. The second has the correct syntactic arity but division by zero is undefined in the stated rational domain. Arity validity and arithmetic validity are distinct checks. Returning one arbitrary pop or accepting infinity would change the contract.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_48",
+    "title": "Exact rational postfix",
+    "stem": "Evaluate 5 2 / 7 3 / + 6 *.",
+    "solution": "5/2 and 7/3 are formed in order. Their sum is (15+14)/6=29/6; multiplying by 6 gives 29. Rational arithmetic avoids a rounding artifact. A word-RAM bound for token actions does not guarantee constant bit cost for arbitrary-length rational numerators and denominators.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "postfix",
+      "params": {
+        "tokens": [
+          "5",
+          "2",
+          "/",
+          "7",
+          "3",
+          "/",
+          "+",
+          "6",
+          "*"
+        ]
+      }
+    },
+    "modelId": "problem-SQ_48"
+  },
+  {
+    "id": "SQ_49",
+    "title": "Prefix pop orientation",
+    "stem": "Evaluate prefix - / 24 6 3 by scanning right to left.",
+    "solution": "Push 3, then 6, then 24. On / the first pop is 24, its left operand, and second 6, so push 4. On - first pop 4 and second 3 give 1. Reading prefix with postfix pop roles would invert the operands. The expression means (24/6)-3.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_50",
+    "title": "General arity balance",
+    "stem": "A postfix language has eight operands, two unary operators, one ternary operator, and binary operators. How many binary operators are necessary for one result?",
+    "solution": "Start height eight after considering operands. Unary operators reduce height by zero, one ternary by two, and each binary by one. Final height one requires $8-2-b=1$, hence b=5. This is a total balance only; each operator still requires enough prior values. Distinguish unary minus from a signed-literal token.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_51",
+    "title": "Associativity in conversion",
+    "stem": "Convert a-b-c and a^b^c to postfix, taking - left-associative and ^ right-associative.",
+    "solution": "For subtraction, the incoming second - pops the equal-precedence first -, yielding a b - c -. For exponentiation, the incoming second ^ does not pop the first; final drain yields a b c ^ ^. Thus grouping is (a-b)-c versus a^(b^c). Equal precedence alone is insufficient to decide popping.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "infix",
+      "params": {
+        "tokens": [
+          "a",
+          "-",
+          "b",
+          "-",
+          "c"
+        ]
+      }
+    },
+    "modelId": "problem-SQ_51",
+    "visualScope": "Exact subtraction trace; the right-associative exponentiation trace is separately embedded in the conversion lesson."
+  },
+  {
+    "id": "SQ_52",
+    "title": "Precedence with nested parentheses",
+    "stem": "Convert ( a + b ) * c - d / e to postfix and explain the stack boundaries.",
+    "solution": "Emit a b, pop + at the close parenthesis, discard the matched (. Then * waits for c. Incoming - pops *, yielding a b + c *. Emit d, retain higher-precedence / for e, and drain / then -. Result is a b + c * d e / -. Parentheses delimit operator scope and are not emitted as postfix operators.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "infix",
+      "params": {
+        "tokens": [
+          "(",
+          "a",
+          "+",
+          "b",
+          ")",
+          "*",
+          "c",
+          "-",
+          "d",
+          "/",
+          "e"
+        ]
+      }
+    },
+    "modelId": "problem-SQ_52"
+  },
+  {
+    "id": "SQ_53",
+    "title": "Unary minus grammar",
+    "stem": "Why can -2^2 be either -4 or 4 in different grammars?",
+    "solution": "If exponentiation binds more tightly than unary negation, parse NEG(2^2), producing -4. If a signed literal -2 is treated as an atomic operand or unary negation binds more tightly, parse (-2)^2, producing 4. Neither output can be claimed without the declared grammar. Parenthesizing (-2)^2 removes ambiguity. Binary-minus-only conversion cannot handle initial unary negation correctly.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_54",
+    "title": "Value-stack height is not tree depth",
+    "stem": "Compare postfix a b + c + d + with a b c d + + +. Give their peak value-stack heights.",
+    "solution": "First stream peaks at two because every new operand is combined promptly with the accumulated result. Second pushes all four operands before any operator, so peak is four. Both represent binary expressions with four operands and three operators. Traversal/evaluation order, not only operand count or number of operators, determines pending-value space.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_55",
+    "title": "Duplicate maxima",
+    "stem": "A max stack receives 5,7,7,3 then three pops. Give maximum after each pop and the duplicate-handling rule.",
+    "solution": "Popping 3 leaves max 7; popping one 7 leaves max 7; popping the other 7 exposes max 5. Prefix-maximum entries naturally retain each prefix. A separate maxima stack must push on >= or maintain multiplicity; pushing only on > and removing on equality loses the remaining equal maximum.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "extrema",
+      "params": {
+        "values": [
+          5,
+          7,
+          7,
+          3
+        ],
+        "pops": 3
+      }
+    },
+    "modelId": "problem-SQ_55"
+  },
+  {
+    "id": "SQ_56",
+    "title": "Global maximum counterexample",
+    "stem": "A stack stores only one global maximum. Push 4,9,6 and pop twice. Why is update-on-push insufficient?",
+    "solution": "After pops remove 6 then 9, only 4 remains. A global variable still equal to 9 is stale; neither popped value tells it the remaining maximum without stored history or a scan. Cached prefix maxima or an auxiliary extrema stack preserve that history with constant-time pop restoration. The variable works for insert-only workloads but not this complete interface.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_57",
+    "title": "Associative but noncommutative aggregate",
+    "stem": "Output stack top-to-bottom is [a,b] and input stack bottom-to-top [c,d]. What fold gives queue concatenation?",
+    "solution": "Queue order is [a,b,c,d]. The output cache must be top-to-bottom ab, and input cache bottom-to-top cd; combine output then input to obtain abcd. During an output-stack push x, update its cache as x concatenated with oldCache. Commuting the factors or caching both stacks in the same physical orientation gives a wrong result. Associativity allows parentheses to move, not elements.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "aggregate",
+      "params": {}
+    },
+    "modelId": "problem-SQ_57"
+  },
+  {
+    "id": "SQ_58",
+    "title": "Gcd queue aggregate",
+    "stem": "A queue holds [18,30,42,70]. Find gcd before and after removing the first two items; explain why division by removed gcd is invalid.",
+    "solution": "Initial gcd is gcd(18,30,42,70)=2. After removing 18 and 30, gcd(42,70)=14. The operation gcd lacks a general inverse: old gcd and removed value do not encode the surviving gcd. Prefix aggregates in two stacks expose the proper remaining fold. Empty gcd identity is 0 for nonnegative integers, since gcd(0,x)=x.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_59",
+    "title": "Strict next greater with duplicates",
+    "stem": "For [2,1,2,4,3], find next strictly greater indices and distances.",
+    "solution": "At index 2, value 2 resolves index 1 but not equal index 0. At index 3, value 4 resolves both stored 2 positions. Indices are [3,2,3,none,none], distances [3,1,1,none,none]. Indices not values must be stored to compute distance and preserve duplicate identities. Each popped candidate had no earlier greater value, otherwise it would already have been resolved.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "monostack",
+      "params": {
+        "values": [
+          2,
+          1,
+          2,
+          4,
+          3
+        ]
+      }
+    },
+    "modelId": "problem-SQ_59"
+  },
+  {
+    "id": "SQ_60",
+    "title": "A nested while with linear total work",
+    "stem": "An n-element next-greater algorithm can pop n-1 entries in one iteration. Why is total work not necessarily quadratic?",
+    "solution": "Each index is pushed exactly once and popped at most once. Over the complete scan, successful pop-loop bodies number at most n; guard checks add at most a linear number of failed checks across outer iterations. An increasing-last counterexample realizes a costly single iteration but cannot repeat the same removed identities. Aggregate analysis proves O(n), not O(n^2).",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_61",
+    "title": "Next greater versus greater or equal",
+    "stem": "Use [4,4,3,4]. Compare next strictly greater and next greater-or-equal positions.",
+    "solution": "Strict answers are [none,none,3,none]; no later value exceeds either leading 4. Greater-or-equal answers are [1,3,3,none]. To resolve equal values in the left-to-right pending stack, change the popping condition from current>topValue to current>=topValue. The final invariant changes from nonincreasing pending values to strictly decreasing values.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "monostack",
+      "params": {
+        "values": [
+          4,
+          4,
+          3,
+          4
+        ],
+        "equal": true
+      }
+    },
+    "modelId": "problem-SQ_61",
+    "visualScope": "Exact greater-or-equal variant; the written solution separately compares strictly greater answers."
+  },
+  {
+    "id": "SQ_62",
+    "title": "Histogram width beyond the popped index",
+    "stem": "For heights [2,1,5,6,2,3], identify the maximum rectangle and justify its left and right boundaries.",
+    "solution": "When height 2 arrives at index 4, pop height 6 at index 3: width $4-2-1=1$, area 6. Then pop height 5 at index 2; remaining top is index 1 of height 1, so width $4-1-1=2$ and area 10. It spans bars 2..3. Final flush discovers lower wider rectangles, none exceeding 10. Width i-j would miss the full expansion in other cases.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "histogram",
+      "params": {
+        "values": [
+          2,
+          1,
+          5,
+          6,
+          2,
+          3
+        ]
+      }
+    },
+    "modelId": "problem-SQ_62"
+  },
+  {
+    "id": "SQ_63",
+    "title": "Equal-height histogram plateau",
+    "stem": "Find the maximum rectangle in [3,3,3,3] under the nondecreasing-stack tie convention.",
+    "solution": "All four equal heights may remain pending. At the zero sentinel, they pop with widths 1,2,3,4, yielding areas 3,6,9,12. The earliest height-three index obtains the widest span. Removing equals on arrival also works if the earlier left boundary is retained; discarding that boundary would miss the full plateau.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "histogram",
+      "params": {
+        "values": [
+          3,
+          3,
+          3,
+          3
+        ]
+      }
+    },
+    "modelId": "problem-SQ_63"
+  },
+  {
+    "id": "SQ_64",
+    "title": "Zero bars split positive rectangles",
+    "stem": "For [2,0,2,2,0,5], find maximum area.",
+    "solution": "A positive rectangle cannot cross a zero bar. Left segment [2] gives area 2; middle [2,2] gives 4; last [5] gives 5. Maximum is five. Zero-height rectangles across larger spans have area zero and do not improve it. The monotone-stack boundary calculation agrees and requires nonnegative heights and unit widths.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "histogram",
+      "params": {
+        "values": [
+          2,
+          0,
+          2,
+          2,
+          0,
+          5
+        ]
+      }
+    },
+    "modelId": "problem-SQ_64"
+  },
+  {
+    "id": "SQ_65",
+    "title": "Sliding-window exact trace",
+    "stem": "For [1,3,-1,-3,5,3,6,7] and k=3, give window maxima and explain expiration separately from domination.",
+    "solution": "Outputs are [3,3,5,5,6,7]. Expiration removes front indices <=i-3; rear domination removes older candidates whose values are <=the new value. The first mechanism uses age, the second value and later expiry. Storing only values cannot reliably decide expiration when duplicates occur. Each candidate has at most one insertion and one removal.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "window",
+      "params": {
+        "values": [
+          1,
+          3,
+          -1,
+          -3,
+          5,
+          3,
+          6,
+          7
+        ],
+        "k": 3
+      }
+    },
+    "modelId": "problem-SQ_65"
+  },
+  {
+    "id": "SQ_66",
+    "title": "Tie policy changes argmax identity",
+    "stem": "For [5,5,4,5], k=3, compare newest-equal and oldest-equal window maxima identities.",
+    "solution": "Windows 0..2 and 1..3 both have value maximum five. Removing rear equals picks newest indices 1 then 3. Removing only strictly smaller candidates retains earliest equal indices 0 then 1. Both value outputs are [5,5]. The contract for argmax tie-breaking determines which is correct; a value-only answer hides this difference.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "window",
+      "params": {
+        "values": [
+          5,
+          5,
+          4,
+          5
+        ],
+        "k": 3
+      }
+    },
+    "modelId": "problem-SQ_66",
+    "visualScope": "Exact newest-equal trace; the written solution separately derives oldest-equal argmax identities."
+  },
+  {
+    "id": "SQ_67",
+    "title": "Deque operation upper bound",
+    "stem": "Process n values through a monotone window deque. Bound successful candidate insertions and removals, including expiration.",
+    "solution": "There are exactly n insertions. Every inserted identity is removed at most once, by one of expiration or domination, so at most n removals. The two reasons do not each supply n removals of the same items. Candidate primitives are at most 2n, with a tighter 2n-liveCount if no final drain. Value comparison/guard counts add linear work separately.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_68",
+    "title": "Window extremes",
+    "stem": "For any nonempty input of length n, characterize k=1 and k=n, and invalid k=0.",
+    "solution": "At k=1 every previous candidate expires before the new item; each value is its own maximum and there are n outputs. At k=n there is one output, the global maximum. k=0 defines no positive-width window under this contract and must be rejected. A laboratory that silently coerces zero to one conceals a boundary error.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_69",
+    "title": "Breadth-first versus depth-first order",
+    "stem": "From A, neighbors are B,C; B leads to D and C to E. Mark vertices when discovered. Compare FIFO and an explicit preorder stack that pushes right before left.",
+    "solution": "FIFO visits A,B,C,D,E in layers. The LIFO preorder stack visits A,B,D,C,E when it schedules the right branch first and then the left branch on top. Both use the same edges but different pending-work discipline. A graph with converging edges requires visited state; tree order alone does not show duplicate suppression.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "worklist",
+      "params": {}
+    },
+    "modelId": "problem-SQ_69"
+  },
+  {
+    "id": "SQ_70",
+    "title": "Discovery duplicates",
+    "stem": "In an unweighted graph A connects B,C, and each connects D. What happens if D is marked only when dequeued?",
+    "solution": "After processing B, D is queued but still unmarked. Processing C can enqueue D again, so duplicate pending records arise. Marking at enqueue identifies discovery immediately and gives one queue insertion per vertex. If stale duplicates are explicitly skipped at dequeue, correctness can still be preserved, but complexity/accounting and maximum occupancy differ. State the policy before asserting one insertion per vertex.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_71",
+    "title": "Why FIFO fails for general weights",
+    "stem": "Edges are A->B weight 10, A->C weight 1, C->B weight 1. A FIFO algorithm freezes first-discovered distances. Show its failure.",
+    "solution": "If B is enqueued first from A, it receives distance ten. C later reveals a path to B of cost two, which a freeze-on-discovery rule ignores. Ordinary unweighted BFS layer correctness does not apply to unequal weights. Dijkstra uses a priority discipline under nonnegative weights; a deque suffices for the special 0/1 case only with relaxations, not a frozen visited bit.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_72",
+    "title": "Josephus elimination",
+    "stem": "For labels 1..7, counting k=3 from label 1, find complete elimination order and survivor.",
+    "solution": "Rotate two survivors and remove the third at each stage. The order is 3,6,2,7,5,1,4, so survivor four. The zero-based recurrence produces J(7,3)=3 and one-based label four. Rotating three rather than two changes the counting convention. The last survivor is included here as the final removal for a complete trace.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "josephus",
+      "params": {
+        "n": 7,
+        "k": 3
+      }
+    },
+    "modelId": "problem-SQ_72"
+  },
+  {
+    "id": "SQ_73",
+    "title": "Josephus closed form",
+    "stem": "Find the one-based survivor for n=100,k=2.",
+    "solution": "Largest power of two <=100 is 64; residual ell=36. The survivor is $2\\cdot36+1=73$. The zero-based answer is 72. The formula is specific to step two and cannot be substituted for general k. The recurrence independently computes the same label in O(n) arithmetic operations.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_74",
+    "title": "Rotation cost versus survivor cost",
+    "stem": "There are n jobs in a Josephus simulation and k may be very large. How can rotations be reduced, and what does the survivor recurrence omit?",
+    "solution": "At live length m, rotate (k-1) mod m rather than k-1 literal steps. Each rotation changes the starting point cyclically; full cycles have no effect. The survivor recurrence needs n-1 modular updates and no elimination list, so its O(n) time does not establish O(n) for emitting all removals via a naive queue. An indexed order-statistic structure is a different way to produce the whole order efficiently.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_75",
+    "title": "Restore while returning early",
+    "stem": "A stack sortedness test pops elements into a temporary stack and returns false at the first inversion. What postcondition can fail?",
+    "solution": "The original stack has already lost a prefix of its pop order, and temporary storage holds those items. An immediate return violates a promised nondestructive test. Record a false flag, finish or safely restore all already removed items before returning; alternatively inspect an independent container copy. Functional result and restoration postcondition are separate proof obligations.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_76",
+    "title": "Impure invariants",
+    "stem": "Why is a function that temporarily pops and restores a stack unsuitable as a pure runtime assertion without additional guarantees?",
+    "solution": "Although final abstract content is restored, it writes allocated memory, may allocate, and can expose transient states or fail during restoration. Enabling assertions could therefore change observable behavior or resource requirements. A logical specification predicate should inspect representation purely or be treated as a mathematical ghost predicate. Correct final restoration alone does not imply referential transparency.",
+    "difficulty": "Medium-Hard",
+    "origin": "Independent analysis of CMU Lecture 9 impure-assertion warning"
+  },
+  {
+    "id": "SQ_77",
+    "title": "Payload aliasing",
+    "stem": "Two independent queue containers hold references to the same mutable record R. Remove R from one queue and mutate R through the other. What is independent?",
+    "solution": "Queue membership/order is independent because the containers have separate nodes or buffers. The referenced record is shared, so mutation affects that record wherever another live reference reaches it. Removing a membership link need not destroy a shared object; ownership policy decides lifetime. A structural container copy and a deep payload copy are distinct operations.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_78",
+    "title": "Deque rotation modulo length",
+    "stem": "Using only delete-first and insert-last, rotate an n=9 sequence left by k=23. What sequence shift and primitive count result after reducing full cycles?",
+    "solution": "23 mod 9=5, so five front-to-rear transfers suffice and use ten endpoint primitives. Relative order remains cyclically shifted by five. On an empty sequence modulo zero is undefined; specify rotation as a no-op before computing the remainder. This is an independent boundary-corrected variant of MIT sequence-end rotation.",
+    "difficulty": "Medium-Hard",
+    "origin": "Independent reconstruction of MIT 6.006 Problem Session 1, Problem 1-2"
+  },
+  {
+    "id": "SQ_79",
+    "title": "Swap ends of a singleton",
+    "stem": "A deque swap-ends routine deletes first and then last before reinserting. Why does it fail for n=1, and how is it repaired?",
+    "solution": "Deleting first empties the singleton; the next delete-last underflows. For n<=1 return without change. For n>=2 remove both ends, then insert former last at front and former first at rear. The middle remains in order. Four endpoint operations give constant time under the deque contract; boundary guards are required.",
+    "difficulty": "Medium-Hard",
+    "origin": "Independent boundary extension of MIT 6.006 Problem 1-2"
+  },
+  {
+    "id": "SQ_80",
+    "title": "A stale reference after growth",
+    "stem": "A client keeps a pointer to a slot inside a dynamic ring. The ring grows and frees its old buffer. Does preserving logical indices preserve that pointer?",
+    "solution": "No. Relocation maintains logical sequence order but changes physical addresses. The stored interior pointer reaches released storage unless the implementation has stable handles or another explicit lifetime policy. An index can be recomputed against the new base/front; a raw old pointer cannot. API references must declare invalidation behavior.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue"
+  },
+  {
+    "id": "SQ_81",
+    "title": "Exact maximum height",
+    "stem": "For n=5 distinct increasing inputs, there are 16 legal histories at height at most two and 34 at height at most three. How many require exactly three slots?",
+    "solution": "Exactly-three histories are the set difference of nested capacity classes: 34-16=18. The data agree with the bounded-height recurrence. Subtracting from the unrestricted Catalan count 42 instead would count heights above three. Distinct-input output permutations correspond bijectively to histories; duplicate-value outputs do not automatically preserve that count.",
+    "difficulty": "Medium-Hard",
+    "origin": "Original mathematical/conceptual examination analogue",
+    "visual": {
+      "mode": "catalan",
+      "params": {
+        "n": 5,
+        "h": 3
+      }
+    },
+    "modelId": "problem-SQ_81"
+  }
+]
