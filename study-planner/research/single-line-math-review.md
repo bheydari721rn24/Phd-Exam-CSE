@@ -16,3 +16,7 @@ The actual browser audit covers 34 chapters at widths of 1280 and 390 pixels. Al
 Two unrelated existing laboratory initialization errors in g_gates-lab.js and l_vectors-lab.js were reproduced using the exact pre-edit source commit. They are recorded separately in the browser report; this typography revision introduces no new runtime error. This is a layout audit, not a claim that the complete library has no other defects.
 
 Evidence: single-line-math-audit.json and single-line-math-browser.json. The chapter gate remains awaiting_user_approval for d_pigeonhole; no new chapter was started or promoted.
+
+## Publication handoff
+
+The exact typography changes were pushed to Site source commit 8ac65e2a0f5a5576a415bcb06190c294d70c1b15 and mirrored to GitHub study-planner-1406 at 7f22b278abc874e68ed498ccbe98099c1f3c403c. The valid static archive contains the manifest, app and all 34 chapters. The private publishing request failed with a transport error at https://chatgpt.com/backend-api/ps/mcp; the subsequent native version-history reconciliation failed at the same endpoint. No deployment or saved-version ID was returned. Publication is therefore unconfirmed, and the live site must not be described as updated. Reconcile native history before another publishing attempt, then publish the current exact pushed source if needed. The account's owner-private audience must remain unchanged.
