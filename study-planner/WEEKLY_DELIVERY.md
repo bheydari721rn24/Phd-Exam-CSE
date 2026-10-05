@@ -287,3 +287,13 @@ Verified handoff: complete draft source commit afa7126; GitHub branch study-plan
 ## Arrays chapter: corrected arrow connections and text spacing
 
 5 October 2026: The student rejected arrays/list arrow geometry and label spacing. Only this chapter was repaired. Explicit boundary ports, fixed-size arrowheads, separate return lanes, padded labels and animated endpoint rebinding passed all 113 fixed checkpoints, 497 laboratory frames and four moving-edge samples. All 466 numerical references, 86 problems and 80 rules are retained. Evidence: research/a_arrays-visual-repair.md and research/a_arrays-visual-browser-audit.json. The approval gate remains awaiting_user_approval; no subsequent chapter has started. Publication must be verified independently.
+
+
+## Whole-library animation and worked-problem visual revision
+
+5 October 2026: The user approved the arrays arrow/spacing repair and explicitly requested the same visual review across every chapter, plus individual review of every problem for necessary diagrams, circuit schematics and animations alongside its solution. Work is authorized for all 35 existing chapters and 2085 problems. The previous one-chapter limitation is superseded for this revision only. No new chapter starts. Preserve problem statements, source provenance, mathematical solutions and study progress, except documented corrections. Visual additions require review before promotion.
+
+
+## Whole-library visual instruction: delivered for approval
+
+5 October 2026: All 35 chapter animation placements use measured boundary/padding geometry. All 2085 original worked-problem bodies are retained; visual teaching and inspected transitions were added where relevant. The record distinguishes 317 question-linked aids, 74 separate arrays examples, and 1362 supporting concept placements. Finite saved-state, intermediate-movement, question-model, desktop/mobile/print and retention checks passed. This is a visual-instruction review, not a new exhaustive proof audit. Evidence: research/library-visual-question-review/manifest.json. Report: dist/library-visual-question-review.html. Gate: awaiting_user_approval; no new chapter begun. Publication is verified separately.

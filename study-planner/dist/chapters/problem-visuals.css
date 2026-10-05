@@ -1,0 +1,14 @@
+.problem-visual{margin:1.4rem 0;padding:1.2rem 1.35rem;border:1px solid #cbdde3;border-radius:10px;background:#f8fbfc;break-inside:auto}
+.problem-visual h4{font-family:"Newsreader",serif;font-size:1.35rem;font-weight:450;margin:0 0 .65rem}
+.problem-reading,.problem-caption,.problem-scope{font-family:"Source Sans 3",sans-serif;line-height:1.65;margin:.8rem 0}
+.problem-controls{display:flex;flex-wrap:wrap;align-items:center;gap:.65rem;margin:1rem 0}
+.problem-controls button,.problem-controls select{font-family:"Source Sans 3",sans-serif;border:1px solid #afc7d0;border-radius:7px;padding:.5rem .85rem;background:white;color:#28495b;min-height:42px}
+.problem-controls button:disabled{opacity:.5}.problem-controls button:focus-visible,.problem-stage:focus-visible{outline:2px solid #557e91;outline-offset:3px}
+.problem-progress{display:flex;align-items:center;gap:1rem}.problem-progress input{flex:1;min-width:0;accent-color:#557e91}.problem-counter{font-size:.95rem;white-space:nowrap}
+.problem-stage{background:white;border:1px solid #d4e2e7;border-radius:8px;overflow-x:auto;padding:16px 12px;max-width:100%;margin:1rem 0}
+.problem-stage svg{width:100%;min-width:650px;height:auto;display:block;max-width:none}.problem-stage svg text{font-family:"STIX Two Math",serif;font-weight:400}.problem-stage svg .prose-label{font-family:"Source Sans 3",sans-serif}
+.problem-exact-formula{font-family:"STIX Two Math",serif;min-height:130px;display:grid;align-items:center;padding:1rem}.problem-exact-formula math{font-size:1.35rem;max-width:none;white-space:nowrap}
+.problem-caption{padding:.8rem 1rem;border-left:3px solid #91adb9;background:#edf5f8}.problem-scope{font-size:.94rem;color:#46626d}
+.question-concept-aid{margin:1.5rem 0;padding-top:1rem;border-top:1px solid #cbdde3}.question-concept-aid>h4{font-family:"Newsreader",serif;font-weight:450;font-size:1.35rem}.question-concept-aid>p{font-family:"Source Sans 3",sans-serif;line-height:1.65;color:#46626d}
+@media(max-width:650px){.problem-visual{padding:1rem}.problem-stage{padding:12px 8px}.problem-stage::before{content:"Scroll horizontally to inspect the complete diagram.";display:block;font-size:14px;margin:0 0 12px;color:#46626d}}
+@media print{.problem-controls,.problem-progress,.problem-stage::before{display:none!important}.problem-stage{overflow:visible;border:0;padding:8px}.problem-stage svg{min-width:0!important;width:100%}.problem-visual{background:white;padding:.6rem;border-color:#bbb}.problem-caption{background:white}.problem-exact-formula math{font-size:1rem}}

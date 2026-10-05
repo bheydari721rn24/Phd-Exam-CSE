@@ -140,7 +140,7 @@ function renderLibrary() {
       ${!ready.length && !drafted.length ? '<p>The first chapter is undergoing its English quality review. Its link will appear here when the review is complete.</p>' : ""}
     </div>
   </section>
-  <section class="card"><h2>What the status means</h2><p>The student approved the visual and mathematical revision of all 31 preceding chapters in version 67. The new counting chapter has a separate review gate and remains a draft until explicitly approved. The weekly overview explains the reading sequence; each linked chapter contains the complete lesson, worked solutions and examination rules.</p><a href="library-review.html">Read the revision evidence and limitations →</a></section>`;
+  <section class="card"><h2>What the status means</h2><p>The 35 existing chapter lessons remain available for study. Their shared animation geometry and visual instruction inside worked solutions have been revised across the library. This visual revision has a separate approval gate; the next chapter begins after your approval.</p><a href="library-visual-question-review.html">Read the current visual revision and open its examples →</a></section>`;
 }
 function renderIelts() {
   const path = plan.ielts;

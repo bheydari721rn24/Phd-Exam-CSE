@@ -11,7 +11,7 @@ function mount(host,model){
  const stop=()=>{clearInterval(timer);timer=null;play.textContent='Play';};
  function draw(motion=true){
   const old=new Map([...stage.querySelectorAll('[data-entity]')].map(e=>{const b=e.getBBox();return[e.dataset.entity,{x:b.x+b.width/2,y:b.y+b.height/2}];}));
-  const f=model.frames[index];stage.innerHTML=f.svg;caption.textContent=f.caption;formula.innerHTML=f.formulaHtml;seek.value=index;progress.textContent=`Checkpoint ${index+1} of ${model.frames.length}`;
+  const f=model.frames[index];stage.innerHTML=f.svg;window.DiagramLayout?.finish(stage.querySelector("svg"));window.DiagramLayout?.finish(stage.querySelector("svg"));window.DiagramLayout?.finish(stage.querySelector("svg"));caption.textContent=f.caption;formula.innerHTML=f.formulaHtml;seek.value=index;progress.textContent=`Checkpoint ${index+1} of ${model.frames.length}`;
   host.querySelector('[data-prev]').disabled=index===0;host.querySelector('[data-next]').disabled=index===model.frames.length-1;
   if(motion&&!reduced.matches){for(const e of stage.querySelectorAll('[data-entity]')){const p=old.get(e.dataset.entity);if(p){const b=e.getBBox(),dx=p.x-b.x-b.width/2,dy=p.y-b.y-b.height/2;if(Math.abs(dx)+Math.abs(dy)>1)e.animate([{transform:`translate(${dx}px,${dy}px)`},{transform:'translate(0,0)'}],{duration:450,easing:'ease-in-out'});}}}
   window.MathLayout?.schedule();

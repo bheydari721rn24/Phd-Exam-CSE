@@ -1,0 +1,36 @@
+.concept-animation{border:1px solid #a9c4ce;border-radius:14px;padding:1.2rem;margin:2rem 0;background:#f8fcfe;contain:layout}
+.concept-animation h3{margin:0 0 .75rem;font-size:1.6rem}
+.concept-animation label{display:block;font-size:1rem;color:#254858}
+.concept-animation select{font:inherit;border:1px solid #a3bbc5;border-radius:7px;background:#fff;padding:.6rem;width:100%;margin:.4rem 0 1rem}
+.anim-description{font-size:1rem;line-height:1.6}
+.anim-metrics dt p,.anim-description p,.anim-explanation p,.anim-invariant p{margin:0}
+.anim-controls{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:1rem 0}
+.anim-controls button{font:inherit;min-height:42px;padding:.45rem .8rem;border:1px solid #9cbac7;background:#fff;color:#224c61;border-radius:7px;cursor:pointer}
+.anim-controls button:disabled{opacity:.45;cursor:default}
+.anim-controls button[data-action=play]{background:#24576b;color:white;border-color:#24576b;min-width:92px}
+.anim-controls button[data-action=zoom]{display:none}
+.anim-controls .anim-speed{display:flex;align-items:center;gap:.5rem;margin-left:auto}
+.anim-speed select{width:auto;margin:0}
+.anim-progress{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.8rem;align-items:center}
+.anim-progress input{width:100%;accent-color:#24576b;min-height:30px}
+.anim-counter,.anim-metrics dd{font-family:"STIX Two Math",serif;font-variant-numeric:tabular-nums}
+.anim-stage{overflow-x:auto;border:1px solid #d2e2e9;border-radius:9px;background:white;margin:1rem 0;max-width:100%;scrollbar-width:thin}
+.anim-stage svg{width:100%;min-width:640px;max-width:none;height:auto;display:block}
+.anim-stage svg text,.anim-stage svg tspan{font-family:"STIX Two Math",serif;font-weight:400}
+.anim-stage .anim-label{font-family:"Source Sans 3",sans-serif}
+.anim-metrics{display:flex;gap:.8rem;flex-wrap:wrap;margin:1rem 0}
+.anim-metrics>div{min-width:85px;background:#eaf3f7;border-radius:7px;padding:.5rem .7rem}
+.anim-metrics dt{font-size:.9rem;color:#456473}.anim-metrics dd{margin:.2rem 0 0;font-size:1.12rem;overflow-wrap:anywhere}
+.anim-explanation{background:#edf5f9;border-left:3px solid #588699;padding:.8rem 1rem;border-radius:4px;min-height:4em}
+.anim-invariant{padding:.75rem 0;line-height:1.6}
+.anim-status{font-size:.95rem;color:#245643}.anim-status[data-state=counterexample]{color:#87354c}
+.anim-code{margin:1rem 0;overflow-x:auto;background:#122c3a;color:#e9f3f8;padding:.9rem;border-radius:8px;font-family:"JetBrains Mono",monospace;font-size:14px;line-height:1.7}
+.anim-code .anim-code-line{display:block;white-space:pre;padding:.1rem .35rem;border-left:3px solid transparent}
+.anim-code .active{border-color:#74d7d2;background:#214957;color:white}
+.anim-legend{display:flex;flex-wrap:wrap;gap:1rem;font-size:.9rem}.anim-legend span::before{content:"";display:inline-block;width:12px;height:12px;margin-right:.4rem;border-radius:3px;vertical-align:middle;background:var(--tone)}
+.anim-legend [data-tone=active]{--tone:#ffda87}.anim-legend [data-tone=done]{--tone:#bee4d0}.anim-legend [data-tone=warning]{--tone:#efbfd0}
+.concept-animation .formula-block{background:white;font-size:1rem}
+.concept-animation noscript{display:block;background:#fff0dc;padding:1rem}
+@media(max-width:650px){.concept-animation{padding:.85rem}.anim-controls .anim-speed{margin-left:0}.anim-controls button[data-action=zoom]{display:inline-block}.anim-stage{overscroll-behavior-x:contain}.anim-stage svg{min-width:0}.concept-animation[data-enlarged=true] .anim-stage svg{min-width:640px}.anim-stage::before{content:"The complete diagram is shown. Use Enlarge diagram to inspect labels, then scroll horizontally.";display:block;padding:.5rem;font-size:14px;color:#456473}}
+@media(prefers-reduced-motion:reduce){.concept-animation *{scroll-behavior:auto!important}}
+@media print{.anim-controls,.anim-progress,.concept-animation select,.anim-stage::before{display:none}.concept-animation{background:white;border:1px solid #aaa;break-inside:auto}.anim-stage{overflow:visible}.anim-stage svg{min-width:0;width:100%;max-width:100%}.anim-code{background:white;color:black}.anim-code .active{background:#eee;color:black}.anim-explanation{min-height:0}}

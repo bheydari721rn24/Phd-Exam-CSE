@@ -5,6 +5,14 @@
   const data=()=>dataPromise??(dataPromise=fetch("concept-animations.json").then(r=>{if(!r.ok)throw Error("Animation data unavailable");return r.json();}));
   const el=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
   const svg=(tag,attrs)=>{const e=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs||{}))e.setAttribute(k,String(v));return e;};
+  function motion(scene,n,a,t,fallback){
+    if(a.x===n.x&&a.y===n.y)return fallback;
+    let points;
+    if(scene.id==="merge")points=[a,{x:44,y:a.y},{x:44,y:238},{x:n.x,y:238},n];
+    else if(scene.id==="matrix-transpose")points=[a,{x:a.x,y:140},{x:350,y:140},{x:350,y:300},{x:n.x,y:300},n];
+    else return fallback;
+    const phase=Math.min(points.length-2,Math.floor(t*(points.length-1))),u=t===1?1:t*(points.length-1)-phase,A=points[phase],B=points[phase+1];return {x:A.x+(B.x-A.x)*u,y:A.y+(B.y-A.y)*u};
+  }
   class Player{
     constructor(host,scenes){this.host=host;this.scenes=scenes;this.index=0;this.running=false;this.busy=false;this.speed=1;this.nodes=new Map();this.positions=new Map();this.generation=0;this.scene=scenes[0];this.build();this.show(0,false);players.push(this);}
     build(){
@@ -53,7 +61,7 @@
       const finish=()=>{this.draw(f.nodes,f.edges||[],end);this.positions=end;this.busy=false;this.status.textContent=f.status||"This saved state illustrates the stated model; the chapter supplies its general argument.";if(window.MathLayout)MathLayout.schedule();if(after)after();};
       if(!duration||!start.size){finish();return;}this.busy=true;this.status.textContent="Moving drawings interpolate between saved checkpoints; they do not introduce extra mathematical or electrical states.";const begin=performance.now();const tick=now=>{if(gen!==this.generation)return;const q=Math.min(1,(now-begin)/duration),t=q*q*(3-2*q),positions=new Map();for(const n of f.nodes){const a=start.get(n.id)||n;let x=a.x+(n.x-a.x)*t,y=a.y+(n.y-a.y)*t;
         if(f.motion?.kind==="rotation"&&n.geometry&&start.has(n.id)){const {cx,cy,angle}=f.motion,c=Math.cos(angle*t),s=Math.sin(angle*t);x=cx+(a.x-cx)*c-(a.y-cy)*s;y=cy+(a.x-cx)*s+(a.y-cy)*c;}
-        positions.set(n.id,{x,y});}this.draw(f.nodes,f.edges||[],positions);if(q<1)this.raf=requestAnimationFrame(tick);else finish();};this.raf=requestAnimationFrame(tick);
+        positions.set(n.id,motion(this.scene,n,a,t,{x,y}));}this.draw(f.nodes,f.edges||[],positions);if(q<1)this.raf=requestAnimationFrame(tick);else finish();};this.raf=requestAnimationFrame(tick);
     }
   }
   async function init(host){if(host.dataset.loaded)return;host.dataset.loaded="loading";try{const all=await data(),ids=host.dataset.scenes.split(","),scenes=ids.map(id=>all.scenes[id]);if(scenes.some(x=>!x))throw Error("Missing scenario");new Player(host,scenes);host.dataset.loaded="true";}catch{host.dataset.loaded="error";host.textContent="The animation could not load. Reload this page to retry; the complete written explanation remains available above.";}}
@@ -61,5 +69,5 @@
   document.addEventListener("visibilitychange",()=>{if(document.hidden)players.forEach(p=>{p.pause();p.show(p.index,false);});});
   addEventListener("beforeprint",()=>{document.querySelectorAll(".concept-animation").forEach(init);players.forEach(p=>{p.pause();p.show(p.index,false);});});
   // Deterministic access is used by the chapter's finite-example browser audit.
-  window.ConceptAnimations={ready:init,players,mount:(host,scenes)=>{for(let i=players.length-1;i>=0;i--)if(players[i].host===host){players[i].pause();host.removeEventListener("keydown",players[i].onKey);players.splice(i,1);}delete host.dataset.enlarged;return new Player(host,scenes);}};
+  window.ConceptAnimations={ready:init,players,motion,mount:(host,scenes)=>{for(let i=players.length-1;i>=0;i--)if(players[i].host===host){players[i].pause();host.removeEventListener("keydown",players[i].onKey);players.splice(i,1);}delete host.dataset.enlarged;return new Player(host,scenes);}};
 })();

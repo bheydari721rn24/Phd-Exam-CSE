@@ -1,0 +1,1433 @@
+{
+  "state": "passed",
+  "scenes": [
+    {
+      "id": "insertion",
+      "frames": 29,
+      "bad": []
+    },
+    {
+      "id": "insertion-unstable",
+      "frames": 15,
+      "bad": []
+    },
+    {
+      "id": "merge",
+      "frames": 12,
+      "bad": []
+    },
+    {
+      "id": "selection",
+      "frames": 11,
+      "bad": []
+    },
+    {
+      "id": "bubble",
+      "frames": 16,
+      "bad": []
+    },
+    {
+      "id": "lower-bound",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "search-stall",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "partition3",
+      "frames": 12,
+      "bad": []
+    },
+    {
+      "id": "partition-skip",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "euclid",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "division",
+      "frames": 7,
+      "bad": []
+    },
+    {
+      "id": "power",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "modular-power",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "recursion-tree",
+      "frames": 15,
+      "bad": []
+    },
+    {
+      "id": "merge-recursion",
+      "frames": 14,
+      "bad": []
+    },
+    {
+      "id": "max-subarray",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "karatsuba",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "strassen",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "implication",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "de-morgan",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "absorption",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "xor",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "shannon",
+      "frames": 16,
+      "bad": []
+    },
+    {
+      "id": "selectors",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "nand-only",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "consensus",
+      "frames": 16,
+      "bad": []
+    },
+    {
+      "id": "quantifier-dependent",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "quantifier-fixed",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "set-union",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "set-intersection",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "set-difference",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "set-symmetric",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "set-complement",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "set-set-demorgan",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "selection-ordered",
+      "frames": 12,
+      "bad": []
+    },
+    {
+      "id": "selection-unordered",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "selection-repeated",
+      "frames": 10,
+      "bad": []
+    },
+    {
+      "id": "powerset",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "cartesian",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "induction-triangular",
+      "frames": 7,
+      "bad": []
+    },
+    {
+      "id": "induction-square",
+      "frames": 7,
+      "bad": []
+    },
+    {
+      "id": "induction-gap",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "strong-coins",
+      "frames": 13,
+      "bad": []
+    },
+    {
+      "id": "direct-even",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "contrapositive",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "sqrt-contradiction",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "weakest-precondition",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "transitive-closure",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "reflexive-closure",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "equivalence-classes",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "hasse",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "topological",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "function-fibers",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "function-preimages",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "right-inverse",
+      "frames": 2,
+      "bad": []
+    },
+    {
+      "id": "function-composition",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "function-count",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "loop-triangle",
+      "frames": 15,
+      "bad": []
+    },
+    {
+      "id": "loop-doubling",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "word-bit-cost",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "encoding-length",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "growth-threshold",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "probability-atoms",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "probability-union",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "probability-limit",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "pairwise-independence",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "draw-without-replacement",
+      "frames": 10,
+      "bad": []
+    },
+    {
+      "id": "vector-addition",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "projection",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "gram-schmidt",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "affine-origin",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "matrix-product",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "matrix-transpose",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "row-elimination",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "matrix-composition",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "crt-intersection",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "integer-family",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "assignment-sequential",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "assignment-simultaneous",
+      "frames": 2,
+      "bad": []
+    },
+    {
+      "id": "short-circuit",
+      "frames": 2,
+      "bad": []
+    },
+    {
+      "id": "finite-representation",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "float-rounding",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "branch-m1",
+      "frames": 2,
+      "bad": []
+    },
+    {
+      "id": "branch-0",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "branch-2",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "loop-transfers",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "wraparound-loop",
+      "frames": 10,
+      "bad": []
+    },
+    {
+      "id": "base-conversion",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "fraction-conversion",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "gray-code",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "hamming-code",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "static-hazard",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "hazard-consensus",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "cmos-nand",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "nand-mapping",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "stars-bars",
+      "frames": 15,
+      "bad": []
+    },
+    {
+      "id": "image-collapse",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "vector-norms",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "cross-orientation",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "matrix-summaries",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "recurrence-levels",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "rounded-splits",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "fft-butterfly",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "closest-pair",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "shortest-path-certificate",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "conditional-atoms",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "conditional-history",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "conditional-urn",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "conditional-mixture",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "conditional-selection",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "conditional-simpson",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "conditional-report",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "conditional-bridge",
+      "frames": 32,
+      "bad": []
+    },
+    {
+      "id": "conditional-strip",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "bayes-partition",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "bayes-normalize",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "bayes-frequencies",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "bayes-sensitivity",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "bayes-repeat",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "bayes-copy",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "bayes-predict",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "bayes-host",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "bayes-loss",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "bayes-density",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "gauss-swap",
+      "frames": 10,
+      "bad": []
+    },
+    {
+      "id": "gauss-skip",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "gauss-affine",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "gauss-inconsistent",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "gauss-inverse",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "gauss-geometry",
+      "frames": 2,
+      "bad": []
+    },
+    {
+      "id": "gauss-parameters",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "gauss-lu",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "gauss-plu",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "gauss-binary",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "gauss-coordinate",
+      "frames": 2,
+      "bad": []
+    },
+    {
+      "id": "gauss-rounding",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "rank-pivots",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "rank-column-transform",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "rank-fibers",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "rank-collapse",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "rank-composition",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "rank-cancellation",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "rank-parameters",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "rank-factorization",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "rank-projection",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "rank-update",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "rank-witness",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "rank-powers",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "fn-copy",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "fn-pointer",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "fn-alias",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "fn-nested",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "fn-static",
+      "frames": 9,
+      "bad": []
+    },
+    {
+      "id": "fn-lookup",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "fn-orders",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "fn-recursion",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "fn-sharing",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "fn-closure",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "fn-default",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "fn-output",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "arr-boundary",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "arr-row",
+      "frames": 12,
+      "bad": []
+    },
+    {
+      "id": "arr-column",
+      "frames": 12,
+      "bad": []
+    },
+    {
+      "id": "arr-prefix",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "arr-copy-bad",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "arr-copy-right",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "arr-copy-left",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "arr-insert",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "arr-reverse",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "arr-rotate",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "arr-sharing",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "arr-growth",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "arr-packed",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "arr-ring",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "arr-transpose",
+      "frames": 12,
+      "bad": []
+    },
+    {
+      "id": "arr-difference",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "arr-compact",
+      "frames": 7,
+      "bad": []
+    },
+    {
+      "id": "arr-search",
+      "frames": 12,
+      "bad": []
+    },
+    {
+      "id": "km-gray",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "km-corners",
+      "frames": 2,
+      "bad": []
+    },
+    {
+      "id": "km-cycle",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "km-greedy",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "km-dc",
+      "frames": 2,
+      "bad": []
+    },
+    {
+      "id": "km-hazard-cover",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "km-merge",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "km-qm",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "km-pos",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "km-chart",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "km-petrick",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "km-hazard-time",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "id": "km-sharing",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "km-planes",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "comb-dag",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "comb-priority",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "comb-cofactor",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "comb-rom",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "comb-nand",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "comb-miter",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "id": "comb-fault",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "id": "comb-word",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "comb-feedback",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "comb-latch",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "comb-arrival",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "id": "comb-interval",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "comb-falsepath",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "id": "comb-active-low",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "d_counting",
+      "id": "dc-tree",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "d_counting",
+      "id": "dc-fibers",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "topicId": "d_counting",
+      "id": "dc-nonuniform",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "d_counting",
+      "id": "dc-selection",
+      "frames": 2,
+      "bad": []
+    },
+    {
+      "topicId": "d_counting",
+      "id": "dc-word",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "topicId": "d_counting",
+      "id": "dc-gaps",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "d_counting",
+      "id": "dc-circle",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "d_counting",
+      "id": "dc-periodic",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "topicId": "d_counting",
+      "id": "dc-stars",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "topicId": "d_counting",
+      "id": "dc-lower",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "topicId": "d_counting",
+      "id": "dc-groups",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "topicId": "d_counting",
+      "id": "dc-empty",
+      "frames": 2,
+      "bad": []
+    },
+    {
+      "topicId": "d_counting",
+      "id": "dc-pascal",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "topicId": "d_counting",
+      "id": "dc-path",
+      "frames": 9,
+      "bad": []
+    },
+    {
+      "topicId": "d_counting",
+      "id": "dc-reflection",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "topicId": "d_inclusion",
+      "id": "di-atoms",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "d_inclusion",
+      "id": "di-cancel",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "d_inclusion",
+      "id": "di-atom-transform",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "d_inclusion",
+      "id": "di-inverse",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "d_inclusion",
+      "id": "di-bounds",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "d_inclusion",
+      "id": "di-missing",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "d_inclusion",
+      "id": "di-derange",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "d_inclusion",
+      "id": "di-fixed-intersection",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "d_inclusion",
+      "id": "di-rooks",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "d_inclusion",
+      "id": "di-caps",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "d_inclusion",
+      "id": "di-sieve",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "topicId": "d_inclusion",
+      "id": "di-weights",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "topicId": "d_inclusion",
+      "id": "di-adjacency",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-placement",
+      "frames": 8,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-average",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-capacity",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-collisions",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-prefix",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-repunit",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-prime",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-subsets",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-oddchain",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-pairing",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-triangle",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-fractional",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-es",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-degree",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-ramsey",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-rectangle",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-info",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "id": "dp-cards",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "address",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "insert",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "bad-insert",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "delete",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "resize",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "growth-contrast",
+      "frames": 9,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "quarter-shrink",
+      "frames": 11,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "half-shrink",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "sll-insert-delete",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "tail-search",
+      "frames": 10,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "dll",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "splice",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "reverse",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "floyd",
+      "frames": 5,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "entry",
+      "frames": 4,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "scan-cost",
+      "frames": 6,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "merge",
+      "frames": 7,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "compact",
+      "frames": 7,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "rotate",
+      "frames": 3,
+      "bad": []
+    },
+    {
+      "topicId": "a_arrays",
+      "id": "orthogonal",
+      "frames": 5,
+      "bad": []
+    }
+  ],
+  "chapters": [],
+  "errors": []
+}
