@@ -31,3 +31,9 @@ Finite checks support, and do not replace, general proofs. Word-sized slot copie
 ## Evidence
 
 [Mathematical verification](../evidence/a_arrays/verification.json), [browser verification](../evidence/a_arrays/browser.json), [reviewed source scopes](../evidence/a_arrays/courses.json), [model contracts](../evidence/a_arrays/models.json), and the [source-selection audit](a_arrays-sources.html) are retained with the chapter.
+
+## Arrow and label repair
+
+The user reported disconnected arrows and crowded labels. Exact boundary ports, smaller fixed-size arrowheads, separate forward/backward lanes, rounded return paths, padded cursor pills and moving endpoint rebinding replace the previous geometry. All 113 checkpoint states are unchanged. Actual browser geometry checks passed all 20 models, 113 checkpoints and 497 editable-laboratory frames, with zero measured padding/connection issues. Four during-motion samples found no detached edges. All 466 numerical laboratory references still agree. Splice, reversal, Floyd and matrix screenshots were visually inspected.
+
+[Visual repair browser evidence](../evidence/a_arrays/visual-browser.json) records the finite checks; these are not a universal claim about every future frame or input.

@@ -282,3 +282,8 @@ The local draft and source/quality audits are complete. Publication state must b
 Publication blocker: fresh Sites write-credential requests failed twice with HTTP transport errors at chatgpt.com/backend-api/ps/mcp. The earlier token expired at 11:20:57 UTC and was not reused. The complete local draft is retained; no live deployment is claimed.
 
 Verified handoff: complete draft source commit afa7126; GitHub branch study-planner-1406 at 6d84224cd61e1be2fe8b241f486fd84b078ec5c1, confirmed with remote reference. All 87 unrelated unstaged mirror deletions are retained. Local preview is available at http://127.0.0.1:8870/chapters/a_arrays.html while its local server is running; the Codex browser opening was queued. The current production Site is not claimed to contain this draft. Obtain a fresh Sites credential, push the exact source and publish owner-private when connectivity returns. The chapter gate remains awaiting_user_approval; do not author a_stackqueue without approval.
+
+
+## Arrays chapter: corrected arrow connections and text spacing
+
+5 October 2026: The student rejected arrays/list arrow geometry and label spacing. Only this chapter was repaired. Explicit boundary ports, fixed-size arrowheads, separate return lanes, padded labels and animated endpoint rebinding passed all 113 fixed checkpoints, 497 laboratory frames and four moving-edge samples. All 466 numerical references, 86 problems and 80 rules are retained. Evidence: research/a_arrays-visual-repair.md and research/a_arrays-visual-browser-audit.json. The approval gate remains awaiting_user_approval; no subsequent chapter has started. Publication must be verified independently.

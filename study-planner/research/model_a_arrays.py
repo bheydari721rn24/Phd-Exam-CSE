@@ -8,51 +8,80 @@ import mathml
 mathml.wrap_display=lambda value:value
 from mathml import render
 models=[];groups={}
-def tx(x,y,t,size=16,cl=''):
- return f'<text x="{x}" y="{y}" text-anchor="middle" font-size="{size}" class="{cl}">{e(str(t))}</text>'
-def path(x,y,u,v,color='#537f91',curve=False):
- d=f'M{x},{y} Q{(x+u)/2},{min(y,v)-55} {u},{v}' if curve else f'M{x},{y} L{u},{v}'
- return f'<path d="{d}" stroke="{color}" stroke-width="2" fill="none" marker-end="url(#arr)"/>'
-def svg(body):
- return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 410" role="img"><defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#537f91"/></marker></defs>'+body+'</svg>'
+def tx(x,y,t,size=16,cl='',box=None):
+ attrs=f' dominant-baseline="middle" data-label-for="{e(box)}"' if box else ''
+ return f'<text x="{x}" y="{y}" text-anchor="middle" font-size="{size}" class="{cl}"{attrs}>{e(str(t))}</text>'
+def rounded(points,r=6):
+ out=f'M{points[0][0]},{points[0][1]}'
+ for a,b,c in zip(points,points[1:],points[2:]):
+  la=math.dist(a,b);lc=math.dist(b,c);rr=min(r,la/2,lc/2)
+  if not la or not lc:continue
+  p=(b[0]+(a[0]-b[0])*rr/la,b[1]+(a[1]-b[1])*rr/la)
+  q=(b[0]+(c[0]-b[0])*rr/lc,b[1]+(c[1]-b[1])*rr/lc)
+  out+=f' L{p[0]},{p[1]} Q{b[0]},{b[1]} {q[0]},{q[1]}'
+ return out+f' L{points[-1][0]},{points[-1][1]}'
+def edge(points,source,target,kind='forward'):
+ colors=dict(forward='#557e91',backward='#b17d55',pointer='#7a739d')
+ a,b=points[0],points[-1]
+ return f'<path class="diagram-edge" data-arrow="true" data-source="{e(source)}" data-target="{e(target)}" data-points="{json.dumps(points)}" data-start="{a[0]},{a[1]}" data-end="{b[0]},{b[1]}" d="{rounded(points)}" stroke="{colors[kind]}" stroke-width="1.6" stroke-linejoin="round" fill="none" marker-end="url(#arrow-{kind})"/>'
+def path(x,y,u,v,color='#537f91',curve=False,source='',target=''):
+ # Matrix adjacency uses exact boundary ports too; no oversized stroke-scaled marker.
+ return edge([(x,y),(u,v)],source,target,'backward' if color=='#b57952' else 'forward')
+def svg(body,height=410):
+ defs=''.join(f'<marker id="arrow-{k}" markerUnits="userSpaceOnUse" markerWidth="7" markerHeight="6" viewBox="0 0 7 6" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="{c}"/></marker>' for k,c in [('forward','#557e91'),('backward','#b17d55'),('pointer','#7a739d')])
+ return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 {height}" role="img"><defs>'+defs+'</defs>'+body+'</svg>'
 def array(values,y=100,label='Buffer',offset=0,highlight=None):
- body=tx(380,y-35,label,18);w=650/max(len(values),1)
+ body=tx(380,y-30,label,18);w=650/max(len(values),1)
  for i,v in enumerate(values):
   x=55+i*w
-  body+=f'<rect x="{x}" y="{y}" width="{w-4}" height="47" fill="{"#ffe0a7" if i==highlight else "#e9f3f5"}" stroke="#6e97a7"/>'+tx(x+(w-4)/2,y+68,i,13,'math-label')
+  box='slot-'+label.replace(' ','-')+'-'+str(i)
+  body+=f'<rect data-box="{e(box)}" x="{x}" y="{y}" width="{w-4}" height="52" fill="{"#ffe0a7" if i==highlight else "#e9f3f5"}" stroke="#6e97a7"/>'+tx(x+(w-4)/2,y+83,i,13,'math-label')
   if v is not None:
    key=str(v).split(':')[0];labelv=str(v).split(':')[-1]
-   body+=f'<g data-entity="{e(key)}">'+tx(x+(w-4)/2,y+30,labelv,17,'math-label')+'</g>'
+   body+=f'<g data-entity="{e(key)}">'+tx(x+(w-4)/2,y+26,labelv,17,'math-label',box)+'</g>'
  return body
 def linked(nodes,links,cursors=None,back=False,sentinel=None,dy=0):
- n=len(nodes);xs={k:65+i*min(105,630/max(n-1,1)) for i,k in enumerate(nodes)};body=''
+ n=len(nodes);xs={k:65+i*min(105,630/max(n-1,1)) for i,k in enumerate(nodes)};body='';top=175+dy;bottom=top+50
+ def connect(a,b,backward=False):
+  x,u=xs[a],xs[b];kind='backward' if backward else 'forward'
+  if a==b:
+   y=top+37 if backward else top+13;lane=bottom+30 if backward else top-30;end=(x+16,bottom if backward else top)
+   points=[(x+36,y),(x+60,y),(x+60,lane),(x+16,lane),end]
+  elif abs(nodes.index(a)-nodes.index(b))==1:
+   sign=1 if u>x else -1;y=top+37 if backward else top+13
+   points=[(x+sign*36,y),(u-sign*36,y)]
+  else:
+   lane=bottom+30 if backward else top-30;y=bottom if backward else top
+   points=[(x+16,y),(x+16,lane),(u-16,lane),(u-16,y)]
+  return edge(points,'node-'+a,'node-'+b,kind)
  for a,b in links.items():
   if b is not None and b in xs:
-   x,u=xs[a],xs[b];body+=path(x+25 if u>x else x-25,172,u-27 if u>x else u+27,172,curve=abs(u-x)>120 or a==b)
-   if back:body+=path(u-25 if u>x else u+25,218,x+27 if u>x else x-27,218,'#b57952',curve=abs(u-x)>120)
-  elif b is None:body+=tx(xs[a],255,'next = null',12)
+   body+=connect(a,b)
+   if back:body+=connect(b,a,True)
+  elif b is None:
+   x=xs[a];key='null-'+a;ny=top+76
+   body+=edge([(x,bottom),(x,ny)],'node-'+a,key)
+   body+=f'<rect data-box="{key}" x="{x-47}" y="{ny}" width="94" height="30" rx="6" fill="#fff" stroke="#c4d3db"/>'+tx(x,ny+15,'next = null',12,'pointer-label',key)
  for k in nodes:
-  x=xs[k];body+=f'<rect x="{x-27}" y="175" width="54" height="42" rx="7" fill="{"#ffe0a7" if k==sentinel else "#d2e8e3"}" stroke="#528276"/><g data-entity="node-{k}">'+tx(x,201,k,17,'math-label')+'</g>'
+  x=xs[k];key='node-'+k;body+=f'<g data-entity="{key}"><rect data-box="{key}" x="{x-36}" y="{top}" width="72" height="50" rx="8" fill="{"#ffe0a7" if k==sentinel else "#d2e8e3"}" stroke="#528276"/>'+tx(x,top+25,k,17,'math-label',key)+'</g>'
  for j,(name,k) in enumerate((cursors or {}).items()):
-  x=xs.get(k,705);y=65+32*j
-  body+=f'<g data-entity="cursor-{name}">'+tx(x,y,name+(' = null' if k is None else ''),14)+(path(x-45 if j==0 else x+35,y+6,x-12 if j==0 else x+12,164) if k is not None else '')+'</g>'
- if dy:
-  import re
-  body=re.sub(r'(y=")(\d+(?:\.\d+)?)(")',lambda m:m[1]+str(float(m[2])+dy)+m[3],body)
-  # Paths carry comma-separated SVG coordinate pairs, including curve controls.
-  body=re.sub(r'([MLQ]\s*|\s)(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)',lambda m:m[1]+m[2]+','+str(float(m[3])+dy),body)
+  cx=180 if j==0 else 580;cy=57+dy;key='cursor-'+name
+  body+=f'<rect data-box="{e(key)}" x="{cx-76}" y="{cy}" width="152" height="38" rx="7" fill="#fff" stroke="#bcb6ce"/>'+tx(cx,cy+19,name+(' = null' if k is None else ''),14,'pointer-label',key)
+  if k is not None:
+   x=xs[k]+(-10 if j==0 else 10);lane=115+dy+20*j
+   body+=f'<g data-entity="{e(key)}">'+edge([(cx,cy+38),(cx,lane),(x,lane),(x,top)],key,'node-'+k,'pointer')+'</g>'
  return body
 def add(group,id,title,invariant,frames,kind):
  z=dict(id=id,title=title,invariant=invariant,assumptions='Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.',kind=kind,frames=[])
  import re
  for body,caption,formula,state in frames:
   formula=re.sub(r'\\mathrm\{([^}]*)\}',lambda m:r'\text{'+m[1].replace('\\ ',' ')+'}' if '\\ ' in m[1] else m[0],formula)
-  z['frames'].append(dict(svg=svg(body),caption=caption,formulaHtml=render(formula,True),state=state))
+  z['frames'].append(dict(svg=svg(body,480 if id=='merge' else 410),caption=caption,formulaHtml=render(formula,True),state=state))
  models.append(z);groups.setdefault(group,[]).append(id)
 # Direct-address geometry versus a chain walk.
 f=[]
 for i in range(5):
- f.append((array(['A','B','C','D','E'],95,'Rank four: direct arithmetic stays one operation',highlight=4)+linked(['A','B','C','D','E'],dict(A='B',B='C',C='D',D='E',E=None),{'cursor':'ABCDE'[i]},dy=130),f'List cursor has followed {i} links; array rank four is reached by base plus four slot strides.',f'B+4b;\quad \mathrm{{links}}={i}',dict(rank=4,links=i)))
+ f.append((array(['A','B','C','D','E'],65,'Rank four: direct arithmetic stays one operation',highlight=4)+linked(['A','B','C','D','E'],dict(A='B',B='C',C='D',D='E',E=None),{'cursor':'ABCDE'[i]},dy=115),f'List cursor has followed {i} links; array rank four is reached by base plus four slot strides.',f'B+4b;\quad \mathrm{{links}}={i}',dict(rank=4,links=i)))
 add('access','address','Direct rank access versus successor traversal','The list cursor is at the node reached by the stated number of links; array indices do not traverse nodes.',f,'address and chain')
 # Array shift traces preserve source-identity labels.
 old=['A:2','B:4','C:6','D:8','E:10',None];v=old[:];f=[(array(v),'Original live length five; insertion rank two, one spare slot.','n=5,\ i=2',dict(values=v[:],writes=0))]
@@ -152,7 +181,7 @@ add('traversal','scan-cost','Two traversal strategies on the same list','Both vi
 # Merge uses three actual sequence buffers for readability; IDs move to output.
 L=['L1:2','L2:4','L3:7'];Q=['R1:1','R2:4','R3:8'];out=[];f=[];comp=0
 while L or Q:
- f.append((array(L+[None]*(3-len(L)),70,'Remaining left chain values')+array(Q+[None]*(3-len(Q)),200,'Remaining right chain values')+array(out+[None]*(6-len(out)),330,'Merged node order'),f'Output contains {len(out)} selected nodes; {comp} head comparisons. Equal keys choose left.',f'\mathrm{{comparisons}}={comp}',dict(left=L[:],right=Q[:],output=out[:],comparisons=comp)))
+ f.append((array(L+[None]*(3-len(L)),75,'Remaining left chain values')+array(Q+[None]*(3-len(Q)),225,'Remaining right chain values')+array(out+[None]*(6-len(out)),375,'Merged node order'),f'Output contains {len(out)} selected nodes; {comp} head comparisons. Equal keys choose left.',f'\mathrm{{comparisons}}={comp}',dict(left=L[:],right=Q[:],output=out[:],comparisons=comp)))
  if L and Q:comp+=1
  if not Q or (L and int(L[0].split(':')[1])<=int(Q[0].split(':')[1])):out.append(L.pop(0))
  else:out.append(Q.pop(0))
@@ -173,15 +202,15 @@ f=[];entries=[(0,1,10),(0,2,14),(2,1,15),(2,2,21)]
 for k in range(5):
  body=tx(380,30,'Right links organize rows; down links organize columns',19)
  for i in range(3):body+=tx(85,110+i*80,'row '+str(i),15)
- for j in range(4):body+=tx(210+j*120,70,'col '+str(j),15)
+ for j in range(4):body+=tx(210+j*120,64,'col '+str(j),15)
  for i,j,v in entries[:k]:
-  x=210+j*120;y=110+i*80;body+=f'<g data-entity="e{i}{j}"><rect x="{x-26}" y="{y-22}" width="52" height="42" rx="5" fill="#d2e8e3" stroke="#528276"/>'+tx(x,y+5,v,18,'math-label')+'</g>'
+  x=210+j*120;y=110+i*80;key=f'entry-{i}-{j}';body+=f'<g data-entity="e{i}{j}"><rect data-box="{key}" x="{x-26}" y="{y-22}" width="52" height="42" rx="5" fill="#d2e8e3" stroke="#528276"/>'+tx(x,y-1,v,18,'math-label',key)+'</g>'
  for i in [0,2]:
   row=[(j,v) for a,j,v in entries[:k] if a==i]
-  if len(row)==2:body+=path(210+row[0][0]*120+27,110+i*80,210+row[1][0]*120-29,110+i*80)
+  if len(row)==2:body+=path(210+row[0][0]*120+26,110+i*80,210+row[1][0]*120-26,110+i*80,source=f'entry-{i}-{row[0][0]}',target=f'entry-{i}-{row[1][0]}')
  for j in [1,2]:
   col=[(i,v) for i,b,v in entries[:k] if b==j]
-  if len(col)==2:body+=path(210+j*120,110+col[0][0]*80+23,210+j*120,110+col[1][0]*80-25,'#b57952')
+  if len(col)==2:body+=path(210+j*120,110+col[0][0]*80+20,210+j*120,110+col[1][0]*80-22,'#b57952',source=f'entry-{col[0][0]}-{j}',target=f'entry-{col[1][0]}-{j}')
  f.append((body,f'{k} nonzero entries placed. Each added node belongs to a row chain and a column chain.','\operatorname{nnz}(C)=2\cdot2=4',dict(entries=entries[:k])))
 add('sparse','orthogonal','Sparse outer product and two independent adjacency directions','Coordinates come from nonzero factor pairs; rows and columns have independent successor relations.',f,'orthogonal matrix schematic')
 out=dict(chapter='a_arrays',models=models,groups=groups,scope='Finite exact illustrations accompany general proofs; no finite trace substitutes for a theorem.')

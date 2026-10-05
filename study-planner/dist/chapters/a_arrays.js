@@ -10,10 +10,14 @@ function mount(host,model){
  let index=0,timer=null;
  const stop=()=>{clearInterval(timer);timer=null;play.textContent='Play';};
  function draw(motion=true){
-  const old=new Map([...stage.querySelectorAll('[data-entity]')].map(e=>{const b=e.getBBox();return[e.dataset.entity,{x:b.x+b.width/2,y:b.y+b.height/2}];}));
+  const old=new Map([...stage.querySelectorAll('[data-entity]')].map(e=>{const b=e.getBBox();return[e.dataset.entity,{x:b.x+b.width/2,y:b.y+b.height/2,path:e.querySelector("[data-arrow]")?.getAttribute("d")}];}));
   const f=model.frames[index];stage.innerHTML=f.svg;caption.textContent=f.caption;formula.innerHTML=f.formulaHtml;seek.value=index;progress.textContent=`Checkpoint ${index+1} of ${model.frames.length}`;
   host.querySelector('[data-prev]').disabled=index===0;host.querySelector('[data-next]').disabled=index===model.frames.length-1;
-  if(motion&&!reduced.matches){for(const e of stage.querySelectorAll('[data-entity]')){const p=old.get(e.dataset.entity);if(p){const b=e.getBBox(),dx=p.x-b.x-b.width/2,dy=p.y-b.y-b.height/2;if(Math.abs(dx)+Math.abs(dy)>1)e.animate([{transform:`translate(${dx}px,${dy}px)`},{transform:'translate(0,0)'}],{duration:450,easing:'ease-in-out'});}}}
+  if(motion&&!reduced.matches){let movedNodes=false;const pointerPaths=[];
+  for(const e of stage.querySelectorAll('[data-entity]')){const p=old.get(e.dataset.entity);if(!p)continue;const line=e.querySelector('[data-arrow]');if(line&&p.path){pointerPaths.push([line,p.path]);continue;}const b=e.getBBox(),dx=p.x-b.x-b.width/2,dy=p.y-b.y-b.height/2;if(Math.abs(dx)+Math.abs(dy)>1){e.animate([{transform:`translate(${dx}px,${dy}px)`},{transform:'translate(0,0)'}],{duration:450,easing:'ease-in-out'});if(e.querySelector('rect[data-box]'))movedNodes=true;}}
+  if(movedNodes){const svg=stage.querySelector('svg'),start=performance.now(),bind=()=>{if(!svg.isConnected)return;const screen=svg.getBoundingClientRect(),view=svg.viewBox.baseVal,boxes=new Map([...svg.querySelectorAll('[data-box]')].map(r=>{const b=r.getBoundingClientRect();return[r.dataset.box,[(b.left-screen.left)*view.width/screen.width-Number(r.getAttribute('x')),(b.top-screen.top)*view.height/screen.height-Number(r.getAttribute('y'))]];}));for(const line of svg.querySelectorAll('[data-arrow]')){const pts=JSON.parse(line.dataset.points),ds=boxes.get(line.dataset.source)||[0,0],dt=boxes.get(line.dataset.target)||[0,0];pts.forEach((p,i)=>{const delta=i===pts.length-1?dt:i===0?ds:pts.length===4?(i===1?ds:dt):i<=2?ds:dt;p[0]+=delta[0];p[1]+=delta[1];});line.setAttribute('d',route(pts));}if(performance.now()-start<480)requestAnimationFrame(bind);};bind();}
+  else for(const [line,before] of pointerPaths){const after=line.getAttribute('d');if(before!==after)line.animate([{d:`path("${before}")`},{d:`path("${after}")`}],{duration:450,easing:'ease-in-out'});}
+ }
   window.MathLayout?.schedule();
  }
  function start(){stop();if(index===model.frames.length-1)index=0;play.textContent='Pause';draw();timer=setInterval(()=>{if(index===model.frames.length-1){stop();return;}index++;draw();if(index===model.frames.length-1)stop();},Number(speed.value));}
@@ -23,7 +27,7 @@ function mount(host,model){
  host.querySelector('.arrays-print-trace').innerHTML=model.frames.map((f,i)=>`<figure><p>Checkpoint ${i+1} of ${model.frames.length}</p>${f.svg}<figcaption>${esc(f.caption)}</figcaption><div class="formula-block">${f.formulaHtml}</div></figure>`).join('');
  states.push(stop);draw(false);
 }
-fetch('a_arrays-models.json').then(r=>{if(!r.ok)throw Error('Trace data unavailable');return r.json();}).then(data=>{for(const m of data.models){const host=document.querySelector(`[data-arrays-model="${m.id}"]`);if(host)mount(host,m);}document.documentElement.dataset.arraysLoaded='true';}).catch(e=>{document.querySelectorAll('.arrays-error').forEach(x=>{x.hidden=false;x.textContent='The trace could not load. Its static diagram and lesson remain available; reload to retry.';});console.error(e);});
+fetch('a_arrays-models.json?v=ports-2').then(r=>{if(!r.ok)throw Error('Trace data unavailable');return r.json();}).then(data=>{for(const m of data.models){const host=document.querySelector(`[data-arrays-model="${m.id}"]`);if(host)mount(host,m);}document.documentElement.dataset.arraysLoaded='true';}).catch(e=>{document.querySelectorAll('.arrays-error').forEach(x=>{x.hidden=false;x.textContent='The trace could not load. Its static diagram and lesson remain available; reload to retry.';});console.error(e);});
 addEventListener('beforeprint',()=>states.forEach(stop));addEventListener('pagehide',()=>states.forEach(stop));reduced.addEventListener('change',()=>states.forEach(stop));
 
 
@@ -53,23 +57,30 @@ function evaluate(mode,params){
  }
  throw Error('Choose a supported laboratory.');
 }
-const tx=(x,y,t,size=16)=>`<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}">${esc(t)}</text>`;
-const arrow=(x,y,u,v,curve=false)=>`<path d="${curve?`M${x},${y} Q${(x+u)/2},${y-55} ${u},${v}`:`M${x},${y} L${u},${v}`}" fill="none" stroke="#557e91" stroke-width="2" marker-end="url(#labArrow)"/>`;
+const tx=(x,y,t,size=16,box='',cl='')=>`<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" class="${cl}" ${box?`dominant-baseline="middle" data-label-for="${esc(box)}"`:''}>${esc(t)}</text>`;
+function route(points,r=6){let d=`M${points[0]}`;for(let j=1;j<points.length-1;j++){const a=points[j-1],b=points[j],c=points[j+1],la=Math.hypot(a[0]-b[0],a[1]-b[1]),lc=Math.hypot(c[0]-b[0],c[1]-b[1]),q=Math.min(r,la/2,lc/2);if(!la||!lc)continue;const p=[b[0]+(a[0]-b[0])*q/la,b[1]+(a[1]-b[1])*q/la],v=[b[0]+(c[0]-b[0])*q/lc,b[1]+(c[1]-b[1])*q/lc];d+=` L${p} Q${b} ${v}`;}return d+` L${points.at(-1)}`;}
+function arrow(points,source,target,kind='forward'){return`<path data-arrow="true" data-source="${esc(source)}" data-target="${esc(target)}" data-points="${esc(JSON.stringify(points))}" data-start="${points[0]}" data-end="${points.at(-1)}" d="${route(points)}" fill="none" stroke="${kind==='pointer'?'#7a739d':'#557e91'}" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#lab-${kind})"/>`;}
 function picture(z,f){
  let d='';
  if(z.mode==='growth'){
   const width=600;d+=tx(380,50,`Length ${f.n}, capacity ${f.C}`,19)+`<rect x="80" y="110" width="${width}" height="60" fill="#e9f3f5" stroke="#648c9f"/><rect x="80" y="110" width="${width*f.n/f.C}" height="60" fill="#89bbab"/>`;
   d+=tx(380,215,`${f.n} live slots; ${f.C-f.n} unused slots`,18)+tx(380,270,`${f.copies} cumulative copied slots`,18)+tx(380,325,`This append copied ${f.last} slots`,17);
  }else if(z.mode==='shift'){
-  let w=650/f.values.length;f.values.forEach((v,i)=>{let x=55+i*w;d+=`<rect x="${x}" y="135" width="${w-5}" height="60" fill="#e9f3f5" stroke="#6c93a2"/>`+tx(x+w/2-2,225,i,14);if(v)d+=`<g data-entity="${v.id}">${tx(x+w/2-2,173,v.value,20)}</g>`;});d+=tx(380,65,`${f.writes} element writes`,19);
+  let w=650/f.values.length;f.values.forEach((v,i)=>{let x=55+i*w,key='array-'+i;d+=`<rect data-box="${key}" x="${x}" y="135" width="${w-5}" height="60" fill="#e9f3f5" stroke="#6c93a2"/>`+tx(x+(w-5)/2,227,i,14);if(v)d+=`<g data-entity="${v.id}">${tx(x+(w-5)/2,165,v.value,20,key)}</g>`;});d+=tx(380,65,`${f.writes} element writes`,19);
  }else{
-  const next=z.mode==='reverse'?f.next:z.next,n=next.length,w=n>1?620/(n-1):0,x=i=>65+i*w;
-  next.forEach((b,a)=>{if(b!==null)d+=arrow(x(a)+24,190,x(b)-24,190,b<=a||Math.abs(b-a)>1);else d+=tx(x(a),270,'null',14);});
-  next.forEach((_,i)=>{d+=`<g data-entity="node-${i}"><rect x="${x(i)-25}" y="195" width="50" height="40" rx="5" fill="#cfe5df" stroke="#659484"/>${tx(x(i),222,i,18)}</g>`;});
-  const cursors=z.mode==='reverse'?{prev:f.prev,cur:f.cur}:{slow:f.s,fast:f.f};Object.entries(cursors).forEach(([name,i],j)=>{const u=i===null?710:x(i),y=80+j*42;d+=`<g data-entity="cursor-${name}">${tx(u,y,name+(i===null?' = null':''),14)}${i===null?'':arrow(u,y+5,u,183)}</g>`;});
+  const next=z.mode==='reverse'?f.next:z.next,n=next.length,w=n>1?620/(n-1):0,x=i=>65+i*w,half=n>8?28:36,top=175,bottom=225;
+  next.forEach((b,a)=>{let points;if(b===null){const key='null-'+a,ny=251;d+=arrow([[x(a),bottom],[x(a),ny]],'node-'+a,key)+`<rect data-box="${key}" x="${x(a)-47}" y="${ny}" width="94" height="30" rx="6" fill="#fff" stroke="#c4d3db"/>`+tx(x(a),ny+15,'next = null',12,key,'pointer-label');return;}
+   if(a===b)points=[[x(a)+half,188],[x(a)+half+24,188],[x(a)+half+24,145],[x(a)+16,145],[x(a)+16,top]];
+   else if(Math.abs(a-b)===1){const sign=b>a?1:-1;points=[[x(a)+sign*half,188],[x(b)-sign*half,188]];}
+   else points=[[x(a)+16,top],[x(a)+16,145],[x(b)-16,145],[x(b)-16,top]];
+   d+=arrow(points,'node-'+a,'node-'+b);
+  });
+  next.forEach((_,i)=>{const key='node-'+i;d+=`<g data-entity="${key}"><rect data-box="${key}" x="${x(i)-half}" y="${top}" width="${half*2}" height="50" rx="8" fill="#cfe5df" stroke="#659484"/>${tx(x(i),top+25,i,18,key)}</g>`;});
+  const cursors=z.mode==='reverse'?{prev:f.prev,cur:f.cur}:{slow:f.s,fast:f.f};Object.entries(cursors).forEach(([name,i],j)=>{const cx=j?580:180,cy=57,key='cursor-'+name;d+=`<rect data-box="${key}" x="${cx-76}" y="${cy}" width="152" height="38" rx="7" fill="#fff" stroke="#bcb6ce"/>`+tx(cx,cy+19,name+(i===null?' = null':''),14,key,'pointer-label');if(i!==null){const u=x(i)+(j?10:-10),lane=115+j*20;d+=`<g data-entity="${key}">`+arrow([[cx,cy+38],[cx,lane],[u,lane],[u,top]],key,'node-'+i,'pointer')+'</g>';}});
+  if(!n)d+=tx(380,200,'Empty list: no live nodes',18);
   d+=tx(380,335,z.mode==='reverse'?`${f.writes} rewritten successor fields`:`${f.phase}: ${f.t} complete iterations`,18);
  }
- return`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 410" role="img"><defs><marker id="labArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#557e91"/></marker></defs>${d}</svg>`;
+ return`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 410" role="img"><defs>${['forward','pointer'].map(k=>`<marker id="lab-${k}" markerUnits="userSpaceOnUse" markerWidth="7" markerHeight="6" viewBox="0 0 7 6" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="${k==='pointer'?'#7a739d':'#557e91'}"/></marker>`).join('')}</defs>${d}</svg>`;
 }
 const formula=f=>`<math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>${esc(f)}</mtext></math>`;
 const labHost=document.querySelector('#arrays-output');
