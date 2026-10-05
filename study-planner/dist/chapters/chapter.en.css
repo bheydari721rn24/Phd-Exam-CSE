@@ -23,7 +23,9 @@ a{color:#215d85;text-decoration:none!important}a:hover{color:#154565;text-decora
 .math-inline,.math-limits{font-family:"STIX Two Math",serif;white-space:nowrap}.math-inline{font-size:1.07em;font-weight:400;letter-spacing:.003em}.math-inline sub,.math-inline sup{font-family:inherit;font-size:.77em;line-height:0;position:relative;vertical-align:baseline}.math-inline sub{bottom:-.28em}.math-inline sup{top:-.52em}.math-limits{font-size:1.18em;math-style:normal;vertical-align:middle;margin:0 .08em}.formula-block .math-limits{font-size:1.25em}
 .lesson sub,.lesson sup{font-family:"STIX Two Math",serif}
 .lesson math{font-family:"STIX Two Math",serif}
-.formula-block>math{width:max-content;max-width:none;margin:0 auto;math-style:normal}
+.formula-block>math{width:max-content;max-width:none;margin:0 auto;math-style:normal;white-space:nowrap}
+.lesson math{white-space:nowrap;word-break:normal;overflow-wrap:normal}
+.formula-block{max-width:100%;direction:ltr;unicode-bidi:isolate;overscroll-behavior-inline:contain;scrollbar-width:thin;scrollbar-color:#80a6b9 transparent}
 .lesson math mtd{padding:.18em .35em;text-align:center;border:0;background:none}
 .formula-block math mtable[columnalign="left"]>mtr>mtd{padding:.16em 0;text-align:left}
 .formula-block math mtable{margin:0;width:auto;border-collapse:separate}
@@ -36,7 +38,7 @@ a{color:#215d85;text-decoration:none!important}a:hover{color:#154565;text-decora
 .lab{background:#edf6f9;border:1px solid #b9d6e1;border-radius:10px;padding:18px 20px;margin:20px 0}.lab label{font-weight:600}.lab select{font:inherit;margin-left:12px;border:1px solid #9cbdca;border-radius:6px;padding:5px 8px;background:#fff}
 .logic-diagram{margin:18px 0;text-align:center}.logic-diagram svg{display:block;max-width:100%;height:auto}.logic-diagram svg text,.logic-diagram svg tspan{font-family:"STIX Two Math",serif}.logic-diagram figcaption{font-size:.82rem;color:#60788b;margin-top:4px}
 .lesson a{overflow-wrap:anywhere}
-@media(max-width:650px){.chapter{padding:10px}.hero{padding:25px}.lesson{padding:22px}.lesson h2{font-size:1.73rem}.lesson h3{font-size:1.35rem}.formula-block{font-size:1rem;white-space:normal;overflow-wrap:anywhere}.lab select{display:block;margin:9px 0 0}.toc{gap:5px}}
+@media(max-width:650px){.chapter{padding:10px}.hero{padding:25px}.lesson{padding:22px}.lesson h2{font-size:1.73rem}.lesson h3{font-size:1.35rem}.formula-block{font-size:1rem;white-space:nowrap;overflow-wrap:normal}.lab select{display:block;margin:9px 0 0}.toc{gap:5px}}
 @media print{@page{size:A4;margin:17mm 16mm}:root{background:#fff}body{background:#fff;color:#111}.chapter{max-width:none;padding:0}.hero,.lesson{border:0;border-radius:0;box-shadow:none;padding:0}.hero{margin-bottom:9mm}.lesson{font-size:.94rem;line-height:1.52}.top-link,.toc,.lab label,.lab select{display:none}.lesson h2{break-after:avoid}.lesson h3{break-after:avoid}.lesson p,.lesson li{orphans:3;widows:3}.lesson table,.lab table{display:table;overflow:visible}.lesson tr{break-inside:avoid}.formula-block{break-inside:avoid}.lab{break-inside:auto}}
 
 @media(max-width:650px){.model-diagram{overflow-x:auto;text-align:left}.model-diagram svg{min-width:700px;max-width:none}.model-diagram figcaption{min-width:0}}

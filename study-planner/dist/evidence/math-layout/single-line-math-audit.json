@@ -1,0 +1,30 @@
+{
+  "state": "passed",
+  "removedWraps": 93,
+  "chapterChanges": [
+    {
+      "chapter": "d_counting",
+      "removedWraps": 24,
+      "sha256": "86ff8349fc9922075bc62a390ded52f63f32c31e5a30d372c1c46d2cf1139749"
+    },
+    {
+      "chapter": "d_inclusion",
+      "removedWraps": 40,
+      "sha256": "9491be2c074a9ea438c912ebc68daf810041e3e8a558c4a8c20ba195653749b7"
+    },
+    {
+      "chapter": "d_pigeonhole",
+      "removedWraps": 20,
+      "sha256": "fecbb1e4b62ee410386e870dae8ee29debf2c685b6c7aaa27bc7a2e0bb05c85e"
+    }
+  ],
+  "modelChanges": [
+    {
+      "file": "d_counting-models.json",
+      "removedWraps": 9
+    }
+  ],
+  "policy": "Complete equations stay on one line; actual matrix/case rows remain unchanged.",
+  "questionCount": 1999,
+  "browserEvidence": "research/single-line-math-browser.json"
+}

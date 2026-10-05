@@ -174,9 +174,16 @@ for c in courses:
  for d in c['sourceDocuments']:
   if 'sha256' in d:check(hashlib.sha256(Path(d['cachedPath']).read_bytes()).hexdigest()==d['sha256'],'course source '+c['id'])
 baseline='c958f2b5b8eae701ab686ba77051991cc1b24278';lessons=json.loads(subprocess.check_output(['git','show',baseline+':dist/lessons.json'],cwd=R,text=True));retained=chapters=0
+def without_generated_wraps(text):
+ def unwrap(m):
+  t=ET.fromstring(m[0]);rows=list(t)
+  if t.attrib.get('displaystyle')!='true' or t.attrib.get('rowspacing') not in ('.5em','.55em') or not rows or any(r.tag!='mtr' or len(r)!=1 or r[0].tag!='mtd' for r in rows):return m[0]
+  body=m[0][m[0].index('>')+1:-len('</mtable>')]
+  return '<mrow>'+re.sub(r'</?(?:mtr|mtd)\b[^>]*>','',body)+'</mrow>'
+ return re.sub(r'<math\b[\s\S]*?</math>',lambda m:re.sub(r'<mtable\b[^>]*columnalign="left"[^>]*>[\s\S]*?</mtable>',unwrap,m[0]),text)
 for w in lessons:
  for c in w['chapters']:
-  old=subprocess.check_output(['git','show',baseline+':dist/'+c['url']],cwd=R).decode('utf-8');new=(R/'dist'/c['url']).read_text(encoding='utf-8');check(old==new or c['topicId']=='d_inclusion' and old.replace('Review draft ·','Student-approved chapter ·')==new,'retained '+c['topicId']);retained+=old.count('class="exam-question"');chapters+=1
+  old=subprocess.check_output(['git','show',baseline+':dist/'+c['url']],cwd=R).decode('utf-8');new=(R/'dist'/c['url']).read_text(encoding='utf-8');a=without_generated_wraps(old);b=without_generated_wraps(new);check(a==b or c['topicId']=='d_inclusion' and a.replace('Review draft ·','Student-approved chapter ·')==b,'retained '+c['topicId']);retained+=old.count('class="exam-question"');chapters+=1
 check(retained==1917 and chapters==33,'prior inventory')
 page=(R/'dist/chapters/d_pigeonhole.html').read_text(encoding='utf-8');check(page.count('class="exam-question"')==82 and page.count('class="review-rule"')==80,'rendered questions and rules')
 for f in re.findall(r'<math\b[\s\S]*?</math>',page):ET.fromstring(f);check(True,'well formed math')

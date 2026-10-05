@@ -14,19 +14,9 @@ for fn in tree.body:
     if isinstance(fn,ast.FunctionDef) and fn.name in ('compact_display','prep','text'):
         exec(compile(ast.Module(body=[fn],type_ignores=[]),'<shared native math layout>','exec'))
 def scope_preserving_display(value):
-    root=ET.fromstring(value)
-    if width(root)<=10.5:return value
-    rows=[];current=[];size=0;depth=0
-    for child in list(root):
-        token=child.text or ''
-        legal=child.tag=='mo' and token in ('+','-','−','=','∨','∧','⊕','⇒','⇔','→','∪','∩',',') and depth==0
-        if current and legal and size>5.5:rows.append(current);current=[];size=0
-        current.append(child);size+=width(child)
-        if child.tag=='mo' and token in ('(','[','{'):depth+=1
-        if child.tag=='mo' and token in (')',']','}'):depth-=1
-    if current:rows.append(current)
-    if len(rows)==1:return value
-    return '<mtable displaystyle="true" columnalign="left" rowspacing=".5em">'+''.join('<mtr><mtd><mrow>'+''.join(ET.tostring(c,encoding='unicode') for c in row)+'</mrow></mtd></mtr>' for row in rows)+'</mtable>'
+    # Keep each complete equation together; its container handles narrow screens.
+    # Actual matrix/case tables in the input retain their intended rows.
+    return value
 mathml.wrap_display=scope_preserving_display
 base_render=mathml.render
 def precise_render(s,display=False):
