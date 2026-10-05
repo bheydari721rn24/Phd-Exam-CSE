@@ -1,0 +1,198 @@
+{
+  "topicId": "a_arrays",
+  "state": "passed",
+  "placements": 20,
+  "checkpoints": 113,
+  "editableLaboratories": 4,
+  "conceptGroups": {
+    "access": [
+      "address"
+    ],
+    "shifts": [
+      "insert",
+      "bad-insert",
+      "delete"
+    ],
+    "growth": [
+      "resize",
+      "growth-contrast"
+    ],
+    "shrink": [
+      "quarter-shrink",
+      "half-shrink"
+    ],
+    "singly": [
+      "sll-insert-delete",
+      "tail-search"
+    ],
+    "doubly": [
+      "dll",
+      "splice"
+    ],
+    "reverse": [
+      "reverse"
+    ],
+    "cycle": [
+      "floyd",
+      "entry"
+    ],
+    "traversal": [
+      "scan-cost"
+    ],
+    "mergecompact": [
+      "merge",
+      "compact"
+    ],
+    "rotation": [
+      "rotate"
+    ],
+    "sparse": [
+      "orthogonal"
+    ]
+  },
+  "models": [
+    {
+      "id": "address",
+      "kind": "address and chain",
+      "invariant": "The list cursor is at the node reached by the stated number of links; array indices do not traverse nodes.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 5
+    },
+    {
+      "id": "insert",
+      "kind": "array shift",
+      "invariant": "The completed right suffix contains the displaced old suffix; unprocessed sources remain available.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 5
+    },
+    {
+      "id": "bad-insert",
+      "kind": "counterexample array overwrite",
+      "invariant": "This deliberately incorrect trace exposes lost source values; it is not a valid stable insertion.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 3
+    },
+    {
+      "id": "delete",
+      "kind": "array deletion",
+      "invariant": "The completed left prefix is the original sequence with the victim omitted.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 5
+    },
+    {
+      "id": "resize",
+      "kind": "two-buffer relocation",
+      "invariant": "Each copied old slot has an equal value in the new buffer before the old storage is released.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 6
+    },
+    {
+      "id": "growth-contrast",
+      "kind": "cumulative-cost plot",
+      "invariant": "Bars display actual cumulative old-slot copies; new-value writes are excluded from both.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 9
+    },
+    {
+      "id": "quarter-shrink",
+      "kind": "occupancy threshold",
+      "invariant": "Live occupied slots are exactly n; capacity transitions follow the explicitly named policy.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 11
+    },
+    {
+      "id": "half-shrink",
+      "kind": "occupancy threshold",
+      "invariant": "Live occupied slots are exactly n; capacity transitions follow the explicitly named policy.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 5
+    },
+    {
+      "id": "sll-insert-delete",
+      "kind": "singly linked heap",
+      "invariant": "The old successor is saved before publishing X; only detached nodes may be released.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 5
+    },
+    {
+      "id": "tail-search",
+      "kind": "predecessor-search paths",
+      "invariant": "Only forward links are stored; the predecessor must be reached from the current head.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 10
+    },
+    {
+      "id": "dll",
+      "kind": "bidirectional circular topology",
+      "invariant": "Blue forward and amber backward arrows describe inverse adjacency; S is not a data node.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 4
+    },
+    {
+      "id": "splice",
+      "kind": "two-list range splice",
+      "invariant": "Source and destination are disjoint lists; the range length is supplied as two.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 3
+    },
+    {
+      "id": "reverse",
+      "kind": "reversal heap and cursors",
+      "invariant": "Reversed prefix and untouched suffix are disjoint and cover the original node set.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 5
+    },
+    {
+      "id": "floyd",
+      "kind": "cycle graph with two cursors",
+      "invariant": "Cursor positions follow actual successors; equality is tested after complete iterations.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 5
+    },
+    {
+      "id": "entry",
+      "kind": "entry alignment",
+      "invariant": "The meeting time was divisible by cycle length; this reset proof uses fast speed two.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 4
+    },
+    {
+      "id": "scan-cost",
+      "kind": "traversal cost accumulation",
+      "invariant": "Both visit identical logical positions; the restart strategy repeats physical paths.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 6
+    },
+    {
+      "id": "merge",
+      "kind": "two-input merge",
+      "invariant": "Left-on-equality preserves the original left-then-right order of equal keys; input nodes are disjoint.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 7
+    },
+    {
+      "id": "compact",
+      "kind": "compaction overwrite geometry",
+      "invariant": "All future unread positions retain their original values because write never leads read.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 7
+    },
+    {
+      "id": "rotate",
+      "kind": "rotation topology",
+      "invariant": "The saved new head remains available throughout the temporary cycle.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 3
+    },
+    {
+      "id": "orthogonal",
+      "kind": "orthogonal matrix schematic",
+      "invariant": "Coordinates come from nonzero factor pairs; rows and columns have independent successor relations.",
+      "assumptions": "Exclusive access; word-sized slots and pointers; finite illustrative state. Exact counting convention appears in each caption.",
+      "checkpoints": 5
+    }
+  ],
+  "verificationPath": "research/a_arrays-verification.json",
+  "browserAuditPath": "research/a_arrays-browser-audit.json",
+  "limitations": "Finite diagrams illustrate the separately written general proofs; comparison and allocation models are explicitly bounded."
+}

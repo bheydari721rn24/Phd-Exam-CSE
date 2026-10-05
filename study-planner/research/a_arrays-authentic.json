@@ -1,0 +1,59 @@
+[
+  {
+    "id": "Phd_CE_1405_Q18",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 5,
+    "questionNumber": 18,
+    "topics": [
+      "a_arrays",
+      "l_matrices"
+    ],
+    "title": "A matrix representation for row and column operations",
+    "stem": "The outer product of two vectors $A=(a_0,\\ldots,a_{n-1})$ and $B=(b_0,\\ldots,b_{n-1})$ defines $C_{ij}=a_i b_j$. Which listed representation is most suitable when C must be stored in correspondence with the vectors at arbitrary dimension n and matrix addition and multiplication should be straightforward?",
+    "options": [
+      "A circular singly linked list with a head node whose heads are also linked in a list.",
+      "An orthogonal linked list.",
+      "A circular singly linked list with a head node.",
+      "A circular singly linked list."
+    ],
+    "answer": 2,
+    "solution": "The question asks for a matrix representation supporting matrix operations, not merely evaluating one entry of a rank-one formula. Orthogonal links organize every represented entry in both its row and column, providing the two traversal directions needed to combine corresponding rows and columns. A row-list hierarchy organizes rows but lacks an explicit column chain. The one-chain choices organize only one successor relation. Thus option 2 is the most suitable listed general matrix representation. Factorized storage of A and B can be smaller for the single outer product, but arbitrary addition is not closed within one outer product and factorization is not among the listed choices. This is a suitability judgment under the question’s general-operation requirement, not a claim that no other representation can perform matrix arithmetic. The answer is independently reasoned; no official key was available.",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "Checked against original rendered PDF page 5",
+    "answerProvenance": "Independent derivation; not an official key",
+    "origin": "Authentic examination adaptation"
+  },
+  {
+    "id": "MS_CS_1393_Q167",
+    "booklet": "MS_CS_1393",
+    "pdfPage": 34,
+    "questionNumber": 167,
+    "topics": [
+      "p_flow",
+      "d_invariants"
+    ],
+    "title": "Recursive reverse-stride copying",
+    "stem": "Copy every other element of an $N$-element array `a`, starting at its last element, into array `b` from index zero upward. Call `store(N-1,0)`. Which pseudocode is correct? Syntax below treats parameters as integers and arrays as available in the procedure.",
+    "options": [
+      "`if(n<0)return; b[i]=a[n]; store(n-2,i+1);`",
+      "`if(n<0)return; b[i+1]=a[n]; store(n-2,i+1);`",
+      "`if(n<0)return; b[i]=a[n]; store(n-1,i+1);`",
+      "`if(n<0)return; b[i++]=a[n]; store(n-2,i+2);`"
+    ],
+    "answer": 1,
+    "solution": "At call depth t, source rank must be $N-1-2t$ and destination rank t. Option 1 maintains both indices and stops once the source becomes negative, giving $\\lceil N/2\\rceil$ writes. Option 2 starts at b[1] and leaves b[0] unwritten. Option 3 copies every element rather than every other element. Option 4 advances the destination by an extra two between calls, in addition to its post-increment behavior, leaving gaps. All source options have the same negative-source stopping guard. Missing parameter declarations are not treated as a compilable-C test. The answer is independently derived, not an official key.",
+    "pattern": "index invariant and stop condition",
+    "difficulty": "Medium–Hard",
+    "repoPath": "Exams/MS/CS/1393/olum_93_konkurcomputer.pdf",
+    "sourceSha256": "7ed89fae8eb601a964355fde5e5d297cbb30844e5240b9e3908b798fb86e349d",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "Original rendered page rechecked; all options retain n<0 guard",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "origin": "Authentic examination bridge revisit",
+    "qNumber": 167,
+    "sourceSHA": "7ed89fae8eb601a964355fde5e5d297cbb30844e5240b9e3908b798fb86e349d",
+    "provenance": "Revisit of MS CS 1393 Q167. Source option guards corrected against the scan; not a new unique archive question."
+  }
+]

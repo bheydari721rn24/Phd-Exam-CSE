@@ -1,0 +1,934 @@
+[
+  {
+    "id": "ARR_01",
+    "title": "Stable insert and erase in one buffer",
+    "stem": "An array of length 17 and capacity 24 receives a stable insertion at rank 6, then a stable deletion at rank 10. Count old-slot shifts and new-value writes separately. Do not clear unused reference slots.",
+    "solution": "Insertion shifts $17-6=11$ old slots and writes one new value. The length becomes 18. Deletion then shifts $18-10-1=7$ old slots. Thus there are 18 shifts and 19 element writes. Using the original length for deletion gives an off-by-one error; counting a metadata update as an element write changes the specified model.",
+    "expected": "18 shifts; 19 writes",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "insertdelete",
+      "n": 17,
+      "i": 6,
+      "j": 10
+    }
+  },
+  {
+    "id": "ARR_02",
+    "title": "Front insertion followed by front removal",
+    "stem": "Start with an empty preallocated array. Insert 40 values at the front, then remove all 40 from the front. Preserve order. How many old-slot shifts occur?",
+    "solution": "Insertion shifts $\\sum_{j=0}^{39}j=780$. Deletion shifts $39+38+\\cdots+0=780$. Total shifts are 1560. Forty new-value writes are additional if total element writes are requested. Neither phase benefits from spare capacity: shifting follows the ordering contract.",
+    "expected": "1560",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "front",
+      "m": 40
+    }
+  },
+  {
+    "id": "ARR_03",
+    "title": "Expected insertion work with biased positions",
+    "stem": "A length-12 array has spare capacity. With probability one half insert at rank zero; otherwise choose uniformly among ranks 1 through 12. Find expected old-slot shifts.",
+    "solution": "Front insertion costs 12. In the other branch costs are 11 through 0, with mean $11/2$. Therefore $E[S]=12/2+(11/2)/2=35/4$. The answer is not 6 because all 13 positions are not equally likely. Expected cost does not establish a worst-case or amortized bound.",
+    "expected": "35/4",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_04",
+    "title": "Insertion loop counterexample",
+    "stem": "For `[3,5,7,11]`, insert 2 at rank 1 by looping `j=1,2,3` with `A[j+1]=A[j]`, then writing `A[1]=2`. Give the actual result and the correct result.",
+    "solution": "The first copy overwrites 7 with 5; later copies read the overwritten 5, so the actual live array is `[3,2,5,5,5]`. The required stable result is `[3,2,5,7,11]`. Processing right to left preserves each unread source. A proof must describe which old values remain available, not only the final length.",
+    "expected": "[3,2,5,5,5] versus [3,2,5,7,11]",
+    "origin": "Independent reconstruction of Oxford B16 §3.1 shift invariant",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_05",
+    "title": "Removing order from the contract",
+    "stem": "A mutable array is used as an unordered bag. You know rank 3 in a 1000-element bag. Explain an $O(1)$ deletion and why it does not implement stable sequence deletion.",
+    "solution": "Assign the last live value to rank 3 and decrement length. With the index supplied, this uses one payload assignment plus metadata; clearing the vacated slot may add a write. It moves the last element before many former neighbors, violating stable order. Searching for a target value still costs linear time without another index.",
+    "expected": "Swap-with-last changes the ordering contract",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_06",
+    "title": "Overlapping range movement",
+    "stem": "Move `A[2..7]` to `A[4..9]` without temporary storage. Which direction is safe, and what invariant proves it?",
+    "solution": "The destination lies to the right and overlaps the source, so copy indices 7 down to 2. Each unread source lies at or left of the current source and is not overwritten by the larger destination index. Ascending order would overwrite A[4] before it is read. For a destination to the left, ascending order is safe. There are exactly six slot copies.",
+    "expected": "Right-to-left, six copies",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_07",
+    "title": "Doubling at a nonpower length",
+    "stem": "An append-only array starts at capacity 1. After 100 appends, count resize copies, new-slot writes, final capacity, and worst individual append cost in the one-write-per-copy model.",
+    "solution": "Final capacity is 128. Resize copies total $1+2+4+\\cdots+64=127$. There are 100 new-slot writes, so total is 227. The 65th append costs 65 element writes; this is the largest operation within the first 100 appends. The final append need not be the worst.",
+    "expected": "127 copies; 227 writes; capacity 128; worst 65",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "doubling",
+      "m": 100
+    }
+  },
+  {
+    "id": "ARR_08",
+    "title": "Exact growth factor three",
+    "stem": "Start at capacity 2, triple whenever full, and append 55 values. Find final capacity and total old-slot copies.",
+    "solution": "Capacities are 2, 6, 18, 54, 162; the 55th append triggers the last growth. Copies are $2+6+18+54=80$. Fifty-five new-slot writes yield 135 total writes. Formula $(162-2)/(3-1)=80$ agrees with the trace. Applying a doubling formula would be incorrect.",
+    "expected": "162; 80 copies",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "growth",
+      "m": 55,
+      "c0": 2,
+      "g": 3
+    }
+  },
+  {
+    "id": "ARR_09",
+    "title": "Fixed additive growth",
+    "stem": "Start at capacity 10 and grow by 10 when full. Append 101 values. Count copied slots.",
+    "solution": "Ten growth events copy buffers of size 10 through 100. Therefore copies are $10(1+\\cdots+10)=550$. The final capacity is 110. Including appended values gives 651 writes. A constant capacity increment does not imply constant amortized work.",
+    "expected": "550",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "additive",
+      "m": 101,
+      "h": 10
+    }
+  },
+  {
+    "id": "ARR_10",
+    "title": "Sublinear capacity increment",
+    "stem": "Grow a full buffer of capacity $C$ by approximately $\\sqrt C$ slots. Derive the order of total copy work needed to reach length $N$. Ignore rounding for the asymptotic derivation.",
+    "solution": "At capacity scale C, one resize pays C copies and supplies about $\\sqrt C$ future append positions. Thus the local cost per new slot is about $\\sqrt C$. Summing this scale over positions up to N gives $\\Theta(\\int_1^N\\sqrt x\\,dx)=\\Theta(N^{3/2})$. A scale argument also proves the lower bound: within the last constant fraction of N, each growth adds at most $O(\\sqrt N)$ slots and copies $\\Omega(N)$ slots, forcing $\\Omega(\\sqrt N)$ such events.",
+    "expected": "Theta(N^(3/2))",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_11",
+    "title": "The initial potential term",
+    "stem": "Use $\\Phi=2n-C$ for capacity-one doubling from an empty array. Is the assertion “total actual cost is at most $3m$ because $\\Phi_0=0$” correct?",
+    "solution": "The conclusion can hold, but the supplied proof is wrong: $\\Phi_0=-1$. Telescoping gives $\\sum c_i=\\sum\\hat c_i+\\Phi_0-\\Phi_m=3m-1-\\Phi_m$ when every append is charged three. After a nonempty state the potential is nonnegative. Shift the potential by one or isolate the first operation to meet the usual nonnegative-potential convention.",
+    "expected": "Conclusion may hold; Phi0 is −1",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_12",
+    "title": "Amortized versus worst case",
+    "stem": "Select the correct claim for doubling arrays under append-only workloads and constant slot-copy cost.",
+    "solution": "A full buffer of length n must copy n slots, so a single append can take linear time. Across any m appends from an empty structure, geometric sums give linear total work, hence constant amortized cost. This uses deterministic accounting, not random inputs. Real-time latency constraints cannot be inferred from amortization alone.",
+    "expected": "Option 3",
+    "origin": "Independent reconstruction of Princeton COS226 resizing distinction",
+    "difficulty": "Medium–Hard",
+    "options": [
+      "Every append has constant worst-case time.",
+      "Constant amortized time requires random inputs.",
+      "Append is amortized constant but can be linear individually.",
+      "Amortization removes all stable insertion shifts."
+    ],
+    "answer": 3
+  },
+  {
+    "id": "ARR_13",
+    "title": "Quarter-full contraction accounting",
+    "stem": "A buffer has length 17 and capacity 64. Deleting its last element triggers half-capacity contraction at one quarter full. Charge one deletion plus live-slot copies. Compute actual cost, potential change, and amortized cost.",
+    "solution": "After deletion n=16 and capacity becomes 32. Actual cost is $1+16=17$. Before deletion the sparse-branch potential is $32-17=15$; afterward it is zero. Thus amortized cost is $17-15=2$. Clearing a reference slot or allocation work would require an adjusted actual-cost convention.",
+    "expected": "17; −15; 2",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "shrink",
+      "C": 64
+    }
+  },
+  {
+    "id": "ARR_14",
+    "title": "Constructing a thrashing sequence",
+    "stem": "A full capacity-1024 buffer doubles on append and halves as soon as deletion leaves it half full. Show a repeating two-operation workload and its copy cost per repetition.",
+    "solution": "Append at length 1024 copies 1024 slots and reaches length 1025, capacity 2048. Delete the last value; length becomes 1024 and contraction copies 1024 slots into capacity 1024. The original state returns. Each repetition copies 2048 slots for only two updates. A quarter-full threshold avoids this immediate reversal.",
+    "expected": "2048 copies per append/delete pair",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_15",
+    "title": "Middle insertion with geometric resizing",
+    "stem": "Perform m stable front insertions into a doubling array from empty. Give total asymptotic work and explain why constant amortized append analysis is insufficient.",
+    "solution": "Shifts alone total $m(m-1)/2=\\Theta(m^2)$. Resizing adds only $O(m)$ copied slots. Therefore total work is quadratic. The append proof accounts for capacity expansion, not movement required by arbitrary insertion positions. Combining two costs means adding them, not replacing the larger with the smaller.",
+    "expected": "Theta(m²)",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_16",
+    "title": "Peak memory during growth",
+    "stem": "A full array of capacity 4096 and eight-byte slots doubles. Allocation retains the old buffer until copying finishes. Ignore metadata. What is peak slot-storage memory?",
+    "solution": "Old storage is $4096\\cdot8$ bytes; new storage is $8192\\cdot8$ bytes. Simultaneous allocation requires $(4096+8192)8=98304$ bytes, or 96 KiB. Final storage alone is 64 KiB. A realloc implementation might behave differently; the stated separate-buffer model controls the answer.",
+    "expected": "98304 bytes",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "peak",
+      "C": 4096,
+      "b": 8,
+      "g": 2
+    }
+  },
+  {
+    "id": "ARR_17",
+    "title": "Half-full is not half the memory",
+    "stem": "After doubling a full capacity-C array and appending one element, derive unused slots and unused fraction of allocated slots.",
+    "solution": "Capacity is 2C and length is C+1, so unused slots are C−1. Their fraction is $(C-1)/(2C)$, approaching but not exactly one half. Slack relative to live slots is $(C-1)/(C+1)$, a different denominator. At C=8 the unused fraction is 7/16.",
+    "expected": "(C−1)/(2C)",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_18",
+    "title": "Tail pointer and removal",
+    "stem": "An acyclic singly linked list stores head, tail, and size. For n>1, what is the worst-case time to remove tail while preserving node identities? Explain why caching the second-last node once is insufficient for repeated removal.",
+    "solution": "Tail has no back pointer; its predecessor must be found by a head traversal, costing linear time. A cached second-last handle permits one removal, but after it becomes tail the next predecessor is unknown. Maintaining that extra handle through repeated removals again needs traversal unless a richer structure stores predecessor information.",
+    "expected": "Theta(n)",
+    "origin": "Independent reconstruction of Berkeley CS61B Chapter 5 tail-removal exercise",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_19",
+    "title": "Singly linked insertion order",
+    "stem": "Given P→Q and a fresh node X, execute `P.next=X; X.next=P.next`. Determine the resulting local links and repair the code.",
+    "solution": "After the first assignment P.next is X. The second makes X.next equal X, creating a self-cycle; Q is no longer reachable through P. Correct code first assigns X.next=Q (or the saved old P.next), then P.next=X. The lost source link is the same non-overwrite issue seen in array shifts.",
+    "expected": "P→X→X; initialize successor first",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_20",
+    "title": "Deleting the only real node",
+    "stem": "A list uses a head sentinel S, tail pointer T, and cached size. Its only real node is X. Define a convention for empty tail and list the metadata and link updates after deleting X.",
+    "solution": "Choose empty tail T=S. Save X.next=null, set S.next=null, set T=S, decrement size to zero, and release detached X. The postcondition includes both reachability and metadata. Keeping T=X leaves a dangling handle after release. A convention T=null is also valid if all operations use it consistently.",
+    "expected": "S.next=null; T=S; size=0",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_21",
+    "title": "Node-only deletion counterexample",
+    "stem": "A singly linked list A→B→C stores external handles to all nodes. Why is replacing B.value with C.value and bypassing C not a valid implementation of deleting the object B?",
+    "solution": "The operation leaves the object B allocated and linked; it changes its payload. It removes C and invalidates the external C handle. The value sequence can match deletion of B, but object identity and handle validity do not. At a tail there is no successor to copy. The contract must distinguish deleting a value position from deleting an object.",
+    "expected": "Value-sequence equivalence does not preserve node identity",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_22",
+    "title": "List invariant with a stale size",
+    "stem": "A list has seven reachable real nodes but cached size six. `get(i)` rejects i>=size. Is the defect merely a performance problem?",
+    "solution": "No. Retrieval at the valid logical last rank 6 is incorrectly rejected. The representation invariant equating cached size with reachable real-node count is broken, so interface behavior is incorrect. Recomputing size on every call can mask the metadata defect but changes costs and does not repair mutation logic.",
+    "expected": "Correctness defect",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_23",
+    "title": "Four insertion writes",
+    "stem": "In a circular doubly linked list, insert X between adjacent P and Q. Count required link-field writes, and distinguish insertion from unlinking X.",
+    "solution": "Initialize X.prev=P and X.next=Q, then set P.next=X and Q.prev=X: four writes. To unlink a known X, reconnect P.next=Q and Q.prev=P: two required external-link writes. Clearing X.prev and X.next adds two optional writes. A size increment or decrement is a separate metadata write.",
+    "expected": "4 for insertion; 2 for unlink",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_24",
+    "title": "Range splicing and cached size",
+    "stem": "Move a known consecutive range of 70 nodes between circular doubly linked lists. Endpoints and destination neighbors are supplied, but range length is not supplied to the operation. Each list caches size. Is the entire operation constant time?",
+    "solution": "Six boundary-link writes suffice for the splice: two close the old gap and four connect the range at its new location. However, updating both sizes requires the moved length. Discovering it from endpoints requires traversing the range, costing Theta(70) for this instance and Theta(k) generally. If k is supplied and trusted, this additional traversal disappears.",
+    "expected": "Rewiring constant; full operation Theta(k)",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_25",
+    "title": "Sentinel traversal termination",
+    "stem": "A circular doubly linked list has sentinel S and three real nodes. A scan stops only at null. What occurs, and how should the scan stop?",
+    "solution": "No next link is null: the last real node returns to S, which returns to the first node. The scan loops forever and may process the sentinel as data. Start at S.next and stop when the cursor equals S. Node identity is the stopping criterion. The empty list then terminates immediately because S.next=S.",
+    "expected": "Stop at sentinel identity",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_26",
+    "title": "Reversal write count",
+    "stem": "Reverse a 19-node acyclic singly linked list by the three-handle iterative algorithm. Count next-field writes and auxiliary live handles.",
+    "solution": "Every iteration writes cur.next once, including the original head’s null successor. Thus there are 19 next-field writes. Prev, cur, and saved nxt are a constant number of handles independent of length. Head and optional tail metadata updates are additional. Reversal does not allocate 19 replacement nodes.",
+    "expected": "19; constant handles",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "reverse",
+      "n": 19
+    }
+  },
+  {
+    "id": "ARR_27",
+    "title": "A broken reversal loop",
+    "stem": "After `cur.next=prev; prev=cur`, a programmer sets `cur=cur.next` rather than a saved old successor. Trace the first iteration for A→B→C.",
+    "solution": "Initially prev=null and cur=A. Writing A.next=null destroys the link through which B would be reached. Then prev=A and cur=A.next=null; the loop ends with B and C absent from the returned prefix. Save nxt=B before rewriting A.next. The invariant must keep the untouched suffix reachable.",
+    "expected": "Returns only A and loses the suffix",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_28",
+    "title": "Recursion and storage",
+    "stem": "A routine recursively calls itself on next, then prints the current value, without modifying links. For n nodes, give output order, link-write count, and auxiliary space.",
+    "solution": "Calls reach the end before printing, so values are printed in reverse sequence order. No next fields are changed. There are n simultaneously pending frames at peak, giving Theta(n) auxiliary stack space in the ordinary runtime model. Reverse output is not a reversed data structure.",
+    "expected": "Reverse output; 0 link writes; Theta(n) stack",
+    "origin": "Independent reconstruction of Stanford CS106B Handout 21 reverse-print routine",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_29",
+    "title": "Floyd meeting with a long prefix",
+    "stem": "Use standard Floyd complete-iteration comparisons with prefix length 13 and cycle length 5. Find meeting iteration and slow’s cycle offset.",
+    "solution": "The first positive multiple of 5 at least 13 is 15. Slow’s offset is $(15-13)\\bmod5=2$. Detection makes 15 slow and 30 fast link advances. Resetting one cursor finds entry after 13 simultaneous one-link steps. An initial equality at head is not counted.",
+    "expected": "15; offset 2",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "floyd",
+      "mu": 13,
+      "lam": 5
+    }
+  },
+  {
+    "id": "ARR_30",
+    "title": "A pure cycle",
+    "stem": "Head already lies on a cycle of length 7. Under the same Floyd convention, does detection take zero iterations?",
+    "solution": "No. Initial equality of head handles is ignored. Slow and fast first collide after seven complete iterations, the smallest positive multiple of seven. The reset phase needs zero steps because head is the entry. Detection and entry discovery have different counts.",
+    "expected": "7 detection iterations; 0 reset steps",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "floyd",
+      "mu": 0,
+      "lam": 7
+    }
+  },
+  {
+    "id": "ARR_31",
+    "title": "Faster does not preserve the reset proof",
+    "stem": "Slow moves one link and fast three. Let prefix length be 1 and cycle length 4. Show why standard reset fails even after a collision.",
+    "solution": "Collision requires $2t\\equiv0\\pmod4$, so t=2 suffices once both are in the cycle. Slow’s meeting offset is 1. After moving a reset head cursor one step to entry, the meeting cursor is at offset 2. Their separation remains 2 under equal-speed movement, so they never meet. Speed two is part of the entry proof.",
+    "expected": "Meeting at t=2; reset never aligns",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_32",
+    "title": "Cycle-length measurement",
+    "stem": "After obtaining a meeting node in a cycle, one cursor is held fixed and another advances until it returns. Why is a do-while style positive traversal needed?",
+    "solution": "The cursors begin equal. Testing equality before the first move and stopping would report length zero. Advance at least once, incrementing the count for each successor followed; the first positive return takes exactly lambda links. A self-cycle correctly gives length one.",
+    "expected": "Count the first positive return",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_33",
+    "title": "Indexed traversal sum",
+    "stem": "For n=300, traverse a singly linked list by independently computing get(i) from head for each i. Count links followed. Compare a retained cursor.",
+    "solution": "Independent searches cost $0+1+\\cdots+299=44850$ links. A retained cursor needs 299 links between real nodes, or 300 if the final tail-to-null move is counted. State the convention before comparing exact counts. Both routines inspect 300 payloads; this does not make their pointer work equal.",
+    "expected": "44850 versus 299",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "indexed",
+      "n": 300
+    }
+  },
+  {
+    "id": "ARR_34",
+    "title": "Nested traversal with cached metadata",
+    "stem": "A loop repeats r times and each repetition scans an n-node singly linked list with one cursor. Cached size is constant-time. Compare this with repeating a get(i)-based indexed scan.",
+    "solution": "One cursor scan costs Theta(n), so r scans cost Theta(rn). An indexed scan costs Theta(n²) because rank i requires i traversals; r such scans cost Theta(rn²). Cached size avoids a length traversal but does not create random access.",
+    "expected": "Theta(rn) versus Theta(rn²)",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_35",
+    "title": "Binary search comparisons versus pointer work",
+    "stem": "An array and a sorted singly linked list each perform O(log n) key comparisons. The list repeatedly obtains midpoint by get(mid) from global head. Must its total time be O(log n)?",
+    "solution": "No. For a search above all keys, midpoint ranks approach n, and Theta(log n) retrievals each traverse Theta(n) links, giving Theta(n log n) link work. If each shrinking subrange stores its own start and midpoint is reached by a local walk, the geometric walk lengths sum to O(n). Neither version matches constant-time array midpoint access.",
+    "expected": "Not necessarily; global-head version can be Theta(n log n)",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_36",
+    "title": "The kth node from the end",
+    "stem": "A 25-node list has no cached size. Find the sixth node from the end using the k-gap method. Count successor advances including tail-to-null moves.",
+    "solution": "Lead first advances six links. Then lead and lag advance together for 19 iterations. Total lead movement is 25 and lag movement 19, hence 44 links. The answer is zero-based rank 19. If k exceeded n, the initial lead phase would detect the invalid request.",
+    "expected": "44; rank 19",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "kth",
+      "n": 25,
+      "k": 6
+    }
+  },
+  {
+    "id": "ARR_37",
+    "title": "Which middle does the code return?",
+    "stem": "For length 8, initialize slow=fast=head and loop while fast and fast.next exist, advancing slow once and fast twice. Which rank is returned?",
+    "solution": "There are four iterations. Slow reaches rank 4, the second of the two middle ranks 3 and 4. For length 7 it would reach rank 3. A loop guard involving fast.next.next or a shifted initialization may choose the first middle, so “the middle” alone is underspecified.",
+    "expected": "Rank 4",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_38",
+    "title": "Stable linked merge with equal keys",
+    "stem": "Two disjoint sorted lists hold labeled values L=[2a,4a,4b] and R=[2b,4c]. Merge stably relative to L followed by R. Which comparison tie policy is needed?",
+    "solution": "Take from L when keys are equal. The result is [2a,2b,4a,4b,4c]. Taking R first yields [2b,2a,...], violating relative order for the equal-key elements of the concatenated input. Stability concerns identities, not only numeric sortedness.",
+    "expected": "Take left on equality",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_39",
+    "title": "Exact merge comparison extremes",
+    "stem": "Merge lists of positive lengths 9 and 6, stopping key comparisons as soon as one list is exhausted. Give minimum and maximum comparisons over possible sorted keys.",
+    "solution": "The minimum is min(9,6)=6: every value of the shorter list may precede all values of the longer. The maximum is 9+6−1=14, attainable by interleaving until only one element remains. Attaching a remaining suffix does not compare its keys again. Empty inputs would give zero comparisons and require a separate case.",
+    "expected": "6 through 14",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_40",
+    "title": "Shared-tail merge hazard",
+    "stem": "Sorted lists A and B share an actual tail node T. Is destructive ordinary merge safe merely because both input value sequences are sorted?",
+    "solution": "No. Ordinary destructive merge assumes disjoint node sets. T can be selected from one path while remaining reachable from the other, so later rewiring can link the same object twice or create a self-cycle. Test or guarantee disjointness, preserve immutable sharing, or construct fresh output nodes. Sortedness alone is insufficient.",
+    "expected": "No; disjointness is required",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_41",
+    "title": "Stable compaction exact writes",
+    "stem": "Keep nonnegative values from [-2,5,0,-1,8,-3,4]. The compaction algorithm tests each element once and assigns every survivor to the write cursor even when it is already in place. Count tests and assignments and give the live prefix.",
+    "solution": "There are seven predicate tests and four surviving values: 5,0,8,4. Thus four payload assignments produce that live prefix. Write never exceeds read, so no unread value is lost. The old suffix is outside logical length; reference cleanup would add assignments if requested.",
+    "expected": "7 tests; 4 writes; [5,0,8,4]",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_42",
+    "title": "A left rotation with cached tail",
+    "stem": "For a length-17 singly linked list with cached size and tail, left-rotate by 40. Find normalized k, cut rank, and links traversed to reach the cut from head.",
+    "solution": "Normalize k=40 mod17=6. New tail is old rank 5; reaching it takes five next traversals. Save its successor as new head, connect old tail to old head, and set newTail.next=null. This performs two next-field writes after searching. If k=0, no cut or rewiring is needed.",
+    "expected": "k=6; cut rank 5; 5 traversals",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_43",
+    "title": "Intersection is identity, not equality",
+    "stem": "Two acyclic lists have identical numeric suffixes stored in separately allocated nodes. Will the two-switch cursor intersection algorithm report that suffix as an intersection?",
+    "solution": "No. It compares node identities; equal payloads in distinct nodes are not shared storage. Both cursors eventually reach null if there is no shared node. Value equality can be tested separately, but it answers a different question. The switching argument also assumes no cycles and no concurrent mutation.",
+    "expected": "No shared-node intersection",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_44",
+    "title": "Node alignment model",
+    "stem": "Payload is 13 bytes, each pointer is eight bytes, and node alignment is eight. Ignore headers. Find singly and doubly linked node sizes and storage for 100 real nodes plus one sentinel.",
+    "solution": "Singly linked raw size is 21, rounded to 24. Doubly linked raw size is 29, rounded to 32. The 101-node totals are 2424 and 3232 bytes. Treating alignment as a constant extra eight bytes rather than rounding is incorrect. Array element alignment can require its own separate stride assumption.",
+    "expected": "24,32; 2424,3232 bytes",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_45",
+    "title": "Offset block occupancy",
+    "stem": "A scan begins at slot offset 5 in a cache block of 16 slots and reads 100 consecutive slots. How many distinct blocks are touched?",
+    "solution": "The span ends after 105 slots measured from the beginning of the first block. Hence blocks touched are ceil(105/16)=7. Ceil(100/16)=7 happens to agree here, but with 12 slots from offset 5 the correct answer is 2 while ignoring offset gives 1. The question counts distinct blocks, not a hardware miss prediction with reuse.",
+    "expected": "7",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "blocks",
+      "n": 100,
+      "r": 5,
+      "L": 16
+    }
+  },
+  {
+    "id": "ARR_46",
+    "title": "Workload with supplied handles",
+    "stem": "A workload contains n random rank lookups and n deletions at valid supplied node handles. Compare arrays and doubly linked lists; give a condition under which neither simple choice is obviously best.",
+    "solution": "Arrays perform rank lookups in Theta(n) total but stable deletions can cost Theta(n²). Doubly linked lists perform known-node deletions in Theta(n) total but rank lookups can cost Theta(n²). A workload mixing both capabilities may justify an augmented tree or index; the question provides no dominance ratio or ordering that selects one simple representation universally.",
+    "expected": "Both can incur quadratic total work",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_47",
+    "title": "Sparse outer-product support",
+    "stem": "Over real numbers, vectors of lengths 50 and 80 have 7 and 9 nonzero entries. How many nonzero entries does their outer product have? How many scalar slots does dense factor storage use?",
+    "solution": "Every nonzero entry of one factor pairs with every nonzero entry of the other, yielding 7·9=63 nonzeros. Dense factor storage uses 50+80=130 scalar slots; explicit dense matrix storage uses 4000. The product-support statement depends on a field without zero divisors, not an arbitrary ring.",
+    "expected": "63; 130",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "support",
+      "x": 7,
+      "y": 9
+    }
+  },
+  {
+    "id": "ARR_48",
+    "title": "Rank-one addition counterexample",
+    "stem": "Show why representing every matrix as a single pair of vectors is not closed under arbitrary addition.",
+    "solution": "Take two 2×2 matrices with single nonzeros at (0,0) and (1,1), both equal to one. Each is rank one. Their sum is the identity matrix, of rank two, and cannot equal one outer product because all columns of a nonzero outer product are scalar multiples of one vector. A general matrix ADT needs a broader representation.",
+    "expected": "Two rank-one matrices can sum to rank two",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_49",
+    "title": "A general orthogonal-list requirement",
+    "stem": "A sparse matrix must support row and column traversal without scanning all entries for either operation. Explain the two-link requirement and its overhead.",
+    "solution": "Each nonzero participates in two independent ordered chains: its row and its column. Store right and down links with row/column/value coordinates and appropriate headers. A row-only list of lists exposes no direct column chain. If pointers are eight bytes, the two traversal links alone cost 16 bytes per nonzero before coordinates, values, and alignment.",
+    "expected": "Right and down adjacency, plus headers",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_50",
+    "title": "Sorted insertion and duplicate semantics",
+    "stem": "An iterative routine refuses an existing equal key; a recursive routine inserts before the first key greater than or equal to the new key. Are they equivalent? Give a distinguishing input.",
+    "solution": "Insert key 4 into [2,4,6]. The iterative set-style routine keeps [2,4,6]; the recursive routine produces [2,4,4,6]. Thus duplicate policy is part of the interface. If allocation happens before detecting a duplicate, rejected storage must be released to avoid a leak. Correct sorted order alone does not establish equivalence.",
+    "expected": "They differ on duplicate insertion",
+    "origin": "Independent reconstruction and correction of Stanford CS106B Handout 21 duplicate-policy contrast",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_51",
+    "title": "Deep-copy versus pointer-copy append",
+    "stem": "An array stores pointers to variable-length strings. During growth, it copies pointers, not string contents. What controls resize complexity? What changes if it deep-copies each string?",
+    "solution": "Pointer-copy growth moves n word-sized slots, so cost is Theta(n). If strings have lengths ell_i and each must be duplicated, copying costs Theta(sum ell_i), plus pointer work. An operation-count theorem must specify the copied unit. Large values referenced by pointers do not automatically enlarge a slot-copy cost.",
+    "expected": "Theta(n) pointer copies versus Theta(sum lengths) deep copies",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_52",
+    "title": "Searching before constant unlink",
+    "stem": "A doubly linked list contains n unique keys but no search index. Delete by a given key value. Is the operation worst-case constant because node unlinking is constant?",
+    "solution": "Locating the key can inspect n nodes, so deletion by value is Theta(n) worst case even though unlinking a located node is constant. A valid supplied node handle removes that search. Distinguish the operation argument type from the chosen pointer update.",
+    "expected": "Theta(n) worst case",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_53",
+    "title": "Destruction order safety",
+    "stem": "Why must iterative deletion save next before releasing a node? Does reading a deallocated next field become safe if its old bits appear unchanged?",
+    "solution": "Once storage is released, the program no longer owns a live node at that address; accessing its fields is invalid under the allocation model and may be undefined in a systems language. Save successor while the node is alive, release the node, then advance through the saved handle. Observing unchanged bits does not restore object lifetime.",
+    "expected": "Save successor before release",
+    "origin": "Independent reconstruction of Stanford CS106B Handout 21 destruction routine",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_54",
+    "title": "Empty and singleton reversal",
+    "stem": "Specify the correct postconditions for reversing an empty list and a singleton list with cached tail.",
+    "solution": "For empty input, head and tail remain null and size stays zero; the loop performs no link writes. For singleton X, X.next becomes null, head and tail both remain X, and size stays one. The general routine may perform one next write even though the value does not change. A cached tail becomes the saved old head for every nonempty input.",
+    "expected": "Empty: 0 writes; singleton: 1 next write",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_55",
+    "title": "A splice into its own interior",
+    "stem": "A range B through D in a circular list is to be moved after C. Why cannot a generic six-write cross-list splice be applied without a precondition?",
+    "solution": "C lies inside the moved range, so its adjacency links are among the links being detached and reused. Treating it as an external destination can introduce a cycle disconnected from the sentinel or duplicate placement. Reject the request or define a no-op policy for interior destinations; ordinary same-list splice proofs require the destination outside the range and handle adjacency separately.",
+    "expected": "Interior destination violates the splice precondition",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_56",
+    "title": "General fast-speed meeting congruence",
+    "stem": "For fast speed r>1 and cycle length lambda, derive the period of meeting times once both pointers are on the cycle. Do not infer entry-reset validity.",
+    "solution": "Equality requires (r−1)t to be divisible by lambda. Dividing by d=gcd(r−1,lambda), the reduced coefficients are coprime, so t must be a multiple of lambda/d. The first permitted meeting must also be positive and at least mu. This detects collision but does not force t divisible by lambda when d>1; standard reset may fail.",
+    "expected": "Period lambda/gcd(r−1,lambda)",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_57",
+    "title": "Worst cost with a growth-triggering front insertion",
+    "stem": "A length-64 capacity-64 array doubles then stably inserts a new value at rank zero. Count old-slot copies if the implementation first copies to identical ranks then shifts in the new buffer.",
+    "solution": "Growth copies 64 old slots. Stable insertion then shifts the same 64 elements one position right. There is one new-value write, giving 129 total element writes. A fused resize could copy each old element directly to its final shifted position and use 65 writes, but that is a different implementation. Exact questions must specify whether copying is fused.",
+    "expected": "128 old-slot copies; 129 total writes",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_58",
+    "title": "Fused resizing insertion",
+    "stem": "Resize a full n-slot array while inserting at rank i. Show an implementation using n old-slot copies rather than n+(n−i) copies.",
+    "solution": "Allocate the new buffer. Copy old positions below i to unchanged ranks; copy positions at or above i directly to rank j+1; write x at i. Every old element is copied once, for n copies plus one new write. The original buffer remains read-only until replacement, so overlapping-copy ordering is unnecessary. Nonresizing insertion still has n−i shifts.",
+    "expected": "n+1 element writes",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_59",
+    "title": "Unrolled-list tradeoff",
+    "stem": "A sequence stores contiguous blocks of B elements in a linked chain. Locating a rank scans block links; insertion can shift within one block. Derive the balancing scale for cost O(n/B+B), ignoring splits and rounding.",
+    "solution": "There are roughly n/B blocks, giving O(n/B) link work; moving within a block costs O(B). Balancing n/B and B gives B≈sqrt(n), with O(sqrt(n)) combined work. This is a simplified model, not a full implementation proof: block occupancy, splits, size metadata, and changing n need separate invariants.",
+    "expected": "B≈sqrt(n); simplified O(sqrt(n))",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_60",
+    "title": "Stable deduplication of a sorted array",
+    "stem": "A sorted array of length n is compacted to one representative of each of k distinct values. Derive comparisons and worst retained writes for a one-pass algorithm that keeps the first value.",
+    "solution": "Compare each later value against the last kept representative, yielding n−1 equality comparisons for n>0. Each new distinct value may require one write, so there are k retained assignments if the initial value is assigned too, or at most k−1 if it is already kept in place. Empty input requires no first-element access. Sorting beforehand is not free and is not part of this pre-sorted problem.",
+    "expected": "n−1 comparisons; k or at most k−1 writes under the specified convention",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_61",
+    "title": "Invalid handles after buffer movement",
+    "stem": "A caller retains a pointer to A[3] and the dynamic array resizes into a different buffer. The logical value remains at rank 3. Is the old pointer valid?",
+    "solution": "No guarantee exists: the old buffer is released, so the saved physical address may dangle. A saved logical index can be re-resolved in the new buffer, provided mutations have not changed the intended position. Stable object handles require indirection or a different representation. Logical sequence preservation does not preserve backing-store addresses.",
+    "expected": "Old physical pointer may dangle",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_62",
+    "title": "Adversarial versus random amortization",
+    "stem": "An adversary chooses the times of appends and last-element deletions for a doubling/quarter-shrinking array. Can it invalidate the potential-method bound merely by knowing the current capacity?",
+    "solution": "No, for operations satisfying the fixed policy and cost model. The potential bound applies to each legal transition and telescopes for every sequence, including adversarial choices. It can create expensive individual updates but cannot force superlinear total capacity-management work. Changing to middle operations, expensive destructors, or a different shrink threshold changes the premises.",
+    "expected": "Bound holds for every legal append/delete-last sequence",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_63",
+    "title": "Stable deletion expected cost",
+    "stem": "Delete a uniformly selected live rank from length 31. Count shifts only. Derive the expectation without assuming independent movement events.",
+    "solution": "Rank i shifts 30−i elements. Average over i=0,…,30: (30+29+…+0)/31=15. Equivalently, sum the probability that each later element must move. Linearity of expectation does not require independence. One deletion can still shift 30 elements.",
+    "expected": "15",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_64",
+    "title": "Array prefix versus list prefix copy",
+    "stem": "Copy the first k elements of a sequence into a fresh output. Compare an array, a cursor-based list scan, and k independent list get(i) calls.",
+    "solution": "An array copies k slots in Theta(k). A list cursor reads k payloads and follows at most k links, also Theta(k). Independent get(i) calls add k(k−1)/2 links and k payload reads, giving Theta(k²). Allocation and deep-copy payload costs are excluded unless stated.",
+    "expected": "Theta(k), Theta(k), Theta(k²)",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_65",
+    "title": "Circular singly linked tail deletion",
+    "stem": "A circular singly linked list stores only tail, with head=tail.next. Does circularity make deleting tail constant time?",
+    "solution": "No. Its predecessor still has only a forward next link. For n>1, traverse from head until a node points to tail, then reconnect it to head and update tail. This is Theta(n). Circularity makes head accessible from tail but does not supply predecessor links. The singleton case is constant and sets the list empty.",
+    "expected": "Theta(n) for n>1",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_66",
+    "title": "Overflow in address arithmetic",
+    "stem": "Why is the formula B+b(i−L) not a sufficient safety proof for array access in a real implementation?",
+    "solution": "One must also establish index bounds, multiplication/addition representability, allocated object extent, and an appropriate stride. Even a mathematically valid rank can overflow a narrow machine integer if unchecked. The chapter’s RAM formulas assume these conditions; code handling external sizes must validate them. Address algebra is not a license to dereference arbitrary computed addresses.",
+    "expected": "Bounds, representability, and allocated extent are also required",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_67",
+    "title": "Caching the predecessor in a scan",
+    "stem": "A singly linked list is scanned once and selected nodes are removed. Explain how retaining the predecessor avoids repeated searches and how the cursor updates after a removal.",
+    "solution": "Keep predecessor p and current v=p.next, starting with a head sentinel. If v survives, advance p=v. If v is removed, set p.next=v.next and keep p unchanged; the next candidate is its new successor. Each node is examined once. Searching from head for each victim can produce quadratic work. Tail and size must be updated during deletions.",
+    "expected": "One-pass linear filtering",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_68",
+    "title": "Outer products over a ring",
+    "stem": "Does nnz(ab^T)=nnz(a)nnz(b) hold over integers modulo six? Give a counterexample.",
+    "solution": "No. In Z/6Z, 2 and 3 are nonzero but their product is 0. Taking one-element vectors a=(2), b=(3) gives support counts one and one but a zero outer product. The real-number proof uses absence of zero divisors. Algebraic domain assumptions can change a data-representation count.",
+    "expected": "Counterexample 2·3=0 mod6",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard"
+  },
+  {
+    "id": "ARR_69",
+    "title": "Growth accounting and memory, length 75",
+    "stem": "A full-buffer growth factor 2 array starts empty at capacity 1. Append 75 four-byte slots. Compute copy work, total writes, final slack, and peak two-buffer bytes.",
+    "solution": "Capacities form a geometric sequence ending at 128. Earlier capacities sum to 127, using $(C_{final}-C_0)/(g-1)$. Appended-slot writes are 75, so total is 202. Final unused slots are 53. The last growth simultaneously holds capacities 64 and 128, giving 768 bytes; this is the peak under separate allocation. Largest append costs 65 writes. Final memory alone is smaller.",
+    "expected": "127; 202; 53; 768",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "growthcompound",
+      "m": 75,
+      "c0": 1,
+      "g": 2,
+      "b": 4
+    }
+  },
+  {
+    "id": "ARR_70",
+    "title": "Growth accounting and memory, length 121",
+    "stem": "A full-buffer growth factor 2 array starts empty at capacity 3. Append 121 four-byte slots. Compute copy work, total writes, final slack, and peak two-buffer bytes.",
+    "solution": "Capacities form a geometric sequence ending at 192. Earlier capacities sum to 189, using $(C_{final}-C_0)/(g-1)$. Appended-slot writes are 121, so total is 310. Final unused slots are 71. The last growth simultaneously holds capacities 96 and 192, giving 1152 bytes; this is the peak under separate allocation. Largest append costs 97 writes. Final memory alone is smaller.",
+    "expected": "189; 310; 71; 1152",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "growthcompound",
+      "m": 121,
+      "c0": 3,
+      "g": 2,
+      "b": 4
+    }
+  },
+  {
+    "id": "ARR_71",
+    "title": "Growth accounting and memory, length 82",
+    "stem": "A full-buffer growth factor 3 array starts empty at capacity 2. Append 82 four-byte slots. Compute copy work, total writes, final slack, and peak two-buffer bytes.",
+    "solution": "Capacities form a geometric sequence ending at 162. Earlier capacities sum to 80, using $(C_{final}-C_0)/(g-1)$. Appended-slot writes are 82, so total is 162. Final unused slots are 80. The last growth simultaneously holds capacities 54 and 162, giving 864 bytes; this is the peak under separate allocation. Largest append costs 55 writes. Final memory alone is smaller.",
+    "expected": "80; 162; 80; 864",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "growthcompound",
+      "m": 82,
+      "c0": 2,
+      "g": 3,
+      "b": 4
+    }
+  },
+  {
+    "id": "ARR_72",
+    "title": "Growth accounting and memory, length 1001",
+    "stem": "A full-buffer growth factor 2 array starts empty at capacity 4. Append 1001 four-byte slots. Compute copy work, total writes, final slack, and peak two-buffer bytes.",
+    "solution": "Capacities form a geometric sequence ending at 1024. Earlier capacities sum to 1020, using $(C_{final}-C_0)/(g-1)$. Appended-slot writes are 1001, so total is 2021. Final unused slots are 23. The last growth simultaneously holds capacities 512 and 1024, giving 6144 bytes; this is the peak under separate allocation. Largest append costs 513 writes. Final memory alone is smaller.",
+    "expected": "1020; 2021; 23; 6144",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "growthcompound",
+      "m": 1001,
+      "c0": 4,
+      "g": 2,
+      "b": 4
+    }
+  },
+  {
+    "id": "ARR_73",
+    "title": "Batch insertion at a fixed rank 4",
+    "stem": "Length is 20, ample capacity exists. Insert 6 new values one by one at the same rank 4, preserving order at each step. Count shifts, total writes, and final order of the newly inserted values x1,…,x6.",
+    "solution": "Before insertion t (zero-based), length is 20+t and shifts are 16+t. Their sum is $6(20-4)+6(6-1)/2=111$. New-slot writes add 6, giving 117. Since every new insertion precedes the previous ones at rank 4, the new block is x6,…,x1, not insertion order. Resizing is excluded by ample capacity.",
+    "expected": "111; 117; reversed new block",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "batch",
+      "n": 20,
+      "i": 4,
+      "k": 6
+    }
+  },
+  {
+    "id": "ARR_74",
+    "title": "Batch insertion at a fixed rank 11",
+    "stem": "Length is 33, ample capacity exists. Insert 7 new values one by one at the same rank 11, preserving order at each step. Count shifts, total writes, and final order of the newly inserted values x1,…,x7.",
+    "solution": "Before insertion t (zero-based), length is 33+t and shifts are 22+t. Their sum is $7(33-11)+7(7-1)/2=175$. New-slot writes add 7, giving 182. Since every new insertion precedes the previous ones at rank 11, the new block is x7,…,x1, not insertion order. Resizing is excluded by ample capacity.",
+    "expected": "175; 182; reversed new block",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "batch",
+      "n": 33,
+      "i": 11,
+      "k": 7
+    }
+  },
+  {
+    "id": "ARR_75",
+    "title": "Batch insertion at a fixed rank 3",
+    "stem": "Length is 50, ample capacity exists. Insert 12 new values one by one at the same rank 3, preserving order at each step. Count shifts, total writes, and final order of the newly inserted values x1,…,x12.",
+    "solution": "Before insertion t (zero-based), length is 50+t and shifts are 47+t. Their sum is $12(50-3)+12(12-1)/2=630$. New-slot writes add 12, giving 642. Since every new insertion precedes the previous ones at rank 3, the new block is x12,…,x1, not insertion order. Resizing is excluded by ample capacity.",
+    "expected": "630; 642; reversed new block",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "batch",
+      "n": 50,
+      "i": 3,
+      "k": 12
+    }
+  },
+  {
+    "id": "ARR_76",
+    "title": "Batch insertion at a fixed rank 20",
+    "stem": "Length is 27, ample capacity exists. Insert 5 new values one by one at the same rank 20, preserving order at each step. Count shifts, total writes, and final order of the newly inserted values x1,…,x5.",
+    "solution": "Before insertion t (zero-based), length is 27+t and shifts are 7+t. Their sum is $5(27-20)+5(5-1)/2=45$. New-slot writes add 5, giving 50. Since every new insertion precedes the previous ones at rank 20, the new block is x5,…,x1, not insertion order. Resizing is excluded by ample capacity.",
+    "expected": "45; 50; reversed new block",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "batch",
+      "n": 27,
+      "i": 20,
+      "k": 5
+    }
+  },
+  {
+    "id": "ARR_77",
+    "title": "Full cycle-analysis cost (6,7)",
+    "stem": "A reachable cycle has prefix 6 and length 7. Under standard Floyd complete-iteration comparisons, count detection iterations, entry-phase moves, cycle-length moves, and total successor advances across all three phases.",
+    "solution": "The smallest positive multiple of 7 at least 6 is 7. Detection advances one and two links per iteration, for 21 links. Reset-to-entry advances two cursors for 6 steps, for 12 links. One full lap measures length in 7 moves. Total is 40. This excludes redundant guard reads; initial handle equality is not a collision.",
+    "expected": "7; 12; 7; 40",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "cyclecompound",
+      "mu": 6,
+      "lam": 7
+    }
+  },
+  {
+    "id": "ARR_78",
+    "title": "Full cycle-analysis cost (17,6)",
+    "stem": "A reachable cycle has prefix 17 and length 6. Under standard Floyd complete-iteration comparisons, count detection iterations, entry-phase moves, cycle-length moves, and total successor advances across all three phases.",
+    "solution": "The smallest positive multiple of 6 at least 17 is 18. Detection advances one and two links per iteration, for 54 links. Reset-to-entry advances two cursors for 17 steps, for 34 links. One full lap measures length in 6 moves. Total is 94. This excludes redundant guard reads; initial handle equality is not a collision.",
+    "expected": "18; 34; 6; 94",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "cyclecompound",
+      "mu": 17,
+      "lam": 6
+    }
+  },
+  {
+    "id": "ARR_79",
+    "title": "Full cycle-analysis cost (24,4)",
+    "stem": "A reachable cycle has prefix 24 and length 4. Under standard Floyd complete-iteration comparisons, count detection iterations, entry-phase moves, cycle-length moves, and total successor advances across all three phases.",
+    "solution": "The smallest positive multiple of 4 at least 24 is 24. Detection advances one and two links per iteration, for 72 links. Reset-to-entry advances two cursors for 24 steps, for 48 links. One full lap measures length in 4 moves. Total is 124. This excludes redundant guard reads; initial handle equality is not a collision.",
+    "expected": "24; 48; 4; 124",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "cyclecompound",
+      "mu": 24,
+      "lam": 4
+    }
+  },
+  {
+    "id": "ARR_80",
+    "title": "Full cycle-analysis cost (0,9)",
+    "stem": "A reachable cycle has prefix 0 and length 9. Under standard Floyd complete-iteration comparisons, count detection iterations, entry-phase moves, cycle-length moves, and total successor advances across all three phases.",
+    "solution": "The smallest positive multiple of 9 at least 0 is 9. Detection advances one and two links per iteration, for 27 links. Reset-to-entry advances two cursors for 0 steps, for 0 links. One full lap measures length in 9 moves. Total is 36. This excludes redundant guard reads; initial handle equality is not a collision.",
+    "expected": "9; 0; 9; 36",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "cyclecompound",
+      "mu": 0,
+      "lam": 9
+    }
+  },
+  {
+    "id": "ARR_81",
+    "title": "Choosing a traversal for n=64",
+    "stem": "A 64-element sequence has no cached list length. Find the 9th element from the end using a list gap scan, or scan an array beginning at block offset 3 with 8 slots per block. Compute list successor moves and array blocks touched. Explain why these counts have different units.",
+    "solution": "Gap scan lead movement is 64; lag movement is 55, so successor advances total 119. The array scan touches $\\lceil(3+64)/8\\rceil=9$ distinct blocks. These are not directly comparable runtime units: block fetch latency and pointer-chasing placement matter. With cached list length, reaching rank 55 would need only 55 traversals.",
+    "expected": "119 links; 9 blocks",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "traversecompound",
+      "n": 64,
+      "k": 9,
+      "r": 3,
+      "L": 8
+    }
+  },
+  {
+    "id": "ARR_82",
+    "title": "Choosing a traversal for n=101",
+    "stem": "A 101-element sequence has no cached list length. Find the 17th element from the end using a list gap scan, or scan an array beginning at block offset 7 with 16 slots per block. Compute list successor moves and array blocks touched. Explain why these counts have different units.",
+    "solution": "Gap scan lead movement is 101; lag movement is 84, so successor advances total 185. The array scan touches $\\lceil(7+101)/16\\rceil=7$ distinct blocks. These are not directly comparable runtime units: block fetch latency and pointer-chasing placement matter. With cached list length, reaching rank 84 would need only 84 traversals.",
+    "expected": "185 links; 7 blocks",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "traversecompound",
+      "n": 101,
+      "k": 17,
+      "r": 7,
+      "L": 16
+    }
+  },
+  {
+    "id": "ARR_83",
+    "title": "Choosing a traversal for n=200",
+    "stem": "A 200-element sequence has no cached list length. Find the 50th element from the end using a list gap scan, or scan an array beginning at block offset 1 with 32 slots per block. Compute list successor moves and array blocks touched. Explain why these counts have different units.",
+    "solution": "Gap scan lead movement is 200; lag movement is 150, so successor advances total 350. The array scan touches $\\lceil(1+200)/32\\rceil=7$ distinct blocks. These are not directly comparable runtime units: block fetch latency and pointer-chasing placement matter. With cached list length, reaching rank 150 would need only 150 traversals.",
+    "expected": "350 links; 7 blocks",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "traversecompound",
+      "n": 200,
+      "k": 50,
+      "r": 1,
+      "L": 32
+    }
+  },
+  {
+    "id": "ARR_84",
+    "title": "Choosing a traversal for n=45",
+    "stem": "A 45-element sequence has no cached list length. Find the 45th element from the end using a list gap scan, or scan an array beginning at block offset 6 with 8 slots per block. Compute list successor moves and array blocks touched. Explain why these counts have different units.",
+    "solution": "Gap scan lead movement is 45; lag movement is 0, so successor advances total 45. The array scan touches $\\lceil(6+45)/8\\rceil=7$ distinct blocks. These are not directly comparable runtime units: block fetch latency and pointer-chasing placement matter. With cached list length, reaching rank 0 would need only 0 traversals.",
+    "expected": "45 links; 7 blocks",
+    "origin": "Original mathematical examination-style problem",
+    "difficulty": "Medium–Hard",
+    "check": {
+      "kind": "traversecompound",
+      "n": 45,
+      "k": 45,
+      "r": 6,
+      "L": 8
+    }
+  }
+]

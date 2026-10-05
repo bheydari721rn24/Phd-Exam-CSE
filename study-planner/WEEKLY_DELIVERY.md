@@ -264,3 +264,19 @@ Read research/chapter-gate.json first. Do not start the next scheduled missing c
 ## Complete-equation layout correction, October 5, 2026
 
 Automatic equation fragmentation was removed from the renderer and shared browser layer. Complete equations stay on one line, with horizontal scrolling when needed. Real matrix and piecewise rows are preserved. The actual browser audit covers all 34 chapters at desktop and mobile widths and retains all 20,879 MathML instances and 1,999 question entries. See research/single-line-math-review.md and the associated JSON evidence. Two unrelated existing laboratory errors were reproduced on the exact baseline and are documented separately; there are no new runtime errors from this revision. The d_pigeonhole approval gate is unchanged.
+
+
+## Active chapter: arrays and linked lists, October 5, 2026
+
+The user explicitly approved d_pigeonhole and its formula correction and authorized the next sole chapter a_arrays. Approval applies to the delivered local source; online publication is separate and currently unconfirmed. Preserve all 34 approved chapters and 1,999 questions. Write a deep English lesson, at least four genuinely reviewed university courses, a large mathematical/conceptual solved bank, concrete examination rules, and subject-specific pointer and storage animations. The a_arrays chapter stays draft until explicit approval.
+
+
+## Current delivery: arrays and linked lists, October 5, 2026
+
+The user explicitly approved d_pigeonhole. Only a_arrays was authored. It is a complete review draft awaiting explicit approval; a_stackqueue has not been started. Four primary courses from MIT, Berkeley, Oxford and Princeton plus Stanford and selected Cornell material were genuinely reviewed. The source audit bounds the candidate pool and records inaccessible CMU material without pretending it was read.
+
+The chapter contains 86 solved problems, 80 examination rules, 20 concept-specific models, 113 checkpoints and four editable laboratories. Two archive questions were checked against original PDF pages; the MS item is a labeled revisit and neither answer is represented as an official key. The mathematical audit passed 92,701 finite assertions and browser labs passed 466 independent references. All 34 preceding chapters and 1,999 questions are retained. The library totals 35 chapters and 2,085 question entries. Single-line math repairs are retained throughout the prior library.
+
+The local draft and source/quality audits are complete. Publication state must be verified separately; source pushes and a GitHub mirror are not proof of live Site deployment. Native Sites connectivity was intermittently unavailable during this turn.
+
+Publication blocker: fresh Sites write-credential requests failed twice with HTTP transport errors at chatgpt.com/backend-api/ps/mcp. The earlier token expired at 11:20:57 UTC and was not reused. The complete local draft is retained; no live deployment is claimed.

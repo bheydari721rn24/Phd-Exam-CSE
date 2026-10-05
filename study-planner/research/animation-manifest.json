@@ -1,5 +1,5 @@
 {
-  "state": "33_approved_chapters_and_one_pigeonhole_review_draft",
+  "state": "34_approved_chapters_and_one_arrays_review_draft",
   "chapters": [
     {
       "topicId": "d_logic",
@@ -1051,23 +1051,82 @@
         ]
       },
       "questionCount": 82,
-      "htmlSha256": "fecbb1e4b62ee410386e870dae8ee29debf2c685b6c7aaa27bc7a2e0bb05c85e",
-      "visualRevisionState": "awaiting_user_approval",
+      "htmlSha256": "9800fae260b5e51d5e8c9e28f99078b72234c9c2b14dc8a2f06f437ea3c15127",
+      "visualRevisionState": "student_approved",
       "renderer": "Dedicated mathematical witness SVGs and four editable exact laboratories",
       "dataUrl": "chapters/d_pigeonhole-models.json",
       "modelAuditPath": "research/d_pigeonhole-model-audit.json",
       "browserAuditPath": "research/d_pigeonhole-browser-audit.json"
+    },
+    {
+      "topicId": "a_arrays",
+      "placements": 20,
+      "scenarios": 20,
+      "sections": {
+        "access": [
+          "address"
+        ],
+        "shifts": [
+          "insert",
+          "bad-insert",
+          "delete"
+        ],
+        "growth": [
+          "resize",
+          "growth-contrast"
+        ],
+        "shrink": [
+          "quarter-shrink",
+          "half-shrink"
+        ],
+        "singly": [
+          "sll-insert-delete",
+          "tail-search"
+        ],
+        "doubly": [
+          "dll",
+          "splice"
+        ],
+        "reverse": [
+          "reverse"
+        ],
+        "cycle": [
+          "floyd",
+          "entry"
+        ],
+        "traversal": [
+          "scan-cost"
+        ],
+        "mergecompact": [
+          "merge",
+          "compact"
+        ],
+        "rotation": [
+          "rotate"
+        ],
+        "sparse": [
+          "orthogonal"
+        ]
+      },
+      "questionCount": 86,
+      "htmlSha256": "9786bae1dd3ef4177ddf067e4d42539ffb4efa37fe3fd4cbae0048f0a88f343b",
+      "visualRevisionState": "awaiting_user_approval",
+      "renderer": "Array slots, heap links, two-buffer movement, cycle cursors and orthogonal matrix adjacency; four editable exact laboratories",
+      "dataUrl": "chapters/a_arrays-models.json",
+      "modelAuditPath": "research/a_arrays-model-audit.json",
+      "browserAuditPath": "research/a_arrays-browser-audit.json"
     }
   ],
-  "uniqueScenarios": 252,
-  "checkpoints": 1421,
-  "placements": 215,
+  "uniqueScenarios": 272,
+  "checkpoints": 1534,
+  "placements": 235,
   "constructionAssertions": 4049,
-  "scope": "234 approved preceding models and 18 new pigeonhole draft models. All existing chapter bodies are preserved.",
-  "checkpointsPrint": "Earlier players retain their existing print behavior; pigeonhole prints all 78 checkpoints.",
+  "scope": "252 preceding approved scenarios and 20 new arrays/list draft models. Prior bodies are preserved.",
+  "checkpointsPrint": "The new arrays/list player prints all 113 fixed-model checkpoints plus the currently computed editable trace.",
   "visualReviewPath": "research/subject-visual-review.json",
   "legacyConstructionAssertions": 4049,
   "countingValidationAssertions": 422,
   "inclusionValidationAssertions": 1267,
-  "pigeonholeValidationAssertions": 68972
+  "pigeonholeValidationAssertions": 68972,
+  "arraysValidationAssertions": 92701
 }
