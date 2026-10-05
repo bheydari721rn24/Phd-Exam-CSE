@@ -1,0 +1,1594 @@
+[
+  {
+    "id": "DINCL_01",
+    "title": "Correct an original survey arithmetic error",
+    "stem": "A class has 32 students. Twenty-one study mathematics, fourteen are seniors, and three meet both descriptions. Count students in neither group and assess a reported answer of two.",
+    "solution": "1. The universe is the 32 students. Membership in both groups is an inclusive overlap, not an extra disjoint group.\n\n2. The union is $21+14-3=32$. Therefore its complement has $32-32=0$ members.\n\n3. An attaining atom table has eighteen math-only students, eleven senior-only students, three in both and none outside. Its total is 32.\n\n4. The answer two printed in the source example is an arithmetic error, not an alternative interpretation.\n\n**Result.** 0.",
+    "expected": "0",
+    "category": "sets",
+    "check": {
+      "kind": "atoms",
+      "atoms": [
+        0,
+        18,
+        11,
+        3
+      ],
+      "target": "none"
+    },
+    "origin": "Independent corrected reconstruction of CMU 21-301 \u00a72.5 opening example",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_02",
+    "title": "Inclusive overlaps from pair-only reports",
+    "stem": "Three subject sets have sizes 60, 200 and 40. Pair-only groups have sizes 4, 3 and 11, and the triple group has size 2. Count the union.",
+    "solution": "1. Pair-only data must be converted to inclusive intersections before using the standard union formula. The inclusive pair counts are six, five and thirteen.\n\n2. The union is $60+200+40-6-5-13+2=278$. Subtracting four, three and eleven directly would count the triple group three times.\n\n3. The single-only groups have sizes 51, 183 and 24. Add these to the pair-only and triple groups to obtain the same union count.\n\n4. Each atom is nonnegative, so the data are feasible; no outside-universe total was supplied or needed for a union.\n\n**Result.** 278.",
+    "expected": "278",
+    "category": "sets",
+    "check": {
+      "kind": "atoms",
+      "atoms": [
+        0,
+        51,
+        183,
+        4,
+        24,
+        3,
+        11,
+        2
+      ],
+      "target": "union"
+    },
+    "origin": "Independent reconstruction of MIT 6.042J \u00a714.9.2",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_03",
+    "title": "Both required decimal digits",
+    "stem": "Count positive six-digit integers that contain at least one 7 and at least one 9.",
+    "solution": "1. The universe has $9\\cdot10^5$ integers. Its first digit is nonzero, so it must not be treated as an unrestricted digit code.\n\n2. Forbidding 7 gives $8\\cdot9^5$ integers; forbidding 9 gives the same number. Forbidding both leaves $7\\cdot8^5$.\n\n3. The valid count is $9\\cdot10^5-2\\cdot8\\cdot9^5+7\\cdot8^5=184592$. The missing-digit events may overlap, so the final addition is essential.\n\n4. A digit dynamic program tracking whether 7 and 9 have appeared supplies an independent exact count.\n\n**Result.** 184592.",
+    "expected": "184592",
+    "category": "digits",
+    "check": {
+      "kind": "digits",
+      "length": 6,
+      "required": [
+        7,
+        9
+      ],
+      "positive": true
+    },
+    "origin": "Independent reconstruction of Oxford \u00a73.3 Example 3.10",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_04",
+    "title": "Two divisibility events",
+    "stem": "Among the positive integers at most 100, count those divisible by 2 or 5.",
+    "solution": "1. There are fifty multiples of two and twenty multiples of five. The universe includes 100.\n\n2. The intersection consists of multiples of $\\operatorname{lcm}(2,5)=10$, so it has ten members.\n\n3. The union count is fifty plus twenty minus ten, giving sixty. The integer 100 belongs to both sets but contributes once.\n\n4. A direct residue check across the ten blocks of length ten gives six qualifying residues in each block.\n\n**Result.** 60.",
+    "expected": "60",
+    "category": "sieve",
+    "check": {
+      "kind": "divisible",
+      "L": 1,
+      "H": 100,
+      "divisors": [
+        2,
+        5
+      ],
+      "target": "union"
+    },
+    "origin": "Independent reconstruction of Cornell \u00a74.4 Example 4.24",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "DINCL_05",
+    "title": "Repeated rank, not poker-hand strength",
+    "stem": "From a standard 52-card deck, count unordered five-card hands containing at least two cards of the same rank.",
+    "solution": "1. The universe is $\\binom{52}{5}$ unordered hands. Count the complement, whose five ranks are all distinct.\n\n2. Choose those ranks in $\\binom{13}{5}$ ways and choose one of four suits for each selected rank, giving $\\binom{13}{5}4^5$ complement hands.\n\n3. The difference is $\\binom{52}{5}-\\binom{13}{5}4^5=1281072$. These include pairs, triples, full houses and other repeated-rank patterns.\n\n4. A straight with five distinct ranks belongs to the complement, even though its poker value may exceed a pair. The predicate concerns repeated rank, not hand ranking.\n\n**Result.** 1281072.",
+    "expected": "1281072",
+    "category": "complement",
+    "check": {
+      "kind": "poker"
+    },
+    "origin": "Independent reconstruction of Cornell \u00a74.4 Example 4.27",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_06",
+    "title": "Three directed blocks with shared symbols",
+    "stem": "Permute the ten distinct digits, allowing an initial zero. Count arrangements containing at least one of the directed consecutive blocks 42, 04 and 60.",
+    "solution": "1. Each single block contracts two symbols into one, leaving $9!$ permutations. Reverse blocks do not satisfy the event.\n\n2. Any pair leaves eight contracted objects. In particular 60 and 04 concatenate to 604, and 04 with 42 concatenates to 042; the intersections are compatible.\n\n3. All three concatenate to 6042, leaving $7!$ arrangements. Inclusion-exclusion gives $3\\cdot9!-3\\cdot8!+7!=972720$.\n\n4. The shared symbols do not make the intersections empty. Their predecessor and successor requirements agree and form a path.\n\n**Result.** 972720.",
+    "expected": "972720",
+    "category": "adjacency",
+    "check": {
+      "kind": "edges",
+      "n": 10,
+      "edges": [
+        [
+          4,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "target": "union"
+    },
+    "origin": "Independent reconstruction of MIT 6.042J \u00a714.9.3",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_07",
+    "title": "Strictly below the endpoint",
+    "stem": "Count positive integers strictly less than 1000 divisible by at least one of 2, 3 and 5.",
+    "solution": "1. The endpoint is 999. Singles contribute 499, 333 and 199; pair intersections use divisors six, ten and fifteen.\n\n2. Those pair counts are 166, 99 and 66. The triple count uses thirty and is 33.\n\n3. The alternating total is $$499+333+199-166-99-66+33=733.$$ The seven terms include every specified nonempty divisor intersection.\n\n4. The complementary count is 266. Using 1000 changes the universe and includes an additional qualifying integer.\n\n**Result.** 733.",
+    "expected": "733",
+    "category": "sieve",
+    "check": {
+      "kind": "divisible",
+      "L": 1,
+      "H": 999,
+      "divisors": [
+        2,
+        3,
+        5
+      ],
+      "target": "union"
+    },
+    "origin": "Independent reconstruction of Oxford \u00a73.4 Example 3.12",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_08",
+    "title": "The dice union error",
+    "stem": "Roll three independent fair six-sided dice. Find the probability that at least one shows a specified face, and assess the claim that it equals one half.",
+    "solution": "1. Each hit event has probability $1/6$. Every specified pair has probability $1/36$, and the triple has probability $1/216$ by mutual independence.\n\n2. The union is $3/6-3/36+1/216=91/216$. One half is only the first-order upper bound.\n\n3. Alternatively all three dice miss with probability $(5/6)^3=125/216$, whose complement is $91/216$.\n\n4. The two descriptions count the same event. The independence assumption computes intersections; inclusion-exclusion itself does not require it.\n\n**Result.** 91/216.",
+    "expected": "91/216",
+    "category": "probability",
+    "check": {
+      "kind": "dice",
+      "dice": 3,
+      "faces": 6,
+      "face": 1
+    },
+    "origin": "Independent reconstruction of Berkeley EECS70 Note 14 \u00a74.3",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_09",
+    "title": "Totient from actual prime events",
+    "stem": "How many integers in the closed interval from 1 to 360 are coprime to 360?",
+    "solution": "1. The distinct prime divisors are two, three and five. An integer is coprime precisely when it avoids all three divisibility events.\n\n2. The complementary sum factors as $360(1-1/2)(1-1/3)(1-1/5)=96$. Exponents of the prime factors are already included in 360.\n\n3. Equivalently subtract the union of multiples of two, three and five from 360; all selected prime products divide 360 exactly.\n\n4. Repeating a factor for every exponent would incorrectly exclude the same event several times.\n\n**Result.** 96.",
+    "expected": "96",
+    "category": "sieve",
+    "check": {
+      "kind": "coprime",
+      "n": 360
+    },
+    "origin": "Independent numerical application of the MIT \u00a714.9.5 and CMU \u00a72.5 totient derivations",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_10",
+    "title": "Onto maps with no extra relabeling",
+    "stem": "Count functions from a five-element labeled domain onto a three-element labeled codomain.",
+    "solution": "1. Start with $3^5$ maps. Missing a specified codomain value leaves $2^5$ maps; missing a specified pair leaves one map.\n\n2. The count is $3^5-3\\cdot2^5+3\\cdot1^5=150$. Missing all three yields zero because the domain is nonempty.\n\n3. The codomain values were labeled throughout. Multiplying the result by three factorial would overcount.\n\n4. Dividing by three factorial instead gives twenty-five partitions of the five inputs into three nonempty unlabeled fibers.\n\n**Result.** 150.",
+    "expected": "150",
+    "category": "maps",
+    "check": {
+      "kind": "map",
+      "n": 5,
+      "m": 3,
+      "target": "onto"
+    },
+    "origin": "Independent numerical application of Cornell Example 4.26 and CMU \u00a72.5 surjections",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_11",
+    "title": "Exactly two properties",
+    "stem": "A universe has 100 objects. Three sets have sizes 40, 35 and 30, inclusive pair sizes 12, 10 and 9, and triple size 4. Count objects in exactly two sets.",
+    "solution": "1. First reconstruct the disjoint atoms. The single-only sizes are 22, 18 and 15; pair-only sizes are eight, six and five; the triple size is four.\n\n2. The requested multiplicities select the corresponding disjoint atoms. Equivalently use $S_2-3S_3=31-12=19$.\n\n3. The outside size is 22, and all eight atoms are nonnegative and total 100. This confirms feasibility before interpreting the count.\n\n4. An inclusive pair includes triple members, so a direct sum of reported pair counts cannot be used as an exact-two count.\n\n**Result.** 19.",
+    "expected": "19",
+    "category": "sets",
+    "check": {
+      "kind": "atoms",
+      "atoms": [
+        22,
+        22,
+        18,
+        8,
+        15,
+        6,
+        5,
+        4
+      ],
+      "target": "exact2"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_12",
+    "title": "Exactly one property",
+    "stem": "A universe has 100 objects. Three sets have sizes 40, 35 and 30, inclusive pair sizes 12, 10 and 9, and triple size 4. Count objects in exactly one set.",
+    "solution": "1. First reconstruct the disjoint atoms. The single-only sizes are 22, 18 and 15; pair-only sizes are eight, six and five; the triple size is four.\n\n2. The requested multiplicities select the corresponding disjoint atoms. Equivalently use $S_1-2S_2+3S_3=105-62+12=55$.\n\n3. The outside size is 22, and all eight atoms are nonnegative and total 100. This confirms feasibility before interpreting the count.\n\n4. An inclusive pair includes triple members, so a direct sum of reported pair counts cannot be used as an exact-two count.\n\n**Result.** 55.",
+    "expected": "55",
+    "category": "sets",
+    "check": {
+      "kind": "atoms",
+      "atoms": [
+        22,
+        22,
+        18,
+        8,
+        15,
+        6,
+        5,
+        4
+      ],
+      "target": "exact1"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_13",
+    "title": "At least two properties",
+    "stem": "A universe has 100 objects. Three sets have sizes 40, 35 and 30, inclusive pair sizes 12, 10 and 9, and triple size 4. Count objects in at least two sets.",
+    "solution": "1. First reconstruct the disjoint atoms. The single-only sizes are 22, 18 and 15; pair-only sizes are eight, six and five; the triple size is four.\n\n2. The requested multiplicities select the corresponding disjoint atoms. Equivalently use $S_2-2S_3=31-8=23$.\n\n3. The outside size is 22, and all eight atoms are nonnegative and total 100. This confirms feasibility before interpreting the count.\n\n4. An inclusive pair includes triple members, so a direct sum of reported pair counts cannot be used as an exact-two count.\n\n**Result.** 23.",
+    "expected": "23",
+    "category": "sets",
+    "check": {
+      "kind": "atoms",
+      "atoms": [
+        22,
+        22,
+        18,
+        8,
+        15,
+        6,
+        5,
+        4
+      ],
+      "target": "atleast2"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_14",
+    "title": "An exclusive triple alternative",
+    "stem": "A universe has 100 objects. Three sets have sizes 40, 35 and 30, inclusive pair sizes 12, 10 and 9, and triple size 4. Count objects in an odd number of sets.",
+    "solution": "1. First reconstruct the disjoint atoms. The single-only sizes are 22, 18 and 15; pair-only sizes are eight, six and five; the triple size is four.\n\n2. The requested multiplicities select the corresponding disjoint atoms. Equivalently use $N_1+N_3=55+4=59$.\n\n3. The outside size is 22, and all eight atoms are nonnegative and total 100. This confirms feasibility before interpreting the count.\n\n4. An inclusive pair includes triple members, so a direct sum of reported pair counts cannot be used as an exact-two count.\n\n**Result.** 59.",
+    "expected": "59",
+    "category": "sets",
+    "check": {
+      "kind": "atoms",
+      "atoms": [
+        22,
+        22,
+        18,
+        8,
+        15,
+        6,
+        5,
+        4
+      ],
+      "target": "odd"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_15",
+    "title": "A hidden inconsistency",
+    "stem": "Sets A, B and C each have size ten. Every inclusive pair intersection has size eight and the triple intersection has size one. Can these data come from finite sets?",
+    "solution": "1. The only-$A$ atom would have size $10-8-8+1=-5$. The same holds for the other single-only atoms.\n\n2. A cardinality cannot be negative. Therefore the data are impossible, even though each pair size individually is no larger than either participating set.\n\n3. The contradiction does not depend on an outside-universe size. Increasing the universe cannot repair a negative internal atom.\n\n4. The missing feasibility check is the joint overlap geometry encoded by the atom equations.\n\n**Result.** Infeasible: each single-only atom is -5.",
+    "expected": "Infeasible: each single-only atom is -5",
+    "category": "concept",
+    "check": {
+      "kind": "proof",
+      "claim": "negative_single_atom"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_16",
+    "title": "Recover an unknown triple range",
+    "stem": "Three sets have sizes 12, 11 and 10 in a universe of 25. Inclusive pair sizes are five, four and three. Determine the attainable integer range of the unspecified triple size t.",
+    "solution": "1. The pair-only atoms are $5-t,4-t,3-t$, requiring $0\\le t\\le3$. The single-only atoms are $3+t,3+t,3+t$ and remain nonnegative.\n\n2. The union is $12+11+10-5-4-3+t=21+t$, leaving $4-t$ outside. This also requires $t\\le4$.\n\n3. Combining every constraint gives t equal to zero, one, two or three. Each value is attainable by constructing the eight disjoint atoms.\n\n4. The data do not determine a unique union: its size can range from 21 through 24.\n\n**Result.** 0 <= t <= 3, integer.",
+    "expected": "0 <= t <= 3, integer",
+    "category": "concept",
+    "check": {
+      "kind": "proof",
+      "claim": "triple_range"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_17",
+    "title": "An attainable minimum outside",
+    "stem": "In a universe of 50, three sets have sizes 24, 18 and 12, with exactly three objects in all three. Find the minimum possible number outside the union.",
+    "solution": "1. Total memberships are 54. Every triple member creates two duplicate memberships, forcing six duplications in total.\n\n2. The union can contain at most 48 objects, so at least two are outside. Additional pair-only atoms would reduce the union further.\n\n3. The bound is attained with single-only groups of sizes 21, 15 and nine, three triple members, and two outside. Every marginal is correct.\n\n4. The construction is necessary: a lower bound without an arrangement attaining it would not establish the exact minimum.\n\n**Result.** 2.",
+    "expected": "2",
+    "category": "sets",
+    "check": {
+      "kind": "atoms",
+      "atoms": [
+        2,
+        21,
+        15,
+        0,
+        9,
+        0,
+        0,
+        3
+      ],
+      "target": "none"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_18",
+    "title": "Invert four-event aggregate data",
+    "stem": "Four events on 50 objects have intersection sums S1 = 70, S2 = 40, S3 = 10, S4 = 1. Find the counts N0 through N4 for exactly each membership multiplicity.",
+    "solution": "1. Use the triangular system from the largest index: $N_4=1$, $N_3=10-4=6$, and $N_2=40-3\\cdot6-6=16$.\n\n2. Then $N_1=70-2\\cdot16-3\\cdot6-4=16$ and $N_0=50-16-16-6-1=11$.\n\n3. The vector is nonnegative and totals fifty. Objects of each multiplicity can be assigned to arbitrary masks of that size, establishing aggregate feasibility.\n\n4. These aggregate counts do not prescribe individual intersection sizes. In particular S2 is a sum of six inclusive pair counts, not the exact-two count.\n\n**Result.** [11, 16, 16, 6, 1].",
+    "expected": "[11, 16, 16, 6, 1]",
+    "category": "inverse",
+    "check": {
+      "kind": "inverse",
+      "S": [
+        50,
+        70,
+        40,
+        10,
+        1
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_19",
+    "title": "A symmetric difference is not a union",
+    "stem": "A and B have sizes 30 and 25, with ten objects in both. Count objects in exactly one of the two sets.",
+    "solution": "1. The two disjoint single-only groups have sizes twenty and fifteen.\n\n2. The symmetric difference has $|A|+|B|-2|A\\cap B|=30+25-20=35$ objects.\n\n3. Subtracting the overlap only once yields the union size 45, which still contains the ten shared objects.\n\n4. The correct coefficient of each shared object is two minus two, so it disappears from the exact-one event.\n\n**Result.** 35.",
+    "expected": "35",
+    "category": "sets",
+    "check": {
+      "kind": "atoms",
+      "atoms": [
+        0,
+        20,
+        15,
+        10
+      ],
+      "target": "exact1"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_20",
+    "title": "Equal margins, different triple overlap",
+    "stem": "Construct two three-event systems with marginal probabilities one half and pair intersections one quarter, but different triple intersections.",
+    "solution": "1. For three mutually independent fair bits, the all-one outcome has probability one eighth.\n\n2. For independent fair bits X and Y, let Z be their exclusive-or. The four equally likely triples are 000, 011, 101 and 110. Each bit is fair and each pair is independent.\n\n3. In the second system 111 is absent, so the triple intersection has probability zero. Pairwise data therefore do not determine the triple.\n\n4. The probability of the union is seven eighths in the first system and three quarters in the second, despite matching singles and pairs.\n\n**Result.** Triple 1/8 versus 0; union 7/8 versus 3/4.",
+    "expected": "Triple 1/8 versus 0; union 7/8 versus 3/4",
+    "category": "concept",
+    "check": {
+      "kind": "proof",
+      "claim": "pairwise_not_mutual"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_21",
+    "title": "Eight-label derangements",
+    "stem": "Count permutations of eight distinct labels with no fixed points.",
+    "solution": "1. For a specified j fixed positions, the intersection has $(8-j)!$ completions. Group these by j using $\\binom8j$.\n\n2. The count is $\\sum_{j=0}^8(-1)^j\\binom8j(8-j)!=14833$. All eight positions are restricted.\n\n3. The recurrence gives $D_8=7(D_7+D_6)=7(1854+265)=14833$. This is independent of direct evaluation of the alternating formula.\n\n4. The full permutation universe has 40320 outcomes, so the count is within range and is not exactly 40320 divided by e.\n\n**Result.** 14833.",
+    "expected": "14833",
+    "category": "permutation",
+    "check": {
+      "kind": "permutation",
+      "n": 8,
+      "target": "fixed",
+      "r": 0
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_22",
+    "title": "Exactly three fixed positions",
+    "stem": "Count permutations of eight labels with exactly three fixed points, whose locations are not specified.",
+    "solution": "1. Choose the three fixed positions in $\\binom83=56$ ways. Each such choice forces the corresponding three labels.\n\n2. The remaining five positions must contain a derangement on their own labels, otherwise the permutation has additional fixed points.\n\n3. There are $56D_5=56\\cdot44=2464$ permutations. Using $5!$ instead counts at least the selected three positions as fixed.\n\n4. Each qualifying permutation has one unique set of fixed positions, so the choice stage introduces no duplicate representation.\n\n**Result.** 2464.",
+    "expected": "2464",
+    "category": "permutation",
+    "check": {
+      "kind": "permutation",
+      "n": 8,
+      "target": "fixed",
+      "r": 3
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_23",
+    "title": "Restrict only the named positions",
+    "stem": "For a seven-label permutation, require that positions one, two and three are not fixed; other positions are unrestricted.",
+    "solution": "1. There are three forbidden-fixed events, not seven. A specified j-event intersection leaves seven minus j freely permuted labels.\n\n2. The count is $7!-3\\cdot6!+3\\cdot5!-4!=3216$.\n\n3. The count exceeds D7, because fixed points outside the first three positions are allowed.\n\n4. Changing the event family to all seven positions would solve a stricter question.\n\n**Result.** 3216.",
+    "expected": "3216",
+    "category": "permutation",
+    "check": {
+      "kind": "permutation",
+      "n": 7,
+      "target": "partial",
+      "q": 3
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_24",
+    "title": "Forced and forbidden fixed positions",
+    "stem": "A permutation of seven labels must fix position seven and must not fix positions one, two or three. Count the permutations.",
+    "solution": "1. First remove the forced position and its symbol. There are six remaining labels and three specified forbidden-fixed positions.\n\n2. The count is $6!-3\\cdot5!+3\\cdot4!-3!=426$.\n\n3. The two sets of positional conditions are disjoint. If position seven also appeared in the forbidden list, the count would be zero.\n\n4. The required-fixed position is specified, so there is no factor choosing which position remains fixed.\n\n**Result.** 426.",
+    "expected": "426",
+    "category": "permutation",
+    "check": {
+      "kind": "permutation",
+      "n": 7,
+      "target": "forcedpartial",
+      "forced": [
+        6
+      ],
+      "forbidden": [
+        0,
+        1,
+        2
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_25",
+    "title": "A specified two-cycle inside a derangement",
+    "stem": "Count derangements of seven labels satisfying pi(1) = 2 and pi(2) = 1.",
+    "solution": "1. The named labels form a forced two-cycle. Their positions and symbols can be removed together.\n\n2. All remaining five labels must still avoid their own positions. There are D5 = 44 completions.\n\n3. No factor of six is present because the partner of label one was specified as label two.\n\n4. Replacing the derangement remainder by five factorial would permit forbidden fixed points among labels three through seven.\n\n**Result.** 44.",
+    "expected": "44",
+    "category": "permutation",
+    "check": {
+      "kind": "permutation",
+      "n": 7,
+      "target": "two_cycle",
+      "a": 0,
+      "b": 1
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_26",
+    "title": "The non-two-cycle branch",
+    "stem": "Count derangements of seven labels with pi(1) = 2 but pi(2) not equal to 1.",
+    "solution": "1. Remove label one from its directed cycle by joining its predecessor directly to label two. Since the predecessor is not two, this creates no fixed point.\n\n2. The operation gives a derangement of the remaining six labels. Conversely insert one into the unique arrow entering two.\n\n3. This bijection gives D6 = 265 outcomes. The two-cycle branch gives D5 separately, so for the fixed partner two there are D6 + D5 total.\n\n4. The bijection explains the recurrence rather than merely reusing its numerical output.\n\n**Result.** 265.",
+    "expected": "265",
+    "category": "permutation",
+    "check": {
+      "kind": "permutation",
+      "n": 7,
+      "target": "not_two_cycle",
+      "a": 0,
+      "b": 1
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_27",
+    "title": "Exclude every two-cycle",
+    "stem": "How many permutations of six labels contain no two-cycle? Fixed points are allowed.",
+    "solution": "1. A bad event fixes a particular unordered pair as a two-cycle. Two such events intersect only if their pairs are disjoint.\n\n2. The number of j disjoint unordered pairs is $6!/(2^j j!(6-2j)!)$, with $(6-2j)!$ unrestricted completions.\n\n3. The count is $6!\\sum_{j=0}^3(-1)^j/(2^j j!)=720-360+90-15=435$.\n\n4. This is not the derangement count: a fixed point is permitted and a cycle of length three or more is also permitted.\n\n**Result.** 435.",
+    "expected": "435",
+    "category": "permutation",
+    "check": {
+      "kind": "permutation",
+      "n": 6,
+      "target": "no_two_cycles"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_28",
+    "title": "Specified fixed set versus fixed count",
+    "stem": "In an eight-label permutation, exactly positions one and two must be fixed. Count the outcomes.",
+    "solution": "1. The fixed set is specified, so no binomial choice is required.\n\n2. All remaining six positions must avoid their own labels, giving D6 = 265 outcomes.\n\n3. If the question instead asked for exactly two fixed positions anywhere, the count would be the result multiplied by twenty-eight.\n\n4. If it asked merely to fix positions one and two without the word exactly, the count would instead be six factorial.\n\n**Result.** 265.",
+    "expected": "265",
+    "category": "permutation",
+    "check": {
+      "kind": "permutation",
+      "n": 8,
+      "target": "specified_fixed",
+      "positions": [
+        0,
+        1
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_29",
+    "title": "Impossible fixed-point multiplicity",
+    "stem": "Can a permutation of nine labels have exactly eight fixed points? Prove the answer.",
+    "solution": "1. If eight positions contain their own distinct labels, the unused label is the label of the remaining position.\n\n2. The final position is forced to contain that label and is therefore fixed too. A permutation cannot have exactly n minus one fixed points.\n\n3. The exact-count formula agrees: $\\binom98D_1=9\\cdot0=0$.\n\n4. The obstruction is bijectivity, not a lack of arrangements of eight chosen positions.\n\n**Result.** 0.",
+    "expected": "0",
+    "category": "permutation",
+    "check": {
+      "kind": "permutation",
+      "n": 9,
+      "target": "fixed",
+      "r": 8
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_30",
+    "title": "The empty permutation exception",
+    "stem": "Evaluate D0 and determine whether nearest-integer rounding of 0!/e gives it.",
+    "solution": "1. There is one empty permutation, and no position violates a fixed-point restriction. Thus D0 = 1.\n\n2. The nearest integer to one divided by e is zero. The nearest-integer rule therefore does not hold at n equal to zero.\n\n3. For $n\\ge1$ the alternating-series error is strictly less than $1/(n+1)\\le1/2$, making the nearest integer unique.\n\n4. This is a boundary-domain exception, not a contradiction of the exact finite alternating sum.\n\n**Result.** D0 = 1; rounding gives 0.",
+    "expected": "D0 = 1; rounding gives 0",
+    "category": "concept",
+    "check": {
+      "kind": "proof",
+      "claim": "empty_derangement"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_31",
+    "title": "Map predicate: onto",
+    "stem": "Count functions from a 6-element labeled set to a 4-element labeled set onto all four codomain labels.",
+    "solution": "1. The universe distinguishes every input and output label. All missing-label intersections have the same size for a fixed order.\n\n2. The corresponding exact expression is $O(6,4)=\\sum_j(-1)^j\\binom{4}j(4-j)^{6}$. This formulation preserves whether missing labels are specified and whether other labels must occur.\n\n3. Exact evaluation gives 1560. A multinomial occupancy sum over qualifying fiber sizes is an independent check.\n\n4. No output-label factorial is introduced after this calculation; the labels are already part of each function.\n\n**Result.** 1560.",
+    "expected": "1560",
+    "category": "maps",
+    "check": {
+      "kind": "map",
+      "n": 6,
+      "m": 4,
+      "target": "onto",
+      "q": null
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_32",
+    "title": "Map predicate: required",
+    "stem": "Count functions from a 7-element labeled set to a 4-element labeled set with each of two specified codomain labels present, while the other labels are optional.",
+    "solution": "1. The universe distinguishes every input and output label. Only the required labels define bad events; optional labels remain available in every surviving alphabet.\n\n2. The corresponding exact expression is $\\sum_{j=0}^{2}(-1)^j\\binom{2}j(4-j)^{7}$. This formulation preserves whether missing labels are specified and whether other labels must occur.\n\n3. Exact evaluation gives 12138. A multinomial occupancy sum over qualifying fiber sizes is an independent check.\n\n4. No output-label factorial is introduced after this calculation; the labels are already part of each function.\n\n**Result.** 12138.",
+    "expected": "12138",
+    "category": "maps",
+    "check": {
+      "kind": "map",
+      "n": 7,
+      "m": 4,
+      "target": "required",
+      "q": 2
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_33",
+    "title": "Map predicate: image",
+    "stem": "Count functions from a 6-element labeled set to a 5-element labeled set with image size exactly three.",
+    "solution": "1. The universe distinguishes every input and output label. Choose the actual image set once, then require an onto map to that set.\n\n2. The corresponding exact expression is $\\binom{5}{3}O(6,3)$. This formulation preserves whether missing labels are specified and whether other labels must occur.\n\n3. Exact evaluation gives 5400. A multinomial occupancy sum over qualifying fiber sizes is an independent check.\n\n4. No output-label factorial is introduced after this calculation; the labels are already part of each function.\n\n**Result.** 5400.",
+    "expected": "5400",
+    "category": "maps",
+    "check": {
+      "kind": "map",
+      "n": 6,
+      "m": 5,
+      "target": "image",
+      "q": 3
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_34",
+    "title": "Map predicate: missing",
+    "stem": "Count functions from a 7-element labeled set to a 5-element labeled set missing exactly two unspecified codomain labels.",
+    "solution": "1. The universe distinguishes every input and output label. Choose the missing set, then require every nonmissing output label to appear.\n\n2. The corresponding exact expression is $\\binom{5}{2}O(7,3)$. This formulation preserves whether missing labels are specified and whether other labels must occur.\n\n3. Exact evaluation gives 18060. A multinomial occupancy sum over qualifying fiber sizes is an independent check.\n\n4. No output-label factorial is introduced after this calculation; the labels are already part of each function.\n\n**Result.** 18060.",
+    "expected": "18060",
+    "category": "maps",
+    "check": {
+      "kind": "map",
+      "n": 7,
+      "m": 5,
+      "target": "missing",
+      "q": 2
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_35",
+    "title": "Map predicate: specified_missing",
+    "stem": "Count functions from a 6-element labeled set to a 4-element labeled set missing two specified codomain labels, with any additional omissions permitted.",
+    "solution": "1. The universe distinguishes every input and output label. The two prohibited labels are simply deleted from each input alphabet; no onto condition remains.\n\n2. The corresponding exact expression is $(4-2)^{6}$. This formulation preserves whether missing labels are specified and whether other labels must occur.\n\n3. Exact evaluation gives 64. A multinomial occupancy sum over qualifying fiber sizes is an independent check.\n\n4. No output-label factorial is introduced after this calculation; the labels are already part of each function.\n\n**Result.** 64.",
+    "expected": "64",
+    "category": "maps",
+    "check": {
+      "kind": "map",
+      "n": 6,
+      "m": 4,
+      "target": "specified_missing",
+      "q": 2
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_36",
+    "title": "Unlabeled nonempty blocks",
+    "stem": "Partition six labeled elements into three nonempty unlabeled blocks. Count partitions.",
+    "solution": "1. Map the elements onto three labeled outputs, producing a nonempty fiber partition with named blocks.\n\n2. The onto count is $3^6-3\\cdot2^6+3=540$. Every unlabeled partition has exactly $3!=6$ block labelings.\n\n3. Dividing by six gives ninety partitions. Equal-sized blocks do not change this factor because the blocks contain different labeled elements.\n\n4. The Stirling recurrence independently gives S(6,3) = 90.\n\n**Result.** 90.",
+    "expected": "90",
+    "category": "maps",
+    "check": {
+      "kind": "partition",
+      "n": 6,
+      "m": 3
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_37",
+    "title": "Every box receives at least two labeled balls",
+    "stem": "Distribute six distinct balls among three labeled boxes, requiring at least two balls per box.",
+    "solution": "1. The total forces occupancy exactly two in each box. This is not a weak-composition problem with unit weight per occupancy.\n\n2. The count is the multinomial $6!/(2!2!2!)=90$. Choose the first pair, then the second pair, and the last pair is forced.\n\n3. The boxes are labeled; dividing by three factorial would answer a different partition question.\n\n4. Simple missing-box inclusion-exclusion only enforces at least one ball per box and would not impose the stated lower bound of two.\n\n**Result.** 90.",
+    "expected": "90",
+    "category": "maps",
+    "check": {
+      "kind": "map",
+      "n": 6,
+      "m": 3,
+      "target": "minoccupancy",
+      "q": 2
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_38",
+    "title": "Image size after a forced equality",
+    "stem": "Count onto maps from six inputs to three labeled outputs if the first two inputs must have equal images.",
+    "solution": "1. Contract the two equal-image inputs into one labeled choice unit. The remaining four inputs form four other units.\n\n2. The equality changes six independent choices to five, while the onto condition still requires all three outputs.\n\n3. The count is $O(5,3)=3^5-3\\cdot2^5+3=150$. There is no separate factor choosing the common image: that choice is already one of the five map decisions.\n\n4. Enumeration of five-unit maps and expansion of the contracted unit gives a bijection.\n\n**Result.** 150.",
+    "expected": "150",
+    "category": "maps",
+    "check": {
+      "kind": "map",
+      "n": 6,
+      "m": 3,
+      "target": "equalonto"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_39",
+    "title": "Empty domain and empty output set",
+    "stem": "Give the onto counts for size pairs (0,0), (0,3) and (3,0). Explain the zero-power convention.",
+    "solution": "1. The empty domain has one function into any set, but that function is onto only when the codomain is empty.\n\n2. A nonempty domain has no function to the empty codomain, because even one input would need an output value.\n\n3. The counts are one, zero and zero respectively. In the finite sum, zero to the zero power is interpreted as one to count the empty function.\n\n4. This is a combinatorial convention for a discrete count, not a limit of a real-valued expression.\n\n**Result.** [1, 0, 0].",
+    "expected": "[1, 0, 0]",
+    "category": "concept",
+    "check": {
+      "kind": "proof",
+      "claim": "empty_maps"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_40",
+    "title": "Subset-required outputs versus exact image",
+    "stem": "A seven-input map to four outputs must contain output labels one and two. Is its count the same as the count of maps with image exactly {1,2}? Give both counts.",
+    "solution": "1. Requiring labels one and two but allowing three and four gives $4^7-2\\cdot3^7+2^7=12138$.\n\n2. Requiring the image to equal the specified pair removes outputs three and four and requires both remaining labels, giving $2^7-2=126$.\n\n3. The first predicate allows image size two, three or four; the second fixes both the size and the actual labels.\n\n4. There is no factor choosing the pair in either expression because the pair was specified.\n\n**Result.** 12138 versus 126.",
+    "expected": "12138 versus 126",
+    "category": "concept",
+    "check": {
+      "kind": "proof",
+      "claim": "required_vs_exact"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_41",
+    "title": "Bounded occupancy: 3,3,3,3",
+    "stem": "Count nonnegative integer vectors of sum 8 in 4 labeled coordinates with respective upper caps 3, 3, 3, 3.",
+    "solution": "1. The objects are occupancy vectors of identical tokens. The first forbidden coordinate values are [4, 4, 4, 4], one above each allowed cap.\n\n2. For a specified violating subset I, subtract its threshold sum. The residual unrestricted count is $H_m(T-\\sum_{i\\in I}(c_i+1))$, with zero for a negative residual.\n\n3. Add these residual counts with subset-parity signs. Exact evaluation gives 31; unequal caps are retained separately rather than replaced by an average.\n\n4. The coefficient of the same total in the product of finite coordinate polynomials independently checks every allowed vector.\n\n**Result.** 31.",
+    "expected": "31",
+    "category": "caps",
+    "check": {
+      "kind": "caps",
+      "total": 8,
+      "caps": [
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_42",
+    "title": "Bounded occupancy: 1,2,4,5",
+    "stem": "Count nonnegative integer vectors of sum 7 in 4 labeled coordinates with respective upper caps 1, 2, 4, 5.",
+    "solution": "1. The objects are occupancy vectors of identical tokens. The first forbidden coordinate values are [2, 3, 5, 6], one above each allowed cap.\n\n2. For a specified violating subset I, subtract its threshold sum. The residual unrestricted count is $H_m(T-\\sum_{i\\in I}(c_i+1))$, with zero for a negative residual.\n\n3. Add these residual counts with subset-parity signs. Exact evaluation gives 26; unequal caps are retained separately rather than replaced by an average.\n\n4. The coefficient of the same total in the product of finite coordinate polynomials independently checks every allowed vector.\n\n**Result.** 26.",
+    "expected": "26",
+    "category": "caps",
+    "check": {
+      "kind": "caps",
+      "total": 7,
+      "caps": [
+        1,
+        2,
+        4,
+        5
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_43",
+    "title": "Bounded occupancy: 0,2,3,5",
+    "stem": "Count nonnegative integer vectors of sum 5 in 4 labeled coordinates with respective upper caps 0, 2, 3, 5.",
+    "solution": "1. The objects are occupancy vectors of identical tokens. The first forbidden coordinate values are [1, 3, 4, 6], one above each allowed cap.\n\n2. For a specified violating subset I, subtract its threshold sum. The residual unrestricted count is $H_m(T-\\sum_{i\\in I}(c_i+1))$, with zero for a negative residual.\n\n3. Add these residual counts with subset-parity signs. Exact evaluation gives 12; unequal caps are retained separately rather than replaced by an average.\n\n4. The coefficient of the same total in the product of finite coordinate polynomials independently checks every allowed vector.\n\n**Result.** 12.",
+    "expected": "12",
+    "category": "caps",
+    "check": {
+      "kind": "caps",
+      "total": 5,
+      "caps": [
+        0,
+        2,
+        3,
+        5
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_44",
+    "title": "Bounded occupancy: 2,3,4,5",
+    "stem": "Count nonnegative integer vectors of sum 10 in 4 labeled coordinates with respective upper caps 2, 3, 4, 5.",
+    "solution": "1. The objects are occupancy vectors of identical tokens. The first forbidden coordinate values are [3, 4, 5, 6], one above each allowed cap.\n\n2. For a specified violating subset I, subtract its threshold sum. The residual unrestricted count is $H_m(T-\\sum_{i\\in I}(c_i+1))$, with zero for a negative residual.\n\n3. Add these residual counts with subset-parity signs. Exact evaluation gives 30; unequal caps are retained separately rather than replaced by an average.\n\n4. The coefficient of the same total in the product of finite coordinate polynomials independently checks every allowed vector.\n\n**Result.** 30.",
+    "expected": "30",
+    "category": "caps",
+    "check": {
+      "kind": "caps",
+      "total": 10,
+      "caps": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_45",
+    "title": "Bounded occupancy: 4,4,4",
+    "stem": "Count nonnegative integer vectors of sum 9 in 3 labeled coordinates with respective upper caps 4, 4, 4.",
+    "solution": "1. The objects are occupancy vectors of identical tokens. The first forbidden coordinate values are [5, 5, 5], one above each allowed cap.\n\n2. For a specified violating subset I, subtract its threshold sum. The residual unrestricted count is $H_m(T-\\sum_{i\\in I}(c_i+1))$, with zero for a negative residual.\n\n3. Add these residual counts with subset-parity signs. Exact evaluation gives 10; unequal caps are retained separately rather than replaced by an average.\n\n4. The coefficient of the same total in the product of finite coordinate polynomials independently checks every allowed vector.\n\n**Result.** 10.",
+    "expected": "10",
+    "category": "caps",
+    "check": {
+      "kind": "caps",
+      "total": 9,
+      "caps": [
+        4,
+        4,
+        4
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_46",
+    "title": "Bounded occupancy: 2,2,2",
+    "stem": "Count nonnegative integer vectors of sum 0 in 3 labeled coordinates with respective upper caps 2, 2, 2.",
+    "solution": "1. The objects are occupancy vectors of identical tokens. The first forbidden coordinate values are [3, 3, 3], one above each allowed cap.\n\n2. For a specified violating subset I, subtract its threshold sum. The residual unrestricted count is $H_m(T-\\sum_{i\\in I}(c_i+1))$, with zero for a negative residual.\n\n3. Add these residual counts with subset-parity signs. Exact evaluation gives 1; unequal caps are retained separately rather than replaced by an average.\n\n4. The coefficient of the same total in the product of finite coordinate polynomials independently checks every allowed vector.\n\n**Result.** 1.",
+    "expected": "1",
+    "category": "caps",
+    "check": {
+      "kind": "caps",
+      "total": 0,
+      "caps": [
+        2,
+        2,
+        2
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_47",
+    "title": "Lower bounds before upper violations",
+    "stem": "Count integer triples of sum eight satisfying 0 <= x1 <= 2, 1 <= x2 <= 4 and 2 <= x3 <= 6.",
+    "solution": "1. Subtract lower bounds zero, one and two. The new total is five and the residual caps are two, three and four.\n\n2. The unrestricted count is $H_3(5)=21$. The single violations leave totals two, one and zero, contributing six, three and one.\n\n3. No pair of threshold violations is feasible, so the result is 21 \u2212 6 \u2212 3 \u2212 1 = 11.\n\n4. Using original upper bounds as residual caps would ignore tokens already committed to satisfy the lower bounds.\n\n**Result.** 11.",
+    "expected": "11",
+    "category": "caps",
+    "check": {
+      "kind": "caps",
+      "total": 5,
+      "caps": [
+        2,
+        3,
+        4
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_48",
+    "title": "A code may start with zero",
+    "stem": "Count length-six decimal codes containing at least one 7 and at least one 9. Compare the model to positive six-digit integers.",
+    "solution": "1. All six positions allow ten digits, so the universe has $10^6$ codes. Missing either specified digit leaves $9^6$ codes, and missing both leaves $8^6$.\n\n2. The count is $10^6-2\\cdot9^6+8^6=199262$.\n\n3. This exceeds the positive-integer count 184592 because valid codes beginning with zero are included.\n\n4. The difference is exactly the count of length-five unrestricted suffixes containing both required digits.\n\n**Result.** 199262.",
+    "expected": "199262",
+    "category": "digits",
+    "check": {
+      "kind": "digits",
+      "length": 6,
+      "required": [
+        7,
+        9
+      ],
+      "positive": false
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_49",
+    "title": "Three required nonzero decimal symbols",
+    "stem": "Count positive five-digit integers containing each of digits one, two and three at least once.",
+    "solution": "1. For a specified omitted set of j required nonzero digits, the first position has nine minus j choices and later positions have ten minus j choices.\n\n2. The count is $\\sum_{j=0}^3(-1)^j\\binom3j(9-j)(10-j)^4$. The first-digit factor is not ten minus j.\n\n3. Exact evaluation gives 4146. The subset-sign sum excludes every missing-required-symbol event while allowing repeated symbols.\n\n4. A position-by-position mask dynamic program verifies the result without using the same alternating expression.\n\n**Result.** 4146.",
+    "expected": "4146",
+    "category": "digits",
+    "check": {
+      "kind": "digits",
+      "length": 5,
+      "required": [
+        1,
+        2,
+        3
+      ],
+      "positive": true
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_50",
+    "title": "Unequal alphabets by position",
+    "stem": "A four-position word has alphabets {A,B}, {A,B,C}, {B,C}, {A,C}. Count words containing each of A, B and C.",
+    "solution": "1. The universe has two times three times two times two = 24 words. Required symbols define missing-symbol events.\n\n2. Missing A leaves one times two times two times one = four words; missing B leaves one times two times one times two = four; missing C leaves two times two times one times one = four.\n\n3. Every two-symbol missing intersection is empty because at least one position then has no allowed symbol. Therefore the result is 24 \u2212 4 \u2212 4 \u2212 4 = 12.\n\n4. A single alphabet-size power cannot express these intersections because the position alphabets differ.\n\n**Result.** 12.",
+    "expected": "12",
+    "category": "digits",
+    "check": {
+      "kind": "alphabets",
+      "sets": [
+        "AB",
+        "ABC",
+        "BC",
+        "AC"
+      ],
+      "required": "ABC"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_51",
+    "title": "Integer interval: union",
+    "stem": "In the closed integer interval [1,200], count values for which divisibility by 4, 6 holds at least once.",
+    "solution": "1. For every specified divisor subset, use its least common multiple d. The inclusive intersection count is $\\lfloor H/d\\rfloor-\\lfloor(L-1)/d\\rfloor$.\n\n2. Aggregate these intersection counts by order, then apply the union multiplicity formula. Repeated prime factors are not multiplied twice.\n\n3. The exact count is 67. Direct testing of the listed integer interval verifies the divisor predicate independently.\n\n4. The interval is closed. When negative values or zero are present, mathematical floors remain valid, and zero satisfies every divisibility event.\n\n**Result.** 67.",
+    "expected": "67",
+    "category": "sieve",
+    "check": {
+      "kind": "divisible",
+      "L": 1,
+      "H": 200,
+      "divisors": [
+        4,
+        6
+      ],
+      "target": "union"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_52",
+    "title": "Integer interval: none",
+    "stem": "In the closed integer interval [101,500], count values for which divisibility by 6, 10, 15 holds for none of the divisors.",
+    "solution": "1. For every specified divisor subset, use its least common multiple d. The inclusive intersection count is $\\lfloor H/d\\rfloor-\\lfloor(L-1)/d\\rfloor$.\n\n2. Aggregate these intersection counts by order, then apply the none multiplicity formula. Repeated prime factors are not multiplied twice.\n\n3. The exact count is 292. Direct testing of the listed integer interval verifies the divisor predicate independently.\n\n4. The interval is closed. When negative values or zero are present, mathematical floors remain valid, and zero satisfies every divisibility event.\n\n**Result.** 292.",
+    "expected": "292",
+    "category": "sieve",
+    "check": {
+      "kind": "divisible",
+      "L": 101,
+      "H": 500,
+      "divisors": [
+        6,
+        10,
+        15
+      ],
+      "target": "none"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_53",
+    "title": "Integer interval: exact1",
+    "stem": "In the closed integer interval [1,300], count values for which divisibility by 4, 6, 9 holds for exactly one divisor.",
+    "solution": "1. For every specified divisor subset, use its least common multiple d. The inclusive intersection count is $\\lfloor H/d\\rfloor-\\lfloor(L-1)/d\\rfloor$.\n\n2. Aggregate these intersection counts by order, then apply the exact1 multiplicity formula. Repeated prime factors are not multiplied twice.\n\n3. The exact count is 84. Direct testing of the listed integer interval verifies the divisor predicate independently.\n\n4. The interval is closed. When negative values or zero are present, mathematical floors remain valid, and zero satisfies every divisibility event.\n\n**Result.** 84.",
+    "expected": "84",
+    "category": "sieve",
+    "check": {
+      "kind": "divisible",
+      "L": 1,
+      "H": 300,
+      "divisors": [
+        4,
+        6,
+        9
+      ],
+      "target": "exact1"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_54",
+    "title": "Integer interval: atleast2",
+    "stem": "In the closed integer interval [1,300], count values for which divisibility by 4, 6, 9 holds for at least two divisors.",
+    "solution": "1. For every specified divisor subset, use its least common multiple d. The inclusive intersection count is $\\lfloor H/d\\rfloor-\\lfloor(L-1)/d\\rfloor$.\n\n2. Aggregate these intersection counts by order, then apply the atleast2 multiplicity formula. Repeated prime factors are not multiplied twice.\n\n3. The exact count is 33. Direct testing of the listed integer interval verifies the divisor predicate independently.\n\n4. The interval is closed. When negative values or zero are present, mathematical floors remain valid, and zero satisfies every divisibility event.\n\n**Result.** 33.",
+    "expected": "33",
+    "category": "sieve",
+    "check": {
+      "kind": "divisible",
+      "L": 1,
+      "H": 300,
+      "divisors": [
+        4,
+        6,
+        9
+      ],
+      "target": "atleast2"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_55",
+    "title": "Integer interval: union",
+    "stem": "In the closed integer interval [-30,30], count values for which divisibility by 4, 6 holds at least once.",
+    "solution": "1. For every specified divisor subset, use its least common multiple d. The inclusive intersection count is $\\lfloor H/d\\rfloor-\\lfloor(L-1)/d\\rfloor$.\n\n2. Aggregate these intersection counts by order, then apply the union multiplicity formula. Repeated prime factors are not multiplied twice.\n\n3. The exact count is 21. Direct testing of the listed integer interval verifies the divisor predicate independently.\n\n4. The interval is closed. When negative values or zero are present, mathematical floors remain valid, and zero satisfies every divisibility event.\n\n**Result.** 21.",
+    "expected": "21",
+    "category": "sieve",
+    "check": {
+      "kind": "divisible",
+      "L": -30,
+      "H": 30,
+      "divisors": [
+        4,
+        6
+      ],
+      "target": "union"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_56",
+    "title": "Compatible congruences",
+    "stem": "Count integers from one through one hundred satisfying x congruent to one modulo four and x congruent to three modulo six.",
+    "solution": "1. The residues agree modulo gcd(4,6) = 2, so the intersection is feasible.\n\n2. The merged class is x congruent to nine modulo twelve: its members in the stated interval are 9, 21, 33, 45, 57, 69, 81 and 93.\n\n3. The count is eight. Multiplying moduli to get 24 would miss half the solutions.\n\n4. The intersection consists of one class modulo the least common multiple, not necessarily modulo the product.\n\n**Result.** 8.",
+    "expected": "8",
+    "category": "sieve",
+    "check": {
+      "kind": "congruence",
+      "L": 1,
+      "H": 100,
+      "residues": [
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_57",
+    "title": "Incompatible congruences",
+    "stem": "Count integers from one through one hundred satisfying x congruent to zero modulo four and x congruent to one modulo six.",
+    "solution": "1. The first condition makes x even, while the second condition makes x odd.\n\n2. Equivalently the two residues disagree modulo gcd(4,6) = 2. The intersection is empty before considering the interval.\n\n3. The answer is zero. A floor count using any guessed common modulus would not repair incompatible residues.\n\n4. In a union question, this incompatibility would set the intersection term to zero rather than eliminate either single event.\n\n**Result.** 0.",
+    "expected": "0",
+    "category": "sieve",
+    "check": {
+      "kind": "congruence",
+      "L": 1,
+      "H": 100,
+      "residues": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_58",
+    "title": "A modular union",
+    "stem": "Count integers in [1,120] congruent to one modulo four or three modulo six.",
+    "solution": "1. The first residue class has thirty members and the second has twenty.\n\n2. Their compatible intersection is the class nine modulo twelve, which has ten members.\n\n3. Inclusion-exclusion gives thirty plus twenty minus ten = forty. Inclusive or retains common values once.\n\n4. The residues, not just the moduli, determine whether the intersection exists.\n\n**Result.** 40.",
+    "expected": "40",
+    "category": "sieve",
+    "check": {
+      "kind": "congruenceunion",
+      "L": 1,
+      "H": 120,
+      "residues": [
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_59",
+    "title": "A non-squarefree totient",
+    "stem": "Evaluate the number of positive integers at most 864 that are coprime to 864.",
+    "solution": "1. The prime factorization is $2^5 3^3$. Only the two distinct primes generate bad divisibility events.\n\n2. The count is $864(1-1/2)(1-1/3)=288$. Alternatively subtract multiples of two and three and add multiples of six.\n\n3. The exponents influence the universe size 864 but do not repeat the factors in the product.\n\n4. Direct gcd evaluation across the closed interval provides an independent check.\n\n**Result.** 288.",
+    "expected": "288",
+    "category": "sieve",
+    "check": {
+      "kind": "coprime",
+      "n": 864
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_60",
+    "title": "A strict endpoint changes a residue count",
+    "stem": "Count positive integers strictly below sixty divisible by four or six.",
+    "solution": "1. The effective upper endpoint is 59. Singles have fourteen and nine members; the intersection has four multiples of twelve.\n\n2. The union has fourteen plus nine minus four = nineteen members.\n\n3. Including sixty would add one qualifying value, producing twenty for the at-most-sixty question.\n\n4. Strict endpoint conversion occurs before every floor calculation, not after subtracting an arbitrary one from the final answer.\n\n**Result.** 19.",
+    "expected": "19",
+    "category": "sieve",
+    "check": {
+      "kind": "divisible",
+      "L": 1,
+      "H": 59,
+      "divisors": [
+        4,
+        6
+      ],
+      "target": "union"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_61",
+    "title": "Forbidden-board assignment 1",
+    "stem": "Assign 4 distinct labels bijectively to 4 positions. Using one-based coordinates, forbid the cells [(1, 1), (1, 2), (2, 1)]. Count allowed permutations.",
+    "solution": "1. A selected forbidden-cell intersection is nonempty only when no two cells share a row or column. Count such compatible selections by size.\n\n2. The rook numbers r0 through r4 are [1, 3, 1, 0, 0]. Their values exclude conflicting selections even when those cells are individually forbidden.\n\n3. Apply $\\sum_k(-1)^k r_k(4-k)!$, which evaluates to 8. Each compatible k-cell selection has exactly the stated factorial of completions.\n\n4. A direct permutation check against every forbidden cell verifies the result. A binomial coefficient based only on the number of cells would ignore their topology.\n\n**Result.** 8.",
+    "expected": "8",
+    "category": "rook",
+    "check": {
+      "kind": "board",
+      "n": 4,
+      "board": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "rook": [
+        1,
+        3,
+        1,
+        0,
+        0
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_62",
+    "title": "Forbidden-board assignment 2",
+    "stem": "Assign 5 distinct labels bijectively to 5 positions. Using one-based coordinates, forbid the cells [(1, 1), (1, 2), (2, 1), (2, 2)]. Count allowed permutations.",
+    "solution": "1. A selected forbidden-cell intersection is nonempty only when no two cells share a row or column. Count such compatible selections by size.\n\n2. The rook numbers r0 through r5 are [1, 4, 2, 0, 0, 0]. Their values exclude conflicting selections even when those cells are individually forbidden.\n\n3. Apply $\\sum_k(-1)^k r_k(5-k)!$, which evaluates to 36. Each compatible k-cell selection has exactly the stated factorial of completions.\n\n4. A direct permutation check against every forbidden cell verifies the result. A binomial coefficient based only on the number of cells would ignore their topology.\n\n**Result.** 36.",
+    "expected": "36",
+    "category": "rook",
+    "check": {
+      "kind": "board",
+      "n": 5,
+      "board": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "rook": [
+        1,
+        4,
+        2,
+        0,
+        0,
+        0
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_63",
+    "title": "Forbidden-board assignment 3",
+    "stem": "Assign 5 distinct labels bijectively to 5 positions. Using one-based coordinates, forbid the cells [(1, 1), (2, 2), (3, 3)]. Count allowed permutations.",
+    "solution": "1. A selected forbidden-cell intersection is nonempty only when no two cells share a row or column. Count such compatible selections by size.\n\n2. The rook numbers r0 through r5 are [1, 3, 3, 1, 0, 0]. Their values exclude conflicting selections even when those cells are individually forbidden.\n\n3. Apply $\\sum_k(-1)^k r_k(5-k)!$, which evaluates to 64. Each compatible k-cell selection has exactly the stated factorial of completions.\n\n4. A direct permutation check against every forbidden cell verifies the result. A binomial coefficient based only on the number of cells would ignore their topology.\n\n**Result.** 64.",
+    "expected": "64",
+    "category": "rook",
+    "check": {
+      "kind": "board",
+      "n": 5,
+      "board": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "rook": [
+        1,
+        3,
+        3,
+        1,
+        0,
+        0
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_64",
+    "title": "Forbidden-board assignment 4",
+    "stem": "Assign 4 distinct labels bijectively to 4 positions. Using one-based coordinates, forbid the cells [(1, 1), (1, 2), (1, 3), (1, 4)]. Count allowed permutations.",
+    "solution": "1. A selected forbidden-cell intersection is nonempty only when no two cells share a row or column. Count such compatible selections by size.\n\n2. The rook numbers r0 through r4 are [1, 4, 0, 0, 0]. Their values exclude conflicting selections even when those cells are individually forbidden.\n\n3. Apply $\\sum_k(-1)^k r_k(4-k)!$, which evaluates to 0. Each compatible k-cell selection has exactly the stated factorial of completions.\n\n4. A direct permutation check against every forbidden cell verifies the result. A binomial coefficient based only on the number of cells would ignore their topology.\n\n**Result.** 0.",
+    "expected": "0",
+    "category": "rook",
+    "check": {
+      "kind": "board",
+      "n": 4,
+      "board": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "rook": [
+        1,
+        4,
+        0,
+        0,
+        0
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_65",
+    "title": "Forbidden-board assignment 5",
+    "stem": "Assign 5 distinct labels bijectively to 5 positions. Using one-based coordinates, forbid the cells [(1, 1), (1, 2), (2, 2), (2, 3), (3, 3)]. Count allowed permutations.",
+    "solution": "1. A selected forbidden-cell intersection is nonempty only when no two cells share a row or column. Count such compatible selections by size.\n\n2. The rook numbers r0 through r5 are [1, 5, 6, 1, 0, 0]. Their values exclude conflicting selections even when those cells are individually forbidden.\n\n3. Apply $\\sum_k(-1)^k r_k(5-k)!$, which evaluates to 34. Each compatible k-cell selection has exactly the stated factorial of completions.\n\n4. A direct permutation check against every forbidden cell verifies the result. A binomial coefficient based only on the number of cells would ignore their topology.\n\n**Result.** 34.",
+    "expected": "34",
+    "category": "rook",
+    "check": {
+      "kind": "board",
+      "n": 5,
+      "board": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "rook": [
+        1,
+        5,
+        6,
+        1,
+        0,
+        0
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_66",
+    "title": "Directed adjacency compatibility 1",
+    "stem": "Permute labels one through 5 in a linear row. Count arrangements containing at least one directed adjacency from [(1, 2), (1, 3)].",
+    "solution": "1. For each specified event subset, check that every symbol has at most one required successor and predecessor and that no directed cycle is forced.\n\n2. A compatible subset of k edges forms directed path blocks and has $(n-k)!$ arrangements. An incompatible subset contributes zero, not the same factorial.\n\n3. Apply the union alternating sum over actual compatible subsets. The result is 48. Direct enumeration of permutations independently confirms it.\n\n4. Two edges sharing a source conflict; a path sharing its middle symbol is valid; a directed two-cycle cannot occur in a linear row. The specific edge topology determines which case applies.\n\n**Result.** 48.",
+    "expected": "48",
+    "category": "adjacency",
+    "check": {
+      "kind": "edges",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "target": "union"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_67",
+    "title": "Directed adjacency compatibility 2",
+    "stem": "Permute labels one through 5 in a linear row. Count arrangements containing at least one directed adjacency from [(1, 2), (2, 3)].",
+    "solution": "1. For each specified event subset, check that every symbol has at most one required successor and predecessor and that no directed cycle is forced.\n\n2. A compatible subset of k edges forms directed path blocks and has $(n-k)!$ arrangements. An incompatible subset contributes zero, not the same factorial.\n\n3. Apply the union alternating sum over actual compatible subsets. The result is 42. Direct enumeration of permutations independently confirms it.\n\n4. Two edges sharing a source conflict; a path sharing its middle symbol is valid; a directed two-cycle cannot occur in a linear row. The specific edge topology determines which case applies.\n\n**Result.** 42.",
+    "expected": "42",
+    "category": "adjacency",
+    "check": {
+      "kind": "edges",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "target": "union"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_68",
+    "title": "Directed adjacency compatibility 3",
+    "stem": "Permute labels one through 5 in a linear row. Count arrangements containing at least one directed adjacency from [(1, 2), (2, 1)].",
+    "solution": "1. For each specified event subset, check that every symbol has at most one required successor and predecessor and that no directed cycle is forced.\n\n2. A compatible subset of k edges forms directed path blocks and has $(n-k)!$ arrangements. An incompatible subset contributes zero, not the same factorial.\n\n3. Apply the union alternating sum over actual compatible subsets. The result is 48. Direct enumeration of permutations independently confirms it.\n\n4. Two edges sharing a source conflict; a path sharing its middle symbol is valid; a directed two-cycle cannot occur in a linear row. The specific edge topology determines which case applies.\n\n**Result.** 48.",
+    "expected": "48",
+    "category": "adjacency",
+    "check": {
+      "kind": "edges",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "target": "union"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_69",
+    "title": "Directed adjacency compatibility 4",
+    "stem": "Permute labels one through 6 in a linear row. Count arrangements containing at least one directed adjacency from [(1, 2), (3, 4), (2, 5)].",
+    "solution": "1. For each specified event subset, check that every symbol has at most one required successor and predecessor and that no directed cycle is forced.\n\n2. A compatible subset of k edges forms directed path blocks and has $(n-k)!$ arrangements. An incompatible subset contributes zero, not the same factorial.\n\n3. Apply the union alternating sum over actual compatible subsets. The result is 294. Direct enumeration of permutations independently confirms it.\n\n4. Two edges sharing a source conflict; a path sharing its middle symbol is valid; a directed two-cycle cannot occur in a linear row. The specific edge topology determines which case applies.\n\n**Result.** 294.",
+    "expected": "294",
+    "category": "adjacency",
+    "check": {
+      "kind": "edges",
+      "n": 6,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "target": "union"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_70",
+    "title": "Cell-disjoint is not component-independent",
+    "stem": "On a three-by-three forbidden board, take one component {(1,1)} and another {(1,2)}. Is multiplying their rook polynomials valid?",
+    "solution": "1. Each one-cell component has polynomial $1+x$. Their product would be $1+2x+x^2$.\n\n2. The actual union has two cells in the same row, so both cannot be selected as nonattacking rooks. Its polynomial is one plus two x, with zero x-squared coefficient.\n\n3. Therefore the product is invalid. The components are cell-disjoint but share a row.\n\n4. Independent multiplication requires both row sets and column sets to be disjoint.\n\n**Result.** R(x) = 1 + 2x; product invalid.",
+    "expected": "R(x) = 1 + 2x; product invalid",
+    "category": "concept",
+    "check": {
+      "kind": "proof",
+      "claim": "rook_components"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_71",
+    "title": "Certified union interval",
+    "stem": "A universe has 200 objects with S1 = 150, S2 = 60 and S3 = 15; higher intersections are unknown. Give Bonferroni intervals for the union and its complement.",
+    "solution": "1. Order two gives the lower union bound 150 minus 60 = 90. Order three gives the upper bound 150 minus 60 plus 15 = 105.\n\n2. Hence the union lies in [90,105]. Subtract the upper and lower bounds from 200 in reverse order to obtain complement interval [95,110].\n\n3. These are certified inequalities. Without further constraints they must not be advertised as exact attainable ranges.\n\n4. A first-order upper bound of 150 is valid but weaker than the available third-order bound.\n\n**Result.** union [90,105]; complement [95,110].",
+    "expected": "union [90,105]; complement [95,110]",
+    "category": "concept",
+    "check": {
+      "kind": "proof",
+      "claim": "bonferroni_interval"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_72",
+    "title": "A closer-truncation counterexample",
+    "stem": "One object belongs to each of ten events. Compare the first- and second-order union truncations to the true union count.",
+    "solution": "1. The intersection sums are $S_1=10$ and $S_2=\\binom{10}{2}=45$. The true union count is one.\n\n2. The first truncation is ten with absolute error nine. The second is negative thirty-five with absolute error thirty-six.\n\n3. The second is farther away but is still a valid lower bound. Taking its maximum with zero gives a more useful lower bound.\n\n4. This disproves a blanket statement that every consecutive truncation improves absolute accuracy.\n\n**Result.** T1 = 10; T2 = -35.",
+    "expected": "T1 = 10; T2 = -35",
+    "category": "concept",
+    "check": {
+      "kind": "proof",
+      "claim": "truncation_error"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_73",
+    "title": "Prove the exact-two coefficient",
+    "stem": "For arbitrary m events, derive the coefficient of Sj in the count of objects satisfying exactly two events.",
+    "solution": "1. The coefficient is $(-1)^{j-2}\\binom j2$ for $j\\ge2$. An object with t memberships receives the sum of these coefficients times $\\binom tj$.\n\n2. Use $\\binom tj\\binom j2=\\binom t2\\binom{t-2}{j-2}$. The alternating sum becomes $\\binom t2(1-1)^{t-2}$.\n\n3. It is one for t equal to two, zero for larger t, and zero for t below two because there are no terms.\n\n4. This indicator proof applies to arbitrary finite sets, including asymmetric intersection sizes.\n\n**Result.** coefficient (-1)^(j-2) C(j,2).",
+    "expected": "coefficient (-1)^(j-2) C(j,2)",
+    "category": "concept",
+    "check": {
+      "kind": "proof",
+      "claim": "exact2_coefficient"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_74",
+    "title": "At least two is a different inversion",
+    "stem": "Derive the coefficients of S2, S3 and S4 in the count satisfying at least two events. Explain why the exact-two coefficients differ.",
+    "solution": "1. The at-least-two coefficients are $(-1)^{j-2}(j-1)$, so the first three are one, negative two and positive three.\n\n2. They arise by summing exact-r inversions over r at least two. Equivalently apply $\\binom{j-1}{1}=j-1$.\n\n3. Exact-two coefficients are one, negative three and positive six. A triple member must survive in at-least-two but disappear in exactly-two.\n\n4. For four events the desired expression is S2 minus two S3 plus three S4.\n\n**Result.** S2 - 2 S3 + 3 S4.",
+    "expected": "S2 - 2 S3 + 3 S4",
+    "category": "concept",
+    "check": {
+      "kind": "proof",
+      "claim": "atleast2_coefficient"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_75",
+    "title": "Recover specified atoms from inclusive counts",
+    "stem": "For three events, the complete inclusive table in masks 000 through 111 is [20,10,9,4,8,3,2,1]. Recover all exact atoms.",
+    "solution": "1. Start with the triple atom one. The three pair-only atoms are inclusive pair counts minus one: three, two and one.\n\n2. The only-A atom is ten minus four minus three plus one = four; only-B is nine minus four minus two plus one = four; only-C is eight minus three minus two plus one = four.\n\n3. The outside atom is twenty minus twenty-seven plus nine minus one = one. Thus the mask-ordered vector is [1,4,4,3,4,2,1,1].\n\n4. It is nonnegative and totals twenty. Summing each atom over supersets of a specified mask recovers the original inclusive count.\n\n**Result.** [1, 4, 4, 3, 4, 2, 1, 1].",
+    "expected": "[1, 4, 4, 3, 4, 2, 1, 1]",
+    "category": "inverse",
+    "check": {
+      "kind": "atoms_inverse",
+      "G": [
+        20,
+        10,
+        9,
+        4,
+        8,
+        3,
+        2,
+        1
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_76",
+    "title": "Uniform conditional counting",
+    "stem": "Roll two fair six-sided dice. Given that their sum is even, find the probability that at least one die shows six.",
+    "solution": "1. The conditional universe has eighteen outcomes: both dice even or both odd. All eighteen retain equal conditional weights.\n\n2. The first-die-six event has three outcomes in this universe, and the second-die-six event also has three. Their shared outcome is (6,6).\n\n3. The conditional union therefore has five favorable outcomes and probability five eighteenth.\n\n4. Unconditioned independence cannot be substituted directly after conditioning. Intersect the hit events with the even-sum universe first.\n\n**Result.** 5/18.",
+    "expected": "5/18",
+    "category": "probability",
+    "check": {
+      "kind": "conditional_dice"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_77",
+    "title": "Nonuniform atomic weights",
+    "stem": "A two-event system has atom weights 1/10 outside, 2/10 only A, 3/10 only B and 4/10 in both. Find the union and conditional probability of A given B.",
+    "solution": "1. The marginals are P(A) = six tenths and P(B) = seven tenths, with shared weight four tenths.\n\n2. The union is six tenths plus seven tenths minus four tenths = nine tenths, agreeing with the outside complement.\n\n3. Conditional probability is shared weight divided by P(B), namely four sevenths. Counting atoms as equally likely would give a different answer.\n\n4. The model uses probabilities, not uniform cardinality of the four region labels.\n\n**Result.** union 9/10; P(A|B) = 4/7.",
+    "expected": "union 9/10; P(A|B) = 4/7",
+    "category": "concept",
+    "check": {
+      "kind": "proof",
+      "claim": "weights"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_78",
+    "title": "Complete-table feasibility is sufficient",
+    "stem": "Prove that nonnegative integer atoms reconstructed from a complete inclusive intersection table are sufficient for finite-set realization.",
+    "solution": "1. For each mask, create a disjoint set containing exactly the reconstructed number of objects. These sets are distinct atoms by construction.\n\n2. Place every object in event i precisely when its mask has bit i set. The intersection at a specified mask is the union of all atom groups at supersets of that mask.\n\n3. The inverse transform guarantees those superset sums equal the supplied inclusive counts, so every requested cardinality is realized.\n\n4. This proof certifies arbitrary finite sets, not a requested geometric representation by circles or a separate probabilistic independence property.\n\n**Result.** Construct disjoint objects per mask.",
+    "expected": "Construct disjoint objects per mask",
+    "category": "concept",
+    "check": {
+      "kind": "proof",
+      "claim": "atom_realization"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_79",
+    "title": "Subset-transform invariant and cost",
+    "stem": "Explain why the bitwise subtraction transform recovers exact atoms from inclusive intersections, and state its complexity.",
+    "solution": "1. Before processing a bit, each count includes membership in its mask and already excludes previously processed outside bits. Subtracting the superset with the current bit removes outcomes having that extra membership.\n\n2. Masks containing the bit are not modified at that stage, so their role as the needed superset count is preserved. After all bits, each count enforces every membership and nonmembership.\n\n3. There are m stages and half of the 2^m masks are updated at each stage: O(m 2^m) integer arithmetic operations and O(2^m) storage.\n\n4. The complexity assumes the complete table is already supplied. It does not account for obtaining each intersection from an implicit event description.\n\n**Result.** O(m 2^m) time; O(2^m) space.",
+    "expected": "O(m 2^m) time; O(2^m) space",
+    "category": "concept",
+    "check": {
+      "kind": "proof",
+      "claim": "transform"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DINCL_80",
+    "title": "A mixed-model diagnosis",
+    "stem": "A solution counts bounded distributions of ten distinct balls into three boxes using one stars-and-bars count per occupancy vector. Identify the error and give the correct general expression.",
+    "solution": "1. Distinct balls distinguish assignments even when their occupancy vectors agree. A vector (x1,x2,x3) represents ten factorial divided by the product of the three occupancy factorials assignments.\n\n2. The correct count is $\\sum_{x_1+x_2+x_3=10,\\;0\\le x_i\\le c_i}10!/(x_1!x_2!x_3!)$, where the caps must be supplied.\n\n3. A unit weight per vector counts identical-token allocations instead. Inclusion-exclusion on vector counts cannot silently change those unit weights into assignment counts.\n\n4. Without numerical caps, no single numeric answer is determined. An exact multinomial occupancy sum or labeled-map enumeration preserves the specified universe.\n\n**Result.** Use multinomial weights, not unit vector weights.",
+    "expected": "Use multinomial weights, not unit vector weights",
+    "category": "concept",
+    "check": {
+      "kind": "proof",
+      "claim": "labeled_weights"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  }
+]

@@ -1,0 +1,91 @@
+{
+  "topicId": "d_inclusion",
+  "state": "passed",
+  "models": 13,
+  "checkpoints": 56,
+  "contracts": [
+    {
+      "id": "di-atoms",
+      "family": "venn-atoms",
+      "invariant": "Eight disjoint atoms total 100; circles represent the membership mask of every displayed region.",
+      "checkpoints": 4
+    },
+    {
+      "id": "di-cancel",
+      "family": "signed-multiplicity-bars",
+      "invariant": "The coefficient after j orders is the signed binomial partial sum for one object in four events.",
+      "checkpoints": 5
+    },
+    {
+      "id": "di-atom-transform",
+      "family": "subset-table-transform",
+      "invariant": "Each stage excludes one more outside bit; the final nonnegative vector reconstructs the original inclusive table.",
+      "checkpoints": 4
+    },
+    {
+      "id": "di-inverse",
+      "family": "triangular-inversion",
+      "invariant": "The known higher counts contribute binomial multiples; after five steps the counts sum to 50.",
+      "checkpoints": 5
+    },
+    {
+      "id": "di-bounds",
+      "family": "interval-bounds",
+      "invariant": "Orders one and three give upper bounds; order two gives a lower bound. The current interval never asserts an unproved attainable endpoint.",
+      "checkpoints": 4
+    },
+    {
+      "id": "di-missing",
+      "family": "function-choice-bipartite",
+      "invariant": "A specified omission set leaves exactly (3-|I|)^4 functions; the outputs remain labeled.",
+      "checkpoints": 4
+    },
+    {
+      "id": "di-derange",
+      "family": "permutation-arrows",
+      "invariant": "Every frame is a bijection; fixed-point status comes from its exact assignments, not from color alone.",
+      "checkpoints": 4
+    },
+    {
+      "id": "di-fixed-intersection",
+      "family": "forced-bijection",
+      "invariant": "Forced positions and labels are removed together; remaining completions count all bijections, including further fixed points.",
+      "checkpoints": 5
+    },
+    {
+      "id": "di-rooks",
+      "family": "rook-board",
+      "invariant": "Each selected cell is a forced assignment; repeated row or column means an empty event intersection.",
+      "checkpoints": 5
+    },
+    {
+      "id": "di-caps",
+      "family": "occupancy-shift",
+      "invariant": "Committed thresholds are 3, 4 and 5; residual stars-and-bars counts are zero for a negative budget.",
+      "checkpoints": 5
+    },
+    {
+      "id": "di-sieve",
+      "family": "integer-sieve",
+      "invariant": "The highlighted integers satisfy every selected divisor condition; the intersection denominator is the lcm.",
+      "checkpoints": 3
+    },
+    {
+      "id": "di-weights",
+      "family": "probability-mass-regions",
+      "invariant": "Ten tenth-unit masses total one; union and conditional weights come from exact region masses.",
+      "checkpoints": 3
+    },
+    {
+      "id": "di-adjacency",
+      "family": "directed-block-graph",
+      "invariant": "Linear arrangements permit path components with at most one predecessor and successor; cycles are excluded.",
+      "checkpoints": 5
+    }
+  ],
+  "verificationPath": "research/d_inclusion-verification.json",
+  "browserAuditPath": "research/d_inclusion-browser-audit.json",
+  "observedAssertions": 1267,
+  "labReferenceCases": 308,
+  "limitations": "Finite checks supplement general proofs; the model contracts and bounded input ranges delimit the claims."
+}

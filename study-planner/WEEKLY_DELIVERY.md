@@ -223,3 +223,21 @@ Sources, boundaries and access limits: research/d_counting-source-audit.md and r
 Observed numerical and interaction evidence: research/d_counting-verification.json, d_counting-browser-audit.json and d_counting-model-audit.json. The real browser checks all 76 checkpoint text layouts, actual 390-pixel formula containment, loaded fonts, controls, reduced motion and printable full solutions/checkpoints. Source pool comparison is bounded to eight located candidates; no worldwide exhaustive ranking or universal examination-success guarantee is asserted.
 
 Publish the exact pushed source to the existing owner-private Site and mirror only changed files to GitHub study-planner-1406, preserving unrelated mirror deletions. The gate remains awaiting_user_approval after delivery.
+
+
+## Active chapter: inclusion-exclusion, October 5, 2026
+
+The user explicitly approved d_counting in Site version 68 and authorized only the next chapter d_inclusion. All 32 existing chapters remain approved. Work continuously on this chapter until its complete review draft is delivered, then wait for explicit approval. Preserve all existing questions, formulas, visuals and study progress.
+
+
+## Current delivery: English inclusion-exclusion chapter, October 5, 2026
+
+The user explicitly approved d_counting in Site version 68 and requested the next sole chapter. The 32 earlier chapters and their 1,835 question entries are preserved. d_inclusion is now a review draft awaiting explicit approval, with four genuinely reviewed primary written courses from MIT, Oxford, Cornell and CMU and a fifth reviewed Berkeley note. A documented eight-candidate pool supports a bounded selection; no worldwide exhaustive comparison is claimed. The chapter has a deep 16-section lesson, 80 original or independently reconstructed course tasks plus two authentic archive revisits, 80 complete examination rules, 13 distinct animated traces with 56 checkpoints, and four editable exact-enumeration labs.
+
+Read research/chapter-gate.json before further work. Do not start d_pigeonhole or any other chapter before explicit approval. The approval ledgers retain the preceding 32 chapters as approved; this chapter is not promoted by its delivery. Do not ask the student a test before initial reading.
+
+Source audit: research/d_inclusion-source-audit.md. Main lesson: research/d_inclusion.en.md. Task bank and archive provenance: research/d_inclusion-questions.json and d_inclusion-authentic.json. Rules: research/d_inclusion-review.en.md. Build only this chapter with build_d_inclusion_models.py, render_d_inclusion.py and install_d_inclusion_assets.py. Do not run start_d_inclusion.py again: it records the previous approval once. Do not overwrite this independent player or its inventory with the legacy shared model builder. The combined inventory has 33 chapters, 1,917 question entries, 234 models, 1,343 checkpoints and 197 embedded walkthroughs.
+
+Observed evidence: d_inclusion-verification.json passed 1,267 independent mathematical assertions; d_inclusion-browser-audit.json records 308 independently checked lab cases, seven rejected inputs, all 56 measured checkpoint layouts, actual motion/controls, loaded fonts, 390-pixel containment and complete printable solutions/checkpoints. d_inclusion-model-audit.json records each distinct model contract. The quality audit records source errors corrected, finite verification limits and authentic revisits. The two archive questions were visually checked against the original PDFs; their answers are independent derivations rather than official keys.
+
+Publish the exact pushed source to the existing owner-private Site. Mirror only changed files to the GitHub study-planner-1406 branch, preserving unrelated mirror deletions. Keep the gate awaiting_user_approval after delivery.

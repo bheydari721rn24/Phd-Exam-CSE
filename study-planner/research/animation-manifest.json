@@ -1,5 +1,5 @@
 {
-  "state": "31_approved_chapters_and_one_counting_review_draft",
+  "state": "32_approved_chapters_and_one_inclusion_review_draft",
   "chapters": [
     {
       "topicId": "d_logic",
@@ -948,21 +948,71 @@
         ]
       },
       "questionCount": 88,
-      "htmlSha256": "e1ed699dfe1a7224bf4de70336ef09a77bf0d2943ddb77636b114bd45cd5721d",
-      "visualRevisionState": "awaiting_user_approval",
+      "htmlSha256": "53465c1e33b662b70d5325cc6d8a2480e920175497826ac5b7b8d730968cad74",
+      "visualRevisionState": "student_approved",
       "renderer": "Dedicated counting SVG traces",
       "dataUrl": "chapters/d_counting-models.json",
       "modelAuditPath": "research/d_counting-model-audit.json",
       "browserAuditPath": "research/d_counting-browser-audit.json"
+    },
+    {
+      "topicId": "d_inclusion",
+      "placements": 13,
+      "scenarios": 13,
+      "sections": {
+        "atoms": [
+          "di-atoms"
+        ],
+        "cancellation": [
+          "di-cancel"
+        ],
+        "inversion": [
+          "di-inverse"
+        ],
+        "bounds": [
+          "di-bounds"
+        ],
+        "onto": [
+          "di-missing"
+        ],
+        "derangements": [
+          "di-derange",
+          "di-fixed-intersection"
+        ],
+        "rook": [
+          "di-rooks",
+          "di-adjacency"
+        ],
+        "caps": [
+          "di-caps"
+        ],
+        "sieve": [
+          "di-sieve"
+        ],
+        "weights": [
+          "di-weights"
+        ],
+        "transform": [
+          "di-atom-transform"
+        ]
+      },
+      "questionCount": 82,
+      "htmlSha256": "4f8e44177b0e39212675b70b654e376c3d35087696113d361454cd42d0652bbb",
+      "visualRevisionState": "awaiting_user_approval",
+      "renderer": "Dedicated inclusion-exclusion SVG traces and four bounded enumerating labs",
+      "dataUrl": "chapters/d_inclusion-models.json",
+      "modelAuditPath": "research/d_inclusion-model-audit.json",
+      "browserAuditPath": "research/d_inclusion-browser-audit.json"
     }
   ],
-  "uniqueScenarios": 221,
-  "checkpoints": 1287,
-  "placements": 184,
+  "uniqueScenarios": 234,
+  "checkpoints": 1343,
+  "placements": 197,
   "constructionAssertions": 4049,
-  "scope": "206 approved legacy subject-specific models plus 15 counting-specific draft models. Separate mathematical proofs remain authoritative.",
-  "checkpointsPrint": "Legacy players retain printable current or initial checkpoints; the counting chapter prints all 76 checkpoints.",
+  "scope": "206 approved legacy models, 15 approved counting models, and 13 inclusion-exclusion draft models. Mathematical proofs remain authoritative.",
+  "checkpointsPrint": "Legacy players retain printable current or initial checkpoints; counting prints all 76 and inclusion-exclusion prints all 56 checkpoints.",
   "visualReviewPath": "research/subject-visual-review.json",
   "legacyConstructionAssertions": 4049,
-  "countingValidationAssertions": 422
+  "countingValidationAssertions": 422,
+  "inclusionValidationAssertions": 1267
 }

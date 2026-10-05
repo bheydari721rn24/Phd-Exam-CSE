@@ -1,0 +1,41 @@
+[
+  {
+    "key": "cornell",
+    "url": "https://www.cs.cornell.edu/courses/cs2800/2016sp/handouts/pass_tseng_discmath.pdf",
+    "error": "HTTPSConnectionPool(host='www.cs.cornell.edu', port=443): Read timed out. (read timeout=35)"
+  },
+  {
+    "key": "oxford",
+    "url": "https://www.cs.ox.ac.uk/andrew.ker/docs/discretemaths-lecture-notes-mt2010.pdf",
+    "error": "HTTPSConnectionPool(host='www.cs.ox.ac.uk', port=443): Max retries exceeded with url: /andrew.ker/docs/discretemaths-lecture-notes-mt2010.pdf (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.cs.ox.ac.uk', port=443) at 0x18968eaf110>, 'Connection to www.cs.ox.ac.uk timed out. (connect timeout=35)'))"
+  },
+  {
+    "key": "cmu",
+    "url": "https://www.math.cmu.edu/users/math/mtait/301/Notes.pdf",
+    "pages": 110,
+    "sha256": "1f526437e203614ea261a56a559d3e4fda7780e014526a63a097c6bec3e98f1a",
+    "cache": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-inclusion-sources\\cmu.pdf"
+  },
+  {
+    "key": "berkeley",
+    "url": "https://sp20.eecs70.org/static/notes/n14.pdf",
+    "pages": 12,
+    "sha256": "d3100e2c612e0a7d3cd889a470468a5142bb3be7a6f86d7b258272feb7cf99e0",
+    "cache": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-inclusion-sources\\berkeley.pdf"
+  },
+  {
+    "key": "stanford",
+    "url": "https://web.stanford.edu/class/archive/cs/cs109/cs109.1206/lectureNotes/LN01_counting.pdf",
+    "pages": 4,
+    "sha256": "ab1d26fbc96c11442c94b5b75c356681e6a2881fe1be7dd82ad8d7ede6f8a0db",
+    "cache": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-inclusion-sources\\stanford.pdf"
+  },
+  {
+    "key": "mit",
+    "url": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/mit6_042js15_textbook.pdf",
+    "pages": 920,
+    "sha256": "a07e73979a55f0be10633fcba12c0195f4475288a9b84331c8eb0de0e0a1571a",
+    "cache": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-invariants-sources\\mit.pdf",
+    "access": "Existing original cached course PDF"
+  }
+]

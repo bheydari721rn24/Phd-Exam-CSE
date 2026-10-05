@@ -1,0 +1,56 @@
+[
+  {
+    "id": "MS_CS_1405_Q124",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 27,
+    "questionNumber": 124,
+    "topics": [
+      "d_functions",
+      "s_counting"
+    ],
+    "title": "Count onto maps",
+    "stem": "Let $A$ be the number of surjections $f:\\{1,2,3,4,5,6\\}\\to\\{1,2,3,4\\}$. Which interval contains $A/30$?",
+    "options": [
+      "$[1,15]$",
+      "$(15,30]$",
+      "$(30,45]$",
+      "$(45,+\\infty)$"
+    ],
+    "answer": 4,
+    "solution": "1. Start with $4^6$ unrestricted maps. Exclude maps omitting at least one codomain value by inclusion-exclusion.\n2. The count is $A=4^6-\\binom413^6+\\binom422^6-\\binom431^6=4096-2916+384-4=1560$.\n3. Divide by the source question's 30: $A/30=52$, in option 4.\n4. Multiplying by $4!$ after inclusion-exclusion would overcount: codomain values were already labeled. Options 1\u20133 cannot contain 52.\n\n**Transfer rule.** An onto map is a labeled nonempty fiber partition; account for labels exactly once.",
+    "pattern": "surjection via inclusion-exclusion",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1405_Q21",
+    "booklet": "Phd_CS_1405",
+    "pdfPage": 8,
+    "questionNumber": 21,
+    "topics": [
+      "s_counting",
+      "s_axioms"
+    ],
+    "title": "Minimum count outside three sets",
+    "stem": "Thirty-two offices each have a computer. Fifteen have a laser printer, ten have a scanner, eight have a modem, and two have all three. What is the minimum number with none of these three devices?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": 3,
+    "solution": "1. The membership total is $15+10+8=33$. The two triple members contribute six memberships but only two union elements, so they force four duplicated memberships.\n2. Consequently the union has at most $33-4=29$ members. Additional pair-only overlaps would make it smaller.\n3. The upper bound is attainable: use two triple offices, thirteen printer-only offices, eight scanner-only offices, and six modem-only offices. This uses 29 offices and has no pair-only overlaps.\n4. Exactly three of the 32 offices are outside this maximal union. One and two violate the forced duplication; four is possible but is not the minimum.\n\n**Transfer rule.** Optimize a union under forced overlaps and prove the bound is attainable.",
+    "pattern": "inclusion-exclusion with attainability",
+    "difficulty": "Hard",
+    "repoPath": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  }
+]
