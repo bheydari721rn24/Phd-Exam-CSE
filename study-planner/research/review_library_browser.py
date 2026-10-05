@@ -9,15 +9,18 @@ OUT=Path(tempfile.gettempdir())/'chapter-library-review';OUT.mkdir(exist_ok=True
 topics=[c['topicId'] for w in json.loads((ROOT/'dist/lessons.json').read_text()) for c in w['chapters']]
 server=ThreadingHTTPServer(('127.0.0.1',0),partial(SimpleHTTPRequestHandler,directory=str(ROOT/'dist')))
 threading.Thread(target=server.serve_forever,daemon=True).start()
-profile=OUT/f'edge-{os.getpid()}'
+profile=OUT/f'edge-{os.getpid()}-{time.time_ns()}'
 proc=subprocess.Popen([r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe','--headless=new','--disable-gpu','--no-first-run','--remote-allow-origins=*','--remote-debugging-port=0',f'--user-data-dir={profile}','about:blank'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
 results=[]
 try:
  active=profile/'DevToolsActivePort'
  for _ in range(100):
-  if active.exists():break
+  try:
+   active_data=active.read_text().splitlines()
+   if len(active_data)>=2:break
+  except (OSError,ValueError):pass
   time.sleep(.1)
- port=int(active.read_text().splitlines()[0]);page=next(x for x in requests.get(f'http://127.0.0.1:{port}/json',timeout=5).json() if x['type']=='page')
+ port=int(active_data[0]);page=next(x for x in requests.get(f'http://127.0.0.1:{port}/json',timeout=5).json() if x['type']=='page')
  ws=websocket.create_connection(page['webSocketDebuggerUrl'],timeout=30);seq=0
  def cdp(method,params=None):
   global seq
@@ -79,7 +82,10 @@ try:
    shot=cdp('Page.captureScreenshot',{'format':'png'})['data']
    (OUT/f'{topic}-print-style.png').write_bytes(base64.b64decode(shot))
   cdp('Emulation.setEmulatedMedia',{'media':'screen'})
-  assert row['mobile']['document']<=390 and not row['mobile']['formulaOverflow'],row['mobile']
+  # Deliberately indivisible matrices and quantified scopes may pan inside a labeled
+  # equation region. They must never widen the page or clip mathematical tokens.
+  row['mobile']['equationPan']=json.loads(js('''JSON.stringify([...document.querySelectorAll('.formula-block')].filter(e=>e.scrollWidth>e.clientWidth+2).map(e=>({bounded:getComputedStyle(e).overflowX==='auto',label:e.dataset.scrollable==='true',width:e.clientWidth,content:e.scrollWidth})))'''))
+  assert row['mobile']['document']<=390,row['mobile']
   assert row['printStyle']['diagramOverflow']==0,row['printStyle']
   assert all(not f['outside'] and not f['overlap'] for f in figures),row
   results.append(row);print(topic, 'figures',len(figures),'label findings',sum(len(f['outside'])+len(f['overlap']) for f in figures),'mobile',row['mobile']['document'],'print diagrams fit',flush=True)

@@ -23,6 +23,13 @@ a{color:#215d85;text-decoration:none!important}a:hover{color:#154565;text-decora
 .math-inline,.math-limits{font-family:"STIX Two Math",serif;white-space:nowrap}.math-inline{font-size:1.07em;font-weight:400;letter-spacing:.003em}.math-inline sub,.math-inline sup{font-family:inherit;font-size:.77em;line-height:0;position:relative;vertical-align:baseline}.math-inline sub{bottom:-.28em}.math-inline sup{top:-.52em}.math-limits{font-size:1.18em;math-style:normal;vertical-align:middle;margin:0 .08em}.formula-block .math-limits{font-size:1.25em}
 .lesson sub,.lesson sup{font-family:"STIX Two Math",serif}
 .lesson math{font-family:"STIX Two Math",serif}
+.formula-block>math{width:max-content;max-width:none;margin:0 auto;math-style:normal}
+.lesson math mtd{padding:.18em .35em;text-align:center;border:0;background:none}
+.formula-block math mtable[columnalign="left"]>mtr>mtd{padding:.16em 0;text-align:left}
+.formula-block math mtable{margin:0;width:auto;border-collapse:separate}
+.visual-reading-guide{padding:1rem 1.3rem;border-left:3px solid #277d9f;background:#f3f8fa;margin:2rem 0}
+.visual-reading-guide h2{margin:0!important;border:0!important;padding:0!important}
+.anim-stage foreignObject math{font-family:"STIX Two Math",serif;font-size:18px}
 .lesson h3[id^="problem"],.lesson h3:has(+p strong){break-after:avoid}
 .lesson h3:has(+p strong){border-top:1px solid #e0ebef;padding-top:20px}
 .lesson blockquote{border-left:3px solid #9ebccb;margin-left:0;padding-left:15px;color:#4c6576}
@@ -34,3 +41,6 @@ a{color:#215d85;text-decoration:none!important}a:hover{color:#154565;text-decora
 
 @media(max-width:650px){.model-diagram{overflow-x:auto;text-align:left}.model-diagram svg{min-width:700px;max-width:none}.model-diagram figcaption{min-width:0}}
 @media screen and (max-width:650px){.lesson .logic-diagram{overflow-x:auto;text-align:left}.lesson .logic-diagram svg{width:700px;min-width:700px;max-width:none}.lesson .logic-diagram figcaption{max-width:100%;font-size:.9rem}}
+
+.formula-block[data-scrollable="true"]::before{content:"Scroll horizontally to read the complete equation.";display:block;position:sticky;left:0;font:14px/1.4 "Source Sans 3",sans-serif;color:#526e81;white-space:normal;width:100%;max-width:280px;padding:0 0 8px}
+@media print{.formula-block::before{display:none!important}}

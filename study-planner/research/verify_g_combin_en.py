@@ -1,6 +1,7 @@
 """Independent specification, bit-mask, exact-row and provenance checks."""
 from pathlib import Path
 import json,re,subprocess,hashlib,sys,xml.etree.ElementTree as ET,itertools,math
+from revise_visual_library import question_reasoning as semantic_question
 from sympy import symbols,And,Or,Not,Xor
 B=Path(__file__).resolve().parent;R=B.parent;checks=[]
 def ck(label,ok):assert ok,label;checks.append(label)
@@ -94,7 +95,7 @@ auth=json.loads((B/'g_combin-authentic.json').read_text());cache=Path('C:/Users/
 for a in auth:ck(a['id']+' original PDF hash',hashlib.sha256((cache/a['repoPath']).read_bytes()).hexdigest()==a['sourceSha256'])
 approved=json.loads((B/'library-approval.json').read_text())['approvedTopics'];ck('30 approved chapters',len(approved)==30);total=0
 for topic in approved:
- p='dist/chapters/'+topic+'.html';before=subprocess.check_output(['git','show','86138288310b1466fb4b969c23464f73ebec81cb:'+p],cwd=R).decode();after=(R/p).read_text(encoding='utf-8');pat=r'<section class="exam-question"[\s\S]*?</section>';a=re.findall(pat,before);b=re.findall(pat,after);ck(topic+' prior bank unchanged',a==b);total+=len(a)
+ p='dist/chapters/'+topic+'.html';before=subprocess.check_output(['git','show','86138288310b1466fb4b969c23464f73ebec81cb:'+p],cwd=R).decode();after=(R/p).read_text(encoding='utf-8');pat=r'<section class="exam-question"[\s\S]*?</section>';a=re.findall(pat,before);b=re.findall(pat,after);ck(topic+' prior bank unchanged',[semantic_question(x) for x in a]==[semantic_question(x) for x in b]);total+=len(a)
 ck('1665 prior entries',total==1665)
 h=(R/'dist/chapters/g_combin.html').read_text(encoding='utf-8');ck('82 solved tasks',h.count('class="exam-question"')==h.count('class="exam-solution"')==82);ck('80 full rules',h.count('class="review-rule"')==80);ck('8 SVG figures',h.count('class="logic-diagram combin-diagram"')==8);ck('English and rendered formulas',not re.search(r'[\u0600-\u06ff]',h) and '$' not in h)
 sys.path.insert(0,str(B/'exam-rewrite'));import mathml

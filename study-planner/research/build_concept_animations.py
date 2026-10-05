@@ -9,11 +9,18 @@ from catalog import CATALOG
 from mathml import render,markdown_math
 from math_typography import normalize_math,normalize_scripts
 from markdown_it import MarkdownIt
+from revise_visual_library import GROUPS,CLAIMS,canonical_math,PAT
+VISUAL_TYPES={id:kind for kind,ids in GROUPS.items() for id in ids.split()}
 md=MarkdownIt('commonmark',{'html':True})
 
 def text(s):return normalize_math(normalize_scripts(markdown_math(s,md)))
 
 def static_svg(f,title):
+    previews=ROOT/'research/subject-visual-previews.json'
+    if previews.exists():
+        records=json.loads(previews.read_text())
+        scene=next((s for s in SCENES.values() if s['title']==title),None)
+        if scene and scene['id'] in records:return records[scene['id']]
     out=['<svg viewBox="0 0 760 360" role="img"><title>'+html.escape(title)+'</title>']
     pos={n['id']:n for n in f['nodes']}
     for e in f.get('edges',[]):
@@ -40,10 +47,14 @@ def build_data():
     SCENES['closest-pair']['axes']=dict(cx=380,cy=280,scale=65,xs=list(range(-5,6)),ys=list(range(0,4)))
     SCENES['cross-orientation']['axes']=dict(cx=270,cy=270,scale=65,xs=list(range(-3,7)),ys=list(range(0,4)))
     for s in SCENES.values():
+        assert s['id'] in VISUAL_TYPES,('Review a subject-specific visual model before building',s['id'])
+        kind=VISUAL_TYPES[s['id']]
+        s['visual']={'type':kind,'claim':CLAIMS[kind],'revision':'subject-specific-v1'}
         s['invariantHtml']=text('**Model condition.** '+s['invariant'])
         s['descriptionHtml']=text(s['description'])
         for f in s['frames']:
             f['formulaHtml']='<div class="formula-block">'+render(f['formula'],True)+'</div>' if f['formula'] else ''
+            f['formulaHtml']=PAT.sub(lambda m:canonical_math(m[0]),f['formulaHtml'])
             f['captionHtml']=text(f['caption'])
             f['metricLabels']={key:text(key) for key in f['metrics']}
     (ROOT/'dist/chapters/concept-animations.json').write_text(json.dumps({'version':1,'scenes':SCENES},ensure_ascii=True,separators=(',',':'))+'\n')
@@ -54,7 +65,7 @@ def install_animations():
     for topic,sections in CATALOG.items():
         p=ROOT/f'dist/chapters/{topic}.html';s=p.read_text(encoding='utf-8')
         s=re.sub(r'<!-- CONCEPT ANIMATION START [^>]+ -->[\s\S]*?<!-- CONCEPT ANIMATION END -->','',s)
-        s=re.sub(r'<link rel="stylesheet" href="concept-animation.css">|<script src="concept-animation.js"></script>','',s)
+        s=re.sub(r'<link rel="stylesheet" href="concept-animation.css(?:\?[^"]*)?">|<script src="(?:concept-animation|semantic-diagrams|math-layout).js(?:\?[^"]*)?"></script>','',s)
         before=len(re.findall(r'class="exam-question"',s))
         for anchor,ids in sections.items():
             target=re.search(r'<h2\b[^>]*\bid="'+re.escape(anchor)+r'"[^>]*>',s);assert target,(topic,anchor)
@@ -63,7 +74,8 @@ def install_animations():
             widget=f'<!-- CONCEPT ANIMATION START {anchor} --><section id="animation-{anchor}" class="concept-animation" data-scenes="{",".join(ids)}" aria-label="Animated teaching for {html.escape(anchor)}"><h3>Animated concept walkthrough</h3><p>{html.escape(first["description"])}</p><p>Choose a concept, then use Play, Next step, Previous step, or the checkpoint slider. Every stop includes its exact state and a complete explanation.</p><div class="anim-stage">{static_svg(first["frames"][0],first["title"])}</div><div class="anim-explanation">{html.escape(first["frames"][0]["caption"])}</div>{first["invariantHtml"]}<noscript>This is the first verified checkpoint. Enable JavaScript for the remaining checkpoints and playback controls; the complete written lesson is available above.</noscript></section><!-- CONCEPT ANIMATION END -->'
             widget=normalize_math(normalize_scripts(widget))
             s=s[:at]+widget+s[at:]
-        s=s.replace('</head>','<link rel="stylesheet" href="concept-animation.css"></head>').replace('</body>','<script src="concept-animation.js"></script></body>')
+        s=s.replace('</head>','<link rel="stylesheet" href="concept-animation.css?v=67"></head>').replace('</body>','<script src="semantic-diagrams.js?v=67"></script><script src="concept-animation.js?v=67"></script><script src="math-layout.js?v=67"></script></body>')
+        s=PAT.sub(lambda m:canonical_math(m[0]),s)
         assert len(re.findall(r'class="exam-question"',s))==before
         p.write_text(s,encoding='utf-8')
         rows.append(dict(topicId=topic,placements=len(sections),scenarios=len({i for ids in sections.values() for i in ids}),sections=sections,questionCount=before,htmlSha256=hashlib.sha256(p.read_bytes()).hexdigest()))

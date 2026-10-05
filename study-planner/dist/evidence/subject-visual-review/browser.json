@@ -1,0 +1,2185 @@
+{
+  "scenes": [
+    {
+      "id": "insertion",
+      "type": "bars",
+      "frames": 29,
+      "failures": [],
+      "max": 456.4210968017578
+    },
+    {
+      "id": "insertion-unstable",
+      "type": "bars",
+      "frames": 15,
+      "failures": [],
+      "max": 456.4210968017578
+    },
+    {
+      "id": "merge",
+      "type": "bars",
+      "frames": 12,
+      "failures": [],
+      "max": 670.757438659668
+    },
+    {
+      "id": "selection",
+      "type": "bars",
+      "frames": 11,
+      "failures": [],
+      "max": 383.37882232666016
+    },
+    {
+      "id": "bubble",
+      "type": "bars",
+      "frames": 16,
+      "failures": [],
+      "max": 383.37882232666016
+    },
+    {
+      "id": "lower-bound",
+      "type": "search",
+      "frames": 8,
+      "failures": [],
+      "max": 667.2619781494141
+    },
+    {
+      "id": "search-stall",
+      "type": "search",
+      "frames": 3,
+      "failures": [],
+      "max": 667.2619781494141
+    },
+    {
+      "id": "partition3",
+      "type": "bars",
+      "frames": 12,
+      "failures": [],
+      "max": 671.6875076293945
+    },
+    {
+      "id": "partition-skip",
+      "type": "bars",
+      "frames": 3,
+      "failures": [],
+      "max": 575.0875473022461
+    },
+    {
+      "id": "euclid",
+      "type": "numeric",
+      "frames": 5,
+      "failures": [],
+      "max": 539.8738555908203
+    },
+    {
+      "id": "division",
+      "type": "numeric",
+      "frames": 7,
+      "failures": [],
+      "max": 543.3790893554688
+    },
+    {
+      "id": "power",
+      "type": "numeric",
+      "frames": 6,
+      "failures": [],
+      "max": 564.9000396728516
+    },
+    {
+      "id": "modular-power",
+      "type": "numeric",
+      "frames": 6,
+      "failures": [],
+      "max": 583.1553802490234
+    },
+    {
+      "id": "recursion-tree",
+      "type": "tree",
+      "frames": 15,
+      "failures": [],
+      "max": 717.4500198364258
+    },
+    {
+      "id": "merge-recursion",
+      "type": "tree",
+      "frames": 14,
+      "failures": [],
+      "max": 669.9500198364258
+    },
+    {
+      "id": "max-subarray",
+      "type": "bars",
+      "frames": 4,
+      "failures": [],
+      "max": 687.7066898345947
+    },
+    {
+      "id": "karatsuba",
+      "type": "derivation",
+      "frames": 6,
+      "failures": [],
+      "max": 473.21144104003906
+    },
+    {
+      "id": "strassen",
+      "type": "derivation",
+      "frames": 8,
+      "failures": [],
+      "max": 473.21144104003906
+    },
+    {
+      "id": "implication",
+      "type": "truth",
+      "frames": 8,
+      "failures": [],
+      "max": 624.9265899658203
+    },
+    {
+      "id": "de-morgan",
+      "type": "truth",
+      "frames": 8,
+      "failures": [],
+      "max": 624.9265899658203
+    },
+    {
+      "id": "absorption",
+      "type": "truth",
+      "frames": 8,
+      "failures": [],
+      "max": 624.9265899658203
+    },
+    {
+      "id": "xor",
+      "type": "truth",
+      "frames": 8,
+      "failures": [],
+      "max": 624.9265899658203
+    },
+    {
+      "id": "shannon",
+      "type": "truth",
+      "frames": 16,
+      "failures": [],
+      "max": 624.9265899658203
+    },
+    {
+      "id": "selectors",
+      "type": "truth",
+      "frames": 8,
+      "failures": [],
+      "max": 624.9265899658203
+    },
+    {
+      "id": "nand-only",
+      "type": "truth",
+      "frames": 8,
+      "failures": [],
+      "max": 624.9265899658203
+    },
+    {
+      "id": "consensus",
+      "type": "truth",
+      "frames": 16,
+      "failures": [],
+      "max": 624.9265899658203
+    },
+    {
+      "id": "quantifier-dependent",
+      "type": "graph",
+      "frames": 3,
+      "failures": [],
+      "max": 636.0553665161133
+    },
+    {
+      "id": "quantifier-fixed",
+      "type": "graph",
+      "frames": 3,
+      "failures": [],
+      "max": 636.0553665161133
+    },
+    {
+      "id": "set-union",
+      "type": "venn",
+      "frames": 8,
+      "failures": [],
+      "max": 675.4558935165405
+    },
+    {
+      "id": "set-intersection",
+      "type": "venn",
+      "frames": 8,
+      "failures": [],
+      "max": 675.4558935165405
+    },
+    {
+      "id": "set-difference",
+      "type": "venn",
+      "frames": 8,
+      "failures": [],
+      "max": 675.4558935165405
+    },
+    {
+      "id": "set-symmetric",
+      "type": "venn",
+      "frames": 8,
+      "failures": [],
+      "max": 675.4558935165405
+    },
+    {
+      "id": "set-complement",
+      "type": "venn",
+      "frames": 8,
+      "failures": [],
+      "max": 675.4558935165405
+    },
+    {
+      "id": "set-set-demorgan",
+      "type": "venn",
+      "frames": 8,
+      "failures": [],
+      "max": 675.4558935165405
+    },
+    {
+      "id": "selection-ordered",
+      "type": "enumeration",
+      "frames": 12,
+      "failures": [],
+      "max": 668.5193214416504
+    },
+    {
+      "id": "selection-unordered",
+      "type": "enumeration",
+      "frames": 6,
+      "failures": [],
+      "max": 668.5193214416504
+    },
+    {
+      "id": "selection-repeated",
+      "type": "enumeration",
+      "frames": 10,
+      "failures": [],
+      "max": 668.5193214416504
+    },
+    {
+      "id": "powerset",
+      "type": "enumeration",
+      "frames": 8,
+      "failures": [],
+      "max": 528.9540863037109
+    },
+    {
+      "id": "cartesian",
+      "type": "graph",
+      "frames": 6,
+      "failures": [],
+      "max": 596.0553665161133
+    },
+    {
+      "id": "induction-triangular",
+      "type": "tiles",
+      "frames": 7,
+      "failures": [],
+      "max": 626.9027709960938
+    },
+    {
+      "id": "induction-square",
+      "type": "tiles",
+      "frames": 7,
+      "failures": [],
+      "max": 626.9027709960938
+    },
+    {
+      "id": "induction-gap",
+      "type": "graph",
+      "frames": 4,
+      "failures": [],
+      "max": 712.9500198364258
+    },
+    {
+      "id": "strong-coins",
+      "type": "tiles",
+      "frames": 13,
+      "failures": [],
+      "max": 524.5428314208984
+    },
+    {
+      "id": "direct-even",
+      "type": "derivation",
+      "frames": 3,
+      "failures": [],
+      "max": 473.21144104003906
+    },
+    {
+      "id": "contrapositive",
+      "type": "derivation",
+      "frames": 3,
+      "failures": [],
+      "max": 473.21144104003906
+    },
+    {
+      "id": "sqrt-contradiction",
+      "type": "derivation",
+      "frames": 4,
+      "failures": [],
+      "max": 473.21144104003906
+    },
+    {
+      "id": "weakest-precondition",
+      "type": "derivation",
+      "frames": 4,
+      "failures": [],
+      "max": 473.21144104003906
+    },
+    {
+      "id": "transitive-closure",
+      "type": "graph",
+      "frames": 5,
+      "failures": [],
+      "max": 655.1997480392456
+    },
+    {
+      "id": "reflexive-closure",
+      "type": "graph",
+      "frames": 5,
+      "failures": [],
+      "max": 655.1997480392456
+    },
+    {
+      "id": "equivalence-classes",
+      "type": "graph",
+      "frames": 6,
+      "failures": [],
+      "max": 634.9500198364258
+    },
+    {
+      "id": "hasse",
+      "type": "graph",
+      "frames": 4,
+      "failures": [],
+      "max": 554.9500198364258
+    },
+    {
+      "id": "topological",
+      "type": "graph",
+      "frames": 5,
+      "failures": [],
+      "max": 629.9500198364258
+    },
+    {
+      "id": "function-fibers",
+      "type": "graph",
+      "frames": 3,
+      "failures": [],
+      "max": 631.0553665161133
+    },
+    {
+      "id": "function-preimages",
+      "type": "graph",
+      "frames": 3,
+      "failures": [],
+      "max": 631.0553665161133
+    },
+    {
+      "id": "right-inverse",
+      "type": "graph",
+      "frames": 2,
+      "failures": [],
+      "max": 636.0553665161133
+    },
+    {
+      "id": "function-composition",
+      "type": "graph",
+      "frames": 3,
+      "failures": [],
+      "max": 696.0553665161133
+    },
+    {
+      "id": "function-count",
+      "type": "graph",
+      "frames": 8,
+      "failures": [],
+      "max": 646.0553665161133
+    },
+    {
+      "id": "loop-triangle",
+      "type": "enumeration",
+      "frames": 15,
+      "failures": [],
+      "max": 637.5921020507812
+    },
+    {
+      "id": "loop-doubling",
+      "type": "plot",
+      "frames": 5,
+      "failures": [],
+      "max": 560.1793060302734
+    },
+    {
+      "id": "word-bit-cost",
+      "type": "numeric",
+      "frames": 4,
+      "failures": [],
+      "max": 673.050178527832
+    },
+    {
+      "id": "encoding-length",
+      "type": "plot",
+      "frames": 6,
+      "failures": [],
+      "max": 560.7682037353516
+    },
+    {
+      "id": "growth-threshold",
+      "type": "plot",
+      "frames": 6,
+      "failures": [],
+      "max": 564.9759826660156
+    },
+    {
+      "id": "probability-atoms",
+      "type": "probability",
+      "frames": 8,
+      "failures": [],
+      "max": 657.3500576019287
+    },
+    {
+      "id": "probability-union",
+      "type": "probability",
+      "frames": 4,
+      "failures": [],
+      "max": 657.3500576019287
+    },
+    {
+      "id": "probability-limit",
+      "type": "plot",
+      "frames": 6,
+      "failures": [],
+      "max": 555.9657135009766
+    },
+    {
+      "id": "pairwise-independence",
+      "type": "probability",
+      "frames": 4,
+      "failures": [],
+      "max": 628.0643768310547
+    },
+    {
+      "id": "draw-without-replacement",
+      "type": "probability",
+      "frames": 10,
+      "failures": [],
+      "max": 626.1859245300293
+    },
+    {
+      "id": "vector-addition",
+      "type": "geometry",
+      "frames": 3,
+      "failures": [],
+      "max": 742.7003135681152
+    },
+    {
+      "id": "projection",
+      "type": "geometry",
+      "frames": 3,
+      "failures": [],
+      "max": 742.7003135681152
+    },
+    {
+      "id": "gram-schmidt",
+      "type": "geometry",
+      "frames": 3,
+      "failures": [],
+      "max": 742.7003135681152
+    },
+    {
+      "id": "affine-origin",
+      "type": "geometry",
+      "frames": 3,
+      "failures": [],
+      "max": 742.7003135681152
+    },
+    {
+      "id": "matrix-product",
+      "type": "matrices",
+      "frames": 8,
+      "failures": [],
+      "max": 629.4558935165405
+    },
+    {
+      "id": "matrix-transpose",
+      "type": "matrices",
+      "frames": 5,
+      "failures": [],
+      "max": 566.025803565979
+    },
+    {
+      "id": "row-elimination",
+      "type": "matrices",
+      "frames": 4,
+      "failures": [],
+      "max": 375.39952659606934
+    },
+    {
+      "id": "matrix-composition",
+      "type": "geometry",
+      "frames": 6,
+      "failures": [],
+      "max": 742.7003135681152
+    },
+    {
+      "id": "crt-intersection",
+      "type": "numeric",
+      "frames": 6,
+      "failures": [],
+      "max": 473.21144104003906
+    },
+    {
+      "id": "integer-family",
+      "type": "geometry",
+      "frames": 5,
+      "failures": [],
+      "max": 633.0208053588867
+    },
+    {
+      "id": "assignment-sequential",
+      "type": "memory",
+      "frames": 3,
+      "failures": [],
+      "max": 487.9747772216797
+    },
+    {
+      "id": "assignment-simultaneous",
+      "type": "memory",
+      "frames": 2,
+      "failures": [],
+      "max": 515.0336303710938
+    },
+    {
+      "id": "short-circuit",
+      "type": "memory",
+      "frames": 2,
+      "failures": [],
+      "max": 682.3109893798828
+    },
+    {
+      "id": "finite-representation",
+      "type": "numeric",
+      "frames": 5,
+      "failures": [],
+      "max": 577.6366806030273
+    },
+    {
+      "id": "float-rounding",
+      "type": "numeric",
+      "frames": 4,
+      "failures": [],
+      "max": 646.4748611450195
+    },
+    {
+      "id": "branch-m1",
+      "type": "memory",
+      "frames": 2,
+      "failures": [],
+      "max": 638.8765029907227
+    },
+    {
+      "id": "branch-0",
+      "type": "memory",
+      "frames": 3,
+      "failures": [],
+      "max": 638.8765029907227
+    },
+    {
+      "id": "branch-2",
+      "type": "memory",
+      "frames": 3,
+      "failures": [],
+      "max": 638.8765029907227
+    },
+    {
+      "id": "loop-transfers",
+      "type": "memory",
+      "frames": 5,
+      "failures": [],
+      "max": 540.2447662353516
+    },
+    {
+      "id": "wraparound-loop",
+      "type": "memory",
+      "frames": 10,
+      "failures": [],
+      "max": 664.5727386474609
+    },
+    {
+      "id": "base-conversion",
+      "type": "numeric",
+      "frames": 6,
+      "failures": [],
+      "max": 473.21144104003906
+    },
+    {
+      "id": "fraction-conversion",
+      "type": "numeric",
+      "frames": 8,
+      "failures": [],
+      "max": 473.21144104003906
+    },
+    {
+      "id": "gray-code",
+      "type": "numeric",
+      "frames": 8,
+      "failures": [],
+      "max": 501.8562316894531
+    },
+    {
+      "id": "hamming-code",
+      "type": "numeric",
+      "frames": 5,
+      "failures": [],
+      "max": 676.4828948974609
+    },
+    {
+      "id": "static-hazard",
+      "type": "circuit",
+      "frames": 6,
+      "failures": [],
+      "max": 744.0640478134155
+    },
+    {
+      "id": "hazard-consensus",
+      "type": "circuit",
+      "frames": 6,
+      "failures": [],
+      "max": 744.0640478134155
+    },
+    {
+      "id": "cmos-nand",
+      "type": "cmos",
+      "frames": 4,
+      "failures": [],
+      "max": 676.6780738830566
+    },
+    {
+      "id": "nand-mapping",
+      "type": "circuit",
+      "frames": 4,
+      "failures": [],
+      "max": 744.640417098999
+    },
+    {
+      "id": "stars-bars",
+      "type": "enumeration",
+      "frames": 15,
+      "failures": [],
+      "max": 514.8581848144531
+    },
+    {
+      "id": "image-collapse",
+      "type": "graph",
+      "frames": 4,
+      "failures": [],
+      "max": 669.8903961181641
+    },
+    {
+      "id": "vector-norms",
+      "type": "geometry",
+      "frames": 3,
+      "failures": [],
+      "max": 640.897216796875
+    },
+    {
+      "id": "cross-orientation",
+      "type": "geometry",
+      "frames": 3,
+      "failures": [],
+      "max": 742.7003135681152
+    },
+    {
+      "id": "matrix-summaries",
+      "type": "matrices",
+      "frames": 4,
+      "failures": [],
+      "max": 427.03235626220703
+    },
+    {
+      "id": "recurrence-levels",
+      "type": "tree",
+      "frames": 4,
+      "failures": [],
+      "max": 655.7069616317749
+    },
+    {
+      "id": "rounded-splits",
+      "type": "tree",
+      "frames": 5,
+      "failures": [],
+      "max": 554.9500198364258
+    },
+    {
+      "id": "fft-butterfly",
+      "type": "tree",
+      "frames": 4,
+      "failures": [],
+      "max": 690.2444229125977
+    },
+    {
+      "id": "closest-pair",
+      "type": "geometry",
+      "frames": 5,
+      "failures": [],
+      "max": 742.7003135681152
+    },
+    {
+      "id": "shortest-path-certificate",
+      "type": "graph",
+      "frames": 5,
+      "failures": [],
+      "max": 677.1898536682129
+    },
+    {
+      "id": "conditional-atoms",
+      "type": "probability",
+      "frames": 4,
+      "failures": [],
+      "max": 683.9638423919678
+    },
+    {
+      "id": "conditional-history",
+      "type": "probability",
+      "frames": 4,
+      "failures": [],
+      "max": 629.9342346191406
+    },
+    {
+      "id": "conditional-urn",
+      "type": "probability",
+      "frames": 4,
+      "failures": [],
+      "max": 681.1359443664551
+    },
+    {
+      "id": "conditional-mixture",
+      "type": "probability",
+      "frames": 3,
+      "failures": [],
+      "max": 681.0626068115234
+    },
+    {
+      "id": "conditional-selection",
+      "type": "probability",
+      "frames": 3,
+      "failures": [],
+      "max": 659.7821960449219
+    },
+    {
+      "id": "conditional-simpson",
+      "type": "probability",
+      "frames": 3,
+      "failures": [],
+      "max": 604.6332321166992
+    },
+    {
+      "id": "conditional-report",
+      "type": "probability",
+      "frames": 3,
+      "failures": [],
+      "max": 610.7104949951172
+    },
+    {
+      "id": "conditional-bridge",
+      "type": "probability",
+      "frames": 32,
+      "failures": [],
+      "max": 643.2895660400391
+    },
+    {
+      "id": "conditional-strip",
+      "type": "probability",
+      "frames": 4,
+      "failures": [],
+      "max": 662.1404113769531
+    },
+    {
+      "id": "bayes-partition",
+      "type": "probability",
+      "frames": 4,
+      "failures": [],
+      "max": 683.9638423919678
+    },
+    {
+      "id": "bayes-normalize",
+      "type": "probability",
+      "frames": 4,
+      "failures": [],
+      "max": 683.9638423919678
+    },
+    {
+      "id": "bayes-frequencies",
+      "type": "probability",
+      "frames": 6,
+      "failures": [],
+      "max": 683.9638423919678
+    },
+    {
+      "id": "bayes-sensitivity",
+      "type": "plot",
+      "frames": 6,
+      "failures": [],
+      "max": 555.9657135009766
+    },
+    {
+      "id": "bayes-repeat",
+      "type": "plot",
+      "frames": 6,
+      "failures": [],
+      "max": 555.9657135009766
+    },
+    {
+      "id": "bayes-copy",
+      "type": "plot",
+      "frames": 4,
+      "failures": [],
+      "max": 609.6108703613281
+    },
+    {
+      "id": "bayes-predict",
+      "type": "plot",
+      "frames": 5,
+      "failures": [],
+      "max": 555.9657135009766
+    },
+    {
+      "id": "bayes-host",
+      "type": "plot",
+      "frames": 5,
+      "failures": [],
+      "max": 555.9657135009766
+    },
+    {
+      "id": "bayes-loss",
+      "type": "plot",
+      "frames": 5,
+      "failures": [],
+      "max": 560.1793060302734
+    },
+    {
+      "id": "bayes-density",
+      "type": "probability",
+      "frames": 6,
+      "failures": [],
+      "max": 495.85032653808594
+    },
+    {
+      "id": "gauss-swap",
+      "type": "matrices",
+      "frames": 10,
+      "failures": [],
+      "max": 517.2387237548828
+    },
+    {
+      "id": "gauss-skip",
+      "type": "matrices",
+      "frames": 6,
+      "failures": [],
+      "max": 576.1928558349609
+    },
+    {
+      "id": "gauss-affine",
+      "type": "matrices",
+      "frames": 8,
+      "failures": [],
+      "max": 576.1928558349609
+    },
+    {
+      "id": "gauss-inconsistent",
+      "type": "matrices",
+      "frames": 8,
+      "failures": [],
+      "max": 576.1928558349609
+    },
+    {
+      "id": "gauss-inverse",
+      "type": "matrices",
+      "frames": 6,
+      "failures": [],
+      "max": 517.2387237548828
+    },
+    {
+      "id": "gauss-geometry",
+      "type": "geometry",
+      "frames": 2,
+      "failures": [],
+      "max": 742.7003135681152
+    },
+    {
+      "id": "gauss-parameters",
+      "type": "matrices",
+      "frames": 4,
+      "failures": [],
+      "max": 439.760217666626
+    },
+    {
+      "id": "gauss-lu",
+      "type": "matrices",
+      "frames": 3,
+      "failures": [],
+      "max": 453.7601566314697
+    },
+    {
+      "id": "gauss-plu",
+      "type": "matrices",
+      "frames": 4,
+      "failures": [],
+      "max": 695.4558935165405
+    },
+    {
+      "id": "gauss-binary",
+      "type": "matrices",
+      "frames": 3,
+      "failures": [],
+      "max": 436.45592403411865
+    },
+    {
+      "id": "gauss-coordinate",
+      "type": "matrices",
+      "frames": 2,
+      "failures": [],
+      "max": 307.7601623535156
+    },
+    {
+      "id": "gauss-rounding",
+      "type": "matrices",
+      "frames": 4,
+      "failures": [],
+      "max": 394.5536346435547
+    },
+    {
+      "id": "rank-pivots",
+      "type": "matrices",
+      "frames": 6,
+      "failures": [],
+      "max": 576.1928558349609
+    },
+    {
+      "id": "rank-column-transform",
+      "type": "matrices",
+      "frames": 3,
+      "failures": [],
+      "max": 397.0141792297363
+    },
+    {
+      "id": "rank-fibers",
+      "type": "geometry",
+      "frames": 5,
+      "failures": [],
+      "max": 742.7003135681152
+    },
+    {
+      "id": "rank-collapse",
+      "type": "geometry",
+      "frames": 3,
+      "failures": [],
+      "max": 742.7003135681152
+    },
+    {
+      "id": "rank-composition",
+      "type": "matrices",
+      "frames": 3,
+      "failures": [],
+      "max": 571.3644504547119
+    },
+    {
+      "id": "rank-cancellation",
+      "type": "geometry",
+      "frames": 3,
+      "failures": [],
+      "max": 742.7003135681152
+    },
+    {
+      "id": "rank-parameters",
+      "type": "matrices",
+      "frames": 4,
+      "failures": [],
+      "max": 370.4558935165405
+    },
+    {
+      "id": "rank-factorization",
+      "type": "matrices",
+      "frames": 4,
+      "failures": [],
+      "max": 494.37547302246094
+    },
+    {
+      "id": "rank-projection",
+      "type": "geometry",
+      "frames": 5,
+      "failures": [],
+      "max": 742.7003135681152
+    },
+    {
+      "id": "rank-update",
+      "type": "geometry",
+      "frames": 3,
+      "failures": [],
+      "max": 742.7003135681152
+    },
+    {
+      "id": "rank-witness",
+      "type": "matrices",
+      "frames": 4,
+      "failures": [],
+      "max": 304.45592403411865
+    },
+    {
+      "id": "rank-powers",
+      "type": "matrices",
+      "frames": 5,
+      "failures": [],
+      "max": 516.4558935165405
+    },
+    {
+      "id": "fn-copy",
+      "type": "memory",
+      "frames": 4,
+      "failures": [],
+      "max": 647.2315521240234
+    },
+    {
+      "id": "fn-pointer",
+      "type": "memory",
+      "frames": 4,
+      "failures": [],
+      "max": 649.4491882324219
+    },
+    {
+      "id": "fn-alias",
+      "type": "memory",
+      "frames": 3,
+      "failures": [],
+      "max": 649.2295532226562
+    },
+    {
+      "id": "fn-nested",
+      "type": "memory",
+      "frames": 5,
+      "failures": [],
+      "max": 656.8492431640625
+    },
+    {
+      "id": "fn-static",
+      "type": "memory",
+      "frames": 9,
+      "failures": [],
+      "max": 646.1078796386719
+    },
+    {
+      "id": "fn-lookup",
+      "type": "memory",
+      "frames": 3,
+      "failures": [],
+      "max": 645.2001342773438
+    },
+    {
+      "id": "fn-orders",
+      "type": "memory",
+      "frames": 6,
+      "failures": [],
+      "max": 659.0337371826172
+    },
+    {
+      "id": "fn-recursion",
+      "type": "memory",
+      "frames": 8,
+      "failures": [],
+      "max": 666.0323486328125
+    },
+    {
+      "id": "fn-sharing",
+      "type": "memory",
+      "frames": 4,
+      "failures": [],
+      "max": 670.4815979003906
+    },
+    {
+      "id": "fn-closure",
+      "type": "memory",
+      "frames": 4,
+      "failures": [],
+      "max": 664.4512176513672
+    },
+    {
+      "id": "fn-default",
+      "type": "memory",
+      "frames": 4,
+      "failures": [],
+      "max": 647.6627044677734
+    },
+    {
+      "id": "fn-output",
+      "type": "memory",
+      "frames": 4,
+      "failures": [],
+      "max": 653.1745758056641
+    },
+    {
+      "id": "arr-boundary",
+      "type": "array",
+      "frames": 4,
+      "failures": [],
+      "max": 521.4000396728516
+    },
+    {
+      "id": "arr-row",
+      "type": "array",
+      "frames": 12,
+      "failures": [],
+      "max": 683.9000396728516
+    },
+    {
+      "id": "arr-column",
+      "type": "array",
+      "frames": 12,
+      "failures": [],
+      "max": 683.9000396728516
+    },
+    {
+      "id": "arr-prefix",
+      "type": "array",
+      "frames": 6,
+      "failures": [],
+      "max": 559.9500198364258
+    },
+    {
+      "id": "arr-copy-bad",
+      "type": "array",
+      "frames": 5,
+      "failures": [],
+      "max": 542.8510589599609
+    },
+    {
+      "id": "arr-copy-right",
+      "type": "array",
+      "frames": 5,
+      "failures": [],
+      "max": 542.8510589599609
+    },
+    {
+      "id": "arr-copy-left",
+      "type": "array",
+      "frames": 5,
+      "failures": [],
+      "max": 542.8510589599609
+    },
+    {
+      "id": "arr-insert",
+      "type": "array",
+      "frames": 4,
+      "failures": [],
+      "max": 521.5025081634521
+    },
+    {
+      "id": "arr-reverse",
+      "type": "array",
+      "frames": 4,
+      "failures": [],
+      "max": 516.4500198364258
+    },
+    {
+      "id": "arr-rotate",
+      "type": "array",
+      "frames": 4,
+      "failures": [],
+      "max": 516.4500198364258
+    },
+    {
+      "id": "arr-sharing",
+      "type": "array",
+      "frames": 3,
+      "failures": [],
+      "max": 670.4815979003906
+    },
+    {
+      "id": "arr-growth",
+      "type": "array",
+      "frames": 5,
+      "failures": [],
+      "max": 620.002477645874
+    },
+    {
+      "id": "arr-packed",
+      "type": "array",
+      "frames": 6,
+      "failures": [],
+      "max": 589.4834747314453
+    },
+    {
+      "id": "arr-ring",
+      "type": "array",
+      "frames": 4,
+      "failures": [],
+      "max": 648.5289154052734
+    },
+    {
+      "id": "arr-transpose",
+      "type": "array",
+      "frames": 12,
+      "failures": [],
+      "max": 613.1421813964844
+    },
+    {
+      "id": "arr-difference",
+      "type": "array",
+      "frames": 4,
+      "failures": [],
+      "max": 355.40003967285156
+    },
+    {
+      "id": "arr-compact",
+      "type": "array",
+      "frames": 7,
+      "failures": [],
+      "max": 536.2106170654297
+    },
+    {
+      "id": "arr-search",
+      "type": "array",
+      "frames": 12,
+      "failures": [],
+      "max": 631.8262720108032
+    },
+    {
+      "id": "km-gray",
+      "type": "kmap",
+      "frames": 5,
+      "failures": [],
+      "max": 531.9562072753906
+    },
+    {
+      "id": "km-corners",
+      "type": "kmap",
+      "frames": 2,
+      "failures": [],
+      "max": 655.0814208984375
+    },
+    {
+      "id": "km-cycle",
+      "type": "kmap",
+      "frames": 4,
+      "failures": [],
+      "max": 655.0814208984375
+    },
+    {
+      "id": "km-greedy",
+      "type": "kmap",
+      "frames": 5,
+      "failures": [],
+      "max": 655.0814208984375
+    },
+    {
+      "id": "km-dc",
+      "type": "kmap",
+      "frames": 2,
+      "failures": [],
+      "max": 655.0814208984375
+    },
+    {
+      "id": "km-hazard-cover",
+      "type": "kmap",
+      "frames": 4,
+      "failures": [],
+      "max": 655.0814208984375
+    },
+    {
+      "id": "km-merge",
+      "type": "kmap",
+      "frames": 3,
+      "failures": [],
+      "max": 655.0814208984375
+    },
+    {
+      "id": "km-qm",
+      "type": "kmap",
+      "frames": 3,
+      "failures": [],
+      "max": 619.7500953674316
+    },
+    {
+      "id": "km-pos",
+      "type": "kmap",
+      "frames": 4,
+      "failures": [],
+      "max": 655.0814208984375
+    },
+    {
+      "id": "km-chart",
+      "type": "kmap",
+      "frames": 3,
+      "failures": [],
+      "max": 520.5151519775391
+    },
+    {
+      "id": "km-petrick",
+      "type": "kmap",
+      "frames": 4,
+      "failures": [],
+      "max": 580.1587524414062
+    },
+    {
+      "id": "km-hazard-time",
+      "type": "waveform",
+      "frames": 6,
+      "failures": [],
+      "max": 729.7806148529053
+    },
+    {
+      "id": "km-sharing",
+      "type": "kmap",
+      "frames": 3,
+      "failures": [],
+      "max": 744.1537227630615
+    },
+    {
+      "id": "km-planes",
+      "type": "kmap",
+      "frames": 3,
+      "failures": [],
+      "max": 676.3124847412109
+    },
+    {
+      "id": "comb-dag",
+      "type": "circuit",
+      "frames": 5,
+      "failures": [],
+      "max": 744.640417098999
+    },
+    {
+      "id": "comb-priority",
+      "type": "circuit",
+      "frames": 8,
+      "failures": [],
+      "max": 744.1013851165771
+    },
+    {
+      "id": "comb-cofactor",
+      "type": "circuit",
+      "frames": 4,
+      "failures": [],
+      "max": 677.0568046569824
+    },
+    {
+      "id": "comb-rom",
+      "type": "circuit",
+      "frames": 8,
+      "failures": [],
+      "max": 658.0029754638672
+    },
+    {
+      "id": "comb-nand",
+      "type": "circuit",
+      "frames": 8,
+      "failures": [],
+      "max": 744.640417098999
+    },
+    {
+      "id": "comb-miter",
+      "type": "circuit",
+      "frames": 8,
+      "failures": [],
+      "max": 744.0000534057617
+    },
+    {
+      "id": "comb-fault",
+      "type": "circuit",
+      "frames": 5,
+      "failures": [],
+      "max": 745.1351470947266
+    },
+    {
+      "id": "comb-word",
+      "type": "numeric",
+      "frames": 4,
+      "failures": [],
+      "max": 577.7189254760742
+    },
+    {
+      "id": "comb-feedback",
+      "type": "circuit",
+      "frames": 3,
+      "failures": [],
+      "max": 498.3058166503906
+    },
+    {
+      "id": "comb-latch",
+      "type": "circuit",
+      "frames": 4,
+      "failures": [],
+      "max": 691.6455459594727
+    },
+    {
+      "id": "comb-arrival",
+      "type": "circuit",
+      "frames": 3,
+      "failures": [],
+      "max": 565.4026107788086
+    },
+    {
+      "id": "comb-interval",
+      "type": "circuit",
+      "frames": 4,
+      "failures": [],
+      "max": 744.640417098999
+    },
+    {
+      "id": "comb-falsepath",
+      "type": "circuit",
+      "frames": 4,
+      "failures": [],
+      "max": 744.640417098999
+    },
+    {
+      "id": "comb-active-low",
+      "type": "circuit",
+      "frames": 4,
+      "failures": [],
+      "max": 744.2842903137207
+    }
+  ],
+  "errors": [],
+  "mathematicalLayout": [
+    {
+      "topicId": "d_logic",
+      "tokensPreserved": true,
+      "mathCount": 721,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "d_sets",
+      "tokensPreserved": true,
+      "mathCount": 634,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "d_proof",
+      "tokensPreserved": true,
+      "mathCount": 643,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "d_induction",
+      "tokensPreserved": true,
+      "mathCount": 604,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "a_model",
+      "tokensPreserved": true,
+      "mathCount": 601,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "a_asym",
+      "tokensPreserved": true,
+      "mathCount": 640,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "a_loop",
+      "tokensPreserved": true,
+      "mathCount": 555,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "s_axioms",
+      "tokensPreserved": true,
+      "mathCount": 571,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "s_counting",
+      "tokensPreserved": true,
+      "mathCount": 904,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "l_vectors",
+      "tokensPreserved": true,
+      "mathCount": 620,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "l_matrices",
+      "tokensPreserved": true,
+      "mathCount": 842,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "p_types",
+      "tokensPreserved": true,
+      "mathCount": 421,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "p_flow",
+      "tokensPreserved": true,
+      "mathCount": 411,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "g_number",
+      "tokensPreserved": true,
+      "mathCount": 477,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "g_boolean",
+      "tokensPreserved": true,
+      "mathCount": 585,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "g_gates",
+      "tokensPreserved": true,
+      "mathCount": 486,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "d_relations",
+      "tokensPreserved": true,
+      "mathCount": 478,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "d_functions",
+      "tokensPreserved": true,
+      "mathCount": 533,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "d_invariants",
+      "tokensPreserved": true,
+      "mathCount": 618,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "d_number",
+      "tokensPreserved": true,
+      "mathCount": 607,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "a_recurrence",
+      "tokensPreserved": true,
+      "mathCount": 778,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "a_divide",
+      "tokensPreserved": true,
+      "mathCount": 534,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "a_correct",
+      "tokensPreserved": true,
+      "mathCount": 501,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "s_conditional",
+      "tokensPreserved": true,
+      "mathCount": 797,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "s_bayes",
+      "tokensPreserved": true,
+      "mathCount": 622,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "l_gauss",
+      "tokensPreserved": true,
+      "mathCount": 976,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "l_rank",
+      "tokensPreserved": true,
+      "mathCount": 931,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "p_functions",
+      "tokensPreserved": true,
+      "mathCount": 100,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "p_arrays",
+      "tokensPreserved": true,
+      "mathCount": 205,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "g_kmap",
+      "tokensPreserved": true,
+      "mathCount": 721,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        },
+        {
+          "bounded": true,
+          "labeled": true,
+          "accessible": true
+        }
+      ],
+      "printTokensPreserved": true
+    },
+    {
+      "topicId": "g_combin",
+      "tokensPreserved": true,
+      "mathCount": 852,
+      "documentWidth": 390,
+      "mathFont": true,
+      "pans": [],
+      "printTokensPreserved": true
+    }
+  ],
+  "renderedCircuitTruthCases": 48
+}

@@ -1,0 +1,851 @@
+{
+  "state": "awaiting_user_approval",
+  "request": "Review all existing chapters, replace uniform concept cards, supply circuit schematics and organize every mathematical expression.",
+  "chapterCount": 31,
+  "sceneCount": 206,
+  "questionCount": 1747,
+  "chapters": [
+    {
+      "topicId": "d_logic",
+      "questionCount": 53,
+      "mathExpressions": 721,
+      "mathLayoutsRebuilt": 22,
+      "visualTypes": [
+        "truth",
+        "graph"
+      ],
+      "models": [
+        "implication",
+        "de-morgan",
+        "quantifier-dependent",
+        "quantifier-fixed"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 2,
+      "htmlSha256": "63bacbaa6fd938d900e845f8f93a7ba77bc5bddc9d3cf0b079a31c8e47e34a14",
+      "reviewed": true
+    },
+    {
+      "topicId": "d_sets",
+      "questionCount": 46,
+      "mathExpressions": 634,
+      "mathLayoutsRebuilt": 7,
+      "visualTypes": [
+        "enumeration",
+        "graph",
+        "venn"
+      ],
+      "models": [
+        "powerset",
+        "cartesian",
+        "set-union",
+        "set-intersection",
+        "set-difference",
+        "set-symmetric",
+        "set-complement",
+        "set-set-demorgan",
+        "image-collapse"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 3,
+      "htmlSha256": "80041fd356d16d56780c00d82602ed9c2de0bdd544c62f3fcfbdb55331c8388c",
+      "reviewed": true
+    },
+    {
+      "topicId": "d_proof",
+      "questionCount": 48,
+      "mathExpressions": 640,
+      "mathLayoutsRebuilt": 3,
+      "visualTypes": [
+        "derivation",
+        "graph"
+      ],
+      "models": [
+        "direct-even",
+        "contrapositive",
+        "sqrt-contradiction",
+        "quantifier-fixed",
+        "induction-gap"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 4,
+      "htmlSha256": "953fb80331029e926ff0842dcbe903c75f65433bf73b57a382e949d50273f090",
+      "reviewed": true
+    },
+    {
+      "topicId": "d_induction",
+      "questionCount": 46,
+      "mathExpressions": 604,
+      "mathLayoutsRebuilt": 21,
+      "visualTypes": [
+        "tiles",
+        "graph",
+        "numeric"
+      ],
+      "models": [
+        "induction-triangular",
+        "induction-square",
+        "induction-gap",
+        "strong-coins",
+        "euclid"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 5,
+      "htmlSha256": "f42fe46448b35b76c3dc7048c5df09bffea4fc1d3f1971b45610085a7d09e384",
+      "reviewed": true
+    },
+    {
+      "topicId": "a_model",
+      "questionCount": 46,
+      "mathExpressions": 601,
+      "mathLayoutsRebuilt": 3,
+      "visualTypes": [
+        "bars",
+        "graph",
+        "plot",
+        "numeric"
+      ],
+      "models": [
+        "insertion",
+        "shortest-path-certificate",
+        "encoding-length",
+        "word-bit-cost"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 4,
+      "htmlSha256": "29951059a1f4cf3ecc36f3f0f270a203a2f13cda5b98256ebe8eeb9e50ee0e14",
+      "reviewed": true
+    },
+    {
+      "topicId": "a_asym",
+      "questionCount": 46,
+      "mathExpressions": 640,
+      "mathLayoutsRebuilt": 4,
+      "visualTypes": [
+        "plot",
+        "tree"
+      ],
+      "models": [
+        "growth-threshold",
+        "encoding-length",
+        "loop-doubling",
+        "recurrence-levels"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 3,
+      "htmlSha256": "3675ed99732227636ffc05b118e7d0cc803e08584e5c03c53a0ea7e4cec89dd0",
+      "reviewed": true
+    },
+    {
+      "topicId": "a_loop",
+      "questionCount": 46,
+      "mathExpressions": 555,
+      "mathLayoutsRebuilt": 5,
+      "visualTypes": [
+        "enumeration",
+        "search",
+        "plot",
+        "numeric"
+      ],
+      "models": [
+        "loop-triangle",
+        "lower-bound",
+        "search-stall",
+        "loop-doubling",
+        "word-bit-cost"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 4,
+      "htmlSha256": "04aa6834645c311c4c5c993f4f681885439bbb7d4102fdd0ee1c197b95f3f5c9",
+      "reviewed": true
+    },
+    {
+      "topicId": "s_axioms",
+      "questionCount": 48,
+      "mathExpressions": 571,
+      "mathLayoutsRebuilt": 9,
+      "visualTypes": [
+        "probability",
+        "plot"
+      ],
+      "models": [
+        "probability-atoms",
+        "probability-union",
+        "probability-limit"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 4,
+      "htmlSha256": "1d3148332191ff1bacc73bce81d583a84d6439113dd55ae637ac73df8ab72702",
+      "reviewed": true
+    },
+    {
+      "topicId": "s_counting",
+      "questionCount": 77,
+      "mathExpressions": 904,
+      "mathLayoutsRebuilt": 14,
+      "visualTypes": [
+        "enumeration",
+        "probability"
+      ],
+      "models": [
+        "selection-ordered",
+        "selection-unordered",
+        "selection-repeated",
+        "stars-bars",
+        "powerset",
+        "draw-without-replacement",
+        "pairwise-independence"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 5,
+      "htmlSha256": "3490d72a06e1239f9fbb1ffbece93129cc437f360341dc9083c5244962a87a08",
+      "reviewed": true
+    },
+    {
+      "topicId": "l_vectors",
+      "questionCount": 46,
+      "mathExpressions": 620,
+      "mathLayoutsRebuilt": 9,
+      "visualTypes": [
+        "geometry"
+      ],
+      "models": [
+        "vector-addition",
+        "vector-norms",
+        "projection",
+        "gram-schmidt",
+        "affine-origin",
+        "cross-orientation"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 6,
+      "htmlSha256": "be694f97ba129334738d8818f6ecc1c1ca036e466bc46dfeb48bbc66c3a50170",
+      "reviewed": true
+    },
+    {
+      "topicId": "l_matrices",
+      "questionCount": 47,
+      "mathExpressions": 842,
+      "mathLayoutsRebuilt": 6,
+      "visualTypes": [
+        "matrices",
+        "geometry"
+      ],
+      "models": [
+        "matrix-product",
+        "matrix-composition",
+        "matrix-transpose",
+        "row-elimination",
+        "matrix-summaries"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 5,
+      "htmlSha256": "a608b6fef48ee0fb7e608c66a180734096a76b9aeb37502c0292f54ccd225a25",
+      "reviewed": true
+    },
+    {
+      "topicId": "p_types",
+      "questionCount": 45,
+      "mathExpressions": 421,
+      "mathLayoutsRebuilt": 3,
+      "visualTypes": [
+        "memory",
+        "numeric"
+      ],
+      "models": [
+        "assignment-sequential",
+        "assignment-simultaneous",
+        "finite-representation",
+        "short-circuit",
+        "float-rounding"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 5,
+      "htmlSha256": "d503740a7c639db046616fdc4f9f2f83289b57699dfef11e9cf665cd200d5093",
+      "reviewed": true
+    },
+    {
+      "topicId": "p_flow",
+      "questionCount": 45,
+      "mathExpressions": 411,
+      "mathLayoutsRebuilt": 1,
+      "visualTypes": [
+        "memory",
+        "plot"
+      ],
+      "models": [
+        "assignment-sequential",
+        "branch-m1",
+        "branch-0",
+        "branch-2",
+        "loop-transfers",
+        "loop-doubling",
+        "wraparound-loop"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 4,
+      "htmlSha256": "8599654b64eff11ee13a34a83dcc06429cef1148aa83faf25f04b36882c6f0fe",
+      "reviewed": true
+    },
+    {
+      "topicId": "g_number",
+      "questionCount": 45,
+      "mathExpressions": 475,
+      "mathLayoutsRebuilt": 3,
+      "visualTypes": [
+        "numeric"
+      ],
+      "models": [
+        "base-conversion",
+        "fraction-conversion",
+        "finite-representation",
+        "word-bit-cost",
+        "gray-code",
+        "hamming-code"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 6,
+      "htmlSha256": "b4b6e459606e4920b0953de0b1391266a93c5a5e5059b3e395b6154ebe116dc8",
+      "reviewed": true
+    },
+    {
+      "topicId": "g_boolean",
+      "questionCount": 53,
+      "mathExpressions": 585,
+      "mathLayoutsRebuilt": 8,
+      "visualTypes": [
+        "truth"
+      ],
+      "models": [
+        "de-morgan",
+        "absorption",
+        "consensus",
+        "xor",
+        "selectors",
+        "shannon"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 1,
+      "printablePreviewCount": 5,
+      "htmlSha256": "643e1fe1182472b31d1e3ed1c125a2e421cd88e5ab8b034de2acb8c69317d5b3",
+      "reviewed": true
+    },
+    {
+      "topicId": "g_gates",
+      "questionCount": 46,
+      "mathExpressions": 486,
+      "mathLayoutsRebuilt": 2,
+      "visualTypes": [
+        "circuit",
+        "truth",
+        "cmos"
+      ],
+      "models": [
+        "nand-mapping",
+        "nand-only",
+        "cmos-nand",
+        "static-hazard",
+        "hazard-consensus"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 4,
+      "printablePreviewCount": 6,
+      "htmlSha256": "fa3ad14c76a63113aaeb11097bf1fcfaaf5e59064ec52dd7257780d8ba3fc373",
+      "reviewed": true
+    },
+    {
+      "topicId": "d_relations",
+      "questionCount": 45,
+      "mathExpressions": 478,
+      "mathLayoutsRebuilt": 6,
+      "visualTypes": [
+        "graph"
+      ],
+      "models": [
+        "transitive-closure",
+        "reflexive-closure",
+        "equivalence-classes",
+        "hasse",
+        "topological"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 5,
+      "htmlSha256": "1f0aee6a0e5aa264c133b3bc9068132a978d853995cf2e22bd5457a3273ccd0a",
+      "reviewed": true
+    },
+    {
+      "topicId": "d_functions",
+      "questionCount": 47,
+      "mathExpressions": 533,
+      "mathLayoutsRebuilt": 10,
+      "visualTypes": [
+        "graph"
+      ],
+      "models": [
+        "function-fibers",
+        "function-composition",
+        "right-inverse",
+        "function-preimages",
+        "image-collapse",
+        "function-count"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 5,
+      "htmlSha256": "6fc2c6d2f3d93b6012785b7ccfdd9e13f1d9da46bcf8f8b4712e4c609dc60497",
+      "reviewed": true
+    },
+    {
+      "topicId": "d_invariants",
+      "questionCount": 46,
+      "mathExpressions": 618,
+      "mathLayoutsRebuilt": 3,
+      "visualTypes": [
+        "memory",
+        "bars",
+        "search",
+        "numeric",
+        "tree"
+      ],
+      "models": [
+        "assignment-sequential",
+        "insertion",
+        "lower-bound",
+        "division",
+        "wraparound-loop",
+        "merge-recursion",
+        "power",
+        "euclid"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 5,
+      "htmlSha256": "3bcfb3972919bf105541b65542d98b3f2690243f9d5ff366ededda16f98b37c7",
+      "reviewed": true
+    },
+    {
+      "topicId": "d_number",
+      "questionCount": 47,
+      "mathExpressions": 606,
+      "mathLayoutsRebuilt": 5,
+      "visualTypes": [
+        "numeric",
+        "geometry"
+      ],
+      "models": [
+        "euclid",
+        "integer-family",
+        "crt-intersection",
+        "modular-power"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 4,
+      "htmlSha256": "c21dc7c8bed51745b96cf0d2a25c1e318e73716b0b40517946eb275d74b6e6fe",
+      "reviewed": true
+    },
+    {
+      "topicId": "a_recurrence",
+      "questionCount": 53,
+      "mathExpressions": 778,
+      "mathLayoutsRebuilt": 13,
+      "visualTypes": [
+        "tree"
+      ],
+      "models": [
+        "rounded-splits",
+        "recursion-tree",
+        "recurrence-levels"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 4,
+      "htmlSha256": "a4928d6c2de01dc4b598fce0884dc7943a754d8fb3ce681bf3f4fe09ce12c2ec",
+      "reviewed": true
+    },
+    {
+      "topicId": "a_divide",
+      "questionCount": 46,
+      "mathExpressions": 533,
+      "mathLayoutsRebuilt": 18,
+      "visualTypes": [
+        "tree",
+        "bars",
+        "geometry",
+        "derivation"
+      ],
+      "models": [
+        "merge-recursion",
+        "merge",
+        "max-subarray",
+        "closest-pair",
+        "karatsuba",
+        "strassen",
+        "fft-butterfly"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 6,
+      "htmlSha256": "b31918d132e708e8c279bc2ae3e98a79d7e172296425e05eafa30a9c212965a1",
+      "reviewed": true
+    },
+    {
+      "topicId": "a_correct",
+      "questionCount": 54,
+      "mathExpressions": 500,
+      "mathLayoutsRebuilt": 13,
+      "visualTypes": [
+        "derivation",
+        "bars",
+        "numeric",
+        "search",
+        "tree",
+        "graph"
+      ],
+      "models": [
+        "weakest-precondition",
+        "insertion",
+        "euclid",
+        "lower-bound",
+        "search-stall",
+        "insertion-unstable",
+        "selection",
+        "bubble",
+        "merge",
+        "merge-recursion",
+        "partition3",
+        "partition-skip",
+        "division",
+        "power",
+        "shortest-path-certificate"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 7,
+      "htmlSha256": "c974f285f4e06bae5729ea67962b13b9356be7f9240a1d27a8472a49b1b29002",
+      "reviewed": true
+    },
+    {
+      "topicId": "s_conditional",
+      "questionCount": 60,
+      "mathExpressions": 797,
+      "mathLayoutsRebuilt": 70,
+      "visualTypes": [
+        "probability"
+      ],
+      "models": [
+        "conditional-atoms",
+        "conditional-history",
+        "conditional-urn",
+        "conditional-simpson",
+        "conditional-selection",
+        "conditional-mixture",
+        "conditional-report",
+        "conditional-bridge",
+        "conditional-strip"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 8,
+      "htmlSha256": "804a9abc7b750618421eac16400247e6ccca3300fddb4f8356e58087d3ee631c",
+      "reviewed": true
+    },
+    {
+      "topicId": "s_bayes",
+      "questionCount": 65,
+      "mathExpressions": 617,
+      "mathLayoutsRebuilt": 40,
+      "visualTypes": [
+        "probability",
+        "plot"
+      ],
+      "models": [
+        "bayes-partition",
+        "bayes-normalize",
+        "bayes-frequencies",
+        "bayes-repeat",
+        "bayes-copy",
+        "bayes-predict",
+        "bayes-host",
+        "bayes-sensitivity",
+        "bayes-loss",
+        "bayes-density"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 9,
+      "htmlSha256": "3039a5006c5472159f23c92c02ff6ff3ff669dfa5125845fa3e3b400c68b5c3e",
+      "reviewed": true
+    },
+    {
+      "topicId": "l_gauss",
+      "questionCount": 71,
+      "mathExpressions": 973,
+      "mathLayoutsRebuilt": 19,
+      "visualTypes": [
+        "geometry",
+        "matrices"
+      ],
+      "models": [
+        "gauss-geometry",
+        "gauss-coordinate",
+        "gauss-swap",
+        "gauss-skip",
+        "gauss-affine",
+        "gauss-inconsistent",
+        "gauss-parameters",
+        "gauss-lu",
+        "gauss-plu",
+        "gauss-inverse",
+        "gauss-rounding",
+        "gauss-binary"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 10,
+      "htmlSha256": "f278098f98f5077c5a614c31312980ec5310f4e13fda2d48e734f0dd321fe72b",
+      "reviewed": true
+    },
+    {
+      "topicId": "l_rank",
+      "questionCount": 90,
+      "mathExpressions": 921,
+      "mathLayoutsRebuilt": 22,
+      "visualTypes": [
+        "matrices",
+        "geometry"
+      ],
+      "models": [
+        "rank-pivots",
+        "rank-column-transform",
+        "rank-collapse",
+        "rank-fibers",
+        "rank-witness",
+        "rank-projection",
+        "rank-factorization",
+        "rank-composition",
+        "rank-cancellation",
+        "rank-parameters",
+        "rank-update",
+        "rank-powers"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 8,
+      "htmlSha256": "251a967c3abd12d8eb30a8920244a8759a1ce92cd16b83c6df3db3bd9e1eeba6",
+      "reviewed": true
+    },
+    {
+      "topicId": "p_functions",
+      "questionCount": 91,
+      "mathExpressions": 100,
+      "mathLayoutsRebuilt": 8,
+      "visualTypes": [
+        "memory"
+      ],
+      "models": [
+        "fn-nested",
+        "fn-recursion",
+        "fn-copy",
+        "fn-lookup",
+        "fn-static",
+        "fn-pointer",
+        "fn-alias",
+        "fn-output",
+        "fn-orders",
+        "fn-sharing",
+        "fn-closure",
+        "fn-default"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 6,
+      "htmlSha256": "c535ff36800584e2517dd1ec91d417f32cf362161d050422109f719473751cb6",
+      "reviewed": true
+    },
+    {
+      "topicId": "p_arrays",
+      "questionCount": 83,
+      "mathExpressions": 205,
+      "mathLayoutsRebuilt": 14,
+      "visualTypes": [
+        "array"
+      ],
+      "models": [
+        "arr-boundary",
+        "arr-row",
+        "arr-column",
+        "arr-transpose",
+        "arr-prefix",
+        "arr-copy-bad",
+        "arr-copy-right",
+        "arr-copy-left",
+        "arr-insert",
+        "arr-reverse",
+        "arr-rotate",
+        "arr-difference",
+        "arr-compact",
+        "arr-sharing",
+        "arr-search",
+        "arr-growth",
+        "arr-packed",
+        "arr-ring"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 8,
+      "htmlSha256": "efc94a37fa7894532b4cdb18264b1890d31f931cd483cf475aad3e46b1dc2d29",
+      "reviewed": true
+    },
+    {
+      "topicId": "g_kmap",
+      "questionCount": 84,
+      "mathExpressions": 721,
+      "mathLayoutsRebuilt": 184,
+      "visualTypes": [
+        "kmap",
+        "waveform"
+      ],
+      "models": [
+        "km-gray",
+        "km-corners",
+        "km-planes",
+        "km-chart",
+        "km-cycle",
+        "km-greedy",
+        "km-petrick",
+        "km-dc",
+        "km-pos",
+        "km-merge",
+        "km-qm",
+        "km-hazard-cover",
+        "km-hazard-time",
+        "km-sharing"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 0,
+      "printablePreviewCount": 5,
+      "htmlSha256": "2ddab867abf12ba4a72c07dc74e6192edee6822e2f89b6b2810f5fc78a693816",
+      "reviewed": true
+    },
+    {
+      "topicId": "g_combin",
+      "questionCount": 82,
+      "mathExpressions": 852,
+      "mathLayoutsRebuilt": 39,
+      "visualTypes": [
+        "circuit",
+        "numeric"
+      ],
+      "models": [
+        "comb-priority",
+        "comb-dag",
+        "comb-feedback",
+        "comb-arrival",
+        "comb-cofactor",
+        "comb-rom",
+        "comb-nand",
+        "comb-active-low",
+        "comb-word",
+        "comb-latch",
+        "comb-miter",
+        "comb-fault",
+        "comb-interval",
+        "comb-falsepath"
+      ],
+      "state": "awaiting_user_approval",
+      "lessonScope": "Definitions, proofs, worked questions and cited source pool retained; visual explanations, mathematical layout and concept models revised.",
+      "staticSchematicsRewritten": 8,
+      "printablePreviewCount": 8,
+      "htmlSha256": "3e6034c40e434da675d29fb5c301862e715e2c6c13ff07ee94cb7bb392be09c1",
+      "reviewed": true
+    }
+  ],
+  "rendererClaims": {
+    "bars": "Bar height is value magnitude; stable labels identify records during moves and swaps.",
+    "search": "An indexed sorted strip exposes both half-open boundaries and their shrinking distance.",
+    "venn": "Overlapping sets retain explicit universe membership and the inspected result set.",
+    "truth": "The complete finite truth table highlights one valuation without claiming electrical timing.",
+    "graph": "Vertices, arrows and relation edges show actual membership, dependence or reachability.",
+    "tiles": "Unit tiles and coin witnesses encode exact constructive counts.",
+    "derivation": "A proof or arithmetic derivation advances through justified dependencies; formulas are native MathML.",
+    "tree": "Explicit subproblem/dependency edges expose splitting, evaluation and aggregation.",
+    "geometry": "Equal-scale coordinate axes expose vectors, solution sets and their actual transformations.",
+    "matrices": "Bracketed entry arrays retain dimensions, pivot positions and the current exact transformation.",
+    "enumeration": "Concrete outcome objects or occupied index pairs exhibit the exact counting convention.",
+    "numeric": "Place-value bits, quotient groups and arithmetic certificates expose the numeric representation.",
+    "memory": "Call frames, value transfers and references distinguish store, object identity and control.",
+    "array": "Indexed storage, address mappings and moving read/write positions retain logical versus physical boundaries.",
+    "probability": "Mass-proportional regions, bars, distributions or reliability edges expose the conditioning model.",
+    "plot": "Labeled, fixed-scale axes retain the actual quantitative dependence across checkpoints.",
+    "cmos": "Parallel pMOS and series nMOS channels explicitly connect VDD, output and ground.",
+    "circuit": "Named nets connect declared input/output ports of distinctive-shape gates or standard functional blocks.",
+    "waveform": "Step waveforms encode exact binary transport-delay events against a common time axis.",
+    "kmap": "Gray-ordered cells, Boolean cubes and exact cover tables encode minimization obligations."
+  },
+  "limits": [
+    "Finite scene traces are bounded illustrations, not universal proofs.",
+    "The retained written course pool is documented in each chapter source audit; this revision does not assert a new worldwide course search."
+  ],
+  "staticSchematicsRewritten": 13,
+  "printableWalkthroughs": 169,
+  "checkpointsRendered": 1211,
+  "validation": {
+    "chapters": 31,
+    "scenarios": 206,
+    "checkpoints": 1211,
+    "sceneLabelBoundaryFindings": 0,
+    "figureLabelFindings": 0,
+    "mobileWidth": 390,
+    "mathematicalSourcesAndTokensPreserved": true,
+    "renderedCircuitTruthCases": 48,
+    "serializedReferenceAssertions": 5266
+  },
+  "proseReviewScope": "Visual reading instructions and diagram captions rewritten; existing definitions, proofs, worked problems, source selections and examination rules retained. This delivery does not claim a fresh sentence-by-sentence rewrite of all prose.",
+  "approval": "All revised visual layers remain pending explicit user approval. Historical chapter-content approvals are recorded separately."
+}

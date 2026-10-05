@@ -30,7 +30,7 @@
     for(let j=0;j<4;j++)nodes.push(node("col"+j,gray[j].toString(2).padStart(2,"0"),180+120*j,40,75,34,"plain",18));
     for(let r=0;r<4;r++){nodes.push(node("row"+r,gray[r].toString(2).padStart(2,"0"),70,90+55*r,70,38,"plain",18));for(let c=0;c<4;c++){let i=4*gray[r]+gray[c],v=on.includes(i)?"1":dc.includes(i)?"X":"0";nodes.push(node("m"+i,i+": "+v,180+120*c,90+55*r,105,38,seen.has(i)?"done":"plain"));}}
     nodes.push(node("token",k?cover[k-1]:"start",180+120*(k%4),320,115,38,"active"));
-    const state={selected:cover.slice(0,k),covered:[...seen].sort((a,b)=>a-b),requiredCovered:data.required.filter(i=>seen.has(i)),step:k};states.push(state);
+    const state={n:4,on:on.slice(),dc:dc.slice(),mode:data.mode,cover:cover.slice(0,k),selected:cover.slice(0,k),covered:[...seen].sort((a,b)=>a-b),requiredCovered:data.required.filter(i=>seen.has(i)),step:k};states.push(state);
     const caption=k?"Select cube "+cover[k-1]+". The accumulated union covers required "+(data.mode==="SOP"?"one":"zero")+" rows "+JSON.stringify(state.requiredCovered)+". Optional cells are permitted, while every forbidden care row remains excluded.":"Start with the exact fixed specification and no selected candidates. Required rows are obligations; optional cells may assist a group but never require coverage.";
     frames.push({nodes,caption,captionHtml:"<p>"+caption+"</p>",metrics:{Selected:k,Covered:state.requiredCovered.length},metricLabels:{Selected:"Selected candidates",Covered:"Covered obligations"},formula:"",line:0,edges:[],snapshot:state});
    }
