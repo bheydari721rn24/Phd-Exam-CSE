@@ -1,5 +1,5 @@
 {
-  "state": "32_approved_chapters_and_one_inclusion_review_draft",
+  "state": "33_approved_chapters_and_one_pigeonhole_review_draft",
   "chapters": [
     {
       "topicId": "d_logic",
@@ -997,22 +997,77 @@
         ]
       },
       "questionCount": 82,
-      "htmlSha256": "4f8e44177b0e39212675b70b654e376c3d35087696113d361454cd42d0652bbb",
-      "visualRevisionState": "awaiting_user_approval",
+      "htmlSha256": "cc714d338f8ccec01984f0410a774846289866ac84ed1299ee79c3ae4580a40e",
+      "visualRevisionState": "student_approved",
       "renderer": "Dedicated inclusion-exclusion SVG traces and four bounded enumerating labs",
       "dataUrl": "chapters/d_inclusion-models.json",
       "modelAuditPath": "research/d_inclusion-model-audit.json",
       "browserAuditPath": "research/d_inclusion-browser-audit.json"
+    },
+    {
+      "topicId": "d_pigeonhole",
+      "placements": 18,
+      "scenarios": 18,
+      "sections": {
+        "assignment": [
+          "dp-placement"
+        ],
+        "average": [
+          "dp-average"
+        ],
+        "capacity": [
+          "dp-capacity"
+        ],
+        "collisions": [
+          "dp-collisions"
+        ],
+        "residues": [
+          "dp-prefix",
+          "dp-repunit",
+          "dp-prime"
+        ],
+        "subsets": [
+          "dp-subsets"
+        ],
+        "chains": [
+          "dp-pairing",
+          "dp-oddchain"
+        ],
+        "geometry": [
+          "dp-triangle",
+          "dp-fractional"
+        ],
+        "subsequences": [
+          "dp-es"
+        ],
+        "graphs": [
+          "dp-degree",
+          "dp-ramsey",
+          "dp-rectangle"
+        ],
+        "information": [
+          "dp-info",
+          "dp-cards"
+        ]
+      },
+      "questionCount": 82,
+      "htmlSha256": "3a13bcebab53e0aa1aaed85366191eb0e53afed348d4c0d7d31cbea8e99e9380",
+      "visualRevisionState": "awaiting_user_approval",
+      "renderer": "Dedicated mathematical witness SVGs and four editable exact laboratories",
+      "dataUrl": "chapters/d_pigeonhole-models.json",
+      "modelAuditPath": "research/d_pigeonhole-model-audit.json",
+      "browserAuditPath": "research/d_pigeonhole-browser-audit.json"
     }
   ],
-  "uniqueScenarios": 234,
-  "checkpoints": 1343,
-  "placements": 197,
+  "uniqueScenarios": 252,
+  "checkpoints": 1421,
+  "placements": 215,
   "constructionAssertions": 4049,
-  "scope": "206 approved legacy models, 15 approved counting models, and 13 inclusion-exclusion draft models. Mathematical proofs remain authoritative.",
-  "checkpointsPrint": "Legacy players retain printable current or initial checkpoints; counting prints all 76 and inclusion-exclusion prints all 56 checkpoints.",
+  "scope": "234 approved preceding models and 18 new pigeonhole draft models. All existing chapter bodies are preserved.",
+  "checkpointsPrint": "Earlier players retain their existing print behavior; pigeonhole prints all 78 checkpoints.",
   "visualReviewPath": "research/subject-visual-review.json",
   "legacyConstructionAssertions": 4049,
   "countingValidationAssertions": 422,
-  "inclusionValidationAssertions": 1267
+  "inclusionValidationAssertions": 1267,
+  "pigeonholeValidationAssertions": 68972
 }

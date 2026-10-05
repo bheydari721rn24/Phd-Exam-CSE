@@ -1,0 +1,505 @@
+{
+  "topicId": "d_pigeonhole",
+  "state": "passed",
+  "checks": 68972,
+  "questionChecks": [
+    {
+      "id": "DPH_01",
+      "state": "passed",
+      "method": "function",
+      "reference": "Noninjective"
+    },
+    {
+      "id": "DPH_02",
+      "state": "passed",
+      "method": "maxmin",
+      "reference": "3"
+    },
+    {
+      "id": "DPH_03",
+      "state": "passed",
+      "method": "ids",
+      "reference": "73 labels; occupancy 2"
+    },
+    {
+      "id": "DPH_04",
+      "state": "passed",
+      "method": "maxmin",
+      "reference": "3"
+    },
+    {
+      "id": "DPH_05",
+      "state": "passed",
+      "method": "subset-bound",
+      "reference": "Guaranteed"
+    },
+    {
+      "id": "DPH_06",
+      "state": "passed",
+      "method": "symmetric-es",
+      "reference": "7"
+    },
+    {
+      "id": "DPH_07",
+      "state": "passed",
+      "method": "divisibility-threshold",
+      "reference": "101"
+    },
+    {
+      "id": "DPH_08",
+      "state": "passed",
+      "method": "triangle-threshold",
+      "reference": "5"
+    },
+    {
+      "id": "DPH_09",
+      "state": "passed",
+      "method": "saturation",
+      "reference": "20"
+    },
+    {
+      "id": "DPH_10",
+      "state": "passed",
+      "method": "ramsey-threshold",
+      "reference": "6"
+    },
+    {
+      "id": "DPH_11",
+      "state": "passed",
+      "method": "seven-multiple",
+      "reference": "7000"
+    },
+    {
+      "id": "DPH_12",
+      "state": "passed",
+      "method": "subset-residue-bound",
+      "reference": "Collision guaranteed; cancellation not guaranteed"
+    },
+    {
+      "id": "DPH_13",
+      "state": "passed",
+      "method": "average",
+      "reference": "Maximum at least 6; minimum at most 5"
+    },
+    {
+      "id": "DPH_14",
+      "state": "passed",
+      "method": "threshold",
+      "reference": "29"
+    },
+    {
+      "id": "DPH_15",
+      "state": "passed",
+      "method": "threshold",
+      "reference": "1"
+    },
+    {
+      "id": "DPH_16",
+      "state": "passed",
+      "method": "inventory",
+      "reference": "9"
+    },
+    {
+      "id": "DPH_17",
+      "state": "passed",
+      "method": "specified",
+      "reference": "15"
+    },
+    {
+      "id": "DPH_18",
+      "state": "passed",
+      "method": "distinct-colors",
+      "reference": "17"
+    },
+    {
+      "id": "DPH_19",
+      "state": "passed",
+      "method": "inventory",
+      "reference": "Infeasible"
+    },
+    {
+      "id": "DPH_20",
+      "state": "passed",
+      "method": "inventory",
+      "reference": "10"
+    },
+    {
+      "id": "DPH_21",
+      "state": "passed",
+      "method": "heavy",
+      "reference": "4"
+    },
+    {
+      "id": "DPH_22",
+      "state": "passed",
+      "method": "heavy",
+      "reference": "5"
+    },
+    {
+      "id": "DPH_23",
+      "state": "passed",
+      "method": "heavy",
+      "reference": "0"
+    },
+    {
+      "id": "DPH_24",
+      "state": "passed",
+      "method": "saturation",
+      "reference": "2,3,5"
+    },
+    {
+      "id": "DPH_25",
+      "state": "passed",
+      "method": "strict-average",
+      "reference": "Not forced"
+    },
+    {
+      "id": "DPH_26",
+      "state": "passed",
+      "method": "strict-average",
+      "reference": "Both are forced"
+    },
+    {
+      "id": "DPH_27",
+      "state": "passed",
+      "method": "real-load",
+      "reference": "No; 0.4 is the sharp lower bound"
+    },
+    {
+      "id": "DPH_28",
+      "state": "passed",
+      "method": "utilization",
+      "reference": "3/4"
+    },
+    {
+      "id": "DPH_29",
+      "state": "passed",
+      "method": "pairs",
+      "reference": "21"
+    },
+    {
+      "id": "DPH_30",
+      "state": "passed",
+      "method": "actual-tuples",
+      "reference": "16"
+    },
+    {
+      "id": "DPH_31",
+      "state": "passed",
+      "method": "max-pairs",
+      "reference": "190"
+    },
+    {
+      "id": "DPH_32",
+      "state": "passed",
+      "method": "tuples",
+      "reference": "11"
+    },
+    {
+      "id": "DPH_33",
+      "state": "passed",
+      "method": "pairs",
+      "reference": "32"
+    },
+    {
+      "id": "DPH_34",
+      "state": "passed",
+      "method": "bounded-pairs",
+      "reference": "10"
+    },
+    {
+      "id": "DPH_35",
+      "state": "passed",
+      "method": "hash",
+      "reference": "4097"
+    },
+    {
+      "id": "DPH_36",
+      "state": "passed",
+      "method": "pairs",
+      "reference": "2"
+    },
+    {
+      "id": "DPH_37",
+      "state": "passed",
+      "method": "function",
+      "reference": "Neither collision nor collision-freedom is forced"
+    },
+    {
+      "id": "DPH_38",
+      "state": "passed",
+      "method": "threshold",
+      "reference": "1099"
+    },
+    {
+      "id": "DPH_39",
+      "state": "passed",
+      "method": "short-codes",
+      "reference": "1023"
+    },
+    {
+      "id": "DPH_40",
+      "state": "passed",
+      "method": "prefix",
+      "reference": "Positions 3\u20135; sum 10"
+    },
+    {
+      "id": "DPH_41",
+      "state": "passed",
+      "method": "difference",
+      "reference": "A divisible difference, not necessarily a divisible sum"
+    },
+    {
+      "id": "DPH_42",
+      "state": "passed",
+      "method": "remainder-counterexample",
+      "reference": "Difference only"
+    },
+    {
+      "id": "DPH_43",
+      "state": "passed",
+      "method": "no-prefix",
+      "reference": "No"
+    },
+    {
+      "id": "DPH_44",
+      "state": "passed",
+      "method": "repunit",
+      "reference": "111111"
+    },
+    {
+      "id": "DPH_45",
+      "state": "passed",
+      "method": "zeroone",
+      "reference": "1110"
+    },
+    {
+      "id": "DPH_46",
+      "state": "passed",
+      "method": "repunit-obstruction",
+      "reference": "Impossible"
+    },
+    {
+      "id": "DPH_47",
+      "state": "passed",
+      "method": "cancellation",
+      "reference": "No"
+    },
+    {
+      "id": "DPH_48",
+      "state": "passed",
+      "method": "square-prime",
+      "reference": "6 residues; a solution exists"
+    },
+    {
+      "id": "DPH_49",
+      "state": "passed",
+      "method": "square-two",
+      "reference": "x=1, y=0"
+    },
+    {
+      "id": "DPH_50",
+      "state": "passed",
+      "method": "square-composite",
+      "reference": "No solution"
+    },
+    {
+      "id": "DPH_51",
+      "state": "passed",
+      "method": "equal-subsets",
+      "reference": "1+4=2+3"
+    },
+    {
+      "id": "DPH_52",
+      "state": "passed",
+      "method": "unique-subsets",
+      "reference": "No"
+    },
+    {
+      "id": "DPH_53",
+      "state": "passed",
+      "method": "fixed-subsets",
+      "reference": "Guaranteed"
+    },
+    {
+      "id": "DPH_54",
+      "state": "passed",
+      "method": "no-zero-subset",
+      "reference": "No"
+    },
+    {
+      "id": "DPH_55",
+      "state": "passed",
+      "method": "unit-subsets",
+      "reference": "Collision with valid cancellation"
+    },
+    {
+      "id": "DPH_56",
+      "state": "passed",
+      "method": "zero-subset-counterexample",
+      "reference": "No"
+    },
+    {
+      "id": "DPH_57",
+      "state": "passed",
+      "method": "complement",
+      "reference": "11"
+    },
+    {
+      "id": "DPH_58",
+      "state": "passed",
+      "method": "complement",
+      "reference": "12"
+    },
+    {
+      "id": "DPH_59",
+      "state": "passed",
+      "method": "odd-witness",
+      "reference": "4 divides 8"
+    },
+    {
+      "id": "DPH_60",
+      "state": "passed",
+      "method": "divfree",
+      "reference": "No proper multiple remains in the interval"
+    },
+    {
+      "id": "DPH_61",
+      "state": "passed",
+      "method": "consecutive",
+      "reference": "9"
+    },
+    {
+      "id": "DPH_62",
+      "state": "passed",
+      "method": "coprime-threshold",
+      "reference": "11"
+    },
+    {
+      "id": "DPH_63",
+      "state": "passed",
+      "method": "base-cores",
+      "reference": "200"
+    },
+    {
+      "id": "DPH_64",
+      "state": "passed",
+      "method": "grid",
+      "reference": "37"
+    },
+    {
+      "id": "DPH_65",
+      "state": "passed",
+      "method": "rectangle-grid",
+      "reference": "7"
+    },
+    {
+      "id": "DPH_66",
+      "state": "passed",
+      "method": "approximation",
+      "reference": "q=5, p=7"
+    },
+    {
+      "id": "DPH_67",
+      "state": "passed",
+      "method": "rational-approximation",
+      "reference": "q=2, p=1"
+    },
+    {
+      "id": "DPH_68",
+      "state": "passed",
+      "method": "es",
+      "reference": "25"
+    },
+    {
+      "id": "DPH_69",
+      "state": "passed",
+      "method": "lis",
+      "reference": "LIS 3; LDS 2"
+    },
+    {
+      "id": "DPH_70",
+      "state": "passed",
+      "method": "es-square",
+      "reference": "10 at 100; 11 first at 101"
+    },
+    {
+      "id": "DPH_71",
+      "state": "passed",
+      "method": "duplicate-es",
+      "reference": "No; strict maximum is one"
+    },
+    {
+      "id": "DPH_72",
+      "state": "passed",
+      "method": "lis",
+      "reference": "LIS 3; LDS 3"
+    },
+    {
+      "id": "DPH_73",
+      "state": "passed",
+      "method": "lis-contiguous",
+      "reference": "Subsequence 4; contiguous block 2"
+    },
+    {
+      "id": "DPH_74",
+      "state": "passed",
+      "method": "degree",
+      "reference": "Repeated undirected degree; distinct tournament outdegrees possible"
+    },
+    {
+      "id": "DPH_75",
+      "state": "passed",
+      "method": "ramsey-cycle",
+      "reference": "0"
+    },
+    {
+      "id": "DPH_76",
+      "state": "passed",
+      "method": "rectangle",
+      "reference": "19"
+    },
+    {
+      "id": "DPH_77",
+      "state": "passed",
+      "method": "rectangle",
+      "reference": "7"
+    },
+    {
+      "id": "DPH_78",
+      "state": "passed",
+      "method": "binary-identification",
+      "reference": "10"
+    },
+    {
+      "id": "DPH_79",
+      "state": "passed",
+      "method": "one-lie",
+      "reference": "49932"
+    },
+    {
+      "id": "DPH_80",
+      "state": "passed",
+      "method": "card-channel",
+      "reference": "Six rank codes; four-card variant impossible"
+    },
+    {
+      "id": "Phd_CS_1404_Q25",
+      "state": "passed",
+      "method": "authentic-parity",
+      "reference": "200"
+    },
+    {
+      "id": "MS_CS_1405_Q116",
+      "state": "passed",
+      "method": "authentic-password",
+      "reference": "27/2"
+    }
+  ],
+  "retainedQuestions": 1917,
+  "retainedChapters": 33,
+  "models": 18,
+  "checkpoints": 78,
+  "formulaInstances": 556,
+  "limitations": "Finite references supplement written general proofs; necessary bounds are not represented as sufficient strategies."
+}

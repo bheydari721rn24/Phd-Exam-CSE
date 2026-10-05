@@ -1,0 +1,121 @@
+{
+  "topicId": "d_pigeonhole",
+  "state": "passed",
+  "models": 18,
+  "checkpoints": 78,
+  "contracts": [
+    {
+      "id": "dp-placement",
+      "family": "object-to-bin-map",
+      "invariant": "Assigned objects occur once each; bin sizes sum to the assigned total.",
+      "checkpoints": 8
+    },
+    {
+      "id": "dp-average",
+      "family": "occupancy-bars",
+      "invariant": "Every checkpoint totals eleven; the final maximum is three and minimum two.",
+      "checkpoints": 4
+    },
+    {
+      "id": "dp-capacity",
+      "family": "finite-stock-selection",
+      "invariant": "No occupancy exceeds its stock; selected items remain distinct physical objects.",
+      "checkpoints": 5
+    },
+    {
+      "id": "dp-collisions",
+      "family": "within-fiber-complete-graphs",
+      "invariant": "Each drawn segment joins two objects of one fiber; total segments equal the pair count.",
+      "checkpoints": 4
+    },
+    {
+      "id": "dp-prefix",
+      "family": "prefix-index-strip",
+      "invariant": "Prefixes are canonical remainders; equal prefixes delimit a nonempty ordered block.",
+      "checkpoints": 6
+    },
+    {
+      "id": "dp-repunit",
+      "family": "modular-recurrence",
+      "invariant": "All displayed repunits have their computed remainders; the positive difference is divisible by six.",
+      "checkpoints": 4
+    },
+    {
+      "id": "dp-prime",
+      "family": "two-origin-residue-cells",
+      "invariant": "Both images have four elements; shared residues encode the stated square-sum relation.",
+      "checkpoints": 3
+    },
+    {
+      "id": "dp-subsets",
+      "family": "indexed-subset-cancellation",
+      "invariant": "Displayed sums are checked from selected indices; deleting the common part preserves equality.",
+      "checkpoints": 3
+    },
+    {
+      "id": "dp-oddchain",
+      "family": "multiplicative-chain-graph",
+      "invariant": "Every integer has a unique odd core and successive nodes differ by a factor two.",
+      "checkpoints": 4
+    },
+    {
+      "id": "dp-pairing",
+      "family": "involution-pair-matching",
+      "invariant": "Ten disjoint pairs and one singleton cover all twenty-one values.",
+      "checkpoints": 3
+    },
+    {
+      "id": "dp-triangle",
+      "family": "triangular-partition",
+      "invariant": "The four midpoint cells have side one-half; displayed points retain their true geometric coordinates.",
+      "checkpoints": 3
+    },
+    {
+      "id": "dp-fractional",
+      "family": "fractional-coordinate-strip",
+      "invariant": "Coordinates are fractional multiples; intervals have width one-fifth and distinct endpoint ownership.",
+      "checkpoints": 6
+    },
+    {
+      "id": "dp-es",
+      "family": "ending-length-dag",
+      "invariant": "Every displayed label equals its strict predecessor recurrence; arrows respect index order.",
+      "checkpoints": 5
+    },
+    {
+      "id": "dp-degree",
+      "family": "simple-undirected-graph",
+      "invariant": "Degree equals the number of incident neighbors; the two extreme labels never coexist.",
+      "checkpoints": 4
+    },
+    {
+      "id": "dp-ramsey",
+      "family": "edge-colored-complete-graph",
+      "invariant": "Each unordered vertex pair has one color; the selected triangle has three equal-color edges.",
+      "checkpoints": 3
+    },
+    {
+      "id": "dp-rectangle",
+      "family": "colored-matrix-certificate",
+      "invariant": "Each of the first eighteen rows has one distinct pair-color certificate; row nineteen repeats it.",
+      "checkpoints": 5
+    },
+    {
+      "id": "dp-info",
+      "family": "binary-decision-tree",
+      "invariant": "At depth q the full tree has two to q leaves, each with one distinct transcript.",
+      "checkpoints": 4
+    },
+    {
+      "id": "dp-cards",
+      "family": "rank-cycle-permutation-code",
+      "invariant": "Lexicographic permutation rank three is B,A,C; its gap advances rank one to four in the anchor suit.",
+      "checkpoints": 4
+    }
+  ],
+  "verificationPath": "research/d_pigeonhole-verification.json",
+  "browserAuditPath": "research/d_pigeonhole-browser-audit.json",
+  "observedAssertions": 68972,
+  "labReferenceCases": 330,
+  "limitations": "Finite references supplement the general written proofs and stated input bounds."
+}

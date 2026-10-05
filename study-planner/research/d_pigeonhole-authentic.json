@@ -1,0 +1,63 @@
+[
+  {
+    "id": "Phd_CS_1404_Q25",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 7,
+    "questionNumber": 25,
+    "topics": [
+      "d_sets",
+      "s_counting",
+      "d_number"
+    ],
+    "title": "A subset containing an odd pair sum",
+    "stem": "How many four-element subsets $A$ of $\\{1,2,\\ldots,10\\}$ contain two elements $x,y$ such that $x+y$ is odd?",
+    "options": [
+      "200",
+      "205",
+      "208",
+      "209"
+    ],
+    "answer": 1,
+    "solution": "There are $\\binom{10}{4}=210$ four-element subsets. A pair has odd sum exactly when its values have opposite parity. The only failures are all-even and all-odd selections. Each parity class has five elements, so failures number $2\\binom54=10$. The answer is $210-10=200$, printed option 1. Four selections do not universally force opposite parity: four even values are a counterexample. Six distinct selections would force it because either single parity class has capacity five. This authentic problem counts successful subsets; it does not ask for the universal pigeonhole threshold.",
+    "pattern": "existential parity witness and complement count",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "check": {
+      "kind": "authentic-parity",
+      "H": 10,
+      "t": 4
+    },
+    "expected": "200"
+  },
+  {
+    "id": "MS_CS_1405_Q116",
+    "title": "Worst-case search for an odd three-digit password",
+    "stem": "A combination lock has an unknown odd three-digit password whose digits are chosen from 1 through 9. Each trial takes two minutes. What is the maximum time required, in hours?",
+    "options": [
+      "12",
+      "12.5",
+      "13",
+      "13.5"
+    ],
+    "answer": 4,
+    "expected": "13.5",
+    "origin": "Authentic MSc Computer Science examination, 1405, question 116; checked English adaptation",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "physicalPage": 25,
+    "repositoryCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "difficulty": "Medium",
+    "check": {
+      "kind": "authentic-password"
+    },
+    "solution": "The first two digits each have nine choices. Oddness restricts only the final digit, which has five choices: 1, 3, 5, 7, 9. Repetition is permitted because distinctness is not stated. Thus there are $9\\cdot9\\cdot5=405$ candidate passwords. In the worst case the correct password is the last candidate tried, and the successful final trial also takes two minutes. The time is $405\\cdot2=810$ minutes, or $810/60=13.5$ hours, printed option 4. This is a finite worst-case search bridge problem, not a direct repeated-class pigeonhole question. The conclusion assumes a systematic search without repeated trials and no additional feedback eliminating candidates.",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "pdfPage": 25,
+    "questionNumber": 116,
+    "booklet": "MS_CS_1405"
+  }
+]

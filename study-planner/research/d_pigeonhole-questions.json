@@ -1,0 +1,1576 @@
+[
+  {
+    "id": "DPH_01",
+    "title": "What the finite-function theorem actually forces",
+    "stem": "A total function maps seven distinct objects to five labels. Which property is forced for every such function?",
+    "solution": "1. If the function were injective, its seven images would be distinct elements of a five-element set, which is impossible.\n\n2. Surjectivity is not forced: a constant function uses only one label. It is not ruled out either: send the first five objects to distinct labels and repeat two labels afterwards.\n\n3. The forced conclusion is a repeated image, hence noninjectivity. Equal output labels do not make the original objects identical.\n\n**Conclusion.** Noninjective.",
+    "expected": "Noninjective",
+    "check": {
+      "kind": "function",
+      "n": 7,
+      "k": 5
+    },
+    "origin": "Independent reconstruction of Stanford CS103 Winter 2026 Lecture 11",
+    "difficulty": "Medium",
+    "options": [
+      "Noninjective",
+      "Injective",
+      "Surjective",
+      "Not surjective"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "DPH_02",
+    "title": "An inclusive calendar model",
+    "stem": "Assume 366 possible birthday dates. Among 800 people, what is the largest occupancy guaranteed independently of their birthdays?",
+    "solution": "1. The 800 people are objects and the 366 dates are labels. Since $800=2\\cdot366+68$, the ceiling of $800/366$ is 3.\n\n2. A distribution with 68 dates containing three people and 298 containing two has total 800 and maximum three, so four cannot be universally required.\n\n3. The answer is a deterministic bound. No assumption of uniform birthday probabilities is needed.\n\n**Conclusion.** 3.",
+    "expected": "3",
+    "check": {
+      "kind": "maxmin",
+      "n": 800,
+      "k": 366
+    },
+    "origin": "Independent reconstruction of Cornell CS2800 \u00a74.5",
+    "difficulty": "Medium",
+    "options": [
+      "2",
+      "4",
+      "800",
+      "3"
+    ],
+    "answer": 4
+  },
+  {
+    "id": "DPH_03",
+    "title": "ID sums with a fixed first digit",
+    "stem": "Each of 75 nine-digit ID strings begins with digit 9. Digits may repeat, and each student sums all nine digits. How many sum labels are possible, and what repeated-sum occupancy is guaranteed?",
+    "solution": "1. The remaining eight digits range from 0 to 9, so the sum lies between 9 and $9+8\\cdot9=81$ inclusive. This gives $81-9+1=73$ labels.\n\n2. Every integer sum in this range is realizable: distribute the desired increment among eight slots, each holding at most nine. The digits being ordered does not introduce extra sum labels.\n\n3. There are 75 objects and 73 labels, so two sums coincide. Three are not forced because a vector with two doubled labels and 71 single labels has total 75.\n\n4. Counting 81 labels by omitting the minimum, or counting 72 by omitting an endpoint, changes the guarantee.\n\n**Conclusion.** 73 labels; occupancy 2.",
+    "expected": "73 labels; occupancy 2",
+    "check": {
+      "kind": "ids",
+      "students": 75,
+      "digits": 9,
+      "first": 9
+    },
+    "origin": "Independent reconstruction of MIT 6.042J \u00a714.8 / related class problems",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_04",
+    "title": "A stronger residue occupancy",
+    "stem": "Among 100 integers, how many are guaranteed to have the same remainder modulo 37?",
+    "solution": "1. There are exactly 37 canonical remainder labels. Division gives $100=2\\cdot37+26$, so some remainder class contains at least 3 positions.\n\n2. Two members in this class have a difference divisible by 37. Three equal residue labels do not require three equal numerical values.\n\n3. The balanced residue occupancies are 26 classes of size three and eleven of size two. Distinct integers with those residues can be chosen by adding multiples of 37, so the guarantee three is sharp.\n\n**Conclusion.** 3.",
+    "expected": "3",
+    "check": {
+      "kind": "maxmin",
+      "n": 100,
+      "k": 37
+    },
+    "origin": "Independent reconstruction of MIT 6.042J \u00a714.8 / related class problems",
+    "difficulty": "Hard",
+    "options": [
+      "37",
+      "3",
+      "2",
+      "4"
+    ],
+    "answer": 2
+  },
+  {
+    "id": "DPH_05",
+    "title": "Thirty bounded positive values",
+    "stem": "Thirty positive integers are all less than $10^7$. Use an exact image-size comparison to show that disjoint nonempty equal-sum index subsets exist.",
+    "solution": "1. The total is at most $30(10^7-1)=299999970$. Including the empty subset, sum labels number at most 299999971.\n\n2. There are $2^{30}=1073741824$ index subsets, strictly more than the labels. Therefore two distinct subsets have equal sums.\n\n3. Remove common indices from the two subsets. Their sums remain equal; distinctness leaves at least one nonempty side, and positivity then forces the other side to be nonempty too.\n\n4. The argument establishes existence even when a search through all subsets would be expensive. It does not identify the subsets by counting alone.\n\n**Conclusion.** Guaranteed.",
+    "expected": "Guaranteed",
+    "check": {
+      "kind": "subset-bound",
+      "n": 30,
+      "maximum": 9999999
+    },
+    "origin": "Independent reconstruction of MIT 18.310 Pigeonhole Principle lecture",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_06",
+    "title": "A symmetric monotone guarantee",
+    "stem": "A sequence contains 37 distinct real values. What is the largest universally guaranteed length of an increasing or decreasing subsequence?",
+    "solution": "1. The product-label theorem forces a monotone subsequence of length $\\lceil\\sqrt{37}\\rceil=7$. Equivalently, 37 is one more than $6^2$.\n\n2. To exclude a guarantee of eight, use seven descending blocks with at most seven elements each and keep 37 values. Each increasing subsequence uses at most seven blocks and each decreasing subsequence stays within a block of at most seven.\n\n3. The theorem supplies either direction. A completely decreasing input shows why it cannot force increasing length seven specifically.\n\n**Conclusion.** 7.",
+    "expected": "7",
+    "check": {
+      "kind": "symmetric-es",
+      "n": 37
+    },
+    "origin": "Independent reconstruction of MIT 18.310 Pigeonhole Principle lecture",
+    "difficulty": "Hard",
+    "options": [
+      "6",
+      "8",
+      "37",
+      "7"
+    ],
+    "answer": 4
+  },
+  {
+    "id": "DPH_07",
+    "title": "Divisibility among 101 selections",
+    "stem": "Choose 101 distinct integers from $\\{1,\\ldots,200\\}$. Prove that one divides another, and show that 100 selections need not have this property.",
+    "solution": "1. Write each selected integer as a power of two times its odd part. The possible odd parts are the 100 odd integers from 1 through 199.\n\n2. Two distinct selections share an odd part. Their powers of two differ, so the smaller divides the larger.\n\n3. The 100 integers from 101 through 200 form a counterexample: a proper multiple of any of them exceeds 200. Hence the threshold 101 is exact.\n\n4. Grouping by parity alone would only prove matching parity, not divisibility.\n\n**Conclusion.** 101.",
+    "expected": "101",
+    "check": {
+      "kind": "divisibility-threshold",
+      "n": 100
+    },
+    "origin": "Independent reconstruction of Toronto MAT344 Lecture 7 \u00a74",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_08",
+    "title": "Triangle proximity and a counterexample",
+    "stem": "What is the minimum number of points in a closed unit equilateral triangle that forces two at distance at most $1/2$?",
+    "solution": "1. Joining the side midpoints partitions the triangle into four equilateral cells of side one-half. Assign any shared boundary point to the first containing cell in a fixed ordering.\n\n2. Five points place two in one cell, whose diameter is one-half. Therefore five suffice.\n\n3. The three vertices and the centroid give four points with smallest pair distance $1/\\sqrt3>1/2$. Thus four do not suffice.\n\n4. A strict distance smaller than one-half is not what the cell-diameter proof establishes.\n\n**Conclusion.** 5.",
+    "expected": "5",
+    "check": {
+      "kind": "triangle-threshold"
+    },
+    "origin": "Independent reconstruction of Oxford Discrete Mathematics \u00a76.5 / Exercises 6.7\u20136.8",
+    "difficulty": "Hard",
+    "options": [
+      "8",
+      "5",
+      "4",
+      "6"
+    ],
+    "answer": 2
+  },
+  {
+    "id": "DPH_09",
+    "title": "Saturated workshop attendance",
+    "stem": "Twenty people attend at most three of four workshops. The four attendance totals are 18,16,14,12. How many people necessarily attend at least one of any two specified workshops?",
+    "solution": "1. The total number of attendance incidences is $18+16+14+12=60$. The sum of personal capacities is $20\\cdot3=60$.\n\n2. Every person must therefore reach the capacity three: if one attended fewer, no other person could compensate by attending more than three.\n\n3. A person missing both specified workshops could attend at most the other two, contradicting exactly three. Thus all twenty satisfy the conclusion.\n\n4. This does not imply everyone attends both specified workshops; some can miss one of them.\n\n**Conclusion.** 20.",
+    "expected": "20",
+    "check": {
+      "kind": "saturation",
+      "capacities": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "total": 60
+    },
+    "origin": "Independent reconstruction of Stanford CS103 Winter 2026 Lecture 11",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_10",
+    "title": "The friends-and-strangers threshold",
+    "stem": "Find the least party size forcing either three mutual acquaintances or three mutual strangers. Every pair has exactly one of the two relationships.",
+    "solution": "1. At a person in a six-person party, the five incident relationships have two labels, so at least three share a label. Suppose these are acquaintance relationships to three people.\n\n2. If any pair among those three are acquaintances, that pair and the chosen person form a mutual-acquaintance triple. Otherwise the three are mutual strangers.\n\n3. For five people, let acquaintance edges form a five-cycle. Its complement is another five-cycle; neither contains a triangle. Thus five fail and six suffice.\n\n**Conclusion.** 6.",
+    "expected": "6",
+    "check": {
+      "kind": "ramsey-threshold"
+    },
+    "origin": "Independent reconstruction of Stanford CS103 Winter 2026 Lecture 11",
+    "difficulty": "Hard",
+    "options": [
+      "5",
+      "7",
+      "8",
+      "6"
+    ],
+    "answer": 4
+  },
+  {
+    "id": "DPH_11",
+    "title": "Sevens followed by zeros",
+    "stem": "Construct a positive multiple of 8 consisting of one or more decimal digits 7 followed by one or more zeros. Explain the residue collision.",
+    "solution": "1. The numbers 777 and 7777 both have remainder 1 modulo 8. Their difference is $7777-777=7000$.\n\n2. The quotient is $7000/8=875$. Removing a common suffix of three sevens produces one seven followed by three zeros, so the requested form is satisfied.\n\n3. An all-sevens multiple of 8 is impossible because its last digit is odd. The zeros cannot be discarded without checking coprimality with the decimal base.\n\n**Conclusion.** 7000.",
+    "expected": "7000",
+    "check": {
+      "kind": "seven-multiple",
+      "m": 8,
+      "value": 7000
+    },
+    "origin": "Independent reconstruction of MIT 6.042J \u00a714.8 / related class problems",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_12",
+    "title": "Products as modular labels",
+    "stem": "A set has ten positive indexed elements. Show that two distinct index subsets have congruent products modulo 512. Must common factors be cancelable?",
+    "solution": "1. There are $2^{10}=1024$ index subsets, including the empty subset whose product is 1. Product remainders have only 512 labels.\n\n2. A repeated label is unavoidable, irrespective of whether the values are coprime to 512. The subsets are distinct even if some numerical values repeat.\n\n3. Cancellation is a separate issue. If the common product has a factor 2, it is not invertible modulo 512; a congruence $cu\\equiv cv$ does not then imply $u\\equiv v$.\n\n4. The proof asserts a pair of subset products, not necessarily a single nonempty subset with product zero modulo 512.\n\n**Conclusion.** Collision guaranteed; cancellation not guaranteed.",
+    "expected": "Collision guaranteed; cancellation not guaranteed",
+    "check": {
+      "kind": "subset-residue-bound",
+      "n": 10,
+      "m": 512
+    },
+    "origin": "Independent reconstruction of Oxford Discrete Mathematics \u00a76.5 / Exercises 6.7\u20136.8",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_13",
+    "title": "Two directions of the average bound",
+    "stem": "Forty-three objects occupy eight bins. Give the largest guaranteed lower bound on a maximum and the smallest guaranteed upper bound on a minimum.",
+    "solution": "1. Write $43=5\\cdot8+3$. The maximum is at least 6 and the minimum is at most 5.\n\n2. A vector with three sixes and five fives attains these endpoints. It proves no stronger universal maximum lower bound or minimum upper bound is possible.\n\n3. The class meeting the large-occupancy conclusion and the class meeting the small-occupancy conclusion need not be the same.\n\n**Conclusion.** Maximum at least 6; minimum at most 5.",
+    "expected": "Maximum at least 6; minimum at most 5",
+    "check": {
+      "kind": "average",
+      "n": 43,
+      "k": 8
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "DPH_14",
+    "title": "Forcing five in any bin",
+    "stem": "What is the smallest number of objects that forces at least five in one of seven unrestricted bins?",
+    "solution": "1. Avoiding the target allows at most four per bin, so at most $7\\cdot4=28$ objects. The twenty-ninth forces a violation.\n\n2. Four in every bin realizes the avoiding total 28, proving minimality. Empty bins do not invalidate the upper-capacity argument.\n\n3. The alternative 35 imposes five everywhere in a balanced picture rather than five somewhere under every placement.\n\n**Conclusion.** 29.",
+    "expected": "29",
+    "check": {
+      "kind": "threshold",
+      "k": 7,
+      "r": 5
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "28",
+      "35",
+      "12",
+      "29"
+    ],
+    "answer": 4
+  },
+  {
+    "id": "DPH_15",
+    "title": "The target one boundary",
+    "stem": "With five available bins and empty bins allowed, what total first guarantees that some bin contains at least one object?",
+    "solution": "1. A total of zero permits all five bins to be empty, so it fails.\n\n2. A total of one places its only object into one bin, satisfying the existential target. The formula five times zero plus one agrees.\n\n3. This says nothing about all bins being occupied; surjectivity is a different property.\n\n**Conclusion.** 1.",
+    "expected": "1",
+    "check": {
+      "kind": "threshold",
+      "k": 5,
+      "r": 1
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Medium",
+    "options": [
+      "5",
+      "6",
+      "1",
+      "0"
+    ],
+    "answer": 3
+  },
+  {
+    "id": "DPH_16",
+    "title": "Finite inventory defeats uniform capacities",
+    "stem": "Tokens have color inventories $(2,7,9)$. How many draws without replacement guarantee four of some color?",
+    "solution": "1. Avoidance uses at most $\\min(2,3)+\\min(7,3)+\\min(9,3)=8$ tokens.\n\n2. The selection with color counts two, three, three avoids the target and is available. A ninth draw cannot remain within all three avoidance caps.\n\n3. Red cannot reach four, so the witness must be blue or green. Applying three equal avoidance capacities would overestimate the threshold.\n\n**Conclusion.** 9.",
+    "expected": "9",
+    "check": {
+      "kind": "inventory",
+      "stocks": [
+        2,
+        7,
+        9
+      ],
+      "targets": [
+        4,
+        4,
+        4
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "12",
+      "9",
+      "8",
+      "10"
+    ],
+    "answer": 2
+  },
+  {
+    "id": "DPH_17",
+    "title": "A specified color is a different target",
+    "stem": "With inventories red 2, blue 7, green 9, how many draws guarantee at least four blue tokens?",
+    "solution": "1. An adversary first draws every nonblue token, eleven in total, and then three blue tokens. These fourteen draws still avoid four blue.\n\n2. The next draw is blue because only blue tokens remain, so fifteen suffice and are necessary.\n\n3. The threshold nine for four of any color does not answer this specified-color question.\n\n**Conclusion.** 15.",
+    "expected": "15",
+    "check": {
+      "kind": "specified",
+      "stocks": [
+        2,
+        7,
+        9
+      ],
+      "index": 1,
+      "r": 4
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "15",
+      "9",
+      "14",
+      "18"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "DPH_18",
+    "title": "Forcing three distinct colors",
+    "stem": "With positive inventories $(2,7,9)$, find the first draw count forcing all three colors to appear.",
+    "solution": "1. To avoid three colors, draw from at most two. The two largest inventories are nine and seven, so an avoiding selection can have sixteen tokens.\n\n2. Seventeen draws require a token of the remaining color. Drawing all blue and green tokens shows sixteen are insufficient.\n\n3. Capping each color at one or two would answer repeated occupancy, not the number of distinct colors represented.\n\n**Conclusion.** 17.",
+    "expected": "17",
+    "check": {
+      "kind": "distinct-colors",
+      "stocks": [
+        2,
+        7,
+        9
+      ],
+      "t": 3
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "3",
+      "16",
+      "18",
+      "17"
+    ],
+    "answer": 4
+  },
+  {
+    "id": "DPH_19",
+    "title": "An unavailable goal",
+    "stem": "Can any feasible draw count from inventories $(2,7,9)$ force ten tokens of one color?",
+    "solution": "1. Every inventory is less than ten, so even drawing the entire stock yields no color with ten.\n\n2. The avoiding maximum is $2+7+9=18$, equal to the physical total. The formal next integer 19 cannot be drawn.\n\n3. Report the guarantee as infeasible; do not report 19 as a minimum legal number of draws.\n\n**Conclusion.** Infeasible.",
+    "expected": "Infeasible",
+    "check": {
+      "kind": "inventory",
+      "stocks": [
+        2,
+        7,
+        9
+      ],
+      "targets": [
+        10,
+        10,
+        10
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "19",
+      "30",
+      "Infeasible",
+      "18"
+    ],
+    "answer": 3
+  },
+  {
+    "id": "DPH_20",
+    "title": "Different targets for different bins",
+    "stem": "Inventories are $(2,7,9)$ and the targets are respectively $(3,5,4)$. Find the first feasible total forcing at least one target to be reached.",
+    "solution": "1. The avoidance capacities are $(2,4,3)$, because each cap is the minimum of inventory and one less than its target. Their total is 9.\n\n2. The vector two, four, three is a legal nine-draw counterexample. Ten draws are feasible because the physical stock is eighteen and some target remains attainable.\n\n3. The first target three is impossible in inventory two, but the second and third targets can still force the disjunction.\n\n**Conclusion.** 10.",
+    "expected": "10",
+    "check": {
+      "kind": "inventory",
+      "stocks": [
+        2,
+        7,
+        9
+      ],
+      "targets": [
+        3,
+        5,
+        4
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "13",
+      "10",
+      "9",
+      "12"
+    ],
+    "answer": 2
+  },
+  {
+    "id": "DPH_21",
+    "title": "How many bins must be heavy?",
+    "stem": "Eight bins each have capacity six. Place 31 objects. A bin is heavy when it contains at least three. Find the minimum possible number of heavy bins.",
+    "solution": "1. If $h$ bins are heavy, the total is at most $6h+2(8-h)=16+4h$. Hence $31\\le16+4h$, giving $h\\ge4$.\n\n2. The vector six, six, six, five, two, two, two, two totals 31 and has exactly four heavy bins. All capacities are respected.\n\n3. A simple ceiling of 31 divided by eight only forces one large bin; it does not determine the number of heavy bins.\n\n**Conclusion.** 4.",
+    "expected": "4",
+    "check": {
+      "kind": "heavy",
+      "n": 31,
+      "k": 8,
+      "capacity": 6,
+      "r": 3
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "4",
+      "1",
+      "3",
+      "5"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "DPH_22",
+    "title": "Full capacity implies every bin is heavy",
+    "stem": "Place twenty objects in five bins of capacity four. How many bins contain at least three?",
+    "solution": "1. The total equals the sum of the capacities. Every deficit from four is nonnegative and the deficits sum to zero.\n\n2. All five bins therefore contain exactly four objects, and all are heavy.\n\n3. The general heavy-bin bound also gives $\\lceil(20-5\\cdot2)/(4-2)\\rceil=5$, consistent with saturation.\n\n**Conclusion.** 5.",
+    "expected": "5",
+    "check": {
+      "kind": "heavy",
+      "n": 20,
+      "k": 5,
+      "capacity": 4,
+      "r": 3
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "1",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": 4
+  },
+  {
+    "id": "DPH_23",
+    "title": "No heavy bin at the boundary",
+    "stem": "Place ten objects in five bins of capacity four. A heavy bin means at least three objects. What is the minimum heavy-bin count?",
+    "solution": "1. The vector two, two, two, two, two has total ten and no heavy bin.\n\n2. A heavy-bin count is nonnegative, so this construction attains the minimum zero.\n\n3. The strict excess condition matters: ten equals five times the largest allowed nonheavy occupancy, rather than exceeding it.\n\n**Conclusion.** 0.",
+    "expected": "0",
+    "check": {
+      "kind": "heavy",
+      "n": 10,
+      "k": 5,
+      "capacity": 4,
+      "r": 3
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "2",
+      "3",
+      "0",
+      "1"
+    ],
+    "answer": 3
+  },
+  {
+    "id": "DPH_24",
+    "title": "Unequal saturation",
+    "stem": "Three bins have capacities $(2,3,5)$ and jointly contain ten objects. Determine their occupancies.",
+    "solution": "1. Write the three deficits from capacity. They are nonnegative integers whose sum is two plus three plus five minus ten, namely zero.\n\n2. Every deficit is zero, giving occupancy two, three, five. The conclusion does not require equal capacities or a uniform average.\n\n3. The balanced unrestricted vector would violate the first capacity, so unrestricted balancing is not the relevant construction.\n\n**Conclusion.** 2,3,5.",
+    "expected": "2,3,5",
+    "check": {
+      "kind": "saturation",
+      "capacities": [
+        2,
+        3,
+        5
+      ],
+      "total": 10
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_25",
+    "title": "Strictness when the mean is an integer",
+    "stem": "Twenty-one objects occupy seven unrestricted bins. Is a bin with more than three objects forced?",
+    "solution": "1. The mean is three. The distribution with exactly three in every bin is allowed and has no occupancy strictly above the mean.\n\n2. Therefore the strict claim is false, although the weak claim at least three is true.\n\n3. In any particular distribution, a value above the mean exists if and only if one below it exists. The equal vector has neither.\n\n**Conclusion.** Not forced.",
+    "expected": "Not forced",
+    "check": {
+      "kind": "strict-average",
+      "n": 21,
+      "k": 7
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "Not forced",
+      "Forced in every distribution",
+      "Every bin is above the mean",
+      "Every bin is below the mean"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "DPH_26",
+    "title": "Nonintegral mean forces both strict directions",
+    "stem": "Twenty-two objects occupy seven bins. Must some bin be above the mean and another below it?",
+    "solution": "1. The mean is $22/7$, which is not an integer. Integer occupancies cannot all equal this value.\n\n2. If no occupancy were above the mean, every occupancy would be at most three and the total at most twenty-one, a contradiction. Thus an above-average occupancy exists.\n\n3. If none were below the mean, every occupancy would be at least four and the total at least twenty-eight. A below-average occupancy also exists.\n\n**Conclusion.** Both are forced.",
+    "expected": "Both are forced",
+    "check": {
+      "kind": "strict-average",
+      "n": 22,
+      "k": 7
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "Only the above direction is forced",
+      "Only the below direction is forced",
+      "Neither is forced",
+      "Both are forced"
+    ],
+    "answer": 4
+  },
+  {
+    "id": "DPH_27",
+    "title": "Fractional loads cannot be rounded into objects",
+    "stem": "Two servers carry total real load 0.8. Does the pigeonhole average prove a server carries at least one unit?",
+    "solution": "1. A server must carry at least the mean 0.4, but the loads need not be integers.\n\n2. The vector 0.4,0.4 meets the total and has no load of one. Thus rounding the mean upward to one is invalid.\n\n3. The ceiling bound applies to discrete counts; real weights retain the unrounded average inequality.\n\n**Conclusion.** No; 0.4 is the sharp lower bound.",
+    "expected": "No; 0.4 is the sharp lower bound",
+    "check": {
+      "kind": "real-load"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "Yes, if the loads are equal",
+      "No server can reach 0.4",
+      "No; 0.4 is the sharp lower bound",
+      "Yes, by taking the ceiling"
+    ],
+    "answer": 3
+  },
+  {
+    "id": "DPH_28",
+    "title": "Capacity-weighted utilization",
+    "stem": "Bins have positive capacities $(2,4,6)$ and nonnegative loads totaling nine. What maximum-utilization lower bound follows, where utilization is load divided by capacity?",
+    "solution": "1. If every utilization were less than $9/(2+4+6)=3/4$, multiply each inequality by its positive capacity and add. The total load would be less than nine.\n\n2. Thus some utilization is at least three-quarters. Loads one-and-a-half, three, four-and-a-half attain equality if real loads are permitted.\n\n3. An unweighted mean of the three utilizations does not equal nine divided by total capacity unless extra relations are assumed.\n\n**Conclusion.** 3/4.",
+    "expected": "3/4",
+    "check": {
+      "kind": "utilization",
+      "loads": 9,
+      "capacities": [
+        2,
+        4,
+        6
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "1",
+      "3/4",
+      "1/2",
+      "9/3"
+    ],
+    "answer": 2
+  },
+  {
+    "id": "DPH_29",
+    "title": "Twenty-one unavoidable pairs",
+    "stem": "Seventeen distinct objects map to five labels. Find the minimum number of unordered pairs with equal labels.",
+    "solution": "1. Write $17=3\\cdot5+2$. Convex exchange balances the occupancies, yielding two bins of size four and three of size three.\n\n2. The pair total is $2\\binom42+3\\binom32=12+9=21$. Any transfer from a bin at least two larger to a smaller bin lowers the total, proving minimality.\n\n3. The answer counts pairs, not bins or the largest fiber. A largest fiber of four alone would prove only six pairs.\n\n**Conclusion.** 21.",
+    "expected": "21",
+    "check": {
+      "kind": "pairs",
+      "n": 17,
+      "k": 5
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "21",
+      "6",
+      "5",
+      "20"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "DPH_30",
+    "title": "Actual pairs in an unbalanced vector",
+    "stem": "Occupancies are $(5,4,1)$. Count equal-label unordered pairs.",
+    "solution": "1. A pair must come from one fiber, so the count is $\\binom52+\\binom42+\\binom12=10+6+0=16$.\n\n2. Products such as five times four count cross-label pairs and are irrelevant to equality of labels.\n\n3. The total ten objects alone does not determine the actual pair count; the distribution must be used.\n\n**Conclusion.** 16.",
+    "expected": "16",
+    "check": {
+      "kind": "actual-tuples",
+      "occupancies": [
+        5,
+        4,
+        1
+      ],
+      "t": 2
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "10",
+      "20",
+      "45",
+      "16"
+    ],
+    "answer": 4
+  },
+  {
+    "id": "DPH_31",
+    "title": "The opposite extremum for pairs",
+    "stem": "What is the maximum equal-label pair count for twenty objects in seven unrestricted bins?",
+    "solution": "1. There are only $\\binom{20}{2}=190$ unordered object pairs in total, giving an absolute upper bound.\n\n2. Placing every object in one bin makes every pair share its label, attaining that bound.\n\n3. Balanced placement minimizes the pair count; using it to maximize would reverse the exchange argument.\n\n**Conclusion.** 190.",
+    "expected": "190",
+    "check": {
+      "kind": "max-pairs",
+      "n": 20,
+      "k": 7
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "21",
+      "140",
+      "190",
+      "19"
+    ],
+    "answer": 3
+  },
+  {
+    "id": "DPH_32",
+    "title": "The minimum number of monochromatic triples",
+    "stem": "Seventeen objects map to five labels. Find the minimum number of three-element object subsets with a common label.",
+    "solution": "1. Balancing does not increase the sum of triple counts: the marginal cost of adding to a bin of size x is the number of its two-element subsets, which is nondecreasing in x.\n\n2. The balanced occupancies four, four, three, three, three contribute $2\\binom43+3\\binom33=8+3=11$.\n\n3. This is an attaining construction. For triples, marginal ties at small occupancies can make other minimizers possible, so uniqueness is not implied.\n\n**Conclusion.** 11.",
+    "expected": "11",
+    "check": {
+      "kind": "tuples",
+      "n": 17,
+      "k": 5,
+      "t": 3
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "21",
+      "11",
+      "5",
+      "6"
+    ],
+    "answer": 2
+  },
+  {
+    "id": "DPH_33",
+    "title": "Balanced pairs with a nonzero remainder",
+    "stem": "Eighteen objects map to four labels. Find the smallest collision-pair count.",
+    "solution": "1. Division gives $18=4\\cdot4+2$. Two occupancies are five and two are four in a balanced minimizing vector.\n\n2. The total is $2\\binom52+2\\binom42=20+12=32$, equivalently $4\\binom42+2\\cdot4$.\n\n3. Rounding the average to five and pretending all four bins have five objects changes the total to twenty and overcounts.\n\n**Conclusion.** 32.",
+    "expected": "32",
+    "check": {
+      "kind": "pairs",
+      "n": 18,
+      "k": 4
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "32",
+      "24",
+      "30",
+      "40"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "DPH_34",
+    "title": "A capacity changes the pair minimum",
+    "stem": "Six objects occupy two bins with capacities one and nine. Find the minimum pair count.",
+    "solution": "1. The first occupancy can only be zero or one. If it is zero, the second is six and contributes fifteen pairs.\n\n2. If it is one, the second is five and contributes ten pairs. This is feasible and is the smaller value.\n\n3. The unrestricted balanced vector three,three would give six pairs but violates the first capacity. A legal extremal witness is indispensable.\n\n**Conclusion.** 10.",
+    "expected": "10",
+    "check": {
+      "kind": "bounded-pairs",
+      "n": 6,
+      "capacities": [
+        1,
+        9
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "6",
+      "9",
+      "15",
+      "10"
+    ],
+    "answer": 4
+  },
+  {
+    "id": "DPH_35",
+    "title": "A fixed-width hash range",
+    "stem": "What is the least number of distinct keys that forces a collision for every function returning a 12-bit hash?",
+    "solution": "1. There are $2^{12}=4096$ possible output words. An injection from 4097 keys into these outputs is impossible.\n\n2. With 4096 keys, a function can assign each a different output. Thus 4097 is the exact universal threshold.\n\n3. This does not claim a particular hash function first collides at that input count; it may collide much earlier.\n\n**Conclusion.** 4097.",
+    "expected": "4097",
+    "check": {
+      "kind": "hash",
+      "bits": 12
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "4095",
+      "2049",
+      "4097",
+      "4096"
+    ],
+    "answer": 3
+  },
+  {
+    "id": "DPH_36",
+    "title": "Many keys and few outputs",
+    "stem": "Six distinct keys map to four output labels. Find the minimum number of collision pairs.",
+    "solution": "1. The balanced vector is $(2,2,1,1)$, giving one pair from each doubleton and none from the singletons.\n\n2. The minimum is two. A distribution with one triple would instead have three pairs, showing that counting only repeated bins can be misleading.\n\n3. This is a guarantee over all functions with that codomain, not a random-output expected value.\n\n**Conclusion.** 2.",
+    "expected": "2",
+    "check": {
+      "kind": "pairs",
+      "n": 6,
+      "k": 4
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "15",
+      "2",
+      "1",
+      "3"
+    ],
+    "answer": 2
+  },
+  {
+    "id": "DPH_37",
+    "title": "A small domain can be collision free",
+    "stem": "Five distinct keys map to eight labels. Which deterministic collision claim follows from sizes alone?",
+    "solution": "1. There are enough labels to assign distinct outputs to all five keys, so collision is not forced.\n\n2. A constant function also causes many collisions, so collision is not impossible. Both types of functions satisfy the stated sizes.\n\n3. A birthday-model probability would require a random-function or random-output assumption that is absent here.\n\n**Conclusion.** Neither collision nor collision-freedom is forced.",
+    "expected": "Neither collision nor collision-freedom is forced",
+    "check": {
+      "kind": "function",
+      "n": 5,
+      "k": 8
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "Neither collision nor collision-freedom is forced",
+      "A collision is forced",
+      "Collision is impossible",
+      "Every label is used"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "DPH_38",
+    "title": "Four equal birthdays",
+    "stem": "Under 366 possible birthday dates, what is the least group size forcing four people with a common birthday?",
+    "solution": "1. To avoid four, each date can have at most three people. The avoiding total is $366\\cdot3=1098$.\n\n2. One more person forces a date with four, while exactly three per date is a counterexample at 1098.\n\n3. The leap-day convention changes the number of labels; replacing 366 by 365 answers a different model.\n\n**Conclusion.** 1099.",
+    "expected": "1099",
+    "check": {
+      "kind": "threshold",
+      "k": 366,
+      "r": 4
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "1098",
+      "1464",
+      "1100",
+      "1099"
+    ],
+    "answer": 4
+  },
+  {
+    "id": "DPH_39",
+    "title": "Strictly shorter binary codes",
+    "stem": "How many distinct ten-bit messages can at most be assigned injectively to binary strings of length strictly less than ten, when the empty string is permitted?",
+    "solution": "1. The available output count is $1+2+\\cdots+2^9=2^{10}-1=1023$. Injectivity cannot assign more messages than that.\n\n2. This bound is attained for a chosen restricted set of 1023 messages by matching them bijectively to the 1023 short outputs.\n\n3. All 1024 ten-bit messages cannot be shortened at once. Counting only outputs of length nine would miss the shorter permitted outputs; counting length ten would violate strict shortening.\n\n**Conclusion.** 1023.",
+    "expected": "1023",
+    "check": {
+      "kind": "short-codes",
+      "n": 10
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "1024",
+      "1022",
+      "1023",
+      "512"
+    ],
+    "answer": 3
+  },
+  {
+    "id": "DPH_40",
+    "title": "Convert a prefix collision into indices",
+    "stem": "For modulus five and values $(3,4,2,7,1)$, scan prefixes from the start and use the first repeated remainder. Give the resulting one-based block and its sum.",
+    "solution": "1. Prefix remainders including the empty prefix are zero,three,two,four,one,two. The first collision pairs prefix indices two and five.\n\n2. Subtracting these prefixes retains entries three through five, not entry two. Their sum is two plus seven plus one, namely ten.\n\n3. The endpoints are ordered and different, so the block is nonempty. Ten is divisible by five, providing a verifiable certificate.\n\n**Conclusion.** Positions 3\u20135; sum 10.",
+    "expected": "Positions 3\u20135; sum 10",
+    "check": {
+      "kind": "prefix",
+      "values": [
+        3,
+        4,
+        2,
+        7,
+        1
+      ],
+      "m": 5
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_41",
+    "title": "Difference versus sum",
+    "stem": "Eight integers are selected. What is forced modulo seven: a divisible difference or a divisible sum?",
+    "solution": "1. The eight positions have only seven remainder labels. Two different positions therefore have equal remainders.\n\n2. Subtracting their values gives remainder zero. Adding their values instead gives twice their common remainder, which need not be zero.\n\n3. For a counterexample to the sum claim, choose eight distinct integers all congruent to one modulo seven. Every two-element sum has remainder two.\n\n**Conclusion.** A divisible difference, not necessarily a divisible sum.",
+    "expected": "A divisible difference, not necessarily a divisible sum",
+    "check": {
+      "kind": "difference",
+      "n": 8,
+      "m": 7
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_42",
+    "title": "Equal remainders need not sum to zero",
+    "stem": "The numbers 1 and 6 have the same remainder modulo five. Does their sum or their difference give a zero remainder?",
+    "solution": "1. Both remainder labels are one. The difference six minus one is five and is divisible by five.\n\n2. The sum is seven and has remainder two. The equality of labels supports subtraction, not arbitrary combination.\n\n3. For a sum argument one instead groups complementary remainders, taking care with remainder zero and a possible self-complementary class.\n\n**Conclusion.** Difference only.",
+    "expected": "Difference only",
+    "check": {
+      "kind": "remainder-counterexample"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_43",
+    "title": "Too few prefix objects",
+    "stem": "For modulus five, do the four values $(1,1,1,1)$ contain a nonempty contiguous block with sum divisible by five?",
+    "solution": "1. Their five prefix remainders, including the empty prefix, are zero,one,two,three,four. No remainder repeats.\n\n2. Every nonempty block has length between one and four and, because all entries are one, has the same sum as its length. None is divisible by five.\n\n3. The usual universal theorem needs five input values and hence six prefix objects. Having five objects in five classes does not force collision.\n\n**Conclusion.** No.",
+    "expected": "No",
+    "check": {
+      "kind": "no-prefix",
+      "values": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "m": 5
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "Only the full block",
+      "Only singletons",
+      "No",
+      "Yes"
+    ],
+    "answer": 3
+  },
+  {
+    "id": "DPH_44",
+    "title": "The first all-ones multiple",
+    "stem": "Find the shortest positive decimal all-ones multiple of seven.",
+    "solution": "1. Compute the remainders of repunits recursively: one,four,six,five,two,zero for lengths one through six.\n\n2. The first zero occurs at length six, giving $111111=7\\cdot15873$. The nonzero earlier remainders prove shortest length.\n\n3. A repeated nonzero remainder would also yield an all-ones multiple after subtraction and valid cancellation of a power of ten. The direct zero remainder here already supplies the shortest witness.\n\n**Conclusion.** 111111.",
+    "expected": "111111",
+    "check": {
+      "kind": "repunit",
+      "m": 7
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "1110",
+      "111111",
+      "11111",
+      "1111111"
+    ],
+    "answer": 2
+  },
+  {
+    "id": "DPH_45",
+    "title": "A zero-one multiple without decimal invertibility",
+    "stem": "Use a repeated repunit remainder to construct a decimal zero-one multiple of six.",
+    "solution": "1. The repunits of lengths one and four have equal remainder one modulo six. Their difference is 1111 minus 1, namely 1110.\n\n2. This difference is $6\\cdot185$. It has only zero and one digits and is positive.\n\n3. An all-ones multiple cannot exist because every repunit is odd. Multiplication by ten cannot be canceled modulo six; that obstruction is compatible with the zero-one construction.\n\n**Conclusion.** 1110.",
+    "expected": "1110",
+    "check": {
+      "kind": "zeroone",
+      "m": 6,
+      "value": 1110
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_46",
+    "title": "A base obstruction",
+    "stem": "Can a positive decimal repunit be divisible by ten?",
+    "solution": "1. Its final digit is one, so its remainder modulo ten is one, irrespective of length.\n\n2. Therefore no positive length works. The existence theorem for all-ones multiples requires the modulus to be coprime with ten.\n\n3. The broader zero-one theorem remains true: ten itself is a zero-one multiple. The two statements have different hypotheses.\n\n**Conclusion.** Impossible.",
+    "expected": "Impossible",
+    "check": {
+      "kind": "repunit-obstruction",
+      "m": 10
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "Length ten works",
+      "Length eleven works",
+      "Every length works",
+      "Impossible"
+    ],
+    "answer": 4
+  },
+  {
+    "id": "DPH_47",
+    "title": "Modular cancellation needs a unit",
+    "stem": "Modulo six, $2\\cdot1\\equiv2\\cdot4$. May the factor two be canceled?",
+    "solution": "1. Both products have remainder two, but one and four have different remainders. Thus cancellation would assert a false congruence.\n\n2. The factor has $\\gcd(2,6)=2$ and has no multiplicative inverse modulo six. Cancellation would only yield equality modulo three here.\n\n3. In a prime modulus every nonzero factor is a unit; in a composite modulus nonzero alone is insufficient.\n\n**Conclusion.** No.",
+    "expected": "No",
+    "check": {
+      "kind": "cancellation",
+      "m": 6,
+      "a": 1,
+      "b": 4,
+      "c": 2
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "Yes, in any modulus",
+      "Only if both products are positive",
+      "No",
+      "Yes, because two is nonzero"
+    ],
+    "answer": 3
+  },
+  {
+    "id": "DPH_48",
+    "title": "Overlapping square images",
+    "stem": "How many residues occur as $x^2$ modulo eleven, and why does $x^2+y^2\\equiv-1\\pmod{11}$ have a solution?",
+    "solution": "1. The square image is zero,one,three,four,five,nine: six values. Pairing each nonzero x with its negative explains the image size six.\n\n2. The second image minus one minus a square also has six values in an eleven-element universe. Two six-element subsets must intersect.\n\n3. One certificate is x equals one and y equals three: their squares sum to ten, which equals minus one modulo eleven. This is an existence proof plus a checked witness.\n\n**Conclusion.** 6 residues; a solution exists.",
+    "expected": "6 residues; a solution exists",
+    "check": {
+      "kind": "square-prime",
+      "p": 11
+    },
+    "origin": "Independent reconstruction of Oxford Discrete Mathematics \u00a76.5 / Exercises 6.7\u20136.8",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_49",
+    "title": "The exceptional prime two",
+    "stem": "For modulus two, verify the square-sum statement and explain why $(p+1)/2$ is not the right image-size argument.",
+    "solution": "1. Both residues zero and one are their own squares. The square image has two elements, whereas the odd-prime formula would give a noninteger three-halves.\n\n2. Choose x equals one and y equals zero. Their square sum is one, which is minus one modulo two.\n\n3. The theorem includes prime two through a separate direct case. An argument pairing distinct nonzero opposites cannot be used because one equals its negative here.\n\n**Conclusion.** x=1, y=0.",
+    "expected": "x=1, y=0",
+    "check": {
+      "kind": "square-two"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_50",
+    "title": "A composite counterexample",
+    "stem": "Does $x^2+y^2\\equiv-1\\pmod8$ have an integer solution?",
+    "solution": "1. The square residues modulo eight are zero,one,four. Adding two members gives only zero,one,two,four,five as possible remainders.\n\n2. The required remainder seven is missing, so no pair solves the congruence.\n\n3. The prime-image proof fails: the square image is not large enough and nonzero residues need not have just two square roots. This counterexample prevents extending the prime result to arbitrary moduli.\n\n**Conclusion.** No solution.",
+    "expected": "No solution",
+    "check": {
+      "kind": "square-composite",
+      "m": 8
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "A solution exists",
+      "Only x=y works",
+      "Only odd x and odd y work",
+      "No solution"
+    ],
+    "answer": 4
+  },
+  {
+    "id": "DPH_51",
+    "title": "Equal sums with an explicit cancellation",
+    "stem": "For indexed values $(1,2,3,4)$, give two disjoint nonempty equal-sum subsets and explain the counting proof.",
+    "solution": "1. The sixteen index subsets have sums in the eleven labels zero through ten. A collision follows from $16>11$.\n\n2. The subsets containing values one and four, and values two and three, both sum to five and are disjoint.\n\n3. If a counting collision initially shared indices, subtract their common contribution from both sides. Positivity ensures neither residual side is empty when the original subsets are distinct.\n\n**Conclusion.** 1+4=2+3.",
+    "expected": "1+4=2+3",
+    "check": {
+      "kind": "equal-subsets",
+      "values": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_52",
+    "title": "Equality at the image-size bound",
+    "stem": "For values $(1,2,4,8)$, do two distinct index subsets have equal sums?",
+    "solution": "1. Their sixteen subset sums are exactly the integers zero through fifteen. Binary expansion supplies a different sum for every subset.\n\n2. The number of objects equals the number of possible labels, so collision is not forced, and in this example it does not occur.\n\n3. A non-strict comparison cannot replace the strict image-size inequality. The empty subset is still a legitimate object with sum zero.\n\n**Conclusion.** No.",
+    "expected": "No",
+    "check": {
+      "kind": "unique-subsets",
+      "values": [
+        1,
+        2,
+        4,
+        8
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "Every two subsets collide",
+      "No",
+      "Yes, because sixteen labels exist",
+      "Only with empty subsets"
+    ],
+    "answer": 2
+  },
+  {
+    "id": "DPH_53",
+    "title": "Fixed-cardinality subset sums",
+    "stem": "Among four-element subsets of $\\{1,\\ldots,8\\}$, show that at least two have equal sum.",
+    "solution": "1. There are $\\binom84=70$ objects. Their sums range from ten to twenty-six inclusive, so there are at most seventeen sum labels.\n\n2. Seventy exceeds seventeen; therefore two distinct four-element subsets have the same sum. For example one,two,seven,eight and one,three,six,eight both sum to eighteen.\n\n3. Canceling the common values one and eight yields two plus seven equals three plus six. Equal size survives cancellation, although the residual size need not remain four.\n\n**Conclusion.** Guaranteed.",
+    "expected": "Guaranteed",
+    "check": {
+      "kind": "fixed-subsets",
+      "n": 8,
+      "t": 4
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_54",
+    "title": "A subset collision is not a zero sum",
+    "stem": "For indexed values $(2,2)$ modulo three, two singleton subset sums coincide. Must a nonempty subset have sum zero?",
+    "solution": "1. The two singleton index subsets are distinct and each has remainder two, so a collision exists.\n\n2. The nonempty sums are two,two,four, whose remainders are two,two,one. None is zero.\n\n3. Subtracting collided sums gives equality between two disjoint subsets, not a positive sum of selected entries. The contiguous-prefix theorem has an additional nesting property that arbitrary subsets lack.\n\n**Conclusion.** No.",
+    "expected": "No",
+    "check": {
+      "kind": "no-zero-subset",
+      "values": [
+        2,
+        2
+      ],
+      "m": 3
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "Yes, by subtracting labels",
+      "Yes, the pair works",
+      "Only a singleton works",
+      "No"
+    ],
+    "answer": 4
+  },
+  {
+    "id": "DPH_55",
+    "title": "Cancelable product images",
+    "stem": "Take indexed values $(2,3,4,5,6)$ modulo seventeen. Show that two distinct subsets have equal product remainder and state what cancellation preserves.",
+    "solution": "1. There are thirty-two subsets and seventeen remainder labels, so distinct subsets collide. The empty product is one.\n\n2. Every chosen value is nonzero modulo the prime seventeen and hence invertible. The product of common indices is also invertible and may be canceled.\n\n3. The residual subsets are disjoint and remain distinct. One side can be empty, since positivity of ordinary products does not exclude a nonempty modular product of one.\n\n**Conclusion.** Collision with valid cancellation.",
+    "expected": "Collision with valid cancellation",
+    "check": {
+      "kind": "unit-subsets",
+      "values": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "m": 17
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_56",
+    "title": "Why positivity was stated",
+    "stem": "The indexed list consists only of the value zero. Two subset sums coincide. Does this yield two disjoint nonempty equal-sum subsets?",
+    "solution": "1. The empty subset and the singleton both sum to zero. These are the only subsets.\n\n2. Two disjoint nonempty subsets are impossible because there is only one index. The collision therefore cannot meet the strengthened conclusion.\n\n3. Strictly positive entries rule out an empty residual side with sum equal to a nonempty side; nonnegative entries alone do not.\n\n**Conclusion.** No.",
+    "expected": "No",
+    "check": {
+      "kind": "zero-subset-counterexample"
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_57",
+    "title": "Complementary pairs without a fixed point",
+    "stem": "What is the least number of distinct selections from 1 through 20 that forces a pair summing to 21?",
+    "solution": "1. Partition the twenty values into ten disjoint complement pairs: one with twenty through ten with eleven.\n\n2. Eleven distinct selections force two in one pair. Ten can avoid the target by taking exactly one member per pair, for example one through ten.\n\n3. The bins contain two distinct complementary values; choosing repeated copies of one value would not provide the same proof.\n\n**Conclusion.** 11.",
+    "expected": "11",
+    "check": {
+      "kind": "complement",
+      "H": 20,
+      "sum": 21
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "11",
+      "10",
+      "12",
+      "20"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "DPH_58",
+    "title": "A self-complementary value changes the count",
+    "stem": "What is the least number of distinct selections from 1 through 21 forcing two distinct selected values summing to 22?",
+    "solution": "1. There are ten two-element complement pairs and the singleton eleven. The singleton cannot supply a pair of distinct values.\n\n2. An avoiding selection may take one value from each pair and also eleven, giving eleven selected values. Twelve force a completed pair.\n\n3. The values one through eleven give an attaining counterexample at eleven. Treating the singleton as an ordinary two-element pair would create a false answer.\n\n**Conclusion.** 12.",
+    "expected": "12",
+    "check": {
+      "kind": "complement",
+      "H": 21,
+      "sum": 22
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "11",
+      "10",
+      "21",
+      "12"
+    ],
+    "answer": 4
+  },
+  {
+    "id": "DPH_59",
+    "title": "Construct the actual divisibility witness",
+    "stem": "Find a divisibility pair in $(4,5,6,7,8,10,11,12)$ by grouping odd parts.",
+    "solution": "1. The odd parts are respectively one,five,three,seven,one,five,eleven,three.\n\n2. The first repeated odd part is one at values four and eight. The smaller divides the larger, with quotient two.\n\n3. There are other witnesses: five divides ten, and six divides twelve. Equal parity by itself would not identify these divisibility chains.\n\n**Conclusion.** 4 divides 8.",
+    "expected": "4 divides 8",
+    "check": {
+      "kind": "odd-witness",
+      "values": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_60",
+    "title": "The sharp avoiding half interval",
+    "stem": "Why do the twenty values 21 through 40 contain no pair of distinct values where one divides the other?",
+    "solution": "1. A proper positive multiple of a selected value is at least twice that value, hence at least forty-two.\n\n2. Every selected value is at most forty, so such a multiple cannot lie in the selection.\n\n3. The full interval one through forty has twenty odd-part chains. This example attains one value from each without a divisibility pair, proving the twenty-one threshold sharp.\n\n**Conclusion.** No proper multiple remains in the interval.",
+    "expected": "No proper multiple remains in the interval",
+    "check": {
+      "kind": "divfree",
+      "L": 21,
+      "H": 40
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_61",
+    "title": "Consecutive integers with an odd endpoint",
+    "stem": "Find the smallest number of distinct selections from 1 through 15 forcing two consecutive integers.",
+    "solution": "1. An avoiding set can contain the eight odd values one,three through fifteen. Thus eight are insufficient.\n\n2. Group the interval into seven adjacent pairs and the singleton fifteen. At most one selection from each of these eight groups avoids completing an adjacent pair.\n\n3. Nine force a completed pair. Other consecutive pairs cross group boundaries, but ignoring them cannot invalidate this sufficient bound, and the odd set proves sharpness.\n\n**Conclusion.** 9.",
+    "expected": "9",
+    "check": {
+      "kind": "consecutive",
+      "H": 15
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "9",
+      "8",
+      "10",
+      "15"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "DPH_62",
+    "title": "Consecutiveness supplies a coprime witness",
+    "stem": "Show that eleven distinct selections from 1 through 20 force a coprime pair, and show ten may fail.",
+    "solution": "1. The ten adjacent pairs one,two through nineteen,twenty force a completed pair under eleven selections.\n\n2. Consecutive integers have greatest common divisor one, so the pair is a coprime witness.\n\n3. The ten even values have pairwise greatest common divisor at least two. They prove that ten cannot give the universal coprime guarantee.\n\n**Conclusion.** 11.",
+    "expected": "11",
+    "check": {
+      "kind": "coprime-threshold",
+      "H": 20
+    },
+    "origin": "Independent reconstruction of Oxford Discrete Mathematics \u00a76.5 / Exercises 6.7\u20136.8",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_63",
+    "title": "Chains by powers of three",
+    "stem": "Choose 201 distinct positive integers less than 300. Show that the quotient of two is a positive integral power of three.",
+    "solution": "1. Write each value uniquely as a power of three times a core not divisible by three.\n\n2. Among one through 299, there are 299 minus ninety-nine, namely two hundred possible cores. Two hundred and one selections force equal cores.\n\n3. Distinct values with one core have different exponents. Dividing the larger by the smaller gives three raised to a positive exponent. This establishes sufficiency without claiming the selected number is the unique sharp threshold for every variant.\n\n**Conclusion.** 200.",
+    "expected": "200",
+    "check": {
+      "kind": "base-cores",
+      "H": 299,
+      "base": 3
+    },
+    "origin": "Independent reconstruction of MIT 6.042J \u00a714.8 / related class problems",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_64",
+    "title": "A sufficient grid threshold is not an optimum theorem",
+    "stem": "Use a square grid to force two points in a closed unit square at distance at most one-quarter. What is the best threshold from this equal-grid method?",
+    "solution": "1. With r divisions along each axis, the cell diameter is $\\sqrt2/r$. To make it at most one-quarter, r must be at least six.\n\n2. The six-by-six grid has thirty-six cells. Thirty-seven points force two in one cell, whose distance meets the requested bound.\n\n3. This is the least threshold among these equal axis-aligned grids. It is not a proof that thirty-seven is the smallest threshold among all geometric arguments or all point configurations.\n\n**Conclusion.** 37.",
+    "expected": "37",
+    "check": {
+      "kind": "grid",
+      "distance": 0.25
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "17",
+      "37",
+      "36",
+      "33"
+    ],
+    "answer": 2
+  },
+  {
+    "id": "DPH_65",
+    "title": "A rectangular partition",
+    "stem": "A closed rectangle has side lengths six and four. Divide it into three columns and two rows. How many points suffice to force distance at most $2\\sqrt2$?",
+    "solution": "1. The partition has six cells, each a square of side two and diameter two times the square root of two.\n\n2. Assign shared-boundary points to a fixed containing cell. Seven points force two in the same cell and hence the stated distance bound.\n\n3. Six points need not collide in a cell, but that observation alone does not prove the global geometric threshold is seven. The claim is sufficient, tied to this partition.\n\n**Conclusion.** 7.",
+    "expected": "7",
+    "check": {
+      "kind": "rectangle-grid",
+      "cols": 3,
+      "rows": 2
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "7",
+      "6",
+      "8",
+      "12"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "DPH_66",
+    "title": "A numerical approximation certificate",
+    "stem": "For $\\alpha=\\sqrt2$ and m equals five, exhibit integers q,p with one at most q at most five and $|q\\alpha-p|<1/5$.",
+    "solution": "1. The fractional parts of zero through five multiples of the square root of two share one of five half-open interval labels. In particular the fractional parts at indices zero and five are close.\n\n2. Take q equal to five and p equal to seven. The error is $5\\sqrt2-7$, about 0.071068, which is positive and less than 0.2.\n\n3. Dividing by q gives $|\\sqrt2-7/5|<1/25$. The theorem bounds this rational error by $1/(mq)$, not by the original unscaled $1/m$.\n\n**Conclusion.** q=5, p=7.",
+    "expected": "q=5, p=7",
+    "check": {
+      "kind": "approximation",
+      "m": 5,
+      "q": 5,
+      "p": 7
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_67",
+    "title": "A rational boundary case",
+    "stem": "Use m equals two and $\\alpha=1/2$ to find a prefix-fraction collision and its approximation witness.",
+    "solution": "1. The fractional parts at indices zero,one,two are zero,one-half,zero. In two half-open intervals, zero belongs to the first and one-half to the second.\n\n2. The equal first and third fractional parts give q equals two and p equals one. Their approximation error is exactly zero.\n\n3. This remains a valid strict error less than one-half. Half-open intervals eliminate boundary ambiguity without excluding repeated fractional values.\n\n**Conclusion.** q=2, p=1.",
+    "expected": "q=2, p=1",
+    "check": {
+      "kind": "rational-approximation",
+      "m": 2,
+      "q": 2,
+      "p": 1
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_68",
+    "title": "An asymmetric monotone threshold",
+    "stem": "Find the least length forcing a strictly increasing subsequence of length five or a strictly decreasing subsequence of length seven, when all entries are distinct.",
+    "solution": "1. Avoidance requires increasing ending length at most four and decreasing ending length at most six. Each distinct entry receives a different ordered pair of these labels.\n\n2. The twenty-four possible pairs permit at most twenty-four entries. Twenty-five force the desired conclusion.\n\n3. Four descending blocks of six values, with every block larger than the preceding block, attain twenty-four without either target. This proves necessity as well as sufficiency.\n\n**Conclusion.** 25.",
+    "expected": "25",
+    "check": {
+      "kind": "es",
+      "r": 5,
+      "s": 7
+    },
+    "origin": "Independent reconstruction of Toronto MAT344 Lecture 7 \u00a74",
+    "difficulty": "Hard",
+    "options": [
+      "36",
+      "25",
+      "24",
+      "35"
+    ],
+    "answer": 2
+  },
+  {
+    "id": "DPH_69",
+    "title": "A sharp short monotone construction",
+    "stem": "For the sequence $(2,1,4,3,6,5)$, compute the longest increasing and decreasing subsequence lengths.",
+    "solution": "1. An increasing subsequence takes at most one value from each descending two-element block. Taking one,two-block representative values one,three,five attains length three.\n\n2. A decreasing subsequence cannot cross into a later block, because every later value is larger. Inside a block its length is at most two, attained by two,one.\n\n3. Thus LIS is three and LDS is two. Six is the sharp avoiding length for targets increasing four or decreasing three.\n\n**Conclusion.** LIS 3; LDS 2.",
+    "expected": "LIS 3; LDS 2",
+    "check": {
+      "kind": "lis",
+      "values": [
+        2,
+        1,
+        4,
+        3,
+        6,
+        5
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "LIS 3; LDS 2",
+      "LIS 4; LDS 2",
+      "LIS 3; LDS 3",
+      "LIS 2; LDS 3"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "DPH_70",
+    "title": "The square boundary",
+    "stem": "For one hundred distinct real values, what monotone subsequence length is forced? At what first length is eleven forced?",
+    "solution": "1. The largest integer guarantee at length one hundred is ten: the ceiling of the square root is ten.\n\n2. Ten descending blocks of ten values avoid length eleven in either direction. At length one hundred and one, one hundred available label pairs are insufficient, so eleven is forced.\n\n3. Using the floor of the square root works at perfect squares but fails immediately after them.\n\n**Conclusion.** 10 at 100; 11 first at 101.",
+    "expected": "10 at 100; 11 first at 101",
+    "check": {
+      "kind": "es-square",
+      "n": 100
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_71",
+    "title": "Duplicate values break the strict theorem",
+    "stem": "A sequence has twenty equal values. Does the distinct-entry monotone theorem force a strictly monotone subsequence of length five?",
+    "solution": "1. Every strict increasing or strict decreasing subsequence has length one, because every comparison is equality.\n\n2. Its weakly nondecreasing subsequence has length twenty. The weak conclusion differs from the strict one.\n\n3. With duplicates one can use a mixed nondecreasing/decreasing theorem, or explicitly specify tie handling. The distinctness hypothesis cannot simply be deleted.\n\n**Conclusion.** No; strict maximum is one.",
+    "expected": "No; strict maximum is one",
+    "check": {
+      "kind": "duplicate-es",
+      "n": 20
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "Yes, strict length twenty",
+      "No weak subsequence exists",
+      "No; strict maximum is one",
+      "Yes, strict length five"
+    ],
+    "answer": 3
+  },
+  {
+    "id": "DPH_72",
+    "title": "Audit ending-length labels",
+    "stem": "For $(5,1,4,2,3)$, calculate increasing and decreasing lengths ending at each position.",
+    "solution": "1. Increasing ending lengths are one,one,two,two,three. Each is one plus the greatest earlier length whose value is strictly smaller.\n\n2. Decreasing ending lengths are one,two,two,three,three, using strictly larger predecessors instead.\n\n3. The five ordered labels are distinct and the maxima are both three. A label proof uses ending lengths consistently; mixing starting and ending conventions without proof can destroy its implication.\n\n**Conclusion.** LIS 3; LDS 3.",
+    "expected": "LIS 3; LDS 3",
+    "check": {
+      "kind": "lis",
+      "values": [
+        5,
+        1,
+        4,
+        2,
+        3
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_73",
+    "title": "Subsequence does not mean contiguous",
+    "stem": "For $(1,4,2,5,3,6)$, compare the longest increasing subsequence and the longest increasing contiguous block.",
+    "solution": "1. The values one,two,three,six give an increasing subsequence of length four. Dynamic programming confirms no longer increasing subsequence exists.\n\n2. Each drop from four to two and from five to three breaks a contiguous run. The runs one,four; two,five; three,six have maximum length two.\n\n3. Pigeonhole monotone theorems concern subsequences and permit skipped positions. They cannot be read as contiguous-block guarantees.\n\n**Conclusion.** Subsequence 4; contiguous block 2.",
+    "expected": "Subsequence 4; contiguous block 2",
+    "check": {
+      "kind": "lis-contiguous",
+      "values": [
+        1,
+        4,
+        2,
+        5,
+        3,
+        6
+      ]
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_74",
+    "title": "Degree labels and their forbidden coexistence",
+    "stem": "Why do nine vertices in a simple undirected graph force repeated degree, while a directed tournament can have all distinct outdegrees?",
+    "solution": "1. The undirected degree labels are zero through eight, but zero and eight cannot coexist: a degree-eight vertex would connect to the supposedly isolated one.\n\n2. At most eight labels are usable simultaneously for nine vertices, so a repeated degree follows.\n\n3. Orient a nine-vertex complete graph from the lower ordered vertex to the higher. Its outdegrees are eight,seven through zero, all distinct. The undirected exclusion does not apply to outdegree.\n\n**Conclusion.** Repeated undirected degree; distinct tournament outdegrees possible.",
+    "expected": "Repeated undirected degree; distinct tournament outdegrees possible",
+    "check": {
+      "kind": "degree",
+      "n": 9
+    },
+    "origin": "Independent reconstruction of Stanford CS103 Winter 2026 Lecture 11",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_75",
+    "title": "The five-cycle Ramsey counterexample",
+    "stem": "Color a complete graph on five vertices red on a cycle and blue on its complement. How many monochromatic triangles occur?",
+    "solution": "1. A five-cycle contains no triangle, so no triple has all three edges red.\n\n2. Its complement is also a five-cycle and likewise has no triangle. Thus no triple has all edges blue.\n\n3. The count is zero. This is an actual lower-bound certificate for the six-vertex Ramsey theorem, not merely a failure of the star argument at five.\n\n**Conclusion.** 0.",
+    "expected": "0",
+    "check": {
+      "kind": "ramsey-cycle",
+      "n": 5
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "2",
+      "5",
+      "0",
+      "1"
+    ],
+    "answer": 3
+  },
+  {
+    "id": "DPH_76",
+    "title": "A sharp three-color rectangle threshold",
+    "stem": "A grid has four columns, arbitrary rows, and three colors. Find the least row count forcing a rectangle whose four corners have one color.",
+    "solution": "1. Each row has four entries and only three colors, so it contains a same-color pair of columns. Choose one such pair and its color as a certificate.\n\n2. There are six column pairs times three colors, namely eighteen certificates. Nineteen rows repeat one, producing the rectangle.\n\n3. For each of the eighteen certificates, construct a row with its chosen pair in its chosen color and the other two cells in the other two colors. It has exactly that one same-color pair, so different rows never repeat a certificate. Eighteen avoid the rectangle, proving sharpness.\n\n**Conclusion.** 19.",
+    "expected": "19",
+    "check": {
+      "kind": "rectangle",
+      "cols": 4,
+      "colors": 3
+    },
+    "origin": "Independent reconstruction of MIT 6.042J \u00a714.8 / related class problems",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "DPH_77",
+    "title": "The smaller rectangle construction",
+    "stem": "With three columns and two colors, find the sharp row threshold forcing a monochromatic rectangle.",
+    "solution": "1. Every row has a same-color pair. Three column pairs times two colors give six possible certificates.\n\n2. Seven rows repeat a certificate. Six avoiding rows can be formed by taking each certificate once and coloring the remaining singleton with the other color.\n\n3. This construction works because columns equal colors plus one. For more columns, a row may realize multiple certificates, so one cannot automatically claim the same sharp construction.\n\n**Conclusion.** 7.",
+    "expected": "7",
+    "check": {
+      "kind": "rectangle",
+      "cols": 3,
+      "colors": 2
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "7",
+      "6",
+      "8",
+      "9"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "DPH_78",
+    "title": "Binary decision-tree information",
+    "stem": "At least how many arbitrary truthful yes-no answers are required in the worst case to identify one of one thousand possibilities?",
+    "solution": "1. A binary decision tree of worst-case depth q has at most two to the q leaves. Each possibility needs a distinct leaf.\n\n2. Nine answers support at most 512 leaves, whereas ten support 1024. Thus the minimum is ten if arbitrary subset questions are allowed.\n\n3. A balanced identification strategy realizes this minimum. Restrictions on the permitted questions, or lies, can raise the requirement.\n\n**Conclusion.** 10.",
+    "expected": "10",
+    "check": {
+      "kind": "binary-identification",
+      "N": 1000
+    },
+    "origin": "Original examination-style problem",
+    "difficulty": "Hard",
+    "options": [
+      "9",
+      "11",
+      "1000",
+      "10"
+    ],
+    "answer": 4
+  },
+  {
+    "id": "DPH_79",
+    "title": "One lie: a necessary packing bound",
+    "stem": "With twenty adaptive yes-no questions and at most one lie, what possibility-count upper bound follows from transcript packing?",
+    "solution": "1. For a fixed hidden possibility, the truthful run and each choice of one lie position yield twenty-one distinct transcripts. Distinctness follows at the first position where the lie schedules differ.\n\n2. Transcripts belonging to different hidden possibilities must be disjoint for unique decoding. Thus the number of possibilities times twenty-one is at most two raised to twenty.\n\n3. The integer upper bound is 49932. This is a necessary condition; no strategy attaining it has been constructed here. Adaptive transcript sets are not automatically ordinary Hamming balls around a fixed truthful word.\n\n**Conclusion.** 49932.",
+    "expected": "49932",
+    "check": {
+      "kind": "one-lie",
+      "q": 20
+    },
+    "origin": "Independent reconstruction of MIT 18.310 Pigeonhole Principle lecture",
+    "difficulty": "Hard",
+    "options": [
+      "49933",
+      "1048576",
+      "49932",
+      "52428"
+    ],
+    "answer": 3
+  },
+  {
+    "id": "DPH_80",
+    "title": "The card channel and the impossible variant",
+    "stem": "From five cards in a thirteen-rank four-suit deck, one is hidden and four are ordered visibly. Explain the six-way rank code and why hiding one of only four cards cannot always work in a 52-card deck.",
+    "solution": "1. Among five cards, two have the same suit. Their distinct ranks have one directed cyclic gap between one and six. Show the first as an anchor and hide the second.\n\n2. The other three visible cards can be placed in six permutations under an agreed total ordering. Their order encodes the gap; the anchor supplies suit and initial rank, permitting exact decoding.\n\n3. For the four-card variant, an ordered visible triple has at most 52 times 51 times 50 states, while hidden hands number the binomial coefficient of 52 choose 4. The latter is larger: 270725 exceeds 132600. Thus no protocol can uniquely decode every hand.\n\n4. For the five-card variant in an arbitrary n-card deck, a necessary state-count condition gives n at most 124. That upper bound alone does not provide a construction for every such deck.\n\n**Conclusion.** Six rank codes; four-card variant impossible.",
+    "expected": "Six rank codes; four-card variant impossible",
+    "check": {
+      "kind": "card-channel",
+      "deck": 52
+    },
+    "origin": "Independent reconstruction of MIT 6.042J \u00a714.8 / related class problems",
+    "difficulty": "Hard"
+  }
+]

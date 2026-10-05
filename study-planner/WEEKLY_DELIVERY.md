@@ -241,3 +241,19 @@ Source audit: research/d_inclusion-source-audit.md. Main lesson: research/d_incl
 Observed evidence: d_inclusion-verification.json passed 1,267 independent mathematical assertions; d_inclusion-browser-audit.json records 308 independently checked lab cases, seven rejected inputs, all 56 measured checkpoint layouts, actual motion/controls, loaded fonts, 390-pixel containment and complete printable solutions/checkpoints. d_inclusion-model-audit.json records each distinct model contract. The quality audit records source errors corrected, finite verification limits and authentic revisits. The two archive questions were visually checked against the original PDFs; their answers are independent derivations rather than official keys.
 
 Publish the exact pushed source to the existing owner-private Site. Mirror only changed files to the GitHub study-planner-1406 branch, preserving unrelated mirror deletions. Keep the gate awaiting_user_approval after delivery.
+
+
+## Active chapter: pigeonhole principle, October 5, 2026
+
+The user explicitly approved d_inclusion in Site version 69 and authorized only the next chapter d_pigeonhole. All 33 existing chapters remain approved. Work continuously on this chapter until its complete review draft is delivered, then wait for explicit approval. Preserve all existing questions, formulas, visuals and study progress.
+
+
+## Current delivery: English pigeonhole chapter, October 5, 2026
+
+The user explicitly approved d_inclusion in Site version 69, source c958f2b5b8eae701ab686ba77051991cc1b24278. Only d_pigeonhole was written. It is now a complete review draft awaiting explicit student approval. Five genuinely reviewed primary courses from MIT (two), Oxford, Stanford and Toronto, plus a reviewed Cornell complementary text, were selected from nine located candidates. This bounded comparison is not a claim to have evaluated every course worldwide.
+
+The English lesson has 17 substantial sections, 80 original or independently reconstructed course problems plus two original-PDF-checked authentic adaptations, 80 examination rules, 18 subject-specific animated models, 78 checkpoints and four editable laboratories. Both source and quality audit pages are reachable. Mathematics uses native MathML and STIX Two Math; code uses JetBrains Mono, headings Newsreader and prose Source Sans 3. Existing bodies and all 1,917 questions are retained across 33 approved chapters. The combined library has 34 chapters, 1,999 question entries, 252 models, 1,421 checkpoints and 215 placements.
+
+The independent verifier passed 68972 assertions. Actual browser checks covered 330 independent laboratory reference vectors, seven rejected numerical calls and an invalid list-parser input, every model checkpoint layout, moving elements and controls, reduced motion, loaded fonts, 390-pixel containment and all printable solutions/checkpoints. Original answers are independently derived rather than official keys; MSc CS 1405 Q116 is a newly checked worst-case-search bridge and PhD CS 1404 Q25 a parity-counting revisit. Source PDF fingerprints and exact reading ranges remain in evidence.
+
+Read research/chapter-gate.json first. Do not start the next scheduled missing chapter a_arrays until explicit approval of this draft. Do not rerun start_d_pigeonhole.py: it records preceding approval once. Rebuild only this chapter with build_d_pigeonhole_models.py, prepare_d_pigeonhole.py and render_d_pigeonhole.py; preserve the dedicated models rather than using the legacy shared builder. Authoritative handoff files are d_pigeonhole.en.md, d_pigeonhole-questions.json, d_pigeonhole-review.en.md, source and quality audits, verification.json, browser-audit.json and model-audit.json. Publication uses the exact pushed source on the existing owner-private Site. Mirror only changed files to the GitHub study-planner-1406 branch, preserving unrelated deletions. Keep awaiting_user_approval after delivery.
