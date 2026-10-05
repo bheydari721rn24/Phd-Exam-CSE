@@ -252,7 +252,7 @@
     "title": "Coupled nonnegative equations",
     "stem": "How many nonnegative integer solutions satisfy $x_1+x_2+x_3=5$ and $x_1+x_2+x_3+x_4+x_5=20$?",
     "options": [
-      "32",
+      "37",
       "$\\binom{24}{4}+\\binom72$",
       "$\\binom{24}{4}\\binom72$",
       "336"
@@ -418,7 +418,7 @@
       "$(45,+\\infty)$"
     ],
     "answer": 4,
-    "solution": "1. Start with $4^6$ unrestricted maps. Exclude maps omitting at least one codomain value by inclusion-exclusion.\n2. The count is $A=4^6-\\binom413^6+\\binom422^6-\\binom431^6=4096-2916+384-4=1560$.\n3. Divide by the source question's 30: $A/30=52$, in option 4.\n4. Multiplying by $4!$ after inclusion-exclusion would overcount: codomain values were already labeled. Options 1–3 cannot contain 52.\n\n**Transfer rule.** An onto map is a labeled nonempty fiber partition; account for labels exactly once.",
+    "solution": "1. Start with $4^6$ unrestricted maps. Exclude maps omitting at least one codomain value by inclusion-exclusion.\n2. The count is $A=4^6-\\binom413^6+\\binom422^6-\\binom431^6=4096-2916+384-4=1560$.\n3. Divide by the source question's 30: $A/30=52$, in option 4.\n4. Multiplying by $4!$ after inclusion-exclusion would overcount: codomain values were already labeled. Options 1\u20133 cannot contain 52.\n\n**Transfer rule.** An onto map is a labeled nonempty fiber partition; account for labels exactly once.",
     "pattern": "surjection via inclusion-exclusion",
     "difficulty": "Hard",
     "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
@@ -795,7 +795,7 @@
       "$O(\\alpha n+\\beta\\log n)$"
     ],
     "answer": 2,
-    "solution": "1. The Akra–Bazzi exponent satisfies $\\alpha^p+\\beta^p=1$. Here $p=1$.\n2. Its integral is $\\int_1^n u/u^2\\,du=\\log n$, giving $T(n)=\\Theta(n\\log n)$. Integer rounding of subproblem sizes is absorbed under the usual bounded-perturbation convention.\n3. Constants $\\alpha,\\beta$ are fixed; options 1 and 4 are linear bounds and are too small. Since $0<\\alpha<1$, option 3 grows as $n^\\alpha\\log n=o(n\\log n)$ and is also too small.\n4. The equal-split Master theorem does not directly apply to unequal branches; equal sizes cannot be invented.\n\n**Transfer rule.** Solve for the branching exponent before comparing candidate bounds; coefficients and exponents play different roles.",
+    "solution": "1. The Akra\u2013Bazzi exponent satisfies $\\alpha^p+\\beta^p=1$. Here $p=1$.\n2. Its integral is $\\int_1^n u/u^2\\,du=\\log n$, giving $T(n)=\\Theta(n\\log n)$. Integer rounding of subproblem sizes is absorbed under the usual bounded-perturbation convention.\n3. Constants $\\alpha,\\beta$ are fixed; options 1 and 4 are linear bounds and are too small. Since $0<\\alpha<1$, option 3 grows as $n^\\alpha\\log n=o(n\\log n)$ and is also too small.\n4. The equal-split Master theorem does not directly apply to unequal branches; equal sizes cannot be invented.\n\n**Transfer rule.** Solve for the branching exponent before comparing candidate bounds; coefficients and exponents play different roles.",
     "pattern": "unequal splits and exponent selection",
     "difficulty": "Hard",
     "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
@@ -878,7 +878,7 @@
       "Descending."
     ],
     "answer": 4,
-    "solution": "1. The base cases of zero or one value are descending.\n2. Assume recursive outputs are descending. Every value in the first block is greater than $m$, and every value in the final block is less than $m$.\n3. Concatenating the descending greater block, $m$, and the descending smaller block therefore produces a descending whole array. Strong induction establishes the claim for every length.\n4. Median selection controls balance, not ascending direction. Option 1 misreads one recursive block; option 2 ignores determinism; option 3 would require left–median–right concatenation.\n\n**Transfer rule.** Prove a recursion's semantic invariant separately from its running-time recurrence.",
+    "solution": "1. The base cases of zero or one value are descending.\n2. Assume recursive outputs are descending. Every value in the first block is greater than $m$, and every value in the final block is less than $m$.\n3. Concatenating the descending greater block, $m$, and the descending smaller block therefore produces a descending whole array. Strong induction establishes the claim for every length.\n4. Median selection controls balance, not ascending direction. Option 1 misreads one recursive block; option 2 ignores determinism; option 3 would require left\u2013median\u2013right concatenation.\n\n**Transfer rule.** Prove a recursion's semantic invariant separately from its running-time recurrence.",
     "pattern": "recursive correctness versus runtime",
     "difficulty": "Medium",
     "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
@@ -1176,7 +1176,7 @@
       "$1-N!/(n!N^n)$"
     ],
     "answer": null,
-    "solution": "1. Without replacement, the same ball cannot be selected twice. Thus for a valid experiment with $n\\le N$, the stated probability is zero.\n2. None of the printed expressions is identically zero. The question's wording and alternatives are therefore inconsistent. We do not silently change “without” into “with.”\n3. If replacement had been intended, the collision probability would instead be $1-N!/((N-n)!N^n)$. The printed fourth denominator is $n!N^n$, so even that reinterpretation would need a second correction.\n4. This source record is excluded from practice, but retained as an example of checking experiment rules before applying a memorized formula.",
+    "solution": "1. Without replacement, the same ball cannot be selected twice. Thus for a valid experiment with $n\\le N$, the stated probability is zero.\n2. None of the printed expressions is identically zero. The question's wording and alternatives are therefore inconsistent. We do not silently change \u201cwithout\u201d into \u201cwith.\u201d\n3. If replacement had been intended, the collision probability would instead be $1-N!/((N-n)!N^n)$. The printed fourth denominator is $n!N^n$, so even that reinterpretation would need a second correction.\n4. This source record is excluded from practice, but retained as an example of checking experiment rules before applying a memorized formula.",
     "pattern": "complement and ordered sampling; source defect",
     "difficulty": "Hard",
     "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
@@ -1392,7 +1392,7 @@
       "$\\overline a bd+\\overline a bc+bcd+\\overline a\\overline c$"
     ],
     "answer": null,
-    "solution": "1. The required one-set is $\\{5,6,7,8,9,15\\}$. Specified zero cells must remain zero; don't-care cells 0 and 1 may be chosen freely.\n2. Option 2 covers the adjacent required-one pairs 5–7, 6–7, 7–15 and 8–9 with common implicants. It has eleven literals and includes the four-cell group $\\{0,1,8,9\\}$.\n3. Option 1 lacks common coverage for transition 5–7 and can have a static-one hazard. Option 4 misses required ones 8 and 9. Option 3 preserves the required outputs and covers every required-one adjacency when don't-cares 0 and 1 are assigned zero, but has twelve literals; its group covering 8 and 9 is not prime once the don't-cares are available for expansion.\n4. The source also asks for a simplified expression. Interpreting that as minimum-literal prime-implicant coverage selects option 2; interpreting the question as hazard freedom alone admits option 3 as well. This is a convention-sensitive item, not proof that the conventional simplified answer is wrong. We exclude it from unqualified single-answer practice and state the minimization convention in original exercises.",
+    "solution": "1. The required one-set is $\\{5,6,7,8,9,15\\}$. Specified zero cells must remain zero; don't-care cells 0 and 1 may be chosen freely.\n2. Option 2 covers the adjacent required-one pairs 5\u20137, 6\u20137, 7\u201315 and 8\u20139 with common implicants. It has eleven literals and includes the four-cell group $\\{0,1,8,9\\}$.\n3. Option 1 lacks common coverage for transition 5\u20137 and can have a static-one hazard. Option 4 misses required ones 8 and 9. Option 3 preserves the required outputs and covers every required-one adjacency when don't-cares 0 and 1 are assigned zero, but has twelve literals; its group covering 8 and 9 is not prime once the don't-cares are available for expansion.\n4. The source also asks for a simplified expression. Interpreting that as minimum-literal prime-implicant coverage selects option 2; interpreting the question as hazard freedom alone admits option 3 as well. This is a convention-sensitive item, not proof that the conventional simplified answer is wrong. We exclude it from unqualified single-answer practice and state the minimization convention in original exercises.",
     "pattern": "functional correctness before hazard coverage; source ambiguity",
     "difficulty": "Hard",
     "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",

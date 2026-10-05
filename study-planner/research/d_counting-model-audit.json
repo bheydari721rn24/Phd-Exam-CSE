@@ -1,0 +1,79 @@
+{
+  "models": 15,
+  "checkpoints": 76,
+  "families": [
+    "allocation-shift",
+    "category-selection",
+    "choice-tree",
+    "fiber-map",
+    "gap-compression",
+    "group-partition",
+    "inventory-strip",
+    "lattice-path",
+    "pascal-triangle",
+    "rotation-orbit",
+    "star-bar-bijection"
+  ],
+  "invariants": [
+    {
+      "id": "dc-tree",
+      "invariant": "Every legal ordered pair occurs at one leaf; branch counts are 4, 3, 2, and 1."
+    },
+    {
+      "id": "dc-fibers",
+      "invariant": "Each two-subset of four distinct symbols has exactly two ordered representations."
+    },
+    {
+      "id": "dc-nonuniform",
+      "invariant": "All eight binary length-three words are partitioned into fibers of sizes 1, 3, 3, and 1."
+    },
+    {
+      "id": "dc-selection",
+      "invariant": "A selected set has exactly one first-group size; total is 25 plus 10."
+    },
+    {
+      "id": "dc-word",
+      "invariant": "At every prefix, used plus remaining multiplicity equals the original inventory for each symbol."
+    },
+    {
+      "id": "dc-gaps",
+      "invariant": "The offset for selected index i is i minus one; final compressed positions are strictly increasing."
+    },
+    {
+      "id": "dc-circle",
+      "invariant": "A distinct-symbol circular order has exactly n distinct starting-seat representations."
+    },
+    {
+      "id": "dc-periodic",
+      "invariant": "AABB has orbit size four; ABAB has orbit size two; together they account for all six weight-two words."
+    },
+    {
+      "id": "dc-stars",
+      "invariant": "Five identical stars and two bars reconstruct the three labeled occupancies 2,0,3."
+    },
+    {
+      "id": "dc-lower",
+      "invariant": "Each coordinate equals its compulsory lower bound plus a nonnegative residual."
+    },
+    {
+      "id": "dc-groups",
+      "invariant": "The three disjoint nonempty sets are different contents, so all six label assignments are distinct."
+    },
+    {
+      "id": "dc-empty",
+      "invariant": "The together partition has three labeled realizations; the separated partition has six."
+    },
+    {
+      "id": "dc-pascal",
+      "invariant": "Interior values equal their two parent counts; boundary subset counts are one."
+    },
+    {
+      "id": "dc-path",
+      "invariant": "Each processed R changes x by one; each processed U changes y by one."
+    },
+    {
+      "id": "dc-reflection",
+      "invariant": "The transformed bad path has four right and two up steps; the inverse reflects its first opposite crossing."
+    }
+  ]
+}

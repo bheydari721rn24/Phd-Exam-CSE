@@ -1,0 +1,360 @@
+"""Independently authored counting bank; exact values use integer arithmetic."""
+from pathlib import Path
+from math import comb as C, factorial as F
+import json
+BASE=Path(__file__).resolve().parent
+Q=[]
+def add(title,stem,steps,value,trap,origin='Original problem; chapter counting model',difficulty='Hard'):
+    assert len(steps)==3
+    solution='\n\n'.join(f'{i}. {s}' for i,s in enumerate(steps,1))
+    solution+='\n\n4. **Result.** '+str(value)+'. '+trap
+    Q.append(dict(id=f'DCOUNT_{len(Q)+1:02}',title=title,stem=stem,solution=solution,origin=origin,difficulty=difficulty,expected=str(value)))
+
+# Ordered selections, roles, and variable branching.
+add('A code with an exact digit inventory',r'A length-six code uses the ten digits. Its first symbol is nonzero, all symbols are distinct, and exactly two symbols are odd. Count the codes.',[
+r'There are five odd and five even digits, but zero is one of the even digits. First select the two odd symbols and four even symbols.',
+r'If zero is absent, select four of the four nonzero even digits and arrange all six selected symbols. If zero is present, choose its three even companions and exclude arrangements beginning with zero.',
+r'The two cases give $\binom52\binom44 6!+\binom52\binom43(6!-5!)$. The cases are disjoint because the presence of zero differs.'],C(5,2)*F(6)+C(5,2)*C(4,3)*(F(6)-F(5)), 'Using nine possibilities at the first position and a single fixed branch count afterward ignores the exact odd-symbol constraint.')
+add('Three officers inside a selected team',r'Choose a six-person team from twelve people and assign three distinct roles to three different team members. Count complete outcomes.',[
+r'A complete outcome records both the six-person set and the three role assignments; changing a role holder changes the outcome.',
+r'Choose the team in $\binom{12}{6}$ ways. For each team, the labeled roles have $6\cdot5\cdot4$ assignments, regardless of which team was selected.',
+r'Alternatively assign the officers first in $12\cdot11\cdot10$ ways, then choose the other three members from the remaining nine. These yield $\binom{12}{6}P(6,3)=P(12,3)\binom93$.'],C(12,6)*6*5*4, 'The alternative construction verifies that no officer is outside the team and each outcome is counted once.')
+add('Injection with one required image',r'How many injective functions from a labeled four-element domain into a seven-element codomain have a specified codomain element in their image?',[
+r'The required codomain element must have exactly one preimage, because the function is injective.',
+r'Choose that preimage in four ways. Assign the remaining three domain elements distinct outputs from the other six elements, in $P(6,3)$ ways.',
+r'Therefore the count is $4P(6,3)$. Complementation gives the independent expression $P(7,4)-P(6,4)$, removing injections that avoid the specified output.'],4*6*5*4, 'Choosing four output values without assigning them to domain elements would forget function identities.')
+add('Position-dependent alphabet with a repeated value',r'A three-symbol code has first symbol in {A,B}; after A the second symbol has three choices, after B it has five choices. Every two-symbol prefix has four possible third symbols. Count codes.',[
+r'Partition by the first symbol. There are three valid second-symbol prefixes in the A case and five in the B case.',
+r'Each prefix has exactly four third-symbol completions, giving $3\cdot4$ and $5\cdot4$ leaves in the two cases.',
+r'Add the disjoint cases: $(3+5)4=32$. A product using one average branch count happens to work here only after it has been derived from this sum.'],32, 'The second-stage count is not uniform, so multiplying by either three or five for both first-symbol cases is invalid.',difficulty='Medium')
+add('A forbidden pair of positions',r'Count permutations of seven distinct symbols in which A is not in the first position and B is not in the last position.',[
+r'Partition by the position of A among positions two through seven. If A occupies the last position, B automatically avoids that position.',
+r'For A last, arrange the other six symbols in $6!$ ways. For each of the other five permitted A positions, B has five legal positions among the remaining six.',
+r'These cases total $6!+5\cdot5\cdot5!$. Equivalently the two forbidden-position families require correcting their intersection, but the present decomposition is already disjoint.'],F(6)+25*F(5), 'The choices for B depend on whether A occupies the last position; a uniform factor of five would discard a valid case.')
+add('Exactly three distinct symbols',r'Count length-five words over a six-symbol alphabet that use exactly three distinct symbols.',[
+r'Choose the three used symbols in $\binom63$ ways. The possible multiplicity patterns are 3,1,1 and 2,2,1.',
+r'For pattern 3,1,1 choose the tripled symbol in three ways and arrange its copies in $5!/3!$ ways. For 2,2,1 choose the singleton in three ways and arrange in $5!/(2!2!)$ ways.',
+r'The result is $\binom63(3\cdot20+3\cdot30)$. The selected symbol set is unique for each word, so the initial factor introduces no further overcount.'],C(6,3)*150,'Choosing three symbols and then using $3^5$ would include words omitting one or two of the chosen symbols.')
+add('Nonattacking identical rooks',r'Place four identical rooks on a 6-by-7 board with no shared row or column. Count occupied-square sets.',[
+r'Choose four occupied rows and four occupied columns in $\binom64\binom74$ ways. These choices do not yet say which row is paired with which column.',
+r'A bijection between the selected rows and columns has $4!$ possibilities and determines all occupied squares.',
+r'Thus the count is $\binom64\binom74 4!$. Starting with labeled rooks gives $P(6,4)P(7,4)$, and dividing by $4!$ for rook labels gives the same expression.'],C(6,4)*C(7,4)*F(4),'Dividing by both a row factorial and a column factorial after this construction would erase real matching choices.',origin='Independent adaptation of MIT 6.042J Section 14.4 rook construction')
+add('Ordered outputs with a required collision',r'Count triples over a nine-symbol alphabet with exactly two distinct symbols.',[
+r'A valid triple has one repeated symbol and one singleton symbol. Choose them in ordered roles: nine choices for the repeated value and eight for the singleton.',
+r'The singleton may occupy any of the three positions. Once that position is chosen, both remaining positions contain the repeated symbol.',
+r'The total is $9\cdot8\cdot3$. Choosing an unordered pair first would instead require choosing which member repeats, yielding $\binom92\cdot2\cdot3$.'],9*8*3,'The multiplicity roles distinguish the two symbols; forgetting that distinction loses a factor of two.')
+add('A mixed strict and weak triple',r'Count triples satisfying $1\le i<j\le k\le8$.',[
+r'For a fixed middle value $j$, there are $j-1$ choices of $i$ and $9-j$ choices of $k$. Therefore the direct count is $\sum_{j=2}^{8}(j-1)(9-j)$.',
+r'Alternatively partition by whether $j=k$. The equality case contributes $\binom82$ and the strict case $i<j<k$ contributes $\binom83$.',
+r'The two cases cover every legal triple once, so the answer is $\binom82+\binom83$. This also equals $\binom93$ by Pascal.'],C(8,2)+C(8,3),'Using the weak-triple count includes the forbidden equality $i=j$; using only strict triples omits $j=k$.')
+add('At least one repetition',r'Count length-five codes over eight symbols containing at least one repeated symbol.',[
+r'The declared universe is all $8^5$ ordered words, with repetition allowed.',
+r'Its complement consists of five distinct symbols, whose sequential branch counts are 8,7,6,5,4. Hence it has $P(8,5)$ members.',
+r'The answer is $8^5-P(8,5)$. This subtraction uses a single complement and covers repetitions of every possible multiplicity pattern.'],8**5-8*7*6*5*4,'Adding counts for a repeated pair at each position pair would count highly repeated words many times.',difficulty='Medium')
+
+# Subsets and constrained committees.
+add('Two category lower bounds',r'Choose seven members from eight engineers and six scientists, with at least three from each category.',[
+r'Let $j$ be the engineer count. Since the total is seven and both categories require at least three, only $j=3$ or $j=4$ is feasible.',
+r'These exact-category cases have $\binom83\binom64$ and $\binom84\binom63$ committees.',
+r'Add the two counts. Every committee has exactly one engineer count, so overlap is impossible.'],C(8,3)*C(6,4)+C(8,4)*C(6,3),'An upper endpoint of seven would ignore the scientist lower bound.')
+add('Exactly one distinguished member and one officer',r'From ten people including A and B, choose a four-person team with exactly one of A,B, and appoint a chair from the other three members.',[
+r'Select which distinguished person participates in two ways. Choose the three ordinary members from the other eight people.',
+r'The chair must be ordinary, so each selected team has three chair choices, not four.',
+r'The product is $2\binom83\cdot3$. The distinguished choice, ordinary subset, and chair reconstruct the whole outcome uniquely.'],2*C(8,3)*3,'Multiplying by four would allow the distinguished person to chair, contrary to the statement.')
+add('All or none of a fixed group',r'Choose a five-person committee from twelve people. Three specified people must either all serve or all be absent.',[
+r'When all three serve, choose the other two members from nine ordinary people, giving $\binom92$.',
+r'When all three are absent, choose all five members from those nine, giving $\binom95$.',
+r'The cases are disjoint and exhaustive, so add. Subsets containing exactly one or two specified people are excluded.'],C(9,2)+C(9,5),'Choosing whether each specified person serves independently would violate their collective all-or-none condition.')
+add('A size-constrained complement',r'How many subsets of a nine-element set have size between two and seven inclusive?',[
+r'There are $2^9$ subsets in total, by the subset–bit-string bijection.',
+r'The forbidden sizes are zero, one, eight, and nine. Their counts are 1,9,9,1.',
+r'Subtract their disjoint total: $2^9-20$. Alternatively sum $\binom9k$ for $2\le k\le7$; both expressions count the same family.'],2**9-20,'The empty set and the full set are distinct cases and must both be removed.',difficulty='Medium')
+add('A chair outside a selected panel',r'From eleven people, choose a panel of four and a coordinator who must not belong to the panel. Count outcomes.',[
+r'Choose the four-person panel in $\binom{11}{4}$ ways. Exactly seven people remain eligible as coordinator.',
+r'The coordinator is a labeled role, but the panel members are unordered. Thus the count is $7\binom{11}{4}$.',
+r'Choosing the coordinator first gives $11\binom{10}{4}$; the equality verifies the model and the outside restriction.'],7*C(11,4),'Using four choices after selecting the panel would count a coordinator inside the panel instead.')
+add('Intersecting subsets with prescribed overlap',r'For a ten-element universe, count ordered pairs $(A,B)$ with $|A|=4$, $|B|=5$, and $|A\cap B|=2$.',[
+r'Choose A in $\binom{10}{4}$ ways. Choose the two common members from A in $\binom42$ ways.',
+r'B must take its other three members from the six elements outside A, giving $\binom63$ choices. Its membership is then fully specified.',
+r'The count is $\binom{10}{4}\binom42\binom63$. The pair is ordered; swapping its two sets changes the role definitions.'],C(10,4)*C(4,2)*C(6,3),'Choosing all five members of B from the full universe after fixing the intersection would not enforce exactly two common elements.')
+add('Nested subset chain',r'Count chains $A\subset B\subset U$ where $|U|=9$, $|A|=2$, and $|B|=6$.',[
+r'Choose B first in $\binom96$ ways. For each B, choose its two-element subset A in $\binom62$ ways.',
+r'Alternatively choose A first in $\binom92$ ways and add four of the seven remaining universe elements to form B.',
+r'Both constructions give $\binom96\binom62=\binom92\binom74$. Strict inclusion is automatic because the prescribed sizes differ.'],C(9,6)*C(6,2),'Independent choices of A and B from U would include pairs in which A is not contained in B.')
+add('A symmetric-difference constraint',r'Count ordered pairs of subsets $(A,B)$ of an eight-element universe with $|A\triangle B|=3$. No other size restriction is imposed.',[
+r'Choose the three elements belonging to exactly one of A,B in $\binom83$ ways.',
+r'Each selected element has two exclusive membership choices. Each of the other five elements is either in both sets or in neither, also two choices.',
+r'Therefore the count is $\binom83 2^3 2^5=\binom83 2^8$. These per-element states reconstruct the ordered pair.'],C(8,3)*2**8,'The elements outside the symmetric difference are not forced absent; they may belong to both sets.')
+add('Committees that meet a fixed subset',r'An eleven-element universe contains a distinguished four-element subset D. Count six-element subsets that meet D in at least two elements.',[
+r'The exact intersection sizes are 2,3,4. For each j choose j elements of D and $6-j$ of its seven-element complement.',
+r'The count is $\sum_{j=2}^{4}\binom4j\binom7{6-j}$. Each subset has a unique intersection size.',
+r'A complementary check removes intersection sizes zero and one from $\binom{11}{6}$, giving $\binom{11}{6}-\binom76-4\binom75$.'],sum(C(4,j)*C(7,6-j) for j in range(2,5)),r'Multiplying by $\binom42$ first marks two distinguished members and overcounts subsets containing three or four of them.')
+add('A fixed-size family and its complement',r'An n-element set has 84 subsets of size two. Find n, and then count subsets of size $n-2$.',[
+r'The equation $\binom n2=84$ gives $n(n-1)=168$. Solve the quadratic $n^2-n-168=0$.',
+r'The discriminant is 673, which is not a perfect square. Hence no nonnegative integer n satisfies the premise.',
+r'The numerical premise is inconsistent. Complementation would equate the two subset counts only if such a finite set existed.'],'No such finite set','Do not round a quadratic root and report a subset count for an impossible model.')
+
+# Fixed-content words, inventory, and linear adjacency.
+add('Fixed content with equal endpoints',r'Count words using exactly A,A,A,B,B,C,C whose first and last symbols are equal.',[
+r'Partition by the common endpoint symbol. It may be A, B, or C because each has at least two available copies.',
+r'After fixing both endpoints, the interior inventories are (1,2,2), (3,0,2), and (3,2,0), respectively.',
+r'The count is $5!/(1!2!2!)+5!/(3!2!)+5!/(3!2!)$. Each word has exactly one endpoint symbol.'],F(5)//4+2*(F(5)//(F(3)*F(2))),'The endpoints are fixed positions; no extra factor of two permutes identical endpoint symbols.')
+add('Repeated symbols with no adjacent As',r'Count words with four As, three Bs, and two Cs, in which no two As are consecutive.',[
+r'Arrange the five non-A symbols in $5!/(3!2!)$ ways. Their six gaps retain a left-to-right order even though some symbols repeat.',
+r'Choose four of those six gaps for the identical As. At most one A per gap enforces the nonadjacency condition.',
+r'The count is $[5!/(3!2!)]\binom64$. Removing all As from a completed word recovers the unique base word and selected gaps.'],F(5)//(F(3)*F(2))*C(6,4),'Multiplying by $4!$ would falsely distinguish the four A copies.')
+add('A specified internal word as a block',r'Arrange nine distinct symbols including A,B,C. The substring ABC must appear consecutively in that exact internal order.',[
+r'Contract the specified substring into one unit. The three original symbols become one, leaving seven distinct units.',
+r'Arrange those seven units in $7!$ ways. Expanding the block recreates ABC in the specified order.',
+r'Contraction is unique because each of A,B,C appears only once. Thus every permitted arrangement is represented once.'],F(7),'An internal factor $3!$ would allow rearrangements such as BAC that the statement forbids.',difficulty='Medium')
+add('Two disjoint blocks with internal restrictions',r'Arrange ten distinct people. A,B,C must be consecutive in any internal order; D,E must be consecutive with D before E.',[
+r'Contract ABC into one unit and DE into another. Together with five other people there are seven units.',
+r'The units have $7!$ orders. The ABC block has $3!$ internal orders, while DE has only one.',
+r'The answer is $7!3!$. Removing the two specified blocks recovers their locations and internal orders uniquely.'],F(7)*F(3),'The blocks are disjoint; if they shared a person the same simple contraction would require a different justification.')
+add('AABBC from a bounded stock',r'An inventory contains three As, two Bs, and one C. Count length-four words made without exceeding any inventory.',[
+r'First separate by whether C is used. With no C, the feasible (A,B) multiplicities are (2,2) and (3,1), contributing 6 and 4.',
+r'With C used, the (A,B) multiplicities are (1,2), (2,1), and (3,0), contributing $4!/(1!2!)=12$, another 12, and 4.',
+r'The count is $6+4+12+12+4=38$. Each word belongs to exactly one used-multiplicity vector.'],38,'The full-stock multinomial uses six positions and does not answer a four-position question.')
+add('Exactly one adjacent repeated pair',r'Among words using A,A,B,B,C, count those in which the two As are adjacent but the two Bs are not adjacent.',[
+r'Contract AA into a single block X. The units X,B,B,C have $4!/2!$ arrangements.',
+r'The forbidden words within this family also have adjacent Bs. Contract BB into block Y, leaving X,Y,C in $3!$ arrangements.',
+r'Subtract: $4!/2!-3!=6$. The AA and BB contractions are unique because there are exactly two copies of each repeated symbol.'],F(4)//2-F(3),'Count the forbidden family inside the AA universe; subtracting every original word with adjacent Bs would remove unrelated words.')
+add('Four separated ones with fixed endpoints',r'Count length-eleven binary strings with four ones, no adjacent ones, first bit zero, and last bit one.',[
+r'The last bit is one, forcing position ten to be zero. Position one is fixed zero as well.',
+r'The other three ones lie in positions two through nine, an eight-position interval, with no adjacency among themselves. The zeros at its boundaries impose no additional restriction.',
+r'The compressed-position formula gives $\binom{8-3+1}{3}=\binom63$. The fixed last one is not part of the selection.'],C(6,3),'Applying the unrestricted eleven-position formula would ignore both endpoint conditions.')
+add('A minimum gap greater than one',r'Count binary strings of length fourteen with four ones and at least two zeros between successive ones.',[
+r'For one positions $a_1<\cdots<a_4$, the gap condition is $a_{i+1}\ge a_i+3$.',
+r'Compress by $b_i=a_i-2(i-1)$. The new positions form an ordinary four-subset of $\{1,\ldots,8\}$, and the inverse restores the required gaps.',
+r'The answer is $\binom84$. There is no required zero prefix or suffix because the condition concerns only successive ones.'],C(8,4),'Subtracting eight positions rather than six would incorrectly impose extra zeros at the two ends.')
+add('Distinct marked people in separated gaps',r'Arrange five distinct ordinary people and three distinct marked people in a line so no two marked people are adjacent.',[
+r'Arrange the ordinary people in $5!$ ways. Their six ordered gaps include both ends.',
+r'Select three different gaps in $\binom63$ ways, then assign the three distinct marked people to the chosen gaps in $3!$ ways.',
+r'The answer is $5!\binom63 3!$. Removing all marked people reconstructs the ordinary order and their occupied gaps uniquely.'],F(5)*C(6,3)*F(3),'The marked people are distinct here, so omitting their $3!$ assignment factor loses actual arrangements.')
+add('A fixed-content two-pair rank model',r'A deck has six ranks and four suits per rank. Count unordered five-card hands with exactly two pairs and one card of a third rank.',[
+r'Choose the two paired ranks as an unordered pair in $\binom62$ ways. For each paired rank choose two of its four suits.',
+r'The singleton rank has four remaining choices, and its suit has four choices. The singleton rank must differ from both pair ranks.',
+r'The total is $\binom62\binom42^2\cdot4\cdot4$. The paired ranks have no first/second labels, so this construction already removes that overcount.'],C(6,2)*C(4,2)**2*16,'Choosing the two paired ranks sequentially instead would need division by two.',origin='Independent adaptation of MIT 6.042J Section 14.7 two-pair argument')
+
+# Stars and bars, bounds, and weighted equations.
+add('Different lower bounds',r'Count integer solutions of $x_1+x_2+x_3+x_4=18$ with $x_1\ge2$, $x_2\ge3$, $x_3\ge1$, and $x_4\ge0$.',[
+r'Set $y_1=x_1-2$, $y_2=x_2-3$, $y_3=x_3-1$, and $y_4=x_4$. The inverse restores the lower bounds.',
+r'The translated variables are nonnegative and sum to twelve. There are four labeled variables.',
+r'Stars and bars gives $\binom{12+4-1}{4-1}=\binom{15}{3}$.'],C(15,3),'The shift consumes six units, not merely one unit per variable.')
+add('Positive allocations with unused capacity',r'Count positive integer triples $(a,b,c)$ satisfying $a+b+c\le12$.',[
+r'Every permitted triple has at least one unit in each coordinate. Remove these three compulsory units before counting the remaining capacity.',
+r'Use explicitly new names $u=a-1$, $v=b-1$, $w=c-1$. They satisfy $u+v+w\le9$. Introduce nonnegative slack $s=9-u-v-w$.',
+r'The resulting four-variable equation has total nine, hence $\binom{12}{3}$ solutions. The slack is uniquely determined, so it does not add multiplicity.'],C(12,3),'Applying positive equality stars and bars at total twelve would omit every permitted smaller total.')
+add('One upper bound',r'Count nonnegative solutions of $a+b+c+d=15$ with $a\le4$.',[
+r'The unrestricted count is $\binom{18}{3}$, for fifteen stars and three bars.',
+r'Forbidden solutions have $a\ge5$. Set $y=a-5$; then the nonnegative residual total is ten, counted by $\binom{13}{3}$.',
+r'Subtract the forbidden subset: $\binom{18}{3}-\binom{13}{3}$.'],C(18,3)-C(13,3),'The translated threshold is five, because the allowed upper bound includes four.')
+add('A short bounded variable',r'Count nonnegative solutions of $a+b+c+d=12$ with $b\le2$ and $c\ge2$.',[
+r'Set $z=c-2\ge0$, leaving $a+b+z+d=10$. Keep the upper bound on b.',
+r'For $b=0,1,2$, the remaining three variables have totals ten, nine, and eight, giving $\binom{12}{2}$, $\binom{11}{2}$, and $\binom{10}{2}$.',
+r'Add these disjoint cases. The value of b is recoverable from each solution, so there is no overlap.'],C(12,2)+C(11,2)+C(10,2),'The positive lower bound is translated before evaluating each residual total.')
+add('Two bounded variables without an overlap shortcut',r'Count nonnegative solutions of $a+b+c=10$ with $a\le2$ and $b\le3$.',[
+r'Enumerate the twelve pairs $(a,b)$ with $0\le a\le2$ and $0\le b\le3$. Each pair satisfies $a+b\le5$.',
+r'For each pair there is exactly one forced value $c=10-a-b\ge0$. Thus all twelve pairs extend to solutions.',
+r'The bijection is between these bounded pairs and the permitted triples, giving $3\cdot4=12$.'],12,'Subtracting each upper-bound violation from an unrestricted total without its intersection could fail; direct case enumeration avoids that risk.')
+add('Even variable and positive remainder',r'Count nonnegative solutions of $a+b+c=17$ with a even, $b\le3$, and $c\ge1$.',[
+r'Write $a=2j$ and $c=z+1$ with $j,z\ge0$. The equation is $2j+b+z=16$.',
+r'For a fixed b in 0,1,2,3, j ranges from zero through $\lfloor(16-b)/2\rfloor$, and z is then forced.',
+r'The four counts are 9,8,8,7, totaling 32. Each b case is disjoint and every permitted j has a nonnegative z.'],32,'Ordinary three-variable stars and bars ignores the coefficient two and the short upper bound.')
+add('A prescribed residue class',r'Count nonnegative pairs $(a,b)$ with $a+b=30$ and $a\equiv2\pmod5$.',[
+r'Write $a=5j+2$. Nonnegativity of a forces $j\ge0$ because the next smaller residue representative is negative.',
+r'The other variable becomes $b=28-5j$. Its nonnegativity gives $0\le j\le5$.',
+r'There are six integer j values, each giving a unique pair. No independent factor for b remains after the sum is fixed.'],6,'A congruence imposes a lattice spacing; it is not equivalent to allowing all a between two and thirty.',difficulty='Medium')
+add('Coupled group totals',r'Count nonnegative solutions of $x_1+x_2+x_3=8$ and $x_1+x_2+x_3+x_4+x_5+x_6=19$.',[
+r'Subtract the first group sum from the total, obtaining $x_4+x_5+x_6=11$.',
+r'The first labeled triple has $\binom{10}{2}$ choices and the second has $\binom{13}{2}$ choices.',
+r'The two now-disjoint variable groups can be chosen independently. Multiply $\binom{10}{2}\binom{13}{2}$.'],C(10,2)*C(13,2),'Multiplying unrestricted counts of the original equations would treat their shared variables inconsistently.')
+add('Total between two limits',r'Count nonnegative quadruples with total between four and nine inclusive.',[
+r'Introduce slack to count totals at most nine. Five nonnegative variables sum to nine, giving $\binom{13}{4}$.',
+r'The forbidden smaller totals are at most three, counted similarly by $\binom74$.',
+r'Subtract $\binom{13}{4}-\binom74$. The lower cutoff uses three because four itself is allowed.'],C(13,4)-C(7,4),'Subtracting the at-most-four family would remove permitted solutions with total exactly four.')
+add('Exactly two empty boxes',r'Distribute nine identical tokens among six labeled boxes so exactly two boxes are empty.',[
+r'Choose the two empty box labels in $\binom62$ ways. All four remaining boxes must be positive.',
+r'Giving one token to each occupied box leaves five tokens in four labeled boxes, counted by $\binom83$.',
+r'The product $\binom62\binom83$ counts each allocation once, since its empty-box set is unique.'],C(6,2)*C(8,3),'Using nonnegative instead of positive counts for the four selected occupied boxes would permit additional empty boxes.')
+
+# Group identities and circular symmetry.
+add('Equal nonempty groups without labels',r'Partition twelve distinct objects into three unlabeled groups of four.',[
+r'Temporarily label the groups. Prescribed occupancies give $12!/(4!)^3$ assignments.',
+r'Each unlabeled partition has exactly $3!$ labelings because its three disjoint nonempty subsets are different sets.',
+r'Divide by that constant fiber to get $12!/[3!(4!)^3]$. Internal permutations and external group labelings are separate corrections.'],F(12)//(F(3)*F(4)**3),'Only one factor of $4!$ would fail to remove the internal order of two other groups.')
+add('Unequal groups with a repeated size',r'Partition eight distinct objects into unlabeled groups of sizes 2,3,3.',[
+r'Temporarily label the groups by a size-two slot and two size-three slots, yielding $8!/(2!3!3!)$.',
+r'The size-two group is recognizable from its size; only the two size-three groups exchange labels without changing the partition.',
+r'Divide by $2!$, giving $8!/[2!(3!)^2 2!]$. Every allowed partition has exactly two such slot representations.'],F(8)//(F(2)*F(3)**2*F(2)),'Dividing by $3!$ instead would erase permutations among groups of unequal sizes that were never interchangeable.')
+add('Two pairs and two singletons',r'Partition six distinct objects into unlabeled block sizes 2,2,1,1.',[
+r'For labeled block slots, the occupancy count is $6!/(2!2!1!1!)$.',
+r'The two pairs may swap their slots, and the two singletons may swap theirs. These independent relabelings yield a constant fiber $2!2!$.',
+r'The answer is $6!/[(2!)^2(2!)^2]$. This agrees with first choosing the paired four objects and then one of their three pairings.'],F(6)//16,'Block-size multiplicities determine the external denominator, not the total number of blocks alone.')
+add('Assignments with exactly three occupied labels',r'Assign five distinct tasks to five labeled machines, with exactly three machines used.',[
+r'Choose the three used machine labels in $\binom53$ ways. For these labels, assignments must be onto.',
+r'Partitions of five tasks into three nonempty unlabeled groups have sizes 3,1,1 or 2,2,1. Their counts are 10 and 15, totaling $S(5,3)=25$.',
+r'Label the three nonempty groups in $3!$ ways. The result is $\binom53 3!\cdot25$.'],C(5,3)*F(3)*25,'Using $3^5$ after selecting used machines includes assignments that leave one of those selected machines unused.')
+add('An empty-box division counterexample',r'Place two distinct objects into three unlabeled boxes, allowing empty boxes. Count outcomes and explain why $3^2/3!$ fails.',[
+r'The two objects either share one box or occupy two different boxes. With box labels erased, these are the only two partitions of the object set.',
+r'The shared-box partition has three labeled realizations. The separated partition has $3\cdot2=6$ labeled realizations.',
+r'The fiber sizes differ because the two empty boxes in the first pattern can exchange without changing the labeled assignment. The true count is two, not 1.5.'],2,'Group-label division requires a free action or an explicitly constant fiber; empty boxes can violate that premise.')
+add('A circular adjacent pair',r'Seat eight distinct people around a circle, with rotations identified and reflection distinct. Two specified people must be adjacent.',[
+r'Contract the pair to one block. There are seven distinct circular units, so their rotation classes number $6!$.',
+r'The pair has two internal clockwise orientations. For eight people these orientations are distinct and contraction is unique.',
+r'The answer is $2\cdot6!$. Fixing one of the specified people at a reference seat gives two neighboring choices for the other and $6!$ orders for the rest.'],2*F(6),'A circular arrangement has no separate beginning or end; the wraparound adjacency is included.')
+add('No adjacent marked people around a circle',r'Seat five distinct ordinary people and three distinct marked people around a circle, with no adjacent marked people. Rotations are identified; reflections are distinct.',[
+r'Arrange the ordinary people circularly in $4!$ ways. Their cyclic order creates five distinct gaps between successive ordinary people.',
+r'Choose three different gaps in $\binom53$ ways and assign the marked people to them in $3!$ orders.',
+r'The product is $4!\binom53 3!$. Removing all marked people recovers the circular ordinary order and the selected gaps.'],F(4)*C(5,3)*F(3),'A line would have six gaps; a circle has five because the endpoint gaps join.')
+add('Rotation and reflection with distinct beads',r'Arrange seven distinct beads on a bracelet, identifying both rotations and reflections.',[
+r'Rotations alone give $(7-1)!=6!$ classes by fixing one distinguished bead.',
+r'For at least three distinct beads, reflection reverses the order of the other beads and cannot preserve the same clockwise arrangement.',
+r'Each bracelet therefore has exactly two orientation-preserving circular representations. The answer is $6!/2$.'],F(6)//2,'The same division by two is invalid for one or two beads, where reflection can preserve the circular class.')
+add('Four fixed colors with periodicity',r'Count rotation classes of binary length-four words with exactly two ones. Reflections are not additionally identified.',[
+r'The identity rotation fixes all $\binom42=6$ words. A one-place or three-place rotation requires all four bits equal, so neither fixes a weight-two word.',
+r'The two-place rotation has two cycles of length two. Choosing one of those cycles to contain ones gives two fixed words.',
+r'The orbit-counting average is $(6+0+2+0)/4=2$. The orbit representatives may be chosen as 0011 and 0101.'],2,'Dividing six seat-labeled words by four would ignore the shorter rotation orbit of 0101.')
+add('Six-seat necklaces with three ones',r'Count rotation classes of binary length-six words with exactly three ones.',[
+r'The identity fixes $\binom63=20$ words. Rotations by one or five places force a constant word and fix none at weight three.',
+r'Rotations by two or four places each have two cycles of length three. Choosing one cycle for the ones gives two fixed words each. Rotation by three has three cycles of length two, so weight three is impossible.',
+r'The average is $(20+2+2)/6=4$. Every fixed-word calculation respects the prescribed inventory.'],4,r'The unrestricted expression $2^{\gcd(6,r)}$ counts all weights and cannot be used unchanged for a fixed-weight necklace.')
+
+# Identities and marked-subset double counting.
+add('A marked triple sum',r'Evaluate $\sum_{i=3}^{9}\binom9i\binom i3$.',[
+r'The summand counts an i-element subset with three marked members.',
+r'Choose the marked triple first in $\binom93$ ways, then select any subset of the remaining six elements. Its cardinality determines i.',
+r'Thus the sum is $\binom93 2^6$. This avoids expanding seven summands and proves the structural identity.'],C(9,3)*2**6,'The unmarked members may be present or absent; omitting those free choices loses the power of two.')
+add('Squared coefficients with reversed indices',r'Evaluate $\sum_{j=0}^{8}\binom8j^2$.',[
+r'Use symmetry $\binom8j=\binom8{8-j}$. The product then counts an eight-element selection from two disjoint eight-element groups, with j selected from the first.',
+r'Every eight-subset has exactly one first-group size, so the cases are disjoint and exhaustive.',
+r'Vandermonde yields $\binom{16}{8}$. The squared form works because both category sizes and the total are eight.'],C(16,8),'A similar-looking product with noncomplementary indices need not have this collapse.')
+add('Vandermonde with asymmetric populations',r'Evaluate $\sum_{j=0}^{6}\binom5j\binom7{6-j}$ using zero for infeasible lower arguments.',[
+r'Choose six elements from the disjoint union of a five-element group and a seven-element group.',
+r'Classify each chosen subset by its first-group size j. Infeasible cases, including j=6, contribute zero.',
+r'The total is $\binom{12}{6}$. Alternatively sum only feasible j from zero through five.'],C(12,6),'Extending a sum using zero coefficients is safe only after adopting the nonnegative-upper combinatorial convention.')
+add('An ordered pair of marked members',r'Evaluate $\sum_{i=0}^{8}i(i-1)\binom8i$.',[
+r'Each summand counts an i-element subset with two distinct ordered marked members.',
+r'Choose the ordered marked pair in $8\cdot7$ ways; every other element may freely be included or excluded.',
+r'The sum is $8\cdot7\cdot2^6$. The ordering of the two marked members explains why there is no division by two.'],8*7*2**6,'Replacing $i(i-1)$ by $i^2$ would also count coincident marked members.')
+add('A squared subset size',r'Evaluate $\sum_{i=0}^{7}i^2\binom7i$.',[
+r'Decompose $i^2=i(i-1)+i$. These terms count distinct ordered marked members and coincident marked members separately.',
+r'The first sum is $7\cdot6\cdot2^5$; the second is $7\cdot2^6$.',
+r'Add to obtain $7\cdot6\cdot2^5+7\cdot2^6$. This decomposition covers all ordered pairs of marked positions inside the subset.'],7*6*2**5+7*2**6,'Using only the distinct-pair term silently excludes cases in which the two marks refer to the same element.')
+add('A truncated hockey stick',r'Evaluate $\sum_{j=4}^{11}\binom j3$.',[
+r'The full hockey-stick sum from j=3 through eleven is $\binom{12}{4}$, counting four-subsets by their largest element.',
+r'The omitted j=3 term is $\binom33=1$. No other feasible term lies below four.',
+r'Therefore the requested sum is $\binom{12}{4}-1$. The truncation changes the identity endpoint, not its proof.'],C(12,4)-1,'Using the unadjusted full hockey-stick value includes the one omitted subset.')
+add('A weighted first moment',r'Evaluate $\sum_{i=0}^{6}i\binom6i 3^{6-i}$.',[
+r'Count assignments of six labeled elements to states selected, color 1, color 2, or color 3, with one selected element marked.',
+r'Choose the marked element in six ways. Each of the other five elements has four state choices, independently of that marked identity.',
+r'The value is $6\cdot4^5$. Grouping assignments by their number i of selected elements gives precisely the stated summand.'],6*4**5,'The factor $3^{6-i}$ colors only unselected elements; the selected ones have a single state.')
+add('Parity of subset sizes',r'Count even-sized subsets of a ten-element set that contain a fixed element A.',[
+r'After including A, the remaining selected subset must have odd size within the other nine elements.',
+r'Toggling one specified element of that nine-element set gives a bijection between its even and odd subsets.',
+r'Exactly half of its $2^9$ subsets are odd, so the answer is $2^8$. The fixed element A is not the element toggled.'],2**8,'For an empty remaining universe the half argument would fail; here nine is positive.')
+add('A product of consecutive subset choices',r'Evaluate $\binom{10}{6}\binom64$ and interpret it without selecting the six-set first.',[
+r'The object is a four-element marked subset inside a six-element subset of a ten-element universe.',
+r'Choose the marked four elements first in $\binom{10}{4}$ ways, then choose two unmarked companions from the remaining six.',
+r'This gives $\binom{10}{4}\binom62$, equal to the original product. The equality is a double count of nested subsets.'],C(10,6)*C(6,4),'Choosing the six-set after the four-set from all ten elements would permit forgetting the required containment.')
+add('A binomial sum with an excluded empty case',r'Evaluate $\sum_{i=1}^{8}\binom8i\binom i1$.',[
+r'The factor $\binom i1=i$ marks one member of the selected subset. Thus the empty subset has zero possible marks.',
+r'Choose the marked member in eight ways and choose any subset of the other seven members in $2^7$ ways.',
+r'The answer is $8\cdot2^7$. Extending the sum to i=0 changes nothing because its contribution is zero.'],8*2**7,'The exclusion of the empty subset here does not require subtracting one: it never supported a marked member.')
+
+# Coefficients, parity filters, monotonicity.
+add('A coefficient with a unique exponent solution',r'Find the coefficient of $x^{14}$ in $(2x+x^3)^6$.',[
+r'Let k factors contribute $x^3$. The exponent is $1(6-k)+3k=6+2k$.',
+r'To reach fourteen, k must be four. There are $\binom64$ ways to choose those factors; the other two contribute coefficient $2^2$.',
+r'The coefficient is $\binom64 2^2$. The integer k lies within zero through six, so the term exists.'],C(6,4)*4,'The coefficient two belongs to the first summand, so its exponent is six minus k, not k.')
+add('An impossible exponent',r'Find the coefficient of $x^{15}$ in $(x^2+3x^5)^5$.',[
+r'With k factors using the second term, the exponent is $2(5-k)+5k=10+3k$.',
+r'Equality to fifteen requires $k=5/3$, which is not an integer number of selected factors.',
+r'No expanded term has exponent fifteen, so the coefficient is zero. No factorial expression should be evaluated at this fractional k.'],0,'Checking only the range between the minimum and maximum exponent misses the required residue class.')
+add('Several multinomial contributions',r'Find the coefficient of $x^5$ in $(1+x+x^2)^5$.',[
+r'Let c be the number of quadratic choices. The linear count is $b=5-2c$, and the constant count is $a=c$.',
+r'Feasible c values are zero, one, and two, producing multiplicity vectors (0,5,0), (1,3,1), and (2,1,2).',
+r'The multinomial contributions are $1$, $5!/(1!3!1!)=20$, and $5!/(2!1!2!)=30$. Their sum is 51.'],51,'Selecting only one feasible multiplicity vector would omit other expanded terms with the same total exponent.')
+add('A mixed-variable coefficient',r'Find the coefficient of $x^2y^3z$ in $(x+2y+3z)^6$.',[
+r'The multiplicities are fixed at two x choices, three y choices, and one z choice. They sum to six, matching the number of factors.',
+r'The number of position assignments is $6!/(2!3!1!)$. Each assignment carries scalar coefficient $2^3 3^1$.',
+r'Multiply to obtain $[6!/(2!3!)]2^3\cdot3$. Different multiplicity vectors cannot yield the same separate variable exponents here.'],F(6)//(F(2)*F(3))*8*3,'The scalar coefficients must be raised to their own symbol multiplicities.')
+add('Even occurrence with unequal alphabets',r'Count length-six words over five symbols when a specified single symbol occurs an even number of times.',[
+r'There are four unmarked symbols and one marked symbol, so exact marked count k contributes $\binom6k4^{6-k}$.',
+r'Adding the binomial expansions at marked weight +1 and -1 cancels odd k and doubles even k.',
+r'The result is $(5^6+3^6)/2$. The unequal alphabet sizes explain why it is not simply half of $5^6$.'],(5**6+3**6)//2,'Zero marked occurrences is even and belongs to the allowed family.')
+add('Odd count from a two-symbol marked class',r'A length-five word uses seven symbols, two marked and five unmarked. Count words with an odd number of marked positions.',[
+r'At exact marked count k, choose positions and then choose marked and unmarked symbol values: $\binom5k2^k5^{5-k}$.',
+r'The odd filter subtracts the expansion of $(5-2)^5$ from that of $(5+2)^5$, then divides by two.',
+r'The count is $(7^5-3^5)/2$. There are two choices at each marked position, not merely one.'],(7**5-3**5)//2,'Counting marked positions but forgetting their two symbol values loses the factor $2^k$.')
+add('Weak monotonicity with unequal sizes',r'Count weakly increasing functions from the ordered set {1,...,6} to {1,...,4}.',[
+r'A function is determined by its four output multiplicities, which are nonnegative and sum to six.',
+r'Conversely every such multiplicity vector reconstructs one weakly increasing six-term sequence by placing equal outputs consecutively.',
+r'The count is $\binom{6+4-1}{4-1}=\binom93$. Strictly increasing functions would be impossible because the domain is larger than the codomain.'],C(9,3),'The weak inequality allows repeated outputs; treating the map as an injection would incorrectly return zero.')
+add('Strict monotonicity with fixed endpoints',r'Count strictly increasing six-term sequences in {1,...,12} whose first term is 2 and last term is 11.',[
+r'All four interior terms must lie strictly between two and eleven, in the eight-element set {3,...,10}.',
+r'Choose four of those eight values. Their increasing order is then forced, so no internal permutation factor remains.',
+r'The answer is $\binom84$. The two endpoints are fixed values, not choices drawn from the interior pool.'],C(8,4),'Multiplying by $4!$ would count nonsorted interior orders that violate strict monotonicity.')
+add('Weak monotonicity using every output',r'Count weakly increasing length-eight sequences over {1,2,3,4} in which every value occurs.',[
+r'The four value multiplicities must all be positive and sum to eight.',
+r'Subtract one from each multiplicity, leaving a nonnegative total four in four labeled value classes.',
+r'The count is $\binom73$. Sorting reconstructs one and only one sequence per multiplicity vector.'],C(7,3),'Unrestricted weak monotonicity would allow zero multiplicities and therefore unused output values.')
+add('Exactly three distinct outputs in a monotone sequence',r'Count weakly increasing length-seven sequences over {1,...,5} with exactly three distinct values.',[
+r'Choose the three values used in $\binom53$ ways. Their increasing order is fixed by their numeric identities.',
+r'Choose positive multiplicities for those three values summing to seven, in $\binom62$ ways.',
+r'The product is $\binom53\binom62$. There is no factor of $3!$ because the monotonicity determines the value order.'],C(5,3)*C(6,2),'Using nonnegative multiplicities after selecting three values would allow fewer than three distinct outputs.')
+
+# Lattice paths, exact loops, and model verification.
+add('A path through a fixed point',r'Count unit-right/unit-up paths from (0,0) to (7,5) that pass through (3,2).',[
+r'The prefix to (3,2) uses three right and two up steps, giving $\binom53$ orders.',
+r'The suffix uses four right and three up steps, giving $\binom74$ orders. Splitting at the point is unique.',
+r'Multiply $\binom53\binom74$. Every concatenation is a valid complete path because both segments are monotone.'],C(5,3)*C(7,4),'Adding prefix and suffix counts would choose only one segment instead of a complete path.')
+add('Avoiding one point',r'Count monotone paths from (0,0) to (6,4) that avoid (2,2).',[
+r'There are $\binom{10}{6}$ unrestricted paths from the step-word bijection.',
+r'Those passing through (2,2) split into a prefix counted by $\binom42$ and a suffix counted by $\binom64$.',
+r'Subtract that forbidden family: $\binom{10}{6}-\binom42\binom64$.'],C(10,6)-C(4,2)*C(6,4),'Only one forbidden point is being removed; several forbidden points could have overlapping passing families.')
+add('Two incomparable required points',r'Count monotone paths from (0,0) to (7,7) that pass through both (2,5) and (5,2).',[
+r'After reaching (2,5), an up/right path can never reduce its second coordinate to two, so it cannot subsequently reach (5,2).',
+r'In the opposite order, after reaching (5,2) it cannot reduce its first coordinate to two.',
+r'Neither possible chronological order is feasible. Thus the path count is zero.'],0,'Multiplying segment binomials without checking coordinatewise order would conceal an impossible segment.')
+add('A diagonal boundary',r'Count paths from (0,0) to (5,5) using R and U steps that never enter $y>x$.',[
+r'The unrestricted count is $\binom{10}{5}$. A bad path has a first prefix reaching $y=x+1$.',
+r'Reflect that prefix by swapping R and U. This gives a bijection to paths with six R and four U steps, counted by $\binom{10}{4}$.',
+r'The difference is $\binom{10}{5}-\binom{10}{4}=42$. The prefix reflection has an inverse at the first crossing of the opposite boundary.'],C(10,5)-C(10,4),'The path endpoints change under reflection; failing to account for that change invalidates the bad-path count.')
+add('A path with no consecutive up steps',r'Count monotone paths from (0,0) to (8,4) with no consecutive up steps.',[
+r'The eight R symbols establish nine gaps, including the two ends.',
+r'To keep four U symbols separated, choose four different gaps and insert one U into each. The R order has only one possibility because all R symbols are identical.',
+r'The count is $\binom94$. Reading the step word recovers the selected gaps uniquely.'],C(9,4),'Multiplying by $8!$ would incorrectly label identical right steps.')
+add('An inclusive weak triple counter',r'A counter starts at 7. Loops enumerate $1\le i\le j\le k\le12$ and increment the counter by two for each triple. Find its final value.',[
+r'The triples are weakly increasing length-three sequences over twelve values.',
+r'Their number is $\binom{12+3-1}{3}=\binom{14}{3}$ by multiplicity encoding.',
+r'The counter is therefore $7+2\binom{14}{3}$. Both its initial value and increment size must be retained.'],7+2*C(14,3),'Returning the number of iterations alone would omit the starting offset and the increment factor.')
+add('Strict inner loop with a weak outer pair',r'Count loop iterations indexed by $1\le i\le j<k\le10$.',[
+r'The equality case $i=j$ is determined by a strictly increasing pair $(j,k)$ and contributes $\binom{10}{2}$.',
+r'The case $i<j<k$ contributes $\binom{10}{3}$. These cases are disjoint.',
+r'The sum is $\binom{10}{2}+\binom{10}{3}=\binom{11}{3}$. This is smaller than the all-weak triple count.'],C(10,2)+C(10,3),'A strict inner bound removes the entire $j=k$ family, not just one iteration.')
+add('A triangular loop with a skipped endpoint',r'For each integer i from 1 through 9, a loop visits integers j from i+1 through 9. Count visits.',[
+r'The indices obey $1\le i<j\le9$, so each visit identifies an unordered two-subset by its unique increasing order.',
+r'There are $\binom92$ such pairs. The last outer iteration has no inner visits, which the formula includes.',
+r'The explicit sum $8+7+\cdots+1+0$ confirms the same count.'],C(9,2),r'Using the weak-pair count $\binom{10}{2}$ would include all nine excluded diagonal visits.',difficulty='Medium')
+add('A small enumeration contradicts a factorial guess',r'A length-three word uses symbols A or B with unlimited repetition; order is forgotten after generation. Count multisets and test the guess $2^3/3!$.',[
+r'The multiplicities are (3,0), (2,1), (1,2), and (0,3). Hence there are four multisets.',
+r'The corresponding ordered-word fibers have sizes 1,3,3,1. Their sum is eight, but they do not share one common divisor.',
+r'The valid stars-and-bars formula is $\binom{2+3-1}{3}=4$. The guessed quotient is not even an integer.'],4,'A factorial correction is a theorem about representations, not a universal operation whenever order is forgotten.')
+add('Recovering a compressed subset',r'For subsets $\{a_1<a_2<a_3<a_4\}$ of {1,...,13} with gaps at least three, prove the count and reconstruct the original subset from compressed positions {1,3,4,7}.',[
+r'Define $b_i=a_i-2(i-1)$. The compressed positions form a four-subset of {1,...,7}. Every such subset expands legally by the inverse shift.',
+r'Thus there are $\binom74$ subsets. Expanding the specified compressed positions gives $(1,5,8,13)$, whose successive gaps are four, three, and five.',
+r'The direct reconstruction checks both the upper bound and separation. All compressed positions are strictly increasing, even though the original gap is stronger.'],str(C(7,4))+' subsets; reconstructed subset {1,5,8,13}','Forgetting the position-dependent offset would destroy the required separation.')
+
+assert len(Q)==80,len(Q)
+for number,source in {
+    6:'Independent adaptation of Stanford CS109 Lecture Notes 2 exact-distinct-symbol passcode pattern; length and alphabet changed',
+    39:'Original extension of Stanford CS109 Lecture Notes 2 slack-allocation construction to an interval of totals',
+    51:'Generalized marked-member double-count pattern from CMU 15-251 Lecture 8; parameters and number of marks changed',
+    52:'Independent adaptation of CMU 15-251 Lecture 8 squared-binomial identity',
+    56:'Independent adaptation of Berkeley CS70 Note 12.5 extreme-element combinatorial proof; truncated index range',
+    61:'Independent adaptation of CMU 15-251 Lecture 8 polynomial-choice construction; weighted summands and exponents changed',
+    71:'Original fixed-point extension of CMU 15-251 Lecture 8 Manhattan-walk encoding'
+}.items():Q[number-1]['origin']=source
+(BASE/'d_counting-questions.json').write_text(json.dumps(Q,indent=2)+'\n',encoding='utf-8')
+print('Authored',len(Q),'distinct solved questions;',sum(len(q['solution'].split()) for q in Q),'solution words.')

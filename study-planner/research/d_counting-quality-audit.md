@@ -1,0 +1,25 @@
+# Counting chapter quality and uncertainty audit
+
+The chapter is a completed **review draft awaiting explicit student approval**. It has four scoped university course readings, 80 independently authored or course-inspired worked problems, eight authentic archive revisits, 80 examination rules, and 15 dedicated counting models with 76 checkpoints. The reading boundaries and original PDF checks are recorded in the source audit. The draft was authored and reviewed as a complete lesson within the declared counting boundary; it is not merely a question-bank expansion.
+
+## Mathematical verification
+
+The retained verification record contains independent finite enumeration of the numerical answers in all 80 new problems, polynomial convolution for coefficient questions, direct subset sums for identities, and a separate impossibility check for the inconsistent finite-set premise. Small parameter ranges check nonadjacency, positive and empty occupancies, fixed-weight rotation orbits, and the fixed-word average. Each of the 76 model states receives a semantic invariant check. The eight original examination PDF fingerprints match the pinned archive records. All these checks pass; the exact current count and labels are in [verification evidence](../evidence/d_counting/verification.json).
+
+The prior 31 chapters retain their 1,747 question identities and complete question content, except the documented correction of Q113 option 1 from 32 to the original value 37. No prior chapter has been deleted or shortened. The student's explicit approval of the visual and mathematical revision in version 67 is recorded separately from approval of this new draft.
+
+## Browser, typography, figures, and interactions
+
+A real Chromium browser checks the 88 rendered solved questions, 80 examination rules, and all 15 players. It inspects text bounds and pairwise text overlap across all 76 diagram checkpoints. The diagrams show actual choice-tree leaves, fiber maps, position compression, labeled inventories, rotation orbits, star–bar decoding, block contents, Pascal parent cases, and lattice-path transitions. They are not a shared generic card visualization. Representative rendered views were visually inspected after the automated geometry checks; a choice-tree heading collision found during this inspection was corrected.
+
+Source Sans 3 is the prose face, Newsreader the heading face, STIX Two Math the native MathML and mathematical token face, and JetBrains Mono the code face. Font loading is checked. At a 390-pixel viewport, the chapter has no page-level overflow or uncontained inline formula overflow; wide diagrams expose internal panning with an explanatory cue. Links have no underline. Display equations use the existing scope-preserving measured math layout.
+
+Restart, forward, backward, checkpoint selection, play, and pause were exercised. Reduced-motion mode creates no token movement animations. Printing reveals all worked solutions and all 76 trace checkpoints; restoring screen mode restores the reader's previous solution-open states. Laboratory cases verify subsets, nonadjacent positions, compositions, periodic necklaces, zero selections, and impossible parameters against independent enumeration. Invalid allocation-box input gives a clear message. No browser runtime or chapter-resource errors were observed. [Browser evidence](../evidence/d_counting/browser.json) records the measured results.
+
+## Depth and examination focus
+
+The main lesson supplies mapping proofs, factorial correction conditions, constant/nonconstant fiber counterexamples, constrained and bounded counting constructions, the orbit-counting proof, coefficient feasibility conditions, parity filters, monotone-index encodings, a reflection bijection, and an exact-integer algorithm invariant. Each new problem has a three-step derivation followed by its result and a model-specific trap or transfer explanation. The final summary is a complete decision procedure followed by 80 fully stated rules. Authentic questions retain their options and explain the independently derived choice. Author difficulty labels have not been statistically calibrated.
+
+The claims concern the defined chapter boundary and the actual verified finite cases. They do not certify perfect performance on unseen examination questions, exhaustive evaluation of every university course, or reproduction of every protected course exercise. General inclusion–exclusion, recurrence solving, and generating functions remain their own chapters.
+
+Uncertainty remains in how any particular future examination mixes these boundaries, in the student's retention and problem-solving fluency after reading, and in variants beyond the finite checks. Written proofs support the general results; enumeration supports its stated finite inputs. Only the student can promote this review draft. No subsequent chapter is started before that approval.

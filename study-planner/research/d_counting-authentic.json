@@ -1,0 +1,217 @@
+[
+  {
+    "id": "MS_CS_1405_Q113",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 25,
+    "questionNumber": 113,
+    "topics": [
+      "s_counting",
+      "l_matrices"
+    ],
+    "title": "Coupled nonnegative equations",
+    "stem": "How many nonnegative integer solutions satisfy $x_1+x_2+x_3=5$ and $x_1+x_2+x_3+x_4+x_5=20$?",
+    "options": [
+      "37",
+      "$\\binom{24}{4}+\\binom72$",
+      "$\\binom{24}{4}\\binom72$",
+      "336"
+    ],
+    "answer": 4,
+    "solution": "1. Subtract the first equation from the second to obtain $x_4+x_5=15$.\n2. The first group has $\\binom{5+3-1}{3-1}=21$ solutions. The second group has $\\binom{15+2-1}{2-1}=16$ solutions.\n3. The two groups are independent once subtraction is performed, so multiply: $21\\cdot16=336$.\n4. Option 1 adds small counts rather than multiplying independent choices. Options 2 and 3 count unrestricted solutions of the second equation and therefore fail to enforce the first equation simultaneously.\n\n**Transfer rule.** Eliminate shared sums before applying stars and bars. Linear rank gives the real solution dimension, not the count of nonnegative integer points.",
+    "pattern": "constraint elimination before counting",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q115",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 25,
+    "questionNumber": 115,
+    "topics": [
+      "s_counting"
+    ],
+    "title": "A lower bound on one category",
+    "stem": "Answer eight of ten questions, including at least four of the first five. How many choices are possible?",
+    "options": [
+      "25",
+      "35",
+      "$\\binom54\\binom{10}{8}$",
+      "$\\binom54\\binom53$"
+    ],
+    "answer": 2,
+    "solution": "1. Split by the number selected from the first five: it can be four or five.\n2. Selecting four first-group and four second-group questions gives $\\binom54\\binom54=25$.\n3. Selecting all five first-group and three second-group questions gives $\\binom55\\binom53=10$.\n4. These cases are disjoint and exhaustive, so add to obtain 35. Option 1 omits the all-five case. Option 3 chooses eight from the full pool again and double counts. Option 4 selects only seven questions and omits a valid case.\n\n**Transfer rule.** For an inequality constraint, identify all feasible category counts and sum disjoint cases.",
+    "pattern": "at-least constraints and disjoint cases",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q120",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 26,
+    "questionNumber": 120,
+    "topics": [
+      "s_counting"
+    ],
+    "title": "Unlabeled equal-sized groups",
+    "stem": "In how many ways can $3n$ distinct people be partitioned into three groups of $n$ people each, when the groups have no labels?",
+    "options": [
+      "$\\frac{(3n)!}{3!n!}$",
+      "$\\binom{3n}{n}^3$",
+      "$\\binom{3n}{n}\\binom{2n}{n}\\binom nn$",
+      "$\\frac{(3n)!}{3!(n!)^3}$"
+    ],
+    "answer": 4,
+    "solution": "1. Temporarily label the groups. Sequential selection gives $(3n)!/(n!)^3$ assignments.\n2. Each unlabeled partition is represented by $3!$ labelings, since the three disjoint nonempty groups are distinct as sets.\n3. Divide by $3!$ to obtain option 4. Option 1 fails to divide by permutations within two of the groups. Option 2 repeatedly chooses from the full population and permits overlap. Option 3 counts labeled groups.\n4. The division relies on $n\\ge1$. For an empty population, three indistinguishable empty groups do not have six distinct labelings.\n\n**Transfer rule.** Establish equal orbit size before dividing by a factorial.",
+    "pattern": "unlabeled partitions and symmetry factor",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q121",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 26,
+    "questionNumber": 121,
+    "topics": [
+      "s_counting",
+      "d_induction"
+    ],
+    "title": "A weighted binomial sum",
+    "stem": "Let $A=\\frac1{10}\\sum_{i=3}^7\\binom i3\\binom7i$. Which interval contains $A$?",
+    "options": [
+      "$[1,30]$",
+      "$(30,60]$",
+      "$(60,90]$",
+      "$(90,+\\infty)$"
+    ],
+    "answer": 2,
+    "solution": "1. Count the same choice in two orders: choosing an $i$-set and then three marked elements equals choosing the marked three first and then $i-3$ more elements. Hence $\\binom7i\\binom i3=\\binom73\\binom4{i-3}$.\n2. Sum over all possible subsets of the remaining four elements: $\\sum_{j=0}^4\\binom4j=2^4$.\n3. Therefore $A=35\\cdot16/10=56$, which lies in $(30,60]$.\n4. The other intervals cannot contain 56; omitting the free subset produces 3.5, while forgetting the factor $1/10$ produces 560.\n\n**Transfer rule.** Products of binomial coefficients often encode a marked-subset double count.",
+    "pattern": "binomial identity by double counting",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q122",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 26,
+    "questionNumber": 122,
+    "topics": [
+      "d_functions",
+      "s_counting"
+    ],
+    "title": "Weakly increasing maps",
+    "stem": "How many functions $f:\\{1,2,3,4,5\\}\\to\\{1,2,3,4,5\\}$ satisfy $f(i)\\le f(j)$ whenever $i\\le j$?",
+    "options": [
+      "126",
+      "84",
+      "168",
+      "63"
+    ],
+    "answer": 1,
+    "solution": "1. A weakly increasing output sequence is determined by the multiplicities $c_1,\\ldots,c_5$ of its five possible values.\n2. Each multiplicity is nonnegative and their sum is five. Stars and bars gives $\\binom{5+5-1}{5-1}=\\binom94=126$.\n3. This encoding is bijective: sort the multiset to reconstruct the unique increasing function, and count the values to recover its multiplicities.\n4. Strictly increasing maps would require distinct outputs and give one map here. Unrestricted functions would give $5^5$. Neither interpretation matches the weak inequality; the other numeric options do not count the multiplicity solutions.\n\n**Transfer rule.** Replace ordered monotone values by value multiplicities.",
+    "pattern": "weak monotonicity as multiset encoding",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q123",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 26,
+    "questionNumber": 123,
+    "topics": [
+      "s_counting",
+      "g_boolean"
+    ],
+    "title": "Parity of a symbol count",
+    "stem": "Let $A$ count length-four strings over $\\{0,1,2,3\\}$ with an even number of zeros. Which interval contains $A/4$?",
+    "options": [
+      "$[1,15]$",
+      "$(30,45]$",
+      "$(15,30]$",
+      "$(45,+\\infty)$"
+    ],
+    "answer": 2,
+    "solution": "1. The possible zero counts are 0, 2, and 4. Their counts are $3^4$, $\\binom42 3^2$, and 1.\n2. Thus $A=81+54+1=136$, and $A/4=34$ lies in option 2.\n3. Equivalently, the even-parity filter gives $A=((3+1)^4+(3-1)^4)/2$; the second term corrects the false assumption that exactly half of all strings have even zero count.\n4. The other intervals do not contain 34. Parity classes need not be equally large when three symbols are unmarked and only one is marked.\n\n**Transfer rule.** Use an explicit parity filter or disjoint counts rather than assuming a half split.",
+    "pattern": "parity-filter counting",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "MS_CS_1405_Q129",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 28,
+    "questionNumber": 129,
+    "topics": [
+      "s_counting",
+      "d_number"
+    ],
+    "title": "Parity with upper and lower bounds",
+    "stem": "Let $A$ count nonnegative integer solutions of $a+b+c=20$, where $a$ is even, $b\\le4$, and $c\\ge1$. Which interval contains $A/16$?",
+    "options": [
+      "$[1,2)$",
+      "$[2,4)$",
+      "$[4,6)$",
+      "$[6,+\\infty)$"
+    ],
+    "answer": 2,
+    "solution": "1. Write $a=2j$ and $c=c'+1$, with $j,c'\\ge0$. Then $2j+b+c'=19$.\n2. For each $b=0,1,2,3,4$, the number of permitted $j$ values is $\\lfloor(19-b)/2\\rfloor+1$.\n3. These counts are 10, 10, 9, 9, and 8, totaling 46. Hence $A/16=23/8=2.875$, in option 2.\n4. Standard three-variable stars and bars would ignore both parity and the upper bound. The source constrains $a$ to be even, not $b$, and sets $b\\le4$, not a larger value.\n\n**Transfer rule.** Translate lower bounds first, encode divisibility, then sum over a short bounded variable.",
+    "pattern": "mixed parity and bounded integer solutions",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1405_Q20",
+    "booklet": "Phd_CS_1405",
+    "pdfPage": 8,
+    "questionNumber": 20,
+    "topics": [
+      "a_loop",
+      "p_flow",
+      "s_counting"
+    ],
+    "title": "Exact count of ordered triples",
+    "stem": "Assume the variables have types large enough for the following code. What is the final value of `Cod`?\n\n```c\nCod = 10;\nfor (i = 1; i <= 15; i++)\n  for (j = i; j <= 15; j++)\n    for (k = j; k <= 15; k++)\n      Cod++;\n```",
+    "options": [
+      "610",
+      "690",
+      "630",
+      "710"
+    ],
+    "answer": 2,
+    "solution": "1. Each increment corresponds to exactly one triple $1\\le i\\le j\\le k\\le15$.\n2. Such triples are multisets of size three drawn from fifteen values, numbering $\\binom{15+3-1}{3}=\\binom{17}3=680$.\n3. The initial value is ten, so the final value is $10+680=690$.\n4. Counting strictly increasing triples would give $\\binom{15}3$ and omit equal indices. Counting $15^3$ would ignore the dependent bounds. All three other numeric options fail the exact multiset count.\n\n**Transfer rule.** Weakly ordered loop indices correspond to combinations with repetition, and initialization is part of the output.",
+    "pattern": "dependent loop bounds and exact output",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  }
+]
