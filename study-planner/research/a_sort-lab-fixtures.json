@@ -1,0 +1,2175 @@
+[
+  {
+    "kind": "insertion",
+    "params": {
+      "values": [
+        4,
+        1,
+        3,
+        1,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        1,
+        2,
+        3,
+        4
+      ],
+      "ids": [
+        "b",
+        "d",
+        "e",
+        "c",
+        "a"
+      ],
+      "comparisons": 9,
+      "writes": 10,
+      "swaps": 0,
+      "shifts": 6,
+      "gaps": [
+        1
+      ]
+    }
+  },
+  {
+    "kind": "insertion",
+    "params": {
+      "values": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ids": [
+        "e",
+        "d",
+        "c",
+        "b",
+        "a"
+      ],
+      "comparisons": 10,
+      "writes": 14,
+      "swaps": 0,
+      "shifts": 10,
+      "gaps": [
+        1
+      ]
+    }
+  },
+  {
+    "kind": "insertion",
+    "params": {
+      "values": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "ids": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "comparisons": 3,
+      "writes": 3,
+      "swaps": 0,
+      "shifts": 0,
+      "gaps": [
+        1
+      ]
+    }
+  },
+  {
+    "kind": "insertion",
+    "params": {
+      "values": [
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1
+      ],
+      "ids": [
+        "a"
+      ],
+      "comparisons": 0,
+      "writes": 0,
+      "swaps": 0,
+      "shifts": 0,
+      "gaps": [
+        1
+      ]
+    }
+  },
+  {
+    "kind": "insertion",
+    "params": {
+      "values": [
+        3,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        0,
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "ids": [
+        "e",
+        "b",
+        "f",
+        "c",
+        "a",
+        "d"
+      ],
+      "comparisons": 12,
+      "writes": 14,
+      "swaps": 0,
+      "shifts": 9,
+      "gaps": [
+        1
+      ]
+    }
+  },
+  {
+    "kind": "selection",
+    "params": {
+      "values": [
+        4,
+        1,
+        3,
+        1,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        1,
+        2,
+        3,
+        4
+      ],
+      "ids": [
+        "b",
+        "d",
+        "e",
+        "c",
+        "a"
+      ],
+      "comparisons": 10,
+      "writes": 8,
+      "swaps": 4
+    }
+  },
+  {
+    "kind": "selection",
+    "params": {
+      "values": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ids": [
+        "e",
+        "d",
+        "c",
+        "b",
+        "a"
+      ],
+      "comparisons": 10,
+      "writes": 4,
+      "swaps": 2
+    }
+  },
+  {
+    "kind": "selection",
+    "params": {
+      "values": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "ids": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "comparisons": 6,
+      "writes": 0,
+      "swaps": 0
+    }
+  },
+  {
+    "kind": "selection",
+    "params": {
+      "values": [
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1
+      ],
+      "ids": [
+        "a"
+      ],
+      "comparisons": 0,
+      "writes": 0,
+      "swaps": 0
+    }
+  },
+  {
+    "kind": "selection",
+    "params": {
+      "values": [
+        3,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        0,
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "ids": [
+        "e",
+        "b",
+        "f",
+        "c",
+        "a",
+        "d"
+      ],
+      "comparisons": 15,
+      "writes": 6,
+      "swaps": 3
+    }
+  },
+  {
+    "kind": "bubble",
+    "params": {
+      "values": [
+        4,
+        1,
+        3,
+        1,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        1,
+        2,
+        3,
+        4
+      ],
+      "ids": [
+        "b",
+        "d",
+        "e",
+        "c",
+        "a"
+      ],
+      "comparisons": 9,
+      "writes": 12,
+      "swaps": 6,
+      "passes": 3
+    }
+  },
+  {
+    "kind": "bubble",
+    "params": {
+      "values": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ids": [
+        "e",
+        "d",
+        "c",
+        "b",
+        "a"
+      ],
+      "comparisons": 10,
+      "writes": 20,
+      "swaps": 10,
+      "passes": 4
+    }
+  },
+  {
+    "kind": "bubble",
+    "params": {
+      "values": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "ids": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "comparisons": 3,
+      "writes": 0,
+      "swaps": 0,
+      "passes": 1
+    }
+  },
+  {
+    "kind": "bubble",
+    "params": {
+      "values": [
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1
+      ],
+      "ids": [
+        "a"
+      ],
+      "comparisons": 0,
+      "writes": 0,
+      "swaps": 0,
+      "passes": 0
+    }
+  },
+  {
+    "kind": "bubble",
+    "params": {
+      "values": [
+        3,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        0,
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "ids": [
+        "e",
+        "b",
+        "f",
+        "c",
+        "a",
+        "d"
+      ],
+      "comparisons": 15,
+      "writes": 18,
+      "swaps": 9,
+      "passes": 5
+    }
+  },
+  {
+    "kind": "merge",
+    "params": {
+      "values": [
+        4,
+        1,
+        3,
+        1,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        1,
+        2,
+        3,
+        4
+      ],
+      "ids": [
+        "b",
+        "d",
+        "e",
+        "c",
+        "a"
+      ],
+      "comparisons": 8,
+      "writes": 24,
+      "swaps": 0,
+      "merges": [
+        {
+          "lo": 0,
+          "mid": 1,
+          "hi": 2,
+          "comparisons": 1
+        },
+        {
+          "lo": 3,
+          "mid": 4,
+          "hi": 5,
+          "comparisons": 1
+        },
+        {
+          "lo": 2,
+          "mid": 3,
+          "hi": 5,
+          "comparisons": 2
+        },
+        {
+          "lo": 0,
+          "mid": 2,
+          "hi": 5,
+          "comparisons": 4
+        }
+      ]
+    }
+  },
+  {
+    "kind": "merge",
+    "params": {
+      "values": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ids": [
+        "e",
+        "d",
+        "c",
+        "b",
+        "a"
+      ],
+      "comparisons": 7,
+      "writes": 24,
+      "swaps": 0,
+      "merges": [
+        {
+          "lo": 0,
+          "mid": 1,
+          "hi": 2,
+          "comparisons": 1
+        },
+        {
+          "lo": 3,
+          "mid": 4,
+          "hi": 5,
+          "comparisons": 1
+        },
+        {
+          "lo": 2,
+          "mid": 3,
+          "hi": 5,
+          "comparisons": 2
+        },
+        {
+          "lo": 0,
+          "mid": 2,
+          "hi": 5,
+          "comparisons": 3
+        }
+      ]
+    }
+  },
+  {
+    "kind": "merge",
+    "params": {
+      "values": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "ids": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "comparisons": 4,
+      "writes": 16,
+      "swaps": 0,
+      "merges": [
+        {
+          "lo": 0,
+          "mid": 1,
+          "hi": 2,
+          "comparisons": 1
+        },
+        {
+          "lo": 2,
+          "mid": 3,
+          "hi": 4,
+          "comparisons": 1
+        },
+        {
+          "lo": 0,
+          "mid": 2,
+          "hi": 4,
+          "comparisons": 2
+        }
+      ]
+    }
+  },
+  {
+    "kind": "merge",
+    "params": {
+      "values": [
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1
+      ],
+      "ids": [
+        "a"
+      ],
+      "comparisons": 0,
+      "writes": 0,
+      "swaps": 0,
+      "merges": []
+    }
+  },
+  {
+    "kind": "merge",
+    "params": {
+      "values": [
+        3,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        0,
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "ids": [
+        "e",
+        "b",
+        "f",
+        "c",
+        "a",
+        "d"
+      ],
+      "comparisons": 11,
+      "writes": 32,
+      "swaps": 0,
+      "merges": [
+        {
+          "lo": 1,
+          "mid": 2,
+          "hi": 3,
+          "comparisons": 1
+        },
+        {
+          "lo": 0,
+          "mid": 1,
+          "hi": 3,
+          "comparisons": 2
+        },
+        {
+          "lo": 4,
+          "mid": 5,
+          "hi": 6,
+          "comparisons": 1
+        },
+        {
+          "lo": 3,
+          "mid": 4,
+          "hi": 6,
+          "comparisons": 2
+        },
+        {
+          "lo": 0,
+          "mid": 3,
+          "hi": 6,
+          "comparisons": 5
+        }
+      ]
+    }
+  },
+  {
+    "kind": "quick",
+    "params": {
+      "values": [
+        4,
+        1,
+        3,
+        1,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        1,
+        2,
+        3,
+        4
+      ],
+      "ids": [
+        "d",
+        "b",
+        "e",
+        "c",
+        "a"
+      ],
+      "comparisons": 6,
+      "writes": 10,
+      "swaps": 5,
+      "partitions": [
+        {
+          "lo": 0,
+          "hi": 5,
+          "pivot": 2
+        },
+        {
+          "lo": 0,
+          "hi": 2,
+          "pivot": 0
+        },
+        {
+          "lo": 3,
+          "hi": 5,
+          "pivot": 3
+        }
+      ],
+      "recursionDepth": 2
+    }
+  },
+  {
+    "kind": "quick",
+    "params": {
+      "values": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ids": [
+        "e",
+        "d",
+        "c",
+        "b",
+        "a"
+      ],
+      "comparisons": 10,
+      "writes": 4,
+      "swaps": 2,
+      "partitions": [
+        {
+          "lo": 0,
+          "hi": 5,
+          "pivot": 0
+        },
+        {
+          "lo": 1,
+          "hi": 5,
+          "pivot": 4
+        },
+        {
+          "lo": 1,
+          "hi": 4,
+          "pivot": 1
+        },
+        {
+          "lo": 2,
+          "hi": 4,
+          "pivot": 3
+        }
+      ],
+      "recursionDepth": 4
+    }
+  },
+  {
+    "kind": "quick",
+    "params": {
+      "values": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "ids": [
+        "d",
+        "a",
+        "b",
+        "c"
+      ],
+      "comparisons": 6,
+      "writes": 6,
+      "swaps": 3,
+      "partitions": [
+        {
+          "lo": 0,
+          "hi": 4,
+          "pivot": 0
+        },
+        {
+          "lo": 1,
+          "hi": 4,
+          "pivot": 1
+        },
+        {
+          "lo": 2,
+          "hi": 4,
+          "pivot": 2
+        }
+      ],
+      "recursionDepth": 3
+    }
+  },
+  {
+    "kind": "quick",
+    "params": {
+      "values": [
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1
+      ],
+      "ids": [
+        "a"
+      ],
+      "comparisons": 0,
+      "writes": 0,
+      "swaps": 0,
+      "partitions": [],
+      "recursionDepth": 0
+    }
+  },
+  {
+    "kind": "quick",
+    "params": {
+      "values": [
+        3,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        0,
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "ids": [
+        "e",
+        "f",
+        "b",
+        "c",
+        "d",
+        "a"
+      ],
+      "comparisons": 11,
+      "writes": 10,
+      "swaps": 5,
+      "partitions": [
+        {
+          "lo": 0,
+          "hi": 6,
+          "pivot": 1
+        },
+        {
+          "lo": 2,
+          "hi": 6,
+          "pivot": 2
+        },
+        {
+          "lo": 3,
+          "hi": 6,
+          "pivot": 3
+        },
+        {
+          "lo": 4,
+          "hi": 6,
+          "pivot": 4
+        }
+      ],
+      "recursionDepth": 4
+    }
+  },
+  {
+    "kind": "three",
+    "params": {
+      "values": [
+        4,
+        1,
+        3,
+        1,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        1,
+        2,
+        3,
+        4
+      ],
+      "ids": [
+        "b",
+        "d",
+        "e",
+        "c",
+        "a"
+      ],
+      "comparisons": 8,
+      "writes": 12,
+      "swaps": 6,
+      "partitions": [
+        {
+          "lo": 0,
+          "hi": 5,
+          "equal": [
+            4,
+            5
+          ]
+        },
+        {
+          "lo": 0,
+          "hi": 4,
+          "equal": [
+            0,
+            2
+          ]
+        },
+        {
+          "lo": 2,
+          "hi": 4,
+          "equal": [
+            2,
+            3
+          ]
+        }
+      ],
+      "recursionDepth": 3
+    }
+  },
+  {
+    "kind": "three",
+    "params": {
+      "values": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ids": [
+        "e",
+        "d",
+        "c",
+        "b",
+        "a"
+      ],
+      "comparisons": 10,
+      "writes": 20,
+      "swaps": 10,
+      "partitions": [
+        {
+          "lo": 0,
+          "hi": 5,
+          "equal": [
+            4,
+            5
+          ]
+        },
+        {
+          "lo": 0,
+          "hi": 4,
+          "equal": [
+            3,
+            4
+          ]
+        },
+        {
+          "lo": 0,
+          "hi": 3,
+          "equal": [
+            2,
+            3
+          ]
+        },
+        {
+          "lo": 0,
+          "hi": 2,
+          "equal": [
+            1,
+            2
+          ]
+        }
+      ],
+      "recursionDepth": 4
+    }
+  },
+  {
+    "kind": "three",
+    "params": {
+      "values": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "ids": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "comparisons": 3,
+      "writes": 0,
+      "swaps": 0,
+      "partitions": [
+        {
+          "lo": 0,
+          "hi": 4,
+          "equal": [
+            0,
+            4
+          ]
+        }
+      ],
+      "recursionDepth": 1
+    }
+  },
+  {
+    "kind": "three",
+    "params": {
+      "values": [
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1
+      ],
+      "ids": [
+        "a"
+      ],
+      "comparisons": 0,
+      "writes": 0,
+      "swaps": 0,
+      "partitions": [],
+      "recursionDepth": 0
+    }
+  },
+  {
+    "kind": "three",
+    "params": {
+      "values": [
+        3,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        0,
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "ids": [
+        "e",
+        "f",
+        "b",
+        "c",
+        "a",
+        "d"
+      ],
+      "comparisons": 8,
+      "writes": 12,
+      "swaps": 6,
+      "partitions": [
+        {
+          "lo": 0,
+          "hi": 6,
+          "equal": [
+            4,
+            6
+          ]
+        },
+        {
+          "lo": 0,
+          "hi": 4,
+          "equal": [
+            1,
+            3
+          ]
+        }
+      ],
+      "recursionDepth": 2
+    }
+  },
+  {
+    "kind": "heap",
+    "params": {
+      "values": [
+        4,
+        1,
+        3,
+        1,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        1,
+        2,
+        3,
+        4
+      ],
+      "ids": [
+        "d",
+        "b",
+        "e",
+        "c",
+        "a"
+      ],
+      "comparisons": 9,
+      "writes": 14,
+      "swaps": 7,
+      "buildComparisons": 4
+    }
+  },
+  {
+    "kind": "heap",
+    "params": {
+      "values": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ids": [
+        "e",
+        "d",
+        "c",
+        "b",
+        "a"
+      ],
+      "comparisons": 10,
+      "writes": 16,
+      "swaps": 8,
+      "buildComparisons": 4
+    }
+  },
+  {
+    "kind": "heap",
+    "params": {
+      "values": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "ids": [
+        "b",
+        "c",
+        "d",
+        "a"
+      ],
+      "comparisons": 6,
+      "writes": 6,
+      "swaps": 3,
+      "buildComparisons": 3
+    }
+  },
+  {
+    "kind": "heap",
+    "params": {
+      "values": [
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1
+      ],
+      "ids": [
+        "a"
+      ],
+      "comparisons": 0,
+      "writes": 0,
+      "swaps": 0,
+      "buildComparisons": 0
+    }
+  },
+  {
+    "kind": "heap",
+    "params": {
+      "values": [
+        3,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        0,
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "ids": [
+        "e",
+        "f",
+        "b",
+        "c",
+        "d",
+        "a"
+      ],
+      "comparisons": 14,
+      "writes": 18,
+      "swaps": 9,
+      "buildComparisons": 5
+    }
+  },
+  {
+    "kind": "counting",
+    "params": {
+      "values": [
+        4,
+        1,
+        3,
+        1,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        1,
+        2,
+        3,
+        4
+      ],
+      "ids": [
+        "b",
+        "d",
+        "e",
+        "c",
+        "a"
+      ],
+      "comparisons": 0,
+      "writes": 5,
+      "swaps": 0,
+      "cumulative": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "K": 4,
+      "low": 1
+    }
+  },
+  {
+    "kind": "counting",
+    "params": {
+      "values": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ids": [
+        "e",
+        "d",
+        "c",
+        "b",
+        "a"
+      ],
+      "comparisons": 0,
+      "writes": 5,
+      "swaps": 0,
+      "cumulative": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "K": 5,
+      "low": 1
+    }
+  },
+  {
+    "kind": "counting",
+    "params": {
+      "values": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "ids": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "comparisons": 0,
+      "writes": 4,
+      "swaps": 0,
+      "cumulative": [
+        4
+      ],
+      "K": 1,
+      "low": 2
+    }
+  },
+  {
+    "kind": "counting",
+    "params": {
+      "values": [
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1
+      ],
+      "ids": [
+        "a"
+      ],
+      "comparisons": 0,
+      "writes": 1,
+      "swaps": 0,
+      "cumulative": [
+        1
+      ],
+      "K": 1,
+      "low": 1
+    }
+  },
+  {
+    "kind": "counting",
+    "params": {
+      "values": [
+        3,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        0,
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "ids": [
+        "e",
+        "b",
+        "f",
+        "c",
+        "a",
+        "d"
+      ],
+      "comparisons": 0,
+      "writes": 6,
+      "swaps": 0,
+      "cumulative": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "K": 4,
+      "low": 0
+    }
+  },
+  {
+    "kind": "radix",
+    "params": {
+      "values": [
+        4,
+        1,
+        3,
+        1,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        1,
+        2,
+        3,
+        4
+      ],
+      "ids": [
+        "b",
+        "d",
+        "e",
+        "c",
+        "a"
+      ],
+      "comparisons": 0,
+      "writes": 10,
+      "swaps": 0,
+      "passes": [
+        [
+          1,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "base": 5,
+      "low": 1
+    }
+  },
+  {
+    "kind": "radix",
+    "params": {
+      "values": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ids": [
+        "e",
+        "d",
+        "c",
+        "b",
+        "a"
+      ],
+      "comparisons": 0,
+      "writes": 10,
+      "swaps": 0,
+      "passes": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "base": 5,
+      "low": 1
+    }
+  },
+  {
+    "kind": "radix",
+    "params": {
+      "values": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "ids": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "comparisons": 0,
+      "writes": 8,
+      "swaps": 0,
+      "passes": [
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "base": 5,
+      "low": 2
+    }
+  },
+  {
+    "kind": "radix",
+    "params": {
+      "values": [
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1
+      ],
+      "ids": [
+        "a"
+      ],
+      "comparisons": 0,
+      "writes": 2,
+      "swaps": 0,
+      "passes": [
+        [
+          1
+        ]
+      ],
+      "base": 5,
+      "low": 1
+    }
+  },
+  {
+    "kind": "radix",
+    "params": {
+      "values": [
+        3,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        0,
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "ids": [
+        "e",
+        "b",
+        "f",
+        "c",
+        "a",
+        "d"
+      ],
+      "comparisons": 0,
+      "writes": 12,
+      "swaps": 0,
+      "passes": [
+        [
+          0,
+          1,
+          1,
+          2,
+          3,
+          3
+        ]
+      ],
+      "base": 5,
+      "low": 0
+    }
+  },
+  {
+    "kind": "bucket",
+    "params": {
+      "values": [
+        4,
+        1,
+        3,
+        1,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        1,
+        2,
+        3,
+        4
+      ],
+      "ids": [
+        "b",
+        "d",
+        "e",
+        "c",
+        "a"
+      ],
+      "comparisons": 9,
+      "writes": 22,
+      "swaps": 6,
+      "passes": [
+        [
+          1,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "base": 5,
+      "low": 0
+    }
+  },
+  {
+    "kind": "bucket",
+    "params": {
+      "values": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ids": [
+        "e",
+        "d",
+        "c",
+        "b",
+        "a"
+      ],
+      "comparisons": 10,
+      "writes": 30,
+      "swaps": 10,
+      "passes": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "base": 5,
+      "low": 0
+    }
+  },
+  {
+    "kind": "bucket",
+    "params": {
+      "values": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "ids": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "comparisons": 3,
+      "writes": 8,
+      "swaps": 0,
+      "passes": [
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "base": 5,
+      "low": 0
+    }
+  },
+  {
+    "kind": "bucket",
+    "params": {
+      "values": [
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        1
+      ],
+      "ids": [
+        "a"
+      ],
+      "comparisons": 0,
+      "writes": 2,
+      "swaps": 0,
+      "passes": [
+        [
+          1
+        ]
+      ],
+      "base": 5,
+      "low": 0
+    }
+  },
+  {
+    "kind": "bucket",
+    "params": {
+      "values": [
+        3,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "base": 5,
+      "buckets": 5
+    },
+    "expected": {
+      "keys": [
+        0,
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "ids": [
+        "e",
+        "b",
+        "f",
+        "c",
+        "a",
+        "d"
+      ],
+      "comparisons": 12,
+      "writes": 30,
+      "swaps": 9,
+      "passes": [
+        [
+          0,
+          1,
+          1,
+          2,
+          3,
+          3
+        ]
+      ],
+      "base": 5,
+      "low": 0
+    }
+  },
+  {
+    "kind": "counting",
+    "params": {
+      "values": [
+        -3,
+        2,
+        -1,
+        2,
+        -3
+      ],
+      "base": 3
+    },
+    "expected": {
+      "keys": [
+        -3,
+        -3,
+        -1,
+        2,
+        2
+      ],
+      "ids": [
+        "a",
+        "e",
+        "c",
+        "b",
+        "d"
+      ],
+      "comparisons": 0,
+      "writes": 5,
+      "swaps": 0,
+      "cumulative": [
+        2,
+        2,
+        3,
+        3,
+        3,
+        5
+      ],
+      "K": 6,
+      "low": -3
+    }
+  },
+  {
+    "kind": "radix",
+    "params": {
+      "values": [
+        -3,
+        2,
+        -1,
+        2,
+        -3
+      ],
+      "base": 3
+    },
+    "expected": {
+      "keys": [
+        -3,
+        -3,
+        -1,
+        2,
+        2
+      ],
+      "ids": [
+        "a",
+        "e",
+        "c",
+        "b",
+        "d"
+      ],
+      "comparisons": 0,
+      "writes": 20,
+      "swaps": 0,
+      "passes": [
+        [
+          -3,
+          -3,
+          2,
+          -1,
+          2
+        ],
+        [
+          -3,
+          -3,
+          -1,
+          2,
+          2
+        ]
+      ],
+      "base": 3,
+      "low": -3
+    }
+  },
+  {
+    "kind": "counting",
+    "params": {
+      "values": [
+        -9,
+        0,
+        7,
+        -9
+      ],
+      "base": 3
+    },
+    "expected": {
+      "keys": [
+        -9,
+        -9,
+        0,
+        7
+      ],
+      "ids": [
+        "a",
+        "d",
+        "b",
+        "c"
+      ],
+      "comparisons": 0,
+      "writes": 4,
+      "swaps": 0,
+      "cumulative": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4
+      ],
+      "K": 17,
+      "low": -9
+    }
+  },
+  {
+    "kind": "radix",
+    "params": {
+      "values": [
+        -9,
+        0,
+        7,
+        -9
+      ],
+      "base": 3
+    },
+    "expected": {
+      "keys": [
+        -9,
+        -9,
+        0,
+        7
+      ],
+      "ids": [
+        "a",
+        "d",
+        "b",
+        "c"
+      ],
+      "comparisons": 0,
+      "writes": 24,
+      "swaps": 0,
+      "passes": [
+        [
+          -9,
+          0,
+          -9,
+          7
+        ],
+        [
+          -9,
+          0,
+          -9,
+          7
+        ],
+        [
+          -9,
+          -9,
+          0,
+          7
+        ]
+      ],
+      "base": 3,
+      "low": -9
+    }
+  }
+]

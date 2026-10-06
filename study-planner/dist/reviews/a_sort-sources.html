@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sorting audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/a_sort.html">Sorting chapter</a></p><article class="lesson"><h1>Sorting: source comparison and synchronization audit</h1>
+<p>Date: 6 October 2026. Topic: a_sort. Written material only.</p>
+<h2>Selection method and bounded candidate pool</h2>
+<p>The pool comprises five accessible courses from five universities, with twelve acquired PDF documents. Each course was evaluated for chapter coverage, proof quality, implementation precision, treatment of duplicates/stability, mathematical exercises, and complementary material. The four core courses are MIT 6.006, Princeton COS226, CMU 15-122, and Oxford B16. Stanford CS161 is an additional selected course because its expectation counterexample and indicator-variable derivation materially improve the randomized analysis. These are five deliberately complementary selections, rather than four arbitrarily collected links. This pool is documented and bounded; it is not an assertion that every course in the world has been examined.</p>
+<table>
+<thead>
+<tr>
+<th>University and course</th>
+<th>Written scope actually inspected</th>
+<th>Strength</th>
+<th>Coverage limitation and decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIT, 6.006, Spring 2020; Erik Demaine, Jason Ku, Justin Solomon</td>
+<td>Lecture 3, all six PDF pages; Lecture 5 and Recitation 5, all five pages each</td>
+<td>Cost model, sorting contract, direct access, stable counting, tuple/radix sorting, all three recitation exercises</td>
+<td>Quicksort and bucket distribution proofs absent from these selections. Core for non-comparison sorting.</td>
+</tr>
+<tr>
+<td>Princeton, COS226, Spring 2026; Robert Sedgewick and Kevin Wayne, lecture-slide authors</td>
+<td>Elementary Sorts pp. 3–36; Mergesort pp. 3–37; Quicksort pp. 5–24 and 34–45; Priority Queues pp. 33–40</td>
+<td>Complete comparison-sort trade-offs, precise code, duplicate handling, memory and structured inputs</td>
+<td>Slides need expanded proofs. Heapsort deck uses top-down construction and describes bottom-up as improvement. Core algorithm/variant anchor.</td>
+</tr>
+<tr>
+<td>CMU, 15-122, Spring 2026; Frank Pfenning, Lecture 7 author</td>
+<td>Quicksort pp. 1–31; contracts, partition proof, six exercises and sample solutions</td>
+<td>Half-open boundaries, invariants, permutation specification, deterministic pivot counterexample</td>
+<td>Its illustrated partition differs from both Lomuto and classic Hoare. Randomized expectation proof is outside that note's scope. Core formal-correctness anchor.</td>
+</tr>
+<tr>
+<td>Oxford, B16 Algorithms and Data Structures 1, 2024–25 v2.1; Andrea Vedaldi</td>
+<td>Complete Chapter 2, PDF pp. 14–23, Sections 2.1–2.3, including optional implementation</td>
+<td>Rigorous model-based lower bound, merging, counts-only counting variant, iterator/storage distinctions</td>
+<td>Counting reconstructs integers, not payload-bearing stable records; pseudocode assumes nonempty merge-sort input. Core model/representation anchor.</td>
+</tr>
+<tr>
+<td>Stanford, CS161, Fall 2025; Mary Wootters</td>
+<td>Insertion proof, both pages; Lecture 5 pp. 29–54; Lecture 6 pp. 24–58</td>
+<td>Incorrect expectation argument explicitly refuted; pair indicators; radix invariant and base/space trade-off</td>
+<td>Distinct-key randomized analysis. Some PDF glyph extraction is corrupted, so the key pair-probability slide was also visually inspected. Selected fifth course.</td>
+</tr>
+</tbody>
+</table>
+<p>The acquisition ledger retains exact URLs, SHA256 hashes, page counts and local reference paths. Scope above distinguishes chapter readings from full courses or unrelated lecture passages. No video, complete transcript archive or full-course completion is claimed.</p>
+<h2>Cross-source reconciliation</h2>
+<ol>
+<li><strong>In-place:</strong> MIT/CMU use constant auxiliary storage; Princeton/Stanford allow logarithmic recursion storage in some sorting summaries. This chapter reports element buffer and call-stack storage separately and uses the strict constant-space definition when saying strictly in-place.</li>
+<li><strong>Insertion:</strong> the animation uses saved-key shifts, while Princeton also presents adjacent exchanges. Shift count and adjacent-swap count both equal the strict inversion count; total key comparisons also include failed tests. A held key and array hole are explicit in the simulation.</li>
+<li><strong>Empty input:</strong> base cases accept zero or one record. No maximum or base-n digit computation is attempted on an empty input. The Stanford proof's insertion position is repaired to put a new equal key after existing equals and to cover an insertion at the front.</li>
+<li><strong>Quicksort:</strong> Princeton's scan partition, CMU's one-sided scan, Lomuto, classic Hoare and three-way partition have different return contracts and exact comparison counts. The chapter never transfers an exact formula between them. The ideal randomized formula counts each nonpivot once, not scan-crossing overhead.</li>
+<li><strong>Radix digits:</strong> the MIT sample bit-length ratio is not adopted as an exact digit-count formula. For <span class="math-inline">n=3</span> and exclusive universe <span class="math-inline">U=59049</span>, that ratio gives nine passes although <span class="math-inline">U−1</span> needs ten base-three digits. The chapter uses repeated division or the exact integer condition <span class="math-inline">B</span>^<span class="math-inline">d ≥ U</span>, with zero/singleton cases handled.</li>
+<li><strong>Counting payloads:</strong> Oxford's integer reconstruction preserves multiplicities but cannot preserve attached record identities. MIT/Stanford's stable record versions retain identities using FIFO buckets or cumulative positions. Both variants are taught with explicit storage and stability conditions.</li>
+<li><strong>Expectation:</strong> a balanced mean split does not prove a balanced recurrence. Stanford's random-extreme-pivot counterexample and the full pair-indicator proof replace that invalid shortcut.</li>
+<li><strong>Heap construction:</strong> top-down insertion and Floyd bottom-up sinking are distinguished. The linear bottom-up proof is independently derived by counting nodes of each height, not asserted from the logarithmic height of the root.</li>
+<li><strong>Boundary correction in authentic question:</strong> the original PhD CE 1405 Q16 page gives options 16,14,12,10. Earlier adaptation had their order wrong. This chapter and three previous actual-question occurrences restore option 1; the mathematical result 16 and all other questions are preserved. This is the sole documented exception to byte-for-byte prior-chapter retention.</li>
+</ol>
+<h2>Exercise mapping and copyright handling</h2>
+<p>MIT Recitation 5's three exercise types are represented by independently explained radix traces, shifted integer universes, and fixed-length strings. CMU Lecture 7's six exercises are represented by permutation contracts, recursive proof obligations, adversarial deterministic pivots, temporary partitioning, selection stability and timing interpretation. Princeton's relevant mathematical polls are independently restated around exact counts, allocation versus peak space, structured inputs, duplicates and lower-bound quantifiers. These are labeled course-derived reconstructions; wholesale course question reproduction is not claimed. Most problems are newly authored medium/hard mathematical and conceptual questions with complete independent solutions.</p>
+<h2>References</h2>
+<ul>
+<li>MIT — <a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/6d1ae5278d02bbecb5c4428928b24194_MIT6_006S20_lec3.pdf">6.006 Lecture 3: Sorting</a>; <a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/78a3c3444de1ff837f81e52991c24a86_MIT6_006S20_lec5.pdf">Lecture 5: Linear Sorting</a>; <a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/cda4cc0c0e626bfbd30bc15fb78c3994_MIT6_006S20_r05.pdf">Recitation 5</a>.</li>
+<li>Princeton — <a href="https://www.cs.princeton.edu/courses/archive/spring26/cos226/lectures.php">COS226 Spring 2026 written lectures</a>, Elementary Sorts, Mergesort, Quicksort, Priority Queues.</li>
+<li>CMU — <a href="https://www.cs.cmu.edu/~15122-archive/s26/handouts/lectures/07-quicksort.pdf">15-122 Lecture 7: Quicksort</a>.</li>
+<li>Oxford — <a href="https://www.robots.ox.ac.uk/~vedaldi/assets/teach/2024/b16/b16-notes.pdf">B16 written notes, v2.1</a>, Chapter 2.</li>
+<li>Stanford — <a href="https://cs161-stanford.github.io/lectures/">CS161 Fall 2025 written lectures</a>, Lecture 2 proof handout and Lectures 5–6.</li>
+</ul>
+<h2>Remaining limits</h2>
+<p>This chapter covers its explicit topic checklist, not every research-level sorting algorithm. Selection and priority-queue operations are adjacent scheduled chapters. Shell-sort bounds depend on the gap sequence; no universal optimality claim is made. No official Iranian answer key was available for the two included archive questions. Answers are independently derived and options visually checked. Finite computational checks supplement proofs; they cannot certify literal perfection or performance on every unseen examination problem.</p>
+</article></main><script src="../chapters/math-layout.js"></script></body></html>

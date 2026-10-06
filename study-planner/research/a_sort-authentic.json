@@ -1,0 +1,59 @@
+[
+  {
+    "id": "Phd_CE_1405_Q16",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 4,
+    "questionNumber": 16,
+    "topics": [
+      "a_divide",
+      "a_model",
+      "a_loop"
+    ],
+    "title": "Exact merge comparisons",
+    "stem": "Merge sort repeatedly divides an eight-element array into equal halves and merges by comparing the two current front elements until one side is exhausted. For $A=[12,7,5,9,3,8,2,6]$, how many element comparisons are performed?",
+    "options": [
+      "16",
+      "14",
+      "12",
+      "10"
+    ],
+    "answer": 1,
+    "solution": "1. Four size-two merges cost one comparison each: subtotal four.\n2. Merging $[7,12]$ with $[5,9]$ costs three comparisons. Merging $[3,8]$ with $[2,6]$ also costs three. The subtotal is ten.\n3. The final merge of $[5,7,9,12]$ with $[2,3,6,8]$ compares front pairs until the right list empties: emitted comparison results are 2, 3, 5, 6, 7, and 8. Six comparisons bring the total to sixteen, so the original booklet answer is option 1.\n4. Ten omits the final merge; twelve undercounts intermediate comparisons; fourteen is not the trace count. Remaining elements copied after exhaustion incur no key comparison.\n\n**Transfer rule.** A worst-case merge bound is not automatically the exact cost of a supplied input.",
+    "pattern": "exact trace versus worst-case bound",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "Rechecked visually against the full original PDF page on 2026-10-06; repaired option ordering.",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "modelId": "concept-6",
+    "visualScope": "Exact original booklet input; every merge and comparison is included."
+  },
+  {
+    "id": "MS_CE_1405_Q59",
+    "booklet": "MS_CE_1405",
+    "pdfPage": 13,
+    "questionNumber": 59,
+    "topics": [
+      "a_divide",
+      "a_recurrence"
+    ],
+    "title": "An unbalanced pivot selection",
+    "stem": "A quicksort variant sorts the first $2\\sqrt n+1$ elements by insertion sort and chooses their median as pivot, then proceeds as ordinary quicksort. Which recurrence describes the worst case, suppressing rounding and constant terms?",
+    "options": [
+      "$T(n)=2T(n-1)+n$",
+      "$T(n)=2T(\\sqrt n)+n$",
+      "$T(n)=2T(n-\\sqrt n)+n$",
+      "$T(n)=T(n-\\sqrt n)+T(\\sqrt n)+n$"
+    ],
+    "answer": 4,
+    "solution": "1. Sorting a sample of size $\\Theta(\\sqrt n)$ by insertion sort costs $\\Theta(n)$; partitioning also costs $\\Theta(n)$.\n2. The sample median has at least $\\sqrt n$ sample elements on each side. Thus neither partition can leave fewer than approximately $\\sqrt n$ elements on its smaller side, but the rest of the array can all lie on the larger side.\n3. The worst split is therefore approximately $\\sqrt n$ versus $n-\\sqrt n$, giving option 4.\n4. Options 1 and 3 duplicate a large branch and count more elements than the partition contains. Option 2 incorrectly treats the small sample as the whole input.\n\n**Transfer rule.** Derive partition guarantees from the sample, and check that child sizes add to the parent size up to the pivot.",
+    "pattern": "sample rank guarantee and conservation",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key"
+  }
+]

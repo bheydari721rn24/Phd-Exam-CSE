@@ -900,19 +900,19 @@
     "title": "Exact merge comparisons",
     "stem": "Merge sort repeatedly divides an eight-element array into equal halves and merges by comparing the two current front elements until one side is exhausted. For $A=[12,7,5,9,3,8,2,6]$, how many element comparisons are performed?",
     "options": [
-      "14",
       "16",
-      "10",
-      "12"
+      "14",
+      "12",
+      "10"
     ],
-    "answer": 2,
-    "solution": "1. Four size-two merges cost one comparison each: subtotal four.\n2. Merging $[7,12]$ with $[5,9]$ costs three comparisons. Merging $[3,8]$ with $[2,6]$ also costs three. The subtotal is ten.\n3. The final merge of $[5,7,9,12]$ with $[2,3,6,8]$ compares front pairs until the right list empties: emitted comparison results are 2, 3, 5, 6, 7, and 8. Six comparisons bring the total to sixteen.\n4. Ten omits the final merge; twelve undercounts intermediate comparisons; fourteen is not the trace count. Remaining elements copied after exhaustion incur no key comparison.\n\n**Transfer rule.** A worst-case merge bound is not automatically the exact cost of a supplied input.",
+    "answer": 1,
+    "solution": "1. Four size-two merges cost one comparison each: subtotal four.\n2. Merging $[7,12]$ with $[5,9]$ costs three comparisons. Merging $[3,8]$ with $[2,6]$ also costs three. The subtotal is ten.\n3. The final merge of $[5,7,9,12]$ with $[2,3,6,8]$ compares front pairs until the right list empties: emitted comparison results are 2, 3, 5, 6, 7, and 8. Six comparisons bring the total to sixteen, so the original booklet answer is option 1.\n4. Ten omits the final merge; twelve undercounts intermediate comparisons; fourteen is not the trace count. Remaining elements copied after exhaustion incur no key comparison.\n\n**Transfer rule.** A worst-case merge bound is not automatically the exact cost of a supplied input.",
     "pattern": "exact trace versus worst-case bound",
     "difficulty": "Medium",
     "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
     "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
     "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
-    "translationStatus": "checked against rendered source page",
+    "translationStatus": "Rechecked visually against the full original PDF page on 2026-10-06; repaired option ordering.",
     "answerProvenance": "independently derived; not represented as an official key"
   },
   {

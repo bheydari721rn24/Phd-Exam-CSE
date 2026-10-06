@@ -312,3 +312,12 @@ Publication follow-up: the complete chapter was pushed to GitHub (`study-planner
 Completed 5 October 2026. The sole new chapter is `a_stackqueue`. Four actually reviewed primary university courses, 84 fully solved problems, 80 final rules, 67 topic-specific models with 678 checkpoints, and five editable laboratories are included. All 35 preceding chapter bodies retain their original SHA-256 hashes and their 2,085 problems.
 
 The chapter is available at `dist/chapters/a_stackqueue.html`; the library links it under Week 3. Source, reading, mathematical and browser audit evidence is adjacent in `research/a_stackqueue-*`. The gate is `awaiting_user_approval`. No next chapter is started. Publishing and GitHub delivery are recorded separately after their actual completion.
+
+
+## Active chapter: Comparison and Non-comparison Sorting
+
+6 October 2026: The user explicitly approved a_stackqueue and requested the next chapter. Only a_sort is active. Preserve the 36 previous chapter HTML files and their 2,169 question bodies. Source comparison, complete solutions, algorithm-specific models, formula layout, and mathematical/browser verification are required before delivery. The new chapter remains a draft until explicit approval.
+
+## Sorting review draft — 2026-10-06
+
+Delivered only `a_sort`: 88 worked questions, 80 rules, five selected university courses, 45 distinct models and ten editable algorithms. Mathematical and browser audits passed. Status: awaiting explicit user approval. Native publication is tracked separately in `research/a_sort-publication.json`. No following chapter has been started. Three earlier occurrences of PhD CE 1405 Q16 have the documented original option-order correction.
