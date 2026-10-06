@@ -350,3 +350,8 @@ Explicit approval of a_select version 74 authorizes only s_descriptive. Preserve
 ## Descriptive statistics review draft — 6 October 2026
 
 Only s_descriptive is delivered: 22 deep English lesson sections, five reviewed written university courses with bounded scopes, 82 complete solved problems (80 original/course-inspired and two original-PDF-checked authentic questions), 80 complete final rules, 28 concept-specific models / 198 checkpoints and 14 editable modes. Rational, finite mathematical, actual JavaScript and real-browser checks passed. All 38 preceding chapter pages and 2346 complete problems are retained unchanged. The gate awaits explicit student approval; no next chapter is begun. Source push, GitHub mirror and private publication are tracked separately after verification.
+
+
+## Verified descriptive-statistics publication — 6 October 2026
+
+Private Site version 76 succeeded and its saved source matches dbfc92896b6ad50da341ae3692f5a448ffad6529. The exact loss-curve revision and chapter artifacts were pushed to GitHub branch study-planner-1406 (content commit c1544c99dd4159847a031436fda95e407b74817f). The publication receipt records recovery from the initial upload timeout and the Windows package-helper path issue. The chapter remains a draft awaiting explicit approval; no following chapter has started.
