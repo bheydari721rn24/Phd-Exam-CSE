@@ -57,6 +57,8 @@ def build_data():
             f['formulaHtml']=PAT.sub(lambda m:canonical_math(m[0]),f['formulaHtml'])
             f['captionHtml']=text(f['caption'])
             f['metricLabels']={key:text(key) for key in f['metrics']}
+    from review_library_animation_teaching import enrich
+    for id,s in SCENES.items():enrich(s,id,s['visual']['type'],True)
     (ROOT/'dist/chapters/concept-animations.json').write_text(json.dumps({'version':1,'scenes':SCENES},ensure_ascii=True,separators=(',',':'))+'\n')
 
 def install_animations():

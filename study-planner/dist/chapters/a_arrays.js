@@ -6,26 +6,7 @@ const choose=(n,k)=>{if(k<0||k>n)return 0;let r=1;for(let j=1;j<=Math.min(k,n-k)
 const math=n=>`<math xmlns="http://www.w3.org/1998/Math/MathML"><mn>${n}</mn></math>`;
 const states=[];
 function mount(host,model){
- const stage=host.querySelector('.arrays-stage'),caption=host.querySelector('.arrays-caption'),formula=host.querySelector('.arrays-formula'),seek=host.querySelector('[data-seek]'),progress=host.querySelector('[data-progress]'),play=host.querySelector('[data-play]'),speed=host.querySelector('[data-speed]');
- let index=0,timer=null;
- const stop=()=>{clearInterval(timer);timer=null;play.textContent='Play';};
- function draw(motion=true){
-  const old=new Map([...stage.querySelectorAll('[data-entity]')].map(e=>{const b=e.getBBox();return[e.dataset.entity,{x:b.x+b.width/2,y:b.y+b.height/2,path:e.querySelector("[data-arrow]")?.getAttribute("d")}];}));
-  const f=model.frames[index];stage.innerHTML=f.svg;caption.textContent=f.caption;formula.innerHTML=f.formulaHtml;seek.value=index;progress.textContent=`Checkpoint ${index+1} of ${model.frames.length}`;
-  host.querySelector('[data-prev]').disabled=index===0;host.querySelector('[data-next]').disabled=index===model.frames.length-1;
-  if(motion&&!reduced.matches){let movedNodes=false;const pointerPaths=[];
-  for(const e of stage.querySelectorAll('[data-entity]')){const p=old.get(e.dataset.entity);if(!p)continue;const line=e.querySelector('[data-arrow]');if(line&&p.path){pointerPaths.push([line,p.path]);continue;}const b=e.getBBox(),dx=p.x-b.x-b.width/2,dy=p.y-b.y-b.height/2;if(Math.abs(dx)+Math.abs(dy)>1){e.animate([{transform:`translate(${dx}px,${dy}px)`},{transform:'translate(0,0)'}],{duration:450,easing:'ease-in-out'});if(e.querySelector('rect[data-box]'))movedNodes=true;}}
-  if(movedNodes){const svg=stage.querySelector('svg'),start=performance.now(),bind=()=>{if(!svg.isConnected)return;const screen=svg.getBoundingClientRect(),view=svg.viewBox.baseVal,boxes=new Map([...svg.querySelectorAll('[data-box]')].map(r=>{const b=r.getBoundingClientRect();return[r.dataset.box,[(b.left-screen.left)*view.width/screen.width-Number(r.getAttribute('x')),(b.top-screen.top)*view.height/screen.height-Number(r.getAttribute('y'))]];}));for(const line of svg.querySelectorAll('[data-arrow]')){const pts=JSON.parse(line.dataset.points),ds=boxes.get(line.dataset.source)||[0,0],dt=boxes.get(line.dataset.target)||[0,0];pts.forEach((p,i)=>{const delta=i===pts.length-1?dt:i===0?ds:pts.length===4?(i===1?ds:dt):i<=2?ds:dt;p[0]+=delta[0];p[1]+=delta[1];});line.setAttribute('d',route(pts));}if(performance.now()-start<480)requestAnimationFrame(bind);};bind();}
-  else for(const [line,before] of pointerPaths){const after=line.getAttribute('d');if(before!==after)line.animate([{d:`path("${before}")`},{d:`path("${after}")`}],{duration:450,easing:'ease-in-out'});}
- }
-  window.MathLayout?.schedule();
- }
- function start(){stop();if(index===model.frames.length-1)index=0;play.textContent='Pause';draw();timer=setInterval(()=>{if(index===model.frames.length-1){stop();return;}index++;draw();if(index===model.frames.length-1)stop();},Number(speed.value));}
- host.querySelector('[data-prev]').onclick=()=>{stop();index=Math.max(0,index-1);draw();};host.querySelector('[data-next]').onclick=()=>{stop();index=Math.min(model.frames.length-1,index+1);draw();};
- host.querySelector('[data-reset]').onclick=()=>{stop();index=0;draw();};play.onclick=()=>timer?stop():start();seek.oninput=()=>{stop();index=Number(seek.value);draw();};speed.onchange=()=>{if(timer)start();};
- host.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight'].includes(e.key)||e.target.matches('input,select'))return;e.preventDefault();stop();index=Math.max(0,Math.min(model.frames.length-1,index+(e.key==='ArrowRight'?1:-1)));draw();});
- host.querySelector('.arrays-print-trace').innerHTML=model.frames.map((f,i)=>`<figure><p>Checkpoint ${i+1} of ${model.frames.length}</p>${f.svg}<figcaption>${esc(f.caption)}</figcaption><div class="formula-block">${f.formulaHtml}</div></figure>`).join('');
- states.push(stop);draw(false);
+ const q=s=>host.querySelector(s),api=TeachingTransitions.raw({host,model,stage:q('.arrays-stage'),caption:q('.arrays-caption'),formula:q('.arrays-formula'),seek:q('[data-seek]'),progress:q('[data-progress]'),play:q('[data-play]'),speed:q('[data-speed]'),prev:q('[data-prev]'),next:q('[data-next]'),reset:q('[data-reset]'),printRoot:q('.arrays-print-trace')});states.push(api.pause);
 }
 fetch('a_arrays-models.json?v=ports-2').then(r=>{if(!r.ok)throw Error('Trace data unavailable');return r.json();}).then(data=>{for(const m of data.models){const host=document.querySelector(`[data-arrays-model="${m.id}"]`);if(host)mount(host,m);}document.documentElement.dataset.arraysLoaded='true';}).catch(e=>{document.querySelectorAll('.arrays-error').forEach(x=>{x.hidden=false;x.textContent='The trace could not load. Its static diagram and lesson remain available; reload to retry.';});console.error(e);});
 addEventListener('beforeprint',()=>states.forEach(stop));addEventListener('pagehide',()=>states.forEach(stop));reduced.addEventListener('change',()=>states.forEach(stop));

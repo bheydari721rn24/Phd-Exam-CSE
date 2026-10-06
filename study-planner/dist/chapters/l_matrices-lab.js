@@ -2,7 +2,7 @@
 (() => {
  const ids=["angle","shear","x","y"];
  const controls=Object.fromEntries(ids.map(id=>[id,document.getElementById(`matrix-${id}`)]));
- const svg=document.getElementById("matrix-canvas"),result=document.getElementById("matrix-result");
+ const svg=document.getElementById("l_matrices-figure-3-matrix-canvas"),result=document.getElementById("matrix-result");
  if(!svg||!result)return;
  const mul=(a,b)=>[[a[0][0]*b[0][0]+a[0][1]*b[1][0],a[0][0]*b[0][1]+a[0][1]*b[1][1]],[a[1][0]*b[0][0]+a[1][1]*b[1][0],a[1][0]*b[0][1]+a[1][1]*b[1][1]]];
  const mv=(a,v)=>[a[0][0]*v[0]+a[0][1]*v[1],a[1][0]*v[0]+a[1][1]*v[1]];

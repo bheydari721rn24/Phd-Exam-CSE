@@ -4,7 +4,7 @@
 
 The study plan and every study-facing chapter are written in clear, precise English. Study dates and hours describe the student's reading; they do not impose a chapter-production schedule. Work on one chapter at a time until it passes the source, mathematical, pedagogical, and presentation checks below. The active chapter and its status are recorded in `research/chapter-gate.json`.
 
-Archived Iranian master's and doctoral entrance-exam booklets are **deferred until the final month**. Do not mine, classify, reproduce, or solve those archived questions while writing the present chapters. In the final month, the student and assistant will solve them together, one question at a time, and use the results for targeted revision. Do not ask the student to answer test questions during the first reading.
+The later explicit instruction to study the repository's Iranian master's and doctoral questions supersedes the earlier final-month deferral. Use those archives for faithful calibration and attribution alongside original questions; do not ask the student to answer test questions during the first reading.
 
 ## University-course selection
 
@@ -325,3 +325,9 @@ Delivered only `a_sort`: 88 worked questions, 80 rules, five selected university
 ## Sorting visual revision — 2026-10-06
 
 All 45 a_sort models now expose decisions, reasons and named regions. Array slots remain fixed; heap labels move on a fixed tree; copy markers follow authored transfer paths. 1,194 stored checkpoints, 402 explicit comparison steps and all 88 original problem bodies retained. Teaching and browser audits are adjacent. The chapter stays awaiting_user_approval, and no following chapter begins.
+
+## Approved sorting and whole-library animation revision — 2026-10-06
+
+The student approved Site version 72 and authorized the same decision-led teaching clarity across every existing chapter. The current work covers all 37 chapter pages, their concept walkthroughs and relevant worked-solution aids; no new chapter has been started. Preserve all 2257 complete question bodies and the existing proofs, lessons and review notes.
+
+The library revision includes 730 stored models and 4002 exact checkpoints, in addition to the already approved sorting system's 45 models and 1194 checkpoints. These totals include reused question aids and must not be described as counts of unique algorithms. The full-library browser and retained-content evidence is recorded in research/library-animation-redesign; the study-facing report is dist/animation-review.html. Publication is recorded only after the pushed source and successful deployment are verified. The revised library awaits student review before a subsequent chapter.

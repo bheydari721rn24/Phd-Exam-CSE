@@ -5,33 +5,7 @@
  const reduced=matchMedia('(prefers-reduced-motion: reduce)'), players=[];
  function finish(svg){if(svg)window.DiagramLayout?.finish(svg,{arrows:false,labels:true});}
  function player(el,model){
-  let i=0,timer=null;
-  const stage=el.querySelector('.sq-stage'),seek=el.querySelector('[data-seek]'),play=el.querySelector('[data-play]');
-  const pause=()=>{clearTimeout(timer);timer=null;play.textContent='Play';play.setAttribute('aria-pressed','false');};
-  function draw(index,animate=false){
-   const old=new Map([...stage.querySelectorAll('[data-entity]')].map(x=>[x.dataset.entity,x.getBoundingClientRect()]));
-   i=Math.max(0,Math.min(model.frames.length-1,index));const f=model.frames[i];stage.innerHTML=f.svg;
-   finish(stage.querySelector('svg'));
-   if(animate&&!reduced.matches)for(const node of stage.querySelectorAll('[data-entity]')){
-    const before=old.get(node.dataset.entity),after=node.getBoundingClientRect();
-    if(before){const dx=before.x-after.x,dy=before.y-after.y;if(dx||dy)node.animate([{transform:`translate(${dx}px,${dy}px)`},{transform:'translate(0,0)'}],{duration:600,easing:'ease-in-out'});}
-   }
-   el.querySelector('.sq-caption').textContent=f.caption;el.querySelector('.sq-formula').innerHTML=f.formulaHtml;
-   let summary=el.querySelector('.sq-mobile-state');if(!summary){summary=document.createElement('div');summary.className='sq-mobile-state';stage.after(summary);}
-   summary.innerHTML='<p>Scroll the diagram horizontally for its full-size labels. Current state:</p>'+f.rows.map(r=>'<p><strong>'+esc(r.name)+':</strong> '+esc(r.values.length?r.values.join(', '):'empty')+'</p>').join('');
-   seek.value=i;el.querySelector('[data-prev]').disabled=i===0;el.querySelector('[data-next]').disabled=i===model.frames.length-1;
-   el.querySelector('[data-progress]').textContent=`Checkpoint ${i+1} of ${model.frames.length}`;
-   window.MathLayout?.schedule?.();el.dataset.checkpoint=i;
-  }
-  const step=d=>{pause();draw(i+d,true);};
-  function tick(){if(i===model.frames.length-1){pause();return;}draw(i+1,true);timer=setTimeout(tick,Number(el.querySelector('[data-speed]').value));}
-  el.querySelector('[data-reset]').onclick=()=>{pause();draw(0);};
-  el.querySelector('[data-prev]').onclick=()=>step(-1);el.querySelector('[data-next]').onclick=()=>step(1);
-  play.onclick=()=>{if(timer){pause();return;}if(i===model.frames.length-1)draw(0);play.textContent='Pause';play.setAttribute('aria-pressed','true');timer=setTimeout(tick,Number(el.querySelector('[data-speed]').value));};
-  seek.oninput=()=>{pause();draw(Number(seek.value));};
-  el.addEventListener('keydown',ev=>{if(ev.target!==el)return;if(ev.key==='ArrowRight'){ev.preventDefault();step(1);}if(ev.key==='ArrowLeft'){ev.preventDefault();step(-1);}if(ev.key==='Home'){ev.preventDefault();pause();draw(0);}if(ev.key==='End'){ev.preventDefault();pause();draw(model.frames.length-1);}if(ev.key===' '){ev.preventDefault();play.click();}});
-  const api={model,draw,pause,print(){const root=el.querySelector('.sq-print-trace');root.innerHTML=model.frames.map((f,j)=>`<figure>${f.svg}<figcaption>Checkpoint ${j+1}. ${esc(f.caption)}</figcaption><div class="formula-block">${f.formulaHtml}</div></figure>`).join('');for(const svg of root.querySelectorAll('svg'))finish(svg);},clearPrint(){el.querySelector('.sq-print-trace').innerHTML='';}};
-  players.push(api);draw(0);el.dataset.ready='true';return api;
+  const q=s=>el.querySelector(s),api=TeachingTransitions.raw({host:el,model,stage:q('.sq-stage'),caption:q('.sq-caption'),formula:q('.sq-formula'),seek:q('[data-seek]'),progress:q('[data-progress]'),play:q('[data-play]'),speed:q('[data-speed]'),prev:q('[data-prev]'),next:q('[data-next]'),reset:q('[data-reset]'),printRoot:q('.sq-print-trace')});players.push(api);return api;
  }
  function formula(metrics){return '<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow>'+Object.entries(metrics).map(([k,v])=>`<mtext>${esc(k)}</mtext><mo>=</mo><mn>${esc(v)}</mn><mspace width="1em"/>`).join('')+'</mrow></math>';}
  function picture(f){

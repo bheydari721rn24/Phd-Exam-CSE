@@ -6,22 +6,7 @@ const choose=(n,k)=>{if(k<0||k>n)return 0;let r=1;for(let j=1;j<=Math.min(k,n-k)
 const math=n=>`<math xmlns="http://www.w3.org/1998/Math/MathML"><mn>${n}</mn></math>`;
 const states=[];
 function mount(host,model){
- const stage=host.querySelector('.counting-stage'),caption=host.querySelector('.counting-caption'),formula=host.querySelector('.counting-formula'),seek=host.querySelector('[data-seek]'),progress=host.querySelector('[data-progress]'),play=host.querySelector('[data-play]'),speed=host.querySelector('[data-speed]');
- let index=0,timer=null;
- const stop=()=>{clearInterval(timer);timer=null;play.textContent='Play';};
- function draw(motion=true){
-  const old=new Map([...stage.querySelectorAll('[data-entity]')].map(e=>{const b=e.getBBox();return[e.dataset.entity,{x:b.x+b.width/2,y:b.y+b.height/2}];}));
-  const f=model.frames[index];stage.innerHTML=f.svg;window.DiagramLayout?.finish(stage.querySelector("svg"));window.DiagramLayout?.finish(stage.querySelector("svg"));window.DiagramLayout?.finish(stage.querySelector("svg"));caption.textContent=f.caption;formula.innerHTML=f.formulaHtml;seek.value=index;progress.textContent=`Checkpoint ${index+1} of ${model.frames.length}`;
-  host.querySelector('[data-prev]').disabled=index===0;host.querySelector('[data-next]').disabled=index===model.frames.length-1;
-  if(motion&&!reduced.matches){for(const e of stage.querySelectorAll('[data-entity]')){const p=old.get(e.dataset.entity);if(p){const b=e.getBBox(),dx=p.x-b.x-b.width/2,dy=p.y-b.y-b.height/2;if(Math.abs(dx)+Math.abs(dy)>1)e.animate([{transform:`translate(${dx}px,${dy}px)`},{transform:'translate(0,0)'}],{duration:450,easing:'ease-in-out'});}}}
-  window.MathLayout?.schedule();
- }
- function start(){stop();if(index===model.frames.length-1)index=0;play.textContent='Pause';draw();timer=setInterval(()=>{if(index===model.frames.length-1){stop();return;}index++;draw();if(index===model.frames.length-1)stop();},Number(speed.value));}
- host.querySelector('[data-prev]').onclick=()=>{stop();index=Math.max(0,index-1);draw();};host.querySelector('[data-next]').onclick=()=>{stop();index=Math.min(model.frames.length-1,index+1);draw();};
- host.querySelector('[data-reset]').onclick=()=>{stop();index=0;draw();};play.onclick=()=>timer?stop():start();seek.oninput=()=>{stop();index=Number(seek.value);draw();};speed.onchange=()=>{if(timer)start();};
- host.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight'].includes(e.key)||e.target.matches('input,select'))return;e.preventDefault();stop();index=Math.max(0,Math.min(model.frames.length-1,index+(e.key==='ArrowRight'?1:-1)));draw();});
- host.querySelector('.counting-print-trace').innerHTML=model.frames.map((f,i)=>`<figure><p>Checkpoint ${i+1} of ${model.frames.length}</p>${f.svg}<figcaption>${esc(f.caption)}</figcaption><div class="formula-block">${f.formulaHtml}</div></figure>`).join('');
- states.push(stop);draw(false);
+ const q=s=>host.querySelector(s),api=TeachingTransitions.raw({host,model,stage:q('.counting-stage'),caption:q('.counting-caption'),formula:q('.counting-formula'),seek:q('[data-seek]'),progress:q('[data-progress]'),play:q('[data-play]'),speed:q('[data-speed]'),prev:q('[data-prev]'),next:q('[data-next]'),reset:q('[data-reset]'),printRoot:q('.counting-print-trace')});states.push(api.pause);
 }
 fetch('d_counting-models.json').then(r=>{if(!r.ok)throw Error('Trace data unavailable');return r.json();}).then(data=>{for(const m of data.models){const host=document.querySelector(`[data-counting-model="${m.id}"]`);if(host)mount(host,m);}document.documentElement.dataset.countingLoaded='true';}).catch(e=>{document.querySelectorAll('.counting-error').forEach(x=>{x.hidden=false;x.textContent='The trace could not load. Its static diagram and lesson remain available; reload to retry.';});console.error(e);});
 addEventListener('beforeprint',()=>states.forEach(stop));addEventListener('pagehide',()=>states.forEach(stop));reduced.addEventListener('change',()=>states.forEach(stop));

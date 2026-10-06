@@ -21,3 +21,11 @@ Record per-problem decisions, finite model checks, browser geometry checks and r
 ## Decision-led sorting standard (6 October 2026)
 
 Separate decision checkpoints from record movement. Show the actual predicate, result, reason and algorithm operation. Keep positional indices fixed while record identities move. Name all region intervals and validate their predicates against saved data; an empty interval is valid. Distinguish reference/source views from output storage. Transfer markers follow boundary-connected, label-free routes. Do not animate heap position circles away from fixed tree edges. Allow enough playback time for each transition, honor pause and reduced motion, and provide printable checkpoints. Validate content retention, algorithm counts, visual geometry and the editable laboratory independently. Apply this teaching clarity in future relevant chapters with concept-specific layouts.
+
+## Approved library-wide extension (6 October 2026)
+
+The student approved the decision-led sorting revision in version 72 and explicitly requested redesign of animations across every existing chapter by this method. Preserve each subject's model: probability mass, matrix arithmetic, geometric axes, gate topology, stack/queue order, recurrence dependencies and logical valuations have different semantics. Shared controls must not turn them into a generic recoloring sequence.
+
+Expose the actual operation and causal explanation at each checkpoint. Derive predicates only when supported by the saved model; show their exact result without inventing a missing condition. Expose the current state and exact before/after differences, including counters. Distinguish the first displayed checkpoint from a claim that no operation has occurred yet. Keep fixed storage indices separate from moving record identities, and do not show future events as completed timing history. Pause freezes an in-flight movement; reduced motion uses exact endpoints; print includes checkpoint captions.
+
+The active scope is all 37 existing chapters and their relevant solution visual aids. Evidence is in research/library-animation-redesign. Preserve all 2257 complete question bodies and mathematical checkpoint payloads. Wait for review of this library revision before starting a new chapter.

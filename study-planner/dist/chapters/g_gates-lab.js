@@ -22,7 +22,7 @@
   if(typeof module==='object'&&module.exports)module.exports=API;
   if(!root.document)return;
   root.GatesLab=API;
-  const doc=root.document,$=id=>doc.getElementById(id);
+  const doc=root.document,$=id=>doc.getElementById(id)||(id==='haz-wave'?doc.getElementById('g_gates-figure-4-haz-wave'):null);
   function cell(row,text){const c=doc.createElement('td');c.textContent=text;c.className='math-inline';row.append(c);}
   function renderGates(){
     const kind=$('gate-kind').value,n=Number($('gate-count').value),data=rows(kind,n);

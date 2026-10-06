@@ -3,7 +3,7 @@
   const angle = document.getElementById("vector-angle");
   const length = document.getElementById("vector-length");
   const candidate = document.getElementById("vector-candidate");
-  const drawing = document.getElementById("vector-drawing");
+  const drawing = document.getElementById("l_vectors-figure-3-vector-drawing");
   const result = document.getElementById("vector-result");
   const fixed = [3, 2];
   const clean = n => Math.abs(n) < 1e-10 ? 0 : n;
@@ -11,7 +11,7 @@
   const point = v => [120+v[0]*48, 300-v[1]*48];
   const arrow = (a,b,color,dashed=false) => {
     const [ax,ay]=point(a), [bx,by]=point(b);
-    return `<path d="M${ax} ${ay} L${bx} ${by}" fill="none" stroke="${color}" stroke-width="3" ${dashed?'stroke-dasharray="5 4"':''} marker-end="url(#lab-arrow)"/>`;
+    return `<path d="M${ax} ${ay} L${bx} ${by}" fill="none" stroke="${color}" stroke-width="3" ${dashed?'stroke-dasharray="5 4"':''} marker-end="url(#l_vectors-figure-3-lab-arrow)"/>`;
   };
   function update() {
     const degrees=Number(angle.value), size=Number(length.value)/100;
