@@ -21,8 +21,10 @@ def trace(kind,params,capture=True):
    m=i
    for j in range(i+1,n):
     C+=1
+    smaller=A[j]['key']<A[m]['key']
+    frame(f'Compare key {A[j]["key"]} at {j} with current minimum {A[m]["key"]} at {m}.',active=[m,j],prefix=i,pointers=dict(i=i,min=m,j=j),operation='compare',test=f'{A[j]["key"]} < {A[m]["key"]}',testResult=smaller,reason='A strict improvement changes the minimum index. Equality retains the earlier candidate.')
     if A[j]['key']<A[m]['key']:m=j
-    frame(f'Scan index {j}; the minimum of the inspected suffix is at {m}.',active=[m,j],prefix=i,pointers=dict(i=i,min=m,j=j))
+    frame(f'Scan index {j}; the minimum of the inspected suffix is at {m}.',active=[m,j],prefix=i,pointers=dict(i=i,min=m,j=j),operation='update-minimum',reason=('The comparison was true, so the minimum index moves to the scanned record.' if smaller else 'The comparison was false, so the minimum index stays at its earlier record. No record is moved.'))
    swap(i,m);frame(f'Place the suffix minimum at {i}; the final prefix grows.',active=[i,m],prefix=i+1)
  elif kind in ['insertion','shell']:
   gaps=[1] if kind=='insertion' else params.get('gaps',[4,2,1])
@@ -34,7 +36,7 @@ def trace(kind,params,capture=True):
     def rs():return [dict(name='Array',cells=A),dict(name='Held key',cells=[x])]
     frame(f'Gap {gap}: hold original record {x["id"]}; slot {j} is the hole.',rs(),[j],gap=gap,prefix=i if gap==1 else 0)
     while j>=gap:
-     C+=1;frame(f'Compare predecessor at {j-gap} with held key {x["key"]}.',rs(),[j-gap],gap=gap)
+     C+=1;frame(f'Compare predecessor at {j-gap} with held key {x["key"]}.',rs(),[j-gap],gap=gap,operation='compare',test=f'{A[j-gap]["key"]} > {x["key"]}',testResult=A[j-gap]['key']>x['key'],reason='Shift only a strictly larger predecessor. An equal predecessor stays before the held record.',prefix=i if gap==1 else 0)
      if A[j-gap]['key']<=x['key']:break
      A[j]=A[j-gap];A[j-gap]=None;j-=gap;W+=1;shifts+=1
      frame(f'Shift the larger record right by gap {gap}; the hole moves to {j}.',rs(),[j],gap=gap)
@@ -45,7 +47,7 @@ def trace(kind,params,capture=True):
   for end in range(n-1,0,-1):
    moved=False;passes+=1
    for j in range(end):
-    C+=1;frame(f'Pass {passes}: compare adjacent keys at {j} and {j+1}.',active=[j,j+1],suffix=end+1)
+    C+=1;frame(f'Pass {passes}: compare adjacent keys at {j} and {j+1}.',active=[j,j+1],suffix=end+1,operation='compare',test=f'{A[j]["key"]} > {A[j+1]["key"]}',testResult=A[j]['key']>A[j+1]['key'],reason='Exchange only an inverted adjacent pair. Equality leaves identities in order.')
     if A[j]['key']>A[j+1]['key']:swap(j,j+1);moved=True;frame('Swap this inverted adjacent pair; exactly one strict inversion disappears.',active=[j,j+1],suffix=end+1)
    frame(f'Largest remaining key is final at {end}.',suffix=end)
    if not moved:frame('No swap in the complete pass: the remaining prefix is already sorted.');break
@@ -65,13 +67,14 @@ def trace(kind,params,capture=True):
    frame(f'Merge [{lo},{mid}) and [{mid},{hi}); consumed heads are shown by pointers.',rs(),layout='merge',pointers=dict(left=i,right=j))
    while i<len(L) and j<len(R):
     C+=1
+    frame(f'Compare left head {L[i]["key"]}[{L[i]["id"]}] with right head {R[j]["key"]}[{R[j]["id"]}].',rs(),layout='merge',pointers=dict(left=i,right=j),operation='compare',test=f'{L[i]["key"]} \\leq {R[j]["key"]}',testResult=L[i]['key']<=R[j]['key'],reason='Choose the smaller head; equality chooses the left run, which preserves original tie order.')
     if L[i]['key']<=R[j]['key']:out.append(L[i]);i+=1;side='left'
     else:out.append(R[j]);j+=1;side='right'
     W+=1;frame(f'Emit from {side}; equality chooses left, preserving stability.',rs(),layout='merge',pointers=dict(left=i,right=j),transfer=dict(row=side,index=(i-1 if side=='left' else j-1),dest=len(out)-1))
-   while i<len(L):out.append(L[i]);i+=1;W+=1;frame('Copy the remaining left head without a key comparison.',rs(),layout='merge',pointers=dict(left=i,right=j))
-   while j<len(R):out.append(R[j]);j+=1;W+=1;frame('Copy the remaining right head without a key comparison.',rs(),layout='merge',pointers=dict(left=i,right=j))
+   while i<len(L):out.append(L[i]);i+=1;W+=1;frame('Copy the remaining left head without a key comparison.',rs(),layout='merge',pointers=dict(left=i,right=j),transfer=dict(row='left',index=i-1,dest=len(out)-1))
+   while j<len(R):out.append(R[j]);j+=1;W+=1;frame('Copy the remaining right head without a key comparison.',rs(),layout='merge',pointers=dict(left=i,right=j),transfer=dict(row='right',index=j-1,dest=len(out)-1))
    A[lo:hi]=out;W+=hi-lo;merges.append(dict(lo=lo,mid=mid,hi=hi,comparisons=C-c0))
-   frame(f'Copy the merged run back. This merge used {C-c0} comparisons.',active=list(range(lo,hi)),range=[lo,hi])
+   frame(f'Copy the merged run back. This merge used {C-c0} comparisons.',active=list(range(lo,hi)),range=[lo,hi],reason=f'Output is complete. Copy its {hi-lo} records into main-array slots [{lo}, {hi}). These writes perform no additional key comparisons.')
   rec(0,n);extra['merges']=merges
  elif kind=='hoare':
   splits=[]
@@ -80,13 +83,15 @@ def trace(kind,params,capture=True):
    if hi-lo<=1:return
    p=A[lo]['key'];i=lo-1;j=hi
    while True:
-    i+=1;C+=1
-    while A[i]['key']<p:i+=1;C+=1
-    j-=1;C+=1
-    while A[j]['key']>p:j-=1;C+=1
+    while True:
+     i+=1;C+=1;frame(f'Left scan tests key {A[i]["key"]} at index {i}.',active=[i],range=[lo,hi],boundaries=[i,j],pivotValue=p,operation='compare',test=f'{A[i]["key"]} < {p}',testResult=A[i]['key']<p,reason='Advance the left scan only while its key is strictly smaller. Equality stops this scan.')
+     if A[i]['key']>=p:break
+    while True:
+     j-=1;C+=1;frame(f'Right scan tests key {A[j]["key"]} at index {j}.',active=[j],range=[lo,hi],boundaries=[i,j+1],pivotValue=p,operation='compare',test=f'{A[j]["key"]} > {p}',testResult=A[j]['key']>p,reason='Advance the right scan only while its key is strictly larger. Equality stops this scan.')
+     if A[j]['key']<=p:break
     frame(f'Hoare scans stop at i={i}, j={j}, pivot value {p}; equality stops either scan.',active=[i,j],range=[lo,hi],boundaries=[i,j+1],pivotValue=p)
     if i>=j:break
-    swap(i,j);frame('Exchange the two out-of-side keys. Both scans advance before testing again.',active=[i,j])
+    swap(i,j);frame('Exchange the two out-of-side keys. Both scans advance before testing again.',active=[i,j],range=[lo,hi],boundaries=[i+1,j],pivotValue=p)
    splits.append(dict(lo=lo,hi=hi,split=j+1));frame(f'Return split {j+1}; this is not a final pivot index.',range=[lo,hi],boundaries=[j+1],pivotValue=p)
    if not params.get('partitionOnly'):rec(lo,j+1);rec(j+1,hi)
   rec(0,n);extra['splits']=splits
@@ -101,13 +106,16 @@ def trace(kind,params,capture=True):
     frame(f'Lomuto partition [{lo},{hi}); last key {p} is the pivot.',range=[lo,hi],pivot=hi-1,boundaries=[b,lo,hi-1],pivotValue=p)
     for j in range(lo,hi-1):
      C+=1
+     frame(f'Compare scanned key {A[j]["key"]} with pivot value {p}.',active=[j,hi-1],range=[lo,hi],pivot=hi-1,boundaries=[b,j,hi-1],pivotValue=p,operation='compare',test=f'{A[j]["key"]} < {p}',testResult=A[j]['key']<p,reason='A smaller key joins the left region. A key at least the pivot remains in the scanned middle region.')
      if A[j]['key']<p:swap(b,j);b+=1
      frame(f'Classify index {j}; [{lo},{b}) is strictly below {p}.',active=[j],range=[lo,hi],pivot=hi-1,boundaries=[b,j+1,hi-1],pivotValue=p)
     swap(b,hi-1);partitions.append(dict(lo=lo,hi=hi,pivot=b));frame(f'Pivot reaches final position {b}; children exclude it.',pivot=b,range=[lo,hi]);rec(lo,b,lev+1);rec(b+1,hi,lev+1)
    elif kind=='cmu':
     pi=(lo+hi)//2;swap(lo,pi);p=A[lo]['key'];left=lo+1;right=hi
+    frame(f'Move the middle-position pivot from {pi} to {lo}; pivot value is {p}.',pivot=lo,range=[lo,hi],boundaries=[left,right],pivotValue=p,operation='prepare',reason='This is a deterministic position choice, not a median-key calculation. Complete this exchange before comparing unknown records.')
     while left<right:
      C+=1
+     frame(f'Compare key {A[left]["key"]} at {left} with pivot {p}.',active=[left,lo],pivot=lo,range=[lo,hi],boundaries=[left,right],pivotValue=p,operation='compare',test=f'{A[left]["key"]} \\leq {p}',testResult=A[left]['key']<=p,reason='Accept a key at most the pivot; otherwise exchange it with the end of the unknown region and inspect its replacement.')
      if A[left]['key']<=p:left+=1
      else:swap(left,right-1);right-=1
      frame(f'CMU scan: [{lo+1},{left}) <= {p}; [{right},{hi}) > {p}.',pivot=lo,range=[lo,hi],boundaries=[left,right],pivotValue=p)
@@ -117,6 +125,8 @@ def trace(kind,params,capture=True):
     frame(f'Three-way partition [{lo},{hi}); pivot value {p}; equal region initially contains one record.',range=[lo,hi],boundaries=[lt,i,gt],pivotValue=p)
     while i<gt:
      C+=1;cmp=(A[i]['key']>p)-(A[i]['key']<p)
+     relation='<' if cmp<0 else '>' if cmp>0 else '='
+     frame(f'Compare scanned key {A[i]["key"]} with pivot {p}: {relation}.',active=[i],range=[lo,hi],boundaries=[lt,i,gt],pivotValue=p,operation='compare',test=f'{A[i]["key"]} {relation} {p}',testResult=True,reason=('Move this key into the less region, then advance both boundaries.' if cmp<0 else 'Move this key into the greater region. Do not advance the scan: the incoming key is still unknown.' if cmp>0 else 'Extend the equal region by advancing the scan. No swap is needed.'))
      if cmp<0:swap(lt,i);lt+=1;i+=1
      elif cmp>0:gt-=1;swap(i,gt)
      else:i+=1
@@ -125,12 +135,15 @@ def trace(kind,params,capture=True):
   rec(0,n,0);extra.update(partitions=partitions,recursionDepth=depth)
  elif kind=='heap':
   size=n;buildC=0
+  frame('Interpret the array as a complete binary tree; no sorting operation has occurred yet.',layout='heap',heapSize=n,operation='prepare',reason='Tree edges connect fixed array positions. Record labels move during exchanges, while slot labels and tree connections stay fixed.')
   def sink(i,end):
    nonlocal C
    while 2*i+1<end:
     j=2*i+1
-    if j+1<end:C+=1;j=j+1 if A[j+1]['key']>A[j]['key'] else j
-    C+=1;frame(f'Choose larger child {j}; compare it with parent {i}.',layout='heap',heapSize=end,active=[i,j])
+    if j+1<end:
+     C+=1;frame('Compare the two children to choose the larger child.',layout='heap',heapSize=end,active=[j,j+1],operation='compare',test=f'{A[j+1]["key"]} > {A[j]["key"]}',testResult=A[j+1]['key']>A[j]['key'],reason='Choose the larger child; moving the smaller child upward could leave the other child larger than its parent.')
+     j=j+1 if A[j+1]['key']>A[j]['key'] else j
+    C+=1;frame(f'Choose larger child {j}; compare it with parent {i}.',layout='heap',heapSize=end,active=[i,j],operation='compare',test=f'{A[i]["key"]} < {A[j]["key"]}',testResult=A[i]['key']<A[j]['key'],reason='Exchange when the parent is smaller. Otherwise the repaired subtree already satisfies max-heap order.')
     if A[i]['key']>=A[j]['key']:break
     swap(i,j);frame('Exchange parent and larger child; only the lower subtree may still violate heap order.',layout='heap',heapSize=end,active=[i,j]);i=j
   for i in range(n//2-1,-1,-1):sink(i,n);frame(f'Floyd construction: subtree rooted at {i} now satisfies heap order.',layout='heap',heapSize=n,active=[i])
@@ -141,10 +154,11 @@ def trace(kind,params,capture=True):
  elif kind=='counting':
   low=params.get('low',min(params.get('values',[0])) if n else 0);K=params.get('K',(max(params['values'])-low+1) if n else 1)
   counts=[0]*K
-  for r in A:counts[r['key']-low]+=1;frame('Count an original occurrence; payload and identity remain attached.',[dict(name='Input',cells=A),dict(name='Counts',cells=[dict(key=x,id=str(i+low)) for i,x in enumerate(counts)],numeric=True)],layout='counting')
-  for k in range(1,K):counts[k]+=counts[k-1]
+  for r in A:counts[r['key']-low]+=1;frame('Count an original occurrence; payload and identity remain attached.',[dict(name='Input',cells=A,role='reference'),dict(name='Counts',cells=[dict(key=x,id=str(i+low)) for i,x in enumerate(counts)],numeric=True)],layout='counting')
+  for k in range(1,K):
+   prev=counts[k];counts[k]+=counts[k-1];frame(f'Prefix step: {counts[k-1]} + {prev} = {counts[k]} for key {k+low}.',[dict(name='Input',cells=A,role='reference'),dict(name='Ends',cells=[dict(key=x,id=str(i+low)) for i,x in enumerate(counts)],numeric=True)],layout='counting',reason='The cumulative count is the number of input records with key at most this key. It is the exclusive end of that key block.')
   ends=counts[:];out=[None]*n
-  frame('Cumulative counts give exclusive ends of each key block.',[dict(name='Input',cells=A),dict(name='Ends',cells=[dict(key=x,id=str(i+low)) for i,x in enumerate(counts)],numeric=True),dict(name='Output',cells=out)],layout='counting')
+  frame('Cumulative counts give exclusive ends of each key block.',[dict(name='Input',cells=A,role='reference'),dict(name='Ends',cells=[dict(key=x,id=str(i+low)) for i,x in enumerate(counts)],numeric=True),dict(name='Output',cells=out)],layout='counting')
   for r in reversed(A):
    k=r['key']-low;counts[k]-=1;out[counts[k]]=r;W+=1
    frame(f'Right-to-left scatter: record {r["id"]} goes to index {counts[k]}.',[dict(name='Input',cells=A,role='reference'),dict(name='Ends',cells=[dict(key=x,id=str(i+low)) for i,x in enumerate(counts)],numeric=True),dict(name='Output',cells=out)],layout='counting',outputActive=counts[k])
@@ -161,9 +175,10 @@ def trace(kind,params,capture=True):
   for t in range(passes):
    bins=[[] for _ in range(B)];ref=deepcopy(A)
    def rs():return [dict(name='Input reference',cells=ref,role='reference')]+[dict(name=f'Bucket {i}',cells=bs) for i,bs in enumerate(bins)]
+   frame(f'Prepare empty buckets for pass {t+1}; no record has been distributed yet.',rs(),layout='buckets',base=B,digit=t+1,operation='prepare',reason='The input row is the complete current order. Every bucket starts empty, and records will be appended at the rear in this order.')
    for r in A:
     k=((r['key']-low)//exp)%B if kind=='radix' else floor(r['key']*B/100)
-    bins[k].append(r);W+=1;frame(f'Pass {t+1}: append original record {r["id"]} to FIFO bucket {k}.',rs(),layout='buckets',base=B,digit=t+1)
+    bins[k].append(r);W+=1;frame(f'Pass {t+1}: append original record {r["id"]} to FIFO bucket {k}.',rs(),layout='buckets',base=B,digit=t+1,digitExponent=exp,shift=low,distributedId=r['id'],bucketIndex=k,operation='distribute',reason=(f'Transformed key {r["key"]-low}; divide by place {exp}, take the integer quotient, then reduce modulo base {B}. Append at the rear so equal digits keep their earlier order.' if kind=='radix' else f'Bucket index is floor({r["key"]} × {B} / 100). Distribution alone does not sort the records within this bucket.'))
    if kind=='bucket':
     for k,bs in enumerate(bins):
      for i in range(1,len(bs)):
@@ -182,7 +197,7 @@ def trace(kind,params,capture=True):
     if A[i]['key']>A[j]['key']:pairs.append([i,j]);frame(f'Strict inversion ({i},{j}): earlier key {A[i]["key"]} exceeds later key {A[j]["key"]}.',active=[i,j],inversion=[i,j])
   extra['pairs']=pairs
  else:raise ValueError(kind)
- frame('Final checkpoint. All counts refer only to this specified implementation.',layout='heap' if kind=='heap' else 'array',heapSize=0 if kind=='heap' else None,prefix=n if kind!='inversions' and not params.get('partitionOnly') else 0)
+ frame('Final checkpoint. All counts refer only to this specified implementation.',layout='heap' if kind=='heap' else 'array',heapSize=0 if kind=='heap' else None,prefix=n if kind!='inversions' and not params.get('partitionOnly') else 0,operation='finish',reason='Inversion witnesses have been counted; the input order has not been changed.' if kind=='inversions' else 'Only the requested partition was executed. The returned boundary is not a declaration that both children are sorted.' if params.get('partitionOnly') else 'The keys are sorted and every original record is retained. Letters let you inspect whether this particular algorithm preserves equal-key order.')
  return dict(kind=kind,params=params,initial=initial,frames=frames,result=dict(keys=[r['key'] for r in A],ids=[r['id'] for r in A],comparisons=C,writes=W,swaps=S,**extra))
 
 def svg(f):
@@ -241,7 +256,11 @@ def svg(f):
  s.append('</svg>');return ''.join(s)
 
 def decorate(model,id,title,invariant):
+ from a_sort_visuals import svg,explain
  model.update(id=id,title=title,invariant=invariant)
+ witnesses=0
  for f in model['frames']:
-  f['svg']=svg(f);f['formulaHtml']=mathml.render(r'C='+str(f['metrics']['comparisons'])+r',\quad W='+str(f['metrics']['writes'])+r',\quad S='+str(f['metrics']['swaps']),True)
+  f['kind']=model['kind'];f['teaching']=explain(f,model);f['svg']=svg(f);f['formulaHtml']=mathml.render(r'C='+str(f['metrics']['comparisons'])+r',\quad W='+str(f['metrics']['writes'])+r',\quad S='+str(f['metrics']['swaps']),True)
+  if model['kind']=='inversions':
+   witnesses+=1 if f.get('inversion') else 0;f['metrics']={'witnesses':witnesses};f['svg']=svg(f);f['formulaHtml']=mathml.render(r'I_{\mathrm{seen}}='+str(witnesses),True);f['teaching']['why']='Each connector marks one strict inverted pair. This is a witness diagram, not a sorting cost trace; only the number of witnessed inversions is displayed.'
  return model

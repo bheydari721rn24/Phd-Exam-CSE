@@ -17,9 +17,15 @@
     "code": true
   },
   "geometry": {
-    "frames": 927,
+    "frames": 1250,
     "issueCount": 0,
     "issues": []
+  },
+  "teachingGeometry": {
+    "states": 1250,
+    "connectedPorts": 228,
+    "issues": [],
+    "issueCount": 0
   },
   "laboratoryFixtures": 54,
   "forms": [
@@ -34,11 +40,21 @@
     "radix",
     "bucket"
   ],
-  "motionAnimations": 3,
+  "visibleComparison": {
+    "test": "compare1<3True",
+    "active": "Compare the first unknown key with the pivot value.",
+    "regions": 4
+  },
+  "copiedRecordAnimations": 3,
+  "motionPause": {
+    "count": 1,
+    "paused": true
+  },
+  "motionAnimations": 4,
   "mobile": {
     "width": 390,
     "scroll": 390
   },
-  "printFigures": 941,
+  "printFigures": 1265,
   "errors": []
 }

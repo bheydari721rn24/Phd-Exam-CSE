@@ -321,3 +321,7 @@ The chapter is available at `dist/chapters/a_stackqueue.html`; the library links
 ## Sorting review draft — 2026-10-06
 
 Delivered only `a_sort`: 88 worked questions, 80 rules, five selected university courses, 45 distinct models and ten editable algorithms. Mathematical and browser audits passed. Status: awaiting explicit user approval. Native publication is tracked separately in `research/a_sort-publication.json`. No following chapter has been started. Three earlier occurrences of PhD CE 1405 Q16 have the documented original option-order correction.
+
+## Sorting visual revision — 2026-10-06
+
+All 45 a_sort models now expose decisions, reasons and named regions. Array slots remain fixed; heap labels move on a fixed tree; copy markers follow authored transfer paths. 1,194 stored checkpoints, 402 explicit comparison steps and all 88 original problem bodies retained. Teaching and browser audits are adjacent. The chapter stays awaiting_user_approval, and no following chapter begins.
