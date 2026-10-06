@@ -53,7 +53,7 @@
  }
  function raw(o){
   const {host,model,stage,caption,formula,seek,progress,play,speed,prev,next,reset,printRoot}=o;let i=0,timer=null,running=false;const explain=panel(host,stage);
-  const stop=()=>{clearTimeout(timer);timer=null;running=false;stage.getAnimations({subtree:true}).forEach(a=>a.pause());if(play){play.textContent='Play';play.setAttribute('aria-pressed','false');}host.dataset.running='false';};
+  const stop=()=>{clearTimeout(timer);timer=null;running=false;stage.getAnimations({subtree:true}).forEach(a=>{const t=a.currentTime;a.pause();if(t!==null)a.currentTime=t;});if(play){play.textContent='Play';play.setAttribute('aria-pressed','false');}host.dataset.running='false';};
   function draw(n,animate=false){
    const old=snapshot(stage);stage.getAnimations({subtree:true}).forEach(a=>a.cancel());i=Math.max(0,Math.min(model.frames.length-1,n));const f=model.frames[i];stage.innerHTML=f.svg||f.html;
    for(const svg of stage.querySelectorAll('svg')){window.DiagramLayout?.finish(svg,{arrows:false});svg.setAttribute('aria-label',f.caption);}

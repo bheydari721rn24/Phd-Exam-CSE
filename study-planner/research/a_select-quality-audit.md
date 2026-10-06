@@ -1,0 +1,29 @@
+# Searching and Selection — review-draft audit
+
+## Delivery scope
+
+This is one new English chapter, a_select. It remains a draft until explicit user approval. The 37 preceding chapter HTML files and their 2,257 question bodies are preserved. The new chapter contains 89 complete worked problems (86 original/reconstructed and three checked authentic revisits/bridges), 80 complete examination rules, 33 stored models and 363 checkpoints, plus eight editable model modes.
+
+## Scientific review
+
+Five university courses provide the reviewed core; supplementary searching material and assignment questions have precise reading scopes in the source audit. Corrections explicitly cover one-based versus zero-based rank, repeated-key rank intervals, weak deterministic certificates, finite ceiling constants, conditional probability, recurrence upper bounds versus matching algorithm lower bounds, and weighted-mass ties. The chapter provides correctness and termination arguments, a finite deterministic induction, a randomized phase proof, cross-array cut proof and weighted absolute-error proof.
+
+The question bank emphasizes exact counts, certificates, recurrences, adversarial inputs and repairs of plausible incorrect algorithms. Authentic PDF options and page provenance were visually rechecked. Answers are independently derived and are not described as official keys. The bank does not reproduce every course exercise verbatim or pretend to exhaust the historical archive.
+
+## Verification evidence
+
+`a_select-evidence/mathematics.json` records 12,030 selection queries, 206,247 partition-state invariant checks, 560 boundary queries, 1,800 two-array rank queries, 1,554 weighted queries, 25 group certificates and 54 tournament cases. Sorted-order and cumulative-mass oracles are separate from the trace implementation. These are finite checks, not a universal substitute for proofs.
+
+The literal Python lesson implementations, stored mathematical states, native MathML, browser geometry, controls, mobile containment and prior-library retention receive separate evidence files. Publication is only recorded after a source commit, repository push and verified private deployment. A completed test does not imply a literal 100% guarantee of success on every unseen examination question.
+
+## Explicit boundaries
+
+The candidate course pool is broad but finite. No global exhaustive-course claim is made. Tree search, hashing, full heap implementation and string matching belong to later chapters. The editable weighted model visualizes sorted cumulative mass; it is explicitly distinguished from the linear weighted algorithm proved and implemented in the lesson. Small deterministic demonstrations use base five; the finite proof's code uses base 140. The archive examples are labelled by their actual subject and are not misrepresented as direct quickselect exam items.
+
+## Browser and literal-code result
+
+The literal Python lesson code passed 6,015 order-statistic queries and 1,524 weighted-median cases including zero weights, plus an arbitrary-size integer-weight check. Finite rounding conditions were checked for 9,993 randomized-proof sizes and 9,860 deterministic-induction sizes. Pairwise extrema passed 1,092 independent cases.
+
+Edge browser review measured every one of the 33 stored models and 363 checkpoints. There were zero text-overlap, padding or SVG-bound issues, and 282 directed-edge endpoints met actual node boundaries. Native fractions, sums and indices rendered with STIX Two Math; prose, headings and code used their separate approved fonts. There were no blank mathematical expressions, underlined links, mobile document overflow or runtime errors. All eight editable modes passed independently specified examples; invalid input preserved the previous valid model.
+
+The pause audit exposed a native Web Animations pending-pause frame drift. The shared raw player now explicitly holds its current animation time when pausing; the actual moving-record check froze and resumed correctly. This is a control fix; prior chapter HTML and model data were not rewritten. Step/back/restart/seek, reduced motion and printable checkpoints passed. The saved screenshots were visually inspected, including the completed group certificate, attached tournament tree, single-line equations and mobile boundary model.

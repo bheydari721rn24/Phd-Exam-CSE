@@ -1,0 +1,86 @@
+[
+  {
+    "id": "MS_CS_1405_Q116",
+    "title": "Worst-case search for an odd three-digit password",
+    "stem": "A combination lock has an unknown odd three-digit password whose digits are chosen from 1 through 9. Each trial takes two minutes. What is the maximum time required, in hours?",
+    "options": [
+      "12",
+      "12.5",
+      "13",
+      "13.5"
+    ],
+    "answer": 4,
+    "expected": "13.5",
+    "origin": "Authentic MSc Computer Science examination, 1405, question 116; checked English adaptation",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "physicalPage": 25,
+    "repositoryCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "difficulty": "Medium",
+    "check": {
+      "kind": "authentic-password"
+    },
+    "solution": "The first two digits each have nine choices. Oddness restricts only the final digit, which has five choices: 1, 3, 5, 7, 9. Repetition is permitted because distinctness is not stated. Thus there are $9\\cdot9\\cdot5=405$ candidate passwords. In the worst case the correct password is the last candidate tried, and the successful final trial also takes two minutes. The time is $405\\cdot2=810$ minutes, or $810/60=13.5$ hours, printed option 4. This is a finite worst-case search bridge problem, not a direct repeated-class pigeonhole question. The conclusion assumes a systematic search without repeated trials and no additional feedback eliminating candidates.",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "pdfPage": 25,
+    "questionNumber": 116,
+    "booklet": "MS_CS_1405",
+    "translationStatus": "Original full PDF page rendered and rechecked on 2026-10-06; printed options preserved",
+    "answerProvenance": "Independently derived; not an official key"
+  },
+  {
+    "id": "Phd_CE_1405_Q9",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 3,
+    "questionNumber": 9,
+    "topics": [
+      "a_divide",
+      "d_invariants",
+      "p_flow"
+    ],
+    "title": "Authentic revisit: descending recursive median sort",
+    "stem": "For distinct keys, SplitSort chooses the median $m$, recursively applies itself to $R=\\{x:x>m\\}$ and $L=\\{x:x<m\\}$, and returns `SplitSort(R), m, SplitSort(L)` concatenated in that order. What is the final output order?",
+    "options": [
+      "Descending up to the median, then ascending",
+      "Approximately random",
+      "Ascending",
+      "Descending"
+    ],
+    "answer": 4,
+    "solution": "Use strong induction on the number of keys. Empty and singleton arrays are already in descending order. Assume both smaller recursive outputs are descending. Every key in $R$ is greater than $m$, and every key in $L$ is smaller than $m$. Therefore concatenating the descending $R$ output, then $m$, then the descending $L$ output creates a fully descending array. The answer is printed option 4. The selected median affects balance, while the concatenation direction determines the output order. This algorithm sorts both children; it is not quickselect, which follows only the rank-containing child. Options 1 and 2 contradict the inductive block order, while option 3 would require reversing the concatenation direction.",
+    "pattern": "recursive correctness versus runtime",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "Original full PDF page rendered and rechecked on 2026-10-06; printed options preserved",
+    "answerProvenance": "Independently derived; not an official key"
+  },
+  {
+    "id": "MS_CE_1405_Q59",
+    "booklet": "MS_CE_1405",
+    "pdfPage": 13,
+    "questionNumber": 59,
+    "topics": [
+      "a_divide",
+      "a_recurrence"
+    ],
+    "title": "Authentic revisit: sample pivot guarantee for sorting",
+    "stem": "A quicksort variant sorts the first $2\\sqrt n+1$ elements by insertion sort and chooses their median as pivot, then proceeds as ordinary quicksort. Which recurrence describes the worst case, suppressing rounding and constant terms?",
+    "options": [
+      "$T(n)=2T(n-1)+n$",
+      "$T(n)=2T(\\sqrt n)+n$",
+      "$T(n)=2T(n-\\sqrt n)+n$",
+      "$T(n)=T(n-\\sqrt n)+T(\\sqrt n)+n$"
+    ],
+    "answer": 4,
+    "solution": "1. Sorting a sample of size $\\Theta(\\sqrt n)$ by insertion sort costs $\\Theta(n)$; partitioning also costs $\\Theta(n)$.\n2. The sample median has at least $\\sqrt n$ sample elements on each side. Thus neither partition can leave fewer than approximately $\\sqrt n$ elements on its smaller side, but the rest of the array can all lie on the larger side.\n3. The worst split is therefore approximately $\\sqrt n$ versus $n-\\sqrt n$, giving option 4.\n4. Options 1 and 3 duplicate a large branch and count more elements than the partition contains. Option 2 incorrectly treats the small sample as the whole input.\n\n**Transfer rule.** Derive partition guarantees from the sample, and check that child sizes add to the parent size up to the pivot.\n\n**Selection contrast.** This original question asks about quicksort, so both strict children are sorted. A single-rank selector would follow only one child and would need a separate recurrence. A sample median is not the global median and is not the median-of-medians construction.",
+    "pattern": "sample rank guarantee and conservation",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "Original full PDF page rendered and rechecked on 2026-10-06; printed options preserved",
+    "answerProvenance": "Independently derived; not an official key"
+  }
+]

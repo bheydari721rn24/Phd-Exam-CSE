@@ -331,3 +331,12 @@ All 45 a_sort models now expose decisions, reasons and named regions. Array slot
 The student approved Site version 72 and authorized the same decision-led teaching clarity across every existing chapter. The current work covers all 37 chapter pages, their concept walkthroughs and relevant worked-solution aids; no new chapter has been started. Preserve all 2257 complete question bodies and the existing proofs, lessons and review notes.
 
 The library revision includes 730 stored models and 4002 exact checkpoints, in addition to the already approved sorting system's 45 models and 1194 checkpoints. These totals include reused question aids and must not be described as counts of unique algorithms. The full-library browser and retained-content evidence is recorded in research/library-animation-redesign; the study-facing report is dist/animation-review.html. Publication is recorded only after the pushed source and successful deployment are verified. The revised library awaits student review before a subsequent chapter.
+
+
+## Active chapter: Searching, Selection, and Order Statistics — 6 October 2026
+
+The student explicitly approved the version-73 animation redesign and requested the next scheduled missing chapter a_select. Preserve the 37 existing chapter pages and all 2257 complete question bodies. Work only on this English chapter: genuinely compare written university courses, teach prerequisites through advanced boundary cases, provide a large mathematical/conceptual solved bank and complete final rules, and build exact decision-led, subject-specific models and editable laboratories. Deliver the complete review draft, then wait for explicit approval. Do not ask the student test questions before first reading.
+
+## Searching and selection review draft — 2026-10-06
+
+Only `a_select` is delivered: five genuinely reviewed university courses with bounded reading scopes, 89 complete solved problems, 80 examination rules, 33 concept-specific models / 363 checkpoints and eight editable modes. Mathematical, literal-code, browser geometry, arrow-port, control, font, mobile and retention checks passed. All 37 preceding chapter HTML files and 2257 complete problem bodies are unchanged. A shared raw-animation control fix holds time exactly while pausing. The gate awaits explicit user approval; no next chapter has started. Source/GitHub push and private publication are recorded separately after verification.

@@ -1,0 +1,90 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Selection chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"><link rel="stylesheet" href="../chapters/a_select.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/a_select.html">Searching and selection chapter</a></p><article class="lesson"><h1>Searching, Selection, and Order Statistics — source audit</h1>
+<h2>Scope and selection method</h2>
+<p>This is a chapter-specific comparison of an identified, accessible pool, not a claim to have inspected every course offered worldwide. Eight universities were screened. Five university courses supply the reviewed instructional core; Princeton's introductory written chapter and a historical CMU assignment supply additional searching and exercise material. Relevance, explicit correctness arguments, cost-model precision, duplicate handling, and usable written material determine selection. An acquisition is not a reading claim.</p>
+<table>
+<thead>
+<tr>
+<th>University and course</th>
+<th>Material actually reviewed</th>
+<th>Strength for this chapter</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIT, 6.046J Spring 2015; Erik Demaine, Srini Devadas, Nancy Lynch</td>
+<td>Lecture 2, PDF pp. 4–5; selection pseudocode, exclusion diagram, recurrence and finite-threshold induction; page 5 visually checked</td>
+<td>Explicit additive constants and base threshold repair the idealized deterministic proof</td>
+<td>Primary deterministic selection source</td>
+</tr>
+<tr>
+<td>Stanford, CS161 Winter 2023; Moses Charikar and Nima Anari</td>
+<td>Lecture 4 selection and recurrence notes, PDF pp. 1–9; one-page Selection concept checks, visually checked</td>
+<td>Rank conversion, correctness, substitution, groups of seven and three</td>
+<td>Primary proof and course-problem source</td>
+</tr>
+<tr>
+<td>Carnegie Mellon, 15-451 Fall 2024</td>
+<td>Lecture 1, PDF pp. 1–14, especially pp. 7–14; models, randomized selection, expectation warning, deterministic proof, four exercises</td>
+<td>Clear separation of average-input and randomized worst-input expectation</td>
+<td>Primary probability and comparison-model source; instructor not asserted without verified attribution</td>
+</tr>
+<tr>
+<td>Princeton, COS226 Spring 2025; slides by Robert Sedgewick and Kevin Wayne</td>
+<td>Quicksort slides, PDF pp. 28–31 and 34–39</td>
+<td>Executable one-branch selection, rank-index conventions, and duplicate-key partition mechanics</td>
+<td>Primary implementation source</td>
+</tr>
+<tr>
+<td>UC Berkeley, CS170 assigned Algorithms text by Sanjoy Dasgupta, Christos Papadimitriou and Umesh Vazirani</td>
+<td>Chapter 2, §2.4, printed pp. 64–<span class="math-inline">66 / PD</span>F pp. 10–12; adjacent sorting lower-bound page screened</td>
+<td>Three-way selection and a phase interpretation of expected linear work</td>
+<td>Complementary fifth course source</td>
+</tr>
+<tr>
+<td>Princeton, Introduction to Programming; Robert Sedgewick and Kevin Wayne</td>
+<td>§4.2 written searching exposition, searching <span class="math-inline">Q</span>&amp;<span class="math-inline">A</span> and relevant exercises: duplicate count, rotated/bitonic search, two-array median, range queries, threshold doubling</td>
+<td>Binary-search contracts and broader searching patterns</td>
+<td>Supplement; same university counted once</td>
+</tr>
+<tr>
+<td>Carnegie Mellon, 15-451 Fall 2005</td>
+<td>Homework 2, PDF <span class="math-inline">p</span>. 1, problem 1; other problems screened out</td>
+<td>Median of two sorted arrays and comparison lower-bound prompt</td>
+<td>Supplement; same university counted once</td>
+</tr>
+<tr>
+<td>Cornell, CS4820 Spring 2024</td>
+<td>February 28 median-note availability and format screened; handwritten PDF acquired; March 1 guessed URL unavailable</td>
+<td>Potential randomized-analysis alternative</td>
+<td>Not used to support substantive claims; no full-reading claim</td>
+</tr>
+<tr>
+<td>Oxford, B16 2024–25 v2.1; Andrea Vedaldi</td>
+<td>Contents screened</td>
+<td>Broad data-structure treatment, but less direct selection coverage</td>
+<td>Not selected as a core selection course</td>
+</tr>
+<tr>
+<td>UC Irvine, ICS161; David Eppstein</td>
+<td>Identified historical selection URL returned 404</td>
+<td>Potential selection alternative</td>
+<td>Unavailable at recorded endpoint; not counted</td>
+</tr>
+</tbody>
+</table>
+<h2>Synthesis and corrections</h2>
+<ol>
+<li>CMU uses zero-based selection indices; this chapter uses one-based ranks and explicitly converts to array index. MIT and Stanford descriptions that isolate a single pivot require distinctness, while Berkeley's equal block supports duplicates. The chapter adopts a three-way contract throughout.</li>
+<li>A course's sample median is not the global median. Stanford's abbreviated median-of-medians pseudocode leaves fractional ranks implicit; our executable rank is <code>(len(M)+1)//2</code>.</li>
+<li>CMU's idealized good-pivot proof suppresses rounding. Our finite phase proof uses a conservative <span class="math-inline">7/8</span> shrink factor for all sizes at least eight and a separately bounded base range. No substitution of <code>T(E[X])</code> for <code>E[T(X)]</code> is used.</li>
+<li>MIT's finite induction includes the ceiling contribution: the sum of child bounds is at most <code>0.9n+7</code>. The chapter retains a fixed base range through 140 and chooses a sufficient coefficient for the linear induction.</li>
+<li>Stanford's groups-of-three concept check concerns the displayed recurrence. Its solution does not establish a matching lower bound for every execution of an implementation. The chapter preserves this distinction.</li>
+<li>Princeton's asymptotic expected comparison constant is implementation-dependent. It is not assigned to our three-way classifier. The decision-led models record their own stated operations and counters.</li>
+<li>Princeton's searching exercise page contains historical illustrative code and a reversed two-sum hint. We give an independent invariant-based solution and guard empty/out-of-range boundary indices. We do not reproduce its code as authoritative executable code.</li>
+<li>Worked questions are original or independently reconstructed tasks with exact attribution; entire copyrighted course problem sets are not copied. Three checked Iranian items are labelled authentic revisits or searching bridges, not misrepresented as direct quickselect examination questions.</li>
+</ol>
+<h2>Traceability</h2>
+<p>Raw public source files were obtained into an external temporary reading cache. <code>a_select-evidence/acquisition.json</code> records URLs, page counts, paths and SHA-256 hashes. Reading scope is the table above; acquisition status alone does not imply review. The lesson references contain the direct primary URLs. Mathematical properties are independently derived in the lesson and audited with finite checks where appropriate.</p>
+<p>The three Iranian original PDF pages were rendered and inspected on 2026-10-06. Archive commit: <code>bdadf6e2c9cadc4772ae137a96a3da753c7cfd08</code>. All answer options retain the printed ordering. Solutions are independently derived and are not official answer keys. The archive sample is not represented as an exhaustive analysis of every historical examination.</p>
+</article></main><script src="../chapters/math-layout.js"></script></body></html>
