@@ -1,0 +1,139 @@
+{
+  "candidatePoolUniversities": 7,
+  "selectedUniversities": [
+    "UC Berkeley",
+    "MIT",
+    "Stanford",
+    "Carnegie Mellon",
+    "Harvard"
+  ],
+  "selection": "Four complementary core courses, plus Harvard to strengthen ECDF and Q\u2013Q teaching; not a globally exhaustive ranking.",
+  "records": [
+    {
+      "id": "berkeley-location",
+      "university": "UC Berkeley",
+      "course": "SticiGui, Philip B. Stark, Chapter 4",
+      "url": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/location.htm",
+      "pages": null,
+      "sha256": "60bdbbd7f4dd01af36af785b614dea8da9af513421a47ab75109ca2251ecdef8",
+      "status": "reviewed_bounded_scope",
+      "reviewScope": "Location and loss, spread, affine transformations, Markov and Chebyshev sections. Lower nearest-rank median and decreasing-scale convention examined."
+    },
+    {
+      "id": "berkeley-correlation",
+      "university": "UC Berkeley",
+      "course": "SticiGui, Philip B. Stark, Chapter 8",
+      "url": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/computeR.htm",
+      "pages": null,
+      "sha256": "3e331066777b679e4bcaf5cd3637bbac6101495d7f1f51052a7cda510a0b759b",
+      "status": "reviewed_bounded_scope",
+      "reviewScope": "Full textual chapter: paired standard-score products, sign invariance and ecological correlation caveats."
+    },
+    {
+      "id": "mit",
+      "university": "MIT",
+      "course": "15.075J Fall 2011, Cynthia Rudin et al.; Chapter 4",
+      "url": "https://ocw.mit.edu/courses/15-075j-statistical-thinking-and-data-analysis-fall-2011/e8d615e72bb6d384e34fc2a10a8f03cb_MIT15_075JF11_chpt04.pdf",
+      "pages": 8,
+      "sha256": "f1acb3e74efaab2d15b8b91ee0096969aae99a9e1c12a542d48c407274a9dea9",
+      "status": "reviewed_bounded_scope",
+      "reviewScope": "PDF pages 1\u20137: numerical summaries, n\u22121 variance, contingency tables, correlation, moving averages and EWMA; page 2 visually checked."
+    },
+    {
+      "id": "stanford-center",
+      "university": "Stanford",
+      "course": "STATS60 Spring 2026, Michael Howes and Tselil Schramm; Lecture 5",
+      "url": "https://web.stanford.edu/class/stats60/lectures/05-lecture-mean.html",
+      "pages": null,
+      "sha256": "ce733925b04b0fb02baa5f1f89350eb4f85a88e26202dac0e24bfc96bd034acc",
+      "status": "reviewed_bounded_scope",
+      "reviewScope": "Lecture 5 relevant full teaching body: center, balance, observational units and multimodality."
+    },
+    {
+      "id": "stanford-spread",
+      "university": "Stanford",
+      "course": "STATS60 Spring 2026; Lecture 7",
+      "url": "https://web.stanford.edu/class/stats60/lectures/07-lecture-variability.html",
+      "pages": null,
+      "sha256": "5f58780161c109a39a64c427685bede616d3306c16c301e7fa5b002eb6ea0635",
+      "status": "reviewed_bounded_scope",
+      "reviewScope": "Lecture 7 relevant full teaching body: descriptive denominator n, SD, Chebyshev and quantiles."
+    },
+    {
+      "id": "stanford-robust",
+      "university": "Stanford",
+      "course": "STATS60 Spring 2026; Lecture 8",
+      "url": "https://web.stanford.edu/class/stats60/lectures/08-lecture-robustness.html",
+      "pages": null,
+      "sha256": "1887baf420783388a9106e8733c3e5381213b0be118f4c269eab0f9639acfe18",
+      "status": "reviewed_bounded_scope",
+      "reviewScope": "Lecture 8 relevant full teaching body: mean sensitivity, outliers, robust summaries and misleading summaries."
+    },
+    {
+      "id": "stanford-visual",
+      "university": "Stanford",
+      "course": "STATS60 Spring 2026; Lecture 6",
+      "url": "https://web.stanford.edu/class/stats60/lectures/06-lecture-data-viz.html",
+      "status": "unavailable_not_reviewed",
+      "error": "404 Client Error: Not Found for url: https://web.stanford.edu/class/stats60/lectures/06-lecture-data-viz.html"
+    },
+    {
+      "id": "cmu",
+      "university": "Carnegie Mellon",
+      "course": "36-309, Howard Seltman, Experimental Design and Analysis Chapter 4",
+      "url": "https://www.stat.cmu.edu/~hseltman/309/Book/chapter4.pdf",
+      "pages": 40,
+      "sha256": "0fd87b20eb0080bfb09456615c493200b8962eff14e4ea4af356c15732f950c2",
+      "status": "reviewed_bounded_scope",
+      "reviewScope": "PDF pages 1\u201324, especially location, variance, shape, histograms, boxplots and Q\u2013Q; page 21 visually checked."
+    },
+    {
+      "id": "oxford",
+      "university": "Oxford",
+      "course": "IAUL and Department of Statistics, Descriptive Statistics for Research, Hilary 2002, Lecture 1; named individual author not confirmed",
+      "url": "https://www.stats.ox.ac.uk/pub/bdr/IAUL/Course1Notes1.pdf",
+      "pages": 33,
+      "sha256": "c8f025058132feb086fdda00891655c72b77ac1fa0b7653cd234da28489a3d19",
+      "status": "reviewed_bounded_scope",
+      "reviewScope": "PDF pages 11\u201322 critically examined; page 17 visually checked for CV and moment-normalization defects."
+    },
+    {
+      "id": "berkeley-hist",
+      "university": "UC Berkeley",
+      "course": "SticiGui, Philip B. Stark, Chapter 3",
+      "url": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/histograms.htm",
+      "pages": null,
+      "sha256": "a810d4b850febf734e8be5b721a7804641831980e2ce9f226df940996e08d13f",
+      "status": "reviewed_bounded_scope",
+      "reviewScope": "Frequency-table through percentile sections: unequal-width density area, modality, binning and percentile interpretation."
+    },
+    {
+      "id": "berkeley-toc",
+      "university": "UC Berkeley",
+      "course": "SticiGui, Philip B. Stark, table of contents",
+      "url": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/toc.htm",
+      "pages": null,
+      "sha256": "45d42688b344e5476cb537e3629b7a50536e26a614e0a9c2085f88f8480f6c4a",
+      "status": "index_screened_only"
+    },
+    {
+      "id": "harvard",
+      "university": "Harvard",
+      "course": "Introduction to Data Science, Rafael Irizarry, Chapter 12",
+      "url": "https://rafalab.dfci.harvard.edu/dsbook/summary-statistics.html",
+      "pages": null,
+      "sha256": "3340f6887e18a6deecbe94b7aea92e8796266395b79aa8a67f43c81ebcd40aa1",
+      "status": "reviewed_bounded_scope",
+      "reviewScope": "Sections 12.1\u201312.8 and 12.9.1\u201312.9.2: ECDF, distributions, quantile plots, stratification and outlier sensitivity."
+    },
+    {
+      "id": "eth",
+      "university": "ETH Zurich",
+      "course": "Fundamentals of Mathematical Statistics AS2022 course index; screening only",
+      "url": "https://stat.ethz.ch/lectures/as22/mathstat.php",
+      "pages": null,
+      "sha256": "153525869577ffc8af7eac4adb927ccf9e9af6270690f9da098860be2b52b2f5",
+      "status": "index_screened_only"
+    }
+  ]
+}

@@ -340,3 +340,13 @@ The student explicitly approved the version-73 animation redesign and requested 
 ## Searching and selection review draft — 2026-10-06
 
 Only `a_select` is delivered: five genuinely reviewed university courses with bounded reading scopes, 89 complete solved problems, 80 examination rules, 33 concept-specific models / 363 checkpoints and eight editable modes. Mathematical, literal-code, browser geometry, arrow-port, control, font, mobile and retention checks passed. All 37 preceding chapter HTML files and 2257 complete problem bodies are unchanged. A shared raw-animation control fix holds time exactly while pausing. The gate awaits explicit user approval; no next chapter has started. Source/GitHub push and private publication are recorded separately after verification.
+
+
+## Active chapter: Descriptive Statistics, 6 October 2026
+
+Explicit approval of a_select version 74 authorizes only s_descriptive. Preserve all 38 preceding chapter pages and 2346 complete question bodies. Deep English instruction, genuinely reviewed written courses, mathematical/conceptual problems, complete review rules and concept-specific animated visual instruction remain required. Deliver the complete draft and await explicit approval.
+
+
+## Descriptive statistics review draft — 6 October 2026
+
+Only s_descriptive is delivered: 22 deep English lesson sections, five reviewed written university courses with bounded scopes, 82 complete solved problems (80 original/course-inspired and two original-PDF-checked authentic questions), 80 complete final rules, 28 concept-specific models / 198 checkpoints and 14 editable modes. Rational, finite mathematical, actual JavaScript and real-browser checks passed. All 38 preceding chapter pages and 2346 complete problems are retained unchanged. The gate awaits explicit student approval; no next chapter is begun. Source push, GitHub mirror and private publication are tracked separately after verification.

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "s-descriptive-phd-cs-1405-q58",
+    "title": "Discrete variance and the squared-value term",
+    "booklet": "PhD CS 1405",
+    "questionNumber": 58,
+    "pdfPage": 15,
+    "repoPath": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+    "stem": "Let $X$ take values $x_1,\\ldots,x_k$ with $P(X=x_i)=P_i$, and let $\\mu=E[X]$. Which expression is its variance? This authentic population-moment question is a bridge from mass-weighted descriptive variance, not a Bessel-corrected sample-variance question.",
+    "options": [
+      "$\\sum_{i=1}^k x_iP_i-\\mu^2$",
+      "$\\sum_{i=1}^k x_iP_i^2-\\mu$",
+      "$\\sum_{i=1}^k x_i^2P_i-\\mu^2$",
+      "$\\sum_{i=1}^k x_iP_i-\\mu$"
+    ],
+    "answer": 3,
+    "solution": "The probability weights satisfy $P_i\\ge0$ and $\\sum_iP_i=1$. First calculate $\\mu=\\sum_i x_iP_i$. Then expand the squared deviation:\n\n$$Var(X)=\\sum_iP_i(x_i-\\mu)^2=\\sum_iP_ix_i^2-2\\mu\\sum_iP_ix_i+\\mu^2\\sum_iP_i=\\sum_iP_ix_i^2-\\mu^2.$$\n\nTherefore option 3 is correct. The first and fourth alternatives replace the second moment by a first moment; the fourth is identically zero because its first term is the mean. The second squares the probabilities instead of the observed values and also subtracts a first-power mean. The units must be squared measurement units. There is no $n-1$ correction here: the supplied probabilities define the complete law, and the expression is a population variance. For the special case $P_i=f_i/n$, the same identity describes the empirical distribution's variance.",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "pdfSha256": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+    "answerStatus": "independently_derived_not_official",
+    "verification": "Original PDF page visually checked; printed option order preserved."
+  },
+  {
+    "id": "s-descriptive-ms-ce-1405-q36",
+    "title": "Normal search-cost standardization",
+    "booklet": "MS CE 1405",
+    "questionNumber": 36,
+    "pdfPage": 8,
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "stem": "An algorithm searches among $n$ entries. Its average number of steps is $\\log_2 n$. For $n=1024$, suppose the number of steps follows the stated normal model with variance 4. What is the probability that the number of steps is at most 12? Here $\\Phi$ is the standard normal CDF.",
+    "options": [
+      "$\\Phi(1)$",
+      "$\\Phi(-1)$",
+      "$2\\Phi(1)-1$",
+      "$1-2\\Phi(-1)$"
+    ],
+    "answer": 1,
+    "solution": "First distinguish variance from SD. The mean is $\\log_2(1024)=10$, the variance is 4, and the SD is $\\sqrt4=2$. Under the explicitly supplied normal model, standardize the threshold:\n\n$$P(X\\le12)=P\\left(\\frac{X-10}{2}\\le\\frac{12-10}{2}\\right)=\\Phi(1).$$\n\nThus option 1 is correct. Option 2 reverses the threshold sign. Options 3 and 4 are equal by $\\Phi(-1)=1-\\Phi(1)$, but both describe a two-sided one-SD interval, not the requested one-sided event. Dividing by variance 4 rather than SD 2 gives the wrong standardized threshold. The result uses the question's normal assumption; a mean and variance alone would not determine this probability. Step counts are discrete in reality, while this question supplies a continuous normal model. No unstated continuity correction is inserted into that model.",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "pdfSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "answerStatus": "independently_derived_not_official",
+    "verification": "Original PDF page visually checked; printed option order preserved."
+  }
+]

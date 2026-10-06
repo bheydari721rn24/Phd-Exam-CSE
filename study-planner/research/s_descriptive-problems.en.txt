@@ -1,0 +1,399 @@
+@@ 1|Numerical labels and a false mean|Original measurement-contract problem
+A database stores department labels as 1, 2, and 3 with counts 20, 30, and 50. It reports a mean of 2.3. Recode the labels as 10, 100, and 1000. Which descriptive facts survive, and why does the mean not describe a numerical departmental characteristic?
+---SOLUTION---
+The original arithmetic computation is $(20+60+150)/100=2.3$. After recoding it is $(200+3000+50000)/100=532$. Nothing about the departments changed. The category frequencies 0.2, 0.3, 0.5, the modal department, and any category-based contingency table survive. A nominal label has no meaningful distance, so the mean depends on arbitrary coding. The calculation is syntactically valid but has no invariant departmental interpretation. Sorting the codes would also impose an arbitrary order unless the variable is genuinely ordinal.
+
+@@ 2|Unequal widths, equal counts|Berkeley Chapter 3 concept; original data|hist-equal
+Bins $[0,1)$, $[1,3]$ contain four observations each. Find density heights, the height ratio, and the estimated proportion in $[1,2]$ under uniform within-bin interpolation. Can the exact proportion be recovered?
+---SOLUTION---
+The sample size is 8. The heights are $4/(8\cdot1)=1/2$ and $4/(8\cdot2)=1/4$, so the first is twice as tall although both masses are one half. The model fraction in $[1,2]$ is width 1 times height $1/4$, hence one quarter. Exact data in the second bin could all be above 2 or below 2; the actual requested proportion can differ. Density height is not probability, and interpolation is an explicit model. Multiplying height by the entire bin width recovers mass.
+
+@@ 3|Construct the endpoint-sensitive histogram|Original exact counting problem|hist-edges
+For $0,1,1,2,3,4$, use edges $0,1,2,4$ and the chapter's left-closed endpoint convention. Find bin counts and density heights. Explain where values 1, 2, and 4 enter.
+---SOLUTION---
+The bins are $[0,1)$, $[1,2)$, and $[2,4]$. Their records are respectively $(0)$, $(1,1)$, and $(2,3,4)$, so counts are 1, 2, 3. Heights are $1/6$, $1/3$, and $3/(6\cdot2)=1/4$. Areas sum to $1/6+1/3+1/2=1$. Values 1 enter the second bin, 2 the third, and the final endpoint 4 is explicitly retained. Closing both ends of every bin would double-count boundary records.
+
+@@ 4|Recover a histogram's missing height|Original normalization problem
+A density histogram has widths 2, 3, and 5, with heights 0.1, $h$, and 0.04. Find $h$, the second-bin mass, and its count if $n=60$. What condition is needed for exact counts?
+---SOLUTION---
+Total area is one: $2(0.1)+3h+5(0.04)=1$, giving $3h=0.6$ and $h=0.2$. The second mass is 0.6 and its count is 36. The other counts are 12 and 12. All products $nh_jw_j$ must be nonnegative integers for these bars to describe an exact unweighted finite list. Merely having area one is enough for a density model but not necessarily for integer record counts. A sum of heights equal to one would be the wrong normalization.
+
+@@ 5|ECDF jumps with ties|Harvard empirical-distribution concept; original data|ecdf-ties
+For $1,2,2,5$, compute $F_n(2)$, $F_n(2^-)$, and fractions in $(2,5]$, $[2,5]$, and $[2,5)$.
+---SOLUTION---
+Three of four records are at or below 2, while only one is below 2. Thus the two CDF values are $3/4$ and $1/4$. Subtracting endpoint values gives $(2,5]$ mass $1-3/4=1/4$. Including both ends gives $1-1/4=3/4$. For $[2,5)$ subtract the left limit at 2 from the left limit at 5: $3/4-1/4=1/2$. These are different events because repeated observations at endpoints have positive empirical mass.
+
+@@ 6|Recovering records from an ECDF|Original information-sufficiency problem
+An ECDF jumps by 0.2 at 1, by 0.3 at 4, and by 0.5 at 9. Determine all possible positive sample sizes and multiplicities, and explain why chronological order is unrecoverable.
+---SOLUTION---
+With exact stated decimals, multiplicities are $n/5$, $3n/10$, and $n/2$. They are integers simultaneously exactly when $n$ is a positive multiple of 10. For $n=10k$, counts are $2k,3k,5k$. The ECDF determines proportions but does not choose $k$. Any permutation of that multiset gives the same ECDF, so order is unavailable. If $n=20$ is separately given, counts become 4, 6, 10 and the multiset is recoverable. This argument would need uncertainty bounds if the decimals had been rounded.
+
+@@ 7|Same bins, incompatible means|Original grouped-data counterexample
+Two records lie in $[0,10)$ and two in $[10,20]$. Construct two compatible raw lists with different means, and give the midpoint estimate and exact mean bounds.
+---SOLUTION---
+Lists $(0,0,10,10)$ and $(9,9,20,20)$ both fit the counts. Their means are 5 and 14.5. Midpoints 5 and 15 yield estimate $(2\cdot5+2\cdot15)/4=10$. Lower-edge weighting gives lower bound 5 and upper-edge weighting gives upper bound 15. The latter is a supremum under the half-open first bin, rather than necessarily attainable. Counts alone therefore do not specify the exact mean; the midpoint answer describes the replaced list.
+
+@@ 8|Binning can erase two clusters|Stanford multimodality concept; original data
+For $0,0,1,1,9,9,10,10$, compare one bin $[0,10]$ with bins $[0,2)$, $[2,8)$, $[8,10]$. Compute the mean and explain what each histogram preserves or hides.
+---SOLUTION---
+The total is 40, so mean is 5, even though no value is near 5. One bin reports count 8 and hides the central gap. The three bins report 4, 0, 4, revealing two separated groups. Their density heights are $1/4,0,1/4$, since the end widths are 2. The mean is unchanged by the plotting choice; the plot's apparent modality is not. Neither a mean at 5 nor a broad single bin proves a central concentration.
+
+@@ 9|A quadratic-loss identity without differentiation|Berkeley location/loss concept; original proof
+Given $n=5$, mean 4, and $M_2=30$, find the squared loss around centers 1 and 7. Prove that no other center improves on 4.
+---SOLUTION---
+For any center $c$, expand $x_i-c=(x_i-4)+(4-c)$. The cross sum vanishes because the five centered deviations sum to zero. Thus loss is $30+5(c-4)^2$. At 1 and 7 it is $30+45=75$. The added term is nonnegative and vanishes only at $c=4$, proving a unique minimum of 30 without reconstructing the values or taking a derivative. Knowing only the range would not suffice for these exact losses.
+
+@@ 10|Group means and the correct unit|Original weighting problem
+Class A has 12 students with mean 70 and class B has 28 with mean 80. Find the individual-student mean. When would 75 be a valid mean?
+---SOLUTION---
+Total score is $12\cdot70+28\cdot80=3080$ and total students 40, so mean is 77. The value 75 averages the two class means with equal class weights. It is valid if the observational units are the two classes and the variable is class mean, or if each class is deliberately given equal importance. It is not the individual mean in this data set. The target unit determines weighting; there is no single universally correct aggregation without that contract.
+
+@@ 11|Two unknown group sizes|Original inverse-weighting problem
+Group means are 8 and 14; the combined mean is 12 and total size 30. Find group sizes. Is every real-valued combined mean between 8 and 14 attainable at fixed total size?
+---SOLUTION---
+Let the first size be $a$. Then $8a+14(30-a)=12\cdot30$, so $6a=60$ and sizes are 10 and 20. At fixed total 30, the possible combined means are $14-a/5$ for integer $a$ in the allowed size range. They form a discrete grid, not every real number in the interval. With both groups nonempty, the endpoints themselves are excluded. Treating group weights as arbitrary real probabilities would erase the integer-record constraint.
+
+@@ 12|One correction, two changed summaries|Original correction identity
+Ten observations have mean 20 and $M_2=90$. One recorded value 17 should be 27. Find the corrected mean, $M_2$, and corrected sample variance.
+---SOLUTION---
+The change is $d=10$, so mean increases by $d/n=1$ to 21. Using the original value and original mean, $M_2'=90+2(10)(17-20)+100(1-1/10)=90-60+90=120$. Corrected sample variance is $120/9=40/3$. Using the new mean in the cross term of the correction identity would double-count part of the center shift. A corrected record changes every centered residual even though only one raw value changes.
+
+@@ 13|A weighted center and its loss|Original weighted-loss problem
+Values $0,4,10$ have weights $1,2,1$. Find the weighted mean, descriptive variance, and total weighted squared loss around 5 and around 6.
+---SOLUTION---
+The weighted total is 18 and weight total 4, so center is $9/2$. The raw weighted squared sum is $0+2\cdot16+100=132$, giving $M_{2,w}=132-18^2/4=51$ and variance $51/4$. Around 5, loss is $51+4(1/2)^2=52$. Around 6, it is $51+4(3/2)^2=60$. These weights describe mass; an unbiased-estimation denominator needs the separate interpretation of frequency versus reliability weights.
+
+@@ 14|Equal-distance and equal-time rates|Original harmonic-mean examination problem
+A vehicle travels equal distances at speeds 30 and 60. Find its overall speed, and compare with travelling equal times at those speeds.
+---SOLUTION---
+For distance $d$ on each leg, total distance is $2d$ and total time $d/30+d/60=d/20$, giving overall speed 40. This is the harmonic mean $2/(1/30+1/60)$. For equal times $t$, distance is $30t+60t=90t$ and time $2t$, giving 45, the arithmetic mean. Rates cannot be averaged until their exposure weights are known. Both answers have the correct units; units alone do not select the exposure contract.
+
+@@ 15|Compounded changes and a geometric mean|Original multiplicative-summary problem
+A quantity grows by 25% and then falls by 20%. Find net change and the constant per-period rate with the same two-period effect. Explain why averaging percentages fails.
+---SOLUTION---
+Multipliers are 1.25 and 0.8, whose product is one, so net change is zero. The equal multiplier per period is $\sqrt{1.25\cdot0.8}=1$, giving constant rate zero. Arithmetic averaging gives $(25-20)/2=2.5\%$ but does not preserve the multiplicative total. A geometric mean applies to positive multipliers, not blindly to signed percentage changes. A negative or zero multiplier would require examining whether the underlying model remains meaningful.
+
+@@ 16|Median minimizers form an interval|Original absolute-loss proof|loss-gap
+For $1,3,8,10$, find every center minimizing total absolute loss and compute that loss. Is the midpoint median the only minimizer?
+---SOLUTION---
+Pair 1 with 10 and 3 with 8. For each pair, the absolute-loss sum is at least the endpoint difference, giving lower bound $9+5=14$. Equality holds whenever the center belongs to both intervals $[1,10]$ and $[3,8]$, namely $[3,8]$. Thus every center in this interval minimizes the loss at 14. The conventional midpoint median 5.5 is one selected minimizer. Outside the intersection at least one pair's loss is larger, proving completeness of the minimizer set.
+
+@@ 17|Weighted median versus weighted mean|Original mass-sensitive problem
+Values 0, 10, and 20 have weights 6, 2, and 2. Find a lower weighted median and the weighted mean, and verify the absolute-loss condition.
+---SOLUTION---
+Total mass is 10. At 0 the cumulative mass is 6, already at least half, so the lower weighted median is 0. Its strict-left mass is zero and strict-right mass is 4, both at most 5. Weighted mean is $(0+20+40)/10=6$. Weighted absolute loss at 0 is 60; at 6 it is $6\cdot6+2\cdot4+2\cdot14=72$. The mean minimizes squared loss, not absolute loss. Sorting only values and ignoring weight would incorrectly choose 10 as the median.
+
+@@ 18|Four records, three quantile conventions|Original convention-comparison problem|quant-four
+For $1,5,8,15$, calculate quartiles by nearest rank, type 7, and median of the two equal halves. State the resulting IQRs.
+---SOLUTION---
+Nearest ranks are $\lceil4/4\rceil=1$, $\lceil4/2\rceil=2$, $\lceil3\cdot4/4\rceil=3$, giving 1, 5, 8 and IQR 7. Type-7 positions are 1.75, 2.5, 3.25, giving 4, 6.5, 9.75 and IQR 5.75. Median-of-halves uses medians of $(1,5)$ and $(8,15)$, giving 3 and 11.5, with middle median 6.5 and IQR 8.5. All three are conventionally possible; an examination must specify or imply one. Switching conventions inside one answer is invalid.
+
+@@ 19|A nearest-rank quantile at a jump|Original endpoint problem
+Data are $1,1,1,2,5,5,8,9$. Find nearest-rank quantiles at $p=0.375$, $0.376$, and $0.75$. Explain why a small probability change can cause a large value jump.
+---SOLUTION---
+Positions are $\lceil8(0.375)\rceil=3$, $\lceil8(0.376)\rceil=4$, and $\lceil8(0.75)\rceil=6$. Values are 1, 2, and 5. The ECDF stays at $3/8$ throughout the interval from 1 to just below 2; asking for a level slightly larger than $3/8$ forces the inverse to the next jump at 2. Quantiles are generalized inverses of step functions, so they need not vary continuously. A nearest-rank quantile is an observed value, unlike a linearly interpolated one.
+
+@@ 20|Decreasing transformations and nearest-rank traps|Original rank-reversal counterexample
+For $x=(1,5,8,15)$ and $y=-x$, compare the nearest-rank medians with the midpoint medians. Does $med(y)=-med(x)$ hold in both conventions?
+---SOLUTION---
+Sorted $y$ is $-15,-8,-5,-1$. Nearest-rank 50th percentile selects the second record: 5 for $x$ and $-8$ for $y$. Therefore $-8\ne-5$. Midpoint medians are 6.5 and $-6.5$, so the affine identity holds for that convention. Negative scaling reverses ranks; lower-middle becomes upper-middle in the original ordering. The error is using a convention-independent reversal formula, not failing to sort the transformed list.
+
+@@ 21|Zero IQR with a genuine tail|Original robustness counterexample
+For $0,0,0,0,0,0,0,100$, calculate type-7 IQR, midpoint median, MAD, mean, and descriptive variance. What does zero IQR fail to prove?
+---SOLUTION---
+Type-7 quartile positions 2.75 and 6.25 both interpolate zero, so IQR is zero. Median and all but one absolute deviation are zero, making MAD zero. Mean is $100/8=12.5$. Raw squared average is 1250, so $v=1250-156.25=1093.75$. Thus zero central spread does not imply a constant list or zero variance. It means only that the selected central order-statistic region is tied. A rule treating IQR zero as no outliers would miss the value 100.
+
+@@ 22|Identical modes after weighting?|Original multimodal-data problem
+Raw data are $0,0,2,2,9$. Determine the mode set, mismatch-loss minimum, midpoint median, and mean. Why does one “best center” not answer all losses?
+---SOLUTION---
+The modes are 0 and 2, each occurring twice. Choosing either leaves three mismatches, the minimum possible. Median is 2 and mean is $13/5$. Absolute loss selects the middle observation 2, while squared loss uniquely selects $13/5$. The loss specifies what best means: frequency, absolute distance, or squared distance. A mode can be nonunique while the mean is unique, and a mean can be absent from the observed values.
+
+@@ 23|Recover mean and variance from raw totals|Original exact-summary problem|variance-basic
+A list has $n=6$, $\sum x_i=18$, and $\sum x_i^2=70$. Find mean, $M_2$, descriptive variance, corrected variance, and RMS.
+---SOLUTION---
+Mean is 3. Centered sum is $70-18^2/6=16$. Therefore $v=8/3$, $s^2=16/5$, and $RMS=\sqrt{70/6}=\sqrt{35/3}$. The identity $RMS^2=v+\bar x^2=8/3+9=35/3$ provides an independent check. Nonnegative centered sum is necessary for compatible totals. The raw squared average is not the variance unless mean is zero.
+
+@@ 24|Impossible supplied totals|Original feasibility problem
+Can four real observations have sum 20 and squared sum 90? Give a mathematical certificate rather than guessing sample values.
+---SOLUTION---
+Cauchy–Schwarz requires $(\sum x_i)^2\le n\sum x_i^2$. Here $400\le360$ is false. Equivalently $M_2=90-20^2/4=-10$, impossible for a sum of squares. The smallest squared sum at total 20 is 100, attained by all four observations equal to 5. No negative observations or alternate denominator can repair the supplied totals: the inconsistency is before variance normalization.
+
+@@ 25|Two numbers from mean and variance|Original inverse-statistics problem
+Two real observations have mean 5 and descriptive variance 9. Find the unordered list and its corrected variance.
+---SOLUTION---
+Write the observations as $5-d,5+d$ because their sum must be 10. Descriptive variance is $(d^2+d^2)/2=d^2$, so $|d|=3$. The list is $(2,8)$. Centered sum is 18 and corrected variance is $18/(2-1)=18$. The ordering is not determined by the summaries. Interpreting the given 9 as corrected variance instead would lead to a different separation, so the denominator wording is essential.
+
+@@ 26|A missing observation from corrected spread|Original inverse problem
+Data are $0,2,t$. Their corrected sample variance is 4. Find all real possibilities for $t$ and check both.
+---SOLUTION---
+Mean is $(t+2)/3$. Centered sum is $4+t^2-(t+2)^2/3$. Since corrected denominator is 2, set this equal to 8. Multiplying by 3 gives $12+3t^2-(t^2+4t+4)=24$, hence $t^2-2t-8=0$. Roots are $t=4$ and $t=-2$. Lists $(0,2,4)$ and $(-2,0,2)$ both have centered sum 8. Imposing nonnegative data would exclude the second root, but no such restriction was stated.
+
+@@ 27|A wrong center produces a known excess|Original computational shortcut
+Squared deviations of 20 observations around 7 sum to 500; their mean is 5. Find descriptive and corrected variances. What part of 500 is merely center mismatch?
+---SOLUTION---
+The center identity gives $500=M_2+20(7-5)^2=M_2+80$, so $M_2=420$. Descriptive variance is 21 and corrected variance is $420/19$. The 80 is the cost of choosing 7 rather than the minimizing center 5. Dividing 500 directly by 19 or 20 would include location error in spread. This shortcut works for arbitrary real data and does not require a normal distribution.
+
+@@ 28|RMS versus SD|Original conceptual computation
+Data have mean $-4$ and RMS 5. Find descriptive SD. Could the corrected SD be recovered without sample size?
+---SOLUTION---
+Since $RMS^2=v+\bar x^2$, $v=25-16=9$ and descriptive SD is 3. Corrected variance is $nv/(n-1)$ for $n\ge2$ and depends on $n$, so corrected SD cannot be uniquely recovered from those two summaries alone. The negative mean causes no problem because it is squared. RMS 5 measures distance from zero, which combines spread 3 with the location's magnitude 4.
+
+@@ 29|Duplicating the complete data set|Original denominator-sensitive problem
+A list of size $n>1$ is copied exactly $k$ times. Find the new mean, descriptive variance, and corrected variance in terms of the original corrected variance.
+---SOLUTION---
+Repeating every record multiplies total, count, and $M_2$ by $k$, so mean and descriptive variance are unchanged. New corrected variance is $kM_2/(kn-1)=k(n-1)s^2/(kn-1)$. It usually differs from $s^2$. This is deterministic duplication, not $kn$ newly independent measurements, so one must not infer improved sampling precision from the larger row count. For $k=1$ the formula returns the original value, a useful check.
+
+@@ 30|Why dividing by n is biased under iid sampling|Original proof problem
+Under iid finite-variance sampling, derive $E[v]$ and $E[s^2]$ without assuming normality. Identify precisely where independence is used.
+---SOLUTION---
+Use $M_2=\sum(X_i-\mu)^2-n(\bar X-\mu)^2$. The first expectation is $n\sigma^2$. Independence removes cross covariances in $Var(\bar X)$, giving $\sigma^2/n$, so the second expectation is $\sigma^2$. Thus $E[M_2]=(n-1)\sigma^2$, $E[v]=(n-1)\sigma^2/n$, and $E[s^2]=\sigma^2$. Equal means and finite variances justify the centered expectations. Normality is unused; it becomes relevant to a later distributional result, not to this unbiasedness identity.
+
+@@ 31|Perfect dependence defeats the correction|Original sampling-design counterexample
+Let $X_i=Z$ for every $i$, with $Var(Z)=9$. What are $v$ and $s^2$ for each realized list, and why is this compatible with the population variance?
+---SOLUTION---
+Every realized record equals the realized $Z$, so all deviations from the realized sample mean vanish. Both $v$ and $s^2$ are zero whenever $n>1$. Across repeated experiments the common value $Z$ varies with variance 9. Here $Var(\bar X)=9$, so $E[M_2]=n\cdot9-n\cdot9=0$. The iid assumption needed for the standard Bessel derivation fails. Repeated identical dependent readings contain no observed within-list variation; the correction cannot manufacture independent information.
+
+@@ 32|Unbiased variance does not mean unbiased SD|Original Jensen reasoning
+Assume $s^2$ is unbiased for $\sigma^2>0$ and is not constant across samples. Show why $s$ is generally biased downward and why taking a reciprocal has another effect.
+---SOLUTION---
+Square root is strictly concave on positive values. Jensen gives $E[s]=E[\sqrt{s^2}]\le\sqrt{E[s^2]}=\sigma$, with strict inequality for suitable nonconstant distributions. The reciprocal function is convex on positive values, so when $s^2>0$ and the reciprocal expectation exists, $E[1/s^2]\ge1/\sigma^2$. If sample variance can be zero, the reciprocal may be undefined or have infinite expectation, so that case must be handled first. Nonlinear transformation does not preserve unbiasedness.
+
+@@ 33|Frequency weights versus reliability weights|Original interpretation-sensitive calculation
+Values 0 and 10 have weights 2 and 2. Calculate descriptive weighted variance, frequency-corrected variance, and reliability-corrected variance for two iid observations carrying those deterministic weights.
+---SOLUTION---
+Weighted mean is 5 and weighted centered sum is $2\cdot25+2\cdot25=100$, with $W=4$. Descriptive variance is 25. If weights represent four separate records $(0,0,10,10)$, corrected variance is $100/(4-1)=100/3$. For two iid observations with deterministic reliability weights, $W_2=8$ and denominator $W-W_2/W=4-2=2$, giving 50. Different interpretations produce different inferential corrections while the mass-weighted descriptive variance agrees.
+
+@@ 34|Effective sample size and a dominant weight|Original weighted-normalization problem
+Three iid observations have deterministic weights 1, 1, and 8. Find $W-W_2/W$ and effective sample size $W^2/W_2$. Explain why total weight 10 is not ten independent observations.
+---SOLUTION---
+$W=10$, $W_2=1+1+64=66$. The unbiased weighted-variance denominator is $10-66/10=17/5$. Effective sample size is $100/66=50/33$, much closer to one than to ten. Scaling every weight by the same positive factor changes both numerator and correction denominator proportionally and leaves the estimate unchanged. A dominant weight reduces the averaging of independent information. The effective size is a variance-equivalence summary, not literally a fractional count of observed people.
+
+@@ 35|Negative affine scaling|Original transformation problem|affine-negative
+A list has mean 3, descriptive variance 4, and midpoint median 2. For $Y=7-3X$, find mean, variance, SD, and midpoint median. State the ordering effect.
+---SOLUTION---
+Mean is $7-3\cdot3=-2$. Variance is $(-3)^2\cdot4=36$ and SD is 6. Midpoint median is $7-3\cdot2=1$. Descending raw $X$ order becomes ascending $Y$ order. Using scale factor $-3$ for SD would give a negative result and is invalid. A nearest-rank median would require separate rank analysis, while the midpoint median is equivariant for negative scaling.
+
+@@ 36|Standardization with two denominators|Original normalization problem
+A nonconstant list has $n=5$. Compute $\sum z_i$ and $\sum z_i^2$ when scores divide by descriptive SD, and when they divide by corrected SD. What variance equals one in each case?
+---SOLUTION---
+Centering makes the score sum zero in both cases. With descriptive SD $\sqrt{M_2/5}$, squared scores sum to $M_2/(M_2/5)=5$, so descriptive score variance is one. With corrected SD $\sqrt{M_2/4}$, squared scores sum to 4, so corrected score variance is one and descriptive score variance is $4/5$. The same verbal phrase “standardized variance” can therefore refer to different denominator conventions. Standardization does not establish normality.
+
+@@ 37|A bound on a single standardized residual|Original constrained-extremum proof
+For a list of size $n>1$ with descriptive variance $v>0$, prove $|x_i-\bar x|\le\sqrt{(n-1)v}$ and obtain the corresponding bound using corrected $s$.
+---SOLUTION---
+Let one deviation be $d$. The remaining $n-1$ deviations sum to $-d$, so Cauchy–Schwarz gives their squared sum at least $d^2/(n-1)$. Total centered sum is at least $d^2+d^2/(n-1)=nd^2/(n-1)$. Since it equals $nv$, $d^2\le(n-1)v$. Using $v=(n-1)s^2/n$ gives $|d|/s\le(n-1)/\sqrt n$. Equality occurs when all other deviations are equal. A generic Markov bound misses the extra zero-sum constraint.
+
+@@ 38|A CV that changes under an innocent translation|Original scale-contract problem
+Measurements have mean 10 and SD 2. Compare CV before and after adding 100, and after multiplying by 100. Which operation preserves a ratio-scale interpretation?
+---SOLUTION---
+Original CV is $2/10=0.2$. Translation keeps SD 2 and changes mean to 110, giving $1/55$. Multiplication gives mean 1000 and SD 200, preserving CV 0.2. Positive unit scaling preserves meaningful ratios; arbitrary translation changes the zero and can invalidate relative-spread interpretation. Dimensionless does not mean invariant under every transformation. A CV based on Celsius can therefore differ greatly from one based on Kelvin for the same temperatures.
+
+@@ 39|Infer sample size from variance conventions|Original inverse-normalization problem
+For a nonconstant list, corrected variance is 1.2 times descriptive variance. Find sample size and explain why the constant-list case is different.
+---SOLUTION---
+Since $s^2/v=n/(n-1)$, solve $n/(n-1)=6/5$, giving $5n=6n-6$ and $n=6$. The division requires $v>0$. For constant lists both variances are zero, so the verbal equality $s^2=1.2v$ holds for every size greater than one and cannot determine $n$. A ratio of two zeros is undefined. Always check nondegeneracy before cancelling a spread measure.
+
+@@ 40|Construct a Tukey-style boxplot|CMU boxplot concept; original data|box-example
+For $1,2,3,4,5,6,7,20$, use type 7 and 1.5-IQR fences. Find quartiles, fences, whisker endpoints, and outliers. Would whiskers at the fences be correct?
+---SOLUTION---
+Quartile positions are 2.75, 4.5, 6.25, giving 2.75, 4.5, 6.25. IQR is 3.5. Fences are $2.75-5.25=-2.5$ and $6.25+5.25=11.5$. The observed extremes inside them are 1 and 7, which become whisker endpoints; 20 is outside. Drawing whiskers to $-2.5$ and 11.5 would display thresholds as if they were retained observed values. The type-7 convention is part of this answer, not an incidental software choice.
+
+@@ 41|An observation exactly on a fence|Original boundary problem
+Suppose a boxplot has $Q_1=2$, $Q_3=6$, and observed values including 12 and 12.1. Under the strict 1.5-IQR outlier rule, classify them. Is the upper whisker necessarily 12?
+---SOLUTION---
+IQR is 4 and upper fence is $6+1.5\cdot4=12$. Value 12 is retained because only strictly larger values are upper outliers; 12.1 is an outlier. Since 12 is explicitly observed and no value above 12 can be retained, the upper whisker is necessarily 12. Other unreported values can change neither this upper endpoint nor the supplied quartiles, but they prevent reconstruction of the lower whisker and complete outlier list. Fence equality must be checked before applying a strict inequality.
+
+@@ 42|Mean absolute deviation versus MAD|Original competing-summary problem
+For $0,1,2,3,14$, find midpoint median, raw median absolute deviation, mean, and mean absolute deviation about the mean. Explain their different sensitivities.
+---SOLUTION---
+Median is 2. Absolute deviations from it are $2,1,0,1,12$, whose median is 1, so MAD is 1. Mean is 4. Absolute deviations from the mean are $4,3,2,1,10$, averaging to 4. A large extreme record changes the mean and the absolute residuals of all records, while central ranks determine raw MAD. Both quantities are in original units and are nonnegative, but their averaging operators and centers differ. Writing merely “MAD” without a definition is ambiguous.
+
+@@ 43|Trimmed versus Winsorized mean|Original robust-summary calculation
+For sorted data $0,2,3,4,5,100$, remove one record from each end for a trimmed mean and Winsorize one record from each end. Compare with the raw mean.
+---SOLUTION---
+The trimmed list is $2,3,4,5$, giving 3.5. Winsorization replaces 0 by 2 and 100 by 5, giving $2,2,3,4,5,5$ and mean $21/6=3.5$. Raw mean is $114/6=19$. The two robust means happen to coincide here, but their resulting lists and denominators differ; equality is not a general identity. For example a nonsymmetric interior can separate them. The procedure must specify how many observations are changed, not merely say “ignore outliers.”
+
+@@ 44|One extreme replacement leaves central ranks fixed|Original contamination problem|outlier-motion
+For $1,2,3,4,5$, replace 5 by $M\ge5$. Find the mean and midpoint median as functions of $M$, and derive the leading growth of descriptive variance.
+---SOLUTION---
+Mean is $(10+M)/5$, while median remains 3 because the replaced record stays at the top. Raw squared sum is $30+M^2$. Thus $v=(30+M^2)/5-(10+M)^2/25=(4M^2-20M+50)/25$. Its leading growth is $4M^2/25$; the mean grows linearly and the variance quadratically in the replacement. Median stability here depends on preserved ranks and does not mean the median never changes under an arbitrary single-record replacement.
+
+@@ 45|Robust does not mean immovable|Original counterexample
+For $1,2,3,4,5$, replace the middle value 3 by 100. Find the new midpoint median. Compare with replacing the maximum 5 by 100.
+---SOLUTION---
+The first replacement creates sorted list $1,2,4,5,100$, so median changes from 3 to 4. Replacing the maximum creates $1,2,3,4,100$, so median stays 3. Robustness means limited influence of a small number of extreme changes under a stated contamination model, not exact invariance under every change. The first example changes which observed rank sits in the middle. Both lists still have a bounded median even when 100 is sent to infinity.
+
+@@ 46|Mean equals median without symmetry|Original logical counterexample
+Verify that $0,2,3,3,7$ has equal mean and midpoint median, then show it is not symmetric about that common value. Does symmetry imply a unique mode?
+---SOLUTION---
+Total is 15 and count is 5, giving mean 3; the third sorted value is also 3. Reflection about 3 maps 0 to 6, which is absent, and maps 7 to $-1$, also absent. Therefore the multiset is not symmetric. Conversely, symmetric data such as $-2,-2,2,2$ have two equally frequent modes. Equality of two centers is insufficient to prove symmetry, and symmetry is insufficient to prove unimodality or mode uniqueness.
+
+@@ 47|Central moments and excess kurtosis|Original exact-moment problem
+For $-1,-1,1,1$, calculate $m_2$, $m_3$, $m_4$, moment skewness, kurtosis, and excess kurtosis. Is the sample normal because skewness is zero?
+---SOLUTION---
+Mean is zero. Second and fourth moments are both one; third moment is zero by cancellation. Hence $g_1=0$, $b_2=1$, and $g_2=-2$. The list has only two values and is not a normal population. Zero skewness indicates only a zero standardized third central moment; it does not prove normality. Using corrected sample variance inside the moment ratio would define a different statistic and change the numerical result.
+
+@@ 48|Zero third moment without reflection symmetry|Original weighted counterexample
+Values $-2,-1,1,3$ have weights 4, 1, 6, 1. Calculate the weighted mean, second and third central moments, and skewness. Prove that zero skewness does not imply reflection symmetry.
+---SOLUTION---
+Total weight is $W=4+1+6+1=12$. The weighted first-power total is $4(-2)-1+6+3=0$, so the mean is zero and raw moments equal central moments. The squared total is $4(4)+1+6+9=32$, giving $m_2=32/12=8/3>0$. The cubic total is $4(-8)-1+6+27=0$, giving $m_3=0$ and $g_1=m_3/m_2^{3/2}=0$. Reflection symmetry about zero would require equal masses at every pair $x,-x$. There is positive mass at $-2$ and 3 but no mass at 2 or $-3$; symmetry therefore fails. A vanishing signed cubic sum is one algebraic cancellation, whereas reflection symmetry imposes separate equality constraints on all reflected values.
+
+@@ 49|Affine moment invariance|Original symbolic proof
+For nonconstant data let $Y=-2X+7$. Derive moment skewness and kurtosis of $Y$ in terms of those of $X$.
+---SOLUTION---
+Centering removes the translation, so $m_{r,Y}=(-2)^r m_{r,X}$. Thus $g_{1,Y}=(-8)m_3/(4m_2)^{3/2}=-g_{1,X}$, while $b_{2,Y}=16m_4/(4m_2)^2=b_{2,X}$. Excess kurtosis is also unchanged. The sign change in skewness reflects reversal of the tail orientation. Constant data would make standardized moments undefined; nonconstant input is an essential condition.
+
+@@ 50|A lower bound on moment kurtosis|Original inequality proof
+Prove $b_2\ge1$ for a nonconstant finite list and characterize equality.
+---SOLUTION---
+Let $d_i=x_i-\bar x$. Cauchy–Schwarz gives $(\sum_i d_i^2)^2\le n\sum_i d_i^4$. Dividing by $n^2$ yields $m_2^2\le m_4$, so $b_2=m_4/m_2^2\ge1$. Equality requires all squared deviations equal. With nonzero spread and zero signed sum, deviations then consist of $+a$ and $-a$ with equal counts. Thus an unweighted equality case requires even sample size. This is a moment bound, not a statement about a normal distribution's kurtosis.
+
+@@ 51|A sharp finite-list Markov bound|Original attainable counting problem
+One hundred nonnegative values have mean 12. What is the maximum possible number at least 60? Construct data achieving the bound.
+---SOLUTION---
+Total is 1200. If $k$ records are at least 60, their sum is at least $60k$, so $k\le20$. Twenty records equal to 60 and eighty equal to zero achieve mean 12 and count 20. This proves both an upper bound and attainability. Negative values would break the argument by permitting compensation in the total. For values strictly greater than 60, count 20 would force a total strictly above 1200 and is impossible.
+
+@@ 52|Chebyshev with the sample denominator|Original integer-count problem
+Twenty observations have corrected SD 3. How many can have $|x_i-\bar x|\ge6$? How many can be strictly outside that distance?
+---SOLUTION---
+Centered sum is $(20-1)\cdot9=171$. Each qualifying squared deviation is at least 36, giving $36k\le171$, so $k\le4$. Strictly outside also has upper bound 4 because $171/36=4.75$ is not an integer. Both maxima are attainable. For the closed threshold, take deviations $6,6,-6,-6,\sqrt{13.5},-\sqrt{13.5}$ and fourteen zeros. They sum to zero and their squares sum to $144+27=171$. Exactly four are at least 6 in magnitude. For the strict threshold, use $6.1,6.1,-6.1,-6.1,\sqrt{11.08},-\sqrt{11.08}$ and fourteen zeros: their square sum is $148.84+22.16=171$, with exactly four magnitudes above 6. Adding any common center preserves the results. Using $n$ instead of $n-1$ would incorrectly allow 5. Attainability must respect both the squared-sum and zero-sum constraints.
+
+@@ 53|Strict versus closed tail bounds|Original endpoint-sensitive inequality
+A list of 16 values has descriptive variance 4. Bound the number with absolute deviation at least 4 and the number with absolute deviation strictly greater than 4. Give an equality construction for the first bound.
+---SOLUTION---
+Total squared deviation is 64. A closed-tail record contributes at least 16, so at most 4 qualify. For strict tails each contributes more than 16, so 4 records would exceed 64; at most 3 can qualify by this bound. For the closed bound, use deviations $4,4,-4,-4$ and twelve zeros, with any common location added. Their sum is zero and squared sum 64, attaining count 4. Equality changes the integer conclusion and cannot be discarded casually.
+
+@@ 54|Range bound with odd sample size|Original extremal problem
+Three observations lie in $[0,6]$. Find the maximum descriptive variance and construct a maximizing list. Compare it with the general range-squared bound.
+---SOLUTION---
+For fixed values of the other records, variance is convex in any one record, so a maximum over the compact cube occurs at endpoints. Split three records between 0 and 6; the largest balanced split is one versus two. Its variance is $6^2\cdot1\cdot2/3^2=8$, attained by $(0,0,6)$ or $(0,6,6)$. The general bound $6^2/4=9$ is valid but not attainable with three equal-weight records. Integer masses sharpen a continuous-probability bound.
+
+@@ 55|Mean-conditioned range bound|Original symbolic application
+All observations lie in $[2,10]$ and mean is 4. Bound descriptive variance using the mean, and give an endpoint distribution attaining the bound when the record count permits it.
+---SOLUTION---
+Since $(x-2)(10-x)\ge0$, averaging gives $v\le(10-4)(4-2)=12$, stronger than the unconditional bound 16. Endpoint mass at 10 must be $(4-2)/(10-2)=1/4$, leaving $3/4$ at 2. These masses give variance 12 and are attainable for sample sizes divisible by four. At other finite sizes a stronger exact maximum may be needed. The bound contains the known mean, so discarding it wastes information.
+
+@@ 56|Normal probabilities are not Chebyshev probabilities|Original model-comparison problem
+A data list has mean 0 and descriptive SD 1. Can one conclude that 95.45% of its values lie in $[-2,2]$? Give the universally valid bound and a contrasting model statement.
+---SOLUTION---
+No normality assumption is supplied. The finite-list squared-deviation argument guarantees that at most one quarter have distance at least 2, and therefore at least three quarters are strictly inside $(-2,2)$; the closed interval has at least that much mass too. Under a standard normal population, $P(-2\le X\le2)=2\Phi(2)-1\approx0.9545$. A population probability is not an exact proportion in every finite sample. Standard scores alone do not justify the normal model.
+
+@@ 57|Grouped mean and a certified error|Original midpoint-error problem
+Bins $[0,2)$, $[2,6)$ have counts 3 and 2. Calculate midpoint mean and a bound on its absolute error. Give the sharper exact interval for the true mean.
+---SOLUTION---
+Midpoints are 1 and 4, so estimate is $(3+8)/5=11/5$. Maximum width is 4, giving crude error at most 2. Weighting the actual half-widths improves this to $(3\cdot1+2\cdot2)/5=7/5$. The true mean lies between $(3\cdot0+2\cdot2)/5=4/5$ and $(3\cdot2+2\cdot6)/5=18/5$, with upper endpoints subject to bin inclusion. The midpoint is the interval's center. None of these bounds makes the midpoint exact.
+
+@@ 58|Grouped variance is not one-sided|Original information-loss counterexample
+One observation is known to be in each of $[0,2)$ and $[2,4]$. The midpoint-replaced descriptive variance is 1. Construct compatible raw lists with variance smaller and larger than 1.
+---SOLUTION---
+Midpoints are 1 and 3, giving variance 1. Raw list $(1.9,2.1)$ has mean 2 and variance 0.01, smaller. Raw list $(0,4)$ has mean 2 and variance 4, larger. Therefore midpoint replacement neither uniformly underestimates nor uniformly overestimates the realized list variance. An additional model such as equal within-bin means and within-bin variation can support a decomposition, but interval counts alone cannot.
+
+@@ 59|Histogram quantile interpolation|Original grouped-quantile problem
+Twenty records have bin counts 4, 10, 6 on $[0,2)$, $[2,7)$, $[7,10]$. Estimate the median using constant density inside each bin. Is it necessarily the midpoint median of the raw list?
+---SOLUTION---
+Target cumulative count is $20/2=10$. The median lies in the second bin in the histogram model, whose prior count is 4, count 10, and width 5. The interpolated point is $2+5(10-4)/10=5$. This is not necessarily the average of the tenth and eleventh raw order statistics, whose locations inside that interval are unknown. The calculation uses area proportional to within-bin length; it does not recover unavailable record positions.
+
+@@ 60|Two constant groups, positive total variance|Original pooling counterexample|pool-constant
+Group A is $(0,0)$ and group B is $(6,6)$. Find each within-group variance, the combined mean, total $M_2$, descriptive variance, and corrected variance.
+---SOLUTION---
+Both groups are internally constant, so their centered sums and variances are zero. Combined mean is 3. Between-group sum is $2(0-3)^2+2(6-3)^2=36$. Thus total descriptive variance is $36/4=9$ and corrected variance is $36/3=12$. Averaging group variances gives zero because it drops between-group location differences. A pooled within-group estimator and total observed spread answer different questions.
+
+@@ 61|Pool corrected sample summaries|Original exact group-merge calculation
+Group A has size 3, mean 2, corrected variance 1; group B has size 2, mean 7, corrected variance 2. Find combined mean and corrected variance.
+---SOLUTION---
+The combined mean is $(3\cdot2+2\cdot7)/5=4$. Within sum is $(3-1)1+(2-1)2=4$. Between sum is $3(2-4)^2+2(7-4)^2=12+18=30$. Total centered sum is 34 and corrected variance is $34/(5-1)=8.5$. The two-group gap form gives the same between term: $(3\cdot2/5)(7-2)^2=30$. Adding raw corrected variances would ignore both group sizes and the mean gap.
+
+@@ 62|The within estimator is not total variance|Original denominator-and-target distinction
+Three groups each contain four records, have corrected variances 1, 2, 3, and means 0, 5, 10. Find pooled within-group variance and total descriptive variance.
+---SOLUTION---
+Within sum is $3(1+2+3)=18$. Pooled within denominator is $12-3=9$, giving 2. Combined mean is 5. Between sum is $4(0-5)^2+4(5-5)^2+4(10-5)^2=200$. Total descriptive variance is $(18+200)/12=109/6$. The within estimator summarizes residual spread about separate group means; the total variance includes their separation about a common mean. The very different values are compatible, not contradictory.
+
+@@ 63|Simpson reversal with explicit counts|MIT aggregation concept; original counts|simpson-example
+On easy tasks, A succeeds 9/10 and B 80/100. On hard tasks, A succeeds 30/100 and B 2/10. Compare within-group and overall success rates, and identify the mathematical cause of reversal.
+---SOLUTION---
+Within easy tasks A's 90% exceeds B's 80%; within hard tasks A's 30% exceeds B's 20%. Aggregate A succeeds $39/110\approx35.45\%$, while B succeeds $82/110\approx74.55\%$. A mostly faces hard tasks, B mostly easy ones, so their aggregate rates use different mixture weights. Equalizing the group weights would preserve A's within-group superiority. Counts establish the reversal but do not by themselves determine causal assignment effects or which summary answers a policy question.
+
+@@ 64|Appending at the mean|Original update problem
+A list has size 4, mean 10, and descriptive variance 5. Append another value 10. Find the new mean, centered sum, and both variance conventions.
+---SOLUTION---
+Original $M_2=4\cdot5=20$. The appended residual is zero, so mean stays 10 and $M_2$ stays 20. New descriptive variance is $20/5=4$ and corrected variance is $20/4=5$. Adding a central observation leaves the residual energy unchanged but changes normalization. It therefore decreases descriptive variance even though no original observations moved closer to one another. “Adding a value cannot reduce variance” is false.
+
+@@ 65|Appending a distant value|Original exact streaming problem|stream-example
+A list has $n=3$, mean 2, and $M_2=8$. Append 10. Find the new summaries and verify by a compatible raw list.
+---SOLUTION---
+$\delta=8$, so new mean is $2+8/4=4$. New $M_2=8+(3/4)64=56$. Descriptive variance is 14 and corrected variance is $56/3$. A compatible original list is $(0,2,4)$; appending 10 gives deviations $-4,-2,0,6$ about 4, whose squares sum to $16+4+0+36=56$. The update formula and direct calculation agree. Using $\delta^2$ without factor $n/(n+1)$ neglects the shift of the common mean.
+
+@@ 66|Deleting an actual record|Original inverse-update problem
+A list has size 5, mean 4, and $M_2=20$. Delete a recorded value 8. Find remaining mean and $M_2$. What feasibility check matters?
+---SOLUTION---
+Remaining mean is $(5\cdot4-8)/4=3$. The deleted residual relative to the old mean is 4, so $M_2'=20-(5/4)16=0$. The four remaining observations must all equal 3. Indeed $(3,3,3,3,8)$ has the supplied summaries. A deletion formula assumes the value really occurs in a compatible list; applying it to an arbitrary proposed value may give negative $M_2$ and expose incompatibility. The new descriptive variance is zero.
+
+@@ 67|When an appended value increases variance|Original threshold derivation
+Derive the exact condition on appended residual $\delta=x-\bar x$ under which descriptive variance increases. Apply it to $n=4$, $v=9$, $\delta=3$ and $\delta=4$.
+---SOLUTION---
+New variance is $[nv+n\delta^2/(n+1)]/(n+1)$. Subtracting $v$ gives $-v/(n+1)+n\delta^2/(n+1)^2$. It is positive exactly when $\delta^2>(n+1)v/n$. Here the threshold is $45/4=11.25$. Squared residual 9 reduces variance, while 16 increases it. A residual larger than one original SD is not automatically enough; the new denominator creates a higher threshold. At equality the variance is unchanged.
+
+@@ 68|Merge two streaming summaries|Original associative-summary calculation
+Summary A is $(n,\bar x,M_2)=(2,1,2)$ and summary B is $(3,6,8)$. Merge them and find descriptive variance. Explain why the merge result must not depend on the order of the two groups.
+---SOLUTION---
+Combined count is 5 and mean is $(2+18)/5=4$. Mean gap is 5, so $M_2=2+8+(2\cdot3/5)25=40$. Descriptive variance is 8. Exchanging A and B changes the gap sign but not its square, and the weighted total remains 20, so the same summary results. The formulas summarize the concatenated multiset exactly in real arithmetic. Floating-point implementation can differ slightly by aggregation order, which is a numerical limitation rather than a mathematical failure.
+
+@@ 69|Catastrophic cancellation in raw moments|Original numerical-analysis problem
+Consider $10^{12},10^{12}+1,10^{12}+2$. Compute mean and descriptive variance symbolically, and explain why subtracting raw squared totals is numerically risky.
+---SOLUTION---
+Mean is $10^{12}+1$, centered deviations are $-1,0,1$, and variance is $2/3$. The formula $\sum x_i^2/n-\bar x^2$ subtracts quantities of order $10^{24}$ to obtain a number below one. Binary floating point has limited relative precision, so those large quantities can round to nearly the same value and erase the small difference. Centered or Welford accumulation avoids this particular subtraction, but finite precision still requires analysis. Exact integers or rationals provide a clean reference for this example.
+
+@@ 70|Zero correlation with a deterministic curve|Original association counterexample|correlation-curve
+For pairs $(-1,1),(0,0),(1,1)$, calculate descriptive covariance and Pearson correlation. Explain why zero correlation does not mean no relationship.
+---SOLUTION---
+$\bar x=0$ and $\bar y=2/3$. Cross sum is $(-1)(1/3)+0(-2/3)+(1)(1/3)=0$. Both columns have positive centered spread, so covariance and correlation are zero. Nevertheless every pair satisfies $y=x^2$. The relationship is nonlinear, and signed linear cross-products cancel. Correlation detects linear association; independence is a property of a joint probability law and cannot be inferred merely from a zero empirical correlation.
+
+@@ 71|Compute a paired correlation exactly|Original paired-summary problem
+For pairs $(1,2),(2,1),(3,4)$, find $M_{2,x}$, $M_{2,y}$, cross sum, and Pearson correlation. Check its range.
+---SOLUTION---
+Means are 2 and $7/3$. $X$ deviations are $-1,0,1$, giving $M_{2,x}=2$. $Y$ deviations are $-1/3,-4/3,5/3$, giving $M_{2,y}=42/9=14/3$. Cross sum is $1/3+0+5/3=2$. Thus $r=2/\sqrt{28/3}=\sqrt{3/7}\approx0.65465$, within $[-1,1]$. Dividing cross sum and both variances by the same denominator leaves this result unchanged. Independent column sorting would change the pairs and therefore the answer.
+
+@@ 72|Variance of a paired sum|Original covariance identity
+Two paired columns have descriptive variances 4 and 9 and correlation $-1/2$. Find covariance and variance of their sum and difference. Is independence consistent with the supplied correlation?
+---SOLUTION---
+Covariance is $r\sqrt{4\cdot9}=(-1/2)6=-3$. Sum variance is $4+9+2(-3)=7$, and difference variance is $4+9-2(-3)=19$. For the stated empirical columns, independence of the underlying population cannot be decided: an independently sampled pair of population variables can have nonzero sample correlation by chance. If the supplied moments were instead population moments, their nonzero covariance would rule out independence under finite moments. The descriptive identities require only correct pairing and do not require a sampling model. Simply adding 4 and 9 discards the cross term.
+
+@@ 73|A constant column makes r undefined|Original degenerate-data problem
+Pairs are $(2,1),(2,3),(2,8)$. What are covariance and Pearson correlation? Why is assigning correlation zero mathematically wrong?
+---SOLUTION---
+Every centered $X$ value is zero, so cross sum and covariance are zero. But $M_{2,x}=0$, while $M_{2,y}>0$, making Pearson's ratio $0/0$. It is undefined. A zero covariance can occur because one variable has no variation, which supplies no direction or magnitude for normalized linear association. Returning zero conceals a violated denominator condition. The laboratory rejects or clearly labels this case instead of plotting a fictitious correlation.
+
+@@ 74|Perfect correlation and regression slope|Original scale-sensitive problem
+Pairs satisfy $y=-3x+8$ with nonconstant $x$. Determine Pearson correlation, regression slope, and what happens to each if $y$ is rescaled to $100y$.
+---SOLUTION---
+Centered $Y$ deviations are $-3$ times centered $X$, so correlation is $-1$ and slope is $-3$. Positive rescaling of $Y$ keeps correlation $-1$ but multiplies the slope by 100 to $-300$. Correlation is dimensionless and scale-normalized; slope has units of Y per X. Perfect linear association requires nonconstant columns; otherwise the normalized ratio is undefined. Equal correlation therefore does not imply equal numerical slope.
+
+@@ 75|Spearman ranks with a tie|Original rank-association problem
+For $x=(1,1,3)$ and $y=(1,2,3)$, calculate Spearman correlation using average ranks. Why is the no-ties shortcut unsafe?
+---SOLUTION---
+$X$ ranks are $(1.5,1.5,3)$ and $Y$ ranks $(1,2,3)$. Both rank means are 2. Centered vectors are $(-0.5,-0.5,1)$ and $(-1,0,1)$, with cross sum 1.5 and squared sums 1.5 and 2. Correlation is $1.5/\sqrt3=\sqrt3/2$. The shortcut $1-6\sum d_i^2/[n(n^2-1)]$ would use squared rank differences 0.5 and give 0.875, which is different because tie corrections are missing. Pearson on average ranks is the stated definition.
+
+@@ 76|Kendall concordance uses both directions|Original pair-count problem
+Pairs are $(1,3),(2,1),(3,2)$. Count concordant and discordant pairs and calculate tie-free Kendall $\tau$. Explain why a pair decreasing in both coordinates is concordant.
+---SOLUTION---
+In increasing X order, Y values are 3, 1, 2. Pair (1,2) is discordant, pair (1,3) discordant, and pair (2,3) concordant. Thus $\tau=(1-2)/3=-1/3$. Reversing the order in which a pair is named negates both coordinate differences, leaving their product sign unchanged. Two negative differences are concordant just like two positive differences. Assigning opposite scores to those two naming orientations would make the statistic depend on arbitrary pair ordering and is incorrect.
+
+@@ 77|A two-sample Q–Q relation|Original quantile-map problem|qq-affine
+Two equal-size samples have sorted values $A=(0,1,2,4)$ and $B=(5,7,9,13)$. Describe their type-7 Q–Q plot and infer the affine quantile relation. Does it establish causal dependence between record pairs?
+---SOLUTION---
+Each corresponding order statistic obeys $B=2A+5$. Linear interpolation preserves this relation at every common probability, so the Q–Q points lie on slope-2, intercept-5 line. It describes equality of distribution shape after location/scale transformation. Sorting has paired quantiles, not the original subjects or times. It does not establish a causal relationship or even the original paired correlation, which could differ under permutations. Distribution comparison and record-level association are distinct contracts.
+
+@@ 78|Trailing average with an explicit startup rule|MIT time-series concept; original data|smoothing-ma
+For series $2,4,10,8$ and window width 3, use shorter trailing windows at startup. Find all moving averages and the forecast error for time 4 if the previous average predicts the next value.
+---SOLUTION---
+Startup averages are 2 and $(2+4)/2=3$. At time 3, the full window gives $(2+4+10)/3=16/3$. At time 4, use $4,10,8$, giving $22/3$. A one-step forecast for time 4 uses the time-3 average $16/3$, so error is $8-16/3=8/3$. Using $22/3$ as the time-4 forecast incorporates the value 8 itself and leaks future information relative to the forecasting decision.
+
+@@ 79|Exponential weights and initialization|Original recurrence expansion|smoothing-ewma
+Let $E_0=0$, $\lambda=1/2$, and observations $2,4,10$. Compute $E_1,E_2,E_3$, expand the weights at time 3, and verify their total including initialization.
+---SOLUTION---
+$E_1=1$, $E_2=(4+1)/2=2.5$, and $E_3=(10+2.5)/2=6.25$. Expansion is $E_3=(1/2)10+(1/4)4+(1/8)2+(1/8)E_0$. The four weights sum to one. Observed-value weights alone sum to $7/8$ because the remaining mass stays on initialization. Dropping the initial term without renormalizing changes the stated algorithm. Larger smoothing parameter gives more mass to the newest record and shorter effective memory.
+
+@@ 80|A complete data-summary audit|Original integrated examination problem
+A report claims: “Eight values have mean 5, descriptive variance 4, corrected variance 4, and RMS 3. After adding 10 to every value, SD increases by 10 and correlation with another unchanged column increases.” Identify every mathematically forced defect, and state what cannot be concluded about the correlation.
+---SOLUTION---
+For $n=8$ and $v=4$, corrected variance must be $8\cdot4/7=32/7$, not 4. RMS squared must be $v+\bar x^2=4+25=29$, so RMS is $\sqrt{29}$, not 3. Translation changes mean to 15 but leaves centered deviations, variance, and SD unchanged; descriptive SD remains 2. If both paired columns are nonconstant, translation leaves correlation unchanged. If the other column is constant, correlation is undefined and no increase can be claimed. These checks require no reconstruction of all eight values and expose both denominator and invariance errors.
