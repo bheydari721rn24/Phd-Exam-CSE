@@ -395,3 +395,8 @@ The student reported apparently missing closing parentheses. Reproduced and corr
 ## Verified delimiter correction publication — 7 October 2026
 
 Private Site version 79 succeeded; saved source exactly matches 266a2b4cd358c673336588aa275c689b1b29c03d. Corrected library and audit evidence are verified on GitHub branch study-planner-1406 at 67d02fd1f59cca1423de178d1b06e60267823ef1, also recovering the previous pending expectation-publication receipt. Owner-private audience is unchanged. The clean-checkout static archive contains 354 files and every member was byte-checked. Publication receipt: research/delimiter-publication.json. s_expectation still awaits explicit approval; no subsequent chapter begins.
+
+
+## Active chapter: Determinants — 7 October 2026
+
+The student explicitly approved expectation and the version-79 delimiter correction. Work only on the next missing Week 3 chapter l_det, preserving all 41 preceding chapter pages and 2593 complete worked problems. Require genuinely reviewed written courses, deep English instruction, mathematical/conceptual solved questions, strong final rules and concept-specific geometric/computational models. Await explicit approval after delivery.

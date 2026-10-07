@@ -1,0 +1,133 @@
+[
+  {
+    "university": "Oxford",
+    "course": "M1 Linear Algebra II",
+    "instructor": "Richard Earl",
+    "term": "Hilary 2026",
+    "pages": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "role": "Core: axioms, uniqueness, structured examples, adjugate and basis-invariant maps",
+    "corrections": [
+      "PDF page 16 contains a11 a22 a23 where the identity term requires a11 a22 a33, and a displayed matrix repeats a23 in position (3,2). Visually confirmed. Page 7 correctly says n >= 4; text extraction resembled > 4 and was not adopted as a source error."
+    ]
+  },
+  {
+    "university": "Cambridge",
+    "course": "Mathematical Tripos IA Vectors and Matrices",
+    "instructor": "Stephen J. Cowley",
+    "term": "Michaelmas 2010",
+    "pages": [
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      89,
+      148
+    ],
+    "role": "Core: geometric determinant, permutations, product proof, cofactors and inverse; no source reproduction",
+    "corrections": []
+  },
+  {
+    "university": "MIT",
+    "course": "18.06SC Linear Algebra",
+    "instructor": "Gilbert Strang",
+    "term": "Fall 2011",
+    "documents": {
+      "properties": [
+        1,
+        2,
+        3
+      ],
+      "cofactors": [
+        1,
+        2,
+        3
+      ],
+      "cramer": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "role": "Core: geometry, row-operation properties, tridiagonal recurrence, Cramer; independently corrected proof notation",
+    "corrections": [
+      "Cofactors summary page 1 prints a11 a23 a33 in one negative term; correct factor is a32. Visually confirmed.",
+      "Cramer summary page 1 uses Cj1 in a diagonal product where C1j is required and its final line includes an extra A in the inverse expression. Visually confirmed.",
+      "Unsigned geometric area uses absolute determinants; source page 4 area notation omits the absolute-value qualification."
+    ]
+  },
+  {
+    "university": "UC Berkeley",
+    "course": "Math 54",
+    "instructor": "Alexander Paulin",
+    "term": "Spring 2018",
+    "pages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "role": "Core: all scanned pages visually read; row-operation example determinant -2 independently verified",
+    "corrections": []
+  },
+  {
+    "university": "Harvard",
+    "course": "Math 21b",
+    "instructor": "Oliver Knill",
+    "term": "Spring 2023",
+    "pages": [
+      1,
+      2
+    ],
+    "decision": "Not selected as a core: incorrect general formula includes an extra sign factor; retained only as rejected-candidate evidence",
+    "corrections": [
+      "PDF page 1 visually confirms extra (-1)^(n+1) inside Leibniz product and an unclosed triple-product parenthesis."
+    ]
+  },
+  {
+    "university": "CMU",
+    "course": "21-241 Summer I 2014",
+    "instructor": "William Gunther",
+    "pages": [
+      1,
+      2,
+      3
+    ],
+    "decision": "Not selected: calendar determinant link points to linear-map notes instead."
+  },
+  {
+    "university": "ETH-hosted",
+    "course": "110PMA207 notes",
+    "decision": "Not counted as an ETH course: hosting does not verify institutional course provenance; only title/provenance screened."
+  },
+  {
+    "university": "Stanford SUMO",
+    "course": "Student organization linear algebra notes",
+    "decision": "Not counted as an instructor course: student notes provenance; chapter location screened, not claimed fully reviewed."
+  }
+]

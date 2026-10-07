@@ -1,0 +1,1718 @@
+{
+  "status": "passed",
+  "exactChecks": 342,
+  "checks": [
+    {
+      "name": "Q1 minor",
+      "result": "-14",
+      "status": "passed"
+    },
+    {
+      "name": "Q1 determinant",
+      "result": "105",
+      "status": "passed"
+    },
+    {
+      "name": "Q2 elimination",
+      "result": "-2",
+      "status": "passed"
+    },
+    {
+      "name": "Q3 sparse",
+      "result": "-8",
+      "status": "passed"
+    },
+    {
+      "name": "Q4 parity product",
+      "result": "70",
+      "status": "passed"
+    },
+    {
+      "name": "Q5 counterexample",
+      "result": "-1",
+      "status": "passed"
+    },
+    {
+      "name": "Q6 scaling",
+      "result": "-96",
+      "status": "passed"
+    },
+    {
+      "name": "Q6 inverse",
+      "result": "1/9",
+      "status": "passed"
+    },
+    {
+      "name": "Q7 ledger",
+      "result": "16",
+      "status": "passed"
+    },
+    {
+      "name": "Q8 row mixing",
+      "result": "-4",
+      "status": "passed"
+    },
+    {
+      "name": "Q10 zero initial pivot",
+      "result": "23",
+      "status": "passed"
+    },
+    {
+      "name": "Q11 anti-diagonal",
+      "result": "210",
+      "status": "passed"
+    },
+    {
+      "name": "Q14 sensitivity",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Q15 cross term",
+      "result": "h*k + 4*h + 2*k + 5",
+      "status": "passed"
+    },
+    {
+      "name": "Q16 inverse identity",
+      "result": "5",
+      "status": "passed"
+    },
+    {
+      "name": "Q16 off-diagonal",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Q20 scaling adjugate",
+      "result": "648",
+      "status": "passed"
+    },
+    {
+      "name": "Q21 x",
+      "result": "14/5",
+      "status": "passed"
+    },
+    {
+      "name": "Q21 y",
+      "result": "-3/5",
+      "status": "passed"
+    },
+    {
+      "name": "Q24 family",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Q25 update",
+      "result": "1 - 3*t",
+      "status": "passed"
+    },
+    {
+      "name": "Q26 singular update",
+      "result": "24",
+      "status": "passed"
+    },
+    {
+      "name": "Q28 Schur",
+      "result": "4",
+      "status": "passed"
+    },
+    {
+      "name": "Q29 swap blocks",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Q30 actual block",
+      "result": "3",
+      "status": "passed"
+    },
+    {
+      "name": "Q30 invalid expression",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Q31 Vandermonde",
+      "result": "-2",
+      "status": "passed"
+    },
+    {
+      "name": "Q33 recurrence order 1",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Q33 recurrence order 2",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Q33 recurrence order 3",
+      "result": "-1",
+      "status": "passed"
+    },
+    {
+      "name": "Q33 recurrence order 4",
+      "result": "-1",
+      "status": "passed"
+    },
+    {
+      "name": "Q33 recurrence order 5",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Q33 recurrence order 6",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Q33 recurrence order 7",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Q33 recurrence order 8",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Q33 recurrence order 9",
+      "result": "-1",
+      "status": "passed"
+    },
+    {
+      "name": "Q33 recurrence order 10",
+      "result": "-1",
+      "status": "passed"
+    },
+    {
+      "name": "Q33 recurrence order 11",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Q33 recurrence order 12",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Q34 Laplacian 1",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Q34 Laplacian 2",
+      "result": "3",
+      "status": "passed"
+    },
+    {
+      "name": "Q34 Laplacian 3",
+      "result": "4",
+      "status": "passed"
+    },
+    {
+      "name": "Q34 Laplacian 4",
+      "result": "5",
+      "status": "passed"
+    },
+    {
+      "name": "Q34 Laplacian 5",
+      "result": "6",
+      "status": "passed"
+    },
+    {
+      "name": "Q34 Laplacian 6",
+      "result": "7",
+      "status": "passed"
+    },
+    {
+      "name": "Q34 Laplacian 7",
+      "result": "8",
+      "status": "passed"
+    },
+    {
+      "name": "Q34 Laplacian 8",
+      "result": "9",
+      "status": "passed"
+    },
+    {
+      "name": "Q34 Laplacian 9",
+      "result": "10",
+      "status": "passed"
+    },
+    {
+      "name": "Q35 variable bands",
+      "result": "8",
+      "status": "passed"
+    },
+    {
+      "name": "Q36 area",
+      "result": "7",
+      "status": "passed"
+    },
+    {
+      "name": "Q37 translated triangle",
+      "result": "11",
+      "status": "passed"
+    },
+    {
+      "name": "Q38 Gram",
+      "result": "9",
+      "status": "passed"
+    },
+    {
+      "name": "Q39 rectangular product",
+      "result": "11",
+      "status": "passed"
+    },
+    {
+      "name": "Q42 reflection",
+      "result": "-1",
+      "status": "passed"
+    },
+    {
+      "name": "Q42 entry",
+      "result": "7/25",
+      "status": "passed"
+    },
+    {
+      "name": "Q46 interval polynomial",
+      "result": "6 - t**2",
+      "status": "passed"
+    },
+    {
+      "name": "Q48 defective",
+      "result": "8",
+      "status": "passed"
+    },
+    {
+      "name": "Q51 derivative",
+      "result": "2*t",
+      "status": "passed"
+    },
+    {
+      "name": "Q54 smaller update",
+      "result": "4",
+      "status": "passed"
+    },
+    {
+      "name": "Q54 larger update",
+      "result": "4",
+      "status": "passed"
+    },
+    {
+      "name": "Q55 row-sum family",
+      "result": "t**4 - 11*t**3 + 45*t**2 - 81*t + 54",
+      "status": "passed"
+    },
+    {
+      "name": "Q57 commutator",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Q60 bilinear",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Q60 Hermitian",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Q62 low-rank update",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Q63 repair",
+      "result": "120",
+      "status": "passed"
+    },
+    {
+      "name": "Q67 singular family",
+      "result": "t - 4",
+      "status": "passed"
+    },
+    {
+      "name": "Q68 product",
+      "result": "9",
+      "status": "passed"
+    },
+    {
+      "name": "Q70 Schur boundary",
+      "result": "6*t - 2",
+      "status": "passed"
+    },
+    {
+      "name": "Q73 LU",
+      "result": "120",
+      "status": "passed"
+    },
+    {
+      "name": "Q75 positivity determinant",
+      "result": "2*t**3 - 3*t**2 + 1",
+      "status": "passed"
+    },
+    {
+      "name": "Q76 polynomial",
+      "result": "(1 - t)*(2*t + 1)*(3*t + 1)",
+      "status": "passed"
+    },
+    {
+      "name": "Q80 mixed",
+      "result": "t**3 - 3*t + 2",
+      "status": "passed"
+    },
+    {
+      "name": "Authentic PhD Q32 determinant",
+      "result": "2*t**3 - 3*t**2 + 1",
+      "status": "passed"
+    },
+    {
+      "name": "Authentic MSc Q44",
+      "result": "6",
+      "status": "passed"
+    },
+    {
+      "name": "geometry-main determinant",
+      "result": "7",
+      "status": "passed"
+    },
+    {
+      "name": "geometry-main determinant",
+      "result": "-7",
+      "status": "passed"
+    },
+    {
+      "name": "geometry-main determinant",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "shear-main determinant",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "shear-main determinant",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "shear-main determinant",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "shear-main determinant",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "permutation-main term",
+      "result": "21",
+      "status": "passed"
+    },
+    {
+      "name": "permutation-main term",
+      "result": "-1",
+      "status": "passed"
+    },
+    {
+      "name": "permutation-main term",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "permutation-main term",
+      "result": "15",
+      "status": "passed"
+    },
+    {
+      "name": "permutation-main term",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "permutation-main term",
+      "result": "70",
+      "status": "passed"
+    },
+    {
+      "name": "cofactor-main cofactor",
+      "result": "20",
+      "status": "passed"
+    },
+    {
+      "name": "cofactor-main cofactor",
+      "result": "-5",
+      "status": "passed"
+    },
+    {
+      "name": "cofactor-main cofactor",
+      "result": "35",
+      "status": "passed"
+    },
+    {
+      "name": "cofactor-sparse cofactor",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "cofactor-sparse cofactor",
+      "result": "4",
+      "status": "passed"
+    },
+    {
+      "name": "cofactor-sparse cofactor",
+      "result": "-8",
+      "status": "passed"
+    },
+    {
+      "name": "eliminate-main determinant",
+      "result": "-2",
+      "status": "passed"
+    },
+    {
+      "name": "eliminate-main ledger",
+      "result": "-2",
+      "status": "passed"
+    },
+    {
+      "name": "eliminate-main determinant",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "eliminate-main ledger",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "eliminate-main determinant",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "eliminate-main ledger",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "eliminate-main determinant",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "eliminate-main ledger",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "eliminate-main determinant",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "eliminate-main ledger",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "eliminate-main determinant",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "eliminate-main ledger",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "adjugate-main product entry",
+      "result": "5",
+      "status": "passed"
+    },
+    {
+      "name": "adjugate-main product entry",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "adjugate-main product entry",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "adjugate-main product entry",
+      "result": "5",
+      "status": "passed"
+    },
+    {
+      "name": "cramer-main determinant",
+      "result": "14",
+      "status": "passed"
+    },
+    {
+      "name": "cramer-main determinant",
+      "result": "-3",
+      "status": "passed"
+    },
+    {
+      "name": "parameter-main factors",
+      "result": "-16",
+      "status": "passed"
+    },
+    {
+      "name": "parameter-main factors",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "parameter-main factors",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "parameter-main factors",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "parameter-main factors",
+      "result": "4",
+      "status": "passed"
+    },
+    {
+      "name": "positivity-main factors",
+      "result": "-4",
+      "status": "passed"
+    },
+    {
+      "name": "positivity-main factors",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "positivity-main factors",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "positivity-main factors",
+      "result": "1/2",
+      "status": "passed"
+    },
+    {
+      "name": "positivity-main factors",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "positivity-main factors",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "block-main determinant",
+      "result": "4",
+      "status": "passed"
+    },
+    {
+      "name": "block-main determinant",
+      "result": "4",
+      "status": "passed"
+    },
+    {
+      "name": "block-main determinant",
+      "result": "4",
+      "status": "passed"
+    },
+    {
+      "name": "update-main one-column term",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "update-main one-column term",
+      "result": "-2",
+      "status": "passed"
+    },
+    {
+      "name": "update-main one-column term",
+      "result": "-3",
+      "status": "passed"
+    },
+    {
+      "name": "vandermonde-main determinant",
+      "result": "-2",
+      "status": "passed"
+    },
+    {
+      "name": "vandermonde-main determinant",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "vandermonde-main determinant",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "gram-main squared minor",
+      "result": "4",
+      "status": "passed"
+    },
+    {
+      "name": "gram-main squared minor",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "gram-main squared minor",
+      "result": "4",
+      "status": "passed"
+    },
+    {
+      "name": "triangle-main edge determinant",
+      "result": "11",
+      "status": "passed"
+    },
+    {
+      "name": "triangle-main area",
+      "result": "11/2",
+      "status": "passed"
+    },
+    {
+      "name": "triangle-main edge determinant",
+      "result": "11",
+      "status": "passed"
+    },
+    {
+      "name": "triangle-main area",
+      "result": "11/2",
+      "status": "passed"
+    },
+    {
+      "name": "reflection-main determinant",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "reflection-main determinant",
+      "result": "-1",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-1",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-2",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-12",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-12",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-10",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-10",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-10",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "15",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "15",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "10",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "10",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "10",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-2",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-2",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-2",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-12",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-12",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-12",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "10",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "10",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "10",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-16",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-16",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-16",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "28",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "28",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "28",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-32",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-32",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-32",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "46",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "46",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "46",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "46",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "46",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-18",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-18",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-18",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "18",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "18",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-126",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-126",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-126",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-126",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-126",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-54",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "54",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "54",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "54",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "54",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "42",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "42",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "42",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "42",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "42",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "129",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "129",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "129",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "129",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "129",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-23",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-23",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-23",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-23",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-23",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "12",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "12",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "12",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "12",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "12",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-98",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-98",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-98",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-98",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-98",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1338",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1338",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1338",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1338",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1338",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1338",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1338",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1338",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-364",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-364",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-364",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-364",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-364",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-364",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-364",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-364",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "391",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "391",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "391",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "391",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "391",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "391",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "391",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-572",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-572",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-572",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-572",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-572",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-572",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-572",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-572",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "113",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "113",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "113",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "113",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "113",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "113",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "113",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "113",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-210",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-210",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-210",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-210",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-210",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-210",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-210",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-210",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "184",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "184",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "184",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "184",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "184",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "184",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "184",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "184",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-175",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-175",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-175",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-175",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-175",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-175",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-175",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-175",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "176",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "176",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "176",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "176",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "176",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "176",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-1589",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1589",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1589",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1589",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1589",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1589",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1589",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "1589",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-180",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-180",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-180",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-180",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-180",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-180",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-180",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-180",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-372",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-372",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-372",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-372",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-372",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-372",
+      "status": "passed"
+    },
+    {
+      "name": "Editable exact frame",
+      "result": "-372",
+      "status": "passed"
+    }
+  ],
+  "editableInputs": 39,
+  "authenticAnswers": "independently derived, not official keys"
+}

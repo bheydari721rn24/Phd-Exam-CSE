@@ -1,0 +1,45 @@
+[
+  {
+    "id": "Phd_CS_1404_Q32",
+    "title": "Symmetric positivity: determinant sign is insufficient",
+    "booklet": "PhD CS 1404",
+    "questionNumber": 32,
+    "pdfPage": 8,
+    "modelId": "positivity-main",
+    "stem": "For $A=\\begin{bmatrix}1&a&a\\\\a&1&a\\\\a&a&1\\end{bmatrix}$ to be positive definite, what is the range of $a$?",
+    "options": [
+      "$-1<a<1$",
+      "$-\\frac12<a<1$",
+      "$-\\frac12<a<\\frac12$",
+      "$0<a<1$"
+    ],
+    "answer": 2,
+    "solution": "Write $A=(1-a)I+aJ$. The constant-vector line has factor $1+2a$, and its orthogonal sum-zero plane has factor $1-a$. Decompose any vector orthogonally into these two parts; the quadratic form is the sum of each squared length times its corresponding factor. Strict positivity requires both factors positive, so $-1/2<a<1$, which is option 2. At either endpoint a nonzero direction has zero form, so endpoints are excluded. The determinant is $(1-a)^2(1+2a)$, but its positivity alone would wrongly admit $a>1$, where the two-dimensional plane has a negative factor. Option 1 permits a negative constant-line factor, option 3 unnecessarily excludes valid values above one half, and option 4 unnecessarily excludes valid negative values. This authentic question calibrates the distinction between determinant positivity and quadratic-form positivity.",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "answerStatus": "independently_derived_not_official",
+    "verification": "Original PDF page visually inspected; all printed options retained in their original order; English adaptation checked."
+  },
+  {
+    "id": "MS_CS_1405_Q44",
+    "title": "Triangular polynomial map and determinant consequence",
+    "booklet": "MSc CS 1405",
+    "questionNumber": 44,
+    "pdfPage": 10,
+    "stem": "On the real polynomial space $P_2$, let $T(f(x))=f(x)+(x+1)f\\prime(x)$. Which set contains all eigenvalues of $T$?",
+    "options": [
+      "$\\{2\\}$",
+      "$\\{1,2\\}$",
+      "$\\{1,2,3\\}$",
+      "$\\{1,2,4\\}$"
+    ],
+    "answer": 3,
+    "solution": "The ordered monomial basis is $1,x,x^2$. Its images are $1$, $1+2x$, and $2x+3x^2$. Therefore the coordinate matrix is $\\begin{bmatrix}1&1&0\\\\0&2&2\\\\0&0&3\\end{bmatrix}$. Its characteristic determinant is $(t-1)(t-2)(t-3)$, giving precisely eigenvalues one, two, and three, hence option 3. The printed question asks for eigenvalues; the further conclusion $\\det T=6$ is our explicitly identified determinant consequence, not an added premise or changed question. It follows directly from triangularity and remains the same in every basis. Options 1 and 2 omit genuine roots, while option 4 replaces the actual degree-two factor three by four.",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "answerStatus": "independently_derived_not_official",
+    "verification": "Original PDF page visually inspected; all printed options retained in their original order; English adaptation checked."
+  }
+]

@@ -1,0 +1,240 @@
+@@ 1|A minor is not a cofactor|Oxford definition, independently reconstructed task|cofactor-main
+For $A=\begin{bmatrix}1&-3&2\\0&7&1\\-5&1&3\end{bmatrix}$, compute $M_{23}$, $C_{23}$, and $\det A$.
+---SOLUTION---
+Deleting row two and column three leaves $\begin{bmatrix}1&-3\\-5&1\end{bmatrix}$, whose determinant is $1-15=-14$. Because $2+3$ is odd, $C_{23}=14$. Expanding the original determinant along row two gives $0+7C_{22}+C_{23}$. The minor at $(2,2)$ is $3+10=13$, so the total is $91+14=105$. The attached model instead expands row one of this same matrix and reaches the same result, giving an independent organization of the computation. Confusing the remaining matrix with its scalar minor, or forgetting the checkerboard sign, produces different errors.
+
+**Transfer rule.** Delete the indicated row and column before computing a minor, then apply its cofactor sign separately.
+@@ 2|A swap ledger in a four-by-four determinant|Berkeley worked calculation, independently reconstructed|eliminate-main
+Find the determinant of $A=\begin{bmatrix}0&1&0&1\\1&1&2&3\\1&0&3&1\\0&2&3&1\end{bmatrix}$ by swaps and row replacements only.
+---SOLUTION---
+Exchange rows one and two. Subtract the new first row from row three; its new entries are $(0,-1,1,-2)$. Add row two to row three, and subtract twice row two from row four. These give last rows $(0,0,1,-1)$ and $(0,0,3,-1)$. Subtract three times row three from row four to obtain $(0,0,0,2)$. The resulting upper triangular determinant is two. Exactly one row swap was used, so the original determinant is $-2$. Every other operation preserves it. The model retains the original matrix, current matrix, and correction relation through every checkpoint.
+
+**Transfer rule.** A triangular diagonal product belongs to the transformed matrix; correct it for every determinant-changing operation.
+@@ 3|Choosing a sparse expansion|Cambridge computation, independently reconstructed|cofactor-sparse
+Compute $\det\begin{bmatrix}2&4&2\\3&2&1\\2&0&1\end{bmatrix}$ in two ways.
+---SOLUTION---
+Expanding down column two gives $-4(3-2)+2(2-4)=-4-4=-8$. Alternatively expand row three: its first minor is $4-4=0$, its middle entry is zero, and its last cofactor is $4-12=-8$. Thus the total is again $-8$. Both computations use the original matrix's cofactors; mixing cofactors from the first expansion with entries from a changed matrix is unjustified. The row-three route is especially efficient because both its middle term and its first minor vanish. The model displays which row and column are actually removed.
+
+**Transfer rule.** Choose an expansion by the cost of its surviving minors, not merely by its row number.
+@@ 4|Two signs in a permutation term|Original conceptual calculation|permutation-main
+For $A=\begin{bmatrix}1&-3&2\\0&7&1\\-5&1&3\end{bmatrix}$, compute the contribution of permutation $(3,2,1)$ and explain why the matrix entry signs are insufficient.
+---SOLUTION---
+The permutation has three inversions: all three pairs are in decreasing order. Its sign is therefore minus one. The selected product is $a_{13}a_{22}a_{31}=2\cdot7\cdot(-5)=-70$. Multiplying by the permutation sign gives contribution $70$. This is only one term of the determinant, not the whole determinant. The signs of the entries determine the product's numeric sign, whereas permutation parity determines whether that product is added or subtracted. Forgetting either sign changes this contribution by 140 and corrupts the total even if all other terms are computed correctly.
+
+**Transfer rule.** Calculate permutation parity and entry-product sign as two independent stages.
+@@ 5|A four-by-four counterexample to Sarrus extension|Original conceptual counterexample
+Explain why cyclic diagonal wrapping cannot calculate general four-by-four determinants. Give a permutation matrix missed by the proposed eight diagonal terms.
+---SOLUTION---
+Use the permutation $(2,1,3,4)$, whose matrix exchanges the first two rows of $I_4$. Its determinant is minus one because it is a single transposition. Its unique nonzero determinant product selects columns $(2,1,3,4)$. That selection is neither a cyclic shift of $(1,2,3,4)$ nor one of the reverse cyclic diagonal patterns, so a rule retaining only the four forward and four reverse wrapped diagonals misses it and returns zero. More generally four-by-four determinants have 24 permutation patterns rather than eight. Sarrus works in three dimensions because its six patterns happen to exhaust all permutations.
+
+**Transfer rule.** A diagonal mnemonic is valid only when it exhausts all required permutation terms.
+@@ 6|Scaling the whole matrix and its inverse|Original formula problem
+Let $A$ be invertible of order five with $\det A=-3$. Find $\det(2A)$, $\det(A^{-2})$, and $\det(-A^T)$.
+---SOLUTION---
+Scaling all five rows multiplies the determinant by $2^5$, so the first value is $-96$. Multiplicativity and invertibility give $\det(A^{-2})=(\det A)^{-2}=1/9$. Transposition preserves the determinant, while multiplying an odd-order matrix by minus one changes its sign, so $\det(-A^T)=(-1)^5(-3)=3$. These calculations use three different laws and their assumptions. The inverse expression is meaningful only because invertibility was stated. The common wrong first answer $-6$ treats a whole-matrix scaling as though only one row had changed.
+
+**Transfer rule.** Count how many rows a scalar changes, and establish invertibility before using negative powers.
+@@ 7|A mixed row-operation ledger|Original formula problem
+Starting from order-four $A$, swap two rows, multiply one row by three, and then add five times another row to it. The resulting triangular matrix has diagonal $(2,-1,4,6)$. Find $\det A$.
+---SOLUTION---
+Let $M$ be the endpoint. The swap multiplies the determinant by minus one, the scaling multiplies it by three, and the row replacement leaves it unchanged. Hence $\det M=-3\det A$. Its triangular diagonal product is $2(-1)4\cdot6=-48$. Dividing the relation by minus three gives $\det A=16$. There is no additional factor of five: that coefficient occurs in an addition of a different row, not a row scaling. Writing the relation before substituting the endpoint prevents the correction factor from being inverted accidentally.
+
+**Transfer rule.** State whether your ledger expresses the current determinant in terms of the original or the reverse.
+@@ 8|Simultaneous row changes are not sequential replacements|Original conceptual problem
+Rows $r_1,r_2,r_3$ of $A$ are replaced simultaneously by $r_1+r_2$, $r_1-r_2$, and $2r_3$. Express the new determinant in terms of $\det A$.
+---SOLUTION---
+The new matrix is $TA$, where $T=\begin{bmatrix}1&1&0\\1&-1&0\\0&0&2\end{bmatrix}$. Its determinant is $(-1-1)2=-4$, so the new determinant is $-4\det A$. The second new row uses the original first row, not the already changed first row. Treating the two transformations as sequential row replacements would therefore describe a different matrix. The multiplication representation captures the simultaneous interpretation unambiguously and works even if $A$ is singular. One can alternatively expand the first two rows by multilinearity and observe cancellation of repeated-row terms.
+
+**Transfer rule.** Encode simultaneous original-row combinations in a row-mixing matrix before applying operation laws.
+@@ 9|Affine row replacement|Original proof problem
+With all other rows unchanged, replace row $i$ by $\alpha r_i+\beta r_j+\gamma r_k$, where $i,j,k$ are distinct. What happens to the determinant, including when $\alpha=0$?
+---SOLUTION---
+Multilinearity splits the new determinant into three terms. The first is $\alpha\det A$. The second has its new row $i$ equal to row $j$, so it vanishes; the third similarly repeats row $k$. Therefore the result is $\alpha\det A$ for all scalar coefficients. When $\alpha=0$, the new row belongs to the span of two retained rows and the determinant is zero. The transformation then need not be invertible. No assumptions about nonzero $\beta$ or $\gamma$ are needed, and no whole-matrix additivity law is being used.
+
+**Transfer rule.** Row linearity is useful because retained duplicate rows eliminate the unwanted terms.
+@@ 10|A diagonal product with a zero first pivot|Original calculation
+Compute $\det\begin{bmatrix}0&2&1\\3&0&4\\1&5&0\end{bmatrix}$ and explain why the zero upper-left entry does not establish singularity.
+---SOLUTION---
+Expanding row one gives $-2(0-4)+1(15-0)=8+15=23$. Thus the matrix is invertible even though its initial upper-left pivot candidate is zero. Elimination would first swap in a row whose first entry is nonzero, retain the swap sign, and continue. A pivot failure means that no available nonzero entry remains in the current pivot column of the unprocessed rows; it does not mean that one arbitrarily chosen entry is zero. This example also shows why multiplying the original diagonal, which gives zero here, is invalid before triangularization.
+
+**Transfer rule.** Distinguish a zero pivot candidate from an exhausted pivot column.
+@@ 11|Anti-diagonal matrices|Original general formula
+An order-$n$ matrix has only anti-diagonal entries $b_1,\ldots,b_n$, in row order. Derive its determinant and apply it to $(2,3,5,7)$.
+---SOLUTION---
+Only the reversing permutation survives. Every pair is an inversion, so there are $n(n-1)/2$ inversions. The determinant is $(-1)^{n(n-1)/2}\prod_i b_i$. This formula includes zero anti-diagonal entries: the product then vanishes. For order four the inversion count is six and the sign is positive, so the requested determinant is $2\cdot3\cdot5\cdot7=210$. A reversal is not generally a single swap; counting it as one would give the wrong sign in this case. One may also swap rows into diagonal order and track the same parity.
+
+**Transfer rule.** Reversal signs depend on the number of inverted pairs, not on the visual direction of a diagonal.
+@@ 12|A cycle and a permutation power|Original conceptual problem
+Let $P$ permute six coordinates with disjoint cycles of lengths three, two, and one. Find $\det P$ and $\det(P^{2026})$.
+---SOLUTION---
+A cycle of length three has sign $(-1)^2=1$, a two-cycle has sign minus one, and a fixed point has sign one. Their product is minus one. Equivalently, six elements and three cycles give sign $(-1)^{6-3}=-1$. By multiplicativity, the determinant of the even power is $(-1)^{2026}=1$. This does not imply that the matrix power itself is identity: the permutation order is the least common multiple of the cycle lengths, namely six, and 2026 is not a multiple of six. Determinant discards that finer cycle information.
+
+**Transfer rule.** The determinant of a permutation power reveals parity, not its full permutation order.
+@@ 13|Whole-matrix additivity fails even for invertible matrices|Original counterexample
+Find invertible real two-by-two matrices $A,B$ with $\det A=\det B=1$ but $\det(A+B)=0$.
+---SOLUTION---
+Take $A=I_2$ and $B=-I_2$. Both are invertible and both determinants are one because the dimension is even. Their sum is the zero matrix and has determinant zero. Thus neither positivity nor invertibility of both summands protects the determinant of the sum. The missing information is the mixed terms created by changing multiple rows simultaneously. This example is especially useful because the false sum rule would predict two, while a mistaken multiplicative intuition might predict one; the actual answer is zero by direct inspection.
+
+**Transfer rule.** Determinants multiply under matrix products but have no general two-term law under matrix addition.
+@@ 14|One-entry perturbation and an unchanged determinant|Original cofactor problem
+In $A=\begin{bmatrix}2&4&2\\3&2&1\\2&0&1\end{bmatrix}$, change entry $(3,1)$ by $h$. Find the exact determinant change.
+---SOLUTION---
+The cofactor at $(3,1)$ has positive sign and minor $\det\begin{bmatrix}4&2\\2&1\end{bmatrix}=4-4=0$. The determinant is affine in the changed entry, with this cofactor as its coefficient, so the change is exactly zero for every real $h$. In particular, the determinant stays $-8$ even though one matrix entry can be altered arbitrarily. The cofactor stays unchanged because its defining submatrix excludes row three and column one. This is an exact identity rather than a small-perturbation approximation and illustrates that individual entries need not influence the determinant.
+
+**Transfer rule.** A zero cofactor makes its own entry an exact determinant-insensitive direction.
+@@ 15|Two-entry perturbations have a mixed term|Original formula problem
+Let $A=\begin{bmatrix}2&1\\3&4\end{bmatrix}$. Increase its two diagonal entries by $h$ and $k$. Compare the exact determinant with its first-order expression.
+---SOLUTION---
+The original determinant is $8-3=5$. After the changes it is $(2+h)(4+k)-3=5+4h+2k+hk$. The linear cofactor expression retains $4h+2k$, but the product $hk$ remains because two entries in different rows and columns change together. For $h=k=1$, the exact new determinant is 12, while the first-order prediction is 11. The first-order expression is an approximation for jointly small changes, whereas a one-entry cofactor formula is exact. If both changed entries belonged to the same row, multilinearity would remove this degree-two term.
+
+**Transfer rule.** Simultaneous perturbations can create cross terms even though each individual entry enters affinely.
+@@ 16|An untransposed cofactor matrix|Original calculation|adjugate-main
+For $A=\begin{bmatrix}2&1\\3&4\end{bmatrix}$, compute its cofactor matrix, adjugate, and inverse.
+---SOLUTION---
+The signed cofactors give $C=\begin{bmatrix}4&-3\\-1&2\end{bmatrix}$. Transposing yields $\operatorname{adj}A=\begin{bmatrix}4&-1\\-3&2\end{bmatrix}$. Since the determinant is five, the inverse is one fifth of that adjugate. Multiplying $A$ by the adjugate gives $\begin{bmatrix}5&0\\0&5\end{bmatrix}$; multiplying by the untransposed cofactor matrix does not. The transpose is therefore a structural requirement, not a notation convention that can be ignored. Cofactors from row one belong to column one of the inverse. The model makes the scalar-product cancellations visible.
+
+**Transfer rule.** Form signed cofactors, transpose them, and only then divide by a nonzero determinant.
+@@ 17|Wrong-row cofactor sums|Original conceptual identity
+For a general three-by-three matrix, evaluate $\sum_{j=1}^3 a_{2j}C_{1j}$ and explain the result without assuming invertibility.
+---SOLUTION---
+Replace row one by row two while leaving the other rows unchanged. The cofactors along the replaced row remain those of the original first row because their minors exclude that entire row. Expanding the new determinant along row one gives the requested sum. The new matrix has two equal rows, so the determinant and sum are zero. This proof works for every original matrix, including singular ones. Using the same row index for entries and cofactors would instead yield the original determinant; changing that index is precisely what creates the cancellation.
+
+**Transfer rule.** An entry row paired with a different cofactor row gives an equal-row determinant and therefore zero.
+@@ 18|Rank and adjugate rank|Original classification problem
+For real matrices of order four, determine the adjugate rank when the original rank is four, three, two, or zero.
+---SOLUTION---
+At rank four the matrix is invertible and its adjugate is a nonzero scalar times its inverse, so its rank is four. At rank three some three-by-three minor is nonzero, making the adjugate nonzero, while every adjugate column lies in the one-dimensional nullspace by $A\operatorname{adj}A=0$. Its rank is therefore one. At rank two or zero all three-by-three minors vanish, so the adjugate is zero and has rank zero. There is no case of adjugate rank two or three for order four. The argument uses maximal minors and nullspace dimension together.
+
+**Transfer rule.** For order at least two, adjugate rank is full, one, or zero according to the original rank threshold.
+@@ 19|The one-dimensional adjugate exception|Original boundary problem
+Compute the adjugate of $[0]$ and of the zero two-by-two matrix. Explain the difference.
+---SOLUTION---
+Deleting the sole row and column of a one-by-one matrix leaves the empty matrix, whose determinant is defined as one. Its cofactor and adjugate are therefore $[1]$, even when the original entry is zero. For the zero two-by-two matrix, each minor is a one-by-one zero matrix, so every cofactor is zero and the adjugate is zero. The frequently used rank rule assumes order at least two. Applying its low-rank conclusion to order one without checking the convention produces a false answer and breaks the inverse/cofactor framework at its base case.
+
+**Transfer rule.** Verify the matrix order before applying adjugate formulas involving zeroth powers or empty minors.
+@@ 20|A determinant of an adjugate expression|Original formula problem
+Let $A$ have order four and determinant two. Compute $\det(3\operatorname{adj}A)$ and $\det(\operatorname{adj}(A^{-1}))$.
+---SOLUTION---
+The adjugate determinant is $2^{4-1}=8$. Scaling the whole four-by-four adjugate by three contributes $3^4$, giving $648$. The inverse has determinant one half, so its adjugate determinant is $(1/2)^3=1/8$. Both expressions are meaningful because the nonzero determinant establishes invertibility. The two exponents serve different purposes: four counts scaled rows, whereas three is the adjugate determinant exponent for order four. Combining them carelessly, such as using $3^3$ for whole-matrix scaling, produces a plausible but incorrect result.
+
+**Transfer rule.** Keep the matrix dimension exponent separate from the adjugate exponent one less than the dimension.
+@@ 21|Cramer's rule with signed numerators|Original worked system|cramer-main
+Solve $\begin{bmatrix}2&1\\3&4\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}5\\6\end{bmatrix}$ by determinant ratios and verify the equations.
+---SOLUTION---
+The coefficient determinant is five. Replacing column one gives determinant $5\cdot4-6\cdot1=14$, so $x=14/5$. Replacing column two gives $2\cdot6-3\cdot5=-3$, so $y=-3/5$. Substitution gives $2(14/5)-3/5=5$ and $3(14/5)+4(-3/5)=6$. Both replacement matrices retain the other original column in its original position. The coefficient determinant is positive, while the second replacement determinant is negative. No absolute values belong in Cramer's ratios because their signs encode the solution coordinates.
+
+**Transfer rule.** Use signed column-replacement determinants, then substitute the resulting coordinates into the original system.
+@@ 22|Zero replacement determinants do not always imply consistency|Original counterexample
+For $A=0_{3\times3}$ and $b=(1,0,0)^T$, compute all three Cramer replacement determinants and classify $Ax=b$.
+---SOLUTION---
+Every replacement matrix has only one possibly nonzero column, so its rank is at most one and its three-by-three determinant is zero. Nevertheless $Ax$ is the zero vector for every $x$, while $b$ is nonzero, so the system is inconsistent. Its augmented rank is one and its coefficient rank is zero. This is a counterexample to extending Cramer's rule through a zero denominator or treating zero numerator determinants as universal consistency evidence. The rank-$n-1$ criterion is different and does not apply because the coefficient rank is much lower here.
+
+**Transfer rule.** At a zero denominator, classify the augmented system rather than infer a solution from zero replacement determinants.
+@@ 23|A parameter family with two different singular ranks|Oxford structured determinant, independently reconstructed|parameter-main
+For $n\ge3$, let $A_n(x)$ have diagonal $x$ and every off-diagonal entry one. Find its determinant and its rank at both singular parameter values.
+---SOLUTION---
+Write $A_n(x)=(x-1)I+J$. On the sum-zero subspace its factor is $x-1$, and on the constant-vector line its factor is $x+n-1$. Their dimensions give determinant $(x-1)^{n-1}(x+n-1)$. At $x=1$, the matrix is $J$, whose image is the constant-vector line, so rank is one. At $x=1-n$, it vanishes on that line but acts by the nonzero factor $-n$ on the sum-zero subspace, so rank is $n-1$. Different polynomial root multiplicities here correspond to different nullities, but that coincidence is not a general rule.
+
+**Transfer rule.** Factor a parameter determinant to find singular values, then inspect the original map to determine rank at each value.
+@@ 24|Elimination that divides away an exceptional case|Original parameter problem
+Compute the determinant and rank of $A(t)=\begin{bmatrix}t&1\\t^2&t\end{bmatrix}$ for every real $t$. Explain the risk of dividing by $t$.
+---SOLUTION---
+The determinant is $t^2-t^2=0$ for every parameter. For nonzero $t$, row two equals $t$ times row one, so rank is one. At zero the matrix becomes $\begin{bmatrix}0&1\\0&0\end{bmatrix}$, also of rank one. No parameter gives rank zero because the entry at $(1,2)$ is always one. Elimination using row one as a pivot and dividing by $t$ handles only nonzero $t$; it cannot determine the zero case. Direct substitution shows the same rank there by a different pivot. A symbolic formula with canceled denominators does not itself supply that missing rank argument.
+
+**Transfer rule.** An exceptional denominator value requires substitution into the original matrix even if the final determinant polynomial extends to it.
+@@ 25|A rank-one perturbation of identity|Original formula problem|update-main
+For $u=(1,2,-1)^T$ and $v=(2,-1,3)^T$, compute $\det(I_3+uv^T)$ and characterize $\det(I_3+tuv^T)$.
+---SOLUTION---
+The inner product is $v^Tu=2-2-3=-3$. The rank-one identity gives determinant $1-3=-2$ for the first matrix and $1-3t$ for the parameter family. It is singular exactly at $t=1/3$. At that value $u$ is in its kernel because $(I+tuv^T)u=(1+t v^Tu)u=0$. The rank is then two: the update can lower the identity rank by at most one, and the displayed kernel is nontrivial. The model compares the original columns and the single-update contributions; multiple update-column terms vanish by dependence.
+
+**Transfer rule.** Reduce an identity rank-one determinant to one scalar inner product, retaining its sign.
+@@ 26|Rank-one updates of a singular matrix|Original singular-case problem
+Let $A=\operatorname{diag}(1,2,0)$, $u=(0,0,3)^T$, and $v=(0,0,4)^T$. Find $\det(A+uv^T)$ without using $A^{-1}$.
+---SOLUTION---
+The update adds 12 to the third diagonal entry, so direct triangular inspection gives $1\cdot2\cdot12=24$. The general adjugate identity agrees: $\operatorname{adj}A=\operatorname{diag}(0,0,2)$, and $v^T\operatorname{adj}(A)u=4\cdot2\cdot3=24$. The original determinant is zero, but the update repairs its missing direction. Writing $\det A(1+v^TA^{-1}u)$ is invalid because the inverse does not exist; multiplying an undefined expression by zero does not fix it. This example demonstrates why the inversion-free formula is stronger than its convenient nonsingular specialization.
+
+**Transfer rule.** Use the adjugate update identity when the original matrix is singular.
+@@ 27|How many updates can repair low rank?|Original rank-concept problem
+Let $A$ have order five and rank at most three. Can a rank-one update $A+uv^T$ be invertible? Give two proofs.
+---SOLUTION---
+The image of the updated map is contained in the sum of the original image and the line spanned by $u$. Its dimension is therefore at most four, so the updated matrix cannot be invertible. Alternatively, rank at most $n-2$ makes the adjugate zero. The determinant update identity then gives $\det(A+uv^T)=\det A+v^T0u=0$. These proofs use different representations of the same obstruction: one counts image dimensions, and the other counts missing maximal minors. Neither depends on the numeric size of the update entries.
+
+**Transfer rule.** A rank-one update changes rank by at most one; it cannot repair two missing independent directions.
+@@ 28|A bordered matrix with a valid Schur complement|Original block calculation|block-main
+Evaluate $\det\begin{bmatrix}2&0&1\\0&3&2\\4&5&6\end{bmatrix}$ using its upper-left two-by-two block.
+---SOLUTION---
+The pivot block is $B=\operatorname{diag}(2,3)$ with determinant six and inverse $\operatorname{diag}(1/2,1/3)$. The Schur scalar is $6-[4\ 5]B^{-1}[1\ 2]^T=6-2-10/3=2/3$. Thus the whole determinant is $6(2/3)=4$. For an independent check, expansion of the first row gives $2(18-10)+(0-12)=16-12=4$. The block route avoids a three-by-three expansion but explicitly uses invertibility of the pivot block. The subtraction order is $EB^{-1}C$, with the row block on the left.
+
+**Transfer rule.** A Schur determinant reduces dimension only after the chosen square pivot block is verified invertible.
+@@ 29|An invertible matrix with a singular pivot block|Original block counterexample
+For $M=\begin{bmatrix}0&I_2\\I_2&0\end{bmatrix}$, find its determinant and explain why the upper-left Schur formula cannot be applied.
+---SOLUTION---
+The upper-left block is zero and has no inverse, so that version of the Schur complement is unavailable. Nevertheless the full matrix exchanges two coordinate blocks and is its own inverse. Its permutation is $(3,4,1,2)$, which has four inversions and positive sign, giving determinant one. More generally exchanging blocks of sizes $r$ and $s$ has sign $(-1)^{rs}$. An invalid block inverse assumption must not be mistaken for singularity of the whole matrix. Direct permutation structure or suitable row/column swaps provide a valid route here.
+
+**Transfer rule.** A singular diagonal block does not establish singularity of the complete block matrix.
+@@ 30|Block product order matters|Original conceptual counterexample
+Explain why $\det\begin{bmatrix}B&C\\E&D\end{bmatrix}=\det(BD-EC)$ is not a universal matrix-block identity. Give a concrete counterexample.
+---SOLUTION---
+Take $B=\begin{bmatrix}1&1\\0&1\end{bmatrix}$, $D=I_2$, $C=\begin{bmatrix}1&0\\0&2\end{bmatrix}$, and $E=\begin{bmatrix}0&0\\1&0\end{bmatrix}$. Then $BD-EC=\begin{bmatrix}1&1\\-1&1\end{bmatrix}$ has determinant two. But $B^{-1}=\begin{bmatrix}1&-1\\0&1\end{bmatrix}$ gives $EB^{-1}C=\begin{bmatrix}0&0\\1&-2\end{bmatrix}$, so the actual block determinant is $\det B\det(I-EB^{-1}C)=3$. The discrepancy proves that the proposed scalar-looking formula is false. Moving factors through a matrix product requires commutation conditions that were not stated. The valid Schur formula retains both multiplication order and the invertibility assumption.
+
+**Transfer rule.** For matrix blocks, preserve the exact Schur order; a scalar-looking formula needs additional commutation assumptions.
+@@ 31|Vandermonde sign and reordered nodes|Original calculation|vandermonde-main
+Find the determinant of the increasing-power Vandermonde matrix with ordered nodes $(1,3,2)$, then find the effect of swapping its first and third rows.
+---SOLUTION---
+The product in the stated row order is $(3-1)(2-1)(2-3)=2\cdot1\cdot(-1)=-2$. The nodes are distinct, so the matrix is invertible despite the negative determinant. Exchanging the first and third rows is one swap and negates the result, giving two. Sorting the nodes before computing the product without retaining its swap sign would have answered the first question incorrectly. The factors are higher-index node minus lower-index node, not absolute pairwise distances. The model follows the ordered column powers and displays a collapse separately when two nodes coincide.
+
+**Transfer rule.** A Vandermonde determinant is sensitive to node order; use signed differences in that order.
+@@ 32|Interpolation loses uniqueness at repeated nodes|Original concept problem
+For nodes $(0,1,1)$ and polynomial $p(x)=c_0+c_1x+c_2x^2$, classify the coefficient system for values $(2,5,5)$ and $(2,5,7)$.
+---SOLUTION---
+The two repeated-node rows are identical, so the Vandermonde determinant is zero and rank is two. For values $(2,5,5)$, the last equations agree: $c_0=2$ and $c_1+c_2=3$. There are infinitely many polynomials, parameterized by choosing $c_2$ freely and setting $c_1=3-c_2$. For $(2,5,7)$, the identical left sides demand two different values and the system is inconsistent. A zero determinant alone distinguishes neither case. Supplying a derivative at the repeated node would create a different confluent interpolation system, not repair the duplicated ordinary row automatically.
+
+**Transfer rule.** Repeated interpolation nodes require consistency checks or independent derivative constraints, not an ordinary inverse.
+@@ 33|A tridiagonal determinant with zero intermediate pivots|MIT recurrence, independently reconstructed|recurrence-main
+An order-$n$ tridiagonal matrix has ones on all three bands. Find its determinant when $n=2026$ and explain why pivot division is risky.
+---SOLUTION---
+The recurrence is $D_n=D_{n-1}-D_{n-2}$ with $D_0=D_1=1$. It gives $1,1,0,-1,-1,0$ and repeats after six steps because the ordered pair of consecutive values returns to its initial pair. Since $2026\equiv4\pmod6$, the determinant is $-1$. Some earlier leading principal determinants are zero, so an algorithm that divides by each preceding leading determinant without pivoting can fail even when the final matrix is invertible. The recurrence itself divides by nothing and remains valid at every such intermediate zero.
+
+**Transfer rule.** Determinant recurrences remain valid through zero intermediate values when derived without division.
+@@ 34|A discrete Laplacian determinant|Original recurrence proof
+Let $T_n$ have diagonal two and both adjacent diagonals minus one. Prove $\det T_n=n+1$ and calculate $\det T_{50}$.
+---SOLUTION---
+The boundary values are $D_0=1$ and $D_1=2$. Last-row expansion gives $D_n=2D_{n-1}-D_{n-2}$ because the product of the adjacent off-diagonal entries is one. If the preceding values are $n$ and $n-1$, the next is $2n-(n-1)=n+1$. Induction therefore proves the formula, and the requested determinant is 51. The constant difference between successive values is another proof of the same recurrence. Taking an absolute value of either off-diagonal separately is unnecessary; their product enters the recurrence with an external minus sign.
+
+**Transfer rule.** Initialize both $D_0$ and $D_1$, and use the product of the two off-diagonal entries in a continuant recurrence.
+@@ 35|A nonconstant tridiagonal recurrence|Original medium calculation
+Compute the determinant of a four-by-four tridiagonal matrix with diagonal $(2,3,4,5)$, upper diagonal $(1,2,3)$, and lower diagonal $(4,1,2)$.
+---SOLUTION---
+Start with $D_0=1$ and $D_1=2$. The successive products of opposing off-diagonal entries are four, two, and six. Thus $D_2=3\cdot2-4\cdot1=2$, $D_3=4\cdot2-2\cdot2=4$, and $D_4=5\cdot4-6\cdot2=8$. The indices matter: the last recurrence uses the entries between positions three and four, not the product from the first edge. This approach computes only four scalar states rather than expanding a collection of three-by-three minors and exposes the role of each local coupling.
+
+**Transfer rule.** In a variable-band recurrence, match each off-diagonal product to the edge just appended.
+@@ 36|Signed area and unsigned triangle area|Original geometry problem|geometry-main
+Let $u=(2,1)^T$, $v=(-1,3)^T$. Find the signed parallelogram area, physical parallelogram area, and the area of the triangle with vertices $0,u,v$.
+---SOLUTION---
+The determinant is $2\cdot3-(-1)\cdot1=7$, so the ordered columns have positive orientation. The physical parallelogram area is $|7|=7$, and the triangle occupies half of that parallelogram, giving $7/2$. Reversing the column order changes the signed determinant to minus seven but does not change either physical area. A triangle with nonzero base point must use edge differences from that base point, not the absolute vertex coordinates directly in a two-by-two determinant. The attached geometry uses these exact two vectors and labels the orientation separately from physical area.
+
+**Transfer rule.** Keep determinant sign for orientation, but use its absolute value for geometric area.
+@@ 37|A triangle translated away from the origin|Original geometry calculation
+Compute the area of the triangle with vertices $(1,2)$, $(4,3)$, and $(2,6)$.
+---SOLUTION---
+Use the first vertex as the base point. The edge vectors are $(3,1)$ and $(1,4)$, so their determinant is $12-1=11$. The triangle area is $11/2$. Using the other vertex as base point gives different edge coordinates but the same absolute determinant, because translation does not change area. Equivalently, the determinant of the three-by-three matrix with rows $(x_i,y_i,1)$ is 11 in this order, and half its magnitude is the same answer. Multiplying the absolute coordinates of just two vertices would ignore the base-point translation.
+
+**Transfer rule.** Convert vertices into edge differences or use homogeneous-coordinate triangle determinants.
+@@ 38|Gram volume for a rectangular matrix|Original calculation|gram-main
+Let $u=(1,0,1)^T$ and $v=(0,2,1)^T$. Find the area of their parallelogram using a Gram determinant.
+---SOLUTION---
+The Gram matrix is $\begin{bmatrix}u^Tu&u^Tv\\v^Tu&v^Tv\end{bmatrix}=\begin{bmatrix}2&1\\1&5\end{bmatrix}$. Its determinant is nine, so the area is three. Independently, the three row-subset minors of $[u\ v]$ are two, one, and minus two; their squared sum is $4+1+4=9$, illustrating Cauchy–Binet. The original three-by-two matrix has no ordinary determinant. The square root of its Gram determinant is an unsigned two-dimensional volume embedded in three-dimensional space, not an orientation sign for the surrounding space.
+
+**Transfer rule.** For rectangular columns, compute volume through the square Gram matrix and take a square root.
+@@ 39|Cauchy–Binet with cancellation|Original rectangular product problem
+For $X=\begin{bmatrix}1&2&0\\0&1&3\end{bmatrix}$ and $Y=\begin{bmatrix}2&1\\1&0\\0&1\end{bmatrix}$, compute $\det(XY)$ directly and by maximal minors.
+---SOLUTION---
+The product is $\begin{bmatrix}4&1\\1&3\end{bmatrix}$ and its determinant is 11. For column subsets $(1,2)$, $(1,3)$, and $(2,3)$, the minors of $X$ are one, three, and six. The corresponding row minors of $Y$ are minus one, two, and one. Their product sum is $-1+6+6=11$. The negative first contribution is essential: Cauchy–Binet uses signed products, not squared minors unless the second factor is the transpose or conjugate transpose of the first. Consistent ordering of each selected subset is also necessary.
+
+**Transfer rule.** Match the same ordered intermediate index subset in both rectangular factors.
+@@ 40|The impossible tall product inverse|Original rank problem
+If $X$ is five-by-three and $Y$ is three-by-five, determine $\det(XY)$. Can $YX$ nevertheless be invertible?
+---SOLUTION---
+The image of $XY$ is contained in the image of $X$, whose dimension is at most three. Therefore the five-by-five product has rank at most three and determinant zero. The three-by-three reverse product can be invertible: choose $X$ whose first three rows form $I_3$ and whose last two rows are zero, and choose $Y$ to extract the first three coordinates. Then $YX=I_3$, while $XY$ is the projection onto the first three coordinates of five-dimensional space. Rectangular products do not share the square-factor determinant multiplication law.
+
+**Transfer rule.** Compare the product's output dimension with the intermediate dimension before attempting determinant arithmetic.
