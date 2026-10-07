@@ -25,6 +25,7 @@ elif mode=='package':
  print(json.dumps(dict(project_id='appgprj_6ab5666f72b081918286c6b371c1eb1b',commit_sha=sha,archive=str(dest),files=len(files),archiveSha256=hashlib.sha256(dest.read_bytes()).hexdigest())))
 elif mode=='receipt':
  receipt=json.loads(Path(sys.argv[2]).read_text());assert receipt['deployment']['status']=='succeeded'and receipt['version']['source']['commit_sha']==receipt['contentCommit']
+ receipt['version'].pop('screenshot_url',None)  # Do not persist a temporary signed preview URL.
  (B/'l_det-publication.json').write_text(json.dumps(receipt,indent=2)+'\n')
  version=receipt['version']['version_number'];g=json.loads((B/'chapter-gate.json').read_text());g.update(state='awaiting_user_approval',publicationState='published',publishedVersion=version,lastCompletedReview='Determinants: 29 sections, 82 complete solved problems, 80 condition-bearing final rules, four reviewed written courses from four universities, 17 concept models / 67 checkpoints, exact-rational editable laboratories and validated mathematical typography.',nextReview='Await explicit approval of l_det before any following chapter.',activeWork='l_det delivered as a review draft; approval required to promote and continue.')
  (B/'chapter-gate.json').write_text(json.dumps(g,indent=2)+'\n')
