@@ -1,0 +1,403 @@
+@@ 1|Unequal elementary masses and a many-to-one map|Original fiber-aggregation problem|map-weighted
+An experiment has outcomes $a,b,c,d$ with probabilities $(1,2,3,4)/10$. Define $X(a)=X(c)=-1$, $X(b)=2$, $X(d)=5$. Find the PMF, $P(X>0)$, and $P(X=-1\mid X\le2)$. Explain why counting outcomes uniformly fails.
+---SOLUTION---
+The fiber for $-1$ contains $a,c$, so its mass is $(1+3)/10=2/5$. The other atoms have masses $1/5$ and $2/5$. These three masses are nonnegative and sum to one. The positive-value event contains $b,d$, with mass $(2+4)/10=3/5$. The conditioning event contains $a,b,c$, with mass $6/10$. Thus the requested conditional mass is $(4/10)/(6/10)=2/3$. Counting $a,c$ as two of four would give $1/2$, but the elementary outcomes were never equally likely. Aggregation adds supplied probabilities, not labels.
+
+@@ 2|A normalized linear PMF and a conditional odd count|Original normalization problem
+Let $p(k)=c(k+1)$ for $k=0,1,2,3,4$, zero elsewhere. Find $c$, $P(X\ge2)$ and $P(X\text{ is odd}\mid X\ge1)$.
+---SOLUTION---
+Normalization requires $c(1+2+3+4+5)=15c=1$, hence $c=1/15$. The upper event has numerator $3+4+5=12$, giving $4/5$. Given $X\ge1$, the retained numerator is $2+3+4+5=14$. Odd atoms are one and three, with numerator $2+4=6$, so the conditional answer is $6/14=3/7$. Using $2/5$ for the odd probability would assume uniform values. Dividing by the unconditional total 15 would answer the unconditioned odd event instead. The normalizing constant cancels in the conditional ratio because numerator and denominator use the same law.
+
+@@ 3|Normalization leaves a parameter interval|Original parameter-classification problem
+At atoms $-1,0,2$, masses are $(\theta,1-3\theta,2\theta)$. Classify all valid laws, all laws with three positive masses, and the values of $\theta$ for which $P(X\ge0)\ge3/4$.
+---SOLUTION---
+The masses always sum to one. Nonnegativity requires $\theta\ge0$ and $1-3\theta\ge0$, so valid laws have $0\le\theta\le1/3$. Three positive masses require $0<\theta<1/3$. The event $X\ge0$ excludes only $-1$ and has probability $1-\theta$. Its required bound gives $\theta\le1/4$. Intersecting this with the valid-law interval yields $[0,1/4]$. Solving the normalization equation alone would admit negative probabilities; treating the advertised atom list as requiring strict positivity would incorrectly delete legitimate degenerate laws unless that requirement is explicitly imposed.
+
+@@ 4|A countable telescoping law|Original infinite-support problem
+For $k\ge1$, let $p(k)=c/[k(k+1)]$. Find $c$, the exact CDF at any real $t$, and $P(X\ge10\mid X\ge4)$.
+---SOLUTION---
+Use $1/[k(k+1)]=1/k-1/(k+1)$. The sum through $m$ is $1-1/(m+1)$, tending to one, so $c=1$. For $t<1$, the CDF is zero; for $t\ge1$, it is $1-1/(\lfloor t\rfloor+1)$. The tail $P(X\ge r)=1/r$ for positive integer $r$. Since $\{X\ge10\}\subseteq\{X\ge4\}$, the conditional ratio is $(1/10)/(1/4)=2/5$. A finite partial sum below one is not a normalization defect: it has an explicit omitted tail. The conditional tail is not geometric, as its ratio depends on the starting threshold.
+
+@@ 5|Two equations plus positivity|Original unknown-PMF problem
+For values $0,1,2,3$, masses are $a,b,2b,a$. Given $P(X\le1)=2/5$, determine the full law and the most likely atom.
+---SOLUTION---
+The supplied CDF value gives $a+b=2/5$. Normalization gives $2a+3b=1$. Subtract twice the first equation to obtain $b=1/5$, hence $a=1/5$. The mass vector is $(1,1,2,1)/5$, so the unique modal atom is two. All masses are positive and the sum is one, confirming validity. Symmetry of the first and last entries does not make the middle masses equal. A mode concerns individual masses, not the cumulative probability; the largest CDF value at three does not make three the mode.
+
+@@ 6|Invalid proposed CDF versus invalid PMF|Original conceptual multiple-choice problem
+Which statement is necessarily correct? A: Every nonnegative function on a finite set is a PMF. B: A nondecreasing function with limits zero and one is automatically a CDF. C: A countable nonnegative mass table summing to one defines a discrete law. D: A PMF must be zero at noninteger inputs.
+---SOLUTION---
+Only C is correct: use the countable value set as the sample space and define event probabilities by summing the weights. A omits normalization; weights $(1,1)$ sum to two. B omits right continuity: the function zero for $t\le0$ and one for $t>0$ has the required limits and monotonicity but is not right-continuous at zero. D confuses discrete with integer-valued: a point mass at $\pi$ is discrete. The decisive conditions are nonnegative normalized masses and a countable concentrated set, not integrality or a particular graph shape.
+
+@@ 7|A discrete law with an accumulation point|Original countable-support problem
+Let $P(X=1/k)=2^{-k}$ for $k\ge1$. Find $P(X=0)$, $P(X\le1/3)$ and $F(0)$. Is zero in the closure of the atom set?
+---SOLUTION---
+The geometric-series sum of all masses is one, so no unassigned mass remains at zero: $P(X=0)=0$ and $F(0)=0$. The inequality $1/k\le1/3$ means $k\ge3$. Its tail sum is $\sum_{k=3}^{\infty}2^{-k}=1/4$. The atom values approach zero, so zero belongs to their topological closure even though it is not a positive-mass atom. This distinguishes the atom set from a closed-support convention. Calling the law continuous because its values approach zero would be wrong: all mass is concentrated on countably many atoms.
+
+@@ 8|Repeated values in an empirical PMF|Original descriptive-law bridge
+A stored list is $(-1,-1,0,2,2,2,5,5)$. A record is selected uniformly. Find the law of its value and compare it with selecting uniformly from the four distinct values. Find $P(X\ge2)$ in each experiment.
+---SOLUTION---
+Uniform record selection gives masses $(2,1,3,2)/8$ at $(-1,0,2,5)$. Its upper-event mass is $(3+2)/8=5/8$. Uniform distinct-value selection instead gives mass $1/4$ at each atom, so its upper-event mass is $1/2$. The two experiments have the same value set but different elementary sampling rules. Multiplicities must be retained when the list's records are the equally likely outcomes. This is an empirical law for the stated finite sampling experiment; it does not establish the unknown population distribution that may have generated the stored data.
+
+@@ 9|A normalizer that cannot fix negative weights|Original validity classification
+A proposed law has unnormalized weights $1,\alpha,1-\alpha,2$ on four distinct atoms. Determine which real $\alpha$ values permit normalization by one positive constant. Does normalizing the sum make $\alpha=2$ valid?
+---SOLUTION---
+The total raw weight is four, independent of $\alpha$, so the only normalizer is $1/4$. Positivity requires both $\alpha\ge0$ and $1-\alpha\ge0$, giving $0\le\alpha\le1$. At $\alpha=2$, the third raw weight is negative and remains negative after multiplication by $1/4$; normalization cannot repair it. If all four atoms must be positive, use the open interval $(0,1)$. A signed normalized table is not a probability law. Checking total mass and checking each sign are distinct necessary steps.
+
+@@ 10|An interval-uniform law with congruence constraints|Original exact integer-count problem
+$X$ is uniform on the integers from $-4$ through $8$. Find $P(0\le X<7,\ X\equiv1\pmod3)$ and $P(X\ge0\mid X\text{ is even})$.
+---SOLUTION---
+There are $8-(-4)+1=13$ atoms. The first event has feasible values one and four, so its probability is $2/13$. Even atoms are $-4,-2,0,2,4,6,8$, seven in total. Five of them are nonnegative, giving conditional probability $5/7$. Seven is excluded from the first event despite its congruence, because the inequality is strict. Zero is included in the second event and is even. Length of a real interval is not its integer atom count; counting the endpoints explicitly avoids both errors.
+
+@@ 11|Four different intervals at two atoms|Original endpoint problem|cdf-three
+For masses $(1/5,1/2,3/10)$ at $(-2,1,4)$, calculate $P(1<X\le4)$, $P(1\le X\le4)$, $P(1<X<4)$ and $P(1\le X<4)$ from CDF values.
+---SOLUTION---
+The relevant values are $F(1^-)=1/5$, $F(1)=7/10$, $F(4^-)=7/10$, $F(4)=1$. The four probabilities in the stated order are $1-7/10=3/10$, $1-1/5=4/5$, $7/10-7/10=0$, and $7/10-1/5=1/2$. Each formula removes precisely the lower excluded event from the upper included event. Reusing $F(b)-F(a)$ for all four would discard an included lower atom or add an excluded upper atom. The zero third answer is plausible: there is no support value strictly between one and four.
+
+@@ 12|Recover a PMF from a CDF with noninteger atoms|Original CDF inversion problem
+A right-continuous CDF equals zero below $-1$, $1/4$ on $[-1,1/2)$, $3/5$ on $[1/2,3)$ and one on $[3,\infty)$. Find its PMF and $P(-1<X<3)$.
+---SOLUTION---
+The jumps are $1/4$ at $-1$, $3/5-1/4=7/20$ at $1/2$, and $1-3/5=2/5$ at three. They sum to one. The strict interval contains only the middle atom, so its probability is $7/20$. The same result follows from $F(3^-)-F(-1)=3/5-1/4$. Using $F(3)-F(-1)$ would include the upper mass at three. Using an integer-step difference to recover the middle mass would be unjustified: the support contains a half-integer, so the left limit is the general tool.
+
+@@ 13|A jump assigned to the wrong side|Original CDF correction problem
+Someone proposes $H(t)=0$ for $t\le0$, $H(t)=2/5$ for $0<t\le2$, and $H(t)=1$ for $t>2$. Explain the exact defect and write the corrected CDF for masses $2/5$ at zero and $3/5$ at two.
+---SOLUTION---
+At zero the proposed function has value zero but right limit $2/5$; at two it has value $2/5$ but right limit one. It violates right continuity at both atoms. For the intended law, use zero on $t<0$, $2/5$ on $0\le t<2$, and one on $t\ge2$. The value at each atom must include the mass at that atom because a CDF uses $X\le t$. Correcting only a drawn dot while leaving the piecewise inequalities unchanged would retain the defect. Monotonicity and endpoint limits alone do not certify the original proposal.
+
+@@ 14|Real thresholds for an integer-valued count|Original floor/ceiling problem
+Let $P(X=k)=(k+1)/15$ for $k=0,\ldots,4$. Calculate $P(0.2\le X\le3.9)$ and $P(1<X<4)$, explaining every integer boundary.
+---SOLUTION---
+The first event contains integers one, two and three because its lower ceiling is one and upper floor is three. Its probability is $(2+3+4)/15=3/5$, or $F(3)-F(0)$. The second event contains only two and three, giving $(3+4)/15=7/15$, or $F(3)-F(1)$. The first includes one; the second excludes it. Rounding both real thresholds to the nearest integer would accidentally admit zero or four. CDF evaluation at a noninteger threshold includes only actual support values at or below it; it does not interpolate mass between integer atoms.
+
+@@ 15|Mass at a threshold from two tail statements|Original reverse reconstruction problem
+Suppose $P(X<2)=1/3$ and $P(X>2)=1/4$. Find $P(X=2)$, $F(2)$ and $P(X\ge2)$. Must $X$ be integer-valued?
+---SOLUTION---
+The three disjoint events below, at and above two partition all outcomes. Therefore the missing mass is $1-1/3-1/4=5/12$. Including this atom gives $F(2)=1/3+5/12=3/4$, while $P(X\ge2)=1-1/3=2/3$. Nothing about these event probabilities forces integer support elsewhere; remaining masses could be at noninteger values. The relation uses partition logic for any real variable. Replacing $P(X\ge2)$ by $1-F(2)$ would yield $1/4$, answering the strictly greater event instead.
+
+@@ 16|CDF inequalities without an interpolation assumption|Original bounds problem
+For an integer-valued $X$, $F(1)=1/5$ and $F(4)=4/5$. Find $P(1<X\le4)$. Determine the sharp possible range of $P(X=3)$ and construct endpoint examples.
+---SOLUTION---
+The interval probability is $4/5-1/5=3/5$. This mass is spread across atoms two, three and four, so the possible mass at three lies in $[0,3/5]$. For the lower endpoint, put masses $1/5,3/5,1/5$ at one, two, five. For the upper endpoint, put the same masses at one, three, five. Both constructions give the stated CDF values. Assigning $1/5$ to each of two, three, four would impose an unstated uniformity condition. A total interval mass does not determine its internal atom allocation.
+
+@@ 17|Lower quantile at a cumulative boundary|Original quantile problem|quantile-three
+For atoms $(-2,1,4)$ with masses $(1/5,1/2,3/10)$, find lower quantiles $Q(0.2),Q(0.21),Q(0.7),Q(0.71)$ and explain why $F(Q(u))$ can exceed $u$.
+---SOLUTION---
+The cumulative levels are $.2,.7,1$. The first value reaching the supplied level gives respectively $-2,1,1,4$. A jump crosses an interval of probability levels, so for $u=.21$ the selected atom one has $F(1)=.7>u$. Equality is not a requirement for a generalized inverse. At an exact cumulative boundary the lower quantile takes the earlier atom because its definition uses $F(x)\ge u$. The strict-exceedance digital sampling convention can choose the next atom at such a boundary; its law agrees under a continuously uniform input, whose probability of hitting that boundary is zero.
+
+@@ 18|Digital inverse selection at exact endpoints|Original algorithm-contract problem|inverse-three
+A sampler uses atoms $(-2,1,4)$ with cumulative probabilities $.2,.7,1$ and half-open input intervals on $[0,1)$. What outputs correspond to $U=0,.2,.699,.7,.999$? Which comparison implements this contract?
+---SOLUTION---
+The intervals are $[0,.2),[.2,.7),[.7,1)$, giving outputs $-2,1,1,4,4$. Scan cumulative values and select the first one strictly greater than $U$. Selecting the first cumulative value greater than or equal to $U$ would send $.2$ to $-2$ and $.7$ to one, violating the stated half-open convention. An ideal uniform real hits these exact boundaries with probability zero, but an implementation's test inputs can hit them exactly. Input one is outside the stated domain, so a robust implementation rejects it rather than inventing a last-atom convention.
+
+@@ 19|A finite CDF with a remaining tail|Original conceptual decision problem
+A plotted function jumps to $.2$ at zero, to $.5$ at one and to $.8$ at three, and remains $.8$ forever. It is nondecreasing and right-continuous. Can it be the full CDF of a finite real variable? Give two distinct valid repairs.
+---SOLUTION---
+No: a real variable's CDF tends to one at positive infinity. One repair adds an atom of mass $.2$ at a later finite value, such as five, so the final jump reaches one. Another rescales the three displayed masses by $1/.8$, yielding masses $1/4,3/8,3/8$ at zero, one, three; this changes the whole law and is justified only if that is the intended normalized truncated experiment. Treating the remaining $.2$ as mass at $+\infty$ would define an extended-valued variable, not the finite real variable asked for. The figure must disclose whether it is a prefix or a complete law.
+
+@@ 20|Conditional interval from a CDF table|Original conditional-CDF problem
+An integer-valued $X$ on $\{0,1,2,3,4\}$ has cumulative values $(.1,.3,.6,.8,1)$. Find $P(1<X\le3\mid X\ge1)$ and $P(X=2\mid X<4)$.
+---SOLUTION---
+The masses are successive differences $(.1,.2,.3,.2,.2)$. The first numerator is the mass at two and three,$.5$; the conditioning denominator is $1-.1=.9$, giving $5/9$. The second denominator is $F(3)=.8$, not $F(4)=1$, and its numerator is $.3$, giving $3/8$. Each desired event is already contained in its conditioning event, so the numerator needs no extra restriction. Subtracting $F(1^-)$ instead of $F(1)$ in the first numerator would wrongly include atom one. Using a CDF entry as an individual atom mass is another distinct error.
+
+@@ 21|Squaring merges positive and negative preimages|Original transformation problem|square-five
+Let atoms $-2,-1,0,1,2$ have masses $(1,2,4,5,8)/20$. Find the law of $Y=X^2$, then $P(Y\ge1)$ and $P(X>0\mid Y=1)$.
+---SOLUTION---
+Destination zero receives $4/20=1/5$; destination one receives $(2+5)/20=7/20$; destination four receives $(1+8)/20=9/20$. The upper-event probability is $(7+9)/20=4/5$. Given $Y=1$, the preimages are $X=-1$ and $X=1$; the positive one contributes $5/20$ of the retained $7/20$, giving $5/7$. Equal-magnitude values need not have equal probabilities. Counting both algebraic signs at zero would double its mass. Selecting only the positive square root would discard one valid preimage and fail normalization.
+
+@@ 22|A decreasing affine map and an included endpoint|Original affine-CDF problem|affine-three
+$X$ has masses $(1/5,1/2,3/10)$ at $(-2,1,4)$. Let $Y=3-2X$. Find $F_Y(1)$ and $P(Y<1)$ using $X$-events.
+---SOLUTION---
+Solve $3-2X\le1$ by subtracting three and dividing by negative two: this gives $X\ge1$. Its probability is $1-P(X<1)=1-1/5=4/5$. For $Y<1$, the reversed event is $X>1$, whose probability is $3/10$. The transformed atoms are seven, one,$-5$ with the original masses; their ordering reverses. The atom at $X=1$ maps exactly to $Y=1$ and belongs only to the nonstrict event. The formula $1-F_X(1)$ gives $3/10$ and therefore cannot answer $F_Y(1)$.
+
+@@ 23|Modulo relabeling of a uniform finite interval|Original fiber-count problem
+$X$ is uniform on $\{0,1,\ldots,10\}$ and $Y=X\bmod4$. Find its PMF and decide whether $Y$ is uniform. What changes if the upper endpoint is 11?
+---SOLUTION---
+The fibers for residues zero, one, two, three have sizes three, three, three, two. Their masses are $3/11,3/11,3/11,2/11$, so the first law is not uniform. Extending to $0,\ldots,11$ creates 12 equally likely elementary values, with three in every residue fiber, giving $1/4$ at each residue. Uniformity is preserved by this many-to-one map only when all fibers have equal total probability. Uniform input alone does not imply uniform output. The modulus changes values, but its output set of four labels is not the new equally likely sample space unless the fiber calculation proves it.
+
+@@ 24|Same marginals, three different equality probabilities|Reconstructed Harvard SP 4 Section 1 exercise family
+Construct pairs $(X,Y)$ of fair Bernoulli variables with $P(X=Y)$ equal to zero, one, and $1/2$. Then identify the law of $X+Y$ in all three constructions.
+---SOLUTION---
+For zero equality, take $X=B,Y=1-B$ with $B$ fair; their sum is always one. For equality one, take $X=Y=B$; the sum has masses $1/2$ at zero and two. For equality $1/2$, generate two independent fair bits; the sum has masses $(1,2,1)/4$ at zero, one, two. All three pairs have identical one-variable marginals. Only the third permits multiplying the two atom probabilities. Thus equality of distributions neither establishes equality of variables nor determines their sum. The lesson extends Harvard's same-law contrast into a complete calculation with three joint constructions.
+
+@@ 25|A cyclic shift preserves law but reverses one comparison|Reconstructed Harvard SP 4 Section 1 cyclic-label exercise family|cyclic-five
+$X$ is uniform on $\{0,1,2,3,4\}$ and $Y=(X+2)\bmod5$. Find $P(X<Y)$,$P(X=Y)$ and both marginal laws.
+---SOLUTION---
+The deterministic pairs are $(0,2),(1,3),(2,4),(3,0),(4,1)$, each with probability $1/5$. Three satisfy $X<Y$, giving $3/5$, and none has equality. The map is a permutation of the five labels, so $Y$ is uniform just as $X$ is. This demonstrates equal laws without equality or independence. Multiplying $1/5$ by $1/5$ for an arbitrary pair would create 25 pairs, most of which are impossible in the actual experiment. The outcome table, not the two marginal PMFs, determines the comparison probability.
+
+@@ 26|A threshold indicator of a nonuniform variable|Original Bernoulli construction|indicator-five
+Let $P(X=k)=(k+1)/15$ for $k=0,\ldots,4$. Define $I=1_{\{X\ge3\}}$ and $J=1-I$. Find their laws and $P(I=1,J=1)$. Are $I,J$ independent?
+---SOLUTION---
+The threshold event has probability $(4+5)/15=3/5$, so $I$ is Bernoulli with parameter $3/5$. Its complement $J$ is Bernoulli with parameter $2/5$. They cannot both equal one, so their joint success probability is zero. The product of their marginal success probabilities is $6/25>0$, proving dependence. Each individual variable is binary, but that does not make different indicators independent. Their sum is always one; a sum of independent Bernoulli variables with those parameters would sometimes be zero or two.
+
+@@ 27|Independent sum versus identical copy|Original convolution-dependence contrast
+$X$ is uniform on $\{1,2,3\}$. Calculate $P(X+Y=4)$ when $Y$ is an independent copy and when $Y=X$. Explain why both scenarios have the same marginal law for $Y$.
+---SOLUTION---
+Independence gives nine equally likely ordered pairs. Three sum to four:$(1,3),(2,2),(3,1)$, so the probability is $1/3$. For $Y=X$, the sum equals $2X$ and is four only at $X=2$, also probability $1/3$. The requested probability happens to coincide, but the complete laws do not: the independent sum can be three or five, whereas $2X$ cannot. For example $P(X+Y=3)=2/9$ independently and zero for the identical copy. Agreement on one event does not prove independence or equality of distributions. Copying the same realization preserves the marginal but changes the joint experiment.
+
+@@ 28|Maximum of two uniform dice from nested events|Reconstructed MIT Class 4 maximum exercise family|max-four
+Two independent fair four-sided dice have values one through four. Derive the PMF of their maximum $M$ and calculate $P(M\ge3\mid M\le3)$.
+---SOLUTION---
+For integer $k=1,\ldots,4$, both dice are at most $k$ in $k^2$ of 16 pairs, so $F_M(k)=k^2/16$. Differencing gives masses $(1,3,5,7)/16$. The intersection in the conditional numerator is $M=3$, mass $5/16$; the denominator is $F_M(3)=9/16$, giving $5/9$. Multiplying a count of faces by two would double-count pairs where both faces satisfy the bound. Counting only pairs with the first die equal to the maximum would omit those where the second alone is maximal. The nested-square difference handles both cases exactly.
+
+@@ 29|Minimum and maximum strict tails|Original extrema problem
+Three iid variables are uniform on $\{1,2,3,4\}$. Find $P(\min X_j>2)$ and $P(\max X_j=3)$. State where independence enters.
+---SOLUTION---
+Each variable exceeds two with probability $1/2$. Independence makes the conjunction probability $(1/2)^3=1/8$. The maximum equals three precisely when all values are at most three but not all at most two, giving $(3/4)^3-(2/4)^3=19/64$. Without independence, those products would need actual joint probabilities. Using $P(X_j\ge2)$ instead of $P(X_j>2)$ would include the atom at two and give the wrong first tail. The maximum mass is a difference of two nested cumulative events, not three times the individual mass at three.
+
+@@ 30|Independent nonuniform convolution|Reconstructed MIT Class 4 weighted-sum exercise family|conv-weighted
+$X$ has masses $1/3,2/3$ at zero, one. Independently $Y$ has masses $1/4,1/2,1/4$ at zero, one, two. Find the complete law of $Z=X+Y$ and $P(X=1\mid Z=2)$.
+---SOLUTION---
+Sum product masses on each diagonal. At zero:$(1/3)(1/4)=1/12$. At one:$(1/3)(1/2)+(2/3)(1/4)=1/3$. At two:$(1/3)(1/4)+(2/3)(1/2)=5/12$. At three:$(2/3)(1/4)=1/6$. The masses sum to one. Given $Z=2$, the pair with $X=1$ is $(1,1)$ with mass $1/3$, so its conditional probability is $(1/3)/(5/12)=4/5$. Normalization of this conditional pair law requires dividing by the entire diagonal mass, not by the marginal probability of $X=1$.
+
+@@ 31|Exactly and at least in a reliability count|Original binomial calculation|bin-five-threequarter
+Five independent devices work with probability $3/4$ each. Find the probabilities that exactly four work and at least four work. Explain why $\binom54(3/4)^4$ is not the first probability.
+---SOLUTION---
+The count is $\operatorname{Bin}(5,3/4)$. Exactly four requires one failed device, so its probability is $5(3/4)^4(1/4)=405/1024$. At least four adds the all-working case $(3/4)^5=243/1024$, giving $648/1024=81/128$. The omitted failure factor in the proposed expression changes an exact-count event into an overlapping collection where the fifth device may also work. The all-working outcome then belongs to each of five selected four-device witness sets. Exact-count sequences are disjoint; witness-selection events for an at-least property usually are not.
+
+@@ 32|A short lower tail is the easiest route|Original binomial complement problem
+Seven independent servers work with probability $4/5$ each. The network works if at least two work. Find its failure probability and state its success probability exactly.
+---SOLUTION---
+Failure means zero or one working server. The count is $\operatorname{Bin}(7,4/5)$. These disjoint masses are $(1/5)^7$ and $7(4/5)(1/5)^6$. Their sum is $(1+28)/5^7=29/78125$. Network success is its complement $78096/78125$. A long upper-tail sum gives the same result but takes more work. Treating network failure as one-server failure probability $1/5$ ignores redundancy. Omitting zero from “fewer than two” would drop a legitimate failure outcome. The independence and common working probability are explicit modeling assumptions.
+
+@@ 33|A binomial parameter from adjacent masses|Original reverse parameter problem
+$X\sim\operatorname{Bin}(5,p)$ with $0<p<1$, and $P(X=3)=2P(X=2)$. Find $p$ and $P(X=0)$.
+---SOLUTION---
+The ratio of adjacent masses at three and two is $((5-2)/(2+1))(p/(1-p))=p/(1-p)$. Setting this to two yields $p=2/3$. Then the zero-success mass is $(1-p)^5=(1/3)^5=1/243$. Using $P(3)/P(2)=p$ would omit the failure-factor ratio. Evaluating both factorial expressions first is valid but unnecessary; cancellation exposes the parameter directly. The assumptions exclude zero masses at endpoint parameters, so the ratio is well-defined.
+
+@@ 34|One or two binomial modes|Original parameter classification
+For $X\sim\operatorname{Bin}(9,p)$,$0<p<1$, determine when four is a mode, when it is the unique mode, and when three and four are tied modes.
+---SOLUTION---
+An atom four is modal when $(n+1)p=10p$ lies in $[4,5]$, giving $p\in[.4,.5]$. It is unique for $p\in(.4,.5)$, because then the noninteger modal index is $\lfloor10p\rfloor=4$. At $p=.4$, the integer value $10p=4$ creates tied modes three and four; at $p=.5$, the tied modes are four and five. Adjacent-ratio comparisons prove these classifications, not mere symmetry. Rounding $np$ to the nearest integer can fail at tie boundaries and does not provide the exact interval.
+
+@@ 35|Binomial parity through a signed expansion|Original hard binomial identity|bin-four-quarter
+For $X\sim\operatorname{Bin}(n,p)$ with $n\ge1$, derive $P(X\text{ is even})$. Evaluate it for $n=4,p=1/4$ and explain when it equals $1/2$.
+---SOLUTION---
+Let $E,O$ be the even and odd probability sums. Normalization gives $E+O=1$. The signed binomial expansion gives $E-O=((1-p)-p)^n=(1-2p)^n$. Adding the equations yields $E=[1+(1-2p)^n]/2$. At $n=4,p=1/4$, this is $(1+1/16)/2=17/32$. For finite $n\ge1$, equality to $1/2$ requires $p=1/2$. Uniformity of the binary sequence space holds only at that parameter. With $n=0$, the empty count is even surely, so the separate degenerate case gives one.
+
+@@ 36|Independent trials with unequal probabilities|Original Poisson-binomial calculation|unequal-two
+Two independent trials have success probabilities $1/4$ and $3/4$. Find the count law and compare $P(X=1)$ with the binomial law formed from their mean probability.
+---SOLUTION---
+Zero succeeds with probability $(3/4)(1/4)=3/16$; both succeed with probability $(1/4)(3/4)=3/16$. Exactly one is the sum of disjoint patterns success-failure and failure-success:$1/16+9/16=10/16=5/8$. A binomial with $n=2,p=1/2$ would give exactly-one probability $1/2$, different by $1/8$. Averaging trial probabilities preserves their average success level but generally changes the count distribution. Independence supports the pattern products; a common $p$ is an additional condition for the binomial formula.
+
+@@ 37|A common hidden coin differs from fresh choices|Original latent-regime problem|mixture-two
+A fair selector chooses a $p=1/4$ coin or a $p=3/4$ coin once, then makes two conditionally independent tosses with it. Find the success-count law. Compare it with independently reselecting the coin before each toss.
+---SOLUTION---
+Average the two conditional binomial PMFs. Zero successes has mass $[(3/4)^2+(1/4)^2]/2=5/16$; two has the same mass; one has mass $[2(1/4)(3/4)+2(3/4)(1/4)]/2=6/16$. Fresh independent selections make each toss an independent fair Bernoulli variable, producing masses $(4,8,4)/16$. In the once-chosen case, observing a head makes the high-success regime more likely, creating unconditional dependence. Substituting the marginal mean $p=1/2$ before accounting for the common selector loses that information.
+
+@@ 38|Eligibility and success with two independent stages|Original binomial-thinning problem|bin-six-half
+Six objects independently pass an eligibility screen with probability $2/3$. An eligible object independently succeeds with conditional probability $3/4$. Find $P(Y=3)$ and derive its law by conditioning on the eligible count.
+---SOLUTION---
+Each object's complete success has probability $(2/3)(3/4)=1/2$, so independent per-object experiments give $Y\sim\operatorname{Bin}(6,1/2)$ and $P(Y=3)=\binom63/64=5/16$. Alternatively let $K\sim\operatorname{Bin}(6,2/3)$ be the eligible count. Given $K=k$, the successful count is $\operatorname{Bin}(k,3/4)$. Sum $\sum_{k=3}^6P(K=k)\binom k3(3/4)^3(1/4)^{k-3}$. The identity $\binom6k\binom k3=\binom63\binom3{k-3}$ collapses this sum to the same $\binom63(1/2)^3(1/2)^3$. Conditioning preserves the random number of eligible objects.
+
+@@ 39|Pairwise independence does not justify a binomial count|Original hard dependence counterexample
+Two independent fair bits are $A,B$. Let $C$ be their exclusive-or bit. Show that the three bits are pairwise independent, and find the law of $S=A+B+C$. Is $S\sim\operatorname{Bin}(3,1/2)$?
+---SOLUTION---
+The four equally likely triples are $(0,0,0),(0,1,1),(1,0,1),(1,1,0)$. Each pair of coordinates takes all four binary pairs equally likely, proving pairwise independence and fair marginals. Their count is zero on the first triple and two on the remaining three, so $P(S=0)=1/4,P(S=2)=3/4$. A true binomial has positive masses at one and three, contradicting this law. Mutual independence would require all eight triples with product masses $1/8$; the parity constraint forbids four of them. The example pinpoints why pairwise independence is insufficient for a whole-trial binomial model.
+
+@@ 40|A stopped series and imaginary remaining trials|Reconstructed Stanford Lecture 6 series-win exercise family
+Independent games have team-A win probability $p$. A best-of-five series stops when a team reaches three wins. Derive A's winning probability by stopping time and by a fixed five-game binomial count. Explain why the events in the stopping sum are disjoint.
+---SOLUTION---
+A can win on games three, four, five. Its last game must be a win, with exactly two preceding wins, so the sum is $p^3+3p^3(1-p)+6p^3(1-p)^2$. The terminal game indices distinguish disjoint histories. Alternatively pre-generate five independent game outcomes even if some remain unplayed. A wins the actual series exactly when at least three of those five are wins, so the probability is $\sum_{k=3}^5\binom5k p^k(1-p)^{5-k}$. These expressions agree algebraically. Appending arbitrary outcomes to an already winning prefix and summing them as separate stopping histories would double-count the same series result.
+
+@@ 41|Hypergeometric law with a forced lower bound|Original support and probability problem|hyper-forced
+An urn has eight objects, three marked. Four are sampled uniformly without replacement. Find its marked-count PMF. Repeat the feasible-support calculation if seven objects are sampled.
+---SOLUTION---
+For sample size four, feasible counts are zero through three. The common denominator is $\binom84=70$. Numerators $\binom3k\binom5{4-k}$ are $5,30,30,5$, so the masses are $(1,6,6,1)/14$. For sample size seven, at most five failures can be drawn; hence at least two successes are forced. The feasible counts are only two and three. Their masses are $\binom32\binom55/\binom87=3/8$ and $\binom33\binom54/\binom87=5/8$. Listing zero through the sample size would include impossible counts; feasibility must precede arithmetic.
+
+@@ 42|A hypergeometric upper tail and a conditional atom|Original urn calculation|hyper-batch
+A batch contains 12 components, five defective. Select four uniformly without replacement. Find $P(X\ge3)$ and $P(X=4\mid X\ge3)$ for the defective count $X$.
+---SOLUTION---
+There are $\binom{12}4=495$ equally likely subsets. Exactly three defectives can be selected in $\binom53\binom71=70$ ways; exactly four in $\binom54\binom70=5$ ways. Thus the upper-tail probability is $75/495=5/33$. Given that upper tail, the four-defective case has probability $5/75=1/15$. A binomial with $p=5/12$ would treat each selection as independent with unchanged success probability, contrary to sampling without replacement. The conditional denominator counts only subsets retained by the event, not the full 495 subsets.
+
+@@ 43|Ordered draws agree with unordered subset counting|Original two-derivation problem
+From an urn with four successes and six failures, make three ordered draws without replacement. Derive $P(X=2)$ both from patterns and the hypergeometric law.
+---SOLUTION---
+For pattern SSF, the probability is $(4/10)(3/9)(6/8)=1/10$. SFS and FSS have the same product after reordering factors, so three disjoint patterns give $3/10$. The subset formula gives $\binom42\binom61/\binom{10}3=36/120=3/10$. Ordered histories and unordered subsets use different elementary denominators but the same final count law. Multiplying $(4/10)^2(6/10)$ would replace the changing composition by fixed probabilities and compute a replacement experiment. Counting the three patterns is necessary because the success positions were not specified.
+
+@@ 44|A conditional sample after its first success|Original sequential-state problem|hyper-observed
+An urn starts with three successes and five failures. Four objects are drawn without replacement. Given that the first draw was a success, find the probability of exactly two successes in the full sample.
+---SOLUTION---
+After the given first success, the remaining urn has two successes and five failures, seven objects total. Exactly two full-sample successes requires exactly one in the remaining three draws. The conditional law is therefore hypergeometric with parameters $N=7,K=2,n=3$, yielding $\binom21\binom52/\binom73=20/35=4/7$. An unconditional four-draw PMF would not encode the observed first result. A binomial with $p=2/7$ would retain the current marginal probability on every draw, although it changes again after each actual selection. Conditioning changes the urn state as well as the count target.
+
+@@ 45|Population extremes collapse a hypergeometric law|Original degenerate-model problem
+Classify the marked-count law when $n=0$, when $K=0$, when $K=N$, and when $n=N$. Identify any overlap and the correct masses.
+---SOLUTION---
+An empty sample $n=0$ has count zero surely. With $K=0$, all objects fail, so every valid sample has count zero. With $K=N$, every selected object succeeds, so the count is $n$. When $n=N$, the whole population is selected and the count is exactly $K$. Each law is a single atom of mass one, with all other probabilities zero. Overlapping cases agree: sampling the whole all-success population gives count $N$. These cases should be interpreted combinatorially before evaluating formulas with zero binomial coefficients. A wide advertised support cannot create positive mass at impossible atoms.
+
+@@ 46|Hypergeometric ratios and two possible modes|Original hard ratio problem
+For $X\sim\operatorname{Hypergeom}(N=10,K=4,n=5)$, derive adjacent-mass ratios and determine all modes without evaluating every factorial.
+---SOLUTION---
+On feasible $k=0,\ldots,4$, cancelling binomial coefficients gives
+
+$$\frac{p(k+1)}{p(k)}=\frac{K-k}{k+1}\frac{n-k}{N-K-n+k+1}.$$
+
+Here the four ratios are $10,2,1/2,1/10$. Mass therefore increases through $k=2$ and decreases afterwards, so the unique mode is two. The support prevents denominators associated with invalid counts; use the ratio only between feasible adjacent atoms. A shortcut based on a binomial mode with $p=K/N$ does not derive the hypergeometric result. In this particular case both methods might suggest two, but coincidence would not justify replacing the law.
+
+@@ 47|Condition on selecting at least one marked object|Original truncation calculation
+Five of nine objects are marked. Select two uniformly without replacement. Given that at least one is marked, find the probability that both are marked.
+---SOLUTION---
+The total subset count is $\binom92=36$. Both marked has count $\binom52=10$. No marked has count $\binom42=6$, so at least one retains 30 subsets. The conditional probability is $10/30=1/3$. Dividing by 36 would give the unconditional both-marked probability $5/18$. Treating the two selected indicators as independent would produce a different denominator and numerator. The complement is efficient because the conditioning event includes both one-marked and two-marked samples, and these are disjoint.
+
+@@ 48|Inferring the number of marked objects|Original reverse hypergeometric problem
+An urn has eight distinct objects and an unknown integer $K$ of marked objects. Two are sampled without replacement. The probability both are marked is $3/14$. Determine $K$ and the probability exactly one is marked.
+---SOLUTION---
+The given probability is $K(K-1)/(8\cdot7)=3/14$, so $K(K-1)=12$. The integer root in $[0,8]$ is $K=4$; the other root $-3$ is impossible. Exactly one marked can be chosen in $4\cdot4=16$ of $\binom82=28$ subsets, giving $4/7$. Solving $ (K/8)^2=3/14$ would model replacement and generally yield a noninteger population composition. Parameter feasibility is not optional after solving the equation; the experiment has an integer number of marked objects.
+
+@@ 49|Which sampling contract produces which law?|Original conceptual multiple-choice problem
+There are ten objects, four marked. Which statement is correct? A: Three draws without replacement give $\operatorname{Bin}(3,.4)$. B: Three independent uniform draws with replacement give $\operatorname{Bin}(3,.4)$. C: Sampling all ten gives a uniform marked count from zero through ten. D: Without replacement makes the single-draw success probability zero after every failure.
+---SOLUTION---
+Only B is correct: replacement restores the composition, and independent uniform selections have constant marked probability $4/10$. A ignores dependence. C ignores that the whole population contains exactly four marked objects, so its count is deterministic. D reverses the composition change: after a failure, the next success probability becomes $4/9$, not zero. Writing an explicit updated urn state is the fastest diagnosis. “Random selection” alone does not specify replacement, independence, or a count law.
+
+@@ 50|A binomial and a hypergeometric can share a mean but differ|Original distribution comparison|hyper-half
+An urn has four marked and four unmarked objects. Compare probabilities of exactly two marked in four draws with replacement and without replacement. Does equal per-draw marginal success probability determine the count law?
+---SOLUTION---
+With independent replacement, the count is $\operatorname{Bin}(4,1/2)$ and exactly-two probability is $6/16=3/8$. Without replacement, the probability is $\binom42^2/\binom84=36/70=18/35$. Symmetry gives marginal success probability $1/2$ for each draw in either experiment, but does not give mutual independence in the second. Thus equal per-draw marginals do not determine the count law. Sampling without replacement reduces the prevalence of extreme counts here: all-four-marked has probability $1/70$, compared with $1/16$ under replacement. The difference is caused by depletion, not by a changed initial proportion.
+
+@@ 51|Geometric tails with noninteger thresholds|Reconstructed Harvard SP 4 geometric-CDF exercise family|geo-quarter
+Independent attempts succeed with probability $1/4$. Let $T$ count attempts through first success. Find $P(T=4)$,$F_T(3.9)$ and $P(T\ge4)$.
+---SOLUTION---
+The exact-four event has three failures followed by success, so its probability is $(3/4)^3(1/4)=27/256$. The threshold 3.9 includes only waiting times one, two, three; hence $F_T(3.9)=1-(3/4)^3=37/64$. The at-least-four event requires the first three failures, so its probability is $(3/4)^3=27/64$. Using four instead of three failures in that tail would answer $T>4$. The positive-based support is essential: the corresponding failure count $G=T-1$ begins at zero and has a different CDF exponent.
+
+@@ 52|Recover success probability from survival|Original reverse geometric problem
+For a positive-based geometric waiting variable,$P(T>3)=8/27$. Find $p$ and $P(T\le2\mid T>1)$.
+---SOLUTION---
+Survival beyond three requires three failures, so $q^3=8/27$ and $q=2/3$, hence $p=1/3$. Given failure on the first trial, the event $T\le2$ requires success exactly on trial two. Its conditional probability is $p=1/3$, or $P(T=2)/P(T>1)=(pq)/q$. The same expression is undefined when $q=0$, but the supplied nonzero tail excludes that case. Using $1-q^2$ for the second answer would forget that the first trial is already known to fail and that only one remaining trial lies before the threshold.
+
+@@ 53|Residual waiting after a long failure history|Original memorylessness calculation
+Attempts are iid with success probability $1/5$. Given failure on the first seven attempts, find the probability of success within the next three attempts, and the probability that the first success is exactly the tenth attempt.
+---SOLUTION---
+The residual experiment still has iid success probability $1/5$. Success within the next three has probability $1-(4/5)^3=61/125$. First success exactly at attempt ten requires two additional failures and then success, giving $(4/5)^2(1/5)=16/125$. Equivalently divide each corresponding unconditioned event by $P(T>7)=(4/5)^7$; the old survival factors cancel. The two requested events differ: one includes successes on eight, nine, ten, the other only ten. Keeping the original seven-failure factor after conditioning would double-charge known information.
+
+@@ 54|A geometric interval with both endpoint corrections|Original waiting-interval problem
+$T$ counts attempts through first success with $p=1/3$. Calculate $P(2<T\le5)$ and $P(2\le T<5)$. Why are the answers different?
+---SOLUTION---
+Write $q=2/3$. The first event contains times three, four, five, so its probability is $P(T>2)-P(T>5)=q^2-q^5=76/243$. The second contains two, three, four, and equals $P(T>1)-P(T>4)=q-q^4=38/81$. The second includes the earlier time two but excludes the later time five, and geometric masses decrease across positive times. Neither interval should be replaced by a continuous length-three window. The correct survival exponents follow from the exact number of failures required at each boundary.
+
+@@ 55|Failures before success versus attempts through success|Original convention problem
+$G$ counts failures before the first success and $T=G+1$, with $p=2/5$. Find $P(G=0)$,$P(G\ge3)$,$P(T\ge3)$ and explain the exponent difference.
+---SOLUTION---
+Immediate success has $P(G=0)=p=2/5$. At least three failures before success requires failure on the first three attempts, so $P(G\ge3)=q^3=27/125$. At least three total attempts requires only the first two failures, so $P(T\ge3)=q^2=9/25$. The same distribution family name is insufficient unless the count convention is stated. The identity $G=T-1$ gives $\{G\ge3\}=\{T\ge4\}$, not $\{T\ge3\}$. A shift in counted quantity changes both support and event threshold.
+
+@@ 56|Varying hazards destroy the simple geometric power|Original nonstationary stopping problem
+The first attempt succeeds with probability $1/2$, the second with $1/3$, and all later independent attempts with $1/4$. Find $P(T=3)$ and $P(T>4\mid T>2)$. Is $T$ geometric?
+---SOLUTION---
+First success on trial three has probability $(1/2)(2/3)(1/4)=1/12$. Given survival beyond two, the next two trials each fail with probability $3/4$, so $P(T>4\mid T>2)=9/16$. The full waiting law is not geometric because its success hazard changes from $1/2$ to $1/3$ to $1/4$. For example $P(T>1)=1/2$ while $P(T>2)=1/3\ne(1/2)^2$. Independence permits a product of different failure probabilities; it does not make them a common power. After trial two, the residual tail happens to be geometric with the later parameter.
+
+@@ 57|Capping and conditioning are different laws|Original censoring contrast|cap-four
+$T$ has positive-based geometric law with $p=1/2$. Compare the law of $W=\min(T,4)$ with the conditional law of $T$ given $T\le4$. Find the probability of value four in each.
+---SOLUTION---
+For $W$, masses at one, two, three are $1/2,1/4,1/8$; the final atom absorbs all times at least four and has mass $1/8$. For the conditioned law, the unconditioned masses $1/2,1/4,1/8,1/16$ divide by $P(T\le4)=15/16$, yielding $(8,4,2,1)/15$. Its mass at four is $1/15$. Capping moves the entire surviving tail to the final atom; conditioning excludes later histories and renormalizes retained ones. Using $1/16$ as the cap's final mass omits non-success by the cap. The wording must specify which observable is recorded.
+
+@@ 58|A fixed stopping cap with a separate failure code|Original stopping-output problem
+At most three attempts are permitted, each independently successful with $p=1/3$. Return the attempt index on first success; return zero if all three fail. Find the output PMF and $P(\text{index}=3\mid\text{nonzero output})$.
+---SOLUTION---
+Let $q=2/3$. Outputs one, two, three have masses $p,pq,pq^2$, namely $1/3,2/9,4/27$. Output zero is the three-failure event $q^3=8/27$. Their common-denominator masses $(9,6,4,8)/27$ sum to one. Conditional on eventual success within the cap, the retained mass is $19/27$, so the third-attempt probability is $4/19$. The final successful index is not the censoring atom $\min(T,3)$, which would also absorb all failures. A separate failure code preserves information that capping would discard.
+
+@@ 59|Memoryless characterization from survival multiplication|Original proof problem
+A proper positive integer waiting variable has $P(T>s+t)=P(T>s)P(T>t)$ for all nonnegative integers $s,t$, and $P(T>1)=q$. Derive its PMF and the restrictions on $q$.
+---SOLUTION---
+Set $S(m)=P(T>m)$ and note $S(0)=1$. Taking $t=1$ and applying induction gives $S(m)=q^m$. Properness requires $S(m)\to0$, so $0\le q<1$; the value $q=1$ would never terminate. Differencing yields $P(T=k)=S(k-1)-S(k)=(1-q)q^{k-1}$ for $k\ge1$. At $q=0$, this is a point mass at one, interpreted separately at its first atom. The functional identity is an assumption over all integer pairs; checking it at two observed thresholds cannot establish the general theorem for an unknown law.
+
+@@ 60|A nongeneric waiting law with a long tail|Original hard countable-law contrast
+Let $P(T=k)=1/[k(k+1)]$ for $k\ge1$. Compute $P(T>m)$ and compare $P(T>s+t\mid T>s)$ with $P(T>t)$. Give a numerical counterexample to memorylessness.
+---SOLUTION---
+The telescoping tail after $m$ is $1/(m+1)$. Its conditional ratio is $(s+1)/(s+t+1)$, whereas the unconditioned tail is $1/(t+1)$. At $s=t=1$, these are $2/3$ and $1/2$, so memorylessness fails. This is a valid infinite-support waiting law, but its hazard changes with elapsed time. Specifically $P(T=m+1\mid T>m)=1/(m+2)$, not a constant $p$. A countable positive-integer support does not by itself establish a geometric law. The decline in its hazard also explains the increasingly persistent tail.
+
+@@ 61|Third success on a specified trial|Original negative-binomial calculation|nb-third
+Independent attempts succeed with $p=1/2$. Find $P(T_3=5)$ and $P(T_3\le5)$ for the total-trial index of the third success.
+---SOLUTION---
+To stop on trial five, the last trial must succeed and the first four must contain exactly two successes. The probability is $\binom42(1/2)^5=3/16$. To stop by five, at least three of the first five trials must succeed, so the probability is $(\binom53+\binom54+\binom55)/32=1/2$. Using $\binom53$ in the first answer would allow the last trial to fail after an earlier third success, contradicting the stopping time. The second event has a fixed-horizon binomial representation, but $T_3$ itself is a negative-binomial waiting variable.
+
+@@ 62|Counting failures before the second success|Original stopping-convention problem|nb-second
+Attempts have $p=1/3$. Let $G_2$ count failures before the second success. Find $P(G_2=3)$ and translate that event into the total-trial convention $T_2$.
+---SOLUTION---
+The relation is $T_2=G_2+2$, so the event is $T_2=5$. The last trial succeeds; among the preceding four, one position is the first success. The four disjoint histories have probability $p^2q^3$ each, so $P(G_2=3)=4(1/3)^2(2/3)^3=32/243$. A geometric failure-count formula would wait for one success rather than two. Choosing successful positions from all five trials would forget the forced final success. The target count $r$ changes both the combinatorial coefficient and the offset between failures and total trials.
+
+@@ 63|A conditional remaining target after observed trials|Original negative-binomial state problem
+Independent attempts have $p=1/2$. After four attempts exactly one success is observed. What is the conditional probability that the third overall success occurs on attempt seven? State what information about the first four trials matters.
+---SOLUTION---
+Two additional successes are needed in the next three attempts, with the final one on attempt seven. Among attempts five and six, exactly one must succeed. The two admissible patterns have probability $(1/2)^3$ each, giving $1/4$. The order of the first four outcomes does not change this future probability because future trials are independent with the same $p$; their success count specifies the remaining target. A formula for the unconditional $T_3=7$ would include probabilities of many different earlier counts and would not answer the conditioned state.
+
+@@ 64|Negative binomial is not memoryless for multiple successes|Original conceptual stopping counterexample
+For $p=1/2$, compare $P(T_2>1)$ and $P(T_2>2\mid T_2>1)$. Use them to show why total waiting through two successes is not memoryless.
+---SOLUTION---
+At least two trials are needed, so $P(T_2>1)=1$. The event $T_2>1$ is certain and does not change probabilities. Surviving beyond two means the first two trials are not both successful, giving $P(T_2>2\mid T_2>1)=3/4$. A memoryless positive waiting law would require this conditional probability, with $s=t=1$, to equal $P(T_2>1)=1$. It does not. The process must track the number of successes already accumulated; elapsed failure-only histories are the special reason first-success waiting can forget the past.
+
+@@ 65|Poisson masses from a specified window|Original Poisson calculation|poisson-two
+An explicitly given homogeneous Poisson count model has rate two per hour. Find the probabilities of zero and exactly two events in a 90-minute window, and of at least one event. Do not assume an unstated count law from a rate alone.
+---SOLUTION---
+The stated Poisson model and window length $3/2$ hours give parameter $\lambda=2(3/2)=3$. Hence $P(X=0)=e^{-3}$,$P(X=2)=e^{-3}3^2/2!=9e^{-3}/2$, and $P(X\ge1)=1-e^{-3}$. Rate and time must use compatible units; substituting 90 as hours would change the parameter drastically. The mean rate alone, without the explicitly supplied model, could not determine these probabilities. The factor $2!$ distinguishes exactly-two mass from an unnormalized squared parameter term.
+
+@@ 66|Infer a Poisson parameter from two adjacent masses|Original reverse Poisson problem|poisson-six
+$X$ is Poisson with positive parameter $\lambda$, and $P(X=2)=3P(X=1)$. Find $\lambda$ and all modal atoms.
+---SOLUTION---
+The adjacent-mass ratio is $P(2)/P(1)=\lambda/2$. Setting it to three gives $\lambda=6$. The general ratio $p(k+1)/p(k)=6/(k+1)$ is greater than one below the 5-to 6 comparison, equal to one at that comparison, and less than one thereafter. Thus five and six are tied modes. Declaring the mean parameter six to be the only mode misses the integer-parameter tie. The positive-parameter assumption ensures both supplied atom masses are nonzero, so division is legitimate.
+
+@@ 67|Zero-truncated Poisson normalization|Original conditional-law problem
+$X\sim\operatorname{Poisson}(2)$. Given $X>0$, find $P(X=1)$ and the ratio of conditional masses at two and one. Does truncation change that adjacent ratio?
+---SOLUTION---
+The conditioning denominator is $1-e^{-2}$. Thus $P(X=1\mid X>0)=2e^{-2}/(1-e^{-2})=2/(e^2-1)$. Both retained masses divide by the same denominator, so their ratio remains $(2^2/2!)/(2/1!)=1$. Truncation changes the normalized probabilities but cancels from ratios between retained atoms. It is not an ordinary Poisson law because zero has been removed while positive masses have been rescaled. At $\lambda=0$, the event $X>0$ is impossible, so no corresponding conditional law exists.
+
+@@ 68|A displayed Poisson prefix is not a full PMF|Original tail-accounting problem
+For $X\sim\operatorname{Poisson}(1)$, a display shows only atoms zero, one, two. Find the total displayed mass, the omitted tail, and the law obtained by renormalizing the displayed bars.
+---SOLUTION---
+The three masses are $e^{-1},e^{-1},e^{-1}/2$, summing to $5/(2e)$. The omitted tail is $1-5/(2e)>0$. Renormalizing those bars gives masses $2/5,2/5,1/5$, which are the conditional law given $X\le2$, not the original Poisson law. A finite plot can faithfully show the prefix if it reports the remaining tail separately. Stretching the bars to sum to one without changing their label would misrepresent the variable. The tail's positivity follows from the remaining strictly positive exponential-series terms.
+
+@@ 69|Two independent Poisson counts add exactly|Original convolution proof
+Let independent $X\sim\operatorname{Poisson}(a)$ and $Y\sim\operatorname{Poisson}(b)$ with $a,b>0$. Derive the law of $X+Y$ and find $P(X=1\mid X+Y=2)$.
+---SOLUTION---
+For integer $k\ge0$, convolution gives $e^{-(a+b)}\sum_{j=0}^k a^jb^{k-j}/(j!(k-j)!)$. Multiply and divide by $k!$ and use the binomial theorem to obtain $e^{-(a+b)}(a+b)^k/k!$, a Poisson law with parameter $a+b$. The conditional event $X=1,Y=1$ has mass $e^{-(a+b)}ab$. Divide by $P(X+Y=2)=e^{-(a+b)}(a+b)^2/2$ to get $2ab/(a+b)^2$. Independence is used in the product masses; without it, the Poisson marginals alone would not determine this sum.
+
+@@ 70|Finite binomial versus its Poisson limit|Original approximation qualification|poisson-limit
+For $X\sim\operatorname{Bin}(10,.1)$ and $Y\sim\operatorname{Poisson}(1)$, compare $P(X=0)$ and $P(Y=0)$. Derive the limiting zero probability for $\operatorname{Bin}(n,1/n)$. Are the finite probabilities equal?
+---SOLUTION---
+The exact binomial zero probability is $(.9)^{10}=.3486784401$, whereas the Poisson zero probability is $e^{-1}\approx.3678794412$. They differ by about $.0192010011$. For the sequence $\operatorname{Bin}(n,1/n)$, the zero mass is $(1-1/n)^n\to e^{-1}$. This limit does not make the $n=10$ value exact. A count plot can illustrate convergence but cannot supply a requested precision guarantee for a finite event. The binomial count cannot exceed ten, whereas the Poisson law has positive mass beyond ten, another structural difference.
+
+@@ 71|A transformed binomial loses its original family|Original count-transformation problem|count-cap
+Let $X\sim\operatorname{Bin}(4,1/2)$ and $Y=\min(X,2)$. Find the PMF of $Y$ and explain why it is not $\operatorname{Bin}(2,1/2)$.
+---SOLUTION---
+Atoms zero and one retain binomial masses $1/16$ and $4/16$. Destination two aggregates original counts two, three, four, with total $(6+4+1)/16=11/16$. The masses therefore are $(1,4,11)/16$. A two-trial fair binomial has masses $(1,2,1)/4$, which differ at every atom. Capping the observed count merges events; it does not reduce the number of underlying trials. Using only the original $P(X=2)$ for $P(Y=2)$ would omit both larger-count preimages and fail normalization.
+
+@@ 72|A symmetric transform of a binomial|Original absolute-deviation problem|count-distance
+For $X\sim\operatorname{Bin}(6,1/2)$, find the law of $Y=|X-3|$ and $P(X\ge3\mid Y=2)$.
+---SOLUTION---
+The binomial numerators on counts zero through six are $(1,6,15,20,15,6,1)$ over 64. Distance zero receives 20; distance one receives $15+15=30$; distance two receives $6+6=12$; distance three receives $1+1=2$. The resulting masses are $(10,15,6,1)/32$. Given $Y=2$, the preimages are one and five, with equal masses $6/64$. Only five satisfies $X\ge3$, giving conditional probability $1/2$. The central preimage $X=3$ is counted once; doubling every distance class would incorrectly double its mass.
+
+@@ 73|A conditional geometric family-size law|Original countable mixture bridge
+Let $P(N=n)=(1-a)a^n$ for $n\ge0$, where $0<a<1$. Given $N$, each object's independent attribute occurs with probability $b$, where $0<b<1$. Condition on no object having the attribute. Derive the conditional law of $N$ and $P(N\ge1)$ under that condition.
+---SOLUTION---
+The no-attribute likelihood at size $n$ is $(1-b)^n$, including one at $n=0$. Joint masses are $(1-a)[a(1-b)]^n$. Their sum is $(1-a)/(1-a(1-b))$. Dividing gives the normalized geometric failure-count law with mass $[1-a(1-b)][a(1-b)]^n$. Its positive-size probability is $a(1-b)$. The likelihood changes the whole size law; using the original $P(N\ge1)=a$ would ignore selection. Excluding zero before normalization would answer a different conditioning event. All factors lie in the stated open intervals, so the series and denominator are well-defined.
+
+@@ 74|Random eligibility with an unequal-trial count|Original integrative Poisson-binomial problem
+Three independent objects qualify with probabilities $1/2,2/3,3/4$. Given qualification, each independently succeeds with probability $1/2$. Find the probability exactly two objects ultimately succeed.
+---SOLUTION---
+The ultimate per-object success probabilities are $1/4,1/3,3/8$. Exactly two consists of three disjoint patterns. Their probabilities are $(1/4)(1/3)(5/8)=5/96$,$(1/4)(2/3)(3/8)=6/96$, and $(3/4)(1/3)(3/8)=9/96$. Summing gives $20/96=5/24$. Independence of the complete per-object experiments supports these products, but their unequal probabilities prevent a simple binomial formula. Replacing eligibility by its average before applying thinning would alter the final count law. This combines event construction with a distinct-pattern sum.
+
+@@ 75|A uniform variable's quadratic preimages|Original nonlinear support problem|quadratic-six
+$X$ is uniform on $\{-2,-1,0,1,2,3\}$. Find the law of $Y=X(X-1)$ and $P(X\ge1\mid Y=2)$.
+---SOLUTION---
+Evaluate the map in the supplied order to obtain $6,2,0,0,2,6$. The destination atoms zero, two, six each have two preimages, so their masses are all $1/3$. Given $Y=2$, the preimages are $X=-1$ and $X=2$, each equally likely; only the latter satisfies $X\ge1$, giving $1/2$. Uniformity happens here because the fiber sizes are equal; it is not a general consequence of applying a polynomial to a uniform input. Solving the quadratic equation without checking the original support could introduce invalid roots in other examples.
+
+@@ 76|Recovering a finite law from CDF and transformed events|Original hard reconstruction problem
+$X$ has atoms $-2,-1,1,3$ with unknown masses $a,b,c,d$. Given $F(-1)=1/2$,$P(X^2=1)=3/5$ and $P(X\ge1)=1/2$, determine all possible laws. Is the information sufficient for a unique law?
+---SOLUTION---
+The equations are $a+b=1/2$,$b+c=3/5$,$c+d=1/2$. The last equation already follows from normalization and the first. Taking $b=t$ gives $a=1/2-t$,$c=3/5-t$,$d=t-1/10$. Nonnegativity requires $1/10\le t\le1/2$, so there is an interval of valid laws, not a unique one. All four atoms are positive only for the open interval. At the endpoints one atom vanishes. Counting supplied statements as automatically independent equations would wrongly promise unique reconstruction; event equations can be redundant.
+
+@@ 77|Two independent binomials with common probability|Original convolution and conditional allocation
+Independent $X\sim\operatorname{Bin}(2,p)$ and $Y\sim\operatorname{Bin}(3,p)$ have $0<p<1$. Derive the sum law and $P(X=1\mid X+Y=2)$.
+---SOLUTION---
+Concatenating the two independent trial blocks gives five iid Bernoulli trials, so $X+Y\sim\operatorname{Bin}(5,p)$. For the conditional allocation, the numerator is $\binom21\binom31p^2(1-p)^3=6p^2(1-p)^3$. The denominator is $\binom52p^2(1-p)^3=10p^2(1-p)^3$, giving $3/5$. Conditional on two successes among five exchangeable trial positions, the allocation is hypergeometric. The cancellation depends on the common $p$ and the nondegenerate parameter interval; unequal success probabilities would retain parameter factors.
+
+@@ 78|A conditional maximum with ties|Original hard extrema calculation|max-four
+Two independent fair four-sided dice are $A,B$. Given $\max(A,B)=3$, find $P(A=B)$ and $P(A=3)$.
+---SOLUTION---
+The maximum-three event contains five equally likely pairs:$(1,3),(2,3),(3,1),(3,2),(3,3)$. Exactly one has a tie, so the first conditional probability is $1/5$. Three have $A=3$, so the second is $3/5$. Counting $A=3$ and $B=3$ as disjoint categories would count the pair $(3,3)$ twice. Their union has $3+3-1=5$ eligible pairs. The sample-space denominator after conditioning is five, not the original 16. A maximum constraint induces conditional dependence even though the original dice were independent.
+
+@@ 79|A normalized PMF can have no finite first moment|Original advanced boundary problem
+For $P(X=k)=1/[k(k+1)]$,$k\ge1$, verify normalization and determine whether $\sum_{k\ge1}kp(k)$ is finite. Explain why this does not invalidate the law.
+---SOLUTION---
+Normalization telescopes to one as in Question 4. But $kp(k)=1/(k+1)$, whose sum diverges by comparison with the harmonic series. Since all terms are nonnegative, the extended first moment is $+\infty$. A proper countable PMF only requires its mass sum to converge to one; it does not require its value-weighted sum to be finite. This distinction introduces an essential condition for the next expectation chapter. Truncating the support at a displayed cutoff would produce a finite sum, but would change or incompletely represent the original law.
+
+@@ 80|A complete model audit with a misleading average|Original integrative conceptual multiple-choice problem
+Ten binary devices each work with marginal probability $.8$. Which conclusion follows without any further dependence assumption? A: Their working count is $\operatorname{Bin}(10,.8)$. B: The chance all ten work is $.8^{10}$. C: Each device's individual indicator is Bernoulli $.8$. D: Their count must attain every integer from zero through ten with positive probability. Construct a counterexample to every false conclusion.
+---SOLUTION---
+Only C follows: each binary indicator has success mass $.8$ and failure mass $.2$. For a single counterexample to A, B, D, let one Bernoulli $.8$ event decide whether all ten work together. The count then has masses $.2$ at zero and $.8$ at ten, and every intermediate count is impossible. All-work probability is $.8$, not $.8^{10}$. Each individual marginal remains correct. Mutual independence would justify A and B, and with $0<p<1$ also give full count support, but it is absent from the contract. A marginal probability cannot supply an unstated joint experiment.

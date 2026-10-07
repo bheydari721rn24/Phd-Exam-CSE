@@ -1,0 +1,94 @@
+[
+  {
+    "id": "MS_CE_1405_Q35",
+    "booklet": "MS CE 1405",
+    "pdfPage": 8,
+    "questionNumber": 35,
+    "topics": [
+      "s_axioms",
+      "s_counting"
+    ],
+    "title": "Heads in a conditional second toss",
+    "stem": "Four fair coins are tossed. Every coin that showed heads is tossed again. If $Y$ is the number of heads in the second toss, what is $P(Y=2)$?",
+    "options": [
+      "$1/2$",
+      "$3/4$",
+      "$17/128$",
+      "$27/128$"
+    ],
+    "answer": 4,
+    "solution": "1. Model each coin by two independent fair tosses, with the second revealed only when the first is heads. A coin contributes one to $Y$ exactly on the outcome heads-heads, which has probability $1/4$.\n2. The four contribution indicators are independent, so $Y$ is binomial with parameters 4 and $1/4$. Exactly two successes have probability $\\binom42(1/4)^2(3/4)^2=27/128$, option 4.\n3. An independent derivation conditions on the number $K$ of first-round heads. Sum $\\binom4k2^{-4}\\binom k2 2^{-k}$ for $k=2,3,4$. The contributions are $3/32,3/32,3/128$, whose sum is $27/128$.\n4. Treating the second round as four unconditional fair tosses ignores that only first-round heads qualify. Fixing the random number of qualifying coins at its expected value also changes the distribution.\n\n**Transfer rule.** Replace a multistage selection experiment by independent per-object indicators when eligibility and success can be combined into one event.",
+    "pattern": "multistage eligibility converted to independent indicators",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "pdfSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "answerStatus": "independently_derived_not_official",
+    "verification": "Original PDF page visually rechecked in this chapter turn; printed option order preserved.",
+    "modelId": "bin-four-quarter"
+  },
+  {
+    "id": "Phd_CS_1404_Q68",
+    "booklet": "Phd CS 1404",
+    "pdfPage": 15,
+    "questionNumber": 68,
+    "topics": [
+      "s_axioms",
+      "s_counting"
+    ],
+    "title": "At most one independent event",
+    "stem": "Events $B_1,\\ldots,B_n$ are independent, and $P(B_i)=1/n$. What is the probability that at most one occurs? Take $n\\ge2$ in the displayed formulas.",
+    "options": [
+      "$\\frac{(n-1)^{n-1}(2n-1)}{n^n}$",
+      "$\\frac{n^{n-1}(2n-1)}{(n+1)^n}$",
+      "$(n/(n-1))^n$",
+      "$((n-1)/(n+1))^n$"
+    ],
+    "answer": 1,
+    "solution": "1. No event occurs with probability $(1-1/n)^n$ by mutual independence.\n2. Exactly one occurs in $n$ disjoint ways, each of probability $(1/n)(1-1/n)^{n-1}$. Their total is $(1-1/n)^{n-1}$.\n3. Add the two cases and factor: $(1-1/n)^{n-1}(2-1/n)=(n-1)^{n-1}(2n-1)/n^n$.\n4. The other options use a different success probability or omit the exactly-one contribution. For $n=2$ the correct result is $3/4$, a quick check against alternatives.\n\n**Transfer rule.** At most one includes zero; pairwise independence alone would not justify multiplying all complements.",
+    "pattern": "independent-event zero/one decomposition",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "pdfSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "answerStatus": "independently_derived_not_official",
+    "verification": "Original PDF page visually rechecked in this chapter turn; printed option order preserved. The attached n=3 diagram is explicitly a worked specialization of the symbolic n>=2 problem, not its full proof.",
+    "modelId": "bin-three-third"
+  },
+  {
+    "id": "Phd_CS_1404_Q69",
+    "booklet": "Phd CS 1404",
+    "pdfPage": 15,
+    "questionNumber": 69,
+    "topics": [
+      "s_axioms"
+    ],
+    "title": "A conditional probability with random family size",
+    "stem": "The probability that a family has $n$ children is $2^{-n-1}$ for $n\\ge0$. Independently, each child is equally likely to be a boy or a girl. Given that the family has no boys, what is the probability it has at least one child?",
+    "options": [
+      "1/3",
+      "1/2",
+      "3/4",
+      "1/4"
+    ],
+    "answer": 4,
+    "solution": "1. Let $G$ mean no boys. Conditional on $n$ children its probability is $2^{-n}$, including value one for $n=0$.\n2. The total probability of $G$ is $\\sum_{n\\ge0}2^{-n-1}2^{-n}=\\frac12\\sum_{n\\ge0}4^{-n}=2/3$.\n3. The joint probability of $G$ and at least one child is $2/3-1/2=1/6$. Divide by $P(G)=2/3$ to obtain $1/4$, option 4.\n4. The reverse conditional, no boys given at least one child, would be $1/3$, option 1. That tempting distractor demonstrates why the conditioning direction must be preserved in translation.\n\n**Transfer rule.** Name the conditioning event, include the zero-size case where appropriate, and divide the joint event by that event's probability.",
+    "pattern": "total probability and conditioning",
+    "difficulty": "Hard",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "pdfSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "answerStatus": "independently_derived_not_official",
+    "verification": "Original PDF page visually rechecked in this chapter turn; printed option order preserved.",
+    "modelId": "family-conditioning"
+  }
+]

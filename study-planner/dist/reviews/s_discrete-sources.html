@@ -1,0 +1,111 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Discrete random variables chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"><link rel="stylesheet" href="../chapters/s_discrete.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/s_discrete.html">Discrete random variables chapter</a></p><article class="lesson"><h1>Discrete random variables: source selection and synthesis audit</h1>
+<h2>Selection boundary</h2>
+<p>Seven located university candidates were compared for this chapter. Four accessible written courses were selected as the core synthesis: Oxford, MIT, UC Berkeley and Stanford. Harvard supplies an additional, explicitly bounded exercise review. CMU's syllabus and ETH's course index were screened but are not counted as reviewed lecture sources. This is a documented search pool, not a claim to have examined every course in existence.</p>
+<p>Selection prioritized precise mathematical definitions and conditions; relevance to the chapter's event-to-law boundary; useful derivations, counterexamples and computing applications; and accessible written evidence that could actually be inspected. Prestige alone or the presence of a course link did not qualify a source. The ranking below concerns this chapter, not the overall quality of a university.</p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Course</th>
+<th>Actual reading and contribution</th>
+<th>Limitation / decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1, core</td>
+<td>Oxford Prelims Probability, James Martin, Michaelmas 2019</td>
+<td>PDF pages 18–21, Chapter 2 definitions through Exercise 2.5: random-variable maps, concentrated support, classical-law contracts and normalization</td>
+<td>Expectation begins at the boundary; its full treatment belongs to the next chapter</td>
+</tr>
+<tr>
+<td>2, core</td>
+<td>MIT 18.05, Jeremy Orloff and Jonathan Bloom, Spring 2022</td>
+<td>Entire Class 4 reading, combined PDF pages 28–39: PMF/CDF, Bernoulli/binomial, zero-based geometric, finite uniform and weighted sums</td>
+<td>MIT's failures-before-success convention is translated explicitly, not mixed with total-trial waiting</td>
+</tr>
+<tr>
+<td>3, core</td>
+<td>UC Berkeley CS70, Rao and Walrand, Spring 2016, Note 16 in the Fall archive</td>
+<td>PDF pages 1–5: fixed maps, many-to-one fibers, permutation examples and binomial packet models</td>
+<td>The expectation remainder was not incorporated as if it belonged to this chapter; guessed unavailable URLs were excluded</td>
+</tr>
+<tr>
+<td>4, core</td>
+<td>Stanford CS109, Chris Piech and teaching team, Winter 2025, Lecture 6</td>
+<td>All 124 textual slides; progressive duplicates recognized and mathematical figures checked: counts, binomial applications, sequence grouping and series-winning contracts</td>
+<td>Empirical frequencies do not establish a population law; stopped-series probability is distinguished from stopping-time distribution</td>
+</tr>
+<tr>
+<td>Additional reviewed material</td>
+<td>Harvard Statistics 110, Joe Blitzstein, Strategic Practice 4, Fall 2011</td>
+<td>Section 1 problems 1–3 and corresponding page 4 solutions via the web PDF reader: same law versus equality, cyclic labels and positive-based geometric CDF</td>
+<td>Direct PDF acquisition returned 403. Only this bounded web scope is counted; no complete downloaded-file review or hash is claimed</td>
+</tr>
+<tr>
+<td>Screened, excluded from the four-source requirement</td>
+<td>CMU 36-225, Jing Lei, Fall 2012 syllabus</td>
+<td>Four-page syllabus establishes course context but does not supply the needed chapter-level lesson</td>
+<td>A syllabus is not evidence of reading the lectures</td>
+</tr>
+<tr>
+<td>Screened, excluded from the four-source requirement</td>
+<td>ETH Zurich 401-2604-<span class="math-inline">00L</span>, Fadoua Balabdaoui, Spring 2019 course index</td>
+<td>Located official probability/statistics course index</td>
+<td>An index is not a reviewed English lecture text; no inaccessible lecture content was invented</td>
+</tr>
+</tbody>
+</table>
+<h2>Actual primary written materials</h2>
+<ol>
+<li>James Martin. <em>Prelims Probability</em>. University of Oxford, Michaelmas 2019, version of 20 October 2019. <a href="https://courses.maths.ox.ac.uk/mod/resource/view.php?id=48553">Official lecture notes</a>.</li>
+<li>Jeremy Orloff and Jonathan Bloom. <em>18.05 Introduction to Probability and Statistics</em>. MIT, Spring 2022. <a href="https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/mit18_05_s22_probability.pdf">Combined probability readings</a>, Class 4.</li>
+<li>Rao and Walrand. <em>CS70 Discrete Mathematics and Probability Theory</em>, Note 16. UC Berkeley, Spring 2016 material in the Fall archive. <a href="https://fa16.eecs70.org/static/notes/n16.pdf">Written note</a>.</li>
+<li>Chris Piech and teaching team. <em>CS109 Probability for Computer Scientists</em>, Lecture 6. Stanford, Winter 2025. <a href="https://web.stanford.edu/class/archive/cs/cs109/cs109.1254/lectures/6-RandomVariables/6-RandomVariables.pdf">Written lecture slides</a>.</li>
+<li>Joe Blitzstein. <em>Statistics 110</em>, Strategic Practice 4. Harvard, Fall 2011. <a href="https://stat110.hsites.harvard.edu/sites/g/files/omnuum10111/files/stat110/files/strategic_practice_and_homework_4.pdf">Practice and solutions</a>, bounded scope as above.</li>
+<li>Jing Lei. <em>36-225 Introduction to Probability Theory</em>, Fall 2012. CMU. <a href="https://stat.cmu.edu/~jinglei/syllabus_f12.pdf">Screened syllabus</a>.</li>
+<li>Fadoua Balabdaoui. <em>Probability and Statistics</em>, Spring 2019. ETH Zurich. <a href="https://metaphor.ethz.ch/x/2019/fs/401-2604-00L/">Screened course index</a>.</li>
+</ol>
+<h2>Reconciled definitions and independent synthesis</h2>
+<p>The lesson first distinguishes elementary outcomes, fixed measurable maps, value events, formal ranges and positive-mass atoms. This prevents a uniform-label assumption from replacing a supplied nonuniform experiment. PMFs are derived by partitioning fibers, while CDF properties are proved from probability-measure continuity rather than a memorized graph shape.</p>
+<p>Geometric laws use both conventions explicitly: MIT's failures before first success begin at zero; Oxford/Harvard's total trials through success begin at one. Negative-binomial offsets use <span class="math-inline">r</span> rather than one. The lesson separately treats capping, truncation and a no-success code, whose terminal masses differ.</p>
+<p>Stanford's fixed-sequence grouping is reconciled with stopped series by pre-generating an imagined full horizon. This proves a series-winning event without asserting that the actual stopping index has a binomial law. Independent unequal trials and a shared hidden parameter receive distinct constructions. A per-trial marginal probability cannot replace mutual independence.</p>
+<p>Hypergeometric support is derived from both pool capacities, and exact subset enumeration is checked against sequential depletion. Convolution adds joint masses along fibers; extrema use nested conjunctions. Poisson normalization, parameter units, adjacent ratios and a fixed-count rare-event limit are derived with explicit finite-versus-limit qualifications. Infinite prefixes always retain their omitted tails.</p>
+<p>The prose, diagrams, algorithms and problem wording are independently authored. Reconstructed course families are labelled, use their own data or extensions, and do not claim to reproduce every copyrighted exercise. All 80 original/reconstructed problems and the 80 final rules were read during the final semantic audit.</p>
+<h2>Original examination evidence</h2>
+<p>Three English adaptations use original PDFs from the project archive at commit <code>bdadf6e2c9cadc4772ae137a96a3da753c7cfd08</code>. The actual page images were rendered and visually inspected in this turn:</p>
+<table>
+<thead>
+<tr>
+<th>Archive item</th>
+<th>PDF page</th>
+<th>Pattern</th>
+<th>Independently derived option</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MSc Computer Engineering 1405, Q35</td>
+<td>8</td>
+<td>Eligibility followed by a second success; binomial thinning</td>
+<td>4, probability <span class="math-inline">27/128</span></td>
+</tr>
+<tr>
+<td>PhD Computer Science 1404, Q68</td>
+<td>15</td>
+<td>At most one success among <span class="math-inline">n</span> independent indicators with success probability <span class="math-inline">1/n</span></td>
+<td>1, symbolic formula and a labelled <span class="math-inline">n=3</span> specialization</td>
+</tr>
+<tr>
+<td>PhD Computer Science 1404, Q69</td>
+<td>15</td>
+<td>Countable family-size prior reweighted by the no-boy likelihood</td>
+<td>4, conditional positive-size probability <span class="math-inline">1/4</span></td>
+</tr>
+</tbody>
+</table>
+<p>Printed option order is preserved. These are independent answers, not official keys. Source paths, immutable source commit, translation scope, page numbers and SHA-256 values are retained in the authentic-question records. Scanned archive pages were not represented as an exhaustive classification of every examination.</p>
+<h2>Evidence and remaining uncertainty</h2>
+<p><code>research/s_discrete-evidence/acquisition.json</code> records successful and failed retrievals; <code>reading.json</code> records bounded scopes and four core PDF hashes. The four downloaded core files and the two original examination PDFs were hash-checked again before delivery. Third-party PDF caches remain outside the repository; synced project sources remain untouched.</p>
+<p>The selected sources support the declared chapter, but neither a finite bibliography nor a test suite establishes literal universal correctness or success on every unseen examination question. Full expectation theory, joint distributions, generating functions, covariance, continuous distributions and quantitative approximation bounds belong to later scheduled chapters.</p>
+</article></main><script src="../chapters/math-layout.js"></script></body></html>
