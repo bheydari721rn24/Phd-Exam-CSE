@@ -365,3 +365,8 @@ The student explicitly approved s_descriptive version 76. The next missing sched
 ## Discrete random variables — completed review draft, 7 October 2026
 
 The explicit approval of descriptive statistics permits only this next Week 3 chapter. `s_discrete` is now a complete English draft: 26 sections, 80 original/reconstructed worked problems, three original-PDF-checked examination adaptations, 80 final rules, 37 subject-specific models with 208 checkpoints, and eight editable modes. Four core written courses were read from Oxford, MIT, UC Berkeley and Stanford; Harvard contributes bounded additional exercise material. Seventy rational checks and 616 independent enumeration comparisons passed. Real Edge checks cover all 208 checkpoints, connector boundaries, label padding, controls, reduced motion, print and mobile. The 39 previous HTML pages and 2,428 complete problems remain unchanged. Private Site and GitHub publication will be recorded after their actual verification. Gate: awaiting_user_approval; no next chapter begins before explicit approval.
+
+
+## Verified discrete-variable publication — 7 October 2026
+
+Private Site version 77 succeeded. Its saved source matches dbc4e319d86d339e08db822f74da927cc9fd1b76. The archive contains 348 files and was byte-checked against the clean content checkout. The exact chapter and evidence were also pushed to GitHub branch study-planner-1406, content commit ee9dcedb1d6c67632152e54c62191a2f0ea991d3. The Windows package-helper path failure occurred after the helper verified the source push; local static packaging recovered without changing source or audience. The chapter remains a review draft awaiting explicit approval. No following chapter has started.
