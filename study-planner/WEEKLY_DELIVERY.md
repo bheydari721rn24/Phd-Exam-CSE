@@ -400,3 +400,8 @@ Private Site version 79 succeeded; saved source exactly matches 266a2b4cd358c673
 ## Active chapter: Determinants — 7 October 2026
 
 The student explicitly approved expectation and the version-79 delimiter correction. Work only on the next missing Week 3 chapter l_det, preserving all 41 preceding chapter pages and 2593 complete worked problems. Require genuinely reviewed written courses, deep English instruction, mathematical/conceptual solved questions, strong final rules and concept-specific geometric/computational models. Await explicit approval after delivery.
+
+
+## Determinants draft delivered
+
+Published private Site version 80. l_det remains a draft awaiting explicit approval. Four core written university courses; 82 solved questions including two original-PDF-checked adaptations; 80 rewritten retrieval notes; 17 specialized models and 67 exact checkpoints; 342 exact checks; fonts, MathML delimiters, pause/resume, reduced motion, print and mobile passed. All 41 prior HTML files and 2,593 questions retained. The next chapter has not started.
