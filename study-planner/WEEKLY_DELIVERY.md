@@ -380,3 +380,8 @@ The student explicitly approved s_discrete version 77. Work only on the next mis
 ## Expectation — completed review draft, 7 October 2026
 
 Explicit approval of discrete random variables permits only this next Week 3 chapter. s_expectation contains 29 sections, 80 original/reconstructed complete solutions and two original-PDF-checked authentic questions, 80 final condition-bearing rules, 19 concept-specific models with 85 stored checkpoints, and seven editable modes. Four core written courses were actually read from Oxford, MIT, Berkeley and CMU; Cornell supplies a supplementary lecture check. Stanford was excluded because locally downloaded bytes did not match the advertised Moments content. Seventy independent mathematical checks and every stored model checkpoint passed. Real Edge checks cover geometry, padding, connector boundaries, actual in-flight pause/resume, print, reduced motion, mobile and all seven laboratory modes. Forty preceding chapter pages and 2,511 complete problems are retained unchanged. The library has 41 chapters and 2,593 problems. Private Site and GitHub publication will be recorded after their actual verification. Gate awaiting_user_approval; no next chapter starts without explicit approval.
+
+
+## Verified expectation publication — 7 October 2026
+
+Private Site version 78 succeeded. Saved source matches ae75b6d9efcfe76254db55e4509e94e57f2423e7. The local static archive contains 354 files, byte-checked against the committed checkout. Exact chapter and evidence were pushed to GitHub branch study-planner-1406, content commit 2aaca31f74cb1837efb0df97f7e59e14dc5cf1c9. Owner-only audience was preserved. This chapter remains a review draft; no subsequent chapter has started.
