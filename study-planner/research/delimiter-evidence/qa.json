@@ -1,0 +1,959 @@
+{
+  "status": "passed",
+  "chapters": [
+    {
+      "id": "a_arrays",
+      "formulas": 301,
+      "questions": 86
+    },
+    {
+      "id": "a_asym",
+      "formulas": 640,
+      "questions": 46
+    },
+    {
+      "id": "a_correct",
+      "formulas": 501,
+      "questions": 54
+    },
+    {
+      "id": "a_divide",
+      "formulas": 538,
+      "questions": 46
+    },
+    {
+      "id": "a_loop",
+      "formulas": 555,
+      "questions": 46
+    },
+    {
+      "id": "a_model",
+      "formulas": 601,
+      "questions": 46
+    },
+    {
+      "id": "a_recurrence",
+      "formulas": 778,
+      "questions": 53
+    },
+    {
+      "id": "a_select",
+      "formulas": 828,
+      "questions": 89
+    },
+    {
+      "id": "a_sort",
+      "formulas": 976,
+      "questions": 88
+    },
+    {
+      "id": "a_stackqueue",
+      "formulas": 185,
+      "questions": 84
+    },
+    {
+      "id": "d_counting",
+      "formulas": 820,
+      "questions": 88
+    },
+    {
+      "id": "d_functions",
+      "formulas": 533,
+      "questions": 47
+    },
+    {
+      "id": "d_inclusion",
+      "formulas": 555,
+      "questions": 82
+    },
+    {
+      "id": "d_induction",
+      "formulas": 604,
+      "questions": 46
+    },
+    {
+      "id": "d_invariants",
+      "formulas": 618,
+      "questions": 46
+    },
+    {
+      "id": "d_logic",
+      "formulas": 724,
+      "questions": 53
+    },
+    {
+      "id": "d_number",
+      "formulas": 625,
+      "questions": 47
+    },
+    {
+      "id": "d_pigeonhole",
+      "formulas": 556,
+      "questions": 82
+    },
+    {
+      "id": "d_proof",
+      "formulas": 662,
+      "questions": 48
+    },
+    {
+      "id": "d_relations",
+      "formulas": 478,
+      "questions": 45
+    },
+    {
+      "id": "d_sets",
+      "formulas": 634,
+      "questions": 46
+    },
+    {
+      "id": "g_boolean",
+      "formulas": 585,
+      "questions": 53
+    },
+    {
+      "id": "g_combin",
+      "formulas": 852,
+      "questions": 82
+    },
+    {
+      "id": "g_gates",
+      "formulas": 486,
+      "questions": 46
+    },
+    {
+      "id": "g_kmap",
+      "formulas": 736,
+      "questions": 84
+    },
+    {
+      "id": "g_number",
+      "formulas": 482,
+      "questions": 45
+    },
+    {
+      "id": "l_gauss",
+      "formulas": 973,
+      "questions": 71
+    },
+    {
+      "id": "l_matrices",
+      "formulas": 842,
+      "questions": 47
+    },
+    {
+      "id": "l_rank",
+      "formulas": 921,
+      "questions": 90
+    },
+    {
+      "id": "l_vectors",
+      "formulas": 620,
+      "questions": 46
+    },
+    {
+      "id": "p_arrays",
+      "formulas": 205,
+      "questions": 83
+    },
+    {
+      "id": "p_flow",
+      "formulas": 411,
+      "questions": 45
+    },
+    {
+      "id": "p_functions",
+      "formulas": 100,
+      "questions": 91
+    },
+    {
+      "id": "p_types",
+      "formulas": 421,
+      "questions": 45
+    },
+    {
+      "id": "s_axioms",
+      "formulas": 571,
+      "questions": 48
+    },
+    {
+      "id": "s_bayes",
+      "formulas": 624,
+      "questions": 65
+    },
+    {
+      "id": "s_conditional",
+      "formulas": 808,
+      "questions": 60
+    },
+    {
+      "id": "s_counting",
+      "formulas": 904,
+      "questions": 77
+    },
+    {
+      "id": "s_descriptive",
+      "formulas": 889,
+      "questions": 82
+    },
+    {
+      "id": "s_discrete",
+      "formulas": 1463,
+      "questions": 83
+    },
+    {
+      "id": "s_expectation",
+      "formulas": 1034,
+      "questions": 82
+    }
+  ],
+  "baseline": "188b2be087fa37a99d2e5da8a3ad672629dfbd74",
+  "formulaCount": 26639,
+  "problemCount": 2593,
+  "cachedFormulaCount": 5286,
+  "rendererExamples": 9,
+  "rejectedMalformedExamples": 5,
+  "browser": [
+    {
+      "width": 1280,
+      "formulas": 302,
+      "pairs": 138,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_arrays"
+    },
+    {
+      "width": 390,
+      "formulas": 302,
+      "pairs": 138,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_arrays"
+    },
+    {
+      "width": 1280,
+      "formulas": 640,
+      "pairs": 232,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_asym"
+    },
+    {
+      "width": 390,
+      "formulas": 640,
+      "pairs": 232,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_asym"
+    },
+    {
+      "width": 1280,
+      "formulas": 501,
+      "pairs": 253,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_correct"
+    },
+    {
+      "width": 390,
+      "formulas": 501,
+      "pairs": 253,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_correct"
+    },
+    {
+      "width": 1280,
+      "formulas": 538,
+      "pairs": 81,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_divide"
+    },
+    {
+      "width": 390,
+      "formulas": 538,
+      "pairs": 81,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_divide"
+    },
+    {
+      "width": 1280,
+      "formulas": 555,
+      "pairs": 117,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_loop"
+    },
+    {
+      "width": 390,
+      "formulas": 555,
+      "pairs": 117,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_loop"
+    },
+    {
+      "width": 1280,
+      "formulas": 601,
+      "pairs": 107,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_model"
+    },
+    {
+      "width": 390,
+      "formulas": 601,
+      "pairs": 107,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_model"
+    },
+    {
+      "width": 1280,
+      "formulas": 778,
+      "pairs": 276,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_recurrence"
+    },
+    {
+      "width": 390,
+      "formulas": 778,
+      "pairs": 276,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_recurrence"
+    },
+    {
+      "width": 1280,
+      "formulas": 838,
+      "pairs": 497,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_select"
+    },
+    {
+      "width": 390,
+      "formulas": 838,
+      "pairs": 497,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_select"
+    },
+    {
+      "width": 1280,
+      "formulas": 977,
+      "pairs": 577,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_sort"
+    },
+    {
+      "width": 390,
+      "formulas": 977,
+      "pairs": 577,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_sort"
+    },
+    {
+      "width": 1280,
+      "formulas": 186,
+      "pairs": 55,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_stackqueue"
+    },
+    {
+      "width": 390,
+      "formulas": 186,
+      "pairs": 55,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "a_stackqueue"
+    },
+    {
+      "width": 1280,
+      "formulas": 821,
+      "pairs": 469,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_counting"
+    },
+    {
+      "width": 390,
+      "formulas": 821,
+      "pairs": 469,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_counting"
+    },
+    {
+      "width": 1280,
+      "formulas": 533,
+      "pairs": 185,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_functions"
+    },
+    {
+      "width": 390,
+      "formulas": 533,
+      "pairs": 185,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_functions"
+    },
+    {
+      "width": 1280,
+      "formulas": 556,
+      "pairs": 334,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_inclusion"
+    },
+    {
+      "width": 390,
+      "formulas": 556,
+      "pairs": 334,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_inclusion"
+    },
+    {
+      "width": 1280,
+      "formulas": 604,
+      "pairs": 175,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_induction"
+    },
+    {
+      "width": 390,
+      "formulas": 604,
+      "pairs": 175,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_induction"
+    },
+    {
+      "width": 1280,
+      "formulas": 618,
+      "pairs": 87,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_invariants"
+    },
+    {
+      "width": 390,
+      "formulas": 618,
+      "pairs": 87,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_invariants"
+    },
+    {
+      "width": 1280,
+      "formulas": 724,
+      "pairs": 268,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_logic"
+    },
+    {
+      "width": 390,
+      "formulas": 724,
+      "pairs": 268,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_logic"
+    },
+    {
+      "width": 1280,
+      "formulas": 625,
+      "pairs": 188,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_number"
+    },
+    {
+      "width": 390,
+      "formulas": 625,
+      "pairs": 188,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_number"
+    },
+    {
+      "width": 1280,
+      "formulas": 557,
+      "pairs": 199,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_pigeonhole"
+    },
+    {
+      "width": 390,
+      "formulas": 557,
+      "pairs": 199,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_pigeonhole"
+    },
+    {
+      "width": 1280,
+      "formulas": 662,
+      "pairs": 101,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_proof"
+    },
+    {
+      "width": 390,
+      "formulas": 662,
+      "pairs": 101,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_proof"
+    },
+    {
+      "width": 1280,
+      "formulas": 478,
+      "pairs": 140,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_relations"
+    },
+    {
+      "width": 390,
+      "formulas": 478,
+      "pairs": 140,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_relations"
+    },
+    {
+      "width": 1280,
+      "formulas": 634,
+      "pairs": 82,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_sets"
+    },
+    {
+      "width": 390,
+      "formulas": 634,
+      "pairs": 82,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "d_sets"
+    },
+    {
+      "width": 1280,
+      "formulas": 585,
+      "pairs": 97,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "g_boolean"
+    },
+    {
+      "width": 390,
+      "formulas": 585,
+      "pairs": 97,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "g_boolean"
+    },
+    {
+      "width": 1280,
+      "formulas": 852,
+      "pairs": 233,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "g_combin"
+    },
+    {
+      "width": 390,
+      "formulas": 852,
+      "pairs": 233,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "g_combin"
+    },
+    {
+      "width": 1280,
+      "formulas": 486,
+      "pairs": 31,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "g_gates"
+    },
+    {
+      "width": 390,
+      "formulas": 486,
+      "pairs": 31,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "g_gates"
+    },
+    {
+      "width": 1280,
+      "formulas": 736,
+      "pairs": 534,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "g_kmap"
+    },
+    {
+      "width": 390,
+      "formulas": 736,
+      "pairs": 534,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "g_kmap"
+    },
+    {
+      "width": 1280,
+      "formulas": 482,
+      "pairs": 19,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "g_number"
+    },
+    {
+      "width": 390,
+      "formulas": 482,
+      "pairs": 19,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "g_number"
+    },
+    {
+      "width": 1280,
+      "formulas": 976,
+      "pairs": 401,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "l_gauss"
+    },
+    {
+      "width": 390,
+      "formulas": 976,
+      "pairs": 401,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "l_gauss"
+    },
+    {
+      "width": 1280,
+      "formulas": 845,
+      "pairs": 270,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "l_matrices"
+    },
+    {
+      "width": 390,
+      "formulas": 845,
+      "pairs": 270,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "l_matrices"
+    },
+    {
+      "width": 1280,
+      "formulas": 931,
+      "pairs": 381,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "l_rank"
+    },
+    {
+      "width": 390,
+      "formulas": 931,
+      "pairs": 381,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "l_rank"
+    },
+    {
+      "width": 1280,
+      "formulas": 620,
+      "pairs": 168,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "l_vectors"
+    },
+    {
+      "width": 390,
+      "formulas": 620,
+      "pairs": 168,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "l_vectors"
+    },
+    {
+      "width": 1280,
+      "formulas": 205,
+      "pairs": 126,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "p_arrays"
+    },
+    {
+      "width": 390,
+      "formulas": 205,
+      "pairs": 126,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "p_arrays"
+    },
+    {
+      "width": 1280,
+      "formulas": 411,
+      "pairs": 54,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "p_flow"
+    },
+    {
+      "width": 390,
+      "formulas": 411,
+      "pairs": 54,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "p_flow"
+    },
+    {
+      "width": 1280,
+      "formulas": 100,
+      "pairs": 68,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "p_functions"
+    },
+    {
+      "width": 390,
+      "formulas": 100,
+      "pairs": 68,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "p_functions"
+    },
+    {
+      "width": 1280,
+      "formulas": 421,
+      "pairs": 57,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "p_types"
+    },
+    {
+      "width": 390,
+      "formulas": 421,
+      "pairs": 57,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "p_types"
+    },
+    {
+      "width": 1280,
+      "formulas": 571,
+      "pairs": 233,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "s_axioms"
+    },
+    {
+      "width": 390,
+      "formulas": 571,
+      "pairs": 233,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "s_axioms"
+    },
+    {
+      "width": 1280,
+      "formulas": 629,
+      "pairs": 401,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "s_bayes"
+    },
+    {
+      "width": 390,
+      "formulas": 629,
+      "pairs": 401,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "s_bayes"
+    },
+    {
+      "width": 1280,
+      "formulas": 808,
+      "pairs": 612,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "s_conditional"
+    },
+    {
+      "width": 390,
+      "formulas": 808,
+      "pairs": 612,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "s_conditional"
+    },
+    {
+      "width": 1280,
+      "formulas": 904,
+      "pairs": 316,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "s_counting"
+    },
+    {
+      "width": 390,
+      "formulas": 904,
+      "pairs": 316,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "s_counting"
+    },
+    {
+      "width": 1280,
+      "formulas": 901,
+      "pairs": 406,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "s_descriptive"
+    },
+    {
+      "width": 390,
+      "formulas": 901,
+      "pairs": 406,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "s_descriptive"
+    },
+    {
+      "width": 1280,
+      "formulas": 1509,
+      "pairs": 937,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "s_discrete"
+    },
+    {
+      "width": 390,
+      "formulas": 1509,
+      "pairs": 937,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "s_discrete"
+    },
+    {
+      "width": 1280,
+      "formulas": 1068,
+      "pairs": 607,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "s_expectation"
+    },
+    {
+      "width": 390,
+      "formulas": 1068,
+      "pairs": 607,
+      "issues": [],
+      "stix": true,
+      "overflow": false,
+      "chapter": "s_expectation"
+    }
+  ],
+  "dynamicInsertion": true,
+  "runtimeIdempotence": true,
+  "printFenceGeometry": true
+}

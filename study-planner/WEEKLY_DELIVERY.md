@@ -385,3 +385,8 @@ Explicit approval of discrete random variables permits only this next Week 3 cha
 ## Verified expectation publication — 7 October 2026
 
 Private Site version 78 succeeded. Saved source matches ae75b6d9efcfe76254db55e4509e94e57f2423e7. The local static archive contains 354 files, byte-checked against the committed checkout. Exact chapter and evidence were pushed to GitHub branch study-planner-1406, content commit 2aaca31f74cb1837efb0df97f7e59e14dc5cf1c9. Owner-only audience was preserved. This chapter remains a review draft; no subsequent chapter has started.
+
+
+## Whole-library mathematical delimiter repair — 7 October 2026
+
+The student reported apparently missing closing parentheses. Reproduced and corrected the actual structural cause: scripts attached to a closing glyph instead of the complete fenced base, producing asymmetric stretching. All 41 chapters and cached animation mathematics are corrected, with 26,639 chapter formulas and 5,286 cached instances audited. The 2,593 complete problems and all surrounding lesson prose remain unchanged. Real desktop/mobile paired-glyph geometry, dynamic insertion, idempotence and print checks passed. Future renderer output rejects unbalanced delimiters and uses the shared scope correction. Audit: research/delimiter-audit.md; evidence: research/delimiter-evidence/qa.json. s_expectation remains awaiting explicit approval. Native publication is recorded after verification.
