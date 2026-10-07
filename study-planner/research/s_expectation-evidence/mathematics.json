@@ -1,0 +1,357 @@
+{
+  "status": "passed",
+  "exactChecks": 70,
+  "checks": [
+    {
+      "name": "Q1 signed mean",
+      "result": "13/10",
+      "status": "passed"
+    },
+    {
+      "name": "Q1 absolute mean",
+      "result": "21/10",
+      "status": "passed"
+    },
+    {
+      "name": "Q1 torque",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Q2 mean with solved masses",
+      "result": "3",
+      "status": "passed"
+    },
+    {
+      "name": "Q3 outcome average",
+      "result": "3",
+      "status": "passed"
+    },
+    {
+      "name": "Q5 gross award",
+      "result": "55/3",
+      "status": "passed"
+    },
+    {
+      "name": "Q9 raw second moment",
+      "result": "61/10",
+      "status": "passed"
+    },
+    {
+      "name": "Q9 variance",
+      "result": "441/100",
+      "status": "passed"
+    },
+    {
+      "name": "Q9 quadratic payoff",
+      "result": "93/10",
+      "status": "passed"
+    },
+    {
+      "name": "Q10 transformed mean",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Q11 reciprocal gap",
+      "result": "9/40",
+      "status": "passed"
+    },
+    {
+      "name": "Q12 clipped payoff",
+      "result": "9/10",
+      "status": "passed"
+    },
+    {
+      "name": "Q13 dependent affine mean",
+      "result": "5",
+      "status": "passed"
+    },
+    {
+      "name": "Q14 coefficient gap",
+      "result": "6/25",
+      "status": "passed"
+    },
+    {
+      "name": "Q17 heterogeneous count",
+      "result": "3/2",
+      "status": "passed"
+    },
+    {
+      "name": "Q18 weighted cost",
+      "result": "5",
+      "status": "passed"
+    },
+    {
+      "name": "Q19 enumerated fixed points",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Q19 pair probability",
+      "result": "1/12",
+      "status": "passed"
+    },
+    {
+      "name": "Q20 weighted matches",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Q21 second fixed moment",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Q22 record count exhaustive",
+      "result": "137/60",
+      "status": "passed"
+    },
+    {
+      "name": "Q22 initialization offset",
+      "result": "77/60",
+      "status": "passed"
+    },
+    {
+      "name": "Q24 inversion exhaustive",
+      "result": "15/2",
+      "status": "passed"
+    },
+    {
+      "name": "Q25 empty exhaustive",
+      "result": "16/27",
+      "status": "passed"
+    },
+    {
+      "name": "Q25 occupied exhaustive",
+      "result": "65/27",
+      "status": "passed"
+    },
+    {
+      "name": "Q26 distinct weighted enumeration",
+      "result": "29/18",
+      "status": "passed"
+    },
+    {
+      "name": "Q26 collisions",
+      "result": "7/18",
+      "status": "passed"
+    },
+    {
+      "name": "Q28 singleton exhaustive",
+      "result": "27/16",
+      "status": "passed"
+    },
+    {
+      "name": "Q29 distinct exhaustive",
+      "result": "781/256",
+      "status": "passed"
+    },
+    {
+      "name": "Q30 subset exhaustive",
+      "result": "35/12",
+      "status": "passed"
+    },
+    {
+      "name": "Q31 sampled total exhaustive",
+      "result": "5",
+      "status": "passed"
+    },
+    {
+      "name": "Q32 inclusion-weight identity",
+      "result": "16",
+      "status": "passed"
+    },
+    {
+      "name": "Q33 head runs exhaustive",
+      "result": "13/9",
+      "status": "passed"
+    },
+    {
+      "name": "Q34 all runs exhaustive",
+      "result": "4",
+      "status": "passed"
+    },
+    {
+      "name": "Q35 overlapping windows exhaustive",
+      "result": "3/4",
+      "status": "passed"
+    },
+    {
+      "name": "Q36 graph-edge exhaustive",
+      "result": "5",
+      "status": "passed"
+    },
+    {
+      "name": "Q36 graph-triangle exhaustive",
+      "result": "5/4",
+      "status": "passed"
+    },
+    {
+      "name": "Q37 isolated means",
+      "result": "80/81",
+      "status": "passed"
+    },
+    {
+      "name": "Q38 tail first",
+      "result": "3/2",
+      "status": "passed"
+    },
+    {
+      "name": "Q38 tail second",
+      "result": "7/2",
+      "status": "passed"
+    },
+    {
+      "name": "Q40 signed tails",
+      "result": "1/4",
+      "status": "passed"
+    },
+    {
+      "name": "Q42 capped tails",
+      "result": "37/16",
+      "status": "passed"
+    },
+    {
+      "name": "Q43 zero code",
+      "result": "67/64",
+      "status": "passed"
+    },
+    {
+      "name": "Q44 conditional success mean",
+      "result": "67/37",
+      "status": "passed"
+    },
+    {
+      "name": "Q47 binomial mean exhaustive",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Q47 binomial second exhaustive",
+      "result": "26/5",
+      "status": "passed"
+    },
+    {
+      "name": "Q48 shared-indicator second",
+      "result": "10",
+      "status": "passed"
+    },
+    {
+      "name": "Q49 first-three moments",
+      "result": "[Fraction(2, 1), Fraction(6, 1), Fraction(20, 1)]",
+      "status": "passed"
+    },
+    {
+      "name": "Q49 third central",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Q50 affine variance",
+      "result": "18",
+      "status": "passed"
+    },
+    {
+      "name": "Q51 min squared loss",
+      "result": "441/100",
+      "status": "passed"
+    },
+    {
+      "name": "Q52 integer optimum loss",
+      "result": "9/2",
+      "status": "passed"
+    },
+    {
+      "name": "Q56 sharp mean",
+      "result": "2",
+      "status": "passed"
+    },
+    {
+      "name": "Q57 sharp squared moment",
+      "result": "4",
+      "status": "passed"
+    },
+    {
+      "name": "Q58 partition",
+      "result": "4",
+      "status": "passed"
+    },
+    {
+      "name": "Q59 mixture zero probability",
+      "result": "257/1250",
+      "status": "passed"
+    },
+    {
+      "name": "Q60 independent length",
+      "result": "6",
+      "status": "passed"
+    },
+    {
+      "name": "Q61 dependent length",
+      "result": "[Fraction(1, 2), Fraction(1, 4)]",
+      "status": "passed"
+    },
+    {
+      "name": "Q66 student sampling",
+      "result": "28/3",
+      "status": "passed"
+    },
+    {
+      "name": "Q68 minimum dice enumeration",
+      "result": "91/36",
+      "status": "passed"
+    },
+    {
+      "name": "Q69 maximum dice enumeration",
+      "result": "161/36",
+      "status": "passed"
+    },
+    {
+      "name": "Q70 pair products",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Q71 triple bits",
+      "result": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Q72 exact loop harmonic identity",
+      "result": "88069/45045",
+      "status": "passed"
+    },
+    {
+      "name": "Q75 shifted variance",
+      "result": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Q79 equal pairs",
+      "result": "7/6",
+      "status": "passed"
+    },
+    {
+      "name": "Q79 all three equal",
+      "result": "1/6",
+      "status": "passed"
+    },
+    {
+      "name": "Q80 compound polynomial",
+      "result": "5/2",
+      "status": "passed"
+    },
+    {
+      "name": "MSc Q121 direct exact sum",
+      "result": "56.0",
+      "status": "passed"
+    },
+    {
+      "name": "MSc Q121 factorial-moment proof",
+      "result": "35/8",
+      "status": "passed"
+    }
+  ],
+  "examAnswers": "independently derived; not official keys"
+}

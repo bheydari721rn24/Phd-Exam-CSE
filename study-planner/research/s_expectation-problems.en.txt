@@ -1,0 +1,480 @@
+@@ 1|Signed contributions and the balance point|Original examination-style problem|mean-main
+A law assigns masses $1/5,1/2,3/10$ to $-2,1,4$. Find its mean, absolute mean, and the total torque about its mean.
+---SOLUTION---
+Multiply each value by its own mass: $E[X]=-2/5+1/2+12/10=13/10$. Absolute values instead give $E[|X|]=2/5+1/2+12/10=21/10$. These are different operations because the negative contribution cancels only in the signed mean. The torque about a fixed coordinate $c$ is $E[X-c]=13/10-c$, so it vanishes at $c=13/10$. The mean need not be one of the three atoms; the balance interpretation concerns a weighted location, not an attainable outcome.
+
+**Transfer rule.** Validate probability weights, keep negative contributions signed, and distinguish $E[|X|]$ from $|E[X]|$ before simplifying any expression.
+@@ 2|Recovering an unknown mass|Original examination-style problem
+A variable takes $-3,2,7$. Its first mass is $1/4$ and its mean is $3$. Recover the other masses and decide whether the law is valid.
+---SOLUTION---
+Let the mass at two be $a$, so the mass at seven is $3/4-a$. The mean equation is $-3/4+2a+7(3/4-a)=3$, or $9/2-5a=3$. Thus $a=3/10$ and the final mass is $9/20$. Both are nonnegative, and $1/4+3/10+9/20=1$. Solving the linear mean equation alone would not ensure a probability law; the normalization and sign checks are indispensable. Here all constraints hold and the law is uniquely determined.
+
+**Transfer rule.** Use normalization to remove one unknown, solve the mean equation, and then check every mass; a negative formal solution rejects the proposed law.
+@@ 3|Outcome weights versus atom weights|Reconstructed Cornell equivalent-definition family
+Three outcomes have probabilities $1/2,1/3,1/6$. The measured values are $2,2,8$. Compute the mean by both definitions.
+---SOLUTION---
+Using outcomes, the weighted sum is $2/2+2/3+8/6=3$. Using distinct atoms, the value two receives both of the first two outcome weights, totaling $5/6$, while eight has mass $1/6$. Its atom sum is therefore $2(5/6)+8(1/6)=3$. Averaging the distinct labels as if they were equally likely would give five and change the experiment. The agreement follows because grouping preserves the probability attached to every elementary outcome.
+
+**Transfer rule.** Merge probabilities over fibers of the measurement map; do not replace their sum with a uniform weight over distinct labels.
+@@ 4|Mean outside the support but inside its hull|Original conceptual problem
+Can a variable supported on $\{0,10\}$ have mean $3$, mean $12$, or mean $0$ without being constant? Give all three decisions.
+---SOLUTION---
+Write $p=P(X=10)$. The mean is $10p$, with $0\le p\le1$. Mean three is possible by setting $p=3/10$, despite three not being an atom. Mean twelve would require $p=6/5$ and is impossible. Mean zero forces $p=0$, so the variable is zero almost surely and cannot be nonconstant on positive-probability outcomes. A formal value at a null outcome is irrelevant to this almost-sure statement. Convex-hull bounds are necessary and exact for a two-point law.
+
+**Transfer rule.** A mean is a convex combination; equality with a support endpoint forces concentration at that endpoint when all remaining values lie strictly on one side.
+@@ 5|A fair entry fee|Reconstructed MIT payoff family
+Two independent fair dice award $240$ monetary units when their sum is two and $12$ monetary units otherwise. What fixed entry fee makes the mean net payoff zero?
+---SOLUTION---
+There are thirty-six equally likely ordered outcomes and only one has sum two. The gross payoff mean is $240/36+12(35/36)=660/36=55/3$. Subtracting a fixed fee $c$ changes the mean by $c$, so fairness in expected money requires $c=55/3$. This is not an assessment of the probability of making a profit or of a person's risk preference. It is a zero-mean condition for the explicitly specified monetary measurement and experiment.
+
+**Transfer rule.** Separate gross awards, returned stakes, and entry costs; subtract a fixed fee once rather than weighting it only on losing outcomes.
+@@ 6|An infinite mean with a tiny omitted mass|Reconstructed MIT infinite-support family|heavy-positive
+For $P(X=2^k)=2^{-k}$, $k\ge1$, find the total mass, the first $r$ atoms' mean contribution, and the omitted mean.
+---SOLUTION---
+The masses sum to one by the geometric series. Each included atom contributes $2^k2^{-k}=1$, so the partial mean is $r$. The omitted probability is $\sum_{k>r}2^{-k}=2^{-r}$, which becomes small. Nevertheless every omitted mean contribution is still one, so the omitted mean is infinite for every finite $r$. The law is normalized and the extended mean is positive infinity. A small omitted probability does not control error in a mean when values are unbounded.
+
+**Transfer rule.** Bound omitted value-times-mass contributions, not merely omitted probability; normalization and finite expectation are separate requirements.
+@@ 7|Symmetry that does not define a mean|Reconstructed Oxford integrability family|heavy-signed
+For $P(X=2^k)=P(X=-2^k)=2^{-k-1}$, $k\ge1$, does symmetry prove $E[X]=0$?
+---SOLUTION---
+The total probability is $\sum_{k\ge1}2^{-k}=1$. Each positive contribution to the mean is one half, so the positive-part mean diverges. The negative-part mean also diverges by the same calculation. Thus the proposed expectation is the undefined difference of two infinities. Symmetric finite truncations equal zero, but that chosen pairing is not an order-independent expectation. Absolute convergence fails since $E[|X|]=\sum_{k\ge1}1=\infty$. Symmetry identifies a principal-value cancellation, not a valid finite mean.
+
+**Transfer rule.** Check the positive and negative parts before using symmetry on an infinite signed support; both divergent parts make the mean undefined.
+@@ 8|Moment existence thresholds|Original advanced conceptual problem
+Let $P(X=k)=c/k^a$ for positive integers $k$ and $a>1$, where $c$ normalizes the law. For which $a$ do the mean and second moment exist?
+---SOLUTION---
+Normalization uses the convergent series $\sum k^{-a}$, hence $c$ is positive and finite. The mean is $c\sum k^{1-a}$, a positive series that converges precisely when $a-1>1$, or $a>2$. The second moment is $c\sum k^{2-a}$ and converges precisely when $a>3$. At $a=2$ or three, the corresponding boundary is a divergent harmonic series. Thus $2<a\le3$ gives a finite mean with an infinite second moment; existence of the first moment does not imply existence of the next.
+
+**Transfer rule.** For a power-law tail, multiplying by $k^r$ changes the exponent; test the resulting series rather than the normalization series alone.
+@@ 9|A nonlinear square|Reconstructed MIT LOTUS family|square-main
+Use the law in Question 1 to compute $E[X^2]$, $Var(X)$, and $E[2X^2-3X+1]$.
+---SOLUTION---
+LOTUS gives $E[X^2]=4/5+1/2+16(3/10)=61/10$. Subtract the square of the mean, not its absolute mean: $Var(X)=61/10-169/100=441/100$. Linearity then gives $2(61/10)-3(13/10)+1=93/10$. The square was averaged through transformed atom values; it was not moved outside expectation. The nonnegative variance is a consistency check, and the units of the variance are the square of the units used for the original measurement.
+
+**Transfer rule.** Evaluate raw moments first, then apply polynomial linearity; replacing $E[X^2]$ by $(E[X])^2$ removes the entire spread term.
+@@ 10|A many-to-one transformation|Original LOTUS problem|square-symmetric
+The atoms $-2,-1,0,1,2$ have masses $1/10,1/5,1/5,1/5,3/10$. Find the law of $X^2$ and its mean.
+---SOLUTION---
+Squaring maps the original atoms into zero, one, and four. Their masses are $1/5$, $1/5+1/5=2/5$, and $1/10+3/10=2/5$. They sum to one. The transformed mean is $0(1/5)+1(2/5)+4(2/5)=2$. Direct LOTUS gives the same result by adding the five original contributions. The two signs at magnitude two have unequal masses, but squaring makes their images coincide, so both must be retained in that fiber.
+
+**Transfer rule.** A noninjective transform merges probabilities, not values alone; compute its mean directly from the original law or from correctly aggregated fibers.
+@@ 11|Reciprocals and Jensen's gap|Original examination-style problem
+Let $X$ take one and four with equal probabilities. Compare $E[1/X]$ with $1/E[X]$ and calculate their difference.
+---SOLUTION---
+Direct weighting gives $E[X]=5/2$ and $E[1/X]=(1+1/4)/2=5/8$. The reciprocal of the mean is $2/5$, so the gap is $5/8-2/5=9/40>0$. There is no reciprocal-linearity theorem. Positivity makes reciprocal convexity applicable and predicts the direction of the inequality before arithmetic. Because both atoms have positive mass and are distinct, strict convexity also rules out equality. Neither expression involves a division by a zero atom here.
+
+**Transfer rule.** For positive variables, reciprocal averaging lies above the reciprocal mean; first check positivity, domain, and integrability.
+@@ 12|A clipped payoff|Original piecewise-payoff problem|clip-main
+For the law in Question 1, compute $E[\max(X-1,0)]$ and compare it with $\max(E[X]-1,0)$.
+---SOLUTION---
+The payoff is zero at $-2$ and one, and equals three at four. Its expectation is therefore $3(3/10)=9/10$. Applying the payoff to the mean instead gives $\max(13/10-1,0)=3/10$, a different value. The transformation first acts on each outcome and is then averaged. Its convexity explains why its mean is at least its value at the mean. An affine simplification is legitimate only within a region where all positive-mass values follow the same branch.
+
+**Transfer rule.** Evaluate piecewise functions at every supported value; crossing a threshold invalidates a single affine replacement.
+@@ 13|Perfect dependence still permits linearity|Reconstructed MIT and Cornell linearity family|linear-dependent
+Let $X$ be a fair sign and $Y=-X$. Compute $E[3X-2Y+5]$ and $E[XY]$.
+---SOLUTION---
+Both component means are zero. Linearity therefore gives $3(0)-2(0)+5=5$, even though $Y$ is completely determined by $X$. Outcome-wise, the expression is $5X+5$, taking zero and ten equally often, which confirms its mean. For the product, $XY=-X^2=-1$ on every outcome, so its mean is negative one. Factoring that product into zero times zero would be false. The two questions use different theorems with different hypotheses.
+
+**Transfer rule.** Dependence does not obstruct a finite sum mean; it does obstruct an unjustified product factorization.
+@@ 14|Random coefficients are not constants|Original conceptual problem
+Let $A=X$ be a Bernoulli variable with parameter $2/5$. Compare $E[AX]$ with $E[A]E[X]$.
+---SOLUTION---
+Since an indicator satisfies $X^2=X$, the random product $AX$ is just $X$, and its expectation is $2/5$. The product of the separate means is $4/25$, leaving a difference of $6/25$. A coefficient is fixed only if it has the same value on all relevant outcomes. Here it moves with the variable, so pulling it through expectation as a numerical scalar changes the operation. Its dependence is perfect, not an independent random multiplier.
+
+**Transfer rule.** A symbol named as a coefficient is not necessarily deterministic; establish constancy or a valid joint-law argument before taking it outside expectation.
+@@ 15|Identical marginals, different products|Original joint-law counterexample
+Two fair Bernoulli variables are coupled either independently, identically, or complementarily. Find $E[X+Y]$ and $E[XY]$ in each case.
+---SOLUTION---
+The separate means are always one half, so the sum mean is one in all three couplings. Independently, both equal one with probability one quarter, giving product mean $1/4$. Identically, the product is the common indicator with mean $1/2$. Complementarily, they never both equal one, so the product mean is zero. The marginal laws determine finite linear sum means but do not determine product means. A joint table, or an equivalent coupling description, supplies the missing information.
+
+**Transfer rule.** Do not infer dependence-sensitive quantities from marginals alone; construct a joint coupling when the question concerns products or simultaneous events.
+@@ 16|Zero product gap without independence|Reconstructed Oxford and Cornell moment trap
+Let $X$ be uniform on $-1,0,1$ and $Y=X^2$. Show that $E[XY]=E[X]E[Y]$ although the variables are dependent.
+---SOLUTION---
+The odd symmetry gives $E[X]=0$ and $E[XY]=E[X^3]=0$, while $E[Y]=2/3$. Thus the product identity holds. Yet $P(Y=0\mid X=0)=1$, whereas $P(Y=0)=1/3$. This conditional probability change proves dependence. Equivalently, the event $X=0,Y=0$ has mass $1/3$, rather than the product $1/9$. One cancellation of moments cannot certify the factorization of every joint atom. The finite support ensures every expectation used here exists.
+
+**Transfer rule.** Equality of one product mean is weaker than independence; a single joint atom violating factorization refutes independence.
+@@ 17|Nonidentical trial probabilities|Original count problem
+Five binary outcomes have marginal success probabilities $1/10,1/5,3/10,2/5,1/2$. Their dependence is unspecified. What mean success count is forced?
+---SOLUTION---
+Let $I_i$ indicate success at trial $i$ and define $N=\sum_{i=1}^5I_i$. This equality holds for every outcome regardless of dependence. Each indicator mean is its supplied marginal probability, so $E[N]=1/10+1/5+3/10+2/5+1/2=3/2$. A binomial law is not justified, since probabilities differ and independence is unstated. The mean nevertheless is identified exactly. A request for its variance or full PMF would require further joint information.
+
+**Transfer rule.** Marginal probabilities suffice for a finite count mean; they need not identify a binomial distribution or its variance.
+@@ 18|Weighted error costs|Original weighted-indicator problem
+Three error events have probabilities $1/4,1/3,1/6$ and costs $8,3,12$. Costs are charged for every event that occurs, even simultaneously. Find mean total cost.
+---SOLUTION---
+The charging rule gives the exact random cost $C=8I_1+3I_2+12I_3$. Its mean is $8/4+3/3+12/6=5$. Overlap is allowed because the contract charges all occurring errors, so each indicator contribution remains necessary. If instead only the largest charge were imposed, this decomposition would fail and the marginal probabilities would generally be insufficient. The interpretation of the measurement, rather than an assumed independence condition, determines the appropriate formula.
+
+**Transfer rule.** Establish how simultaneous events are charged before using weighted indicators; maximum, union, and cumulative costs have different decompositions.
+@@ 19|Expected fixed points|Reconstructed Berkeley permutation family|fixed-four
+A uniform permutation of four labels is selected. Find the expected number of fixed points and the probability that two specified labels are both fixed.
+---SOLUTION---
+Each specified label is fixed in $3!$ of $4!$ permutations and therefore with probability $1/4$. Summing four fixed-point indicators gives expected count one. Fixing two specified labels leaves $2!$ permutations, so its probability is $2!/4!=1/12$. This is larger than $1/16$, the product of the single-label probabilities, proving their dependence. The dependence creates no problem for the first calculation because linearity requires no product factorization.
+
+**Transfer rule.** In uniform permutations, impose constraints by counting remaining free images; use first-order constraints for means and joint constraints for higher moments.
+@@ 20|Partial and weighted permutation matches|Original permutation extension
+In a uniform permutation of ten labels, check only three prescribed target matches, with rewards $2,5,13$. Find the expected match count and reward.
+---SOLUTION---
+For any checked position, its image is uniform among ten labels, so a prescribed target match has probability $1/10$. The expected count of the three matches is $3/10$. Their reward is a weighted indicator sum with mean $(2+5+13)/10=2$. The target need not be the identity permutation, and dependence between the checked matches is irrelevant to these first moments. This conclusion assumes targets are fixed before drawing the permutation, rather than chosen after observing it.
+
+**Transfer rule.** Uniform image probabilities apply to fixed targets; outcome-dependent target selection changes the event and can make a supposed match automatic.
+@@ 21|Fixed-point second moment|Original advanced permutation problem
+For a uniform permutation of $n\ge2$ labels, let $F$ count fixed points. Derive $E[F^2]$ and its variance.
+---SOLUTION---
+Expand $F^2=\sum_iI_i+2\sum_{i<j}I_iI_j$. The first expectation is one. Each pair is simultaneously fixed with probability $1/[n(n-1)]$, and there are $n(n-1)/2$ pairs. Thus the cross contribution is one and $E[F^2]=2$. Subtracting $E[F]^2=1$ gives variance one. At $n=1$ the count is constant and variance zero, so the stated boundary matters. Treating the indicators as independent would give a different second moment.
+
+**Transfer rule.** Square a count by separating diagonal indicators from distinct pairs; pair probabilities usually require their own combinatorial calculation.
+@@ 22|Record counts and initialization|Authentic-pattern companion|record-five
+A uniform permutation of five distinct values is scanned. Compare mean minimum updates with infinity initialization and first-element initialization.
+---SOLUTION---
+With infinity initialization, position $i$ updates the minimum when it is smallest among the first $i$ values, an event with probability $1/i$. The mean is $H_5=1+1/2+1/3+1/4+1/5=137/60$. First-element initialization does not count the first assignment as an update, so the mean decreases by one to $77/60$. The sample trace shown alongside the solution is one realization, not the average over permutations. Both algorithms may make a similar number of comparisons but count updates differently.
+
+**Transfer rule.** Read initialization and the precise charged operation; subtracting an initial assignment can change a record-count answer by one.
+@@ 23|Harmonic bounds as an asymptotic justification|Original mathematical problem
+Prove $\ln(n+1)\le H_n\le1+\ln n$ and explain why replacing $H_n$ by $\ln n$ is not an exact identity.
+---SOLUTION---
+The decreasing function $1/x$ satisfies $\int_k^{k+1}dx/x\le1/k$, so summing gives the lower bound. For $k\ge2$, $1/k\le\int_{k-1}^kdx/x$; retain the first harmonic term separately to obtain the upper bound. Thus the difference between $H_n$ and $\ln n$ is bounded, and their ratio approaches one as $n$ grows. At $n=1$, the harmonic number is one while the logarithm is zero, directly disproving exact equality.
+
+**Transfer rule.** Derive an approximation through bounds or a stated limit; an asymptotic equivalent must not replace a small-input exact answer.
+@@ 24|Inversions in a random ordering|Original pair-indicator problem
+Find the expected inversion count of a uniform permutation of six distinct ordered labels.
+---SOLUTION---
+An inversion is an unordered position pair $i<j$ whose values appear in decreasing order. Each of the fifteen position pairs has either ordering with probability one half, by swapping the two relevant values. The total inversion count is the sum of these fifteen indicators, so its mean is $15/2$. Pairs overlap and their indicators need not be independent, but their separate success probabilities suffice. Counting ordered pairs instead would double the target before any probability computation.
+
+**Transfer rule.** Specify whether pairs are ordered, then use the symmetry of the two relative orders; do not multiply pair counts twice.
+@@ 25|Empty and occupied bins|Reconstructed Berkeley occupancy family|bins-four
+Four independent uniform balls enter three bins. Compute expected empty and occupied bin counts.
+---SOLUTION---
+A specified bin is avoided by each ball with probability $2/3$. Independence between ball placements makes its empty probability $(2/3)^4=16/81$. There are three bins, so mean empty count is $16/27$. Occupied and empty counts add to three on every outcome, so the occupied mean is $3-16/27=65/27$. Their indicators across bins are dependent. The independence used is within the probability of avoiding one bin across four placements, not between the bin indicators.
+
+**Transfer rule.** Distinguish independence of placements from dependence of occupancy events; each role belongs to a different step of the argument.
+@@ 26|Nonuniform occupancy|Original weighted-bin problem|bins-nonuniform
+Two independent balls choose bins with probabilities $1/2,1/3,1/6$. Find expected occupied bins and colliding pairs.
+---SOLUTION---
+For bin $j$, the occupied probability is $1-(1-p_j)^2$. The three probabilities are $3/4,5/9,11/36$, totaling $29/18$. There is only one ball pair; its collision probability is $\sum_jp_j^2=1/4+1/9+1/36=7/18$. On every two-ball outcome, occupied bins plus collision-pair count equals two, so the means also total two. This special complement identity does not extend to three or more balls, where a triple collision creates several pairs.
+
+**Transfer rule.** Keep nonuniform bin weights inside the sum; a uniform formula with an average probability discards the needed powers.
+@@ 27|Pair collisions versus crowded bins|Original conceptual occupancy problem
+Four balls happen to land in one bin. How many colliding pairs and crowded bins does this outcome contribute, and what is the uniform expected pair count over $n$ bins?
+---SOLUTION---
+The four co-located balls form $\binom42=6$ unordered pairs, whereas they occupy only one crowded bin. For independent uniform allocation, each of the six pairs collides with probability $1/n$. Linearity therefore gives expected pair count $6/n$ over all allocations. No matching expectation for crowded-bin count follows from this reasoning. A crowded-bin indicator tests whether that bin's occupancy is at least two, a different event from a specified pair's shared destination.
+
+**Transfer rule.** A multiply occupied bin can contain many colliding pairs; determine the counted object before choosing indicator indices.
+@@ 28|Singleton bins|Original occupancy extension
+Place three independent uniform balls in four bins. Find the expected number of bins containing exactly one ball.
+---SOLUTION---
+For a fixed bin, select which one of the three balls enters it, with three possible choices. That ball chooses the bin with probability $1/4$, and the other two avoid it with probability $(3/4)^2$. The disjoint choices give singleton probability $3(1/4)(3/4)^2=27/64$. Summing the four bin indicators gives $27/16$. This is a bin count rather than the event that exactly one ball is allocated overall; there are always three balls.
+
+**Transfer rule.** An exact occupancy event requires a choice factor for the included balls and an avoidance factor for all others.
+@@ 29|Distinct observed labels|Original coupon-count problem
+Five independent draws are uniform on four labels. Find the expected number of distinct labels observed; no stopping is involved.
+---SOLUTION---
+For each label, define an indicator that it appears at least once in the fixed five draws. Its complement is five consecutive avoids with probability $(3/4)^5$. The distinct count mean is $4[1-(3/4)^5]=781/256$. The answer lies between one and four, as it must for a positive fixed number of draws. This is not a coupon-collector waiting-time question: the horizon is fixed and the number of distinct labels is random.
+
+**Transfer rule.** Fixed-horizon distinct counts use seen-label indicators; waiting to see every label is a different random variable.
+@@ 30|Uniform sampling without replacement|Original hypergeometric-mean problem
+A uniform subset of five objects is drawn from twelve, seven marked. Find expected marked count without summing a PMF.
+---SOLUTION---
+For each marked object, exactly $\binom{11}{4}$ of the $\binom{12}{5}$ possible subsets contain it. The ratio equals $5/12$. Summing the seven inclusion indicators gives $35/12$. The draws are not independent because the subset has fixed size, but the inclusion argument is enough for its mean. This reasoning also shows that each unmarked object has the same inclusion probability, and the marked and unmarked expected counts sum to the fixed sample size five.
+
+**Transfer rule.** Uniform subset sampling gives inclusion probability equal to sample size divided by population size; depletion affects the law, not this first-moment identity.
+@@ 31|Expected sampled total|Original weighted-sampling problem
+Measurements $-2,1,4,7$ form a population. A uniform size-two subset is sampled. Find the expected sum and average.
+---SOLUTION---
+Each population object is included with probability $2/4=1/2$. The sampled sum is the weighted sum of its inclusion indicators, so its mean is $(1/2)(-2+1+4+7)=5$. Since the sample size is the fixed positive number two, the average mean is $5/2$. This equals the population mean. Pulling out the denominator is legitimate because it is constant; averaging a sample with random or possibly zero size would require an additional definition and calculation.
+
+**Transfer rule.** Unbiased sample-average reasoning uses a fixed positive sample size or an explicitly justified random-denominator argument.
+@@ 32|Unequal inclusion probabilities|Original advanced unbiased-estimation problem
+Population values are $3,8,5$, with inclusion probabilities $1/2,1/4,1/5$. Show that the sum of included values divided by their inclusion probabilities has mean sixteen.
+---SOLUTION---
+Write the estimator as $T=6I_1+32I_2+25I_3$, because each population value is divided by its own positive inclusion probability. Its mean is $6(1/2)+32(1/4)+25(1/5)=3+8+5=16$, the population total. No independence among selection indicators is needed. The probabilities must arise from the actual sampling design; inserting convenient guessed values would invalidate the identity. If an object had inclusion probability zero, this estimator could not recover its arbitrary contribution by division.
+
+**Transfer rule.** Inverse inclusion weighting is unbiased for a total when every relevant object has a known positive inclusion probability.
+@@ 33|Head-run starts|Original overlapping-pattern problem
+In six independent trials with head probability $1/3$, find expected number of head-runs.
+---SOLUTION---
+A head-run starts at position one if it is a head, with probability $1/3$. At each of the other five positions it starts when the previous result is a tail and the current result is a head, with probability $(2/3)(1/3)=2/9$. The run count mean is $1/3+5(2/9)=13/9$. Adjacent start indicators cannot generally occur together, so independent-indicator modeling would be wrong. The decomposition nevertheless counts exactly one start for each head-run on every sequence.
+
+**Transfer rule.** Count starts of runs, including the special first-position boundary; overlapping local events still permit linearity.
+@@ 34|All runs and endpoint accounting|Original sequence problem
+For seven independent fair bits, find the expected total number of constant-symbol runs.
+---SOLUTION---
+Every nonempty sequence has an initial run. Each of its six neighboring position pairs adds another run exactly when the two bits differ. A fair independent pair differs with probability one half, so the mean is $1+6/2=4$. The deterministic initial one is essential; omitting it counts changes rather than runs. At sequence length one, the formula gives one and confirms the boundary. A length-zero sequence needs its own convention and has no initial run.
+
+**Transfer rule.** For a nonempty sequence, run count equals one plus number of adjacent changes; retain the initial deterministic term.
+@@ 35|Overlapping all-success windows|Original conceptual pattern problem
+In eight independent fair tosses, how many length-three all-head windows are expected?
+---SOLUTION---
+The allowed starting indices are one through six, producing six windows. A particular window has three heads with probability $1/8$ because its three tosses are independent. Summing window indicators gives expected count $6/8=3/4$. Consecutive windows share two tosses and are dependent, but the mean calculation does not multiply their probabilities. A single run of four heads contains two qualifying windows, and the requested count includes both by its definition.
+
+**Transfer rule.** Overlapping windows count starts, not disjoint blocks or maximal runs; verify the multiplicity on a concrete sequence.
+@@ 36|Edges and triangles|Original random-graph problem
+In a simple five-vertex graph with independent edge probability $1/2$, find expected edges and triangles.
+---SOLUTION---
+There are $\binom52=10$ possible edges, each with presence probability one half, giving expected edge count five. There are $\binom53=10$ vertex triples. A specified triple forms a triangle if its three edges are present, with probability $1/8$, giving expected triangle count $5/4$. Triangle indicators can share edges and are not generally independent. Independence is used only among the three edge events within a specified triangle; linearity then adds triangle probabilities.
+
+**Transfer rule.** A subgraph indicator probability uses the required edges of that subgraph; dependence between different subgraphs does not prevent summing their means.
+@@ 37|Isolated vertices|Original graph-indicator problem
+With five vertices and independent edge probability $1/3$, find expected isolated vertices.
+---SOLUTION---
+A fixed vertex has four possible incident edges. It is isolated if all four are absent, giving probability $(2/3)^4=16/81$. The five isolation indicators therefore have total mean $80/81$. Two vertices share their connecting edge, so their isolation events are dependent; this does not affect the sum mean. The requirement is absence of all incident edges, not merely that the average degree is small. Expected degree and probability of degree zero are different summaries.
+
+**Transfer rule.** Convert a vertex property to the exact incident-edge event before applying independence or summing indicators.
+@@ 38|Tail-sum reconstruction|Original tail-law problem|tail-main
+A nonnegative integer law on $0,1,2,3$ has masses $1/4,1/4,1/4,1/4$. Compute first and second moments by tails.
+---SOLUTION---
+The tail probabilities at thresholds one, two, and three are $3/4,1/2,1/4$. Their sum is $3/2$, the first moment. The second moment uses odd increments one, three, and five, giving $3/4+3/2+5/4=7/2$. Direct weighting gives the same result from $(0+1+2+3)/4$ and $(0+1+4+9)/4$. Starting strict tails at threshold one would lose the positive-mass contribution at one and yield the wrong mean.
+
+**Transfer rule.** Match $P(N\ge k)$ starting at one with $P(N>k)$ starting at zero; second moments need odd layer weights.
+@@ 39|A survival specification|Original tail-sum problem
+A positive integer variable has survival probabilities $P(N\ge k)=2^{-(k-1)}$. Find its mean and second moment.
+---SOLUTION---
+The mean is the geometric tail sum $\sum_{k\ge1}2^{-(k-1)}=2$. For the second moment, set $j=k-1$ and use $\sum_{j\ge0}jq^j=q/(1-q)^2$ with $q=1/2$. Then $\sum_{j\ge0}(2j+1)q^j=2(2)+2=6$. Its variance is $6-4=2$. The survival begins at one with probability one, identifying a total-trials convention; shifting that starting index would describe a failures-only count instead.
+
+**Transfer rule.** Derive moments directly from a valid survival law, retaining its support origin before summing geometric series.
+@@ 40|Signed integer tails|Original signed-tail problem
+A variable takes $-2,0,3$ with probabilities $1/4,1/2,1/4$. Compute its mean using positive and negative tails.
+---SOLUTION---
+The positive thresholds one through three each have tail probability $1/4$, so the positive-part mean is $3/4$. The negative thresholds one and two each have probability $1/4$, so the negative-part mean is $1/2$. Their difference is $1/4$, matching direct weighting $-2/4+3/4$. Both tail sums are finite, making the subtraction legitimate. The zero atom contributes no layer to either side. A two-sided tail method must not subtract divergent sums simply because their terms appear symmetric.
+
+**Transfer rule.** Split signed integer variables into nonnegative parts and check both tail sums before subtracting them.
+@@ 41|Total trials versus failures|Reconstructed MIT and Oxford geometric family
+Independent success trials have probability $1/5$. Find expected total trials through success and failures before success.
+---SOLUTION---
+For the total-trial count $T$, survival at integer $k\ge1$ is $(4/5)^{k-1}$. Its tail mean is $1/(1-4/5)=5$. The failure count is $G=T-1$, so linearity gives mean four. Their PMFs differ by a support shift, not a change in the success mechanism. Using the same word “geometric” for both conventions without defining the count causes an off-by-one answer. At success probability one, their means become one and zero, respectively.
+
+**Transfer rule.** State whether the successful trial is counted; translate geometric conventions by the deterministic support offset.
+@@ 42|A capped waiting process|Original stopped-process problem|cap-three
+With success probability $1/4$, a process executes trials until first success or until three trials. Find expected executed trials.
+---SOLUTION---
+The executed count is $C=\min(T,3)$. It reaches at least one trial surely, at least two after one failure with probability $3/4$, and at least three after two failures with probability $9/16$. Summing these tails gives $37/16$. The final count three includes both a success at the third trial and no success at all. Renormalizing only successful paths would answer a conditional question and discard the no-success cases that still consume three trials.
+
+**Transfer rule.** Executed-trial caps collect all remaining paths at the terminal count; censoring and conditioning produce different laws.
+@@ 43|A zero code for failure|Original measurement-contract problem
+Use the process in Question 42, but return the successful trial number and return zero if all three trials fail. Find the mean returned value.
+---SOLUTION---
+The returned value equals one with probability $1/4$, two with probability $3/16$, and three with probability $9/64$. All-failure paths have probability $27/64$ and return zero. Its mean is $1/4+2(3/16)+3(9/64)=67/64$. This is smaller than the executed-trial mean $37/16$ because unsuccessful paths consume time but contribute zero to this measurement. An algorithm's return value is not automatically its running cost; the random object must be named explicitly.
+
+**Transfer rule.** Read terminal failure codes literally; a zero return value does not mean that no trials were executed.
+@@ 44|Conditioning on success before a cap|Original conditional-mean bridge
+For the same three-trial process, find the expected successful trial number conditional on a success occurring.
+---SOLUTION---
+Success by the cap has probability $1-(3/4)^3=37/64$. The unnormalized successful-trial contribution from Question 43 is $67/64$. Dividing it by the success-event probability gives conditional mean $67/37$. This lies between one and three, as required. The successful paths' probabilities must all be divided by the same event mass. The executed-trial mean and zero-coded mean use different sample weights, so neither can be substituted as this conditional mean without the corresponding numerator argument.
+
+**Transfer rule.** A conditional mean divides the event-restricted weighted contribution by the conditioning-event probability, not by the number of supported values.
+@@ 45|Two geometric waiting segments|Reconstructed Stanford screened family; independently derived problem
+Independent fixed-probability trials have success probability $1/3$. Find mean total trials through the fourth success and mean failures before it.
+---SOLUTION---
+The total waiting count is the sum of four first-success waiting segments, each with mean three. Linearity gives mean twelve; segment independence is not required by that final sum step, though the original independent trials justify the repeated geometric waiting model. Removing the four successful trials gives mean failures eight. This derivation uses the process definition, not an unverified slide formula. If the success probability changes between stages, the total mean instead adds the stage-specific waiting means.
+
+**Transfer rule.** A negative-binomial waiting count changes by the number of required successes when translating total trials into failures only.
+@@ 46|Poisson first and second moments|Reconstructed Oxford and CMU moment family
+Let $N$ be Poisson with parameter $3$. Derive its first and second moments by shifting series indices.
+---SOLUTION---
+In the mean sum, $k/k!=1/(k-1)!$ for $k\ge1$, giving $E[N]=3e^{-3}\sum_{j\ge0}3^j/j!=3$. For the factorial moment, $k(k-1)/k!=1/(k-2)!$ for $k\ge2$, yielding $E[N(N-1)]=9$. Since $N^2=N(N-1)+N$, the second moment is twelve and variance is three. All terms are nonnegative, so the index shifts are safe. The zero and one terms omitted from the factorial sum contribute zero rather than undefined negative factorials.
+
+**Transfer rule.** Use factorial moments to cancel count factorials, then convert raw powers through exact algebraic identities.
+@@ 47|Binomial factorial moments|Original mathematical proof problem
+For independent Bernoulli trials, derive $E[N(N-1)]$ for $N\sim Bin(5,2/5)$ without its PMF.
+---SOLUTION---
+Expand $N(N-1)$ as the sum of products $I_iI_j$ over ordered distinct indices. There are $5\cdot4=20$ such pairs. Trial independence makes each pair product's expectation $(2/5)^2=4/25$, so the factorial moment is $16/5$. The mean is two, hence $E[N^2]=26/5$ and variance $26/5-4=6/5$. Forgetting that the pair sum is ordered would halve the factorial moment. Independence enters the pair probability, not the outer finite sum.
+
+**Transfer rule.** A falling factorial counts ordered distinct successes; a binomial coefficient counts unordered subsets and differs by a factorial factor.
+@@ 48|A count that is not binomial|Original conceptual problem
+Five trials are all equal to one common Bernoulli variable with success probability $2/5$. Find the count mean and second moment.
+---SOLUTION---
+The count is $N=5I$, taking zero or five. Its mean is $5(2/5)=2$, exactly the same as a binomial count with matching marginals. Its second moment is $25E[I]=10$, and variance is six. The independent binomial model in Question 47 instead has second moment $26/5$ and variance $6/5$. Thus agreement of mean and per-trial success probabilities does not establish a binomial law. The dependence changes the possible intermediate counts completely.
+
+**Transfer rule.** Matching $np$ is only a mean check; a binomial law also requires the stated independent-trial construction.
+@@ 49|Raw moments to central moments|Reconstructed CMU moment family
+A variable takes $0,2,4$ with masses $1/4,1/2,1/4$. Find its first three raw moments and third central moment.
+---SOLUTION---
+Direct weighting yields $m_1=2$, $m_2=6$, and $m_3=20$. The third central formula gives $m_3-3\mu m_2+2\mu^3=20-36+16=0$. Direct centering gives values $-2,0,2$ with symmetric probabilities and confirms this cancellation. The variance is $6-4=2$, so a zero third central moment does not mean no spread. It also does not generally prove symmetry; here symmetry is known from the actual centered law, not inferred from one moment.
+
+**Transfer rule.** Central moments require expansion about the mean; a zero odd moment is a limited cancellation condition, not a complete law description.
+@@ 50|Negative affine scaling|Original affine-moment problem
+For the variable in Question 49, let $Y=-3X+5$. Find its mean, variance, and standard deviation.
+---SOLUTION---
+Linearity gives $E[Y]=-3(2)+5=-1$. Centering yields $Y-E[Y]=-3(X-2)$, so variance scales by nine: $Var(Y)=9(2)=18$. Standard deviation is $3\sqrt2$, using the absolute scale factor. Multiplying variance by negative three would give an impossible negative spread. The shift changes the mean but drops out of deviations from that mean. Each result follows from the same affine measurement but with a different scaling rule.
+
+**Transfer rule.** Means use the signed scale, variances its square, and standard deviations its absolute value; fixed shifts do not change spread.
+@@ 51|Squared-loss optimal prediction|Original decision problem|loss-main
+For the law in Question 1, find the best real constant prediction under expected squared loss and its minimum loss.
+---SOLUTION---
+The mean is $13/10$ and variance $441/100$. The expected squared loss of a prediction $c$ is $441/100+(c-13/10)^2$. Its second term is nonnegative and vanishes only at $c=13/10$. Thus that prediction is the unique optimum and minimum loss is $441/100$. This calculation does not optimize the chance of an exact hit, for which a non-atom prediction cannot win. The loss criterion determines why the mean is optimal.
+
+**Transfer rule.** Name the loss before choosing a prediction; the mean minimizes squared loss when the second moment is finite.
+@@ 52|Integer-constrained prediction|Original optimization extension
+For the same law, predictions must be integers. Find the optimal integer and its expected squared loss.
+---SOLUTION---
+The loss differs from its unconstrained minimum by $(c-1.3)^2$. The closest integer is one, at distance $0.3$, while two is at distance $0.7$. Thus the unique optimal integer is one, with loss $441/100+9/100=9/2$. This follows by minimizing distance to the mean, not by using the most likely atom as a general rule. Here the optimal integer happens also to be the modal atom, but those criteria need not coincide in another law.
+
+**Transfer rule.** For discrete prediction constraints under squared loss, project the mean onto the allowed set and retain all ties.
+@@ 53|Mean, median, and mode disagree|Original conceptual decision problem
+Let $P(X=0)=3/5$ and $P(X=10)=2/5$. Compare optimal predictions for squared loss, absolute loss, and exact-hit probability.
+---SOLUTION---
+The mean is four, so squared loss is minimized there. For absolute loss, the majority mass at zero makes zero a median and the unique optimal prediction: moving right initially adds more loss at zero than it removes at ten. Exact-hit probability is also maximized at zero because its mass $3/5$ exceeds $2/5$. The two latter optima happen to agree, while the squared-loss optimum is not even an atom. A prediction objective must be specified before evaluating an answer.
+
+**Transfer rule.** Mean, median, and mode solve different optimization problems; an unspecified “most expected value” is ambiguous.
+@@ 54|Moment feasibility|Original moment-constraint problem
+Can a real variable have $E[X]=4$ and $E[X^2]=12$? What if its second moment is sixteen?
+---SOLUTION---
+With finite second moment, nonnegative variance requires $E[X^2]\ge(E[X])^2=16$. Twelve would produce variance negative four and is impossible. Sixteen yields variance zero and therefore forces $X=4$ almost surely. This necessity follows because a nonnegative squared deviation with zero mean must vanish almost surely. The conclusion concerns positive-probability behavior; values on null events do not alter it. Moment equations are constrained by probability and cannot be chosen as arbitrary unrelated constants.
+
+**Transfer rule.** Test raw-moment feasibility through nonnegative squared deviations; equality often forces an almost-sure identity.
+@@ 55|Jensen and strict equality|Original convexity problem
+For a positive nonconstant finite-law variable, prove $E[1/X]>1/E[X]$.
+---SOLUTION---
+The reciprocal function has positive second derivative on the positive real axis and is strictly convex. The finite-law weighted Jensen inequality therefore gives $E[1/X]\ge1/E[X]$. Because the variable is nonconstant on positive-mass atoms, at least two distinct values enter the weighted combination, so strict convexity makes the inequality strict. Positivity ensures that all reciprocal values and the reciprocal mean are well-defined. Allowing a zero atom would invalidate this finite calculation, and a signed support would destroy this convex-domain argument.
+
+**Transfer rule.** Attach the convex domain and equality condition to Jensen; neither inequality direction nor strictness is automatic outside that domain.
+@@ 56|A sharp Markov example|Original bound-and-construction problem
+For a nonnegative variable with mean two, bound $P(X\ge5)$ and construct a law attaining the bound.
+---SOLUTION---
+Pointwise $X\ge5I_{\{X\ge5\}}$, so averaging gives probability at most $2/5$. A law with mass $2/5$ at five and $3/5$ at zero has mean two and tail probability $2/5$, attaining the bound. This construction demonstrates sharpness among laws with only the stated information. It does not mean that every law of mean two has that probability. A constant variable at two instead has probability zero, illustrating how little one mean determines.
+
+**Transfer rule.** Distinguish a sharp worst-case bound from an exact probability for a specific law; equality can be tested by a two-point construction.
+@@ 57|Chebyshev from a second moment|Original inequality problem
+Given mean three and variance four, what upper bound follows for $P(|X-3|\ge5)$? Must it be attained?
+---SOLUTION---
+Apply Markov to the nonnegative variable $(X-3)^2$. Its mean is four, and the event in question implies it is at least twenty-five, giving bound $4/25$. This is not an exact probability without the full law. It can be attained by assigning masses $2/25$ at each of $-2$ and eight and $21/25$ at three: the centered mean is zero and the squared-deviation mean is four. Attainment is possible, not forced for all compatible laws.
+
+**Transfer rule.** A variance bound concerns squared deviations from the specified mean and can be sharp without identifying the actual tail probability.
+@@ 58|The expected value of a category mean|Reconstructed Oxford partition family
+A device selects mode A with probability $1/4$, whose mean cost is ten, and mode B otherwise, whose mean cost is two. Find its overall mean.
+---SOLUTION---
+The two mode events are a positive-probability partition. Their restricted weighted contributions sum to $(1/4)(10)+(3/4)(2)=4$. The unweighted average of mode means would be six and would correspond to an equiprobable mode choice, changing the experiment. No equality of cost distributions within modes is assumed. The partition identity requires only the relevant integrability and conditional means; it does not require cost to be independent of the selected mode.
+
+**Transfer rule.** Weight category means by category probabilities; means of categories do not acquire equal weights merely because two categories are listed.
+@@ 59|Hidden probability and a misleading binomial|Original mixture problem
+A fair hidden choice sets success probability to $1/5$ or $4/5$, then four trials are conditionally independent. Find the count mean and probability of zero successes.
+---SOLUTION---
+The conditional means are $4/5$ and $16/5$, whose equal mixture has mean two. The zero-count probability is the mixture $[(4/5)^4+(1/5)^4]/2=257/1250$. A binomial model with average success probability one half would give zero probability $1/16$, which is different. The hidden common parameter creates unconditional dependence between trials. Averaging the parameter preserves the first moment but does not commute with the fourth-power avoidance probability.
+
+**Transfer rule.** Average conditional probabilities and conditional means separately; a mixture of binomial laws is generally not a binomial law at the mean parameter.
+@@ 60|Independent random sample size|Original random-length problem
+A count $N$ takes zero and three with equal probabilities, independently of identically distributed increments of mean four. Find mean random-sum total.
+---SOLUTION---
+Conditional on $N=0$, the empty sum is zero. Conditional on $N=3$, independence from the increment sequence makes its mean $3(4)=12$. Averaging these two cases gives six. Equivalently, $E[N]=3/2$ and the independent-random-length identity yields $(3/2)(4)=6$. Finite possible length and integrable increments ensure the sum is integrable. The identity need not survive if the length is selected after inspecting one of those increments.
+
+**Transfer rule.** For a random number of terms, justify how length is chosen; independence from the increments permits the simple product of means.
+@@ 61|A dependent-length counterexample|Original advanced conceptual problem
+Let $X_1$ be a fair Bernoulli variable, choose $N=X_1$, and define $S=\sum_{i=1}^N X_i$. Compare its mean with $E[N]E[X_1]$.
+---SOLUTION---
+If $X_1=0$, the length is zero and the empty sum is zero. If $X_1=1$, the length is one and the sum is one. Thus $S=X_1$ and $E[S]=1/2$. The proposed product of separate means is $1/4$, which fails. The error is treating the event that a term is included as independent of that term's value. No unspecified later increment affects this example because the length never exceeds one.
+
+**Transfer rule.** Inclusion can be selected by the value being summed; independent-random-length formulas cannot be applied to such value-dependent selection.
+@@ 62|Geometric recursion with a justified finite mean|Reconstructed Oxford first-step family
+For first success in independent trials with probability $p>0$, derive its first and second moments from a first-step equation.
+---SOLUTION---
+The tail-sum argument first establishes finite mean $m=1/p$ and finite second moment for the geometric law, so the algebra is legitimate. A first-step success costs one; a failure costs one plus a fresh waiting count. Hence $m=p+(1-p)(1+m)$, giving $m=1/p$. For second moment $u$, $u=p+(1-p)(1+2m+u)$, giving $u=(2-p)/p^2$. Subtract $m^2$ to obtain variance $(1-p)/p^2$. Rearranging an unproved infinite moment equation would be unsafe.
+
+**Transfer rule.** Prove existence before solving moment recursions; an algebraic fixed point need not describe an infinite expected stopping time.
+@@ 63|Nonnegative countable linearity|Original infinite-indicator problem
+Events $A_k$ have probabilities $2^{-k}$, $k\ge1$, with arbitrary dependence. Find the expected total count $\sum_kI_{A_k}$ and decide whether it can be infinite with positive probability.
+---SOLUTION---
+The partial counts increase, so nonnegative countable linearity gives mean $\sum_{k\ge1}2^{-k}=1$. An extended nonnegative count with a finite mean cannot be infinite on a positive-probability event: its expectation would exceed every finite bound there. Thus the count is finite almost surely. This does not say that it is bounded by a deterministic constant or that the events are independent. Dependence is unrestricted because the outer sum uses nonnegative monotone terms.
+
+**Transfer rule.** Finite expected nonnegative count implies almost-sure finiteness, but not a deterministic bound on every realization.
+@@ 64|A safe signed infinite sum|Original integrability problem
+Suppose $E[|Y_k|]\le3^{-k}$ for $k\ge1$. Prove that $\sum_kY_k$ is integrable and that expectation can be summed termwise.
+---SOLUTION---
+The nonnegative absolute sum has mean at most $\sum_{k\ge1}3^{-k}=1/2$. It is therefore finite almost surely, so the signed series converges absolutely almost surely. Its absolute total is bounded by the absolute sum, giving an integrable limit. The expected absolute tails also vanish, providing convergence in mean of the partial sums to that limit. Consequently their expectations converge to the full expectation, yielding $E[\sum_kY_k]=\sum_kE[Y_k]$. No independence hypothesis is needed.
+
+**Transfer rule.** Summability of expected absolute contributions is a sufficient signed-series interchange condition; pointwise convergence alone is insufficient.
+@@ 65|Pointwise convergence that loses the mean|Original advanced counterexample
+Let $U$ be uniform on $(0,1)$ and $Y_n=nI_{\{U\le1/n\}}$. Find its pointwise limit and each mean.
+---SOLUTION---
+For any fixed positive $U$, eventually $1/n<U$, so $Y_n$ is eventually zero and converges pointwise to zero. Its mean is nevertheless $nP(U\le1/n)=n(1/n)=1$ for every $n$. Therefore the expectation of the limit is zero while the limit of the expectations is one. Probability mass is becoming rarer while its height grows. This example refutes a general exchange of limit and expectation, without contradicting the monotone rule because this sequence is not pointwise increasing.
+
+**Transfer rule.** A limit that discards rare large values can lose expectation; identify an actual convergence theorem before interchanging limit and averaging.
+@@ 66|Class-uniform versus student-uniform sampling|Independently reconstructed Stanford sampling-bias family
+Three classes have sizes $4,8,12$. Compare expected class size when selecting a class uniformly and when selecting a student uniformly.
+---SOLUTION---
+Uniform class selection assigns weight one third to each size, giving mean eight. Uniform student selection assigns class probabilities $4/24,8/24,12/24$, since a larger class contains more selectable students. The mean experienced class size is $(4^2+8^2+12^2)/24=28/3$. It is larger because student selection favors large classes. The course's locally acquired purported Moments PDF was mismatched, so this independently derived family is not counted as reviewed Stanford expectation instruction.
+
+**Transfer rule.** Determine the sampled unit; size-biased weights differ from equal group weights and can reverse an informal average interpretation.
+@@ 67|Population size bias through moments|Original advanced sampling problem
+A positive class-size variable under uniform class sampling has mean $m$ and variance $v$. Derive the student-sampled mean class size.
+---SOLUTION---
+Student sampling weights each class proportionally to its size. The resulting mean is $E[X^2]/E[X]$, assuming finite second moment and positive finite mean. Since $E[X^2]=v+m^2$, this equals $m+v/m$. It is at least $m$, with equality exactly when variance is zero. The denominator normalizes the size weights; omitting it would produce a quantity in squared size units. This formula depends on the specific size-biased selection mechanism, not any arbitrary change of sampling distribution.
+
+**Transfer rule.** Size bias introduces one additional factor of the size and a normalization by its mean; retain both factors and check moment existence.
+@@ 68|A minimum from tail conjunctions|Original order-statistic bridge
+Two independent fair dice have minimum $M$. Find its mean using tails instead of a PMF.
+---SOLUTION---
+For integer thresholds $k=1,\ldots,6$, both dice must be at least $k$. Their independent survival probability is $[(7-k)/6]^2$. Summing these six tails gives $(1^2+2^2+3^2+4^2+5^2+6^2)/36=91/36$. The minimum's expectation is not the minimum of the two die means, which would be $7/2$. Nonlinearity requires the actual simultaneous threshold events; independence justifies their product within each threshold.
+
+**Transfer rule.** Extrema are nonlinear; derive their survival or CDF events before averaging, rather than applying the extremum to separate means.
+@@ 69|A maximum without deriving a new law|Original extrema problem
+For two independent fair dice, find the expected maximum using the expected minimum from Question 68.
+---SOLUTION---
+On every ordered die outcome, minimum plus maximum equals the sum of the dice. Linearity gives mean total seven regardless of the nonlinear individual extrema. Thus $E[\max]=7-91/36=161/36$. This exploits an exact pointwise identity rather than pretending expectation commutes with maximum. The result exceeds $7/2$, as expected for selecting the larger of two values. The dependence between minimum and maximum creates no obstacle to adding their means.
+
+**Transfer rule.** Search for outcome-wise identities connecting nonlinear quantities; linearity can then eliminate one quantity without inventing a nonlinear averaging rule.
+@@ 70|Random pair products under independence|Original multivariate expectation problem
+Independent variables have means $E[X]=2$, $E[Y]=-1$, $E[Z]=3$. Find $E[XY+YZ+ZX]$.
+---SOLUTION---
+Each pair is independent, so its product mean factors: $E[XY]=-2$, $E[YZ]=-3$, and $E[ZX]=6$. The outer finite sum then has mean one by linearity. Independence of the three products themselves is neither given nor needed; they share variables and may be dependent. Pairwise independence of the original variables would suffice for these pair products, but a triple product would require additional information. The proof separates local factorization from outer linear summation.
+
+**Transfer rule.** Apply independence only to the product it actually justifies; shared derived products need not be independent for their means to add.
+@@ 71|Pairwise independence is not joint independence|Original advanced conceptual problem
+Let $A,B$ be independent fair bits and let $C$ be their exclusive-or. Compute $E[ABC]$ and compare it with the product of the three means.
+---SOLUTION---
+The four equally likely $(A,B,C)$ outcomes are $(0,0,0),(0,1,1),(1,0,1),(1,1,0)$. Each pair of bits is independent and each mean is one half. Nevertheless no outcome has all three bits equal to one, so $E[ABC]=0$. The product of the three means is $1/8$. Pairwise independence controls two-variable products but does not factor a three-way joint event. The explicit finite table establishes both claims without relying on a moment heuristic.
+
+**Transfer rule.** A product involving three or more variables requires a matching joint-independence argument or its actual joint law; pairwise tests are insufficient.
+@@ 72|Spaghetti loops and the coefficient of the logarithm|Independently reconstructed Oxford loop family
+Randomly join ends of $n$ separate strands until no loose ends remain. Derive the expected number of loops and its leading logarithmic coefficient.
+---SOLUTION---
+When there are $2k$ loose ends, choosing one end leaves $2k-1$ possible partners. Exactly one partner is the other end of its current chain, so the closure probability is $1/(2k-1)$. Every closure creates one completed loop. Summing stage indicators gives $\sum_{k=1}^n1/(2k-1)=H_{2n}-H_n/2$. Harmonic growth makes the leading term $(1/2)\ln n$, with a bounded remainder. The coefficient is not one; an informal “close to log n” statement must be interpreted with this exact expression.
+
+**Transfer rule.** Determine the number of eligible partners at each stage; exact reciprocal sums reveal coefficients that informal growth descriptions may omit.
+@@ 73|Zero mean for a nonnegative variable|Original proof problem
+Prove that an integrable nonnegative variable with expectation zero is zero almost surely.
+---SOLUTION---
+For every positive integer $k$, the pointwise inequality $X\ge(1/k)I_{\{X\ge1/k\}}$ implies $0=E[X]\ge P(X\ge1/k)/k$. Hence every such threshold event has probability zero. Their countable union is exactly $\{X>0\}$, so that event also has probability zero. It follows that $X=0$ almost surely. Nonnegativity is essential: a fair signed variable can have zero mean while never equaling zero.
+
+**Transfer rule.** Zero mean forces constancy only when the averaged quantity is nonnegative; use positive threshold events to prove the almost-sure conclusion.
+@@ 74|A strict expectation comparison|Original order problem
+Suppose $X\le Y$ almost surely, both integrable, and $P(X<Y)>0$. Prove $E[X]<E[Y]$.
+---SOLUTION---
+The difference $D=Y-X$ is integrable and nonnegative. If its mean were zero, the preceding nonnegative-zero-mean theorem would force $D=0$ almost surely, contradicting positive probability of a strict difference. Thus $E[D]>0$, and linearity gives $E[Y]-E[X]>0$. A strict inequality at only a null outcome would not suffice. This proof avoids assuming a uniform positive gap, which need not exist even when strict inequality holds on a positive-probability set.
+
+**Transfer rule.** Almost-sure order gives mean order; strict mean order needs strict difference on a positive-probability set, not just a displayed example.
+@@ 75|A stable variance calculation|Original numerical-method problem
+Let $X$ take $10^9-1$ and $10^9+1$ equally often. Compute its variance with a nearby center and explain the numerical advantage.
+---SOLUTION---
+Choose $c=10^9$. The centered variable takes negative one and one equally often, so its first centered mean is zero and its second centered mean is one. The identity $Var(X)=E[(X-c)^2]-(E[X]-c)^2$ gives variance one. Computing $E[X^2]-(E[X])^2$ instead subtracts quantities near $10^{18}$, potentially losing the small residual in floating-point arithmetic. Both identities are mathematically exact; the nearby center changes numerical conditioning rather than probability theory.
+
+**Transfer rule.** Large shifts can cause catastrophic cancellation in raw-moment variance; center first and distinguish exact algebra from finite-precision computation.
+@@ 76|An omitted-tail error bound|Original quantitative truncation problem
+A nonnegative integer law has $P(N\ge k)\le2^{-k}$ for $k\ge1$. Bound the tail-sum mean error after retaining thresholds one through $r$.
+---SOLUTION---
+The omitted mean contribution is $\sum_{k=r+1}^{\infty}P(N\ge k)$, not merely the probability of exceeding $r$. The supplied geometric survival bound gives error at most $\sum_{k=r+1}^{\infty}2^{-k}=2^{-r}$. The retained tail sum therefore lies below the true mean and within this explicit upper error bound. This conclusion uses a bound on every later survival probability. A single small omitted probability without tail decay information would not supply the same mean guarantee.
+
+**Transfer rule.** A truncation guarantee must control the whole omitted mean sum; a geometric survival envelope yields an explicit computable error bound.
+@@ 77|No independence needed for expected sample average|Original conceptual problem
+Integrable observations $X_1,\ldots,X_n$ each have mean $\mu$ but may be identical. What can be concluded about their average's mean and variance?
+---SOLUTION---
+For fixed positive $n$, linearity gives $E[\bar X]=(1/n)\sum_iE[X_i]=\mu$ without independence. No universal variance reduction follows. If all observations equal one variable $X$, their average equals $X$ on every outcome and has its full variance. Independent equal-variance observations instead have variance $Var(X)/n$, when their second moments exist. The mean claim and the variance claim use different information and cannot be bundled into one “averaging reduces randomness” assertion.
+
+**Transfer rule.** Unbiased averaging requires the specified means; precision improvement requires additional dependence and second-moment assumptions.
+@@ 78|A theorem with nonexistent components|Original advanced boundary problem
+Let $X$ have the undefined signed mean from Question 7 and let $Y=-X$. Is $E[X+Y]=E[X]+E[Y]$ a valid equation?
+---SOLUTION---
+The sum variable is identically zero, so its mean exists and equals zero. Each component has infinite positive and negative parts and therefore no defined expectation. The right side is not a meaningful sum of numbers, so the displayed equation is invalid even though the left side is perfectly valid. Finite-component integrability is a sufficient hypothesis of ordinary linearity, and it fails here. Cancellation inside the random variable can create an integrable sum without defining separate component means.
+
+**Transfer rule.** An integrable combined expression does not automatically give integrable summands; verify the terms before separating their expectations.
+@@ 79|Expected pairwise equal values from a discrete law|Original collision-law problem
+Three independent draws use masses $1/2,1/3,1/6$. Find expected equal-value pairs and probability that all three values are equal.
+---SOLUTION---
+Each unordered pair agrees with probability $1/4+1/9+1/36=7/18$. There are three pairs, so their expected count is $7/6$. All three draws agree with probability $1/8+1/27+1/216=1/6$. Multiplying or cubing the pair-agreement probability would not compute that three-way event, since the pair tests overlap. Independence applies to the draws conditional on a specified common value, after which the common-value cases are disjoint and their probabilities can be added.
+
+**Transfer rule.** Pair-collision expectations and all-equal probabilities use different powers of the atom masses; avoid treating overlapping agreement tests as independent.
+@@ 80|A compound payoff with a random length and nonlinear term|Original synthesis problem
+Let $N$ take one or two equally often, independently of fair Bernoulli increments. For $S=\sum_{i=1}^NX_i$, find $E[3S^2-2S+1]$.
+---SOLUTION---
+Conditional on $N=1$, the count is one Bernoulli variable, so its first and second moments are both $1/2$. Conditional on $N=2$, the first moment is one and the second is $3/2$, obtained from the two indicator squares and their independent product. Mixing gives $E[S]=3/4$ and $E[S^2]=1$. Polynomial linearity therefore gives payoff mean $3-3/2+1=5/2$. The random-sum first-moment formula alone cannot provide the nonlinear second-moment payoff.
+
+**Transfer rule.** Nonlinear compound costs require the corresponding conditional moments, not just the expected length and expected increment.
