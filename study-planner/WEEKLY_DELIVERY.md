@@ -390,3 +390,8 @@ Private Site version 78 succeeded. Saved source matches ae75b6d9efcfe76254db55e4
 ## Whole-library mathematical delimiter repair — 7 October 2026
 
 The student reported apparently missing closing parentheses. Reproduced and corrected the actual structural cause: scripts attached to a closing glyph instead of the complete fenced base, producing asymmetric stretching. All 41 chapters and cached animation mathematics are corrected, with 26,639 chapter formulas and 5,286 cached instances audited. The 2,593 complete problems and all surrounding lesson prose remain unchanged. Real desktop/mobile paired-glyph geometry, dynamic insertion, idempotence and print checks passed. Future renderer output rejects unbalanced delimiters and uses the shared scope correction. Audit: research/delimiter-audit.md; evidence: research/delimiter-evidence/qa.json. s_expectation remains awaiting explicit approval. Native publication is recorded after verification.
+
+
+## Verified delimiter correction publication — 7 October 2026
+
+Private Site version 79 succeeded; saved source exactly matches 266a2b4cd358c673336588aa275c689b1b29c03d. Corrected library and audit evidence are verified on GitHub branch study-planner-1406 at 67d02fd1f59cca1423de178d1b06e60267823ef1, also recovering the previous pending expectation-publication receipt. Owner-private audience is unchanged. The clean-checkout static archive contains 354 files and every member was byte-checked. Publication receipt: research/delimiter-publication.json. s_expectation still awaits explicit approval; no subsequent chapter begins.
