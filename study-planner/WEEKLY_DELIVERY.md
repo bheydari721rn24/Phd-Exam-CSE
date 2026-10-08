@@ -455,3 +455,8 @@ Explicit user approval of i_uninformed (online version 81) permits only p_string
 ## Strings and terminators complete review draft — 8 October 2026
 
 28 sections, 80 original/reconstructed full solutions plus one original-PDF-rechecked MSc string-counting bridge, 80 examination rules and 30 specialized memory models with 179 checkpoints. Four core written courses are genuinely read; Stanford is supplementary and inaccessible CMU material is not counted as read. 18945 checks include 12179 independent byte-operation comparisons. Browser, motion, typography, mathematics, mobile, print and lab validation passed. Preserve 45 previous HTML pages and 2920 prior problem entries. Await explicit approval of p_strings; publication tracked separately.
+
+
+## Strings and terminators online delivery — 8 October 2026
+
+Private Site version 82 successfully published from exact source commit cf44482c5281b5280541e69b95514876e38cf607. Deployment appgdep_6ac7dd9a413081918b3e2a7364ae4aa1 succeeded; get_site_version verified source provenance and 384 archive entries. GitHub chapter content is mirrored at 5cffe5c on study-planner-1406. The current p_strings chapter remains a draft awaiting explicit student approval. No next chapter started.
