@@ -1,0 +1,18 @@
+{
+  "status": "upload_blocked",
+  "projectId": "appgprj_6ab5666f72b081918286c6b371c1eb1b",
+  "contentCommit": "7f6d5669a290f552b22ba73760b6b17710a7a019",
+  "sourcePushed": true,
+  "archivePath": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\l-spaces-deploy.tar.gz",
+  "archiveSha256": "859523da42d411c29bc5da6a583ee71d6ca169ae0ce10d839c05275ea035bece",
+  "archiveFiles": 366,
+  "githubBranch": "study-planner-1406",
+  "githubContentCommit": "18466e24164a78bff861f5d0de130b808e1d5902",
+  "lastConfirmedLiveVersion": 80,
+  "newVersionConfirmed": false,
+  "uploadFailures": 3,
+  "error": "Native Sites archive upload failed to send its OpenAI file request to https://chatgpt.com/backend-api/files. No new version or deployment ID was returned.",
+  "preparationNote": "Bundled workflow pushed and verified the content source, then its Windows package helper path failed. A local tar fallback was built and every member path and byte sequence validated.",
+  "localPreviewUrl": "http://127.0.0.1:8093/chapters/l_spaces.html",
+  "nextAction": "Retry the native archive-backed private publication of this exact content after upload service connectivity recovers. Preserve the archive and avoid claiming an online update until a succeeded deployment is verified."
+}
