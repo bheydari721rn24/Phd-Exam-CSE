@@ -440,3 +440,8 @@ Explicit user approval of the local and GitHub intelligent-agent delivery permit
 ## Uninformed search complete review draft — 8 October 2026
 
 31 sections, 81 complete worked problems, 80 final examination rules, four core written courses plus Stanford application material, and 25 specialized models with 251 checkpoints. Independent finite-graph comparisons cover 1800 runs. All 44 previous chapter pages and 2839 previous problems are preserved. Browser checks include math, typography, every stored frame, real pause/resume, reduced motion, mobile, print and editable graph validation. Await explicit approval of i_uninformed. Publication is tracked separately; local validation alone does not establish online deployment.
+
+
+## Uninformed search online delivery — 8 October 2026
+
+Private Site version 81 successfully published from exact source commit 5145ee45f59cc57d57c79747a75e097090c3e4b8. Deployment appgdep_6ac7d4291a8881919637875a7b15438a succeeded, and get_site_version confirmed source provenance and 378 archive entries. GitHub content is mirrored at 08126ca on study-planner-1406. The archive also includes the previously pending l_spaces and i_agents chapters; their older failed-publication receipts are superseded by this successful delivery. i_uninformed remains a draft awaiting explicit student approval. No next chapter started.
