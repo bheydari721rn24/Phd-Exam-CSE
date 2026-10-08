@@ -415,3 +415,13 @@ Explicit approval of determinant version 80 permits only l_spaces, the next miss
 ## Vector spaces draft delivered locally — 8 October 2026
 
 The complete l_spaces review draft and evidence were pushed to GitHub branch study-planner-1406, content commit 18466e2. The Site source was pushed at 7f6d566. Four reviewed written university courses; 29 sections; 82 fully worked questions; 80 final rules; 23 specialized models / 76 checkpoints; 2,130 exact checks and 92 independently compared rectangular lab inputs. Fonts, mathematical fences, controls, print and mobile passed. All 42 preceding pages and 2,675 questions retained. Local preview: http://127.0.0.1:8093/chapters/l_spaces.html. Three archive upload attempts failed at the native OpenAI file transport. The last confirmed online Site is version 80; no new deployed version is claimed. Preserve the prepared archive and retry the same content publication when connectivity recovers. l_spaces remains a draft awaiting explicit approval; no following chapter has started.
+
+
+## Active chapter: Intelligent agents — 8 October 2026
+
+Explicit user approval of the local and GitHub vector-space delivery permits only i_agents, the next missing Week 3 topic. No online version is invented for the pending vector-space upload. Preserve 43 previous pages and 2,757 complete problems. Review written university courses, develop rigorous mathematical and conceptual problems with fully worked solutions and strong final rules, and implement subject-specific agent models. Await approval after delivery.
+
+
+## Intelligent agents review draft complete — 8 October 2026
+
+Four genuinely read written university courses: Berkeley, CMU, Edinburgh and Stanford. Thirty sections; 80 authored/reconstructed problems plus two original-page-checked MSc adaptations; 80 condition-bearing final rules; 17 specialized models with 69 checkpoints; editable exact-rational information-value laboratory. All 7,470 exact checks and 601 independent contingent-policy comparisons passed. Browser fonts, mathematical fences, diagram bounds, pause/resume, print, mobile and navigation passed. Forty-three preceding chapter pages and 2,757 questions retained byte-for-byte. The library now contains 44 chapters and 2,839 questions. i_agents remains a draft awaiting explicit approval. Publication status is recorded separately; this entry does not claim an online deployment. No following chapter has started.

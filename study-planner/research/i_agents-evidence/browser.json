@@ -1,0 +1,527 @@
+{
+  "topicId": "i_agents",
+  "status": "passed",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\i-agents-visual-qa",
+  "counts": {
+    "questions": 82,
+    "rules": 80,
+    "players": 34,
+    "math": 710
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "heading": true,
+    "prose": true,
+    "code": true
+  },
+  "geometry": {
+    "models": 17,
+    "frames": 69,
+    "issues": []
+  },
+  "mathGeometry": {
+    "bareClosingScriptBases": [],
+    "zeroSizeFences": [],
+    "underlined": 0
+  },
+  "pause": {
+    "motions": 1,
+    "frozen": true
+  },
+  "resume": true,
+  "reducedMotion": true,
+  "printCheckpoints": true,
+  "labs": [
+    {
+      "error": "",
+      "result": {
+        "prior": "3/10",
+        "likelihoods": [
+          "4/5",
+          "1/5"
+        ],
+        "utilities": [
+          [
+            "12",
+            "-4"
+          ],
+          [
+            "5",
+            "5"
+          ]
+        ],
+        "cost": "1/4",
+        "priorUtilities": [
+          "4/5",
+          "5"
+        ],
+        "priorOptimal": [
+          "B"
+        ],
+        "priorValue": "5",
+        "signals": [
+          {
+            "name": "Positive",
+            "prob": "19/50",
+            "posterior": "12/19",
+            "utilities": [
+              "116/19",
+              "5"
+            ],
+            "optimal": [
+              "A"
+            ],
+            "value": "116/19"
+          },
+          {
+            "name": "Negative",
+            "prob": "31/50",
+            "posterior": "3/31",
+            "utilities": [
+              "-76/31",
+              "5"
+            ],
+            "optimal": [
+              "B"
+            ],
+            "value": "5"
+          }
+        ],
+        "afterValue": "271/50",
+        "perfectValue": "71/10",
+        "evsi": "21/50",
+        "vpi": "21/10",
+        "netValue": "517/100",
+        "netGain": "17/100",
+        "purchase": "Buy the signal",
+        "checks": {
+          "probabilitiesSum": true,
+          "nonnegativeEvsi": true,
+          "perfectBoundsSample": true
+        }
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "prior": "1/2",
+        "likelihoods": [
+          "1",
+          "0"
+        ],
+        "utilities": [
+          [
+            "12",
+            "-4"
+          ],
+          [
+            "5",
+            "5"
+          ]
+        ],
+        "cost": "0",
+        "priorUtilities": [
+          "4",
+          "5"
+        ],
+        "priorOptimal": [
+          "B"
+        ],
+        "priorValue": "5",
+        "signals": [
+          {
+            "name": "Positive",
+            "prob": "1/2",
+            "posterior": "1",
+            "utilities": [
+              "12",
+              "5"
+            ],
+            "optimal": [
+              "A"
+            ],
+            "value": "12"
+          },
+          {
+            "name": "Negative",
+            "prob": "1/2",
+            "posterior": "0",
+            "utilities": [
+              "-4",
+              "5"
+            ],
+            "optimal": [
+              "B"
+            ],
+            "value": "5"
+          }
+        ],
+        "afterValue": "17/2",
+        "perfectValue": "17/2",
+        "evsi": "7/2",
+        "vpi": "7/2",
+        "netValue": "17/2",
+        "netGain": "7/2",
+        "purchase": "Buy the signal",
+        "checks": {
+          "probabilitiesSum": true,
+          "nonnegativeEvsi": true,
+          "perfectBoundsSample": true
+        }
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "prior": "1/2",
+        "likelihoods": [
+          "1/2",
+          "1/2"
+        ],
+        "utilities": [
+          [
+            "12",
+            "-4"
+          ],
+          [
+            "5",
+            "5"
+          ]
+        ],
+        "cost": "0",
+        "priorUtilities": [
+          "4",
+          "5"
+        ],
+        "priorOptimal": [
+          "B"
+        ],
+        "priorValue": "5",
+        "signals": [
+          {
+            "name": "Positive",
+            "prob": "1/2",
+            "posterior": "1/2",
+            "utilities": [
+              "4",
+              "5"
+            ],
+            "optimal": [
+              "B"
+            ],
+            "value": "5"
+          },
+          {
+            "name": "Negative",
+            "prob": "1/2",
+            "posterior": "1/2",
+            "utilities": [
+              "4",
+              "5"
+            ],
+            "optimal": [
+              "B"
+            ],
+            "value": "5"
+          }
+        ],
+        "afterValue": "5",
+        "perfectValue": "17/2",
+        "evsi": "0",
+        "vpi": "7/2",
+        "netValue": "5",
+        "netGain": "0",
+        "purchase": "Both purchase decisions tie",
+        "checks": {
+          "probabilitiesSum": true,
+          "nonnegativeEvsi": true,
+          "perfectBoundsSample": true
+        }
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "prior": "0",
+        "likelihoods": [
+          "1",
+          "0"
+        ],
+        "utilities": [
+          [
+            "12",
+            "-4"
+          ],
+          [
+            "5",
+            "5"
+          ]
+        ],
+        "cost": "0",
+        "priorUtilities": [
+          "-4",
+          "5"
+        ],
+        "priorOptimal": [
+          "B"
+        ],
+        "priorValue": "5",
+        "signals": [
+          {
+            "name": "Positive",
+            "prob": "0",
+            "posterior": null,
+            "utilities": null,
+            "optimal": [],
+            "value": null
+          },
+          {
+            "name": "Negative",
+            "prob": "1",
+            "posterior": "0",
+            "utilities": [
+              "-4",
+              "5"
+            ],
+            "optimal": [
+              "B"
+            ],
+            "value": "5"
+          }
+        ],
+        "afterValue": "5",
+        "perfectValue": "5",
+        "evsi": "0",
+        "vpi": "0",
+        "netValue": "5",
+        "netGain": "0",
+        "purchase": "Both purchase decisions tie",
+        "checks": {
+          "probabilitiesSum": true,
+          "nonnegativeEvsi": true,
+          "perfectBoundsSample": true
+        }
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "prior": "1",
+        "likelihoods": [
+          "1",
+          "1"
+        ],
+        "utilities": [
+          [
+            "12",
+            "-4"
+          ],
+          [
+            "5",
+            "5"
+          ]
+        ],
+        "cost": "0",
+        "priorUtilities": [
+          "12",
+          "5"
+        ],
+        "priorOptimal": [
+          "A"
+        ],
+        "priorValue": "12",
+        "signals": [
+          {
+            "name": "Positive",
+            "prob": "1",
+            "posterior": "1",
+            "utilities": [
+              "12",
+              "5"
+            ],
+            "optimal": [
+              "A"
+            ],
+            "value": "12"
+          },
+          {
+            "name": "Negative",
+            "prob": "0",
+            "posterior": null,
+            "utilities": null,
+            "optimal": [],
+            "value": null
+          }
+        ],
+        "afterValue": "12",
+        "perfectValue": "12",
+        "evsi": "0",
+        "vpi": "0",
+        "netValue": "12",
+        "netGain": "0",
+        "purchase": "Both purchase decisions tie",
+        "checks": {
+          "probabilitiesSum": true,
+          "nonnegativeEvsi": true,
+          "perfectBoundsSample": true
+        }
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "prior": "1/4",
+        "likelihoods": [
+          "4/5",
+          "1/5"
+        ],
+        "utilities": [
+          [
+            "-7",
+            "-3"
+          ],
+          [
+            "-2",
+            "-8"
+          ]
+        ],
+        "cost": "1",
+        "priorUtilities": [
+          "-4",
+          "-13/2"
+        ],
+        "priorOptimal": [
+          "A"
+        ],
+        "priorValue": "-4",
+        "signals": [
+          {
+            "name": "Positive",
+            "prob": "7/20",
+            "posterior": "4/7",
+            "utilities": [
+              "-37/7",
+              "-32/7"
+            ],
+            "optimal": [
+              "B"
+            ],
+            "value": "-32/7"
+          },
+          {
+            "name": "Negative",
+            "prob": "13/20",
+            "posterior": "1/13",
+            "utilities": [
+              "-43/13",
+              "-98/13"
+            ],
+            "optimal": [
+              "A"
+            ],
+            "value": "-43/13"
+          }
+        ],
+        "afterValue": "-15/4",
+        "perfectValue": "-11/4",
+        "evsi": "1/4",
+        "vpi": "5/4",
+        "netValue": "-19/4",
+        "netGain": "-3/4",
+        "purchase": "Act without buying",
+        "checks": {
+          "probabilitiesSum": true,
+          "nonnegativeEvsi": true,
+          "perfectBoundsSample": true
+        }
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "prior": "9999/10000",
+        "likelihoods": [
+          "7777/10000",
+          "3333/10000"
+        ],
+        "utilities": [
+          [
+            "10000",
+            "-10000"
+          ],
+          [
+            "-9999",
+            "9999"
+          ]
+        ],
+        "cost": "9999/10000",
+        "priorUtilities": [
+          "9998",
+          "-49985001/5000"
+        ],
+        "priorOptimal": [
+          "A"
+        ],
+        "priorValue": "9998",
+        "signals": [
+          {
+            "name": "Positive",
+            "prob": "19441389/25000000",
+            "posterior": "23331/23332",
+            "utilities": [
+              "58325000/5833",
+              "-116638335/11666"
+            ],
+            "optimal": [
+              "A"
+            ],
+            "value": "58325000/5833"
+          },
+          {
+            "name": "Negative",
+            "prob": "5558611/25000000",
+            "posterior": "22227777/22234444",
+            "utilities": [
+              "55552775000/5558611",
+              "-111094439445/11117222"
+            ],
+            "optimal": [
+              "A"
+            ],
+            "value": "55552775000/5558611"
+          }
+        ],
+        "afterValue": "9998",
+        "perfectValue": "99999999/10000",
+        "evsi": "0",
+        "vpi": "19999/10000",
+        "netValue": "99970001/10000",
+        "netGain": "-9999/10000",
+        "purchase": "Act without buying",
+        "checks": {
+          "probabilitiesSum": true,
+          "nonnegativeEvsi": true,
+          "perfectBoundsSample": true
+        }
+      },
+      "issues": []
+    }
+  ],
+  "invalidPreservesPrevious": 8,
+  "mobileOverflow": false,
+  "printVisible": true,
+  "runtimeErrors": [],
+  "library": {
+    "cards": 44,
+    "visible": true,
+    "errors": []
+  },
+  "weeklyChapterLink": true
+}

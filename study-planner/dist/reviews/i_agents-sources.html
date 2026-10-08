@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Intelligent agents chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"><link rel="stylesheet" href="../chapters/i_agents.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/i_agents.html">Intelligent agents chapter</a></p><article class="lesson"><h1>Intelligent agents: written-source selection and reading audit</h1>
+<p>Reviewed 8 October 2026. Selection is chapter-specific and limited to the accessible pool below. It is not a claim to have inspected every university course worldwide. A catalogue or a course title does not count as a reviewed lecture.</p>
+<h2>Four core courses from four universities</h2>
+<table>
+<thead>
+<tr>
+<th>University and course</th>
+<th>Instructor / author and material actually read</th>
+<th>Selection reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UC Berkeley, CS 188, Fall 2023</td>
+<td>Igor Mordatch and Peyrin Kao; Note 1 by Nikhil Sharma, PDF pages 1–2, complete text</td>
+<td>Concise definitions of rationality and task environments, checked against the more explicit distinctions below.</td>
+</tr>
+<tr>
+<td>Carnegie Mellon, 15-281, Fall 2023</td>
+<td>Vincent Conitzer and Aditi Raghunathan; Introduction lecture, 51 PDF pages, complete extracted text; Lecture 1 activity solutions, both pages</td>
+<td>Agent implementation, performance criteria and constrained state counting. The lecture credits Berkeley; shared provenance is disclosed rather than counted as four independent discoveries.</td>
+</tr>
+<tr>
+<td>University of Edinburgh, INF2D</td>
+<td>2025-path written Lecture 1, all 37 pages; Lecture 2, all 31 pages of extracted text</td>
+<td>Architecture, environment distinctions, problem representation and state-versus-node separation. Current course page lists Wenda Li, Nadin Kokciyan and organiser Craig Innes; the 2025 PDF does not identify an individual lecturer.</td>
+</tr>
+<tr>
+<td>Stanford, CS221, Summer 2012–2013</td>
+<td>Chris Piech; Markov Decisions written handout, all sections; linked course page verifies instructor and term</td>
+<td>Mathematical bridge from deterministic transitions to probability distributions, sequential utility and policy representation. The advanced MDP solution algorithms belong to a later chapter.</td>
+</tr>
+</tbody>
+</table>
+<h2>Compared candidates and supplementary material</h2>
+<ol>
+<li>MIT 6.034, Spring 2005, Leslie Kaelbling and Tomá<span class="math-inline">s</span> Lozano-Pérez: Introduction transcript, all five pages. This particular file mostly describes organisation and the online tutor. It is accessible, but has less chapter-specific mathematical content than the selected fourth course; it is not counted as a core agent lecture.</li>
+<li>Stanford CS221, Spring 2017–2018, Dorsa Sadigh: course catalogue and reading policy screened. Lecture text was not obtained from its calendar; do not substitute this term for Piech's verified handout.</li>
+<li>Oxford Artificial Intelligence, Hilary 2026, Sara Bernardini: public syllabus screened. This confirms scope, not a reading of protected lectures; excluded from the core count.</li>
+<li>Michael Wooldridge, <em>An Introduction to Multiagent Systems</em>, second-edition Lecture 2, all 71 extracted PDF pages read. Oxford hosts the author's slides, which retain a Liverpool URL. Treat this as supplementary author material, not evidence of a particular Oxford taught course. Formal runs, history dependence, bounded implementability and achievement/maintenance distinctions were compared with the chapter's independent constructions.</li>
+</ol>
+<h2>Corrections and qualifications</h2>
+<ul>
+<li>Berkeley Note 1, PDF page 2: static is described as not changing as the agent acts. The operational test is change during deliberation without a new agent action. Agent-caused changes are compatible with a static environment.</li>
+<li>Berkeley Note 1, PDF page 1: partial observability does not logically force memory or planning in every task. A common optimal action for all aliased histories permits a rational reflex agent. The chapter proves the finite-action intersection criterion.</li>
+<li>CMU lecture PDF page 42 uses “PEAS” while mixing state-space components with task descriptors. This chapter retains the standard Performance, Environment, Actuators, Sensors expansion and separately defines a search problem.</li>
+<li>CMU elevator activity permits 22 or 21 states depending on a door constraint. Our reconstruction explicitly states legal configurations and counts them; it does not silently choose an interpretation.</li>
+<li>Edinburgh Lecture 1, PDF page 18, contrasts utility with agents having a single goal. Goal-based systems can have conjunctions or multiple goals; utility adds graded preferences and tradeoffs, not merely a second goal.</li>
+<li>Stanford handout calls the Markov assumption “wrong” and presents discrete states / known start as MDP assumptions. These describe its introductory modelling setting. Markov models can be exact with a sufficient state; MDPs also have continuous-state variants and initial distributions. Our chapter states its finite model explicitly.</li>
+<li>Wooldridge's slides use “discrete” with finite percept/action sets. Countably infinite sets can also be discrete. Finiteness and discreteness are separated here.</li>
+</ul>
+<h2>Coverage and evidence limits</h2>
+<p>Web retrieval supplied full extracted text for the cited documents. Local HTTPS downloads failed with a connection-refused error; document byte hashes are therefore not claimed. Some third-party slide pictures were not retrievable as images. No unseen diagram is described as visually checked, and no source diagram is reproduced. All chapter graphics are independently authored exact examples, inspected in the local browser. The original Iranian examination pages used for adaptations are available locally and visually checked separately.</p>
+<p>The chapter independently develops definitions, proofs, numeric examples and counterexamples. It does not reproduce complete course problem sets. Course reconstructions are attributed and use changed data or explicit qualifications. The final audit identifies the finite scope and adjacent topics; no guarantee about every unseen examination is made.</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://inst.eecs.berkeley.edu/~cs188/fa23/assets/notes/cs188-fa23-note01.pdf">UC Berkeley CS188, Note 1, Fall 2023</a>.</li>
+<li><a href="https://inst.eecs.berkeley.edu/~cs188/archive/fa23/staff/">UC Berkeley CS188 staff, Fall 2023</a>.</li>
+<li><a href="https://www.cs.cmu.edu/~15281-f23/lectures/15281_Fa23_Lecture_1_Introduction.pdf">CMU 15-281 Introduction, Fall 2023</a>.</li>
+<li><a href="https://www.cs.cmu.edu/~15281-f23/activities/15281_F23_Lecture_1_Activity_Solutions.pdf">CMU Lecture 1 activity solutions</a>.</li>
+<li><a href="https://opencourse.inf.ed.ac.uk/sites/default/files/https/opencourse.inf.ed.ac.uk/inf2d/2025/inf2dlectureslides-01intelligentagents_0.pdf">Edinburgh INF2D Lecture 1, Intelligent Agents</a>.</li>
+<li><a href="https://opencourse.inf.ed.ac.uk/sites/default/files/https/opencourse.inf.ed.ac.uk/inf2d/2025/inf2dlectureslides-02search_0.pdf">Edinburgh INF2D Lecture 2, Problem Solving</a>.</li>
+<li><a href="https://opencourse.inf.ed.ac.uk/inf2d">Edinburgh INF2D course team</a>.</li>
+<li><a href="https://stanford.edu/~cpiech/cs221/handouts/markovDecisions.html">Stanford CS221, Chris Piech, Markov Decisions</a>.</li>
+<li><a href="https://stanford.edu/~cpiech/cs221/index.html">Stanford CS221 course and term</a>.</li>
+<li><a href="https://ocw.mit.edu/courses/6-034-artificial-intelligence-spring-2005/7bb598caab8f1df57f35ddc4016afbb0_ch1_intro.pdf">MIT 6.034 Introduction transcript</a>.</li>
+<li><a href="https://www.cs.ox.ac.uk/teaching/courses/2025-2026/ai/">Oxford AI course catalogue</a>.</li>
+<li><a href="https://www.cs.ox.ac.uk/people/michael.wooldridge/pubs/imas/distrib/pdf-slides/lect02.pdf">Michael Wooldridge, Intelligent Agents, second-edition Lecture 2</a>.</li>
+</ul>
+</article></main><script src="../chapters/math-layout.js?v=79"></script></body></html>

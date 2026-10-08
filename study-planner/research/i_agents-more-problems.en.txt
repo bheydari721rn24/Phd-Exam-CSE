@@ -1,0 +1,240 @@
+@@ 41|An impossible observation has no Bayesian posterior|Original mathematical problem
+Both states H,L give a positive signal with probability one. An agent observes a negative signal. May it return posterior $P(H\mid-)=1/2$ by convention?
+---SOLUTION---
+The probability of a negative signal is zero for every prior because both negative likelihoods are zero. Bayes' formula has numerator zero and denominator zero, so it does not determine a posterior. A fabricated one-half answer is not a consequence of the model. Report an observation inconsistent with the model and investigate sensor errors or missing states. A revised model can introduce a small failure probability and yield a valid posterior, but its result depends on the specified failure probabilities, not a universal fallback.
+---RULE---
+Bayesian normalization requires a positive observation probability. If both negative likelihoods are zero, a negative observation is model-inconsistent and its posterior is undefined, not automatically uniform.
+@@ 42|Prediction before observation|Original mathematical problem
+Initially $P(H)=1/4$. An action switches H to L with probability 1/5 and switches L to H with probability 2/5. A positive sensor has likelihoods 3/4 in H and 1/4 in L. Compute the posterior after the action and a positive result.
+---SOLUTION---
+Predict the new H probability first: $(1/4)(4/5)+(3/4)(2/5)=1/5+3/10=1/2$. The new L probability is also one half. Positive joint masses are $3/8$ for H and $1/8$ for L, totaling one half. Hence the posterior is $(3/8)/(1/2)=3/4$. Conditioning the old prior directly would give $(3/16)/(3/16+3/16)=1/2$, which is wrong because it ignores the state-changing action. Prediction and correction represent different stages of the control loop.
+---RULE---
+Propagate belief through the executed action before conditioning on the next observation. Prior $1/4$, H-retention $4/5$ and L-to-H probability $2/5$ produce predicted H probability $1/2$; likelihoods $3/4,1/4$ then give posterior $3/4$.
+@@ 43|Optimize after each signal, then average|Original mathematical problem|voi-main
+Use prior $P(H)=3/10$, positive likelihoods $(4/5,1/5)$, and utilities A=$(12,-4)$, B=$(5,5)$. Find optimal expected utility before and after a free signal.
+---SOLUTION---
+Before sensing, A gives $16(3/10)-4=4/5$ and B gives 5, so prior optimum is 5. The positive posterior is $12/19$, giving A=$116/19>5$; choose A. The negative posterior is $3/31$, giving A=$-76/31<5$; choose B. Weight the optimized branch values: $(19/50)(116/19)+(31/50)5=271/50$. The gain is $21/50$. Averaging utilities for a fixed action before maximizing would yield the original value 5 and discard the ability to adapt the action to the signal.
+---RULE---
+Information value uses the expectation of conditional maxima. With prior $3/10$, likelihoods $4/5,1/5$ and A=$(12,-4)$ versus B=$(5,5)$, optimized free-signal value is $271/50$, a gain of $21/50$ over 5.
+@@ 44|Information cost and the exact tie|Original mathematical problem|voi-main
+For the model in Question 43, determine the complete sensor-purchase decision as a function of nonnegative cost c.
+---SOLUTION---
+Acting without the signal gives 5. Buying the signal gives net value $271/50-c$. Purchase is better when $271/50-c>5$, equivalently $c<21/50$. At $c=21/50$ the two choices tie. For larger cost, do not purchase. For example $c=1/4$ leaves gain $21/50-1/4=17/100$, whereas $c=1/2$ leaves $-2/25$. These comparisons assume utility costs share the same scale as the payoff table, and the sensor does not delay or alter the hidden state.
+---RULE---
+A sensor with sample-information value $21/50$ is worth buying only for cost below $21/50$, with indifference at equality. Cost $1/4$ leaves gain $17/100$; cost $1/2$ leaves loss $2/25$.
+@@ 45|Perfect information bounds the signal value|Original mathematical problem
+For A=$(12,-4)$, B=$(5,5)$ and $P(H)=3/10$, compute expected utility with perfect information and its gain over no information.
+---SOLUTION---
+Perfect information selects A in H, where 12 exceeds 5, and B in L, where 5 exceeds −4. The value is $(3/10)12+(7/10)5=71/10$. Without information, B gives 5, so perfect-information value is $71/10-5=21/10$. A noisy signal in the same costless one-step task cannot be more valuable than perfect state knowledge: a perfectly informed agent could generate the noisy observation according to its conditional law and imitate the noisy-signal policy. The upper bound concerns the same action set, utility and timing.
+---RULE---
+Perfect information for A=$(12,-4)$, B=$(5,5)$ and prior $3/10$ has value $21/10$ above the baseline 5. It bounds costless noisy-signal value only when actions, utilities and timing are held fixed.
+@@ 46|Useful sensing can have zero decision value|Original mathematical problem
+The prior of H is 1/2. A pays $(10,9)$ and B pays $(0,8)$. A perfect sensor reveals H or L. Compute its decision value despite reducing uncertainty to zero.
+---SOLUTION---
+A dominates B strictly in both states, so the prior optimum is $E[A]=(10+9)/2=19/2$. After perfect sensing, A remains best in either state, yielding the same weighted value $19/2$. The information value is zero. The signal eliminates state uncertainty but does not change the action or the achieved utility. Any positive sensing cost makes it undesirable under this criterion. Information-theoretic uncertainty reduction and decision value are distinct quantities.
+---RULE---
+Reducing uncertainty can have zero decision value. With A=$(10,9)$ and B=$(0,8)$, perfect state revelation does not change the optimal action and leaves expected value $19/2$ unchanged at prior one half.
+@@ 47|Prove nonnegative free-information value|Original proof problem
+Assume a finite one-step task, a costless signal with no physical effect or delay, and permission to ignore it. Prove its optimized expected value cannot be below the prior optimum.
+---SOLUTION---
+Let $a_0$ maximize prior expected utility. For each positive-probability signal y, conditional optimization gives $\max_a E[U(a)\mid y]\ge E[U(a_0)\mid y]$. Multiply by $P(y)$ and sum. The right side becomes $E[U(a_0)]$ by total expectation; the left side is optimized signal value. Their difference is nonnegative. The proof also shows why permission to ignore the signal matters: following $a_0$ remains feasible. A sensing cost, forced action change, delay or model mismatch needs its own analysis and is outside these hypotheses.
+---RULE---
+Costless, noninterfering information that may be ignored has nonnegative optimized expected value: compare every conditional maximum with the fixed prior-optimal action, then apply total expectation. Costs or forced disclosure are additional assumptions.
+@@ 48|Randomization cannot beat a one-step maximum|Original proof problem
+Two actions have expected utilities 7 and 3 in a fixed single-agent one-step model. Can randomizing strictly improve expected utility? State a limitation of the conclusion.
+---SOLUTION---
+Choosing the first action with probability q gives utility $7q+3(1-q)=3+4q$, which is at most 7 for $q\in[0,1]$ and equals 7 only at q=1. More generally, a convex combination of fixed expected utilities cannot exceed their maximum. This assumes the environment response and probabilities do not depend on the mixing strategy. In a strategic game, an opponent may exploit a predictable choice, and changing the mixture can change the effective payoff; the fixed single-agent argument then does not apply unchanged.
+---RULE---
+With fixed single-agent expected utilities 7 and 3, a mixture yields $3+4q\le7$ and cannot improve on the best pure action. Strategic responses that depend on the mixture violate the fixed-payoff premise.
+@@ 49|Sensorless vacuum plan by exact belief propagation|Reconstructed Edinburgh INF2D Lecture 2 vacuum example; independently numbered states and proof|sensorless-main
+In the deterministic two-room vacuum model, start with every physical state possible. Prove that Right, Clean, Left, Clean reaches the clean goal without observations.
+---SOLUTION---
+Initially there are eight possibilities. Right maps all of them to position R while preserving dirt, leaving four distinct states. Clean sets right dirt to zero, leaving two states differing only in left dirt. Left changes position to L, still leaving two states. The final Clean sets left dirt to zero, leaving the single state $(L,0,0)$. Every initial possibility reaches the goal. This proof uses reliable movement, reliable cleaning, idempotent boundary moves and no dirt reappearance. A failed actuator or spontaneous dirt would require a different belief update and invalidate the guarantee.
+---RULE---
+With reliable deterministic movement/cleaning and no new dirt, the sensorless sequence Right, Clean, Left, Clean maps the eight two-room states through belief sizes $8,4,2,2,1$ to $(L,0,0)$.
+@@ 50|Shortest plan from a known dirty configuration|Original mathematical problem|vacuum-main
+From $(L,1,1)$, both rooms are dirty and actions Clean and movement cost one. Give a minimum-cost plan to clean both and prove optimality.
+---SOLUTION---
+Clean, Right, Clean reaches $(R,0,0)$ with cost three. Any solution must clean each initially dirty room at least once, requiring at least two Clean actions. Because one action cleans only the currently occupied room, the agent must also move between rooms at least once. Therefore every solution costs at least three, matching the exhibited plan. The proof would change if one action could clean both rooms or if a room became clean without action. An additional return-to-left requirement would raise the minimum to four.
+---RULE---
+In the reliable local-cleaning vacuum, starting at L with both rooms dirty requires two cleans and at least one move, so Clean, Right, Clean is optimal at cost three. Requiring return to L adds another move.
+@@ 51|A locally clean room does not justify stopping|Original decision problem
+The percept is (L, clean). The unobserved right room is dirty with probability p. Moving right costs 1, cleaning if needed costs 1, and removing right-room dirt yields benefit 6. Assume a free perfect local observation on arrival. When is a visit worthwhile?
+---SOLUTION---
+Stopping gives utility zero relative to the current state. Visiting always pays movement cost one. With probability p, the room is dirty and cleaning yields net $6-1=5$; otherwise no cleaning occurs. Expected net value is $-1+5p$. A visit is strictly worthwhile for $p>1/5$, tied at $p=1/5$, and worse for smaller p. The policy is contingent because it cleans only after observing dirt. Charging cleaning cost in every branch would produce an incorrect threshold; forgetting movement cost would incorrectly favour every positive p.
+---RULE---
+Branch-specific costs matter. With move cost one, conditional clean cost one and dirt-removal benefit six, visiting an unseen room has value $5p-1$, so the exact threshold is $p=1/5$.
+@@ 52|Stopping requires a model assumption|Original conceptual problem
+A controller has observed both rooms clean and stops forever. Under what condition is this sound for maintaining cleanliness? Give a failure case.
+---SOLUTION---
+If cleaning observations are reliable and dirt never reappears, the stored clean bits remain valid and stopping maintains the goal. If each clean room can become dirty spontaneously after a decision, prior observations do not guarantee future cleanliness. For example, right-room dirt can appear immediately after the last observation; Stop then leaves a dirty room. The controller must include a recurrence model, sensing or revisiting policy and a stated performance tradeoff. “Both rooms were clean” is a statement about a past or current state, not a universal future invariant without transition assumptions.
+---RULE---
+Verified cleanliness permits permanent stopping only under a model that preserves it without action. Spontaneous dirt recurrence breaks that invariant and requires a revised sensing/maintenance policy.
+@@ 53|Belief-set update can merge states|Original mathematical problem
+Initial possibilities are $(L,0,0)$ and $(R,0,0)$. Right reliably sets position R. What is the resulting belief set, and why does mapping a set not preserve its cardinality?
+---SOLUTION---
+Both initial states map to $(R,0,0)$, so the resulting belief is the singleton $\{(R,0,0)\}$. A deterministic transition is a function but need not be injective. Set images remove duplicate successors; two possibilities can merge. Conversely, a deterministic action cannot increase the cardinality of a finite belief set before observations, while a nondeterministic action can branch one state into several. These facts concern support sets, not a claim that entropy always decreases under every operation.
+---RULE---
+A deterministic action's set image can merge possibilities. Right maps both clean-room location states to $(R,0,0)$, reducing support size from two to one; injectivity must not be assumed.
+@@ 54|Observation filtering versus state prediction|Original mathematical problem
+A belief contains $(L,1,0),(L,0,1),(R,1,1)$. The agent executes Right, then observes the right room clean. Find the posterior belief set in the reliable vacuum model.
+---SOLUTION---
+First propagate Right to obtain $(R,1,0),(R,0,1),(R,1,1)$. The right-clean percept retains only states with $d_R=0$, leaving $\{(R,1,0)\}$. Filtering the original states for current position R before predicting would retain only $(R,1,1)$ and then wrongly conclude the clean observation impossible. The new observation describes the state after the previous action, so prediction must precede filtering. The result tells us the left room remains dirty even though the sensor is local, because the prior possibilities and action constrain it.
+---RULE---
+For an action followed by an observation, predict successors and then filter. Right applied to $\{(L,1,0),(L,0,1),(R,1,1)\}$ followed by right-clean leaves only $(R,1,0)$.
+@@ 55|An exact abstraction must preserve legality|Original proof problem|key-main
+An abstraction merges key-present and key-absent states at one door. Open is legal only with the key. Explain why defining the abstract legal actions as their union can create a false solution.
+---SOLUTION---
+The union includes Open because it is legal in the key-present state. The abstract state then admits a plan beginning with Open. If the actual detailed state lacks the key, that first step cannot execute. The plan is therefore not uniformly realizable from all detailed states represented by the abstract state. An exact abstraction needs matching legal actions for equivalent states, or an explicit refinement/precondition that distinguishes the cases. A relaxed union can be useful for lower-bound reasoning, but must not be presented as an exact executable plan model.
+---RULE---
+Unioning legal actions of merged states can create unrealizable abstract plans. At a door, merging key/no-key states and allowing Open loses exactness unless preconditions or refinement restore the distinction.
+@@ 56|Transition agreement without cost agreement is insufficient|Original mathematical problem
+Two detailed states map to abstract X. Both permit action a and reach abstract goal G. The action costs 1 from one detailed state and 9 from the other. Can the abstraction assign one exact cost to edge X→G?
+---SOLUTION---
+No single number equals both detailed costs. Successor and goal agreement preserve reachability here, but not exact path cost. Assigning cost one is a lower bound for the second state, while assigning nine overestimates the first. Either retain the variable causing the difference, use a state-conditioned refinement, or explicitly label a relaxed cost model. The claim being preserved matters: an abstraction may correctly answer “can the goal be reached?” while giving incorrect optimal-cost answers.
+---RULE---
+Exact optimal-cost abstraction needs cost agreement as well as matching successors and goals. An edge costing 1 or 9 in merged states cannot receive one exact abstract cost; a lower bound is a different guarantee.
+@@ 57|Goal disagreement breaks abstraction|Original conceptual problem
+Two states share the same location, but one has completed all deliveries and the other has not. A location-only goal test marks that location as a goal. Identify the error and a repair.
+---SOLUTION---
+The abstraction merges states with different goal status, so its goal predicate is not well-defined as an exact representation. It accepts the incomplete-delivery state. Retain a bit mask of unfinished deliveries, or another sufficient task-progress summary, and define the goal as the empty mask at the required location. If every delivery is uniquely determined by location under additional rules, the mask may be redundant, but that must be proved. A convenient goal test cannot recover information intentionally discarded by the state representation.
+---RULE---
+Equivalent detailed states must agree on goal status for an exact goal abstraction. Location alone cannot distinguish completed from unfinished deliveries; retain the remaining-delivery mask unless it is provably determined by other state variables.
+@@ 58|Depth and cost can rank plans differently|Original mathematical problem|graph-main
+Plan A has two actions costing 100 each. Plan B has three actions costing one each. Which is shallowest and which is cheapest? Under what simple condition do depth and cost always agree?
+---SOLUTION---
+A has depth two and cost 200. B has depth three and cost three. Thus A is shallower while B is cheaper. If every action has the same strictly positive cost c, a depth-d plan has cost cd, so minimizing depth and minimizing cost coincide. Zero common cost makes all costs tie regardless of depth; negative common cost favours longer paths and can fail to admit a minimum with cycles. The positive-cost condition is essential to strict agreement.
+---RULE---
+Depth orders plans by action count, not arbitrary cost. Two edges of 100 cost more than three edges of one. Equal strictly positive step cost makes total cost a positive multiple of depth.
+@@ 59|A finite graph can generate an infinite search tree|Original mathematical problem|cycle-main
+A state graph has vertices X and G, with actions X→X and X→G. Count distinct states and the number of distinct finite solution paths. Explain the difference from search nodes.
+---SOLUTION---
+There are two physical states. For every nonnegative integer k, taking the self-loop k times and then moving to G gives a distinct finite action sequence. Thus there are infinitely many solution paths and corresponding search-tree prefixes even though the state graph is finite. If the self-loop costs one, the zero-loop solution is cheapest; if it costs zero, all these solutions have equal cost; if it costs −1, their costs decrease without bound and no minimum exists. Search nodes retain path identity rather than merely naming a state.
+---RULE---
+A finite state graph need not give a finite search tree. With X→X and X→G, there are two states but infinitely many finite goal paths; a negative-cost self-loop also destroys existence of a cheapest solution.
+@@ 60|Zero-length solution versus failure|Original conceptual problem
+A search API returns an empty action list both when the initial state is already a goal and when no goal is reachable. Explain the ambiguity and specify a repair.
+---SOLUTION---
+An empty list is a valid zero-cost plan when the initial state satisfies the goal, because no action is needed. For an unreachable goal it does not denote a successful plan. Returning the same untagged value prevents the caller from deciding whether to celebrate completion or report failure. Use an explicit failure sentinel distinct from lists, or a result object containing a success flag and action list. If failure uses null, an empty list can consistently mean a successful zero-length plan.
+---RULE---
+The empty plan can be a valid solution when the start is already a goal. Use a separate failure sentinel or success flag; the same untagged empty list cannot represent both outcomes unambiguously.
+@@ 61|Finite-horizon policy count|Original mathematical problem
+There are four states and three legal actions in every state. Count stationary deterministic state policies and fully specified nonstationary deterministic policies over two decision times.
+---SOLUTION---
+A stationary policy assigns an action independently to four states, giving $3^4=81$. A time-indexed policy assigns an action to each of four states at each of two times, giving $3^{4\cdot2}=6561$. This is a full-table count including unreachable state-time pairs. If an episode terminates in certain states, action entries there may be omitted under a different convention. Nonstationarity expands the representational possibilities; it does not prove the optimum actually needs every additional degree of freedom.
+---RULE---
+With n states and a actions everywhere, stationary deterministic policies number $a^n$ and full H-step time-indexed tables number $a^{nH}$. For n=4,a=3,H=2, these are 81 and 6561.
+@@ 62|Legal action counts vary by state|Original mathematical problem
+Three states have 2, 3 and 1 legal actions respectively. Count stationary deterministic policies. Why is $3^3$ incorrect?
+---SOLUTION---
+Each state has its own permitted choices, so multiply $2\cdot3\cdot1=6$. The maximum branching factor three is not the legal action count at all states. Raising it to the number of states gives an upper bound 27 containing illegal assignments. If a terminal state is represented by zero legal actions, define whether its policy entry is omitted or a special Stop action is included; an unqualified product containing zero would otherwise suggest no policy exists even for a normally terminating task.
+---RULE---
+For independent stationary policy entries with state-specific nonempty action sets, policy count is $\prod_s|A(s)|$. Counts 2,3,1 give six policies, not $3^3$; terminal-state conventions must be explicit.
+@@ 63|Discount changes a sequential choice|Original mathematical problem|horizon-main
+Action A gives rewards 6 now and −10 next; B gives 1 now and 8 next. For $0\le\gamma\le1$, find the preferred action under two-step discounted return.
+---SOLUTION---
+Returns are $G_A=6-10\gamma$ and $G_B=1+8\gamma$. Subtract to obtain $5-18\gamma$. A is unique for $\gamma<5/18$, both tie at $5/18$, and B is unique for larger gamma. At gamma zero only the immediate reward matters and A wins. At gamma one, A returns −4 while B returns 9. This demonstrates why a greedy immediate-reward comparison is insufficient once future consequences count.
+---RULE---
+For rewards A=$(6,-10)$ and B=$(1,8)$ over two steps, discounted return difference is $5-18\gamma$. A wins below $5/18$, B above it, with a tie at equality.
+@@ 64|Bounding an infinite discounted return|Original proof problem
+Rewards satisfy $|r_t|\le3$ and discount is $\gamma=4/5$. Prove an absolute bound on the infinite return and on the omitted tail after the first ten rewards.
+---SOLUTION---
+The triangle inequality gives $|G|\le\sum_{t=0}^{\infty}3(4/5)^t=3/(1-4/5)=15$. After rewards at indices 0 through 9, the remaining absolute tail is at most $\sum_{t=10}^{\infty}3(4/5)^t=15(4/5)^{10}$. This bound is deterministic and therefore also bounds the absolute expected tail. It relies on bounded rewards and a discount below one. With gamma one, the same estimate diverges; a finite horizon or other convergence assumption is required.
+---RULE---
+Bounded discounted rewards obey $|G|\le R/(1-\gamma)$ and tail after H terms at most $R\gamma^H/(1-\gamma)$. For R=3 and gamma=4/5, these are 15 and $15(4/5)^{10}$ after ten terms.
+@@ 65|Random terminal time complicates reward shifts|Original mathematical problem
+Policy A receives reward 1 then terminates. Policy B receives rewards 0,0 then terminates. Compare undiscounted returns before and after adding 2 to every executed step reward. Does this contradict affine utility invariance?
+---SOLUTION---
+Original returns are 1 for A and 0 for B, so A wins. After the per-step shift, A returns 3 while B returns 4, so B wins. The total added quantity is two times the episode length, which differs by policy. Therefore the transformation is not one common affine transformation of complete-run utility. If both runs had the same fixed length, a common per-step shift would add the same constant and preserve ranking. Affine invariance applies to outcome/run utilities under one common transformation, not arbitrary policy-dependent additions.
+---RULE---
+Adding a constant to every executed reward can change variable-length episode rankings. Returns 1 over one step and 0 over two steps become 3 and 4 after adding two per step; this is not a common affine transformation of run utility.
+@@ 66|Probability of success versus expected reward|Original mathematical problem
+A succeeds with probability 9/10 and pays 1 on success, 0 otherwise. B succeeds with probability 1/2 and pays 4 on success, 0 otherwise. Compare maximizing success probability and maximizing the stated expected payoff.
+---SOLUTION---
+Success probability favours A because $9/10>1/2$. Expected payoff gives A=$9/10$ and B=$2$, favouring B. If utility were the success indicator for both actions, expected utility would equal success probability and select A. Here the stated rewards differ in magnitude, so the two objectives are not identical. “Goal achievement” must specify whether only success counts or whether different successful outcomes have different value.
+---RULE---
+Expected success-indicator utility equals success probability, but unequal success payoffs change the objective. A with success probability 9/10 and payoff one loses in expected payoff to B with probability one half and payoff four.
+@@ 67|Information cannot repair impossible actuation|Original conceptual and mathematical problem
+A sensor reveals the hidden state perfectly, but the agent has only one legal action. Can the signal improve optimized one-step decision utility if it has no direct environmental effect?
+---SOLUTION---
+With one legal action a, both before and after the signal the agent must choose a. Averaging conditional utility gives $\sum_yP(y)E[U(a)\mid y]=E[U(a)]$, so decision value is zero. The signal can improve predictions or explanations but cannot change the outcome through action in this model. A new actuator, a timing choice or a future action opportunity would change the feasible policy set and could make information valuable. Sensors and actuators affect different sides of the decision problem.
+---RULE---
+In a one-step task with one legal action and a noninterfering sensor, information has zero action-selection value by total expectation. Perfect observation cannot compensate for a missing control choice.
+@@ 68|Observation accuracy is not task value|Original mathematical problem
+The prior of H is 1/100. A pays 1 in H and −100 in L; B pays 0 in both. A sensor is correct with probability 9/10 in either state. Is a positive sensor result enough to choose A?
+---SOLUTION---
+Positive H mass is $9/1000$ and positive L mass is $99/1000$, so the posterior is $9/108=1/12$. A is preferred only when $p-100(1-p)\ge0$, or $p\ge100/101$. The posterior $1/12$ is far below that threshold, so choose B after the positive signal. A nominally 90%-accurate sensor is not the same as a 90% posterior, and even a high posterior might be insufficient under a large false-positive loss. Prior rarity and utility asymmetry both matter.
+---RULE---
+Sensor accuracy alone does not determine action. With prior 1/100, symmetric accuracy 9/10 and A payoffs $(1,-100)$ versus zero, a positive signal yields posterior 1/12, far below the required 100/101.
+@@ 69|Optimal action under an interval of priors|Original mathematical problem
+A pays $(12,-4)$ and B pays $(5,5)$. The prior p is only known to lie in $[1/4,3/4]$. Choose a fixed action by maximin expected utility over that interval.
+---SOLUTION---
+A has expectation $16p-4$, increasing in p, so its worst expectation on the interval occurs at $p=1/4$ and equals zero. B has expectation five throughout. Maximin over the stated prior uncertainty chooses B. At the single known prior $p=3/4$, expected utility would instead choose A with value eight. Robust optimization over a set of plausible priors is a different problem from substituting the interval midpoint or optimizing separately at each prior without knowing which applies.
+---RULE---
+For uncertain prior p in $[1/4,3/4]$, A=$(12,-4)$ has worst expected value zero while B=$(5,5)$ has five, so a fixed maximin-over-priors decision chooses B. A known p=3/4 would choose A instead.
+@@ 70|Sensitivity of expected utility to probability error|Original proof and calculation problem
+For A=$(12,-4)$ and B=$(5,5)$, a model estimates $\widehat p$ with $|p-\widehat p|\le\varepsilon$. Bound the error in the A-versus-B expected-utility difference. When is the estimated preference certified?
+---SOLUTION---
+The difference is $D(p)=16p-9$. Thus $|D(p)-D(\widehat p)|=16|p-\widehat p|\le16\varepsilon$. If $D(\widehat p)>16\varepsilon$, the true difference stays positive, certifying A. If $D(\widehat p)<-16\varepsilon$, it stays negative, certifying B. Otherwise the uncertainty interval may cross the tie threshold and the sign is not certified by this bound. For $\widehat p=3/5$ and $\varepsilon=1/100$, estimated difference is $3/5$, exceeding $4/25$, so A is certified.
+---RULE---
+For A=$(12,-4)$ versus B=$(5,5)$, prior error epsilon changes the utility difference by at most $16\varepsilon$. A preference is sign-certified when its estimated margin exceeds that bound; p-hat=3/5 and epsilon=1/100 certify A.
+@@ 71|A maintenance property needs trajectory information|Original state-counting problem
+A navigation model has ten positions. To distinguish whether any collision has occurred, add a Boolean flag. Count the syntactic augmented states, and explain why the count may exceed the reachable count.
+---SOLUTION---
+The Cartesian product has $10\cdot2=20$ position-flag combinations. The transition updates the flag by logical OR with whether the new step collides; once true, it remains true. A start with flag false may not reach every flagged position if the map prevents collisions or if collision terminates the episode. Therefore 20 is the syntactic representation count, not necessarily the reachable count. The augmentation makes the property “no collision has ever occurred” a current-state predicate, enabling a terminal test to evaluate the history requirement.
+---RULE---
+A Boolean “ever collided” flag doubles ten position states to twenty syntactic combinations and makes past safety visible to a state predicate. Reachability and collision-termination rules can reduce the actual reachable set.
+@@ 72|Joint actions with a shared resource|Original mathematical problem
+Three labelled robots independently choose Idle or Charge, but at most one may charge at a time. Count legal joint actions and compare with the unconstrained product.
+---SOLUTION---
+The unconstrained product has $2^3=8$ triples. Legal choices are all Idle, or exactly one specified robot charging. There is one all-idle choice and three one-charge choices, for four legal actions. Equivalently sum $\binom30+\binom31=4$. Multiplying per-robot action counts ignores the shared charger constraint. If at most two robots could charge, the count would become $1+3+3=7$, excluding only all three charging.
+---RULE---
+Shared resources couple joint actions. Three Idle/Charge robots with at most one charger user have four legal joint commands, not eight; count by permitted charging subsets.
+@@ 73|Current observation versus remembered parameter|Original conceptual problem
+A robot sees its exact position but does not know whether the movement command is reversed. Is the task fully observable, known, both or neither? Explain how the answer depends on the declared state.
+---SOLUTION---
+If the state is declared to be position and the reversal is an unknown fixed transition parameter, position is fully observed but the dynamics are unknown. If the physical state includes the hidden reversal bit, the same sensor does not reveal the full augmented state, so the task is partially observable as well. Both descriptions can model the same situation at different levels. State the representation before assigning labels. Learning the reversal may make the agent's effective model known without changing the physical sensor.
+---RULE---
+Environment labels depend on the declared representation. Exact position with an unknown reversal parameter is fully observed position but unknown dynamics; including the hidden parameter in physical state also makes that state partially observed.
+@@ 74|Changing the objective changes sufficient state|Original conceptual problem
+A robot's map and position suffice to reach a fixed destination. The objective changes to collecting every token before arrival. What extra state is generally required, and why is token count alone insufficient?
+---SOLUTION---
+Retain the set or bit mask of remaining token locations. Two histories can have the same position and the same number of remaining tokens but leave tokens in different rooms. Their optimal next routes and goal status after a move can differ. A count alone loses the identity needed for transitions and planning. If the token locations are symmetric under all relevant dynamics and goals, a smaller quotient may be justified, but not in a general map. Sufficient state is relative to the objective as well as the physical movement model.
+---RULE---
+Collect-all objectives generally require a remaining-item mask, not merely position or item count. Equal counts at different locations can require different next routes; a smaller summary needs a proved symmetry.
+@@ 75|A constrained elevator with a sufficient moving state|Reconstruction of CMU 15-281 Lecture 1 activity, with new data and explicit transition requirements
+An elevator has six floors, two door states when stopped, and five between-floor segments with two movement directions each. Moving doors must be closed. Count configurations, then state what further information a passenger-serving task may need.
+---SOLUTION---
+Stopped configurations number $6\cdot2=12$. Moving configurations number $5\cdot2=10$, since each segment permits up or down and only a closed-door state. Total is 22. A continuous physical model may also need position within the segment and velocity; the stated discrete segment model intentionally abstracts those. Passenger service additionally needs outstanding requests, occupancy, capacity and possibly destination commitments. The count is exact for the specified configuration variables, not proof that those variables suffice for every elevator objective.
+---RULE---
+Six stopped floors with two door states and five directed moving segments give $12+10=22$ configurations when moving doors are forced closed. Passenger requests or continuous position are additional state variables if the task requires them.
+@@ 76|A simple rule can encode a winning plan|Reconstruction of CMU 15-281 candy activity, changed initial count and independently proved pattern|takeaway-main
+Two players alternately remove one or two counters; taking the last wins. With 14 counters and perfect play, give a winning first action and prove the pattern without enumerating the whole game tree.
+---SOLUTION---
+Zero counters is losing for the player to move. By induction, positive multiples of three are losing: either legal removal leaves a nonmultiple, while any nonmultiple can remove its remainder modulo three to leave a multiple. After the opponent removes one or two, respond with two or one so each pair removes three. Since 14 has remainder two, remove two and leave 12. This proves a winning rule for this finite normal-play game. It illustrates how an offline proof can yield a tiny reactive policy; reversing the last-counter rule changes the base case and the strategy.
+---RULE---
+In the one-or-two normal-play takeaway game, multiples of three are losing positions. From 14, remove two to leave 12, then make each pair of turns remove three. Changing the terminal winning rule requires a new proof.
+@@ 77|A board arrangement need not be a full chess state|Reconstruction of Edinburgh INF2D Lecture 1 chess discussion, with explicit state-sufficiency analysis
+Two chess histories produce the same piece arrangement and side to move, but in one history a king moved and returned, and in the other it never moved. Can arrangement and side to move determine every legal move?
+---SOLUTION---
+No. Castling eligibility depends on whether the king or relevant rook moved previously, even if the pieces returned to the same squares. When all other castling conditions hold, one history permits castling and the other does not. Therefore the proposed state merges different legal-action sets. Include castling rights, en-passant information and relevant draw-history information according to the rules being modelled. This does not make standard chess intrinsically hidden-information; a full publicly known rule state can include those history summaries.
+---RULE---
+Same chess arrangement and side to move can have different castling rights after different histories. Include rule-relevant history summaries; an incomplete board-only representation must not be confused with intrinsic hidden information.
+@@ 78|A transition distribution must be normalized|Reconstruction of Stanford CS221 Markov Decisions modelling, independently constructed data
+A proposed stochastic action has successor weights 2,3,5. Turn them into a transition distribution and calculate expected successor utility for utilities 4,0,−2. What if the entries were already claimed to be probabilities?
+---SOLUTION---
+As nonnegative weights, divide by the total ten to get probabilities $1/5,3/10,1/2$. The expected utility is $(1/5)4+(3/10)0+(1/2)(-2)=4/5-1=-1/5$. If 2,3,5 were literally asserted to be probabilities, the model is invalid: values exceed one and sum to ten. Normalization is justified for declared weights, not an automatic repair of any flawed probability statement. The transition distribution also needs an explicit successor-state association for each entry.
+---RULE---
+Declared nonnegative successor weights 2,3,5 normalize to $1/5,3/10,1/2$ and yield utility $-1/5$ for successor utilities 4,0,−2. Entries already labelled probabilities must satisfy the probability axioms rather than being silently reinterpreted.
+@@ 79|Bounded implementability changes the optimization domain|Reconstruction of Michael Wooldridge Lecture 2 bounded-agent distinction, independently constructed data
+Three behavioural functions have expected utilities 9,8,6. Only the latter two can be implemented within a specified architecture's memory and deadline. Identify the unrestricted and bounded optima. What changes if the utility-9 function becomes implementable?
+---SOLUTION---
+Over all three functions, the unrestricted optimum is the utility-9 function. Over the implementable subset, the best is the utility-8 function. This is a restriction of the feasible optimization domain, not an assertion that eight is globally best. If the utility-9 function becomes implementable without changing utilities or costs, the bounded optimum rises to nine. Enlarging a feasible set cannot lower its maximum when the objective is unchanged. If additional hardware costs utility, include them before making that monotonicity comparison.
+---RULE---
+Bounded optimality maximizes over implementable behaviours on the specified architecture. Utilities 9,8,6 with only 8 and 6 feasible give bounded optimum 8; adding the 9 behaviour cannot lower the same objective's optimum.
+@@ 80|Synthesis: choose representation, sensor and action|Original hard mathematical and conceptual synthesis|voi-main
+A hidden condition H has prior 3/10. Action A gives $(12,-4)$ and B gives $(5,5)$. A sensor has positive likelihoods $(4/5,1/5)$ and costs 1/4. The condition stays fixed while sensing. Specify a complete optimal policy, its expected net utility, the information state required and one assumption whose removal invalidates the calculation.
+---SOLUTION---
+Without sensing, B is optimal at utility five. Positive-signal probability is $19/50$ and posterior $12/19$, which exceeds the decision threshold $9/16$, so take A. Negative probability is $31/50$ and posterior $3/31$, which is below the threshold, so take B. Optimized value after sensing is $271/50$, and net value is $271/50-1/4=517/100$, exceeding five by $17/100$. Thus buy the sensor, then execute the contingent action rule. A sufficient information state includes the posterior or, for this fixed single-use model, the observed signal and known prior/likelihoods. A generic current percept unrelated to the signal is insufficient. If H can change during sensing, first predict its new distribution; if sensor delay costs utility, subtract that too. The conclusion is exact for the stated finite model.
+---RULE---
+For prior 3/10, likelihoods 4/5 and 1/5, A=$(12,-4)$, B=$(5,5)$ and sensing cost 1/4, buy the signal, choose A after positive and B after negative. Net expected utility is $517/100$, a gain of $17/100$, assuming the hidden state and action opportunities do not change during sensing.

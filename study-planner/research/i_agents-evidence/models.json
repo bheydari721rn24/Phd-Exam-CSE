@@ -1,0 +1,91 @@
+{
+  "models": 17,
+  "checkpoints": 69,
+  "inventory": [
+    {
+      "id": "loop-main",
+      "kind": "agent-loop",
+      "checkpoints": 4
+    },
+    {
+      "id": "risk-main",
+      "kind": "utility-bars",
+      "checkpoints": 3
+    },
+    {
+      "id": "threshold-main",
+      "kind": "probability-threshold",
+      "checkpoints": 5
+    },
+    {
+      "id": "alias-main",
+      "kind": "history-aliasing",
+      "checkpoints": 3
+    },
+    {
+      "id": "common-action",
+      "kind": "payoff-table",
+      "checkpoints": 3
+    },
+    {
+      "id": "posterior-main",
+      "kind": "belief-bars",
+      "checkpoints": 3
+    },
+    {
+      "id": "voi-main",
+      "kind": "information-tree",
+      "checkpoints": 4
+    },
+    {
+      "id": "vacuum-main",
+      "kind": "vacuum-motion",
+      "checkpoints": 4
+    },
+    {
+      "id": "sensorless-main",
+      "kind": "vacuum-belief-set",
+      "checkpoints": 5
+    },
+    {
+      "id": "key-main",
+      "kind": "state-legality-graph",
+      "checkpoints": 2
+    },
+    {
+      "id": "graph-main",
+      "kind": "state-versus-node",
+      "checkpoints": 3
+    },
+    {
+      "id": "cycle-main",
+      "kind": "state-cycle",
+      "checkpoints": 4
+    },
+    {
+      "id": "horizon-main",
+      "kind": "discount-bars",
+      "checkpoints": 5
+    },
+    {
+      "id": "takeaway-main",
+      "kind": "counter-game",
+      "checkpoints": 10
+    },
+    {
+      "id": "peas-main",
+      "kind": "task-specification",
+      "checkpoints": 4
+    },
+    {
+      "id": "learning-main",
+      "kind": "learning-architecture",
+      "checkpoints": 4
+    },
+    {
+      "id": "regret-main",
+      "kind": "regret-table",
+      "checkpoints": 3
+    }
+  ]
+}

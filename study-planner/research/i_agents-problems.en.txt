@@ -1,0 +1,240 @@
+@@ 1|Percept histories are not physical states|Original mathematical problem
+An agent has three possible percepts and two possible actions. It acts after each history of length one or two. Count unrestricted deterministic agent functions and memoryless percept policies. Explain the difference.
+---SOLUTION---
+There are $3$ histories of length one and $3^2=9$ of length two, so a full table has $12$ independent entries. Each entry selects one of two actions, giving $2^{12}=4096$ tables. A memoryless policy assigns one action to each of three current percepts, giving $2^3=8$ policies. The full table can choose different actions after histories $(x,z)$ and $(y,z)$, while the memoryless policy must use the same action for both because their final percept is $z$. This is a syntactic count over all histories; a fixed environment may make some histories unreachable, so distinct tables can behave identically there.
+---RULE---
+With $p$ percepts, $a$ actions and decisions after lengths $1$ through $H$, unrestricted tables number $a^{\sum_{t=1}^H p^t}$; memoryless policies number $a^p$. For $p=3,a=2,H=2$, the counts are $4096$ and $8$. Specify whether unreachable histories are counted.
+@@ 2|The empty-history convention|Original mathematical problem
+There are two percepts, three actions and a horizon of two percepts. How does permitting an action before any percept change the agent-function count?
+---SOLUTION---
+Without an initial action, table entries correspond to $2+4=6$ nonempty histories, so there are $3^6=729$ functions. If an action is also assigned to the empty history, one additional entry appears. It can independently choose one of three actions, giving $3^7=2187$. The factor is three, not a factor of two or an extra history at every depth. This convention does not change the environment's physical state count; it changes the domain on which the behavioural function is specified.
+---RULE---
+An empty-history decision adds exactly one table entry. With two percepts, three actions and nonempty lengths through two, the count changes from $3^6$ to $3^7$ when an initial action is included.
+@@ 3|One percept does not eliminate time dependence|Original mathematical problem
+An agent always observes the same percept and chooses from four actions over five decisions. Count arbitrary history-based functions on these decision histories and stationary memoryless policies.
+---SOLUTION---
+There is exactly one history of each length, so the five decision histories are distinct by length even though every symbol is identical. Each can receive any of four actions, producing $4^5=1024$ functions. A stationary memoryless policy sees only the current symbol, not its occurrence count, and must select the same action each time. It has four possibilities. A controller with a clock can implement a nonstationary sequence, but that clock is internal state and is not part of a stationary current-percept-only rule.
+---RULE---
+For one percept and $H$ decisions, arbitrary history-based tables number $a^H$, whereas stationary memoryless rules number $a$. A constant percept does not erase history length; with $a=4,H=5$, the counts are $1024$ and $4$.
+@@ 4|Reachable histories versus all tables|Original conceptual and counting problem
+Two percepts are syntactically possible, but a deterministic environment always emits X on both of two decisions regardless of action. With three actions, count full tables on nonempty histories through length two and distinct behaviours in this environment.
+---SOLUTION---
+The full domain contains $2+4=6$ histories and therefore $3^6=729$ tables. Only X and XX are reachable. Behaviour in this environment is specified by the action on X and the action on XX, giving $3^2=9$ behaviours. Each behaviour is implemented by $3^4=81$ tables differing only at unreachable histories. The counts satisfy $9\cdot81=729$. Reachability is independent of action here by explicit assumption; in a general environment one must compute reachability under each policy before using this simplification.
+---RULE---
+Unreachable table entries do not distinguish behaviour in a fixed environment. If only X and XX occur, three actions give $9$ reachable behaviours even though a two-percept full table through depth two has $729$ assignments.
+@@ 5|Contingent policy count|Original mathematical problem
+A two-stage decision has two first actions, three possible observations after either first action, and four second actions after each observation. Count full deterministic contingent policies and fixed action sequences.
+---SOLUTION---
+Choose the first action in two ways. For that chosen action, select one of four second actions separately for each of three possible observations, giving $4^3$ continuations. There are $2\cdot4^3=128$ contingent policies. A fixed sequence ignores the observation, so it has only $2\cdot4=8$ possibilities. This counts executable policies from the given start, not a table assigning unused continuations after the first action that was not chosen. Such a larger table would contain behaviourally irrelevant entries and would have a different count.
+---RULE---
+From a fixed start with $a$ first choices, $p$ possible subsequent observations and $b$ second choices, executable depth-two policies number $ab^p$, while fixed sequences number $ab$. For $(a,p,b)=(2,3,4)$, these are $128$ and $8$.
+@@ 6|Counting a specified finite controller|Original mathematical problem
+A deterministic Moore controller has two labelled internal states, three percepts and two actions. It updates state from the old internal state and current percept, then outputs the action assigned to the new state. Count syntactic controllers, including the initial internal state.
+---SOLUTION---
+The update table has $2\cdot3=6$ entries, each selecting one of two internal states, giving $2^6$ possibilities. The action table has two entries, each selecting one of two actions, giving $2^2$ possibilities. The initial internal state has two choices. Multiply to obtain $2\cdot2^6\cdot2^2=512$. This is a labelled syntactic count: isomorphic state renamings or unreachable internal states can implement the same behaviour. A Mealy controller whose output also depends directly on the percept has another signature and must be counted separately.
+---RULE---
+Count a controller from its declared function signatures. For a two-state, three-percept Moore controller with two output actions, update choices, output choices and initial-state choices give $2^6\cdot2^2\cdot2=512$ labelled implementations.
+@@ 7|Vacuum configurations and belief subsets|Original mathematical problem
+A two-room vacuum has a labelled position and two independent dirt bits. Count physical states, nonempty belief subsets, and the physical states compatible with percept (L, clean).
+---SOLUTION---
+The physical count is $2\cdot2\cdot2=8$. Every subset of these eight states is a syntactically possible set belief, so there are $2^8-1=255$ nonempty subsets. The given percept fixes position L and dirt bit $d_L=0$, leaving $d_R$ free. Exactly two states remain: $(L,0,0)$ and $(L,0,1)$. Neither $255$ nor two is the physical state-space size. Moreover, not all $255$ subsets must be reachable under the particular transition and sensor model.
+---RULE---
+Separate physical states from belief subsets and observation-compatible states. A two-room vacuum has $8$ physical states and $255$ nonempty syntactic belief subsets; observing (L, clean) leaves exactly $2$ physical possibilities.
+@@ 8|Exactly k dirty rooms|Original mathematical problem
+A robot can occupy any of six labelled rooms, and exactly two rooms are dirty. Count configurations when occupation of a dirty room is allowed, and when the robot must occupy a clean room.
+---SOLUTION---
+With unrestricted location, choose the two dirty rooms in $\binom62=15$ ways and then choose any of six locations, giving $90$. Under the clean-location condition, each dirty-room choice leaves four allowed locations, giving $15\cdot4=60$. Equivalently, choose the robot's location first in six ways and select two dirty rooms among the other five: $6\binom52=60$. The equality checks the constraint count. Multiplying $6\cdot2^6$ would include dirt patterns with the wrong number of dirty rooms.
+---RULE---
+For $n$ labelled rooms and exactly $k$ dirty rooms, unrestricted robot configurations number $n\binom nk$; requiring a clean robot location gives $(n-k)\binom nk=n\binom{n-1}k$. For $n=6,k=2$, the counts are $90$ and $60$.
+@@ 9|Constraints can couple choices|Original mathematical problem
+An elevator has ten possible stopped floors and one aggregate moving state. At a stopped floor its doors may be open or closed. While moving they must be closed. Count legal states and explain why this is not a complete route-planning state.
+---SOLUTION---
+There are $10\cdot2=20$ stopped states and one legal moving state, giving $21$. The naive product $11\cdot2=22$ includes the forbidden moving-with-open-doors combination. For route planning, one aggregate moving state generally omits the direction and the segment or destination, so its next floor is not determined. The count is correct for the explicitly declared coarse status model, but it does not establish that the model is sufficient for predicting elevator movement.
+---RULE---
+Count legal combinations before judging predictive sufficiency. Ten stopped floors with either door state plus a single closed-door moving state give $21$ coarse states; direction and segment may still be required for a Markov movement model.
+@@ 10|Labelled robots and collision exclusions|Original mathematical problem
+Two labelled robots occupy distinct rooms among four, and each room has an independent dirt bit. Count states. When can the robots be treated as indistinguishable?
+---SOLUTION---
+Choose the first robot's room in four ways and the second's in three, then choose four dirt bits in $2^4$ ways. The count is $4\cdot3\cdot16=192$. If exchanging robot labels preserves actions, dynamics, sensor roles and performance, unordered occupied-room sets have $\binom42=6$ choices and the quotient count is $6\cdot16=96$. Different batteries, capacities or destinations can invalidate that symmetry. The smaller count is justified by a model invariance, not by the robots merely looking similar.
+---RULE---
+Two labelled robots in distinct rooms contribute $n(n-1)$ position choices. Replacing this by $\binom n2$ requires complete symmetry under label exchange. With four independent dirt bits and four rooms, the labelled count is $192$, and the symmetric quotient is $96$.
+@@ 11|Expected utility despite an unlucky outcome|Original mathematical problem|risk-main
+Safe pays 4 certainly. Risky pays 10 with probability 3/5 and −2 otherwise. Under utility equal to the numerical payoff, which action is rational? Does a realized −2 refute that answer?
+---SOLUTION---
+Compute the risky expectation by weighting both outcomes: $(3/5)10+(2/5)(-2)=6-4/5=26/5$. Safe has expectation $4=20/5$, so risky is better by $6/5$. A realized loss of −2 has probability $2/5$ under the model and is compatible with the optimal decision. To challenge the decision, one would need to challenge the probabilities, utilities, available alternatives or evaluation criterion. Judging the choice using future information the agent did not have confuses rationality with omniscience.
+---RULE---
+Expected-utility optimality does not imply success in every run. A lottery paying $10$ with probability $3/5$ and $-2$ otherwise has expectation $26/5>4$, although a loss occurs with probability $2/5$.
+@@ 12|A threshold different from one half|Original mathematical problem|threshold-main
+Action A pays 12 in H and −4 in L. Action B pays 5 in either state. Let $P(H)=p$. Derive the entire optimal-action set, including boundaries.
+---SOLUTION---
+The expectations are $EU(A)=12p-4(1-p)=16p-4$ and $EU(B)=5$. Their difference is $16p-9$. Thus B is uniquely optimal for $0\le p<9/16$, both are optimal at $p=9/16$, and A is uniquely optimal for $9/16<p\le1$. At $p=0$, A pays −4 and B pays 5; at $p=1$, A pays 12 and B pays 5, checking the inequality direction. Merely testing whether $p$ exceeds one half would choose A incorrectly throughout $(1/2,9/16)$.
+---RULE---
+For utilities A=$(12,-4)$ and B=$(5,5)$, the exact decision threshold is $p=9/16$. A is best above it, B below it, and both tie at equality; “H is more likely” is not a sufficient condition for choosing A.
+@@ 13|A negative coefficient reverses the inequality|Original mathematical problem
+A pays $(1,9)$ in states H,L, while B pays $(4,4)$. Find when A is preferred, and explain the boundary case.
+---SOLUTION---
+Here $EU(A)=p+9(1-p)=9-8p$ and $EU(B)=4$. The comparison $9-8p\ge4$ becomes $-8p\ge-5$. Dividing by a negative number reverses the inequality, giving $p\le5/8$. Both actions tie at $5/8$; A is unique below it and B unique above it. The endpoint check $p=1$ gives A=1 and B=4, confirming that A cannot be the high-p action. The algebraic sign has a concrete interpretation: increasing H probability hurts A.
+---RULE---
+When comparing A=$(1,9)$ with B=$(4,4)$, $EU(A)-EU(B)=5-8p$. Therefore A is optimal for $p\le5/8$, with equality a tie; division by a negative coefficient reverses the decision inequality.
+@@ 14|Weak dominance and zero-probability states|Original mathematical problem
+A pays $(7,3)$ and B pays $(7,1)$ in H,L. Is A always strictly better in expectation? Identify all ties.
+---SOLUTION---
+A is at least as good in both states and strictly better in L. The expectation difference is $2P(L)=2(1-p)$. It is positive for $p<1$, but equals zero when $p=1$. Thus weak statewise dominance implies no lower expectation, not unconditional strict preference. At $p=1$, L has no probability and its payoff difference contributes nothing. If a later observation assigns L positive posterior mass, the strict comparison can reappear.
+---RULE---
+Weak statewise dominance becomes strict in expectation only when strict improvement occurs on positive-probability states. A=$(7,3)$ and B=$(7,1)$ tie at $P(H)=1$ and differ by $2(1-p)$ otherwise.
+@@ 15|Positive affine utility transformation|Original proof problem
+Prove that replacing outcome utility $U$ by $3U-7$ preserves expected-utility action rankings. Why does this proof not cover squaring arbitrary utility values?
+---SOLUTION---
+For each action, expectation is linear, so $E[3U-7]=3E[U]-7$. Subtract the transformed expectations of A and B: the constants cancel and the difference is $3(E[U_A]-E[U_B])$. Multiplication by positive three preserves its sign and every tie. Squaring is nonlinear, so $E[U^2]$ is not generally $(E[U])^2$; it also fails to be increasing over all real utilities. For instance utilities −2 and −1 reverse order after squaring. Even an increasing nonlinear transformation on a restricted domain can change lottery rankings.
+---RULE---
+The transformation $U'=\alpha U+\beta$ preserves expected-utility rankings for $\alpha>0$ because differences scale by $\alpha$. For $3U-7$, ties and strict preferences are unchanged; nonlinear transformations require a fresh lottery comparison.
+@@ 16|Increasing outcome transformations can reverse lotteries|Original mathematical problem
+Lottery A pays 0 or 100 equally likely; B pays 40 certainly. Compare expected money and expected square-root utility.
+---SOLUTION---
+Expected money is $50$ for A and $40$ for B, so a money-linear decision maker chooses A. With $u(x)=\sqrt{x}$, A has expected utility $(0+10)/2=5$, while B has $\sqrt{40}$. Since $40>25$, $\sqrt{40}>5$, so B is preferred. The square-root function is increasing on nonnegative outcomes, preserving their certain-outcome order, but it is not affine and changes risk tradeoffs. Neither preference is inconsistent with rationality once the corresponding utility is specified.
+---RULE---
+Increasing utility transformations preserve certain-outcome order but can change lottery order. The lottery $(0,100)$ with equal probabilities beats a certain $40$ in expected money, but loses under square-root utility because $5<\sqrt{40}$.
+@@ 17|Expected utility versus maximin|Original mathematical problem
+A pays $(8,-2)$, B pays $(3,3)$, and $P(H)=4/5$. Compare the expected-utility and maximin choices.
+---SOLUTION---
+The expectation of A is $(4/5)8+(1/5)(-2)=6$, whereas B has expectation 3. Expected utility selects A. The worst payoff of A is −2 and of B is 3, so maximin selects B. Maximin does not use the supplied prior; it protects against the worst state. The conflict is a difference in criterion, not a calculation error. Without probabilities or an alternative criterion, a payoff table alone does not select a unique rational action.
+---RULE---
+Expected utility and maximin solve different optimization problems. For A=$(8,-2)$, B=$(3,3)$ and $P(H)=4/5$, expectation chooses A with $6>3$, while maximin chooses B with $3>-2$.
+@@ 18|Minimax regret is not maximin|Original mathematical problem
+Payoffs in H,L are A=$(10,0)$, B=$(6,5)$, C=$(0,8)$. Compute maximum regret and identify the minimax-regret action.
+---SOLUTION---
+The best payoff in H is 10 and in L is 8. Subtract each payoff from the best in the same state. A has regrets $(0,8)$, B has $(4,3)$ and C has $(10,0)$. Their maximum regrets are 8,4,10, so B uniquely minimizes worst regret. The worst payoffs are 0,5,0, so maximin happens to choose B here too, but for a different calculation. Regret must use statewise best payoffs; subtracting one global maximum 10 from both columns would create the wrong L regrets.
+---RULE---
+Compute regret relative to the best action separately in each state. For A=$(10,0)$, B=$(6,5)$, C=$(0,8)$, maximum regrets are $8,4,10$, and minimax regret chooses B.
+@@ 19|An objective proxy rewards the wrong action|Original mathematical and conceptual problem
+An agent can Clean, Announce or Stop. Clean removes one unit of dirt and costs 2; Announce changes no dirt and costs 0. A proposed reward is 3 per announcement. Over three actions, compare the reward-maximizing behaviour with maximizing dirt removed minus cost.
+---SOLUTION---
+Under the proposed proxy, three announcements yield 9 and dominate any sequence using Clean or Stop, which do not earn announcement reward. The world may remain dirty throughout. Under the alternative score “dirt removed minus cost”, one Clean gives $1-2=-1$, so with these numbers Stop gives the best score zero. This second criterion is also not a specification that prioritizes cleaning: its reward is too small to justify the cost. If cleaning is required, impose it as a goal/constraint or assign a consistent benefit. The analysis must inspect the actual numeric objective rather than assume its name expresses the desired behaviour.
+---RULE---
+Test a proposed score against all allowed actions. A reward of $3$ per costless announcement makes three announcements worth $9$ even without cleaning; a separate score of one per unit cleaned with cost two instead favours stopping. Neither name guarantees the intended task.
+@@ 20|A finite penalty is not a hard constraint|Original mathematical problem
+A safe delivery yields 20. An unsafe delivery yields $30-M$. Find the penalty needed to prefer the safe action here, then explain why no fixed finite penalty handles arbitrarily large unsafe benefits.
+---SOLUTION---
+Safe is at least as good if $20\ge30-M$, so $M\ge10$; it is uniquely better if $M>10$. At $M=10$ the actions tie, so a policy may still choose unsafe unless the tie rule excludes it. If the unsafe benefit can be any $B$, its penalized value is $B-M$. For any finite M, choose $B>20+M$ and unsafe wins. A hard safety constraint removes unsafe choices irrespective of reward magnitude. Finite penalties can enforce safety only with a justified bound and suitable tie handling.
+---RULE---
+For safe utility $20$ and unsafe utility $30-M$, strict safe preference requires $M>10$. Without a bound on unsafe benefit, no fixed finite penalty is equivalent to forbidding the action.
+@@ 21|Known is independent of deterministic|Original conceptual problem
+Classify a fair die with a known distribution and a door with an unknown but fixed code along the known/unknown and deterministic/stochastic axes. State the modelling assumptions.
+---SOLUTION---
+The die model assigns probability $1/6$ to each result under a roll. Its distribution is known, but the transition is stochastic. The door opens exactly when the entered code matches its fixed code. If the code is part of the physical state and the actuator is reliable, the transition is deterministic; the agent initially lacks the parameter. It is therefore unknown to that agent. A belief distribution over possible codes represents epistemic uncertainty and does not by itself make the fully specified door physics stochastic. Adding mechanical failure would change the transition model.
+---RULE---
+Knowledge and determinism are separate properties. A known fair-die distribution is stochastic; a reliable door with a fixed but unknown code is deterministic at the physical-state level and unknown to the agent.
+@@ 22|Hidden determinism can produce predictive uncertainty|Original mathematical problem
+A hidden bit Z is sampled once with $P(Z=1)=3/4$ and then remains fixed. The action Reveal deterministically emits Z. Is uncertainty about the next observation proof of a stochastic transition after Z is included in state?
+---SOLUTION---
+No. Conditional on the full state $Z=0$ or $Z=1$, Reveal has a unique observation and leaves the bit unchanged. The agent's predictive distribution is $P(o=1)=3/4$ because it does not know which fixed state is actual. Initial-state uncertainty produces a mixture of deterministic possibilities. If Reveal is repeated after the first result, the next result is certain under the model; treating each result as an independent Bernoulli draw would incorrectly allow the bit to change. The initial sampling can be stochastic while subsequent state transitions are deterministic.
+---RULE---
+Uncertainty over a fixed hidden state does not imply stochastic conditional dynamics. A bit sampled once with probability $3/4$ yields uncertain first revelation but identical repeated revelations; independent resampling is a different model.
+@@ 23|A static puzzle changes after action|Original conceptual problem
+A sliding puzzle changes only when the agent moves a tile. It remains unchanged while the agent computes. Is it static? What changes if a score decreases once per second of thought?
+---SOLUTION---
+The original task is static because no exogenous evolution occurs during deliberation. Its response to the agent's move is entirely compatible with static classification. If only the score decreases while the board remains fixed, the task is semidynamic: physical configuration is unchanged but performance depends on elapsed time. If elapsed time also makes moves illegal, represent time or deadlines in the state and describe that broader dynamics. The phrase “the environment ever changes” is too coarse to distinguish these cases.
+---RULE---
+A static environment may change as a result of the agent's action. A board fixed during thought is static; adding a clock penalty with the same board makes performance semidynamic.
+@@ 24|Independent inputs with coupled decisions|Original conceptual problem
+A classifier receives independent images, but can request at most two expensive annotations in a session of ten images. Is annotation choice episodic?
+---SOLUTION---
+No. Requesting an annotation uses part of the shared budget and changes the available actions on future images. The input distribution can remain independent while the decision problem is sequential. A sufficient state includes the remaining annotation budget and, for a finite horizon, the number of images remaining when future opportunities depend on it. Without the shared budget and with additive independent per-image losses, separate classification decisions could be episodic. Independence of observations is not independence of action consequences.
+---RULE---
+Independent observations do not establish an episodic task. A two-annotation budget shared across ten independent images couples decisions through the remaining budget, making annotation choice sequential.
+@@ 25|Discrete does not mean finite|Original conceptual and counting problem
+A sensor reports a nonnegative integer counter, and actions are Increment or Stop. Time advances in discrete steps. Is this a finite-state task? How does a cap at 20 change the answer?
+---SOLUTION---
+The uncapped state set $\{0,1,2,\ldots\}$ is countably infinite and discrete. Two actions and discrete time do not make the state set finite. With a hard cap at 20 and Increment defined to leave 20 unchanged, the counter has exactly 21 states. A stop/termination flag would add states if retained separately; it should not be silently included or excluded. In a finite horizon H from zero, only counters up to H may be reachable even in the uncapped physical model.
+---RULE---
+Discreteness and finiteness differ. An unbounded nonnegative integer counter is discrete and infinite; a capped counter from 0 through 20 has 21 counter states, before any separately declared termination flag.
+@@ 26|Single controller, several bodies|Original conceptual problem
+One central program chooses joint actions for three robots. An opposing team has its own program. Is the central program's task necessarily single-agent because it controls all three robots?
+---SOLUTION---
+It can treat its own three robots as one decision maker whose action is a triple. The independently controlled opposing team still creates a multi-agent interaction. The number of physical robots does not determine the number of strategic decision makers. If each robot has four possible commands and every joint combination is legal, the central action set has $4^3=64$ elements. Collision or communication constraints can remove combinations. A deterministic transition given both teams' joint commands does not remove uncertainty about the opponent's choice.
+---RULE---
+A central controller for three four-action robots has 64 unconstrained joint actions, but an independently choosing opposing controller still makes the task multi-agent. Count decision makers separately from physical bodies.
+@@ 27|Partial observability without a memory advantage|Original proof and counterexample problem|common-action
+Two hidden states produce the same percept. In both states action A gives utility 5 and action B gives utility 1. Prove that a memoryless policy is rational for any belief over the two states.
+---SOLUTION---
+Let the first state's probability be p. Then $EU(A)=5p+5(1-p)=5$ and $EU(B)=p+(1-p)=1$. A is uniquely optimal for all $p\in[0,1]$. The sensor is partially informative because it cannot distinguish the states, yet that distinction is irrelevant to the optimal choice. Memory might estimate p more accurately, but no p changes the maximizing action. This counterexample refutes the universal claim that every partially observable task requires memory for rational action.
+---RULE---
+Partial observability need not create a decision disadvantage. If A pays 5 and B pays 1 in both aliased states, A is uniquely optimal for every belief and no memory is needed for this choice.
+@@ 28|Aliased histories with incompatible optima|Original proof problem|alias-main
+The same current percept occurs after histories $h_1,h_2$. At $h_1$, utilities of A,B are $(10,0)$; at $h_2$, they are $(0,10)$. Can any current-percept-only deterministic or randomized rule be optimal at both histories?
+---SOLUTION---
+A deterministic rule outputs one action for that percept. A is uniquely optimal at the first history and B at the second, so neither fixed choice works at both. Let a randomized rule choose A with probability q. Its utility is $10q$ at $h_1$ and $10(1-q)$ at $h_2$. To reach the optimum ten at the first requires $q=1$, while at the second requires $q=0$. These conditions are incompatible. At least two distinguishable internal conditions, or an additional observation, are necessary to implement both optimal choices.
+---RULE---
+Identical percepts with different unique optimal actions rule out universal current-percept-only optimality. For utility pairs $(10,0)$ and $(0,10)$, randomization would require both $q=1$ and $q=0$; memory or additional information is needed.
+@@ 29|Overlapping optimal-action sets|Original mathematical problem
+Three histories share one percept. Their maximizing sets are $\{A,B\}$, $\{B,C\}$ and $\{B,D\}$. Does a rational deterministic reflex rule exist? What if the third set becomes $\{A,D\}$?
+---SOLUTION---
+Intersect the three sets. In the first case, the only common action is B, so selecting B is optimal at every history despite their different states. After changing the third set, the intersection of the first two remains $\{B\}$, but B is absent from $\{A,D\}$; the full intersection is empty. Pairwise considerations are not a substitute for the common intersection over all relevant histories. The result presupposes that these maximizing sets correctly incorporate the same task objective and continuation horizon.
+---RULE---
+A deterministic memoryless optimum exists for a percept class exactly when all its relevant maximizing sets share an action. The sets $\{A,B\},\{B,C\},\{B,D\}$ share B; replacing the third by $\{A,D\}$ destroys the common intersection.
+@@ 30|Goal achievement versus maintenance|Original conceptual problem
+A trajectory visits Safe, Collision, Destination. Does it satisfy “eventually reach Destination” and “never enter Collision”? Can a terminal test using only the final location distinguish it from Safe, Destination?
+---SOLUTION---
+The first trajectory reaches Destination and satisfies the achievement goal. It violates the maintenance requirement because it visited Collision. Both trajectories have the same final location, so a terminal predicate depending only on that location cannot distinguish their safety histories. Retain an “ever collided” bit or evaluate the entire trajectory. If collisions are absorbing and prevent reaching Destination, the task changes; that additional transition assumption must be stated rather than inferred from the word collision.
+---RULE---
+Achievement and maintenance are different predicates on runs. Safe→Collision→Destination reaches its destination but violates never-collide; a final-location-only test cannot detect the violation without a retained history flag.
+@@ 31|A compiled reflex policy can implement planning|Original conceptual problem
+A finite fully observed task has an optimal stationary policy computed offline. At runtime a table maps each observed state directly to its stored optimal action. Is runtime lookahead necessary for rationality?
+---SOLUTION---
+No. If the model, objective and sufficient state remain as assumed, the table implements the computed optimal policy directly. Its runtime mechanism is a state-conditioned response, although planning was used to construct it. Rationality concerns the chosen action under the task criterion, not whether the program visibly simulates futures every time. If the objective is finite-horizon and the optimal policy depends on time remaining, include time in the table key. An outdated model or incomplete percept can invalidate the offline policy's guarantee.
+---RULE---
+Online lookahead is not necessary when a correct optimal policy has been compiled for the observed sufficient state. A finite-horizon table may need a time key; changing the model or omitting relevant state invalidates the argument.
+@@ 32|Model-based does not mean online planning|Original conceptual problem
+A vacuum remembers whether each room has been verified clean, updates those bits from observations and applies fixed rules to move, clean or stop. Explain why it can be model-based and reflex at the same time.
+---SOLUTION---
+It is model-based because its persistent summary uses assumptions about cleaning, movement and whether dirt can recur. It is reflex in the architectural sense that action selection applies a rule to the updated internal condition rather than searching future action sequences at runtime. Memory and lookahead are separate design dimensions. If cleaning is unreliable, setting a clean bit from the command alone is unjustified; the controller must verify the result or represent uncertainty. Thus the model label requires actual transition/observation assumptions, not merely storing a variable.
+---RULE---
+A controller may be both model-based and reflex: it updates a persistent room-cleanliness model, then applies fixed action rules without online search. Unreliable cleaning requires verification or an uncertain state estimate.
+@@ 33|Learning without physical stochasticity|Original conceptual problem
+A robot explores a fixed deterministic maze whose map is initially unknown. Another robot navigates a stochastic maze with all transition probabilities supplied. Which one must learn a transition model?
+---SOLUTION---
+The first may need to acquire unknown map information to navigate effectively, although a particular easy goal could be achievable without learning the whole map. Determinism does not supply the missing map. The second already has its transition model; stochasticity alone does not require estimating it from experience. It can plan using the supplied probabilities. Both might learn useful policies or computational shortcuts, but those are separate tasks. “Must learn” needs a performance requirement and remaining opportunities, not only an environment label.
+---RULE---
+Unknown deterministic dynamics can motivate model learning; known stochastic dynamics need not. A fixed unmapped maze and a fully specified probabilistic maze separate knowledge from randomness.
+@@ 34|Exploration can cost more than it is worth|Original mathematical problem
+An experiment costs 5 utility units. Even with perfect information, all remaining action choices could improve expected utility by at most 2. Is the experiment rational if it has no other benefit?
+---SOLUTION---
+The information-induced improvement is bounded above by 2, and the cost is 5. Thus the net gain is at most $2-5=-3$. Not experimenting weakly improves utility by at least three relative to this experiment under the assumptions. Unknown parameters do not create an unconditional obligation to explore. If the experiment also produces direct reward or changes future available actions, include those effects and recompute the bound; the conclusion relies on their explicit exclusion.
+---RULE---
+Information acquisition is justified by net task value. If its total remaining benefit is at most 2 and its cost is 5, net gain is at most −3, so exploration is not rational under that criterion.
+@@ 35|Computation has an opportunity cost|Original mathematical problem
+A fast program selects an action worth 8 in expectation. A slower program selects an action worth 10, but delay costs 3. Compare net performance and give the general condition for using the slower computation.
+---SOLUTION---
+The fast program's net utility is 8. The slow program's net utility is $10-3=7$, so the fast program is better by one. In general let the expected improvement from extra computation be $\Delta$ and its total utility cost be c. Extra computation is worthwhile only if $\Delta>c$, with a tie at equality. This comparison must include environmental change during thought, computation cost and any deadline effects. Comparing only the selected action quality would omit part of the task performance.
+---RULE---
+More computation improves net performance only when its expected decision gain exceeds its total cost. Raising action utility from 8 to 10 at delay cost 3 gives net 7, below the fast program's 8.
+@@ 36|Current position omits a key|Original state-modelling problem|key-main
+At room X, action Open reaches the goal only if a key was collected earlier. Two histories end at X, one with a key and one without. Show why position alone is not a sufficient state and give a sufficient augmentation for this rule.
+---SOLUTION---
+Both histories map to the same position X, yet the action's legality or successor differs depending on the key. Therefore no single transition $T(X,\text{Open})$ captures both histories exactly. Use state $(x,k)$ with a key bit $k\in\{0,1\}$, assuming all other future-relevant information is already encoded in x. The two histories become $(X,1)$ and $(X,0)$ and their different action outcomes are well-defined. This is a concrete violation of the Markov/sufficiency requirement, not merely a claim that history is generally useful.
+---RULE---
+If legality or transitions depend on a previously collected key, position alone is insufficient. The histories ending at X with and without a key must be distinguished, for example by state $(X,k)$.
+@@ 37|Time can matter in stationary physics|Original mathematical problem
+A project action pays −1 now and 5 at the following decision. A safe action pays 2 now and terminates. With undiscounted finite-horizon reward, compare the choices when one versus two decisions remain.
+---SOLUTION---
+With one decision remaining, the project's later reward lies outside the horizon, so its return is −1 and safe gives 2; safe wins. With two decisions remaining and the promised later reward guaranteed, project returns $-1+5=4$, exceeding safe's 2. The physical transition rule did not change, but the optimal action depends on remaining horizon. A stationary position-only policy cannot implement both choices at the same physical state. Use a time-indexed policy or augment state with the remaining decision count.
+---RULE---
+Stationary physical dynamics do not imply a time-independent finite-horizon optimum. A project paying −1 then 5 loses to a certain 2 with one decision left, but wins with two; retain time or horizon in the policy.
+@@ 38|Distinct beliefs with identical support|Original mathematical problem
+Hidden states are H,L and utilities are A=$(12,-4)$, B=$(5,5)$. Compare beliefs $P(H)=1/4$ and $P(H)=3/4$. Can a support set alone encode the optimal choice?
+---SOLUTION---
+Both beliefs have support $\{H,L\}$ because each state has positive probability. At $p=1/4$, $EU(A)=0$ and B=5, so choose B. At $p=3/4$, $EU(A)=8$ and B=5, so choose A. The common support set records possibility but not relative weight. A worst-case or guaranteed-goal task might use set beliefs appropriately, but an expected-utility task generally requires probabilities or another sufficient statistic retaining the decision-relevant weights.
+---RULE---
+Belief support is not generally sufficient for expected utility. With A=$(12,-4)$ and B=$(5,5)$, priors $1/4$ and $3/4$ share support $\{H,L\}$ but choose B and A respectively.
+@@ 39|Bayesian conditioning must include the prior|Original mathematical problem|posterior-main
+Let $P(H)=3/10$, $P(+\mid H)=4/5$ and $P(+\mid L)=1/5$. Compute the positive-signal probability and the posterior of H. Explain why 4/5 is not the posterior.
+---SOLUTION---
+The joint positive masses are $(3/10)(4/5)=12/50$ in H and $(7/10)(1/5)=7/50$ in L. Their sum is $19/50$. Normalize the H mass: $P(H\mid+)= (12/50)/(19/50)=12/19$. The likelihood $4/5$ conditions on H and asks how often the signal is positive; the posterior conditions on a positive signal and asks how often H is true. These are different conditional probabilities, with the prior determining how much L contributes to observed positives.
+---RULE---
+Normalize joint masses, not likelihoods alone. A prior $3/10$ with positive likelihoods $4/5$ in H and $1/5$ in L gives $P(+)=19/50$ and $P(H\mid+)=12/19$, not $4/5$.
+@@ 40|The negative observation matters too|Original mathematical problem|posterior-main
+Under the binary sensor in Question 39, derive the negative-signal probability and posterior, then verify that posterior averaging recovers the prior.
+---SOLUTION---
+Negative likelihoods are $1/5$ in H and $4/5$ in L. The H negative mass is $3/50$, the L negative mass is $28/50$, so $P(-)=31/50$ and $P(H\mid-)=3/31$. Average the posteriors with their signal probabilities: $(19/50)(12/19)+(31/50)(3/31)=12/50+3/50=15/50=3/10$. This is total probability applied to H. Averaging $12/19$ and $3/31$ equally would be wrong because the signal outcomes are not equally likely.
+---RULE---
+Weight posterior beliefs by their signal probabilities. For prior $3/10$ and likelihoods $4/5,1/5$, the negative branch has probability $31/50$ and posterior $3/31$; weighted averaging with the positive branch returns $3/10$.

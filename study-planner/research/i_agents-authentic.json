@@ -1,0 +1,44 @@
+[
+  {
+    "id": "MS_CE_1405_Q71",
+    "title": "Agent performance depends on its task environment",
+    "booklet": "MSc CE 1405",
+    "questionNumber": 71,
+    "pdfPage": 15,
+    "stem": "How well an agent can behave depends on which factor?",
+    "options": [
+      "The agent designer.",
+      "The agent sensors.",
+      "The nature of the environment.",
+      "The agent actuators."
+    ],
+    "answer": 3,
+    "solution": "The intended best answer is option 3: the task environment determines which behaviour and information can achieve the performance criterion. Sensors and actuators are important components of the agent, but their adequacy is judged relative to that environment and task. A local dirt sensor can suffice for one cleaning objective and be insufficient for another requiring exact global dirt information. The designer is not a mathematical property of the task. The short original wording should not be strengthened into a claim that sensor and actuator quality never matter: rationality is evaluated relative to the information, action capabilities and performance criterion available in the specified environment. This is a conceptual best-choice item, not an exclusivity theorem.",
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "answerStatus": "independently_derived_not_official",
+    "verification": "Original PDF page 15 visually inspected at enlarged resolution; options translated in printed order."
+  },
+  {
+    "id": "MS_CE_1405_Q75",
+    "title": "Learning-method selection is not determined only by data quantity",
+    "booklet": "MSc CE 1405",
+    "questionNumber": 75,
+    "pdfPage": 15,
+    "stem": "Any part of an agent program can be improved using machine learning. The kind of improvement and the methods used to make it do NOT depend on which of the following?",
+    "options": [
+      "The prior knowledge available to the agent.",
+      "It depends only on the amount of available data.",
+      "Which part of the agent is to be improved.",
+      "The data available and the feedback received about those data."
+    ],
+    "answer": 2,
+    "solution": "Option 2 is the intended incorrect dependency statement. The word only is decisive: data quantity cannot by itself determine the type of improvement or learning method. Prior knowledge can justify a model structure or constrain hypotheses. The target component determines whether the output is a sensor model, transition distribution, utility estimate or direct policy. Available data and feedback distinguish, for example, labelled examples from reward-only interaction. Two tasks with the same number of observations can require very different methods when one supplies labels and the other supplies only delayed rewards. Options 1, 3 and 4 are genuine considerations; they need not each influence every possible special case to be relevant dependencies in general.",
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "answerStatus": "independently_derived_not_official",
+    "verification": "Original PDF page 15 visually inspected at enlarged resolution; options translated in printed order."
+  }
+]
