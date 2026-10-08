@@ -405,3 +405,8 @@ The student explicitly approved expectation and the version-79 delimiter correct
 ## Determinants draft delivered
 
 Published private Site version 80. l_det remains a draft awaiting explicit approval. Four core written university courses; 82 solved questions including two original-PDF-checked adaptations; 80 rewritten retrieval notes; 17 specialized models and 67 exact checkpoints; 342 exact checks; fonts, MathML delimiters, pause/resume, reduced motion, print and mobile passed. All 41 prior HTML files and 2,593 questions retained. The next chapter has not started.
+
+
+## Active chapter: Vector spaces — 7 October 2026
+
+Explicit approval of determinant version 80 permits only l_spaces, the next missing Week 3 topic. Preserve 42 prior pages and 2675 solved problems. Select genuinely read written courses, teach definitions and proofs deeply, provide an extensive mathematical/conceptual bank with explanatory solutions and exact final rules, and build concept-specific visual laboratories. Audit math fences and animations before delivery; await approval afterward.

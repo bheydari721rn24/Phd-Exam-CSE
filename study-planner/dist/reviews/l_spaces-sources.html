@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vector spaces chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"><link rel="stylesheet" href="../chapters/l_spaces.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/l_spaces.html">Vector spaces chapter</a></p><article class="lesson"><h1>Vector Spaces: Source Selection and Reading Audit</h1>
+<h2>Selection boundary</h2>
+<p>Seven university course candidates were identified through official teaching pages and written materials. Six relevant text sets were read; the Berkeley scanned candidate was screened for access and topic titles but was not fully read and is not counted as a reviewed core. Four courses from four universities were selected for complementary proof, computation, and application coverage. This documented pool is finite; “all courses in the world” is not a verifiable search boundary. Course age was not used as a proxy for mathematical correctness.</p>
+<h2>Four core courses and exact locations</h2>
+<table>
+<thead>
+<tr>
+<th>University</th>
+<th>Course and instructor</th>
+<th>Written document and reading</th>
+<th>Contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Oxford</td>
+<td>M1 Linear Algebra <span class="math-inline">I</span>, Michaelmas 2022; Andrew Wathen, course lecturer</td>
+<td><a href="https://courses.maths.ox.ac.uk/course/view.php?id=609">Course</a>; <a href="https://courses.maths.ox.ac.uk/pluginfile.php/25471/mod_folder/content/0/lecture_notes22.pdf?forcedownload=1">lecture_notes22.pdf</a>, PDF pages 26–44 and 47–52</td>
+<td>Abstract axioms, span, independence, exchange, basis, finite dimension</td>
+</tr>
+<tr>
+<td>ETH Zurich</td>
+<td>Linear Algebra 401-0131-<span class="math-inline">00L</span>, HS2024; Bernd Gaertner and Robert Weismantel; notes by Gaertner</td>
+<td><a href="https://ti.inf.ethz.ch/ew/courses/LA24/index.html">Course</a>; <a href="https://ti.inf.ethz.ch/ew/courses/LA24/notes_part_I.pdf">notes_part_I.pdf</a>, PDF pages 114–132, sections 4.1–4.2 and computational bridge</td>
+<td>Precise field and subspace hypotheses, Steinitz exchange, constructive basis arguments</td>
+</tr>
+<tr>
+<td>MIT</td>
+<td>18.06SC, Fall 2011; Gilbert Strang</td>
+<td><a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/independence-basis-and-dimension/">Session 1.9</a>; summary PDF pages 1–3; Problems 9.1–9.2 and solution PDF pages 1–2</td>
+<td>Pivot columns, coefficient dependencies, rectangular matrices, connected differences, equation-defined planes</td>
+</tr>
+<tr>
+<td>Stanford</td>
+<td>EE263, Autumn 2007–08; Stephen Boyd</td>
+<td><a href="https://web.stanford.edu/class/archive/ee/ee263/ee263.1082/">Course</a>; <a href="https://web.stanford.edu/class/archive/ee/ee263/ee263.1082/lectures/lin-alg2.pdf">Lecture 3</a>, PDF pages 1–11, slides 3–1 through 3–22</td>
+<td>Range and kernel, coordinate representations, measurement ambiguity and coordinate-reading functionals</td>
+</tr>
+</tbody>
+</table>
+<p>The Oxford lecturer attribution identifies the course, not an unsupported claim about the authorship of every line of its PDF. The ETH instructor attribution is verified on the actual HS2024 course page. PDF page numbers above are physical page indices, starting at one. The acquisition manifest retains URLs, byte hashes and page counts; reading.json records the actual reading boundary and mathematical corrections.</p>
+<h2>Compared candidates</h2>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Actual review</th>
+<th>Selection decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CMU, William Gunther, 21-241 Summer <span class="math-inline">I</span> 2014</td>
+<td>Abstract spaces, week <span class="math-inline">5/22</span>.pdf, four pages; bases, week <span class="math-inline">6/23</span>.pdf, four pages. The course calendar dates differ from document dates.</td>
+<td>Not a core: concise exposition and multiple substantive statement errors requiring correction.</td>
+</tr>
+<tr>
+<td>Harvard, Oliver Knill, Math <span class="math-inline">21b</span> Spring 2023</td>
+<td>lecture04.pdf, both pages</td>
+<td>Useful compact computational review, but insufficient detailed exchange and sum/intersection proofs for the present scope.</td>
+</tr>
+<tr>
+<td>UC Berkeley, Alexander Paulin, Math 54 Spring 2018</td>
+<td>Four accessible scanned notes: vector spaces and linear transformations; subspaces/kernels/ranges; spanning/independence/dimension; bases/coordinates. Titles and access screened only.</td>
+<td>Not counted as a fully reviewed course.</td>
+</tr>
+</tbody>
+</table>
+<h2>Corrections discovered during reading</h2>
+<ol>
+<li>Oxford PDF page 37 labels three-coordinate vectors as elements of the two-dimensional coordinate space and interchanges terms in two coefficient equations. The conclusion remains true, but the displayed data require correction. Page 39 prints the vector (0,2,<span class="math-inline">−</span>1) for the plane <span class="math-inline">x + 2y + z = 0</span>; substitution gives three rather than zero. The corrected vector is (0,1,<span class="math-inline">−</span>2). Both pages were visually inspected.</li>
+<li>Oxford PDF page 50's minimal-spanning argument does not need the claim that deleting one redundant vector immediately leaves an independent list. That claim is false in general; the smaller spanning list already contradicts minimality. The chapter gives the valid finite deletion and exchange proofs.</li>
+<li>ETH PDF page 119's subspace lemma must require the zero vector in the subset, not merely in its ambient space. The accompanying proof uses the correct requirement. Page 123's real geometric series needs absolute value below one. Page 127 changes coefficient notation in an exchange denominator. None of these slips is propagated into the chapter.</li>
+<li>MIT Session 1.9 summary page 3 prints an incorrect null vector for equal first and fourth columns. The valid relation has opposite coefficients on those columns. The page was visually checked; multiplication independently verifies the correction.</li>
+<li>Stanford slide 3–8's infinite-dimensional shorthand must mean no finite basis; it does not mean that an algebraic basis cannot be infinite. The chapter distinguishes finite linear combinations from convergent series.</li>
+<li>CMU bases PDF page 3 incorrectly calls sine and cosine dependent, and page 4 incorrectly calls a list longer than the dimension independent. Both statements were visually checked and rejected. Evaluation at zero and <span class="math-inline">pi/2</span> proves the independence of sine and cosine, while exchange proves the dimension bound.</li>
+</ol>
+<p>Finding errors in a source does not by itself invalidate an entire course. Selection used explanatory coverage, provable structure and cross-checkability; every adopted statement was reconciled with the other sources or independently proved.</p>
+<h2>Synthesis map</h2>
+<p>Sections 2–10 combine Oxford and ETH's abstract development with MIT's coefficient interpretation. Section 11 and the editable laboratory make MIT's original-versus-reduced column distinction explicit. Sections 12–14 transfer the same arguments to function, polynomial and structured matrix coordinates. Sections 15–18 independently prove the sum/intersection and directness results from adapted bases. Sections 19 and 23 combine coordinate functionals and Stanford's measurement interpretation. Quotients, scalar restriction, finite-field counts and parameter branches are independently derived extensions with complete assumptions, rather than claims that every core course covers every extension identically.</p>
+<p>Problems 71 and 72 explicitly reconstruct and extend MIT Problems 9.1 and 9.2. Their numerical data or scope are changed and solutions are independently written. Problem 5 reconstructs a CMU nonexample with an independently explained axiom failure. Problem 73 is original, calibrated to Stanford's range/kernel interpretation. The remaining items identify their original status or their authentic-exam generalization. No copied assignment solution or full copyrighted source corpus is republished.</p>
+<h2>Original examination checks</h2>
+<p>Two authentic items were visually read in the repository PDFs pinned to commit bdadf6e2c9cadc4772ae137a96a3da753c7cfd08. MSc CS 1405 Q41, PDF page 9, tests dimension of symmetric trace-zero matrices. PhD CS 1404 Q31, PDF page 8, tests the projection defined by an orthonormal basis. The English adaptations retain all options in their original order. Their answer derivations are independent and are not represented as official keys. File hashes and exact repository paths appear in <span class="math-inline">l</span>_spaces-authentic.json. PhD CS 1405 pages 6–11 were also screened; their nearby linear-algebra questions concern other topics and were not inserted merely to increase the authentic count.</p>
+<h2>Remaining limits</h2>
+<p>The course pool and examination selections are documented samples, not worldwide or archive-wide exhaustive reviews. Infinite-dimensional topics are boundary explanations rather than a course in functional analysis. Four core courses support the central scope, but not every extension appears in all four. Scientific validity is checked by explicit assumptions, proofs, exact computations and independent counterexamples; no literal guarantee about every future unseen examination is asserted.</p>
+</article></main><script src="../chapters/math-layout.js?v=79"></script></body></html>

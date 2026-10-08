@@ -1,0 +1,46 @@
+[
+  {
+    "id": "MS_CS_1405_Q41",
+    "title": "Dimension of symmetric trace-zero matrices",
+    "booklet": "MSc CS 1405",
+    "questionNumber": 41,
+    "pdfPage": 9,
+    "modelId": "symmetric-trace",
+    "stem": "Let $W$ be the vector space of real symmetric $4\\times4$ matrices whose trace is zero. What is $\\dim W$?",
+    "options": [
+      "$10$",
+      "$9$",
+      "$8$",
+      "$7$"
+    ],
+    "answer": 2,
+    "solution": "A symmetric four-by-four matrix is determined by four diagonal entries and six entries strictly above the diagonal. Thus the full symmetric space has dimension ten. Trace is a nonzero linear functional on this space: for example, its value on $E_{11}$ is one. Its kernel therefore has dimension $10-1=9$, giving option 2. To see the independence directly, use the six matrices $E_{ij}+E_{ji}$ for $i<j$ and the three matrices $E_{11}-E_{44},E_{22}-E_{44},E_{33}-E_{44}$. Their distinct off-diagonal and first three diagonal coordinates prove independence, and the trace condition forces the remaining diagonal coordinate. Option 1 omits the independent trace constraint. Options 3 and 4 incorrectly subtract further constraints; symmetry has already been included in the count of ten.",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "answerStatus": "independently_derived_not_official",
+    "verification": "Original PDF page visually inspected; all options preserved in original order; English adaptation checked."
+  },
+  {
+    "id": "Phd_CS_1404_Q31",
+    "title": "An orthonormal basis defines a projection, not a norm expansion",
+    "booklet": "PhD CS 1404",
+    "questionNumber": 31,
+    "pdfPage": 8,
+    "modelId": "projection-main",
+    "stem": "Let $\\{u_1,\\ldots,u_n\\}$ be an orthonormal basis of a subspace $U\\subseteq\\mathbb R^m$, with $n\\le m$. Define $Px=\\sum_{k=1}^n\\langle x,u_k\\rangle u_k$. Which statement is false?",
+    "options": [
+      "$P$ is idempotent.",
+      "If $x\\in U$, then $Px\\in U$.",
+      "For every $x\\in\\mathbb R^m$, $\\|x\\|_2\\le\\|Px\\|_2$.",
+      "$P$ is a linear operator from $\\mathbb R^m$ to $U$."
+    ],
+    "answer": 3,
+    "solution": "Every image is a linear combination of the basis vectors, so it lies in $U$. Linearity follows from linearity of the real inner product in $x$. If $x=\\sum a_ku_k$ belongs to $U$, orthonormality gives $\\langle x,u_k\\rangle=a_k$, hence $Px=x$; in particular, $P(Px)=Px$. Moreover $r=x-Px$ is orthogonal to every $u_k$ because $\\langle r,u_j\\rangle=\\langle x,u_j\\rangle-\\langle x,u_j\\rangle=0$. The orthogonal decomposition gives $\\|x\\|_2^2=\\|Px\\|_2^2+\\|r\\|_2^2$, so the universally valid inequality is $\\|Px\\|_2\\le\\|x\\|_2$. The inequality in option 3 is not valid for arbitrary permitted subspaces: take $U=\\operatorname{span}\\{(1,0)\\}$ and $x=(0,1)$. Then $Px=0$ while $\\|x\\|_2=1$. If $U=\\mathbb R^m$, both norms agree; that special case does not establish option 3 as a general statement. The animation uses a two-dimensional orthogonal decomposition with labelled actual lengths, rather than pretending to draw arbitrary $m$ dimensions.",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "answerStatus": "independently_derived_not_official",
+    "verification": "Original PDF page visually inspected; all options preserved in original order; English adaptation checked."
+  }
+]

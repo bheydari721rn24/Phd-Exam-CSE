@@ -1,0 +1,279 @@
+@@ 41|Symmetric matrices with zero trace|Original generalization of MSc CS 1405 Q41|symmetric-trace
+Over $\mathbb R$, find a basis and dimension of symmetric $n\times n$ matrices with trace zero, for $n\ge1$.
+---SOLUTION---
+Choose the off-diagonal basis matrices $E_{ij}+E_{ji}$ for $i<j$, and diagonal matrices $E_{ii}-E_{nn}$ for $i<n$. Any symmetric matrix has independent upper-triangular entries, and trace zero determines its last diagonal entry as the negative sum of the others. Therefore the displayed list spans. Looking at each upper-triangular entry first forces all off-diagonal coefficients in a zero combination to vanish; then diagonal positions $i<n$ force the remaining coefficients to vanish. The dimension is $n(n-1)/2+n-1=n(n+1)/2-1$. At $n=1$, the space is zero and the basis is empty. At $n=4$, the formula yields nine, matching the authentic item.
+---RULE---
+Symmetric trace-zero matrices have dimension $n(n+1)/2-1$ over $\mathbb R$. A basis uses off-diagonal symmetric pairs and $E_{ii}-E_{nn}$; the boundary $n=1$ has the empty basis.
+
+@@ 42|Symmetric and skew-symmetric decomposition|Original proof problem|symmetric-split
+Prove $M_n(\mathbb R)=S\oplus K$, where $S$ is symmetric and $K$ skew-symmetric. Explain why the analogous assertion fails in characteristic two for $n\ge1$.
+---SOLUTION---
+Every matrix decomposes as $(A+A^T)/2+(A-A^T)/2$. Transposing shows the first term is symmetric and the second skew-symmetric. If a matrix belongs to both, it satisfies $A=-A$, hence $2A=0$ and $A=0$ over the reals. This gives spanning and uniqueness, so the sum is direct. Their dimensions $n(n+1)/2$ and $n(n-1)/2$ add to $n^2$. In characteristic two, $-A=A$, so the equations defining $S$ and $K$ coincide; the identity matrix lies in both. Also division by two is unavailable. The directness claim therefore fails, including the $n=1$ case under the literal definition $A^T=-A$.
+---RULE---
+The symmetric/skew decomposition requires two to be invertible. Over $\mathbb R$, the intersection is zero and dimensions sum to $n^2$; in characteristic two the transpose equations coincide and the intersection is nonzero.
+
+@@ 43|Two matrix constraints with a dependency|Original hard problem
+Find the dimension of $3\times3$ real matrices whose every row sum and every column sum is zero, and give a basis construction.
+---SOLUTION---
+Choose the top-left $2\times2$ entries freely. Zero row sums determine the third entry in each of the first two rows; zero column sums determine the first two entries of the last row. The remaining corner must equal the sum of the four chosen entries, which satisfies both its row and column equations. Thus there are four independent freedoms. A basis is $E_{ij}-E_{i3}-E_{3j}+E_{33}$ for $i,j\in\{1,2\}$. Each has zero row and column sums, and the four top-left entries isolate its coefficients. Of the six written constraints, one is dependent because total row sum equals total column sum; their rank is five.
+---RULE---
+Zero row and column sums on real $n\times n$ matrices leave dimension $(n-1)^2$. For $n=3$, four corner-adjusted $E_{ij}$ directions form a basis; the six sum constraints have one dependency.
+
+@@ 44|Symmetry plus row sums|Original hard problem
+Find the dimension and a constructive description of symmetric real $4\times4$ matrices satisfying $A\mathbf1=0$.
+---SOLUTION---
+Choose the six entries strictly above the diagonal arbitrarily and reflect them below. Each row-sum condition then uniquely determines its diagonal entry as the negative sum of the off-diagonal entries in that row. These four equations are independent on the symmetric space because each reads a separate diagonal coordinate. Thus dimension is $10-4=6$. A basis uses one chosen pair $i<j$: put one in positions $(i,j),(j,i)$ and minus one in diagonal positions $(i,i),(j,j)$. All other entries are zero. The six off-diagonal positions isolate coefficients and prove independence. No extra dependency among row sums arises here merely from symmetry.
+---RULE---
+On symmetric matrices, zero row sums determine each diagonal independently. For order four, six off-diagonal freedoms remain, giving dimension six rather than nine or seven.
+
+@@ 45|Commuting with a diagonal matrix|Original hard problem
+Let $D=\operatorname{diag}(1,1,2,3)$. Find the dimension and a basis of real matrices $A$ satisfying $AD=DA$.
+---SOLUTION---
+The $(i,j)$ entry equation is $a_{ij}d_j=d_i a_{ij}$, or $(d_j-d_i)a_{ij}=0$. An entry is free exactly when the two diagonal values coincide. The repeated value one gives a free $2\times2$ upper-left block, while the singleton values two and three give one diagonal entry each. All entries between different blocks must vanish. Thus the dimension is $2^2+1^2+1^2=6$. The six allowed elementary matrices $E_{11},E_{12},E_{21},E_{22},E_{33},E_{44}$ form a basis. The commutation equation is homogeneous linear in $A$, despite involving multiplication by a fixed matrix.
+---RULE---
+For diagonal $D$ with distinct-value multiplicities $m_j$, its commuting matrix space has dimension $\sum_jm_j^2$. The multiplicities $(2,1,1)$ give six allowed elementary-entry directions.
+
+@@ 46|A nonlinear matrix set and its linear span|Original conceptual problem
+Do the singular real $2\times2$ matrices form a subspace? Determine their linear span.
+---SOLUTION---
+The matrices $E_{11}$ and $E_{22}$ are singular, but their sum is the identity and is invertible. Therefore addition closure fails. Every elementary matrix $E_{ij}$ is singular in order two, and the four elementary matrices form a basis of $M_2(\mathbb R)$. Hence the singular matrices span the whole four-dimensional matrix space. The original singular set has no vector-space dimension under inherited operations; four is the dimension of its span. The order-one boundary differs: the only singular $1\times1$ matrix is zero, which is a subspace.
+---RULE---
+Singularity is not a linear constraint for matrix orders at least two. In order two, $E_{11}+E_{22}=I$ disproves closure, while the singular elementary matrices span all of $M_2$.
+
+@@ 47|Polynomial parity and a direct sum|Original problem
+Decompose $P_5(\mathbb R)$ into even and odd polynomial subspaces. Find dimensions and the components of $2+3x-4x^2+x^5$.
+---SOLUTION---
+The even subspace has basis $(1,x^2,x^4)$, dimension three, and the odd subspace has basis $(x,x^3,x^5)$, also dimension three. Their intersection is zero because a polynomial satisfying $p(-x)=p(x)$ and $p(-x)=-p(x)$ must be zero over the reals. Their basis lists concatenate to the full monomial basis, proving the direct sum. The even component is $2-4x^2$ and the odd component is $3x+x^5$. They can also be obtained from $(p(x)+p(-x))/2$ and $(p(x)-p(-x))/2$. This argument again relies on characteristic not two.
+---RULE---
+Real polynomials split uniquely into even and odd parts. In $P_5$ each part has dimension three; $2+3x-4x^2+x^5$ splits into $2-4x^2$ and $3x+x^5$.
+
+@@ 48|A sum and intersection from explicit planes|Original problem|intersection-main
+Let $U=\{(x,y,z):z=0\}$ and $W=\{(x,y,z):y=0\}$. Find bases of $U\cap W$ and $U+W$, and all decompositions of $(a,b,c)$ as $u+w$.
+---SOLUTION---
+The intersection satisfies both $y=z=0$, so its basis is $(e_1)$ and dimension one. The sum contains $e_1,e_2,e_3$, so it is the whole space. A decomposition has $u=(t,b,0)$ and $w=(a-t,0,c)$ for any real $t$. This is every possible decomposition: the second coordinate can come only from $U$, the third only from $W$, and the first is shared. Nonuniqueness is exactly the freedom along the intersection. Dimension confirms $3=2+2-1$. This is a sum, but not a direct sum.
+---RULE---
+Intersection directions measure ambiguity of decomposition. The $xy$ and $xz$ planes sum to $\mathbb R^3$, share the $x$ axis, and decompose $(a,b,c)$ as $(t,b,0)+(a-t,0,c)$.
+
+@@ 49|Intersecting two equation-defined spaces|Original hard problem
+Let $U\subseteq\mathbb R^4$ satisfy $x_1+x_2+x_3+x_4=0$, and let $W$ satisfy $x_1=x_2$, $x_3=x_4$. Find all relevant dimensions and an intersection basis.
+---SOLUTION---
+The first space has one independent restriction, so dimension three. A vector in $W$ is $(a,a,b,b)$, giving dimension two. In the intersection, $2a+2b=0$, so over the reals $b=-a$. Its basis is $(1,1,-1,-1)$ and dimension one. The sum dimension is $3+2-1=4$, hence the whole ambient space. Directness fails because the intersection is nonzero. The calculation $2a+2b=0\Rightarrow a+b=0$ uses the real field; in characteristic two the entire $W$ would lie in $U$, changing the dimensions of intersection and sum.
+---RULE---
+Solve simultaneous restrictions before applying the dimension formula. In $\mathbb R^4$, let $U$ satisfy $x_1+x_2+x_3+x_4=0$ and let $W=\{(a,a,b,b)\}$. Dimensions are $3,2,1,4$ for $U,W,U\cap W,U+W$; characteristic two changes the intersection.
+
+@@ 50|Intersection through generator coordinates|Original hard problem
+Let $U=\operatorname{span}\{(1,0,1,0),(0,1,0,1)\}$ and $W=\operatorname{span}\{(1,1,0,0),(0,0,1,1)\}$. Find an intersection basis and a sum basis.
+---SOLUTION---
+Equate $(a,b,a,b)$ from $U$ with $(c,c,d,d)$ from $W$. Coordinate comparison gives $a=b=c=d$, so the intersection is generated by $(1,1,1,1)$. Each original list is independent and has dimension two; the sum therefore has dimension three. A sum basis is the two $U$ generators together with $(1,1,0,0)$ from $W$. The latter is outside $U$ because its first and third coordinates differ. The omitted fourth generator equals the sum of the two $U$ generators minus the chosen $W$ generator, so spanning is explicitly verified.
+---RULE---
+Equating basis expansions computes an intersection without guessing common generators. The patterns $(a,b,a,b)$ and $(c,c,d,d)$ meet on $(t,t,t,t)$, so two planes have a three-dimensional sum.
+
+@@ 51|Redundant generators inflate a block nullspace|Original hard conceptual problem
+Take $B_U=[e_1\ e_1]$ and $B_W=[e_1]$ in $\mathbb R^2$. Compare the nullity of $[B_U\ -B_W]$ with $\dim(U\cap W)$.
+---SOLUTION---
+Both spans are the same one-dimensional line, so the intersection dimension is one. The block matrix has columns $e_1,e_1,-e_1$ and rank one, hence nullity two. Its coefficient equation is $a_1+a_2-b=0$. The solution $(1,-1,0)$ maps under $B_Ua$ to zero, describing only redundancy in $B_U$. The solution $(1,0,1)$ maps to $e_1$ and supplies the actual intersection direction. Thus block nullspace vectors must be mapped to actual output vectors, and zero or dependent outputs removed when the supplied lists are not bases. Equating nullity with intersection dimension requires independent lists on both sides.
+---RULE---
+The block-kernel dimension equals intersection dimension only when both generator matrices have independent columns. Duplicate $e_1$ columns produce block nullity two for an intersection of dimension one.
+
+@@ 52|Sharp intersection bounds|Original hard construction problem
+Two subspaces of a ten-dimensional real space each have dimension six. Determine every possible intersection dimension and construct examples.
+---SOLUTION---
+The lower bound is $6+6-10=2$, and the intersection cannot exceed either dimension, giving integers $k=2,3,4,5,6$. Fix $U=\operatorname{span}(e_1,\ldots,e_6)$. For each such $k$, let $W$ be generated by $e_1,\ldots,e_k$ and $e_7,\ldots,e_{12-k}$. There are $k+(6-k)=6$ independent coordinate directions in $W$, and the largest index is at most ten because $k\ge2$. Exactly the first $k$ directions are shared, so the intersection has dimension $k$. This shows every value in the bound is attainable, not merely allowed by an inequality.
+---RULE---
+Intersection bounds need not determine a unique value. Two dimension-six subspaces in dimension ten can intersect in any dimension two through six; coordinate-subspace constructions prove sharpness.
+
+@@ 53|Forced nonzero intersection|Original proof problem
+Let $V$ be finite-dimensional. If $U,W\subseteq V$ are subspaces and both dimensions exceed $\dim V/2$, prove that the intersection contains a nonzero vector. Does equality suffice?
+---SOLUTION---
+Let $n=\dim V$ be finite. The dimension formula gives $\dim(U\cap W)\ge\dim U+\dim W-n$. Under the strict hypotheses this is a positive integer, so the intersection is nonzero. Equality in both half-dimension bounds does not suffice: in $\mathbb R^4$, the spaces generated by $e_1,e_2$ and by $e_3,e_4$ each have dimension two and intersect only at zero. The strict inequality is doing actual work. For odd $n$, integer dimensions can strengthen a numerical lower bound, but the same sum-of-dimensions criterion governs the result.
+---RULE---
+In finite dimension $n$, $\dim U+\dim W>n$ forces a nonzero intersection. Replacing strictness by equality is invalid: two complementary coordinate planes in $\mathbb R^4$ give equality and zero intersection.
+
+@@ 54|Two-subspace union theorem|Original proof problem|union-failure
+Prove that the union of two subspaces is a subspace exactly when one contains the other.
+---SOLUTION---
+If one contains the other, the union is just the larger subspace. Conversely suppose neither contains the other. Choose $u\in U\setminus W$ and $w\in W\setminus U$. If $u+w$ belonged to $U$, subtracting $u$ would put $w$ in $U$, contradiction. If it belonged to $W$, subtracting $w$ would put $u$ in $W$, also a contradiction. Thus the union fails addition. The proof uses only additive subgroup properties and works over every field. It is a theorem about two subspaces; finite unions of three or more can behave differently over finite fields.
+---RULE---
+For exactly two subspaces, union closure is equivalent to containment. The witnesses $u\in U\setminus W,w\in W\setminus U$ force $u+w$ outside both; no real-field assumption is needed.
+
+@@ 55|Three pairwise-trivial intersections are insufficient|Original hard conceptual problem|three-lines
+Let $U_1=\operatorname{span}e_1$, $U_2=\operatorname{span}e_2$, and $U_3=\operatorname{span}(e_1+e_2)$ in $\mathbb R^2$. Are their sum and pairwise intersections enough to establish directness?
+---SOLUTION---
+Each pair of distinct lines intersects only at zero, and the first two already span the plane. However $e_1+e_2+(-(e_1+e_2))=0$ gives nonzero components from all three spaces. Therefore the three-space sum is not direct. Its dimension is two while the sum of component dimensions is three. The correct sequential check fails at $U_3\cap(U_1+U_2)=U_3$, not zero. Pairwise intersection tests miss relations involving more than two components.
+---RULE---
+For three spaces, pairwise zero intersections do not prove a direct sum. The three distinct lines generated by $e_1,e_2,e_1+e_2$ have total component dimension three but sum dimension two.
+
+@@ 56|A nonorthogonal complement|Original problem|direct-oblique
+Let $U=\operatorname{span}(1,0)$ and $W=\operatorname{span}(1,2)$ in $\mathbb R^2$. Prove they are complements and find the decomposition of $(5,6)$.
+---SOLUTION---
+The two generating columns have determinant two, so they are independent and span the plane. Therefore the sum is direct. Solving $(5,6)=a(1,0)+b(1,2)$ gives $2b=6$, so $b=3$, and $a+b=5$, so $a=2$. The components are $(2,0)$ and $(3,6)$. They are not perpendicular: the dot product of the generating vectors is one. A direct sum is an algebraic uniqueness statement, not an assertion of right angles. Every other nonhorizontal line also complements this $U$.
+---RULE---
+A complement need not be orthogonal. The lines generated by $(1,0)$ and $(1,2)$ form a direct sum, with $(5,6)=(2,0)+(3,6)$ despite a nonzero cross dot product.
+
+@@ 57|The dimension formula does not extend by naïve inclusion-exclusion|Original hard counterexample
+Does $\dim(U+W+Z)$ always equal the sum of individual dimensions minus pairwise intersection dimensions plus the triple-intersection dimension?
+---SOLUTION---
+No. Use the three distinct lines in Question 55. Each individual dimension is one, all pairwise intersection dimensions are zero, and the triple intersection is zero. The proposed expression gives three, but their sum is the plane of dimension two. The valid iterative formula is $\dim(U+W+Z)=\dim(U+W)+\dim Z-\dim((U+W)\cap Z)$. In this example the final intersection is the entire line $Z$, of dimension one, so the result is $2+1-1=2$. The failure comes from relations across three components that pairwise intersections do not encode.
+---RULE---
+Subspace dimensions do not obey naïve three-set inclusion-exclusion. Use the two-space formula iteratively; three distinct lines in a plane give predicted three by the naïve formula but actual dimension two.
+
+@@ 58|Polynomial intersections and least common multiples|Original hard problem
+In $P_5(\mathbb R)$, let $U$ contain multiples of $x(x-1)$ and $W$ contain multiples of $(x-1)(x-2)$. Find dimensions of both, their intersection, and their sum.
+---SOLUTION---
+Each required factor has degree two, so each space has quotient freedom $P_3$ and dimension four. A polynomial in both is divisible by the least common multiple $x(x-1)(x-2)$, not by the product with the repeated factor squared. Its quotient has degree at most two, so intersection dimension is three. The sum dimension is $4+4-3=5$. Both spaces vanish at one, so their sum is contained in the five-dimensional space of polynomials in $P_5$ vanishing at one. Equality follows from inclusion and equal finite dimension. This identifies the sum rather than merely counting it.
+---RULE---
+For divisibility subspaces, intersection uses the least common multiple. Factors $x(x-1)$ and $(x-1)(x-2)$ in $P_5$ give dimensions four, four, three, and five for the two spaces, intersection, and sum.
+
+@@ 59|A quotient basis from an adapted basis|Original problem|quotient-main
+Let $V=\mathbb R^3$ and $U=\operatorname{span}(1,1,0)$. Find a basis of $V/U$ and coordinates of the coset $(2,3,4)+U$ in it.
+---SOLUTION---
+The list $(1,1,0),e_2,e_3$ is a basis of $V$: its determinant is one. Therefore the cosets $e_2+U,e_3+U$ form a quotient basis. Write $(2,3,4)=2(1,1,0)+1e_2+4e_3$. The component in $U$ vanishes in the quotient, leaving coordinates $(1,4)^T$. Any other representative obtained by adding $t(1,1,0)$ has second minus first coordinate still one and third coordinate still four, so the quotient coordinates are well-defined. The quotient has dimension two; its vectors are cosets, not two particular real coordinates until a basis is chosen.
+---RULE---
+Extend a subspace basis and take cosets of the added vectors. For $U=\operatorname{span}(1,1,0)$, the quotient basis $e_2+U,e_3+U$ assigns coordinates $(y-x,z)$ to $(x,y,z)+U$.
+
+@@ 60|The quotient is not set subtraction|Original conceptual problem
+For the horizontal axis $U$ in $\mathbb R^2$, identify the zero of $\mathbb R^2/U$ and decide whether $(1,2)+U$ and $(7,2)+U$ are distinct.
+---SOLUTION---
+The quotient zero is the coset $U$ itself, the entire horizontal axis. The difference $(1,2)-(7,2)=(-6,0)$ lies in $U$, so the two cosets are equal. Both are the horizontal line at height two. The quotient remembers height and ignores horizontal displacement, making it one-dimensional. The set difference $\mathbb R^2\setminus U$ is unrelated: it excludes every point of the zero coset and is not the quotient vector set. Representatives are individual points; quotient vectors are whole equivalence classes of those points.
+---RULE---
+Cosets are equal exactly when their representatives differ by a subspace vector. Modulo the horizontal axis, $(1,2)$ and $(7,2)$ represent the same vector, and the quotient zero is the whole axis.
+
+@@ 61|An annihilator with explicit equations|Original hard problem
+For $U=\operatorname{span}\{(1,1,0),(0,1,1)\}\subseteq\mathbb R^3$, find all linear functionals vanishing on $U$.
+---SOLUTION---
+Write a functional as $\ell(x,y,z)=ax+by+cz$. Vanishing on the two generators gives $a+b=0$ and $b+c=0$, hence $(a,b,c)=t(1,-1,1)$. Thus the annihilator has basis $\ell_0(x,y,z)=x-y+z$ and dimension one. The underlying subspace is the plane $x-y+z=0$, of dimension two, so annihilator dimension is $3-2=1$. Every functional in this one-dimensional family vanishes on every combination of the generators by linearity, not merely at the two listed points.
+---RULE---
+To compute an annihilator, impose zero values on a subspace basis. The plane generated by $(1,1,0),(0,1,1)$ has annihilator spanned by $x-y+z$, of dimension one.
+
+@@ 62|Restriction of scalars|Original hard proof problem
+If $V$ has complex dimension three, prove its real dimension is six and construct a real basis from a complex basis $v_1,v_2,v_3$.
+---SOLUTION---
+Take the six real vectors $v_1,iv_1,v_2,iv_2,v_3,iv_3$. Every complex coefficient is $a_j+ib_j$ with real parts, so every vector of $V$ is a real combination of these six, proving spanning. If a real combination vanishes, group it as $\sum_j(a_j+ib_j)v_j=0$. Complex independence gives $a_j+ib_j=0$ for each $j$, so every real coefficient vanishes. They are independent and hence a real basis. Complex independence does not mean the original three vectors alone span $V$ using only real coefficients; scalar freedom has changed.
+---RULE---
+Restricting complex scalars to reals doubles finite dimension. A complex basis $v_1,v_2,v_3$ yields real basis $v_1,iv_1,v_2,iv_2,v_3,iv_3$, with six independent real directions.
+
+@@ 63|Counting ordered bases|Original hard counting problem|finite-basis
+How many ordered bases does $\mathbb F_2^3$ have? How many unordered bases?
+---SOLUTION---
+The first vector can be any of seven nonzero vectors. Its line contains two vectors including zero, so the second has $8-2=6$ choices. Two independent vectors span a plane of four elements, so the third has $8-4=4$ choices. The number of ordered bases is $7\cdot6\cdot4=168$. Every unordered basis has three distinct members and exactly $3!=6$ orderings, so the number of unordered bases is 28. Dividing by a factorial is justified only after confirming the elements are distinct and every order is counted equally; independence guarantees that here.
+---RULE---
+Ordered basis counting excludes the entire span of previous choices. In $\mathbb F_2^3$, the counts are $7,6,4$, giving 168 ordered and 28 unordered bases.
+
+@@ 64|Three proper finite-field subspaces can cover|Original conceptual problem|finite-lines
+List the three one-dimensional subspaces of $\mathbb F_2^2$ and show that their union is the whole space.
+---SOLUTION---
+The four vectors are $(0,0),(1,0),(0,1),(1,1)$. Each nonzero vector generates a line containing just itself and zero, because the only scalars are zero and one. Therefore the three lines are $\{0,(1,0)\}$, $\{0,(0,1)\}$, and $\{0,(1,1)\}$. Their union contains all four vectors. Every line is proper and no one contains another, yet the union of all three is a subspace, namely the ambient space. This does not violate the two-subspace union theorem, which cannot be applied by assuming the union of the first two is already a subspace.
+---RULE---
+The two-subspace union theorem must not be extended blindly to larger finite unions. Over $\mathbb F_2$, the three distinct lines in $\mathbb F_2^2$ cover all four ambient vectors.
+
+@@ 65|Formal polynomial versus polynomial function|Original hard conceptual problem
+Over $\mathbb F_3$, does the nonzero formal polynomial $x^3-x$ represent a nonzero function on the field? What happens to evaluation on $P_3(\mathbb F_3)$?
+---SOLUTION---
+At zero, one, and two, the values of $x^3-x$ are zero modulo three. Its formal coefficients are not all zero, so it is a nonzero polynomial representing the zero function on the three-element domain. The evaluation map from the four-dimensional formal space $P_3$ to three-coordinate value lists therefore has a nontrivial kernel. In fact every value tuple is attainable by a degree-at-most-two interpolation polynomial, so the map has rank three and nullity one, generated by $x^3-x$. Independence of formal monomials does not imply independence of their induced functions on a finite domain.
+---RULE---
+Over finite fields, formal polynomials and polynomial functions differ. On $\mathbb F_3$, $x^3-x$ is nonzero formally but vanishes everywhere, giving a one-dimensional kernel for evaluation on $P_3$.
+
+@@ 66|A proper subspace with equal infinite dimension|Original advanced conceptual problem
+Compare the bases of $\mathbb R[x]$ and $x\mathbb R[x]$. Does equal basis cardinality force these spaces equal?
+---SOLUTION---
+The first has basis $(1,x,x^2,\ldots)$ and the second $(x,x^2,x^3,\ldots)$. Both are countably infinite lists, and each is independent and spans its stated space by finite coefficient expansions. The second space is proper because it contains no polynomial with a nonzero constant term, in particular not one. Thus equal infinite basis cardinality and inclusion do not force equality. The finite-dimensional proof of equality would add one new independent vector and contradict a fixed finite bound; countably many vectors plus one is still countably many, so that argument no longer yields a contradiction.
+---RULE---
+The inclusion-plus-equal-dimension equality test requires finite dimension. Both $\mathbb R[x]$ and its proper subspace $x\mathbb R[x]$ have countably infinite monomial bases.
+
+@@ 67|A parameterized intersection|Original hard problem
+Let $U=\operatorname{span}(e_1,e_2)$ and $W_t=\operatorname{span}\{(1,0,t),(0,1,t)\}$ in $\mathbb R^3$. Classify $U\cap W_t$ and $U+W_t$ for all real $t$.
+---SOLUTION---
+The generators of $W_t$ are independent for every $t$ because their first two coordinates are unit vectors, so its dimension is always two. Its general vector is $(a,b,t(a+b))$. At $t=0$, $W_t=U$, so intersection and sum both have dimension two. For $t\ne0$, being in $U$ requires $a+b=0$, giving intersection basis $(1,-1,0)$. The sum dimension is then $2+2-1=3$ and it equals $\mathbb R^3$. Dividing by $t$ before isolating zero would incorrectly discard the larger-intersection case.
+---RULE---
+Parameterized intersections may jump even when each component dimension stays fixed. For the planes $z=0$ and $z=t(x+y)$, intersection dimension is two at $t=0$ and one otherwise.
+
+@@ 68|Minimum constraints needed to specify a space|Original hard problem
+A subspace $W\subseteq\mathbb R^7$ has dimension four. What is the minimum number of scalar homogeneous linear equations whose common solution set is $W$? Prove attainability.
+---SOLUTION---
+Any constraint matrix with kernel $W$ must have rank $7-4=3$, so at least three scalar equations are necessary. To construct three, extend a basis $w_1,\ldots,w_4$ of $W$ to a basis $w_1,\ldots,w_7$ of the ambient space. The last three coordinate-reading functionals in this basis vanish exactly when the added three coordinates are zero. Their common kernel is $W$, and they are independent because each reads a different added basis vector. Thus three equations are both necessary and sufficient. More equations can describe the same space, but must then include dependencies.
+---RULE---
+The minimal number of independent homogeneous scalar equations defining a subspace is its codimension. A four-dimensional subspace in $\mathbb R^7$ requires exactly three, constructed from an adapted dual basis.
+
+@@ 69|A finite-function space and constrained values|Original problem
+Let $X$ have five elements. Find the dimension of the real functions on $X$ satisfying $\sum_{x\in X}f(x)=0$, and exhibit a basis.
+---SOLUTION---
+Label the points $x_1,\ldots,x_5$. The indicator functions $\delta_j$ taking one at $x_j$ and zero elsewhere form a basis of the full five-dimensional function space. The sum condition is a nonzero linear functional. A constrained basis is $\delta_1-\delta_5,\ldots,\delta_4-\delta_5$. A function with zero total is reconstructed from its first four values using these directions; its fifth value is their negative sum. Independence follows by evaluating at each of the first four points. The constrained dimension is four. The function set has infinitely many members over the reals, even though its domain and dimension are finite.
+---RULE---
+Functions on a finite set of size $m$ form an $m$-dimensional coordinate space. One nonzero total-value constraint leaves dimension $m-1$; use point indicators minus one reference indicator as a basis.
+
+@@ 70|Dimension of a recurrence solution space|Original hard problem
+Let $V$ be the real sequences satisfying $a_{n+2}=3a_{n+1}-2a_n$ for all $n\ge0$. Prove $\dim V=2$ and give a basis.
+---SOLUTION---
+The recurrence is homogeneous linear, so solutions form a subspace of all sequences. A solution is uniquely determined by its first two values: the recurrence computes every later term, and any initial pair is allowed. The initial-value map to $\mathbb R^2$ is therefore a linear bijection. Two explicit solutions are $u_n=1$ and $v_n=2^n$. Their initial pairs are $(1,1)$ and $(1,2)$, independent because the determinant is one. Thus they form a basis and every solution is uniquely $a_n=\alpha+\beta2^n$. Infinite sequence length does not imply infinite dimension when a finite number of initial freedoms determine all entries.
+---RULE---
+Count independent initial data for a homogeneous recurrence. The second-order rule $a_{n+2}=3a_{n+1}-2a_n$ has dimension two and basis sequences $1,2^n$, despite infinitely many coordinates.
+
+@@ 71|Connected difference vectors|Independently reconstructed and generalized from MIT 18.06SC Problem 9.1
+For $n\ge2$, consider all differences $e_i-e_j$ in $\mathbb R^n$, $i<j$. Find their span, its dimension, and a basis. Then restrict differences to edges of a connected graph.
+---SOLUTION---
+Every difference has coordinate sum zero, so the span lies in the sum-zero hyperplane. The $n-1$ differences $e_i-e_n$ for $i<n$ are independent because their first $n-1$ coordinates isolate coefficients. Any sum-zero vector $x$ equals $\sum_{i<n}x_i(e_i-e_n)$, proving spanning and dimension $n-1$. If only edges of a connected graph are available, follow a path from $i$ to $n$; its signed edge differences telescope to $e_i-e_n$. Thus connected edge differences span the same space. A spanning tree supplies $n-1$ edges and hence a basis. This is a structural extension of the course exercise, not a copied assignment solution.
+---RULE---
+Connected edge differences span the sum-zero hyperplane. In $\mathbb R^n$ its dimension is $n-1$, with basis $e_i-e_n$; path telescoping explains why a spanning tree suffices.
+
+@@ 72|A plane, a constrained intersection, and a normal direction|Independently reconstructed variation of MIT 18.06SC Problem 9.2|plane-course
+For the plane $2x-y+4z=0$, find a basis, a basis of its intersection with $z=0$, and a basis of its perpendicular space.
+---SOLUTION---
+Solve $y=2x+4z$, giving $(x,y,z)=x(1,2,0)+z(0,4,1)$. These two generators are independent by first and third coordinates, so they are a plane basis. Imposing $z=0$ leaves the line generated by $(1,2,0)$. The vector $(2,-1,4)$ is perpendicular to both plane generators by direct dot products, each zero. The plane has dimension two in Euclidean three-space, so its perpendicular space has dimension one and that nonzero normal is a basis. The plane basis does not need to be orthogonal to serve its algebraic purpose. This variation changes the source coefficients and supplies an independently derived solution.
+---RULE---
+An equation-defined plane uses free-coordinate basis directions, while its coefficient row supplies a normal in Euclidean coordinates. For $2x-y+4z=0$, use $(1,2,0),(0,4,1)$ and normal $(2,-1,4)$.
+
+@@ 73|Measurement ambiguity and output dimension|Original problem calibrated to Stanford EE263 range/nullspace interpretation|measurement-main
+Sensors return $y_1=x_1+x_2$ and $y_2=x_2+x_3$ for $x\in\mathbb R^3$. Describe every input giving outputs $(4,7)$ and the number of independent output dimensions.
+---SOLUTION---
+Set $x_2=t$. Then $x_1=4-t$ and $x_3=7-t$, giving $(4,0,7)+t(-1,1,-1)$. The ambiguity direction is exactly the kernel of the sensor matrix $\begin{bmatrix}1&1&0\\0&1&1\end{bmatrix}$. Its two rows are independent, so rank is two, nullity one, and every pair of outputs is attainable. The sensors lose one input direction rather than one of the written coordinates in isolation. A third sensor removes ambiguity only if its row is not in the span of these two rows; duplicating an existing measurement does not help.
+---RULE---
+Sensor ambiguity is a kernel, not a count of repeated outputs. The measurements $x_1+x_2,x_2+x_3$ have rank two and invisible direction $(-1,1,-1)$, giving a one-parameter fiber for every output.
+
+@@ 74|Dimension of complementary projection components|Original hard proof problem
+Let a linear map $P:V\to V$ satisfy $P^2=P$, with $V$ finite-dimensional. Prove $V=\operatorname{im}P\oplus\ker P$ without assuming orthogonality.
+---SOLUTION---
+For any $v$, write $v=Pv+(v-Pv)$. The first part is in the image; the second is in the kernel because $P(v-Pv)=Pv-P^2v=0$. Thus the two spaces span $V$. If $w=Pu$ also lies in the kernel, then $0=Pw=P^2u=Pu=w$, proving trivial intersection. The decomposition is therefore unique, and the component dimensions sum to $\dim V$. No inner product entered the proof. The projection may be oblique; idempotence alone does not imply a symmetric matrix or perpendicular components.
+---RULE---
+Every idempotent linear map splits its space into image and kernel. The decomposition $v=Pv+(v-Pv)$ proves existence, and $Pw=w$ on the image proves uniqueness; orthogonality is an additional property.
+
+@@ 75|Intersection dimension from ranks of stacked constraints|Original hard problem
+Let $U=\ker A$ and $W=\ker B$ in $F^n$. Derive formulas for dimensions of the intersection and sum in terms of matrix ranks.
+---SOLUTION---
+The intersection is the kernel of the vertical stack $C=\begin{bmatrix}A\\B\end{bmatrix}$, because a vector must satisfy both systems. Thus $\dim(U\cap W)=n-\operatorname{rank}C$. Separately $\dim U=n-\operatorname{rank}A$ and $\dim W=n-\operatorname{rank}B$. Substituting into the two-space dimension formula gives $\dim(U+W)=n-\operatorname{rank}A-\operatorname{rank}B+\operatorname{rank}C$. Dependencies between the two sets of constraint rows are measured by the stacked rank. For ranks two and three in $n=6$ with stacked rank four, the intersection dimension is two and the sum dimension is five.
+---RULE---
+For $U=\ker A,W=\ker B\subseteq F^n$, the stacked matrix $C=\begin{bmatrix}A\\B\end{bmatrix}$ defines their intersection. With ranks $r_A,r_B,r_C$, dimensions are $n-r_C$ for the intersection and $n-r_A-r_B+r_C$ for the sum. Taking $n=6,r_A=2,r_B=3,r_C=4$ gives two and five, respectively.
+
+@@ 76|A quotient of polynomial spaces|Original hard problem
+In $P_4(\mathbb R)$, let $U$ be the polynomials divisible by $x^2-1$. Construct a quotient basis and an explicit coordinate formula.
+---SOLUTION---
+The subspace $U$ has basis $x^2-1,x(x^2-1),x^2(x^2-1)$ and dimension three. Polynomial division by the monic quadratic gives each polynomial a unique remainder $a+bx$. Therefore the cosets $1+U,x+U$ form a quotient basis, of dimension two. For $p=c_0+c_1x+c_2x^2+c_3x^3+c_4x^4$, reducing powers by $x^2=1$ modulo $U$ yields coordinates $(c_0+c_2+c_4,c_1+c_3)$. The remainder map is linear, its kernel is exactly $U$, and its surjectivity is clear from linear polynomials. The polynomial equality $x^2=1$ holds only in the quotient, not in the original polynomial space.
+---RULE---
+Polynomial quotient coordinates can be read from remainders. Modulo multiples of $x^2-1$ in $P_4$, the basis cosets $1,x$ give coordinates $(c_0+c_2+c_4,c_1+c_3)$ and quotient dimension two.
+
+@@ 77|A hard counterexample to distributivity of subspaces|Original hard conceptual problem
+Is $U\cap(W+Z)=(U\cap W)+(U\cap Z)$ always true? Establish the valid inclusion and provide a strict counterexample.
+---SOLUTION---
+A vector in the right side is a sum of two vectors both in $U$, one in $W$ and the other in $Z$. It therefore belongs to $U$ and $W+Z$, proving right-side inclusion in the left. For strictness in $\mathbb R^2$, take $U=\operatorname{span}(e_1+e_2)$, $W=\operatorname{span}e_1$, and $Z=\operatorname{span}e_2$. Then $W+Z=\mathbb R^2$, so the left side is the nonzero line $U$. Both individual intersections on the right are zero, so the right side is zero. Familiar set distributivity cannot simply be transplanted with subspace sum replacing union.
+---RULE---
+Subspace sum and intersection are not generally distributive. The inclusion $(U\cap W)+(U\cap Z)\subseteq U\cap(W+Z)$ holds, but three distinct lines in a plane make it strict.
+
+@@ 78|A valid modular identity|Original hard proof problem
+Assume $U\subseteq Z$. Prove $U+(W\cap Z)=(U+W)\cap Z$.
+---SOLUTION---
+If $x=u+w$ with $u\in U$ and $w\in W\cap Z$, then both summands lie in $Z$ because $U\subseteq Z$. Thus $x\in(U+W)\cap Z$. Conversely let $x\in(U+W)\cap Z$, so $x=u+w$ for some $u\in U,w\in W$, and $x\in Z$. Since $u\in Z$, subtraction gives $w=x-u\in Z$. Hence $w\in W\cap Z$ and $x\in U+(W\cap Z)$. This proves equality. The containment premise is used in both directions and distinguishes this valid identity from the false unrestricted distributive identity.
+---RULE---
+The modular identity requires $U\subseteq Z$. Under that premise, subtracting the $U$ component keeps a vector in $Z$ and proves $U+(W\cap Z)=(U+W)\cap Z$.
+
+@@ 79|Extending a prescribed basis using another supplied basis|Original hard synthesis problem
+Let $U,W\subseteq V$ have dimensions three and three, with intersection dimension one. Can one always choose a basis of $U+W$ consisting of all three members of a prescribed basis of $U$ and two vectors from a prescribed basis of $W$? Prove your answer.
+---SOLUTION---
+Yes. The union of the prescribed basis lists spans $U+W$, whose dimension is $3+3-1=5$. Begin with all three prescribed $U$ vectors, an independent list. Process the three prescribed $W$ vectors and retain a vector exactly when it is outside the current span. Each retained vector preserves independence. At termination the retained list spans the union and hence the sum. It is therefore a five-vector basis, so exactly two $W$ vectors were retained. It is not necessarily possible to discard an arbitrarily chosen $W$ vector; the decision depends on its position relative to the current span. The constructive extension argument proves existence without assuming compatible initial bases.
+---RULE---
+An independent subspace basis can be extended using a supplied spanning union. Two dimension-three spaces with one-dimensional intersection have a five-vector sum basis retaining any prescribed $U$ basis and two suitably chosen $W$ basis vectors.
+
+@@ 80|Independent constraints on a direct sum|Original hard capstone problem
+Let $V=U\oplus W$, with dimensions four and three. Let a nonzero functional $\ell:V\to\mathbb R$ be nonzero on both $U$ and $W$. Find $\dim\ker\ell$, $\dim(U\cap\ker\ell)$, $\dim(W\cap\ker\ell)$, and determine whether these last two spaces sum to the kernel.
+---SOLUTION---
+The ambient dimension is seven. A nonzero scalar functional has rank one, so its kernel has dimension six. Its restriction to $U$ is nonzero and has rank one, so the restricted kernel has dimension three. The corresponding dimension on $W$ is two. These two restricted kernels intersect trivially because $U\cap W=0$, so their sum has dimension five. It is a proper subspace of the six-dimensional full kernel. The missing direction comes from cancellation across components: choose $u\in U$ with $\ell(u)=1$ and $w\in W$ with $\ell(w)=-1$. Then $u+w\in\ker\ell$, although neither component lies in its restricted kernel. Thus a constraint on a direct sum need not split into separate zero constraints on each component.
+---RULE---
+A scalar constraint can cancel across direct-sum components. For component dimensions four and three with nonzero restrictions, the full kernel has dimension six, while the sum of restricted kernels has only dimension five.

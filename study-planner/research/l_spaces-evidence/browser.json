@@ -1,0 +1,333 @@
+{
+  "topicId": "l_spaces",
+  "status": "passed",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\l-spaces-visual-qa",
+  "counts": {
+    "questions": 82,
+    "rules": 80,
+    "players": 48,
+    "math": 1574
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "heading": true,
+    "prose": true,
+    "code": true
+  },
+  "geometry": {
+    "models": 23,
+    "frames": 76,
+    "issues": []
+  },
+  "mathGeometry": {
+    "bareClosingScriptBases": [],
+    "zeroSizeFences": [],
+    "underlined": 0
+  },
+  "pause": {
+    "motions": 1,
+    "frozen": true
+  },
+  "resume": true,
+  "reducedMotion": true,
+  "printCheckpoints": true,
+  "labs": [
+    {
+      "error": "",
+      "result": {
+        "rank": 2,
+        "pivotColumns": [
+          1,
+          3
+        ],
+        "basis": [
+          [
+            "1",
+            "2",
+            "3"
+          ],
+          [
+            "0",
+            "1",
+            "2"
+          ]
+        ],
+        "nullBasis": [
+          [
+            "-2",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "-3",
+            "0",
+            "2",
+            "1"
+          ]
+        ],
+        "consistent": true,
+        "coefficients": [
+          "1",
+          "0",
+          "1",
+          "0"
+        ],
+        "checks": {
+          "kernelVerified": true,
+          "targetVerified": true,
+          "rankNullity": true
+        }
+      },
+      "checks": true,
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "rank": 2,
+        "pivotColumns": [
+          1,
+          2
+        ],
+        "basis": [
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0"
+          ]
+        ],
+        "nullBasis": [],
+        "consistent": true,
+        "coefficients": [
+          "3",
+          "2"
+        ],
+        "checks": {
+          "kernelVerified": true,
+          "targetVerified": true,
+          "rankNullity": true
+        }
+      },
+      "checks": true,
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "rank": 1,
+        "pivotColumns": [
+          1
+        ],
+        "basis": [
+          [
+            "1",
+            "2"
+          ]
+        ],
+        "nullBasis": [
+          [
+            "-2",
+            "1"
+          ]
+        ],
+        "consistent": false,
+        "coefficients": null,
+        "checks": {
+          "kernelVerified": true,
+          "targetVerified": true,
+          "rankNullity": true
+        }
+      },
+      "checks": true,
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "rank": 0,
+        "pivotColumns": [],
+        "basis": [],
+        "nullBasis": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "consistent": true,
+        "coefficients": [
+          "0",
+          "0"
+        ],
+        "checks": {
+          "kernelVerified": true,
+          "targetVerified": true,
+          "rankNullity": true
+        }
+      },
+      "checks": true,
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "rank": 1,
+        "pivotColumns": [
+          1
+        ],
+        "basis": [
+          [
+            "1",
+            "2",
+            "3"
+          ]
+        ],
+        "nullBasis": [],
+        "consistent": true,
+        "coefficients": [
+          "2"
+        ],
+        "checks": {
+          "kernelVerified": true,
+          "targetVerified": true,
+          "rankNullity": true
+        }
+      },
+      "checks": true,
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "rank": 3,
+        "pivotColumns": [
+          1,
+          2,
+          3
+        ],
+        "basis": [
+          [
+            "1",
+            "2",
+            "0",
+            "0"
+          ],
+          [
+            "2",
+            "4",
+            "1",
+            "0"
+          ],
+          [
+            "3",
+            "6",
+            "0",
+            "1"
+          ]
+        ],
+        "nullBasis": [
+          [
+            "-2",
+            "-1",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "-2",
+            "0",
+            "-1",
+            "0",
+            "1"
+          ]
+        ],
+        "consistent": true,
+        "coefficients": [
+          "-3",
+          "1",
+          "1",
+          "0",
+          "0"
+        ],
+        "checks": {
+          "kernelVerified": true,
+          "targetVerified": true,
+          "rankNullity": true
+        }
+      },
+      "checks": true,
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "rank": 4,
+        "pivotColumns": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "basis": [
+          [
+            "20",
+            "-13",
+            "19",
+            "16"
+          ],
+          [
+            "-19",
+            "20",
+            "11",
+            "-13"
+          ],
+          [
+            "17",
+            "16",
+            "-17",
+            "20"
+          ],
+          [
+            "11",
+            "-18",
+            "20",
+            "19"
+          ]
+        ],
+        "nullBasis": [],
+        "consistent": true,
+        "coefficients": [
+          "98465/88731",
+          "-23953/88731",
+          "-22595/88731",
+          "-24152/88731"
+        ],
+        "checks": {
+          "kernelVerified": true,
+          "targetVerified": true,
+          "rankNullity": true
+        }
+      },
+      "checks": true,
+      "issues": []
+    }
+  ],
+  "invalidPreservesPrevious": 6,
+  "mobileOverflow": false,
+  "printVisible": true,
+  "runtimeErrors": [],
+  "library": {
+    "cards": 43,
+    "visible": true,
+    "errors": []
+  },
+  "weeklyChapterLink": true
+}

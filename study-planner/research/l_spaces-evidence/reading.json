@@ -1,0 +1,174 @@
+[
+  {
+    "university": "Oxford",
+    "course": "M1 Linear Algebra I",
+    "instructor": "Andrew Wathen (course lecturer)",
+    "term": "Michaelmas 2022",
+    "documents": {
+      "lecture_notes22.pdf": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ]
+    },
+    "role": "Core: abstract spaces, span, independence, basis exchange and dimension.",
+    "corrections": [
+      "PDF 37: three-coordinate vectors are labelled as belonging to R2; two coefficient equations are transposed. Visually checked.",
+      "PDF 39: a printed vector (0,2,-1) does not satisfy x+2y+z=0. Visually checked; replace by (0,1,-2).",
+      "PDF 50: removing one redundant vector need not make the remainder independent. Minimality contradicts the existence of any smaller spanning list, without that additional claim."
+    ]
+  },
+  {
+    "university": "ETH Zurich",
+    "course": "Linear Algebra 401-0131-00L",
+    "instructor": "Bernd Gaertner and Robert Weismantel; notes by Bernd Gaertner",
+    "term": "HS 2024",
+    "documents": {
+      "notes_part_I.pdf": [
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132
+      ]
+    },
+    "role": "Core: field-sensitive axioms, subspace test, finite combinations, Steinitz exchange and constructive dimension.",
+    "corrections": [
+      "PDF 119 Lemma 4.9 must require zero in U, not merely in ambient V; the proof uses the correct set.",
+      "PDF 123 real geometric series needs absolute value of x below one, not merely x below one.",
+      "PDF 127 exchange argument changes coefficient names in a denominator; chapter proof keeps one consistent coefficient."
+    ]
+  },
+  {
+    "university": "MIT",
+    "course": "18.06SC Linear Algebra",
+    "instructor": "Gilbert Strang",
+    "term": "Fall 2011",
+    "documents": {
+      "session_1.9_summary": [
+        1,
+        2,
+        3
+      ],
+      "session_1.9_problems": [
+        1
+      ],
+      "session_1.9_solutions": [
+        1,
+        2
+      ]
+    },
+    "role": "Core: original pivot columns, rectangular basis counting, differences and planes; Q71 and Q72 are independently reconstructed and extended.",
+    "corrections": [
+      "Summary PDF 3: columns 1 and 4 are equal; the printed null vector (-1,0,0,-1) is incorrect. Correct vector (-1,0,0,1). Visually checked."
+    ]
+  },
+  {
+    "university": "Stanford",
+    "course": "EE263, Lecture 3: Linear algebra review",
+    "instructor": "Stephen Boyd",
+    "term": "Autumn 2007-08",
+    "documents": {
+      "lin-alg2.pdf": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    "role": "Core: range/null space, bases, coordinate representation and measurements.",
+    "corrections": [
+      "Slide 3-8 shorthand for infinite dimension must read no finite basis, rather than no basis; an infinite algebraic basis is a different notion."
+    ]
+  },
+  {
+    "university": "CMU",
+    "course": "21-241",
+    "instructor": "William Gunther",
+    "term": "Summer I 2014",
+    "documents": {
+      "abstract_spaces": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "bases": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "role": "Compared, not selected as core.",
+    "corrections": [
+      "Bases PDF 3 incorrectly calls sin and cos dependent.",
+      "Bases PDF 4 incorrectly calls a list of more than n vectors independent in an n-dimensional space; a later statement correctly says dependent. Both visually checked.",
+      "Abstract subspace test must retain nonemptiness; residue classes form a field only for prime modulus."
+    ]
+  },
+  {
+    "university": "Harvard",
+    "course": "Math 21b, Lecture 04",
+    "instructor": "Oliver Knill",
+    "term": "Spring 2023",
+    "documents": {
+      "lecture04.pdf": [
+        1,
+        2
+      ]
+    },
+    "role": "Compared in full; useful computational summary but insufficient exchange and sum/intersection proofs for this chapter.",
+    "corrections": []
+  },
+  {
+    "university": "UC Berkeley",
+    "course": "Math 54",
+    "instructor": "Alexander Paulin",
+    "term": "Spring 2018",
+    "role": "Accessible course and four scanned document titles screened. Scanned contents not fully reviewed in this chapter and not counted among the four core sources."
+  }
+]
