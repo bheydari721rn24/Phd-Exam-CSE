@@ -1,0 +1,24 @@
+[
+  {
+    "id": "MS_CE_1404_Q68",
+    "title": "Iterative deepening versus breadth-first and depth-first search",
+    "booklet": "MSc CE 1404",
+    "questionNumber": 68,
+    "pdfPage": 16,
+    "stem": "Which statement about iterative deepening search (IDS) is correct in the standard tree-search comparison?",
+    "options": [
+      "The time complexity order of IDS is greater than that of BFS because IDS repeats its iterations.",
+      "The time complexity order of IDS is greater than that of DFS because IDS repeats its iterations.",
+      "The memory complexity order of IDS is like BFS, but unlike BFS, IDS is complete.",
+      "The memory complexity order of IDS is like DFS, but unlike DFS, IDS is complete."
+    ],
+    "answer": 4,
+    "modelId": "ids-main",
+    "solution": "Option 4 is the intended answer under the classical tree-search assumptions: finite branching, a goal at finite depth, and ordinary DFS without a mechanism that forces it to leave an infinite branch. IDS exhausts each finite depth limit and eventually reaches the shallowest goal depth. Its live depth-first frontier is linear in the depth bound for fixed branching factor, like DFS, whereas BFS stores an exponential-width frontier. Option 1 confuses repeated work with a larger asymptotic order: for fixed branching factor greater than one, exhaustive IDS and BFS both take exponential time in the shallowest goal depth, with a constant limiting overhead ratio. Option 2 is not a general comparison because DFS depends on its maximum reached depth and branch order. Option 3 also incorrectly suggests that standard BFS is incomplete. The qualification matters: DFS with global discovery on a finite graph is complete too; this examination item is not claiming the contrary.",
+    "repoPath": "Exams/MS/CE/1404/Daftarche-Soalat-Konkur-Arshad-Computer-1404 (konkurcomputer.ir).pdf",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "sourceSha256": "909e4efaaad96f4d39e526104bc9dc6de6d52be11fd7716e583476b0e62ff654",
+    "answerStatus": "independently_derived_not_official",
+    "verification": "Original PDF page 16 visually inspected at enlarged resolution; Q68 options retained in printed order."
+  }
+]

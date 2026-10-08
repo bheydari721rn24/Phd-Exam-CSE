@@ -1,0 +1,162 @@
+{
+  "topicId": "i_uninformed",
+  "status": "passed",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\i-uninformed-visual-qa",
+  "counts": {
+    "questions": 81,
+    "rules": 80,
+    "players": 47,
+    "math": 570
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "heading": true,
+    "prose": true,
+    "code": true
+  },
+  "geometry": {
+    "models": 25,
+    "frames": 251,
+    "issues": []
+  },
+  "mathGeometry": {
+    "bareClosingScriptBases": [],
+    "zeroSizeFences": [],
+    "underlined": 0
+  },
+  "pause": {
+    "motions": 1,
+    "frozen": true
+  },
+  "resume": true,
+  "reducedMotion": true,
+  "printCheckpoints": true,
+  "labs": [
+    {
+      "error": "",
+      "result": {
+        "termination": "success",
+        "path": [
+          "S",
+          "B",
+          "A",
+          "G"
+        ],
+        "cost": 4,
+        "depth": 3,
+        "selected": 4,
+        "expanded": 3,
+        "generated": 6,
+        "duplicates": 0,
+        "stale": 1
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "termination": "success",
+        "path": [
+          "S",
+          "G"
+        ],
+        "cost": 9,
+        "depth": 1,
+        "selected": 2,
+        "expanded": 1,
+        "generated": 3,
+        "duplicates": 0,
+        "stale": 0
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "termination": "success",
+        "path": [
+          "S",
+          "A",
+          "G"
+        ],
+        "cost": 2,
+        "depth": 2,
+        "selected": 3,
+        "expanded": 2,
+        "generated": 4,
+        "duplicates": 0,
+        "stale": 0
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "termination": "success",
+        "path": [
+          "S",
+          "X",
+          "G"
+        ],
+        "cost": 2,
+        "depth": 2,
+        "selected": 6,
+        "expanded": 4,
+        "generated": 6,
+        "duplicates": 0,
+        "stale": 0
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "termination": "success",
+        "path": [
+          "S",
+          "A",
+          "B",
+          "G"
+        ],
+        "cost": 3,
+        "depth": 3,
+        "selected": 10,
+        "expanded": 6,
+        "generated": 10,
+        "duplicates": 0,
+        "stale": 0
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "termination": "success",
+        "path": [
+          "S",
+          "A",
+          "G"
+        ],
+        "cost": 2,
+        "depth": 2,
+        "selected": 3,
+        "expanded": 2,
+        "generated": 4,
+        "duplicates": 1,
+        "stale": 0
+      },
+      "issues": []
+    }
+  ],
+  "invalidPreservesPrevious": 6,
+  "mobileOverflow": false,
+  "printVisible": true,
+  "runtimeErrors": [],
+  "library": {
+    "cards": 45,
+    "visible": true,
+    "errors": []
+  },
+  "weeklyChapterLink": true
+}

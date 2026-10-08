@@ -419,7 +419,7 @@ The complete l_spaces review draft and evidence were pushed to GitHub branch stu
 
 ## Active chapter: Intelligent agents — 8 October 2026
 
-Explicit user approval of the local and GitHub vector-space delivery permits only i_agents, the next missing Week 3 topic. No online version is invented for the pending vector-space upload. Preserve 43 previous pages and 2,757 complete problems. Review written university courses, develop rigorous mathematical and conceptual problems with fully worked solutions and strong final rules, and implement subject-specific agent models. Await approval after delivery.
+Explicit user approval of the local and GitHub vector-space delivery permits only i_agents, the next missing Week 3 topic. No online version is invented for the pending vector-space upload. Preserve 43 previous pages and 2,757 complete problems. Review written university courses, develop rigorous mathematical and conceptual problems with fully worked solutions and strong final rules, and implement subject-specific search models. Await approval after delivery.
 
 
 ## Intelligent agents review draft complete — 8 October 2026
@@ -430,3 +430,13 @@ Four genuinely read written university courses: Berkeley, CMU, Edinburgh and Sta
 ## Intelligent agents delivered locally and to GitHub — 8 October 2026
 
 Content commit 8a45eb7 is mirrored on GitHub branch study-planner-1406 at c8f43b9. The complete interactive chapter is served at http://127.0.0.1:8093/chapters/i_agents.html (HTTP 200 checked). The clean content archive has 372 byte-verified entries. Sites transport failed both site reads and credential refresh at https://chatgpt.com/backend-api/ps/mcp; the preceding credential was expired, so it was not used. No new Site-source push, saved version or deployment is claimed. Version 80 was the last successful site read; current online state could not be refreshed. The prepared package includes approved l_spaces and draft i_agents. i_agents remains awaiting explicit user approval; no following chapter has started.
+
+
+## Active chapter: Uninformed search — 8 October 2026
+
+Explicit user approval of the local and GitHub intelligent-agent delivery permits only i_uninformed, the next missing Week 3 topic. No online version is invented for the pending intelligent-agent upload. Preserve 44 previous pages and 2,839 complete problems. Review written university courses, develop rigorous mathematical and conceptual problems with fully worked solutions and strong final rules, and implement subject-specific search models. Await approval after delivery.
+
+
+## Uninformed search complete review draft — 8 October 2026
+
+31 sections, 81 complete worked problems, 80 final examination rules, four core written courses plus Stanford application material, and 25 specialized models with 251 checkpoints. Independent finite-graph comparisons cover 1800 runs. All 44 previous chapter pages and 2839 previous problems are preserved. Browser checks include math, typography, every stored frame, real pause/resume, reduced motion, mobile, print and editable graph validation. Await explicit approval of i_uninformed. Publication is tracked separately; local validation alone does not establish online deployment.

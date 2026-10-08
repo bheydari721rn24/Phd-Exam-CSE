@@ -1,0 +1,240 @@
+@@ 1|BFS queue and parent choices|Original exact trace|bfs-main
+For $S\to A,B$, $A\to C,D$, $B\to D,G$, and $D\to G$, run discovery-on-insertion BFS, testing goals on removal. Every edge costs one. Give the selected order, expanded order and returned path.
+---SOLUTION---
+Start with $[S]$. After expanding $S,A,B,C,D$, the successive queues are $[A,B]$, $[B,C,D]$, $[C,D,G]$, $[D,G]$, and $[G]$. The duplicate $D$ from $B$ and duplicate $G$ from $D$ are rejected. Selection order is $S,A,B,C,D,G$; expansion order omits the goal $G$. Its immutable parent is $B$, so the path is $S,B,G$ with depth and cost two. Discovery fixes the first minimum-depth parent, not the most recently encountered predecessor.
+---RULE---
+In FIFO BFS with discovery on insertion, a state's first parent records a minimum-edge route. A selected goal is not expanded under this chapter's convention, so selection and expansion lists differ at termination.
+@@ 2|Early BFS goal testing|Original counting comparison|bfs-main
+For Question 1, move the goal test to generation, while checking the root separately. How many non-goal states are expanded, and does the returned path change?
+---SOLUTION---
+The root is not a goal. Expand $S$ and $A$ as before. During expansion of $B$, its first child $D$ is a known duplicate and its next child is $G$. Return immediately with the parent route $S,B,G$. Exactly three states, $S,A,B$, have been expanded. The path remains minimum depth because all previously generated nodes have depth at most two and no shallower goal was found. The operation saving does not authorize early goal testing in UCS with variable costs.
+---RULE---
+BFS can accept a newly generated goal while preserving minimum depth if the root is checked and FIFO layer order is maintained. Its expansion count then differs from a goal-on-removal implementation.
+@@ 3|DFS stack direction|Original exact trace|dfs-main
+Use Question 1's graph. DFS uses a stack with the top at the right, discovery on insertion, and the written successor order as the desired removal order. Trace the result.
+---SOLUTION---
+Push $B$ and then $A$, so $A$ is removed first. After expanding $A$, push $D$ then $C$ above the pending $B$. The stack is $[B,D,C]$. Removing leaf $C$ exposes $D$, which inserts $G$. The selected order is $S,A,C,D,G$ and the returned route is $S,A,D,G$, with three unit-cost edges. The known pending state $B$ prevents duplicate discovery if reached elsewhere. An implementation that pushes $A$ then $B$ instead explores the other branch first.
+---RULE---
+For a right-top stack, reverse the desired successor removal order when pushing. DFS's successor scheduling changes its first solution and parent tree; a trace must declare this convention.
+@@ 4|A weighted BFS counterexample|Original optimization counterexample|weighted-bfs
+Let $S\to G$ cost 9 and $S\to A\to G$ cost 1 on each edge. Which route does BFS return, and what is the optimal cost?
+---SOLUTION---
+BFS discovers the direct goal at depth one and the alternative goal node lies at depth two. It returns the direct edge costing nine, regardless of whether the depth-one $A$ is selected before $G$: discovery of $G$ already fixes its first parent. The alternative costs $1+1=2$. BFS is correct for minimum actions but not for minimum total cost. Positivity of all costs does not make action count equivalent to cost, because individual edge magnitudes differ.
+---RULE---
+Positive unequal costs do not make BFS cost-optimal. Always distinguish the minimum-depth objective from the minimum-sum-of-costs objective; the two can choose different routes even on three vertices.
+@@ 5|Relaxation is essential in UCS|Original exact trace|ucs-main
+Run UCS on $S\to A:4$, $S\to B:1$, $B\to A:1$, $A\to G:2$, $B\to G:8$. Use stable insertion ties and a lazy heap.
+---SOLUTION---
+After $S$, the valid frontier is $B:1,A:4$. Expanding $B$ creates $A:2,G:9$, retaining the old physical $A:4$ heap entry. Expanding $A:2$ creates $G:4$. The old $A:4$ has earlier insertion order than $G:4$, so it is popped first and discarded as stale. The valid goal then returns $S,B,A,G$ at cost four. Useful expansions are $S,B,A$; raw removals additionally include the stale $A$ and goal. A stale record is not a second expansion of the state.
+---RULE---
+Lazy UCS must reject obsolete records before goal testing or expansion. Physical heap removals, valid selections and expansions can have three different counts in the same execution.
+@@ 6|The first generated UCS goal is expensive|Original stopping counterexample|early-goal
+Let $S\to G:10$, $S\to A:1$, $A\to G:1$. Why does returning on goal generation fail?
+---SOLUTION---
+Expanding the start immediately generates a goal route costing ten, but also a route to $A$ costing one. The latter leads to a goal of cost two. Returning the generated goal ignores unresolved cheaper prefixes. Correct UCS first selects $A:1$, improves the goal to two, and accepts that valid minimum-cost goal on removal. The contradiction proof requires the goal to beat all valid frontier prefixes, a fact that generation alone cannot establish. All edges are positive, so negative costs are not the cause.
+---RULE---
+For variable nonnegative costs, UCS accepts a goal on valid minimum-key removal. First generation only provides a candidate upper bound and can be arbitrarily worse than the optimum.
+@@ 7|A Boolean discovered bit loses the cheapest route|Original duplicate counterexample|ucs-main
+In Question 5, suppose every state is admitted only on its first discovery. Compute the resulting returned cost.
+---SOLUTION---
+The start discovers $A$ at cost four and $B$ at cost one. After selecting $B$, the route to $A$ at cost two is rejected by the Boolean bit. A goal at cost nine is admitted. Selecting $A:4$ then proposes the goal at cost six, which is also rejected if discovery includes the frontier. The algorithm returns nine, not four. If it permits replacing the goal but still rejects $A$'s improvement, it instead returns six. Both variants are incorrect; identify the precise rejection rule before calculating the erroneous answer.
+---RULE---
+UCS requires numerical relaxation for frontier duplicates. “Visited once” is insufficient; rejecting every repeated state on generation can lose both cheaper intermediate paths and cheaper goal routes.
+@@ 8|Equal-cost duplicate suppression|Original zero-cycle reasoning|zero-cycle
+The graph has $S\to A:0$, $A\to S:0$, and $A\to G:2$. Explain why strict cost improvement is safe and why admitting every equal-cost duplicate is dangerous.
+---SOLUTION---
+The first discovered labels are zero for $S$ and $A$. The return edge proposes another cost-zero route to $S$, but strict improvement rejects it. The goal is eventually selected at cost two. If every equal-cost duplicate is inserted without a settled or path-cycle rule, the zero cycle creates unboundedly many cost-zero paths, all ahead of the cost-two goal. Equal-cost paths to the same sufficient state offer no cheaper continuation than the existing label, so discarding them is sound for finding one optimal route.
+---RULE---
+When only one cheapest solution is needed, strict best-cost improvement removes redundant equal-cost routes and prevents finite zero-cost cycles from starving UCS. Enumerating all optimal paths is a different task.
+@@ 9|Negative suffix without a cycle|Original proof counterexample|negative-edge
+For $S\to G:2$, $S\to A:5$, $A\to G:-10$, compare UCS's returned value with the true optimum.
+---SOLUTION---
+The valid frontier after expanding $S$ contains $G:2$ and $A:5$. UCS accepts $G$ and returns two. The other route costs $5-10=-5$, so this is not optimal. The graph is acyclic and contains no negative cycle; a single negative suffix already invalidates the frontier-cut proof. Specifically, a prefix cost of five does not lower-bound the eventual complete path cost. A topological shortest-path computation could process the acyclic graph correctly, but UCS's early stopping cannot.
+---RULE---
+Absence of negative cycles does not justify UCS. Nonnegative suffix costs are needed for its minimum-frontier stopping proof; even an acyclic three-vertex graph can violate optimality with one negative edge.
+@@ 10|Positive edges with no positive lower bound|Original infinite-space counterexample|starvation-main
+The root has a goal edge of cost 1 and a chain whose successive edge costs are $2^{-1},2^{-2},\ldots$. Will UCS find the goal?
+---SOLUTION---
+After $k$ chain edges, the accumulated cost is $1-2^{-k}$, strictly below one for every finite $k$. Each selected chain node therefore inserts another prefix that outranks the waiting goal. There are no repeated chain states and every individual edge is strictly positive. UCS never removes the goal. This shows why positivity and a uniform positive lower bound are different assumptions. The finite-cost sublevel set contains infinitely many prefixes, so the standard completeness argument cannot count finitely many competitors.
+---RULE---
+Strict positivity of individual edge costs does not ensure UCS completeness in an infinite graph. A positive uniform edge bound, or another finite-sublevel condition, is needed to exclude infinitely many cheaper prefixes.
+@@ 11|Full tree size|Original geometric calculation|counts-main
+How many nodes lie through depth 6 in a full ternary tree, including the root? How many are leaves at depth 6?
+---SOLUTION---
+The layer sizes are $1,3,9,27,81,243,729$. Their sum is $(3^7-1)/(3-1)=1093$. The last layer alone contains $3^6=729$ leaves. The distinction matters because an expression such as $b^d$ gives the dominant layer rather than the exact cumulative count. Here 364 nodes occur above the leaves. If a task counts generated children of non-goals in the final layer, even 1093 is not the complete generation count; the stopping convention must be supplied.
+---RULE---
+For a full tree, $b^d$ counts one depth layer while $(b^{d+1}-1)/(b-1)$ counts the root and all earlier layers. An exact operation question cannot replace the sum by its leading term.
+@@ 12|The unary exception|Original limit case|counts-chain
+Compute exhaustive IDS visits through final limit 8 on a chain, including the root on every iteration. Compare with one traversal.
+---SOLUTION---
+At limit $L$, the chain contributes $L+1$ visits. Limits zero through eight therefore require $1+2+\cdots+9=45$ visits. A single traversal through depth eight visits nine nodes, so the ratio is five. Substituting $b=1$ into the geometric closed form would divide by zero. The underlying finite sum remains meaningful and gives a quadratic IDS count. The claim that IDS has negligible constant-factor overhead relies on branching layers that grow geometrically, not on a chain.
+---RULE---
+Handle branching factor one separately: exhaustive IDS through depth $d$ visits $(d+1)(d+2)/2$ nodes. Its overhead over a single chain traversal grows with depth rather than approaching a fixed constant.
+@@ 13|Exact IDS repeated work|Original finite sum|counts-main
+In a full binary tree, count exhaustive IDS visits through limit 4 and compare with one exhaustive depth-four traversal, including roots.
+---SOLUTION---
+Each depth-$i$ node is revisited $5-i$ times. The total is $5+4\cdot2+3\cdot4+2\cdot8+16=57$. One traversal visits $1+2+4+8+16=31$. The ratio is $57/31$, less than two but approaching two as depth grows. This count assumes each iteration is exhaustive, for example when measuring its complete bounded tree. If the final iteration finds a goal early, its remaining unvisited nodes must be subtracted before reporting an exact count.
+---RULE---
+In exhaustive IDS, multiply each layer size by the number of iterations that reach it. Do not count every layer equally, and do not apply the exhaustive total to an early-stopping final iteration without adjustment.
+@@ 14|IDS overhead at large branching|Original ratio derivation|counts-main
+For $b=10,d=5$, compute exhaustive IDS and a single traversal, both including all root visits.
+---SOLUTION---
+The single traversal is $1+10+100+1000+10000+100000=111111$. IDS is $6+5\cdot10+4\cdot100+3\cdot1000+2\cdot10000+100000=123456$. The extra work is 12345 visits, about 11.11 percent. Some lecture tables exclude roots and obtain slightly different exact totals; their rounded percentage is similar. Naming the convention explains the difference. The limiting ratio is $10/9$, but the finite ratio should be computed from the actual sums rather than replaced by that limit.
+---RULE---
+Root inclusion changes exact IDS totals because the root occurs in every iteration. Compare counts under the same convention; rounded overhead percentages can conceal several visits without making the algorithms inconsistent.
+@@ 15|A BFS extra-layer generation count|Original exact bound|counts-bfs
+A full binary tree has its only shallowest goal last at depth 3. BFS tests on removal. Count all generated nodes, including the root, before success.
+---SOLUTION---
+All nodes through depth three are generated: $1+2+4+8=15$. Before the last depth-three goal is removed, the other seven depth-three nodes are expanded, each generating two depth-four children. Add fourteen to obtain 29 generated nodes. There are fifteen selected nodes through success and fourteen expanded non-goals. Just before removing the goal, the queue contains that goal plus fourteen children, hence fifteen entries. The extra generation layer is not examined before the goal but still consumes memory.
+---RULE---
+Goal-on-removal BFS can generate depth-$d+1$ nodes before selecting the last depth-$d$ goal. Generated-node, selected-node and expanded-node counts must therefore be calculated separately.
+@@ 16|Maximum eager DFS frontier|Original frontier formula|counts-dfs
+For a full four-ary tree of maximum depth 7, what is the largest eager DFS frontier before reaching a leaf, including the next node to be removed?
+---SOLUTION---
+Initially there is one entry. At each descent expansion, remove one node and add four children, increasing the frontier by three. After seven such descents, it contains $1+3\cdot7=22$ nodes. These are the active next node and the unexamined siblings accumulated at every ancestor. A lazy recursive generator can store a frame per level rather than all siblings, but that is a different implementation. Adding a global discovered set can further increase total storage beyond this frontier-only count.
+---RULE---
+An eager full-tree DFS frontier can contain $1+(b-1)m$ entries. This is a frontier bound, not a bound on a global discovered set, materialized adjacency lists or copied full paths.
+@@ 17|BFS layer memory budget|Original resource calculation|counts-main
+A BFS layer has branching factor 6 and depth 8. If each frontier entry uses 96 bytes, estimate the bytes for that layer alone.
+---SOLUTION---
+The layer has $6^8=1679616$ entries. Multiplication by 96 gives 161243136 bytes, approximately 153.77 MiB using $2^{20}$ bytes per MiB. This excludes discovered states, allocator overhead, adjacency data and any next-layer children already generated. It also assumes each entry really occupies 96 bytes, rather than copying a complete path. The calculation explains why a manageable-looking depth can cause memory exhaustion before CPU time becomes the dominant resource.
+---RULE---
+Convert exponential frontier counts into bytes using an explicit per-entry model. A single-layer estimate is a lower accounting component, not the total memory required by graph search.
+@@ 18|DLS goal at the boundary|Original boundary case|dls-main
+Run DLS on $S\to A\to G$ with limit 2. What happens if the boundary test precedes the goal test?
+---SOLUTION---
+The goal lies exactly two edges from the root, so it is within the allowed depth. Correct DLS tests $G$ for success before deciding whether it may expand further and returns the two-action path. If zero remaining depth causes an immediate cutoff before goal testing, the algorithm wrongly rejects this valid boundary goal. IDS built on that error may appear to find the route only at limit three, corrupting both its minimum-depth interpretation and its exact visit counts.
+---RULE---
+A depth limit forbids expansion beyond the boundary, not recognition of a boundary goal. Test for success before returning cutoff at zero remaining depth.
+@@ 19|Cutoff is not failure|Original outcome semantics|dls-main
+At limit 1, DLS reaches non-goal $A$ in $S\to A\to G$. Explain the required result and its consequence for IDS.
+---SOLUTION---
+The route to $G$ has not been searched because expansion from $A$ would exceed the current limit. The result is cutoff, not a proof of impossibility. IDS must increase the limit and retry. If a failed child branch is combined with a cutoff child branch, the parent result remains cutoff unless another branch supplies a solution. Returning failure after the first dead end would ignore unresolved branches. Genuine failure means all eligible branches are exhausted without a truncated possibility under the declared boundary convention.
+---RULE---
+DLS needs solution, cutoff and failure as distinct outcomes. Any unresolved cutoff propagates through an otherwise unsuccessful parent; IDS may stop only on a solution or genuine failure.
+@@ 20|The depth-sensitive duplicate trap|Original counterexample|depth-alias-main
+With limit 3, explore $S\to A\to B\to X\to G$ before $S\to X$. Why can a global Boolean visited set miss a solution?
+---SOLUTION---
+The first route reaches $X$ at depth three, leaving no budget to expand toward $G$. If $X$ remains globally marked, the direct route to $X$ at depth one is rejected. That direct route has two remaining levels and reaches $G$ at depth two, within the limit. State equality alone does not establish dominance when remaining depth differs. Current-path checking removes $X$ on backtracking and permits the useful shallow occurrence without permitting cycles on the active path.
+---RULE---
+In depth-limited search, a shallower occurrence of the same state can be strictly more useful. Duplicate elimination must preserve remaining budget; a Boolean global mark can make a sufficient limit appear insufficient.
+@@ 21|Resetting IDS state|Original implementation diagnosis|ids-main
+Suppose IDS keeps one discovered set across all limits. At limit zero it marks the root. What can happen at limit one?
+---SOLUTION---
+If the next iteration applies the same discovered rejection to the root, it can refuse even to begin. If it specially admits the root but retains all previously discovered children from later iterations, those children can be rejected before their newly enlarged budgets are used. Increasing the limit changes which continuations are permitted, so a previous bounded visit is not a certificate that a larger-budget search is unnecessary. Reset the per-iteration path state or use a separately proved depth-sensitive mechanism.
+---RULE---
+IDS must not carry ordinary Boolean discovery marks between iterations. A larger depth limit creates new search obligations even for states encountered before.
+@@ 22|An acyclic infinite DFS trap|Original completeness counterexample|dfs-infinite
+The root's first child begins an infinite chain of distinct states; its second child is a goal. Does current-path cycle checking make DFS complete?
+---SOLUTION---
+No state repeats on the infinite first branch, so cycle checking rejects nothing. DFS always schedules the next chain node ahead of the root's second child and never reaches the goal. The failure arises from infinite depth, not a loop. BFS reaches the second child after finitely many removals when the root and each chain node have finite branching. IDS also reaches it at limit one. This separates a necessary implementation safeguard from a sufficient completeness condition.
+---RULE---
+Cycle checking prevents repeated-state loops but not infinite acyclic descent. DFS completeness still needs a finite reachable graph or another argument excluding endless preferred branches.
+@@ 23|Finite graph DFS complexity|Original input-measure comparison
+A reachable adjacency-list graph has 120 vertices and 430 directed edges. Explain the asymptotic BFS/DFS work with discovery on insertion and why $O(b^m)$ is not the best explicit-graph bound.
+---SOLUTION---
+Each vertex is accepted at most once. Its adjacency list is enumerated once when expanded, so at most 430 edge entries and 120 vertices are processed before exhaustion. The usual asymptotic bound is $O(V+E)$, with $O(V)$ labels and frontier storage. A depth-based tree bound unfolds many paths to repeated states and can be much looser here. Conversely, $O(V+E)$ does not imply easy search when the implicit state graph has exponentially many vertices in the compact problem description.
+---RULE---
+Complexity depends on the input measure. Global-discovery BFS/DFS are linear in an explicit graph's vertices and edges, while an implicitly defined search space can still grow exponentially with depth.
+@@ 24|A UCS cost-depth bound|Original bound calculation|cost-bound
+Every edge costs at least $3/2$ and an optimal goal costs 10. Bound the depth of selected nodes with cost at most the optimum and the depth of children they can generate.
+---SOLUTION---
+A depth-$k$ path costs at least $3k/2$. Requiring this to be at most ten yields $k\le20/3$, hence integer depth at most six. Expanding such nodes can generate depth-seven children whose costs exceed ten; they can remain in the frontier when the goal is selected. Thus six is a bound on selected sublevel depths, not on every generated record. A generated-node bound can include one additional branching factor and level.
+---RULE---
+With uniform edge lower bound $\varepsilon>0$, selected prefixes of cost at most $C^*$ have depth at most $\lfloor C^*/\varepsilon\rfloor$. Their generated children may lie one level deeper.
+@@ 25|Tie breaking changes work|Original equal-key analysis
+The frontier contains a goal and seven non-goal leaves, all at cost 5. How many of these entries can UCS select before success, and does tie breaking affect optimal cost?
+---SOLUTION---
+If the goal wins the tie, only one entry is selected. If it loses every tie, all eight are selected, including seven leaf expansions. Every returned goal still has cost five under the nonnegative-cost theorem; tie breaking changes work but not the optimal value. If an infinite number of equal-cost distinct entries can continually precede the goal, fairness and finite-sublevel assumptions become relevant to termination. The finite example has only eight entries and therefore cannot starve indefinitely.
+---RULE---
+Equal-key ordering can strongly affect selection and expansion counts without changing UCS's returned optimal cost. Infinite tied frontiers require an additional termination or fairness argument.
+@@ 26|Stable heap serial numbers|Original implementation reasoning
+Why store `(cost, serial, node)` rather than `(cost, node)` in a Python heap when state objects have no ordering?
+---SOLUTION---
+Heap tuple comparison first compares costs. On a tie, `(cost, node)` attempts to compare node records, potentially reaching unordered state objects and raising an exception. A strictly increasing integer serial resolves every equal-cost comparison before node data is inspected. It also defines a reproducible insertion-order tie policy for traces. The serial is bookkeeping, not an edge cost and not a heuristic estimate. It must not alter the numerical cost used for relaxation or optimality checks.
+---RULE---
+Use a separate stable tie key for heap records whose states are not orderable. Tie bookkeeping determines reproducibility but must not be mixed into the mathematical path cost.
+@@ 27|Parent updates and immutable records|Original solution reconstruction
+Two heap records reach $X$ at costs 8 and 3. Why can globally overwriting parent pointers be confusing, and how do immutable node records avoid it?
+---SOLUTION---
+The old cost-eight record describes one concrete route. If its state-level parent is overwritten by the cost-three route, following the old record's stored cost together with the new parent chain can explain a path whose summed costs no longer equal eight. Correct implementations can manage mutable state labels carefully, but immutable route records make the relationship explicit: each heap entry points to the exact parent record used in its own cost calculation. Stale checking decides whether that complete record remains relevant.
+---RULE---
+A path explanation must agree with the cost stored in its search node. Immutable route records make improvements and stale-entry rejection easier to reason about than mixing old costs with overwritten global parents.
+@@ 28|Potentially exponential paths in a small graph|Original layered-diamond count|diamonds-main
+A chain of 8 diamond gadgets has two branch choices per gadget and then reconverges. How many start-to-end paths are there, and why can graph search be much smaller?
+---SOLUTION---
+Each gadget contributes an independent binary choice, giving $2^8=256$ complete paths. The graph adds only two branch vertices and one merge vertex per gadget, plus the initial start, for 25 vertices in this construction. Tree search can repeatedly unfold the shared suffix for every route. A sufficient-state graph search can retain one appropriate label per merge, avoiding that repeated expansion. If histories affect future legality, however, the merge vertices may no longer be sufficient states and this compression would require augmentation.
+---RULE---
+Many distinct paths can share a small state graph. Duplicate pruning saves repeated suffix work only when the merged state retains all information needed for legal future decisions.
+@@ 29|Adding a constant to edge costs|Original objective transformation
+Route A has one edge costing 7; route B has three edges costing 2 each. Add 2 to every edge. Does the preferred route change?
+---SOLUTION---
+Originally A costs seven and B costs six, so B is preferred. After the shift, A costs nine and B costs twelve, so A is preferred. The transformed path cost is $g+2d$, not $g+2$ for the whole route. Multiplying every edge by a positive scalar would preserve rankings, but adding a per-edge constant penalizes longer paths more. This is why arbitrary negative-edge repair by constant addition can change the optimization problem.
+---RULE---
+A constant added to each edge creates a depth-dependent change in total cost. It preserves complete-path ordering only under additional constraints such as equal solution lengths.
+@@ 30|Positive scaling preserves order|Original algebraic proof
+Prove that multiplying every edge cost by $\alpha>0$ preserves the set of minimum-cost solutions. What happens at $\alpha=0$ or $\alpha<0$?
+---SOLUTION---
+Every complete path cost becomes $\alpha g$. For positive $\alpha$, $g_1<g_2$ holds exactly when $\alpha g_1<\alpha g_2$, and equalities are preserved. Thus all minimizers remain the same. At zero, all finite path costs become zero and previously inferior solutions tie. For a negative multiplier, strict inequalities reverse: former maximizers become minimizers when such extrema exist. Negative transformed edges can also invalidate UCS even when the algebraic ranking question is well defined.
+---RULE---
+Strictly positive cost scaling preserves comparisons and minimizers. Zero scaling destroys distinctions, and negative scaling reverses the objective and can violate the search algorithm's edge assumptions.
+@@ 31|Bidirectional ideal growth|Original resource estimate|bidir-main
+With branching factor 10 and solution depth 8, compare a last-layer estimate for one-direction BFS with balanced bidirectional BFS, ignoring duplicate states and constants.
+---SOLUTION---
+One-direction growth is approximately $10^8=100000000$ nodes in the deepest relevant layer. Two balanced fronts each reach depth four, giving approximately $2\cdot10^4=20000$ nodes in their last layers. This is a dramatic ideal reduction, but it is not an exact total or a guarantee on arbitrary graphs. Earlier layers, intersection storage, predecessor generation, unequal branching and graph duplicates change actual work. The estimate is meaningful only when both directions can be searched efficiently.
+---RULE---
+The familiar bidirectional $b^{d/2}$ estimate assumes comparable, searchable fronts. It is an ideal growth argument, not a universal bound on every directed graph or goal predicate.
+@@ 32|Reverse edges are not reverse actions|Original directed-model distinction
+The only edge is $A\to B$. For a backward search rooted at $B$, which predecessor is generated, and what action should a reconstructed forward plan execute?
+---SOLUTION---
+The reversed search graph contains $B\to A$, so backward expansion of $B$ generates predecessor $A$. This does not grant the physical agent an original action from $B$ to $A$. A reconstructed forward route from start $A$ to goal $B$ uses the legal original edge $A\to B$. Backward pointers therefore need to retain the corresponding original forward action. Treating every original adjacency list as undirected would search a different problem and could return physically impossible routes.
+---RULE---
+Backward search enumerates predecessors in the reversed graph. Its computational reverse edge must be translated back into the corresponding legal forward action when reconstructing the plan.
+@@ 33|A bidirectional stopping certificate|Original lower-bound calculation
+Bidirectional UCS has best complete route $\mu=14$ and valid minimum unsettled keys 6 and 7. Can it stop? What if the backward key becomes 8?
+---SOLUTION---
+The first lower bound is $6+7=13$, below the known upper bound fourteen. A better unresolved route has not been excluded, so the algorithm must continue. If the valid keys become six and eight, the sum equals fourteen and the standard bidirectional invariant certifies that no cheaper path remains. This conclusion assumes all appropriate crossing-edge updates have been made and stale heap entries have been removed before reading minima. A numerical inequality without those invariant conditions is not an independent proof.
+---RULE---
+Bidirectional UCS may stop when valid frontier minima sum to at least the best complete connection cost, provided relaxation, reverse transitions and crossing updates maintain the required lower-bound invariant.
+@@ 34|First contact is only an upper bound|Original weighted connection example
+Two bidirectional fronts first reveal a route costing 12. Their minimum unsettled keys are 3 and 4. An unresolved route costs 8. Explain the error in returning immediately.
+---SOLUTION---
+The contact proves that a feasible route of cost twelve exists. It supplies an upper bound on the optimum, not a lower bound. The frontier minima sum to seven, so costs below twelve remain possible. The unresolved cost-eight route is consistent with these values and improves the candidate when discovered. Returning at first contact would skip the certification step. The same distinction appears in ordinary UCS: discovering a goal is not equivalent to selecting a valid minimum-cost goal.
+---RULE---
+A feasible connection supplies an upper bound. Weighted bidirectional search needs a frontier lower bound to certify it; the first meeting alone does not establish optimality.
+@@ 35|Dictionary segmentation with BFS|Stanford CS221-inspired reconstruction; new string and dictionary|segment-main
+For string `abcd` and dictionary `{a, ab, b, bc, cd, d}`, find a segmentation with the fewest words and explain the state graph.
+---SOLUTION---
+Use indices zero through four. A matching word creates an edge from its starting index to its end, with unit cost. From zero, `a` reaches one and `ab` reaches two. From two, `cd` reaches four, giving `ab | cd` with two words. Another segmentation is `a | bc | d`, using three. No dictionary word covers the entire string, so one word is impossible and two is optimal. Index strictly increases, making the graph acyclic, but BFS's unit-cost theorem already establishes minimum word count.
+---RULE---
+When segmenting a string to minimize dictionary-word count, character index is a sufficient state if future validity and costs depend only on the remaining suffix. Unit-cost BFS then minimizes the number of words.
+@@ 36|Previous-word dependent costs|Stanford CS221-inspired reconstruction; independent formulation
+In Question 35, suppose the cost of the next word depends on the preceding word. Is character index still sufficient?
+---SOLUTION---
+Two segmentations can reach the same character index with different last words. If the next transition's cost depends on that last word, the two histories no longer have identical cost-labelled futures. Augment the state to `(index, previous_word)`, with a distinguished initial marker before the first word. The transition cost then becomes a function of the current state and chosen next word. Duplicate pruning by index alone can erase a route whose last word yields a much cheaper continuation, even when its current prefix cost is larger.
+---RULE---
+A state key must determine future transition costs as well as legal actions. History-dependent word costs require retaining the relevant previous-word context rather than merging all paths at one character index.
+@@ 37|Maximizing word count is a different problem|Stanford CS221-inspired reconstruction
+For string `aaaa` and dictionary `{a, aa}`, compare the minimum-word and maximum-word segmentations. Why is UCS with cost $-1$ per word not justified by its usual theorem?
+---SOLUTION---
+The minimum-word segmentation is `aa | aa`, using two words; the maximum is `a | a | a | a`, using four. Assigning negative one per word makes the latter's total cost minus four, but UCS's nonnegative-edge proof no longer applies. The index graph is acyclic, so a longest-word-count dynamic program can optimize the objective safely. BFS returns the shallowest goal, which solves the minimum rather than the maximum objective. A finite DAG does not turn every priority-based early stopping rule into a correct optimizer.
+---RULE---
+Changing an objective can change both the appropriate edge costs and the correct algorithm. Negative word rewards on an acyclic segmentation graph invite topological dynamic programming, not unqualified UCS.
+@@ 38|Collision-free joint states|CMU 15-281 warehouse-inspired reconstruction; changed dimensions
+Three labelled robots occupy distinct cells of a 12-cell warehouse. Count legal joint positions and compare with the unconstrained product count.
+---SOLUTION---
+The first robot has twelve choices, the second eleven and the third ten, giving $12\cdot11\cdot10=1320$ legal joint positions. The unconstrained upper bound is $12^3=1728$, which includes shared-cell configurations forbidden by the model. Labels matter: dividing by $3!$ would treat the robots as indistinguishable and lose identity-specific goals. This is a state count only; synchronous move legality must also reject edge swaps and any other declared transition collision rules.
+---RULE---
+For labelled robots occupying distinct cells, use a falling factorial rather than an independent product. Valid joint states do not by themselves guarantee collision-free joint transitions.
+@@ 39|State legality does not prevent edge-swap collision|CMU-inspired joint-planning reconstruction
+Robots occupy adjacent cells $u$ and $v$ and simultaneously exchange positions. The start and end states both have distinct cells. Is the transition valid under an edge-swap prohibition?
+---SOLUTION---
+No. Both configurations satisfy vertex occupancy constraints, but the transition sends one robot along $u\to v$ while the other traverses the same physical edge in the opposite direction. A model forbidding such simultaneous swaps must reject the joint action. BFS cannot repair a missing legality rule: it will optimally solve whatever graph the transition generator supplies. Joint planning therefore needs both state predicates and transition constraints, rather than independently planned paths checked only at sampled final positions.
+---RULE---
+Collision-free endpoint states are insufficient when edge swaps are forbidden. Put transition-level conflicts into the successor function before applying shortest-path search.
+@@ 40|A complete algorithm choice|Original synthesis
+Choose an algorithm for each case: unit-cost grid with unknown solution depth; finite weighted nonnegative road graph; memory-limited finite-branching unit-cost implicit tree; any reachable vertex in a small finite unweighted graph.
+---SOLUTION---
+BFS is natural for the unit-cost grid and minimizes moves. UCS handles the nonnegative weighted road graph and minimizes total cost with relaxation. IDS suits the memory-limited implicit tree because finite depth bounds terminate each iteration while eventually reaching a finite solution. Either DFS or BFS can establish reachability in the small finite graph; DFS may use a smaller frontier, but its global discovery storage still scales with reachable states. The choice follows the objective and resource assumptions rather than a universal ranking of algorithms.
+---RULE---
+Choose search by objective, edge assumptions, state-space finiteness and memory constraints. No single uninformed algorithm dominates every task, and reachability is weaker than minimum-cost optimization.
