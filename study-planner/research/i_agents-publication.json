@@ -1,0 +1,18 @@
+{
+  "status": "source_credential_transport_blocked",
+  "projectId": "appgprj_6ab5666f72b081918286c6b371c1eb1b",
+  "contentCommit": "8a45eb7964581856e9d78d324048bec0881d5bde",
+  "sourcePushed": false,
+  "githubPushed": true,
+  "githubBranch": "study-planner-1406",
+  "githubContentCommit": "c8f43b9",
+  "archivePath": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\i-agents-deploy.tar.gz",
+  "archiveFiles": 372,
+  "archiveSha256": "d327a63aada2fb770193f0bebf2941a1399407700e3b8f7bdb1399cfc357169c",
+  "lastSuccessfullyReadLiveVersion": 80,
+  "newVersionConfirmed": false,
+  "error": "Sites get_site and create_source_repository_write_credential returned a transport HTTP request failure for https://chatgpt.com/backend-api/ps/mcp. The earlier credential expired at 2026-10-08T16:28:32.680Z. No expired credential was used, no new source push was attempted and no new version or deployment ID was returned.",
+  "localPreviewUrl": "http://127.0.0.1:8093/chapters/i_agents.html",
+  "priorPendingPublication": "research/l_spaces-publication.json",
+  "nextAction": "When Sites transport recovers, refresh credentials, push the exact packaged content commit through the source workflow, and publish the validated archive to the existing private Site. Check the returned saved-version source and deployment success. This package includes the already approved l_spaces chapter. Do not claim an online update before those checks succeed."
+}

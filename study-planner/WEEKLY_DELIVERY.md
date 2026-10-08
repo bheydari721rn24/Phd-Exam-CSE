@@ -425,3 +425,8 @@ Explicit user approval of the local and GitHub vector-space delivery permits onl
 ## Intelligent agents review draft complete — 8 October 2026
 
 Four genuinely read written university courses: Berkeley, CMU, Edinburgh and Stanford. Thirty sections; 80 authored/reconstructed problems plus two original-page-checked MSc adaptations; 80 condition-bearing final rules; 17 specialized models with 69 checkpoints; editable exact-rational information-value laboratory. All 7,470 exact checks and 601 independent contingent-policy comparisons passed. Browser fonts, mathematical fences, diagram bounds, pause/resume, print, mobile and navigation passed. Forty-three preceding chapter pages and 2,757 questions retained byte-for-byte. The library now contains 44 chapters and 2,839 questions. i_agents remains a draft awaiting explicit approval. Publication status is recorded separately; this entry does not claim an online deployment. No following chapter has started.
+
+
+## Intelligent agents delivered locally and to GitHub — 8 October 2026
+
+Content commit 8a45eb7 is mirrored on GitHub branch study-planner-1406 at c8f43b9. The complete interactive chapter is served at http://127.0.0.1:8093/chapters/i_agents.html (HTTP 200 checked). The clean content archive has 372 byte-verified entries. Sites transport failed both site reads and credential refresh at https://chatgpt.com/backend-api/ps/mcp; the preceding credential was expired, so it was not used. No new Site-source push, saved version or deployment is claimed. Version 80 was the last successful site read; current online state could not be refreshed. The prepared package includes approved l_spaces and draft i_agents. i_agents remains awaiting explicit user approval; no following chapter has started.
