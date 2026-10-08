@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Strings and terminators chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"><link rel="stylesheet" href="../chapters/p_strings.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/p_strings.html">Strings and terminators chapter</a></p><article class="lesson"><h1>Strings and terminators: source selection and reconciliation</h1>
+<h2>Selection scope</h2>
+<p>Review date: 8 October 2026. The candidate pool is finite and chapter-specific. Four university courses with accessible written teaching were selected; Stanford adds a reference checklist. This does not establish that every university course worldwide has been inspected. Selection follows complementary coverage, scientific precision after reconciliation, accessible text, and useful exercise patterns, rather than a numerical world-ranking claim.</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Actual reading</th>
+<th>Decision and contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Harvard CS50x 2025, David <span class="math-inline">J</span>. Malan</td>
+<td>Week 2 notes, arrays through string length/case conversion/arguments; Week 4 string, pointer, comparison and copy sections</td>
+<td>Core: gradual representation and aliasing explanations. Translate the CS50 string typedef into actual C17 types.</td>
+</tr>
+<tr>
+<td>Cambridge Programming in <span class="math-inline">C</span> 2017–18, Neel Krishnaswami</td>
+<td>All extracted text of Lectures 2 and 3, 19 and 25 slides respectively</td>
+<td>Core: pointer views, parameters, traversal, reversal and substring-search exercise patterns.</td>
+</tr>
+<tr>
+<td>MIT 6.087, January IAP 2010, Daniel Weller and Sharat Chikkerur</td>
+<td>Lecture 5 review page 5 and relevant lifetime/array/pointer/string pages 16–26</td>
+<td>Core: lifetime and string-library families. Historical architecture numbers and old interfaces need explicit qualifications.</td>
+</tr>
+<tr>
+<td>Princeton COS 217, Fall 2026</td>
+<td>Complete extracted text of the 32-page Pointers, Arrays, and Strings slide deck</td>
+<td>Core: arrays versus pointers, parameter size, string-library composition and a halving-index debugging pattern. The slide marker is not independently verified individual authorship.</td>
+</tr>
+<tr>
+<td>Stanford CS107</td>
+<td>Complete accessible <span class="math-inline">C</span> reference sheet</td>
+<td>Supplementary: checklist for copying, concatenation, spans, search, conversion and input. Restricted table and question wording are not reproduced. Archived Lecture 6 PDF text could not be reliably fetched, so it is not claimed as read.</td>
+</tr>
+<tr>
+<td>CMU 15-122</td>
+<td>String-buffer assignment PDF metadata found; repeated body retrieval failed</td>
+<td>Not selected as a read course. A catalog or PDF title does not establish content review.</td>
+</tr>
+<tr>
+<td>Princeton Spring 2024 short strings handout</td>
+<td>Search metadata found; direct access returned 403</td>
+<td>Not claimed as read. The accessible Fall 2026 teaching deck is selected instead.</td>
+</tr>
+</tbody>
+</table>
+<h2>Scientific reconciliation</h2>
+<p>The lesson uses C17 consistently. Harvard's convenience typedef is not a built-in string type. Its scalar case examples need explicit encoding and classification-domain assumptions. Cambridge's reversal pattern involving a signed index derived from <code>strlen(s)-1</code> is replaced by a <code>size_t</code> half-length loop that does not evaluate a negative index for empty input. The substring interface uses unambiguous text and pattern names.</p>
+<p>MIT's old <code>strlen</code> slide uses <code>int</code>; the <span class="math-inline">C</span> library returns <code>size_t</code>. Its brief <code>strncpy</code> description is expanded into copying plus zero padding and possible missing termination. Historical memory-size examples are not portable constants. <code>gets</code> is excluded because C11 removed it. Neither MIT's “array implemented using a pointer” shorthand nor an address diagram changes the distinction between an array object and a pointer variable.</p>
+<p>Princeton's deck contains introductory and historical simplifications: C99 and C17 allow loop-local declarations; automatic arrays can have variable length where supported; an array is not merely an address; and forming an out-of-range pointer is not valid just because it is not immediately dereferenced. Java-like <code>int[]</code> spellings in comparison slides are not valid <span class="math-inline">C</span> declarations. Eight-byte pointer examples remain explicitly implementation-specific. The final exercise's pointer-size check, null-check ordering, uninitialized output index and signed narrowing motivate an independently written problem, not copied erroneous code.</p>
+<p>Stanford's sheet is a compact aid rather than a complete semantics specification. The lesson supplies <code>strncpy</code> padding and exact append-capacity requirements. <code>strdup</code> and <code>strndup</code> are not assumed ISO C17. The primary WG14 N1570 string sections were read to reconcile zero-count pointer validity, overlap, unsigned comparison, bounded termination and search return conventions. N1570 is accurately identified as the C11 draft, not a C17 publication.</p>
+<h2>Coverage and problem construction</h2>
+<p>Twenty-eight teaching sections cover representation, literals/escapes, object bounds, suffixes, invariant-based scanning, copying, bounded copying, concatenation, arithmetic overflow, aliasing/lifetime, overlapping moves, comparison, spans, matching, reversal, compaction, tokens, stream input, formatting, character classes, conversion, Unicode distinctions, string tables, arguments, dynamic capacity, exact cost and combinatorial counting.</p>
+<p>The 80 original or independently reconstructed problems address those contracts, exact sums, invariant proofs, counterexamples and combined mutations. Cambridge reversal/lowercase/search patterns, Harvard alias/copy patterns, MIT lifetime patterns and Princeton debugging patterns receive explicitly transformed independent tasks. This is not a claim to reproduce all exercises from all courses. One authentic MSc CS 1405 Q123 counting bridge is rechecked against original PDF page 26; it is already present in a previous chapter and is not counted as a new unique archive question. It concerns abstract strings, not <span class="math-inline">C</span> sentinel bytes. No original <span class="math-inline">C</span>-string-specific archive question was verified in this pass: a full local PDF text search found no usable <code>strlen</code>/copy/compare identifiers in the image-heavy archive, and that is not proof that none exists.</p>
+<h2>Honest boundaries</h2>
+<p>Advanced pattern matching, Unicode grapheme algorithms, wide strings, locale collation, full dynamic-array interfaces and allocator design are separate topics. Testing supports the stated algorithms and examples under explicit contracts, not a literal guarantee of universal completeness or future examination performance. Full lecture decks and restricted reference tables are linked rather than republished. Source wording is not copied into the independently authored instruction.</p>
+<p>Exact source links and instructor/course credits appear in the chapter's final References section.</p>
+</article></main><script src="../chapters/math-layout.js?v=79"></script></body></html>

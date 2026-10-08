@@ -1,0 +1,279 @@
+@@ 1|One array, three string views|Original representation problem|scan-embedded
+An initialized eight-byte array is `{'a','b',0,'c','d',0,'x',0}`. Determine its capacity, `strlen(b)`, `strlen(b+3)`, `strlen(b+5)`, and the number of stored zero bytes. Explain why the last quantity is not a string length.
+---SOLUTION---
+The array's capacity is 8. Scanning from index zero stops at index 2, so the first length is 2. Scanning from index 3 stops at index 5, two positions later, so the second length is also 2. The view beginning at index 5 begins with zero and has length 0. Zeros occur at indices 2, 5, and 7: three stored zeros. Each `strlen` uses only the first zero relative to its own starting pointer. In particular, the byte `x` is invisible to the first two views. The simulator displays storage rather than hiding bytes after a terminator.
+---RULE---
+Determine the first terminator relative to the given starting address; capacity and total zero count do not determine that view's length.
+
+@@ 2|Exact-size initialization|Original C17 boundary problem
+Classify `char a[3]="cat";`, `char b[3]={'c','a','t',0};`, and `char c[4]="cat";`. Which declarations require a diagnostic, and which resulting arrays may be passed to `strlen`?
+---SOLUTION---
+The character-array string-literal initialization rule permits the first declaration and omits its terminator because the array has exactly three elements. The array is not a valid string, so passing it to `strlen` would access outside its extent and has undefined behavior. The explicit four-element initializer list for a three-element array in the second declaration violates a constraint and requires a diagnostic; it is not the same special rule. The third declaration stores `c a t 0`, is a valid mutable string, and has length 3. “Fits the letters” is not a sufficient string-capacity test.
+---RULE---
+Separate initialization constraints from the later library contract; a valid declaration can create a nonstring array.
+
+@@ 3|Embedded escape and size|Original literal expansion problem
+For `char s[]="A\0B\n";`, determine every stored byte, `sizeof s`, `strlen(s)`, and `strlen(s+2)`. Assume the execution character set represents the ordinary letters and newline as single bytes.
+---SOLUTION---
+Translation creates `A`, zero, `B`, newline, and the implicit final zero: five bytes. Thus `sizeof s` is 5. The first string stops immediately after `A`, giving length 1. The suffix at index 2 contains `B` and newline, giving length 2. The explicit embedded zero does not suppress the implicit final terminator. A newline is one character byte under the stated assumption even though its escape occupies two source glyphs. Neither byte count is the source-code spelling length.
+---RULE---
+Expand escapes, retain explicit embedded zeros, and then add the literal's implicit final zero before counting storage.
+
+@@ 4|Suffix identity and one-past|Original pointer-domain problem
+A standalone array is `char s[]="orbit";`. For which integers $k$ from 0 through 6 is `strlen(s+k)` defined, and what value does it return? Distinguish legal pointer formation from legal string use.
+---SOLUTION---
+The array has six elements, indexed 0 through 5, with zero at 5. For $0\le k\le5$, `s+k` points to an accessible suffix and its length is $5-k$. At $k=5$ it is a valid empty string. `s+6` is the legal one-past pointer, but it points to no readable element and cannot start a valid string. Therefore `strlen(s+6)` violates its contract. The array's one-past address being legal does not authorize dereference or searching beyond the array for another zero.
+---RULE---
+The empty-string pointer designates the terminator itself; a pointer one past the complete array does not.
+
+@@ 5|Array size inside a function|Cambridge-inspired independently reconstructed parameter problem
+On an implementation with eight-byte object pointers, `char a[20]="code";` is passed to `size_t f(char x[20]) { return sizeof x; }`. Determine `sizeof a`, the function result, and `strlen(a)`. How should the interface preserve capacity?
+---SOLUTION---
+At the caller, `a` has array type and `sizeof a` is 20 because `sizeof(char)` is 1. In the parameter declaration, `x[20]` adjusts to `char *x`, so the result is 8 on the stated implementation. The text has four content bytes, so its string length is 4. None of these quantities is interchangeable. An interface such as `f(char *x,size_t cap)` explicitly carries the capacity; the caller supplies `sizeof a` while that expression still denotes the actual array. The numerical pointer size is a problem assumption, not a C17 guarantee.
+---RULE---
+Array parameter syntax does not transmit the array extent; pass capacity before array-to-pointer conversion loses that information.
+
+@@ 6|Two pointers and an independent copy|Harvard-inspired independently reconstructed alias problem
+Let `char a[]="cat"; char b[4]; char *p=a; char *q=p; strcpy(b,a); q[1]='u';`. State the strings observed through `a`, `p`, `q`, and `b`. Explain which assignment performs a deep copy.
+---SOLUTION---
+The declarations create separate writable arrays `a` and `b`. The assignments to `p` and `q` copy addresses and both designate `a`. `strcpy` copies `c a t 0` into the separate array `b`. Changing index 1 through `q` changes the shared array `a` to `cut`, observed through all three of `a`, `p`, and `q`. Array `b` remains `cat`. No allocated ownership is introduced here; both arrays have automatic lifetime. Copying an address is distinct from copying the sequence, even when the immediate printed values initially agree.
+---RULE---
+Draw object identity before tracing mutation; pointer assignment preserves aliasing, whereas a disjoint byte copy creates separate content storage.
+
+@@ 7|Equal content and unequal objects|Original equality problem
+For `char a[]="hi"; char b[]="hi"; const char *p="hi"; const char *q="hi";`, classify `a==b`, `strcmp(a,b)==0`, and `p==q`. Which answer is portable?
+---SOLUTION---
+The arrays `a` and `b` are distinct nonzero-size objects, so their first-element pointers are unequal and `a==b` is false. Their content sequences are equal, so the comparison test is true. The implementation may merge equal literal arrays, so `p==q` cannot serve as a portable content test; either equality result can occur for those separately written literals. All four pointers may display the same text. The comparison is about addresses in the first and third expressions and about byte sequences in the second.
+---RULE---
+Use a string comparison for string equality; equal literal spelling does not establish a required object identity.
+
+@@ 8|Bounded scan failure|Original invariant problem|scan-missing
+A five-byte readable initialized buffer contains `a b c d e` with no zero. Apply `bounded_length` with capacity 5 and initial output value 99. Give the inspected indices, final output, result, and termination argument.
+---SOLUTION---
+The algorithm reads indices 0, 1, 2, 3, and 4. Each byte is nonzero and increments the index. At index 5 the first condition fails, so short-circuit evaluation prevents reading `s[5]`. The function returns false without assigning through `out`, leaving 99 unchanged. Its invariant has established that the complete accessible prefix is nonzero, so failure is informative rather than a hidden length of 5. The nonnegative variant $5-i$ decreases each iteration. A call to ordinary `strlen` is not a valid substitute because this object contains no string terminator.
+---RULE---
+A bounded scan returning its bound means no terminator was found; represent that status separately from a successful length.
+
+@@ 9|Short-circuit order|Original safety counterexample
+Explain why `while (s[i]!=0 && i<cap) ++i;` can read out of bounds, even when `i` begins at zero. Give the smallest positive-capacity counterexample and repair it.
+---SOLUTION---
+Take capacity 1 and a single initialized byte `x`. The first iteration reads index 0 and increments `i` to 1. The next condition evaluates `s[1]` before checking `1<1`, so it reads outside the object. Logical `&&` sequences its left operand before deciding whether to evaluate the right operand; it does not reorder a safety check automatically. Change the condition to `i<cap && s[i]!=0`. At capacity zero, the repaired custom loop performs no read immediately. The right order is part of the proof of memory safety.
+---RULE---
+Put the range guard before the indexed access in a short-circuit conjunction; the guard must be established before the read occurs.
+
+@@ 10|Exact scalar length cost|Original exact-count problem
+For a valid length-$n$ string, count byte tests and body iterations in `size_t i=0; while(s[i]!=0) ++i;`. Then determine the total tests for applying this loop separately to every suffix from `s` through `s+n`.
+---SOLUTION---
+The loop tests each of the $n$ content bytes plus the zero, so there are $n+1$ tests and $n$ body iterations. The suffix beginning at $k$ has $n-k$ content bytes and therefore $n-k+1$ tests. Summing from zero through $n$ gives $\sum_{k=0}^{n}(n-k+1)=(n+1)(n+2)/2$ tests. Even though there are only $n+1$ bytes in the array, repeated scans revisit them quadratically. These are exact counts for the displayed scalar loop, not mandated hardware-load counts for a library implementation.
+---RULE---
+Include the final failing sentinel test and sum repeated suffix costs instead of counting distinct stored bytes only.
+
+@@ 11|A copy that just fits|Original capacity problem|copy-fit
+The source is `"planet"` and the writable disjoint destination capacity is 7. Does `strcpy` fit? What changes if capacity is 6, and why must the latter not be assigned a predicted printed result?
+---SOLUTION---
+The source has six content bytes. A whole-string copy writes seven bytes, including zero, so capacity 7 fits exactly and produces length 6. Capacity 6 lacks the required last slot. Passing that destination to `strcpy` would overrun its object and cause undefined behavior; the language does not specify a partial result or a guaranteed crash. The checked laboratory rejects that request before writing. A source length equal to capacity is therefore failure, while source length strictly less than capacity is sufficient under the other copy preconditions.
+---RULE---
+For a nontruncating string copy, require source length strictly less than destination capacity and retain the terminator in the write count.
+
+@@ 12|Bounded copy padding|Original contract calculation|pad-copy
+An eight-byte destination initially holds eight `x` bytes. Trace `strncpy(d,"ab",5)`. List all eight bytes and decide whether the resulting array begins with a valid string.
+---SOLUTION---
+The operation writes exactly five bytes: `a`, `b`, zero, zero, zero. It leaves indices 5, 6, and 7 unchanged as `x`. Thus the complete array becomes `a b 0 0 0 x x x`. Its first zero is at index 2, so it represents the string `ab` of length 2. The extra zeros are padding, not part of the string value. The destination's previous bytes after the written range have no effect on that view, though they remain part of storage. The trace makes the exact write bound visible.
+---RULE---
+When the source ends before the `strncpy` bound, count zero padding through the entire bound and preserve bytes beyond it.
+
+@@ 13|Bounded copy without a terminator|Original contract boundary|prefix-copy
+A four-byte array initially contains `x x x x`. Apply `strncpy(d,"abcdef",4)`. Is `strlen(d)` defined? Contrast this with a fifth initialized zero byte outside the four written positions but inside a larger array.
+---SOLUTION---
+The copy writes `a b c d` and no zero because all four selected source bytes are nonzero. In the four-byte array there is no terminator, so `strlen(d)` would access outside the object and is undefined. If the object instead had five bytes with its last byte initialized to zero, that byte would remain untouched, and the resulting array would contain a valid length-4 string. That success would depend on the larger object's prior state; it would not mean the bounded copy supplied termination. Extent and initialization both matter.
+---RULE---
+A `strncpy` bound limits writes but does not guarantee termination; inspect the resulting complete accessible array before using string functions.
+
+@@ 14|Forced termination and zero capacity|Original unsigned-bound problem
+Assess `strncpy(d,s,cap-1); d[cap-1]=0;` for positive capacity and for `cap==0`. Does it detect truncation? State a stronger alternative when truncation is forbidden.
+---SOLUTION---
+For positive capacity, valid readable source data, a writable destination of that capacity, and nonoverlap, the pattern writes a terminated prefix of at most `cap-1` content bytes. It does not report whether source content was lost. At zero capacity, unsigned `cap-1` wraps to a huge value and the indexed assignment is invalid. To prohibit truncation, first obtain a valid source length, reject when `n>=cap`, and only then copy `n+1` bytes. This checked design leaves the destination unchanged on capacity failure and gives an explicit failure result.
+---RULE---
+Guard positive capacity before subtracting one, and separate guaranteed termination from a guarantee that no content was truncated.
+
+@@ 15|The exact append bound|Original formula problem|append-fit
+A destination has length 4 and capacity 10; source length is 8. What is the largest bound $k$ for which `strncat` is guaranteed to fit? Which final length results for $k=3$?
+---SOLUTION---
+Available content space is $10-4-1=5$ bytes. Since the source is longer than that, fitting requires $\min(8,k)\le5$, so the largest allowed bound is 5. For $k=3$, it appends three content bytes at indices 4, 5, and 6, then writes zero at index 7. Final length is 7. Passing capacity 10 as the bound would attempt eight content bytes and a terminator, requiring 13 total bytes. The numerical argument is not an instruction to fill the whole destination.
+---RULE---
+Compute append space as capacity minus current length minus one; a `strncat` bound limits new content, not total storage.
+
+@@ 16|Short source and a large bound|Original minimum-function problem
+Let destination length be 7, source length 2, capacity 10, and `strncat` bound 100. Does it fit under valid nonoverlap assumptions? Why does the coarse bound $a+k+1$ give a different impression?
+---SOLUTION---
+The source terminates after two bytes, so the exact appended count is $\min(2,100)=2$. The result needs $7+2+1=10$ bytes and fits exactly. The expression $a+k+1=108$ is a sufficient worst-case capacity when only the limit is known, not a necessary capacity for this shorter valid source. This distinction matters in formula questions that supply an actual source length. The source must really be readable and terminated; the numerical minimum cannot repair an invalid pointer or a missing source terminator.
+---RULE---
+Use the actual minimum of source length and append limit when both are known; a worst-case sufficient bound need not be necessary.
+
+@@ 17|Safe arithmetic without forming an overflowing sum|Original integer-proof problem
+Assume `a<cap` and all variables are `size_t`. Prove that testing `b<=cap-a-1` is equivalent to sufficient append capacity without evaluating `a+b+1`. Explain why the order of validation matters.
+---SOLUTION---
+Because $a<C$, first $C-a\ge1$, so subtracting one is representable and yields nonnegative available content space. If $b\le C-a-1$, ordinary integer arithmetic gives $a+b+1\le C$, so the final indices fit and the sum is also representable. Conversely, sufficient total capacity implies that inequality after subtracting $a+1$. If `a` were not first proven smaller than capacity, the unsigned subtraction could wrap and turn a failure into a falsely large allowance. The equivalence is an integer argument under the precondition, not an identity for arbitrary unsigned machine values.
+---RULE---
+Establish the existing terminator lies within capacity before using subtraction to validate an append.
+
+@@ 18|Right-overlap propagation|Original handwritten-loop counterexample|move-right
+For `char a[8]="abcd";`, compare `memmove(a+1,a,5)` with the handwritten loop `for(size_t i=0;i<5;i++) a[i+1]=a[i];`. List the six relevant final bytes for each. Do not describe the loop as an execution of `strcpy`.
+---SOLUTION---
+The `memmove` contract preserves the original five source bytes `a b c d 0`, giving indices 0 through 5 as `a a b c d 0`. The forward loop first overwrites index 1 with `a`, then reads that modified byte and writes another `a` at index 2. This repeats through index 5, giving six `a` bytes in the relevant region. All those individual loop accesses fit the eight-byte array, so that loop has a defined but incorrect copying result. A forbidden overlapping `strcpy` call would instead have undefined behavior; its result is not specified by this demonstration.
+---RULE---
+Distinguish a defined faulty handwritten algorithm from an undefined overlapping library call; use original-source semantics for `memmove`.
+
+@@ 19|Left-overlap movement|Original directional-copy proof|move-left
+For `char a[]="abcdef";`, delete the first two characters with `memmove(a,a+2,5)`. Explain the count, result, and why a forward byte loop can implement this particular overlap safely.
+---SOLUTION---
+The suffix starting at index 2 contains `c d e f 0`, exactly five bytes. Moving them to indices 0 through 4 yields `cdef`. For forward copying, the read address is always two positions ahead of the write address. Each write therefore touches an already-read or earlier position, never a future source byte. The invariant is that the written prefix equals the original suffix prefix and the unread source remains unchanged. The movement count includes the zero; using four would leave termination dependent on old data and would not establish the intended string.
+---RULE---
+An overlapping left shift can copy forward, but the moved range must include the original terminator when moving a whole suffix.
+
+@@ 20|Insertion at all boundary positions|Original count-and-contract problem|insert-main
+A length-5 string in capacity 7 receives one nonzero byte at position $p$, where $0\le p\le5$. Derive the moved byte count, final terminator index, and total byte writes including the inserted byte.
+---SOLUTION---
+The suffix from position $p$ through the old terminator at 5 has $5-p+1=6-p$ bytes. Moving it one position right places the terminator at 6. Writing the inserted byte adds one assignment, so a conceptual direct move plus insertion performs $7-p$ writes. Capacity 7 fits the final length 6 plus terminator. At $p=5$, only the old zero moves and total writes are two; at $p=0$, the entire six-byte string representation moves and total writes are seven. A zero insertion would instead create an earlier terminator and invalidate the claimed length formula.
+---RULE---
+For one nonzero insertion at position $p$, move $n-p+1$ bytes, reserve $n+2$ storage bytes, and count the insertion separately.
+
+@@ 21|Deletion count includes zero|Original off-by-one problem|delete-main
+Delete index 2 from `"planet"` in place. Specify the `memmove` source, destination, count, result, and what goes wrong with one less byte.
+---SOLUTION---
+The original length is 6. The suffix after index 2 begins at index 3 and contains `n e t 0`, four bytes. Use `memmove(s+2,s+3,4)`, equivalently count `n-pos`. The result is `plnet` with zero at index 5. Moving only three bytes leaves the old byte at index 5 (`t`) unchanged and the old terminator at 6, resulting here in `plnett`. The off-by-one error can produce a plausible but wrong string instead of an immediate crash, which is why deriving the suffix interval is essential.
+---RULE---
+Delete by moving the following suffix through its terminator; omitting zero often duplicates the old last character.
+
+@@ 22|Lexicographic comparison count|Original longest-common-prefix problem|compare-main
+For `"algorithm"` and `"algebra"`, find the first differing index, the sign of `strcmp`, and the number of byte-pair comparisons in a direct scalar comparison. Assume ASCII.
+---SOLUTION---
+Indices 0, 1, and 2 agree as `a`, `l`, and `g`. Index 3 compares `o` with `e`, so the longest common prefix has length 3 and the direct loop examines four pairs. In ASCII `o` is greater than `e`, so the library result is positive. It is not portably required to equal 10 or 1; only its sign is specified. The remaining suffix lengths do not affect this result because the first mismatch already determines lexicographic order.
+---RULE---
+Find the first mismatch before considering length; only the sign of a standard string-comparison return is portable.
+
+@@ 23|A proper prefix compares smaller|Original prefix-boundary problem|compare-prefix
+Compare `"cat"` with `"catalog"` using `strcmp` and `strncmp` at bounds 3 and 4. Count direct byte-pair inspections for each operation.
+---SOLUTION---
+The first three pairs agree. For `strcmp`, the fourth pair is zero against `a`, so the shorter string compares smaller and four pairs are examined. `strncmp(...,3)` checks only the three equal content pairs and returns zero. At bound 4 it reaches the zero-versus-`a` mismatch and returns negative after four pairs. A zero prefix-comparison result therefore proves equality only over the selected comparison scope, not that both complete strings have equal lengths or equal values.
+---RULE---
+A comparison bound ending at a common prefix can hide the terminator mismatch that distinguishes complete strings.
+
+@@ 24|Unsigned byte order|Original signedness counterexample
+On an eight-bit implementation, strings begin with stored bytes `0xE1` and `0x7F` respectively, followed by zeros. Determine the sign of `strcmp`, and explain why comparing plain signed `char` values may disagree.
+---SOLUTION---
+The library interprets both bytes as unsigned, giving values 225 and 127. The first string therefore compares greater and the result is positive. If plain `char` is signed on the chosen implementation, directly promoting the first stored byte can yield a negative value, so an improvised signed comparison could incorrectly put it first. Use unsigned-byte values when implementing the comparison contract. The problem does not assert that the byte sequence is meaningful UTF-8 text; it is about byte ordering, which is defined independently of human-language collation.
+---RULE---
+Standard string ordering uses unsigned character values; signed plain-char arithmetic is not a substitute.
+
+@@ 25|Equal strings and different storage|Original string-versus-memory comparison
+Arrays `a[5]={'a','b',0,'x',0}` and `b[5]={'a','b',0,'y',0}` are initialized. Compare `strcmp(a,b)` with `memcmp(a,b,5)`. Assume ASCII and explain why both results are meaningful.
+---SOLUTION---
+Both arrays are valid strings of value `ab`, so `strcmp` returns zero after the common terminating zero. `memcmp` examines a fixed five-byte region and includes the distinct byte at index 3. In ASCII `x<y`, so its result is negative. The exact nonzero magnitude is not guaranteed. Both calls stay within initialized objects and have valid pointers. An apparent contradiction disappears once their contracts are identified: one compares string values and one compares whole byte regions, including storage outside the string view.
+---RULE---
+String equality ignores bytes after the first zero; fixed-count memory equality does not.
+
+@@ 26|Searching for the terminator|Original return-pointer problem
+For `char s[]="banana";`, calculate the offsets returned by `strchr(s,'a')`, `strrchr(s,'a')`, and `strchr(s,'\0')`. What must be checked before subtracting a result for the character `z`?
+---SOLUTION---
+The first `a` occurs at index 1 and the last at index 5. The terminator at index 6 participates in `strchr`, so the zero search returns offset 6. There is no `z`, so its search result is a null pointer. Subtracting that null pointer from `s` is not valid same-array pointer subtraction; test the result for null first and report absence separately. The terminator pointer is a valid element pointer, distinct from the one-past pointer at index 7 of this seven-byte array.
+---RULE---
+Character search includes the terminating zero, but a failed search returns null and cannot be converted into an offset by subtraction.
+
+@@ 27|Spans are initial segments|Original set-membership problem
+For `s="1203ab45"`, evaluate `strspn(s,"0123456789")`, `strcspn(s,"ab")`, and the offset of `strpbrk(s,"ba")`. Explain why the two final digits do not increase the first result.
+---SOLUTION---
+The first four bytes are digits, and index 4 is `a`, so the accepted initial span has length 4. The first occurrence of either rejected letter is also index 4, so the complementary initial span is 4. `strpbrk` returns a pointer to that `a`, with offset 4, regardless of the order `ba` in the set string. Once a span encounters its first disqualifying byte it stops; it is not counting every digit in the full string. Set order does not define search priority over the text.
+---RULE---
+Span functions measure a maximal qualifying prefix; set membership is different from a full-string frequency count.
+
+@@ 28|Overlapping substring occurrences|Original matching problem|match-overlap
+Find all overlapping occurrences of `"aaa"` in `"aaaaa"`. Count byte comparisons for the direct algorithm that tests every feasible start fully, including after finding a match. Contrast with disjoint occurrence counting.
+---SOLUTION---
+Feasible starts are 0, 1, and 2 because $n-m+1=5-3+1=3$. All three starts match, and each requires three content-pair comparisons, giving nine comparisons. A disjoint counting policy would accept start 0 and advance by pattern length 3, leaving too few bytes for another match, so it counts one. A first-match operation such as `strstr` stops at start 0 after three content comparisons in the stated direct algorithm. The same text and pattern thus support three different questions with different stopping policies.
+---RULE---
+State whether matching returns the first hit, permits overlaps, or advances past a full hit before counting occurrences or work.
+
+@@ 29|Empty and longer patterns|Original unsigned-bound counterexample
+Explain the correct first-match results for text `"ab"` with patterns `""` and `"abcd"`. Why must a loop over `i<=n-m` not be entered without checking the relative lengths?
+---SOLUTION---
+The empty pattern matches at the beginning, so return the text pointer. A length-4 pattern cannot occur inside a length-2 text, so return null without content comparisons. With unsigned lengths, evaluating `2-4` wraps to a very large value instead of producing -2. A loop using that value as an upper bound would attempt invalid text accesses. Handle the empty pattern according to the interface and reject `m>n` before subtracting. These guards are part of the algorithm, not merely optimizations of an otherwise safe loop.
+---RULE---
+Resolve empty-pattern semantics and rule out a longer pattern before forming an unsigned candidate-range difference.
+
+@@ 30|A tight naive-search worst case|Original exact-comparison derivation|match-worst
+Let text be $n$ copies of `a` and pattern be $m-1$ copies of `a` followed by `b`, with $1\le m\le n$. Derive the exact content comparison count of the naive matcher and evaluate it for $n=8,m=4$.
+---SOLUTION---
+There are $n-m+1$ feasible alignments. At each, the first $m-1$ pairs agree and the final `a` versus `b` mismatches, so exactly $m$ comparisons occur. No match stops the outer loop early. Total content comparisons are $(n-m+1)m$. At $n=8,m=4$, this is $5\cdot4=20$. If the function first computes both lengths with scalar scans, add $n+1+m+1=14$ byte tests, yielding 34 tests of those two separately described kinds combined. A C library is not required to implement this naive algorithm.
+---RULE---
+To prove a matching worst case is tight, construct inputs that force the maximum comparisons at every feasible alignment.
+
+@@ 31|A matcher that misses the last start|Original off-by-one counterexample
+A programmer tests candidate starts using `i<n-m` instead of `i<=n-m`, after correctly handling `m>n`. Give a smallest nonempty counterexample and one whose only match is at a nonzero last position.
+---SOLUTION---
+Text `"a"` and pattern `"a"` have $n=m=1$ and a valid start at 0, but the strict bound tests no starts. For a nonzero final start, text `"ba"` and pattern `"a"` have the only match at $i=1=n-m$, which the strict loop excludes. A feasible substring occupies indices $i$ through $i+m-1$, so validity requires $i+m-1<n$, equivalently $i\le n-m$. Deriving the interval from the final accessed index prevents guessing whether the endpoint should be included.
+---RULE---
+The last feasible substring start is inclusive; derive it from the last indexed character of the candidate.
+
+@@ 32|Reversal never swaps the terminator|Cambridge-inspired independently reconstructed invariant problem|reverse-main
+Reverse `"abcde"` in place. Show the pair positions, intermediate strings, swap count, and a proof that zero stays at its original index.
+---SOLUTION---
+Length is 5, so the half-length loop runs at indices 0 and 1. Swapping positions (0,4) produces `ebcda`; swapping (1,3) produces `edcba`. The middle byte at 2 stays fixed. Both accessed positions are less than 5, while the terminator remains at 5. The invariant fixes equal-size reversed prefixes and suffixes and shrinks the untouched middle. There are $\lfloor5/2\rfloor=2$ swaps. Including index 5 in the reversal would move zero into the content and produce a different string view.
+---RULE---
+Reverse only the content interval and leave the terminator fixed; an odd-length middle byte needs no swap.
+
+@@ 33|Empty reversal and unsigned indices|Original boundary proof
+Why is the half-length reversal safe for an empty string although its loop body contains `s[n-1-i]`? Contrast with initializing `size_t j=n-1` before testing emptiness.
+---SOLUTION---
+For $n=0$, the loop condition `i<n/2` is false immediately. The body is not evaluated, so neither `n-1-i` nor the corresponding access occurs. By contrast, initializing `j=n-1` evaluates an unsigned subtraction immediately and yields `SIZE_MAX`. Although that arithmetic is defined modulo the unsigned range, using the resulting index to access the string is invalid. Safe reasoning tracks evaluation, not merely the presence of a suspicious expression somewhere in the source. The half-length formulation also avoids decrementing an unsigned index past zero.
+---RULE---
+An expression inside a skipped body is not evaluated; verify guard placement before classifying unsigned-underflow consequences.
+
+@@ 34|Palindrome comparisons|Original exact-count problem
+A valid string has length $n$. For a palindrome test comparing mirrored pairs after one length scan, derive worst-case pair comparisons and total scalar byte observations. Evaluate for $n=9$.
+---SOLUTION---
+A palindrome forces all $\lfloor n/2\rfloor$ mirrored comparisons because no mismatch stops the test. Each comparison reads two content bytes, so the pair phase observes $2\lfloor n/2\rfloor$ bytes. The initial scalar length scan observes $n+1$ bytes including zero. Total is $n+1+2\lfloor n/2\rfloor$. At $n=9$, there are four pairs and 18 byte observations overall. These observations count repeated reads too; the array has only ten stored bytes. A nonpalindrome may return after an earlier mismatch, but the length scan is still paid in this implementation.
+---RULE---
+Distinguish pair comparisons, individual byte observations, and distinct memory locations when deriving exact counts.
+
+@@ 35|Filtering with retained-order proof|Original two-index trace|compact-main
+Remove `a` from `"banana"` by the read/write algorithm. Give the final value, final write index, number of retained-content writes, and why no unread byte is corrupted.
+---SOLUTION---
+The six original content bytes are scanned once. The retained bytes are `b`, `n`, and `n`, written in that order at indices 0, 1, and 2. The final write index is 3 and zero is written there, producing `bnn`. There are three retained-content writes plus one terminator write; the original terminator is read once by the loop test. Before every classification, the write index is no greater than the read index, so writing the already-read saved byte cannot destroy future source input. Stability follows because writes occur in original read order.
+---RULE---
+For stable compaction, preserve the retained subsequence behind the read head and write a fresh terminator after the last retained byte.
+
+@@ 36|All removed, none removed|Original filtering boundary problem
+Apply removal of `x` to `"xxxx"`, `"abcd"`, and `""`. For each, give returned length and total writes in the displayed algorithm, counting a self-assignment as a write.
+---SOLUTION---
+For `xxxx`, no content is retained, so returned length is 0 and only the final zero at index 0 is written: one write. For `abcd`, all four bytes are assigned back through the write head, even though source and destination positions agree. Returned length is 4 and total writes are five including zero. The empty input has no content iterations and one final zero write, returning 0. These cases show why a logical “unchanged result” need not mean zero machine-level assignments in a specified algorithm.
+---RULE---
+Count the operations actually present in the algorithm, including self-writes and final termination, even when the string value is unchanged.
+
+@@ 37|Why repeated deletion is quadratic|Original summation problem
+A length-$n$ string consists entirely of a rejected byte. One algorithm repeatedly deletes index zero by shifting the remaining suffix including zero. Another compacts in one pass. Derive their byte-move counts.
+---SOLUTION---
+At current content length $k$, deleting the first byte moves the following $k$ bytes, including the terminator. Repeating for $k=n,n-1,\ldots,1$ moves $n(n+1)/2$ bytes. The compaction algorithm reads each content byte once, retains none, and writes only its final zero. Its running time is linear despite one output write, because reading still costs $n$ iterations. The quadratic method repeatedly revisits a shrinking suffix; it is not made linear by the fact that each rejected byte is conceptually removed once.
+---RULE---
+Sum suffix lengths for repeated shifting; a single retained-subsequence pass avoids revisiting the remaining input.
+
+@@ 38|Token count and empty fields|Original parser-policy comparison|tokens-main
+Split `"a,,b,"` on comma. Give the fields for a delimiter-preserving span parser and the tokens from `strtok`. Explain how three delimiters can yield different output counts.
+---SOLUTION---
+The span policy ends a field at each delimiter and emits a final field: `a`, empty, `b`, empty, for four fields. `strtok` skips runs of delimiters and returns only `a` and `b`, for two nonempty tokens. It also replaces encountered token-ending delimiters with zeros in a writable buffer. The invariant for the span parser is that each processed delimiter accounts for one completed field; the final remainder adds one. Neither policy is universally correct without a file-format specification. In CSV-like positional data, dropping empty fields can change the meaning.
+---RULE---
+Choose whether empty fields carry meaning before choosing a tokenizer; delimiter count plus one applies to the preserving policy.
+
+@@ 39|Nested tokenization state|Original conceptual debugging problem
+An outer `strtok` loop splits a line into semicolon-separated records. Inside it, another `strtok` loop splits the current record into comma-separated fields. Why can the next outer iteration fail to continue its original line, and what design avoids the dependency?
+---SOLUTION---
+The inner call begins a new tokenization sequence and replaces the saved continuation state used by `strtok`. A subsequent outer call with null input resumes that most recently saved sequence rather than automatically remembering the outer one. The text buffers themselves being distinct does not supply separate continuation objects. Use a parser with explicit state for each nesting level, or a documented reentrant platform API with distinct state variables. A span parser can also preserve both the source bytes and independent cursor positions. This is a state-management defect, not just a delimiter spelling mistake.
+---RULE---
+Independent tokenization traversals need independent continuation state; a null argument to `strtok` does not identify which previous sequence to resume.
+
+@@ 40|Line input at exact capacity|Original stream-boundary problem
+With `char b[5]`, a successful `fgets(b,5,stdin)` reads from a stream beginning with `abcd\n`. State the buffer and what remains in the stream. Can absence of newline in the buffer alone prove EOF?
+---SOLUTION---
+The call can store at most four input bytes before its added zero, so the buffer becomes `a b c d 0`. The newline remains unread in the stream because capacity is exhausted first. No newline in the buffer therefore does not prove EOF; this call stopped because of its byte limit. A following call can read the newline. The program must define whether to consume the remainder of a line or handle it in chunks. Blindly replacing `b[strlen(b)-1]` would wrongly discard the real final `d`.
+---RULE---
+A full `fgets` buffer without newline may be only a prefix of the line; preserve real data until stream status and policy are resolved.

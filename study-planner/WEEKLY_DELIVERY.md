@@ -445,3 +445,13 @@ Explicit user approval of the local and GitHub intelligent-agent delivery permit
 ## Uninformed search online delivery — 8 October 2026
 
 Private Site version 81 successfully published from exact source commit 5145ee45f59cc57d57c79747a75e097090c3e4b8. Deployment appgdep_6ac7d4291a8881919637875a7b15438a succeeded, and get_site_version confirmed source provenance and 378 archive entries. GitHub content is mirrored at 08126ca on study-planner-1406. The archive also includes the previously pending l_spaces and i_agents chapters; their older failed-publication receipts are superseded by this successful delivery. i_uninformed remains a draft awaiting explicit student approval. No next chapter started.
+
+
+## Active chapter: Strings and terminators — 8 October 2026
+
+Explicit user approval of i_uninformed (online version 81) permits only p_strings, the next missing Week 3 topic. Preserve 45 previous pages and 2920 complete problems. Use C17 contracts, deeply worked mathematical/conceptual problems, full-sentence final rules, and actual memory/string models. Await approval after delivery.
+
+
+## Strings and terminators complete review draft — 8 October 2026
+
+28 sections, 80 original/reconstructed full solutions plus one original-PDF-rechecked MSc string-counting bridge, 80 examination rules and 30 specialized memory models with 179 checkpoints. Four core written courses are genuinely read; Stanford is supplementary and inaccessible CMU material is not counted as read. 18945 checks include 12179 independent byte-operation comparisons. Browser, motion, typography, mathematics, mobile, print and lab validation passed. Preserve 45 previous HTML pages and 2920 prior problem entries. Await explicit approval of p_strings; publication tracked separately.

@@ -1,0 +1,31 @@
+[
+  {
+    "id": "MS_CS_1405_Q123",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 26,
+    "questionNumber": 123,
+    "topics": [
+      "s_counting",
+      "g_boolean"
+    ],
+    "title": "Abstract string parity: authentic counting bridge revisit",
+    "stem": "Let $A$ count length-four strings over $\\{0,1,2,3\\}$ with an even number of zeros. Which interval contains $A/4$?",
+    "options": [
+      "$[1,15]$",
+      "$(30,45]$",
+      "$(15,30]$",
+      "$(45,+\\infty)$"
+    ],
+    "answer": 2,
+    "solution": "1. The possible zero counts are 0, 2, and 4. Their counts are $3^4$, $\\binom42 3^2$, and 1.\n2. Thus $A=81+54+1=136$, and $A/4=34$ lies in option 2.\n3. Equivalently, the even-parity filter gives $A=((3+1)^4+(3-1)^4)/2$; the second term corrects the false assumption that exactly half of all strings have even zero count.\n4. The other intervals do not contain 34. Parity classes need not be equally large when three symbols are unmarked and only one is marked.\n\n**Transfer rule.** Use an explicit parity filter or disjoint counts rather than assuming a half split.\n\n**Representation distinction.** The symbol 0 here is an abstract alphabet symbol (or the printable digit byte), not a C null character terminating a buffer. The question does not test C library behavior. Four-symbol strings of length four require five bytes if encoded as four nonzero character bytes plus the C terminator.",
+    "pattern": "parity-filter counting",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "origin": "Authentic MSc CS 1405 Q123, bridge revisit",
+    "verification": "Original PDF page 26 visually rechecked on 8 October 2026. Options retained in printed order. Previously included in the counting chapter; not claimed as a new unique archive question."
+  }
+]
