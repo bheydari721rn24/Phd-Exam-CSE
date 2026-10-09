@@ -1,0 +1,800 @@
+@@ 1|Factorial: value, calls, edges, and depth|Original contract/count synthesis|fact-four
+Under the chapter's zero-base factorial policy, compute the result, total invocations, recursive edges, multiplications, and peak depth for input 4. Explain why these counts differ.
+---SOLUTION---
+1. Descent visits arguments 4, 3, 2, 1, and 0, giving five invocations and four parent-child edges.
+2. The base returns one. Unwinding yields 1, 2, 6, and 24; each of the four nonbase invocations multiplies once.
+3. Immediately before the base returns, all five frames are live. Thus peak depth is five, excluding the external caller.
+4. The returned value is 24. Counting only nonbase calls would give four, but the question explicitly includes the base and root.
+---RULE---
+For decrement-to-zero factorial, the value is $n!$, calls and depth are $n+1$, and recursive edges and multiplications are $n$. State whether the root and base are included.
+
+@@ 2|Changing the factorial base|Original boundary-policy comparison
+A factorial implementation returns one at `n <= 1` and otherwise calls on `n-1`. Compare its counts with the zero-base implementation for n = 6 and n = 0.
+---SOLUTION---
+1. For six, the one-base version visits 6 through 1: six calls, five edges, and five multiplications. It still returns 720.
+2. The zero-base version visits 6 through 0: seven calls and six multiplications, including the redundant multiplication by one.
+3. At zero, both return one in one call. The formula of six calls generalized as $C(n)=n$ therefore applies only for $n\ge1$; zero needs its own case.
+4. Equal results do not imply equal traces or exact costs. The base policy changes the stopping depth.
+---RULE---
+Changing the base from zero to one can remove one invocation and multiplication without changing factorial's value. Never transplant exact counts without checking the guard.
+
+@@ 3|A nonreachable base|Original termination counterexample
+Over mathematical integers, `f(n)` returns at n = 0 and otherwise calls `f(n-2)`. Classify termination for n = 8, n = 7, and n = -2.
+---SOLUTION---
+1. Eight follows 8, 6, 4, 2, 0 and terminates in five calls.
+2. Seven follows positive odd values and then negative odd values. Zero is never reached because parity is preserved.
+3. Negative two follows -2, -4, -6, and so on. Its magnitude increases and no base is reached.
+4. Decreasing an integer is insufficient unless the domain is bounded below and child states preserve it. In actual fixed-width signed C, the infinite mathematical trace eventually encounters overflow; it is not a valid infinite C execution model.
+---RULE---
+A base case must be reachable from every admitted input. Parity and domain preservation matter when decrement steps skip values.
+
+@@ 4|Fixed-step call count|Original formula derivation
+Let `f(n)` return when n <= 0 and otherwise call `f(n-3)`. Derive total calls for positive integer n and evaluate n = 14.
+---SOLUTION---
+1. After $t$ recursive edges, the argument is $n-3t$.
+2. The first terminal argument occurs when $t\ge n/3$, so the smallest such integer is $t=\lceil n/3\rceil$.
+3. Each edge adds one invocation to the original root. Therefore $C(n)=\lceil n/3\rceil+1$.
+4. Fourteen visits 14, 11, 8, 5, 2, -1: six calls. The five positive invocations are distinct from the final base invocation.
+---RULE---
+For a positive step k and a nonpositive stopping guard, positive input n needs $\lceil n/k\rceil$ recursive edges and one more invocation.
+
+@@ 5|An index increases while the measure decreases|Original interval proof
+A function processes `a[i]` then calls on `i+1`, stopping at i = N. Prove termination and exact coverage for an initial i satisfying 0 <= i <= N.
+---SOLUTION---
+1. Use remaining length $N-i$ as the nonnegative ranking function, rather than the increasing index.
+2. Every nonbase edge replaces it by $N-i-1$, which is smaller and nonnegative.
+3. Induction proves that the function processes exactly indices $i,i+1,\ldots,N-1$ once, because the parent adds its current position to the child's suffix.
+4. There are $N-i$ processing actions and $N-i+1$ invocations. The terminal index N is checked but never dereferenced.
+---RULE---
+Termination can be proved by remaining work even when a parameter increases. A one-past endpoint is a stopping state, not an array element.
+
+@@ 6|Lexicographic progress|Original well-founded proof
+A state (a,b) with nonnegative a and 0 <= b <= M decrements b when b > 0; when b = 0 and a > 0, it changes to (a-1,M). Derive the number of transitions to (0,0).
+---SOLUTION---
+1. The sum a+b is not a valid decreasing measure when b resets to a large M.
+2. The rank $R(a,b)=a(M+1)+b$ decreases by one on both transition types: resetting gives $(a-1)(M+1)+M=a(M+1)-1$.
+3. Consequently the exact transition count is $a(M+1)+b$, and invocations including the terminal state number one more.
+4. This scalar encoding also proves lexicographic termination. Its arithmetic is mathematical; an implementation must guard rank overflow if it computes the rank explicitly.
+---RULE---
+A reset of one coordinate does not invalidate termination when a higher-priority coordinate decreases. Encode or prove the lexicographic order explicitly.
+
+@@ 7|Partial correctness without termination|Original logical distinction
+Does proving that every returned value of a recursive factorial procedure equals n! establish total correctness? Give a precise missing obligation.
+---SOLUTION---
+1. A procedure that immediately calls itself on the same input never returns. The implication that any returned value is correct can hold vacuously.
+2. To establish total correctness, show a well-founded measure decreases on every executed recursive edge and that base cases cover the minimal reachable states.
+3. Also show child arguments preserve the input contract and the combination establishes the parent's postcondition.
+4. The factorial recurrence explains the desired value, but a malformed call `f(n)` rather than `f(n-1)` fails the termination obligation.
+---RULE---
+Correctness of a returned result and existence of a return are different proof obligations. Total correctness requires both.
+
+@@ 8|A sum proof with an empty interval|Original contract proof
+Prove that `sum(a,l,r)` with base l = r returning zero and step `a[l] + sum(a,l+1,r)` sums exactly [l,r). State the arithmetic precondition.
+---SOLUTION---
+1. The empty interval has no terms and therefore sum zero.
+2. For nonempty length, the induction hypothesis supplies the sum of indices $l+1$ through $r-1$. Adding the excluded first term gives $\sum_{j=l}^{r-1}a_j$.
+3. The measure r-l decreases by one and the accessed index satisfies l < r <= N.
+4. Under C signed arithmetic, every computed partial sum and addition must be representable. A representable final sum alone does not guarantee all intermediate operations are safe if cancellation occurs later.
+---RULE---
+An interval sum proof needs bounds, an empty-case identity, a decreasing length, and representable intermediate arithmetic.
+
+@@ 9|Returned value versus emitted output|Original semantic contrast|around-three
+`g(n)` returns zero at n = 0; otherwise it prints n, recursively obtains x = g(n-1), prints n again, and returns x+1. Find both the return value and output for n = 3.
+---SOLUTION---
+1. The first prints on descent are 3, 2, 1. The base prints nothing and returns zero.
+2. Unwinding prints 1, 2, 3. Return values increase to one, two, then three.
+3. The output is `3 2 1 1 2 3`, while the returned scalar is 3. There are six printed tokens but four invocations.
+4. Counting output tokens as calls, or treating the final printed 3 as the returned value's definition, confuses separate observable effects.
+---RULE---
+Track printed output and returned values separately. Their ordering and counts depend on different instructions.
+
+@@ 10|One saved local per frame|Original automatic-object trace
+Every nonbase call initializes local x = n, calls on n-1, then prints x. For initial n = 4, is the output four zeros or 1 2 3 4?
+---SOLUTION---
+1. The four nonbase invocations have distinct automatic local objects containing 4, 3, 2, and 1.
+2. The child does not reassign the parent's local x merely by using a same-named variable.
+3. Returning from the base resumes the smallest nonbase invocation first, producing `1 2 3 4`.
+4. Shared pointers or static storage could change this analysis, but neither is stated here. Lexical names do not imply one shared runtime object.
+---RULE---
+Same-named automatic locals in different recursive invocations are distinct objects. Shared storage must be identified separately.
+
+@@ 11|Post-decrement destroys progress|Original C17 argument semantics
+For positive n, `bad(n)` executes `return bad(n--);` after testing n == 0. Does the child's argument decrease?
+---SOLUTION---
+1. The value of postfix decrement is the old n, so the child receives exactly the parent's entry value.
+2. The parent's local n is decremented before the child body starts, but that change is not the child parameter's initial value.
+3. Every child repeats the same mistake. No zero base is reached from a positive start.
+4. This is a progress defect, not an unsequenced-update example. Writing `bad(n-1)` passes the intended smaller value without changing the parent.
+---RULE---
+A postfix decrement as the only call argument passes the old value. Separate the child's argument from the parent's later local state.
+
+@@ 12|Pre-decrement changes the continuation|Original C17 output comparison
+Compare `f(n-1); print(n);` with `f(--n); print(n);`, using a zero base and initial n = 3.
+---SOLUTION---
+1. The first form leaves each parent's parameter intact. Unwinding prints 1, 2, 3.
+2. The second form decrements each nonbase parent's own parameter before the child. Those saved parameters become 2, 1, and 0.
+3. Unwinding therefore prints 0, 1, 2. Both chains reach the base and have four invocations.
+4. Equivalent child argument values do not imply equivalent subsequent parent actions. The local mutation changes the continuation.
+---RULE---
+Pre-decrement and subtraction can pass the same child value while leaving different parent state for the return phase.
+
+@@ 13|Unsigned underflow at the boundary|Original C17 guard diagnosis
+An unsigned function stops at n == 0 and otherwise calls on n-2. Explain its behavior for n = 1 and give a safe domain guard for processing pairs.
+---SOLUTION---
+1. At one the guard is false, and unsigned subtraction wraps modulo one more than the type's maximum value.
+2. The child argument becomes a very large odd value, so a proof using decreasing natural numbers no longer applies.
+3. For a pair-processing contract, return when n <= 1 before subtracting two. Then every recursive edge starts with at least two and remains nonnegative without wraparound.
+4. A signed `n <= 0` guard is not a substitute on an unsigned argument; it is equivalent to checking zero and still misses one.
+---RULE---
+Guard small unsigned arguments before subtracting a stride. Mathematical negativity is not how unsigned C represents the boundary.
+
+@@ 14|Operand order and pure results|Original sequencing distinction
+For pure Fibonacci functions, does `fib(n-1)+fib(n-2)` guarantee left-first execution in C17? Does its mathematical sum depend on that choice?
+---SOLUTION---
+1. C17 leaves the order of the operand calls unspecified. An animation showing left-first execution must declare that policy or use separate statements.
+2. With pure calls, valid arithmetic, and the same input, both orders return the same two values and hence the same sum.
+3. If calls print or mutate shared state, the visible trace or later results may depend on order.
+4. Executions of the called bodies are indeterminately sequenced; this is different from conflicting unsequenced increments such as `i++ + i++`, which are undefined.
+---RULE---
+Unspecified call order can coexist with a fixed pure result. Do not invent an output order or confuse it with undefined behavior.
+
+@@ 15|Short-circuit avoids a child|Original logical-operator trace
+A palindrome function returns `a[l] == a[r-1] && pal(a,l+1,r-1)` after the length guard. For the byte sequence `abca`, how many recursive invocations occur?
+---SOLUTION---
+1. The outer endpoints are both a, so the right operand is evaluated and the middle interval `bc` is requested.
+2. Its endpoints differ, so `&&` short-circuits. No empty interval is requested.
+3. There are two invocations and two byte-pair comparisons; the answer is false.
+4. A complete matching length-four input would make three invocations, including the empty base. Exact counts can depend on data even with a fixed size.
+---RULE---
+Short-circuit evaluation can stop recursion before the theoretical deepest base. Separate worst-case counts from the actual input trace.
+
+@@ 16|A missing returned result|Original C17 return contract
+An integer function returns one at n = 0, otherwise calls itself on n-1 but has no return statement after that call. Can a caller safely use its result for n > 0?
+---SOLUTION---
+1. The child returning does not automatically return that child's value from the parent.
+2. Each nonbase invocation reaches its closing brace without supplying an integer result.
+3. Under C's return rule, using such a missing result yields undefined behavior. A test run accidentally showing one does not establish correctness.
+4. The intended forwarding version must say `return f(n-1);`, or save the child result and explicitly return the required combination.
+---RULE---
+A recursive call's return does not implicitly return from its caller. Every value-producing path needs the specified return.
+
+@@ 17|Static state survives calls|Original shared-state calculation
+Assume static counter c is initialized to zero once. Each nonbase invocation increments c before calling on n-1, and all invocations return c. What do two successive outer calls with n = 3 return?
+---SOLUTION---
+1. The first call's three nonbase invocations increment the single counter to three. All return paths observe that same final value.
+2. The static counter is not reinitialized for the second outer call; three further increments give six.
+3. The results are therefore three and six, not three and three.
+4. Mathematical input n alone no longer determines the result; the prior counter state matters. Caching only by n would be invalid for this function.
+---RULE---
+Static state is shared and persistent. Include relevant state in a contract and do not memoize a history-dependent function as if it were pure.
+
+@@ 18|Pointer aliasing across frames|Original object-lifetime reasoning
+Each of n nonbase calls performs `++*p` then recurses with the same pointer p. Starting with a writable integer x = 5 and n = 4, find x and explain why passing by value does not isolate it.
+---SOLUTION---
+1. Every parameter p is a copied pointer value, but all copies designate the same x.
+2. Four nonbase calls each increment that object once, producing nine, assuming all increments are representable.
+3. Passing by value isolates reassignment of the pointer parameter; it does not duplicate the pointed-to object.
+4. If each frame instead had its own local x and passed its address only to its child, a different chain of designated objects would result.
+---RULE---
+Pointer parameters are copied by value while their pointees can remain shared. Trace identities of objects, not just parameter names.
+
+@@ 19|Digit sum with a one-digit base|Reconstructed Berkeley/MIT-style scalar problem|digits-738
+For the chapter's one-digit-base digit sum, compute the result and call count for 738. Then derive the count for every positive x.
+---SOLUTION---
+1. The visited arguments are 738, 73, and 7. The base returns seven.
+2. Returning adds three then eight, so the final digit sum is eighteen.
+3. A positive d-digit integer loses one digit on each edge and stops with one digit, giving d invocations.
+4. Thus $C(x)=\lfloor\log_{10}x\rfloor+1$ for positive x. Zero is one invocation under the same base and needs no logarithmic expression.
+---RULE---
+Digit-recursion counts depend on whether the base is one digit or zero. Give zero separately before applying a logarithm.
+
+@@ 20|Changing the numeral base|Original digit formula generalization
+For base b >= 2, a digit function recurses on floor(x/b) until x < b. Derive calls for positive x and evaluate x = 255, b = 2.
+---SOLUTION---
+1. Repeated division removes one base-b digit. A positive x has $d=\lfloor\log_b x\rfloor+1$ digits.
+2. The one-digit guard stops after d invocations, because the first frame already accounts for one digit.
+3. The value 255 is eight binary digits, so the function makes eight invocations.
+4. A zero-only guard would add a ninth invocation. The formula assumes b >= 2; division by one gives no progress and division by zero is invalid.
+---RULE---
+Halving or base-b division is logarithmic only when the divisor exceeds one and integer rounding and the stopping guard are specified.
+
+@@ 21|Euclid's trace and invariant|Original number-theoretic proof|gcd-main
+Trace gcd(1071,462), count invocations and remainder operations, and justify the preserved result.
+---SOLUTION---
+1. The states are (1071,462), (462,147), (147,21), and (21,0).
+2. Three nonbase invocations evaluate remainders 147, 21, and 0. The fourth invocation returns 21 without remainder evaluation.
+3. At every step, common divisors of the pair are exactly common divisors of the divisor and remainder, using $a=qb+r$.
+4. The second argument decreases strictly while positive, so the trace terminates and the returned value is the greatest common divisor.
+---RULE---
+Euclid decreases the positive second argument. Count remainder operations separately from the terminal invocation.
+
+@@ 22|Euclid with the smaller argument first|Original progress counterexample repair
+Trace gcd(6,35). Does the first argument increasing to 35 on the first step contradict termination?
+---SOLUTION---
+1. States are (6,35), (35,6), (6,5), (5,1), and (1,0), yielding gcd one.
+2. Although the first component increases initially, the second changes from 35 to 6 and continues strictly downward.
+3. The ranking function is b, not a or an assumed sorted pair. Every remainder lies between zero and b-1.
+4. There are five invocations and four remainders. Reordering inputs first would change the trace count, though not the gcd.
+---RULE---
+Use the measure the algorithm actually decreases. Optional input normalization can change exact calls without changing the mathematical result.
+
+@@ 23|Palindrome's worst-case formula|Original interval-count derivation|pal-even
+For a matching byte palindrome of length n, using the chapter's length-at-most-one base, derive endpoint comparisons and total invocations.
+---SOLUTION---
+1. Each nonbase invocation consumes one pair of endpoints, shortening the interval by two.
+2. There are $\lfloor n/2\rfloor$ such pairs. After them, the interval has length zero or one.
+3. The final base invocation makes total calls $\lfloor n/2\rfloor+1$ and performs no byte comparison.
+4. Early mismatches reduce these counts; a supplied C terminator is excluded from n. For n = 0, the formula correctly gives one invocation and zero comparisons.
+---RULE---
+With a length-at-most-one base, matching palindrome calls are one more than endpoint-pair comparisons. Exclude the string terminator from content length.
+
+@@ 24|Repeated slicing changes time|Original cross-language cost reconciliation
+A Python palindrome implementation copies its middle slice at every successful level. Compare its worst-case copying cost with an index-based C implementation.
+---SOLUTION---
+1. Slice lengths are approximately n-2, n-4, and so on. Their sum is $\Theta(n^2)$ for a matching input.
+2. Endpoint comparisons alone still number $\lfloor n/2\rfloor$, so a call count does not include the cost of constructing arguments.
+3. The index-based implementation passes constant-size bounds and performs $\Theta(n)$ comparisons with $\Theta(n)$ logical stack depth.
+4. Python implementation details can affect peak retained storage; do not assert that slices disappear while their callers still hold references. The quadratic copying-time conclusion assumes slices create copies.
+---RULE---
+Argument construction is part of recursive work. Replacing slices by interval bounds changes cost even if the recurrence's logical problem sizes look identical.
+
+@@ 25|Binary search's unsuccessful path|Original exact interval trace|binary-seven
+Search for 8 in [1,3,5,7,9,11,13], with half-open bounds and the chapter's midpoint rule. List compared values and all intervals.
+---SOLUTION---
+1. Start [0,7), midpoint three, value seven. Since eight is larger, continue with [4,7).
+2. Midpoint five has value eleven, so continue with [4,5). Its midpoint four has value nine, so continue with [4,4).
+3. The empty interval returns failure. Compared values are 7, 11, and 9, and there are four invocations.
+4. Three comparisons equal $\lfloor\log_2 7\rfloor+1$, while the final empty call is an additional invocation.
+---RULE---
+Unsuccessful binary search includes an empty final invocation. Its count differs from successful search even with the same comparison depth.
+
+@@ 26|Binary search loses strict shrinkage|Original endpoint counterexample
+In the larger-than-midpoint branch, a programmer recurses on [m,r) instead of [m+1,r). Give the smallest nonempty counterexample.
+---SOLUTION---
+1. Take one element, interval [0,1), and a target larger than that element. The midpoint is zero.
+2. The incorrect child [m,r) is again [0,1), so the same comparison repeats with no smaller interval.
+3. The correct child [1,1) is empty and terminates.
+4. The measure r-l proves the defect immediately. A source tree drawing alone can conceal this unchanged interval unless endpoints are displayed.
+---RULE---
+Binary search must remove the midpoint after an unsuccessful comparison. A retained one-element interval is a direct nontermination witness.
+
+@@ 27|Successful search has no failure base|Original count distinction
+For the seven-element sorted array above, compare calls when searching for 7 and for 8.
+---SOLUTION---
+1. Seven is the initial midpoint, so the first invocation returns success: one call and one element comparison.
+2. Eight follows the three nonempty intervals and final empty interval described in the preceding trace: four calls and three comparisons.
+3. The size alone does not determine exact cost; the target and success status determine the traversed path.
+4. The logarithmic formula is a worst-case count under a particular policy, not an equality for every target.
+---RULE---
+State whether a count is an actual trace, a best case, or a worst case. Success can stop before any empty base is called.
+
+@@ 28|Fast power: exact multiplication count|Original bit-count calculation|power-thirteen
+With bases exponent zero and one and one stored half-result per nonbase call, compute calls and multiplications for exponent 13.
+---SOLUTION---
+1. Exponents visited are 13, 6, 3, and 1, so there are four invocations.
+2. Each of 13, 6, and 3 requires one squaring. Odd nonbase exponents 13 and 3 each require one additional multiplication.
+3. Total multiplications are five. The formula gives $\lfloor\log_2 13\rfloor+\operatorname{popcount}(13)-1=3+3-1=5$.
+4. The leading one bit is supplied by the exponent-one base, so it does not require an additional multiplication by the base value.
+---RULE---
+Fast-power exact costs depend on the exponent's bit pattern and the exponent-one base. Popcount alone or logarithm alone misses part of the work.
+
+@@ 29|Fast power with a zero-only base|Original base-cost reconciliation
+Suppose the power algorithm stops only at exponent zero, and every positive level squares the child result and multiplies by a for odd exponents. Derive its count for e > 0.
+---SOLUTION---
+1. There are $\lfloor\log_2 e\rfloor+1$ positive levels followed by the zero base.
+2. Every positive level squares, including exponent one, which unnecessarily squares the value one returned from exponent zero.
+3. Each one bit adds a multiplication by a. Therefore the total is $\lfloor\log_2 e\rfloor+1+\operatorname{popcount}(e)$.
+4. For e = 13, this is seven rather than five. The two extra multiplications occur at exponent one compared with the optimized one-base version.
+---RULE---
+A mathematically harmless base change can alter exact operation counts. Derive them from the implemented operations.
+
+@@ 30|Duplicated power calls|Original repeated-subproblem recurrence
+For e = 2^k, an implementation with base e = 1 separately evaluates both half-power calls and multiplies them. Derive invocations and multiplications.
+---SOLUTION---
+1. Each internal call has two identical child computations, forming a full binary tree of depth k edges.
+2. There are $2^k=e$ leaves. Hence total invocations are $2e-1$, and internal invocations number $e-1$.
+3. Each internal invocation multiplies once, giving e-1 multiplications, compared with k for the stored-result version.
+4. Matching child arguments do not create automatic reuse in the source-level execution model. A cache or explicit local result is required to justify reuse.
+---RULE---
+Calling an identical subproblem twice duplicates its computation unless reuse is explicitly established. Algebraic identity is not execution identity.
+
+@@ 31|A full binary call tree|Original edge-count proof
+A terminating recursive program has exactly two children at every nonbase invocation and 29 terminal invocations. Find nonbase invocations, total invocations, and edges.
+---SOLUTION---
+1. Write I for internal invocations and L = 29 for leaves. Edge counting gives $2I=I+L-1$.
+2. Therefore I = 28, total calls I+L = 57, and edges 56.
+3. This result does not require a balanced tree; the exactly-two-child property is sufficient.
+4. Introducing one-child invocations would invalidate the identity, so an arbitrary diagram cannot justify this formula without its branching contract.
+---RULE---
+For a finite full binary call tree, internal calls equal leaves minus one. Balance is unnecessary; exactly two children is essential.
+
+@@ 32|Three-child recursion|Original geometric-tree derivation
+A routine at positive level k makes three calls at k-1 and stops at zero. Find leaves, invocations, and depth for k = 4.
+---SOLUTION---
+1. Level d contains $3^d$ invocations, and level four contains $3^4=81$ leaves.
+2. Summing levels gives $1+3+9+27+81=121$, or $(3^5-1)/2$.
+3. Peak sequential depth is five logical invocations, not 121.
+4. The tree's 120 edges equal three times its 40 internal invocations, independently confirming the count. Sequential evaluation keeps just one root-to-leaf path active at a time.
+---RULE---
+For a complete b-ary recursion of k edges, leaves are $b^k$ and calls are $(b^{k+1}-1)/(b-1)$; sequential depth is k+1.
+
+@@ 33|Fibonacci's exact call count|Original recurrence solution|fib-five
+Under F0 = 0 and F1 = 1, derive naive Fibonacci's total invocations and evaluate n = 8.
+---SOLUTION---
+1. Calls satisfy $C_0=C_1=1$ and $C_n=1+C_{n-1}+C_{n-2}$.
+2. Adding one removes the constant term: $D_n=C_n+1$ satisfies the Fibonacci recurrence with both initial values two.
+3. Thus $C_n=2F_{n+1}-1$. Since $F_9=34$, input eight requires 67 calls.
+4. The returned value is $F_8=21$, not 34 or 67. These are result, next Fibonacci value, and execution count respectively.
+---RULE---
+Solve Fibonacci call counts with their constant term and bases. The returned Fibonacci value is not the number of calls.
+
+@@ 34|Fibonacci leaves and additions|Original full-tree synthesis
+For naive fib(8), find terminal calls, nonterminal calls, and additions without enumerating 67 invocations.
+---SOLUTION---
+1. The tree is full binary because every nonterminal invocation makes two children.
+2. Its 67 calls imply $L=(67+1)/2=34$ leaves and I = 33 internal calls.
+3. Each internal call adds its two returned child values once, so there are 33 additions.
+4. The formula is $L=F_{n+1}$ and additions $F_{n+1}-1$. A multiplication-cost recurrence would be irrelevant to this code.
+---RULE---
+Naive Fibonacci additions are counted by internal call nodes; leaves return directly and do not add.
+
+@@ 35|Fibonacci depth is not its tree size|Original simultaneous-space reasoning
+Find the maximum logical depth of naive fib(8), including terminal invocations, under sequential evaluation.
+---SOLUTION---
+1. A longest path is 8, 7, 6, 5, 4, 3, 2, 1, consisting of eight invocations.
+2. A path through zero goes through 2 then 0 and has the same maximum length in this case.
+3. The many other subtrees execute after earlier child frames return. They do not remain simultaneously active.
+4. Bounded local frame storage gives linear auxiliary stack space, despite exponential total work. At n = 0, depth is one, so use $\max(1,n)$.
+---RULE---
+An exponential call tree can have linear depth. Sequential space follows live paths and retained data, not cumulative calls.
+
+@@ 36|Fibonacci indexing across sources|Original source-reconciliation exercise
+One source defines R0 = R1 = 1 for rabbit pairs, while this chapter uses F0 = 0 and F1 = 1. Express Rn using F and evaluate R6.
+---SOLUTION---
+1. The initial rabbit values equal F1 and F2 respectively.
+2. Both sequences then satisfy the same two-term recurrence, so induction gives $R_n=F_{n+1}$.
+3. Consequently $R_6=F_7=13$, whereas $F_6=8$.
+4. The two implementations may have identical call-tree shapes with bases at zero and one, yet return different values because their base values differ.
+---RULE---
+Normalize sequence indexing and base values before combining sources. Identical recurrence syntax does not fix identical initial values.
+
+@@ 37|Sharper exponential growth|Original characteristic-root reasoning
+Why is naive Fibonacci Θ(phi^n) a sharper statement than O(2^n), and why can both be correct?
+---SOLUTION---
+1. The recurrence's dominant characteristic root solves $x^2=x+1$, giving $\varphi=(1+\sqrt5)/2<2$.
+2. The exact count $2F_{n+1}-1$ therefore grows proportionally to $\varphi^n$ up to fixed positive constants for large n.
+3. Because $\varphi^n\le2^n$, an exponential upper bound O(2^n) also holds, but is not tight.
+4. Big O specifies an upper bound, not necessarily a worst-case category or an exact rate. Here the pure function has one tree shape for each input n.
+---RULE---
+Distinguish a valid upper bound from a tight asymptotic characterization. Recursive branching alone does not select the exact exponential base.
+
+@@ 38|Cold memoization counts|Original request/miss derivation|memo-six
+For left-first memoized Fibonacci with bases zero and one preseeded, find requests, misses, hits, additions, final cache entries, and peak depth for n = 6.
+---SOLUTION---
+1. New nonbase states are 2 through 6, so there are five misses and five additions.
+2. Each miss makes two child requests, plus the initial root request: eleven requests in total.
+3. Subtracting misses gives six hits. The cache ends with seven entries, indexed zero through six.
+4. The initial descending path is 6, 5, 4, 3, 2, 1, giving depth six. Memoization removes repeat work, not the initial linear descent.
+---RULE---
+Cold memo Fibonacci distinguishes requests, misses, hits, additions, and stored entries. They are related but not identical counts.
+
+@@ 39|A warm cache changes the formula|Original cache-state boundary
+After memoized fib(6) finishes, request fib(4) from the same cache. Find requests and additions; explain why 2n-1 is inapplicable.
+---SOLUTION---
+1. State four is already present as a completed answer. The initial request finds it and returns immediately.
+2. There is one request, one hit, zero misses, and zero additions.
+3. The cold formula assumes all nonbase states up to n need first-time computation. That assumption is false here.
+4. The result remains F4 = 3. Caching changes execution cost without changing the pure mathematical answer.
+---RULE---
+Memoized exact counts depend on initial cache contents. Always identify cold, partially populated, or warm state.
+
+@@ 40|A cache key loses essential state|Original memoization counterexample
+Can a subset-sum procedure S(i,t) be memoized by i alone? Give two states with the same i and different answers.
+---SOLUTION---
+1. Suppose only the value three remains at index i. Then S(i,3) is true, using that value.
+2. State S(i,2) is false because the remaining choices are zero or three, neither equal to two.
+3. A cache entry indexed solely by i would force both states to share one Boolean answer and therefore be wrong for one of them.
+4. The remaining target t belongs in the key. Any additional constraint such as a cardinality requirement must be included as well.
+---RULE---
+A memoization key must distinguish every state component affecting the result. Similar control location does not imply equivalent subproblems.
+
+@@ 41|Memoization and printed side effects|Original observational-equivalence problem
+A pure-valued recursive function prints its argument on every entry. If answers are cached, is replacing repeat calls by cache hits behavior-preserving?
+---SOLUTION---
+1. Returned values can remain correct because the numerical result is pure.
+2. However, skipping an entire repeated subtree removes the entry prints performed inside that subtree.
+3. Printing only the cache-hit argument does not restore its descendants' prints. Thus the original output trace is not preserved.
+4. The contract must either exclude those prints from required behavior or explicitly reproduce the desired effects separately. Result equality alone is not observational equivalence.
+---RULE---
+Caching a value can suppress effects. State what behavior must be preserved before claiming a memoized implementation is equivalent.
+
+@@ 42|Arbitrary-precision Fibonacci cost|Original bit-complexity distinction
+Why does n-1 additions in memo Fibonacci not establish Θ(n) bit time for arbitrary-precision integers?
+---SOLUTION---
+1. Fibonacci values at index k have Θ(k) bits, so addition at that state processes Θ(k) bits under ordinary linear-time big-integer addition.
+2. Summing across states gives $\sum_{k=2}^{n}\Theta(k)=\Theta(n^2)$ bit work.
+3. Storing all values similarly retains a total of Θ(n²) bits, although the number of entries is Θ(n).
+4. Unit-cost arithmetic counts additions as constant-time primitives. It is a different cost model, not an error, provided the assumption is explicit.
+---RULE---
+Count operations and the cost of their operands separately. Linear arithmetic-operation counts can correspond to quadratic bit work.
+
+@@ 43|One child with a linear local loop|Original sum-of-work calculation
+A nonbase call of size n performs n unit operations then calls on n-1. The zero base does no unit operations. Derive total work.
+---SOLUTION---
+1. The local costs along the only path are n, n-1, down to one.
+2. Their sum is $n(n+1)/2$, hence Θ(n²), despite only n+1 calls.
+3. With bounded extra local storage, logical depth and auxiliary stack storage remain Θ(n).
+4. The work recurrence is $W_n=n+W_{n-1}$ with W0 = 0, distinct from the call-count recurrence $C_n=1+C_{n-1}$.
+---RULE---
+The number of recursive calls is not the total running time when local work depends on input size.
+
+@@ 44|Sequential balanced split|Original time/space recurrence
+For n = 2^k, a routine makes two sequential half-size calls and does n local operations. Bases of size one do one operation. Derive work and calls.
+---SOLUTION---
+1. Every internal level contributes n operations, and there are k internal levels.
+2. The n leaves each contribute one, so work is $n(k+1)=n\log_2 n+n$.
+3. The full binary tree has n leaves, giving 2n-1 calls. Its peak depth is k+1.
+4. Assuming constant local storage and no retained large outputs, stack space is logarithmic; buffers or stored outputs require a separate accounting.
+---RULE---
+Balanced sequential recursion can have linear calls, logarithmic depth, and n log n work. Derive each requested quantity separately.
+
+@@ 45|Live variable-size arrays on a halving path|Original space summation
+Every live frame of size n = 2^k retains an array of n cells while recursing on n/2, with a size-one base array. Find simultaneous array cells.
+---SOLUTION---
+1. The live sizes on the deepest path are n, n/2, n/4, down to one.
+2. Summing the geometric series gives $2n-1$ cells, not n log n.
+3. Frame metadata adds O(log n) bounded storage under the stated model, leaving total Θ(n).
+4. This assumes each parent's array remains live while the child executes. Releasing or reusing storage changes the contract and can change the count.
+---RULE---
+Variable frame sizes must be summed along simultaneous live paths. Depth multiplied by the largest frame is often only a loose bound.
+
+@@ 46|Live arrays on a decrement path|Original space counterpoint
+Every nonbase invocation of size n retains n cells and recurses on n-1; the zero base retains none. Find maximum simultaneous cells.
+---SOLUTION---
+1. At the deepest point, all arrays of lengths n through one remain live.
+2. Their sum is $n(n+1)/2$, so simultaneous storage is Θ(n²).
+3. Logical depth is n+1, which by itself does not identify the byte or cell count.
+4. A loop reusing one array might have a different storage profile, but that reuse must preserve the algorithm's required data and cannot simply be assumed.
+---RULE---
+Linear recursion depth does not guarantee linear auxiliary memory when frames retain input-sized objects.
+
+@@ 47|Tail-recursive factorial contract|Original accumulator proof
+Prove the contract A(n,a) = a n! for a function returning a at zero and otherwise calling A(n-1,a*n).
+---SOLUTION---
+1. At zero, a equals $a\,0!$, so the base contract holds.
+2. Assume the smaller call returns $(an)(n-1)!$. Algebra gives $a n!$, proving the parent contract.
+3. Starting from (N,1), the invariant is $a n!=N!$ and the measure n decreases.
+4. The recursive call is in tail position because its result is immediately returned. Arithmetic range checks remain necessary in fixed-width implementations.
+---RULE---
+An accumulator needs a generalized contract and invariant. Merely adding an extra parameter is not a correctness proof.
+
+@@ 48|Tail-call elimination is optional|Original language-versus-implementation distinction
+Does a tail-recursive C17 function have guaranteed O(1) stack space? What transformation can establish bounded scalar storage?
+---SOLUTION---
+1. The C17 language does not require compilers to eliminate tail calls, so the source alone gives no such stack guarantee.
+2. An implementation can retain one activation per recursive step, preserving the ordinary linear depth.
+3. Rewriting the tail update as a loop makes the bounded scalar state explicit, assuming no separately growing data structure.
+4. Prove that loop state transitions preserve the accumulator invariant. Compiler optimization settings are not a portable language contract.
+---RULE---
+Tail position permits a transformation; it does not guarantee that C performs it. Claim constant storage only under a verified implementation or explicit loop.
+
+@@ 49|A continuation needs a phase|Original explicit-stack reconstruction
+To simulate left-first binary recursion returning f(left)+f(right), what must a nonterminal explicit frame remember?
+---SOLUTION---
+1. It retains the parent input or node and a phase indicating whether the first child, second child, or combine step is next.
+2. After the left child returns, save its value before scheduling the right child.
+3. After the right returns, combine it with the saved left value and deliver the result to the parent frame.
+4. A stack holding only child inputs loses the saved left result and resume location. Traversal order alone cannot reconstruct a returned sum without that pending state.
+---RULE---
+An explicit stack must encode pending work and saved intermediate values, not merely a list of nodes to visit.
+
+@@ 50|Push order reverses visit order|Original LIFO reasoning
+An iterative preorder traversal should visit root, left subtree, then right subtree. In which order should it push the two children?
+---SOLUTION---
+1. A last-in-first-out stack pops the most recently pushed item first.
+2. After emitting the root, push the right child before the left child. The left task is then on top.
+3. Reversing the push order visits the right subtree first, changing the observable preorder.
+4. Skip null tasks only if the specified output excludes them; otherwise null-base actions need their own task representation.
+---RULE---
+With a LIFO stack, push siblings in reverse of the intended visitation order. The base-action contract still matters.
+
+@@ 51|Mutual parity recursion|Reconstructed Berkeley-style mutual recursion
+Even(0) is true, Odd(0) is false, and each positive input calls the other function on n-1. Find the answer and total invocations for Even(7).
+---SOLUTION---
+1. The sequence alternates Even(7), Odd(6), Even(5), Odd(4), Even(3), Odd(2), Even(1), Odd(0).
+2. The last value is false and is forwarded unchanged through the chain, so seven is not even.
+3. There are eight invocations. Each edge decreases the common nonnegative measure n, irrespective of which function owns it.
+4. Proving only that each function calls a different function would not prove termination; the decrease across the pair is the essential fact.
+---RULE---
+For mutual recursion, prove a shared decreasing measure across the complete call cycle, and establish all base contracts together.
+
+@@ 52|Tree size and null calls|Original structural-call count
+A finite binary tree has N = 9 nonnull nodes. A size function calls itself on both children of each node and returns immediately for null. Find total calls.
+---SOLUTION---
+1. Nonnull nodes contribute 18 child-pointer slots. Eight slots connect actual parent-child edges because a nine-node tree has eight edges.
+2. The other ten slots are null, so there are ten null invocations.
+3. Nine nonnull plus ten null invocations give nineteen, matching 2N+1.
+4. The empty tree N = 0 still requires one null invocation. Shared subtrees or cycles invalidate the simple-tree assumption.
+---RULE---
+A binary-tree traversal making both null-child calls has 2N+1 invocations. Count null calls explicitly and require an actual finite tree.
+
+@@ 53|A DAG can repeat structural occurrences|Original graph-versus-tree distinction
+A root's left and right pointers both designate the same leaf node. What does the ordinary recursive size function return, and how many unique nodes exist?
+---SOLUTION---
+1. Each child call independently returns one for the shared leaf.
+2. The root combines one plus one plus one, returning three structural occurrences.
+3. There are only two unique node objects: root and leaf. A visited-set traversal would count two under a unique-node contract.
+4. The ordinary function is not inherently incorrect; its tree-size contract has been applied to a structure violating the disjoint-subtree assumption.
+---RULE---
+Distinguish unique objects from repeated structural occurrences when recursion follows shared pointers.
+
+@@ 54|Hanoi's physical moves|Reconstructed MIT/Stanford/CMU-style recurrence|hanoi-three
+Derive the physical move count for n disks under the chapter's zero-base Hanoi algorithm and evaluate n = 5.
+---SOLUTION---
+1. Moving n disks requires two smaller-tower transfers and one largest-disk move, so $M_n=2M_{n-1}+1$, M0 = 0.
+2. Add one to obtain $M_n+1=2(M_{n-1}+1)$, giving $M_n=2^n-1$.
+3. Five disks require 31 physical moves.
+4. This is not the recursive invocation count: the zero-base calls do no move, and every nonbase call performs one move between its children.
+---RULE---
+Hanoi's move count is $2^n-1$ for three pegs. Base invocations and physical moves are distinct objects.
+
+@@ 55|Hanoi's calls with a zero base|Original exact call-tree calculation
+For Hanoi(5) with two calls on n-1 and an immediate return at zero, find total invocations, zero-base leaves, and peak depth.
+---SOLUTION---
+1. The complete binary recursion has five edges from root to a zero leaf, giving $2^5=32$ zero leaves.
+2. Total invocations are $2\cdot32-1=63$, and nonbase invocations are 31.
+3. A deepest chain visits 5, 4, 3, 2, 1, 0, so peak depth is six.
+4. Each nonbase call contributes one physical move, reconciling the 31-move result with 63 total invocations.
+---RULE---
+Zero-base Hanoi has $2^{n+1}-1$ invocations and depth n+1. Removing zero calls changes exact invocation counts, not the puzzle's move requirement.
+
+@@ 56|Hanoi's one-disk base|Original policy comparison
+An alternative Hanoi implementation handles n = 1 with one direct move and otherwise makes two calls on n-1. For positive n, find total invocations.
+---SOLUTION---
+1. The root-to-leaf path has n-1 edges and the leaves have argument one.
+2. There are $2^{n-1}$ leaves, hence $2^n-1$ total invocations.
+3. The physical move count remains $2^n-1$: leaves perform direct moves and internal nodes each perform the largest move between children.
+4. This version needs a separate zero-input policy. A base exactly at one is not safe for an initial zero that otherwise recurses downward.
+---RULE---
+Hanoi's one-base and zero-base implementations have different call counts. Always check their admitted zero-input behavior.
+
+@@ 57|Hanoi legality is an inductive invariant|Original correctness proof
+Why can the largest disk be moved between the two recursive transfers without violating the size rule?
+---SOLUTION---
+1. The first child has moved all smaller disks off the source and onto the spare, exposing the largest disk.
+2. The target contains no disk smaller than that largest disk under the recursive subproblem's contract, so placing it there is legal.
+3. The second child moves only smaller disks onto the largest; induction ensures their internal stacking order is legal.
+4. A correct move count alone would not prove legality. The recursive contract includes the occupied-peg arrangement, not just n.
+---RULE---
+For Hanoi, prove peg-state legality before counting moves. Size-order preservation is part of the subproblem contract.
+
+@@ 58|Hanoi timing with explicit units|Original logarithmic inverse
+At one physical move per second, what is the maximum whole number of disks movable within 1,000 seconds? Ignore planning overhead.
+---SOLUTION---
+1. The constraint is $2^n-1\le1000$, or $2^n\le1001$.
+2. Thus $n\le\lfloor\log_2 1001\rfloor=9$.
+3. Nine disks require 511 seconds; ten require 1023 seconds and exceed the limit.
+4. The question concerns physical moves, not recursive calls. Counting the zero-base invocation formula would incorrectly halve the available scale. The assumed one-second duration applies to a completed legal disk transfer, not to each function entry.
+---RULE---
+Invert the requested quantity with correct units. Physical-action counts should not be replaced by implementation call counts.
+
+@@ 59|All subsets: outputs and invocations|Original binary-choice count|subsets-three
+Enumerate include/exclude choices for n = 3 distinct positions. Find complete outputs, total calls, recursive edges, and depth.
+---SOLUTION---
+1. Each of three positions has two choices, giving eight complete subsets, including the empty one.
+2. The complete binary tree has levels of sizes 1, 2, 4, and 8, for fifteen invocations and fourteen edges.
+3. Peak depth is four, because a terminal invocation occurs after all three decisions.
+4. The number of outputs is not the call count. Intermediate prefixes also occupy invocations but are not complete emitted subsets.
+---RULE---
+Binary decisions over n positions produce $2^n$ complete choices and $2^{n+1}-1$ calls without pruning.
+
+@@ 60|The empty input has one subset|Original combinatorial boundary
+For n = 0, how many outputs and invocations should exhaustive subset generation produce?
+---SOLUTION---
+1. There is one choice sequence of length zero, representing the empty subset.
+2. The root is already terminal and emits that one output, so there is one invocation and no recursive edges.
+3. The formulas $2^0=1$ and $2^{1}-1=1$ agree with the direct contract.
+4. Returning without emitting anything would implement a different output contract and fail to enumerate all subsets.
+---RULE---
+The empty combinatorial object is often one valid answer, not absence of an answer. State its output policy explicitly.
+
+@@ 61|Total emitted subset elements|Original output-size derivation
+If each subset of n distinct positions is copied into its own output list, derive the total number of copied elements for n >= 1.
+---SOLUTION---
+1. Fix one position. Choosing or excluding each of the other n-1 positions gives $2^{n-1}$ subsets containing it.
+2. Sum that contribution over all n positions, obtaining $n2^{n-1}$ copied element occurrences.
+3. For n = 4 this is 32 elements across sixteen lists. Empty-list headers and per-output overhead are additional costs.
+4. Generation's constant-cost leaf count alone does not account for materializing variable-length outputs.
+---RULE---
+Include output size in enumeration complexity. The cost of emitting a complete result may grow with its length.
+
+@@ 62|Undoing an included element|Original backtracking-state trace
+In include/exclude subset generation, what happens if the function appends the included element before its child but never removes it afterward?
+---SOLUTION---
+1. The chosen list remains modified when execution returns to the parent continuation.
+2. A later sibling then starts with an element belonging to an earlier branch, violating the prefix contract.
+3. Even if the number of terminal calls remains eight for three positions, their displayed contents can be wrong or duplicated.
+4. Restore exactly the prior list length after the child, preferably by recording that length before mutation. Correct tree shape is not a proof of correct shared state.
+---RULE---
+Backtracking must restore the state promised to the caller. Correct leaf counts can coexist with corrupted outputs.
+
+@@ 63|Negative numbers invalidate a pruning rule|Original constraint counterexample
+May a subset-sum search prune whenever the partial sum exceeds the target if remaining values can be negative?
+---SOLUTION---
+1. Take target five, current sum eight, and a remaining value negative three.
+2. Including that value reaches five, so pruning the current state would discard a valid completion.
+3. The excess-sum rule is sound only under a contract that remaining additions cannot decrease the sum.
+4. With mixed signs, valid bounds must include possible negative and positive remaining contributions rather than assuming monotonic growth.
+---RULE---
+Every pruning rule needs a proof under the data domain. A rule sound for nonnegative values can fail with negative values.
+
+@@ 64|A remaining-sum upper bound|Original safe pruning derivation
+All remaining values are nonnegative. With target 20, current sum 9, and remaining values 2, 3, 4, can this branch reach the target?
+---SOLUTION---
+1. The largest additional contribution is the sum of all remaining values, nine.
+2. Even taking all of them yields eighteen, which is less than twenty.
+3. Therefore no completion reaches the target, and pruning is sound.
+4. This upper-bound reasoning is separate from pruning when the current sum is too large. Both require the nonnegative-value contract or appropriately generalized bounds.
+---RULE---
+Prune when a proved completion bound excludes the target. State the bound, inequality, and domain rather than merely labelling a branch impossible.
+
+@@ 65|Retain success or restore everything?|Reconstructed Stanford/CMU backtracking contract
+A maze procedure should return the first successful path in a mutable list. Should it remove every appended cell before returning true?
+---SOLUTION---
+1. If successful cells are all removed, the Boolean answer can be true while the returned path is empty or incomplete.
+2. A first-path contract retains the successful branch and removes cells only from failed alternatives.
+3. An enumeration contract can instead copy a completed path to an output collection and then restore all mutable state.
+4. The undo policy is determined by the postcondition, not by a universal slogan that every recursive return must undo everything.
+---RULE---
+Backtracking restoration policy follows the output contract. Retaining one solution and enumerating all solutions require different success handling.
+
+@@ 66|Path marks versus global visited marks|Original complexity distinction
+Compare a maze search that unmarks cells after a failed path with one that permanently marks all visited cells for reachability.
+---SOLUTION---
+1. Path marking prevents cycles within the current path but permits the same cell to be revisited through different prefixes later.
+2. Consequently many simple paths can be explored, potentially exponentially many in the graph size.
+3. Permanent visited marking avoids repeating completed vertex exploration and supports ordinary reachability in O(V+E) with adjacency lists.
+4. It does not enumerate all simple paths. Assign complexity only after identifying which state is restored and which remains global.
+---RULE---
+Current-path cycle prevention and global visited-state reuse are different algorithms with different output and cost contracts.
+
+@@ 67|Permutations: leaf count|Original product-rule calculation
+For five distinct positions, a recursive permutation generator chooses one unused position at each level. Find complete outputs and depth.
+---SOLUTION---
+1. The choice counts along levels are five, four, three, two, and one, so complete outputs number $5!=120$.
+2. Including the terminal invocation after the fifth choice gives depth six.
+3. Printing every permutation writes five symbols, for 600 symbol writes, excluding separators.
+4. Value duplicates would not reduce position-labelled outputs automatically; the specification must say whether equal-value permutations are merged.
+---RULE---
+Permutation leaves are factorial for distinct positions, while output materialization adds a length factor.
+
+@@ 68|Permutations: all prefix calls|Original finite-sum derivation
+Derive total invocations for the preceding five-position generator, including all prefixes and terminal calls.
+---SOLUTION---
+1. Prefix lengths zero through five have 1, 5, 20, 60, 120, and 120 choices respectively.
+2. Summing gives 326 invocations, not 120.
+3. In general, depth d contributes $n!/(n-d)!$, so total is $n!\sum_{k=0}^{n}1/k!$.
+4. A base that emits when only one position remains avoids a final one-choice call level and changes the exact total. The formula uses the stated terminal-after-all-choices policy.
+---RULE---
+Count every prefix level in permutation recursion. A leaf-only factorial count does not give total invocations.
+
+@@ 69|Duplicate values in permutation generation|Original multiset count
+How many unique value permutations does [a,a,b,b,c] have, and why can a position-based generator still emit 120 outputs?
+---SOLUTION---
+1. Dividing five factorial by the two factorials for identical a and b groups gives $5!/(2!2!)=30$ unique value sequences.
+2. The position-labelled generator distinguishes both a indices and both b indices, producing four labelled versions of each value sequence.
+3. Its 120 leaves therefore do not automatically implement unique-value generation.
+4. Skip equal candidate values within each decision level, or use value multiplicities as the state, to avoid duplicate outputs while preserving completeness.
+---RULE---
+Repeated values and distinct positions define different permutation contracts. Deduplication must be implemented rather than assumed.
+
+@@ 70|Partition recurrence classes|Reconstructed Berkeley partition proof
+Explain why P(n,m) = P(n-m,m)+P(n,m-1) counts unordered positive-part partitions without double counting.
+---SOLUTION---
+1. Partition the answer set into those containing at least one part m and those containing none.
+2. Removing one m from the first class gives a bijection with partitions of n-m using parts at most m.
+3. The second class uses only parts at most m-1. The classes are disjoint and exhaustive, so their counts add.
+4. Choosing ordered next parts instead would count compositions, a different problem with a different recurrence and answer.
+---RULE---
+Derive counting recurrences by disjoint exhaustive classes and bijections. Unordered partitions are not ordered compositions.
+
+@@ 71|Partition bases meet at (0,0)|Original base-order counterexample
+What should P(0,0) equal, and why is checking m == 0 before n == 0 potentially wrong?
+---SOLUTION---
+1. Zero has one empty partition, even when no positive part size is allowed, so P(0,0) = 1.
+2. A generic `if (m == 0) return 0;` executed first would incorrectly return zero there.
+3. Check the zero-target case first, then negative target or zero maximum for positive targets.
+4. Intersections of base conditions require compatible priority. Each condition being correct in isolation does not make every ordering correct.
+---RULE---
+When base conditions overlap, evaluate their joint state explicitly. Empty constructions commonly require priority over failure guards.
+
+@@ 72|A small partition calculation|Original recurrence/independent-list crosscheck
+Find P(5,3), counting unordered partitions into positive parts at most three.
+---SOLUTION---
+1. The valid partitions are 3+2; 3+1+1; 2+2+1; 2+1+1+1; and 1+1+1+1+1.
+2. There are five. The recurrence gives P(2,3)+P(5,2): the first term is two and the second is three.
+3. The first class contains a three; the second does not. No ordering variants such as 2+3 are counted separately.
+4. This list validates a small instance of the recurrence but does not replace its bijection proof for all inputs.
+---RULE---
+Use a small independently listed instance to detect recurrence and base errors, while retaining the general proof.
+
+@@ 73|Koch replacement geometry|Reconstructed Stanford-style fractal calculation|koch-three
+A Koch segment begins with length L. At order three, find final segment count, segment length, total length, recursive calls, and depth.
+---SOLUTION---
+1. Four replacements per level give $4^3=64$ final segments, each of length L/27.
+2. Total length is $64L/27=L(4/3)^3$.
+3. A four-child zero-base drawing routine has $1+4+16+64=85$ invocations and depth four.
+4. Visible segment count is not the count of all internal construction calls. The diagram's orientation changes geometry but not these counts.
+---RULE---
+Recursive geometry combines branch counts with length scaling. Distinguish final primitives, construction calls, and physical lengths.
+
+@@ 74|Floating-point accumulator reassociation|Original implementation qualification
+Why can a recursive sum combined on return differ numerically from a left-to-right accumulator sum over floating-point values?
+---SOLUTION---
+1. Their parenthesizations differ: the return-phase version groups a value with a recursively accumulated suffix, while an accumulator groups a prefix first.
+2. Floating-point addition rounds intermediate results and is not generally associative.
+3. For values of widely different magnitudes, a small term can be lost in one grouping and retained in another.
+4. An algebraic invariant over exact real numbers does not prove bit-identical floating-point results. Define acceptable error or preserve the required evaluation order.
+---RULE---
+Recursive-to-iterative transformations need arithmetic-model checks. Mathematical associativity is not a floating-point equivalence guarantee.
+
+@@ 75|Termination does not guarantee available stack|Original resource contract
+A decrementing recursion is mathematically terminating for every natural n. Does this prove that every permitted implementation can execute it for any representable n?
+---SOLUTION---
+1. A finite chain can still require more runtime storage than the implementation has available.
+2. Mathematical termination bounds the chain's length, but does not supply an unlimited execution resource.
+3. A robust interface may bound n, use an iterative equivalent, or use a checked explicit stack where appropriate.
+4. The C language does not prescribe a universal safe recursion depth. A successful small test cannot establish safety at arbitrary depth.
+---RULE---
+Separate mathematical termination, arithmetic representability, and finite implementation resources. Each requires its own justification.
+
+@@ 76|Minimum signed integer and absolute value|Original C17 domain repair
+An even/odd recursive function tries to handle negatives by calling itself with -n. Why is the minimum signed integer a special case?
+---SOLUTION---
+1. A conventional signed type has a more negative minimum than the positive maximum can represent.
+2. Negating that minimum therefore produces an unrepresentable signed result and undefined behavior.
+3. Reject negatives under a natural-number contract, or compute a magnitude through a carefully defined unsigned conversion rather than overflowing signed negation.
+4. Extending the mathematical domain is not enough; the conversion code itself must be valid before recursion begins.
+---RULE---
+Domain normalization can overflow before recursive progress starts. Treat the minimum signed value explicitly.
+
+@@ 77|Restore a swap even after failure|Original permutation invariant
+A permutation routine swaps a candidate into position i, recurses, then swaps it back. Prove why the second swap restores the parent's candidate arrangement.
+---SOLUTION---
+1. Swapping the same two positions twice is the identity transformation.
+2. If the child restores all changes within its suffix before returning, the only remaining difference from the parent's entry state is the parent's first swap.
+3. The second swap removes that difference, allowing the next candidate to start from the same arrangement.
+4. An early return between the swaps can violate the restoration postcondition. A first-solution interface must deliberately specify whether it retains the solution arrangement.
+---RULE---
+Restoration proofs compose across recursive levels. Each child must satisfy its own restoration contract before the parent's undo is sufficient.
+
+@@ 78|Nested calls are not parallel children|Original evaluation-dependency trace
+With h(x) = x-1 for positive x, evaluate h(h(h(5))) and explain why its three h invocations are not three simultaneous independent child branches.
+---SOLUTION---
+1. The innermost h(5) must return four before the middle call's argument is available.
+2. The middle returns three, then the outer returns two. There are three calls in a dependency chain.
+3. For these separate nonrecursive h invocations, each body can finish before the next begins; expression nesting does not imply three active recursive frames.
+4. If h itself recursively invoked another function, that internal execution would need separate analysis. Syntactic parentheses alone do not determine call-stack depth.
+---RULE---
+Nested argument evaluation and recursive child branches are different structures. Determine when each body starts and finishes.
+
+@@ 79|A corrected reverse-stride contract|Original extension of authentic examination pattern|stride-seven
+Copy every other array element from the last element backward. Derive the selected indices, destination length, invocations, and safe stopping guard for N = 7 and general N >= 0.
+---SOLUTION---
+1. After t copies, source index is $N-1-2t$ and destination index is t. For seven, indices are 6, 4, 2, 0.
+2. The number of copied elements is $\lceil N/2\rceil$, including zero copies for an empty array.
+3. With a signed-index guard n < 0, there is one extra terminal invocation, so total calls are $\lceil N/2\rceil+1$.
+4. A real C interface must check that N-1 is safely representable by its signed index type; an unsigned n cannot express the negative sentinel. An alternative is a remaining-length contract that guards before subtracting two.
+---RULE---
+For reverse-stride recursion, derive source and destination indices as functions of the copy count. Mathematical negative sentinels require compatible implementation types.
+
+@@ 80|A complete recursion audit|Original integrated mathematical/conceptual examination synthesis
+An unsigned recursive routine stops only at n = 0. Otherwise it prints n, computes `f(n--)+f(n/2)`, then prints n. A claim says it has logarithmic depth, a fixed left-first output, and is safe because a base exists. Assess all three claims before deriving any recurrence.
+---SOLUTION---
+1. The postfix-decrement child receives the unchanged positive n. That branch does not make progress; the existence of a zero base is insufficient.
+2. The operand calls are not guaranteed to execute left first in C17. Shared effects or output make an assumed fixed trace unjustified.
+3. Furthermore, the update of the parent's n by the first argument expression is unsequenced relative to the other operand's reading of n. This conflicting access makes the expression undefined in C17, beyond mere call-body order concerns.
+4. Therefore no valid logarithmic-depth recurrence can be assigned to this program. Repair it with a declared natural-number contract, a prechecked base, explicitly saved child arguments and sequenced calls, then analyze the corrected algorithm separately.
+5. Even a repaired two-child program can have linear longest-path depth when one child decrements by one. Halving only one child does not make every live path logarithmic.
+---RULE---
+Validate the language semantics and child progress before deriving a recurrence. A halving branch cannot justify logarithmic depth when another live path decreases by one.

@@ -1,0 +1,26 @@
+from pathlib import Path
+import json,subprocess,tarfile,hashlib,sys
+R=Path(__file__).resolve().parents[1];B=R/'research';E=B/'p_recursion-evidence'
+def git(*args):return subprocess.check_output(['git',*args],cwd=R,text=True,encoding='utf-8').strip()
+mode=sys.argv[1]
+if mode=='prepare':
+ browser=json.loads((E/'browser.json').read_text());math=json.loads((E/'mathematics.json').read_text());assert browser['status']==math['status']=='passed';assert math['exactChecks']==10480
+ p=B/'p_recursion-quality-audit.md';s=p.read_text(encoding='utf-8').replace('Status: verification in progress.','Status: local verification passed; publication is tracked separately.');s+='\n\n## Completed verification\n\nThe 5,216-word lesson has 30 sections, 81 complete worked entries and 80 final rules. 10,480 checks passed, including 840 independently compared algorithm runs and 295 static mathematical instances. All 22 distinct models and 306 stored checkpoints passed geometry inspection; 32 lesson/solution players were mounted. Actual animation pause and resume, previous/next, seek, restart, reduced motion, eight editable algorithm cases, six rejected inputs preserving the previous result, native math scripts/fences, fonts, mobile containment, print checkpoints, library and weekly links passed without runtime errors. Screenshots of frames, tree, cache, pegs, choices and geometry were visually inspected.\n\nThe library now has 47 chapter cards and 3082 worked entries, including labelled bridge revisits. All 3001 prior entries remain; forty previous HTML pages remain byte-for-byte unchanged. Six pages receive only a source-checked Q167 option and explanation correction, and their content outside that question is independently compared with the previous source commit. No following chapter has begun.\n';p.write_text(s,encoding='utf-8')
+ g=json.loads((B/'chapter-gate.json').read_text());assert g['currentTopicId']=='p_recursion';g.update(state='awaiting_user_approval',lastCompletedReview='Recursion: 30 sections, 81 worked entries, 80 rules, four core written university courses, 22 models / 306 checkpoints; 10480 checks including 840 independent algorithm runs. Six prior Q167 adaptations corrected only within that question.',sourceAudit='research/p_recursion-source-audit.md',qualityAudit='research/p_recursion-quality-audit.md',reviewEvidence=['research/p_recursion-evidence/'+n+'.json'for n in['reading','mathematics','models','browser','lesson-and-retention','source-corrections']],nextReview='Await explicit user approval of p_recursion before beginning a following chapter.',activeWork='p_recursion complete as a review draft; publication being attempted. No following chapter started.',publicationState='pending',publishedVersion=None)
+ (B/'chapter-gate.json').write_text(json.dumps(g,indent=2)+'\n',encoding='utf-8')
+ with(R/'WEEKLY_DELIVERY.md').open('a',encoding='utf-8')as f:f.write('\n\n## Recursion complete review draft — 9 October 2026\n\n30 sections, 80 authored/reconstructed complete solutions plus one source-checked MSc recursion bridge, 80 final rules, four core written courses, 22 specialized models and 306 checkpoints. 10480 checks include 840 independent algorithm comparisons. Browser, motion, typography, mathematics, mobile, print and app links passed. All 3001 previous entries remain: forty previous pages unchanged, six receive only a source-checked Q167 correction. Await explicit approval of p_recursion; publication tracked separately.\n')
+elif mode=='commit':
+ allowed={'WEEKLY_DELIVERY.md','dist/lessons.json','research/chapter-gate.json','research/a_arrays-authentic.json','research/p_arrays-authentic.json','research/p_functions-authentic.json','research/exam-calibration/actual-items.json'}|{r['path']for r in json.loads((E/'source-corrections.json').read_text())['records']}
+ stage=[]
+ for row in subprocess.check_output(['git','status','--porcelain'],cwd=R,text=True,encoding='utf-8').splitlines():
+  p=row[3:];assert p in allowed or'p_recursion'in p,('Unexpected change, preserve without staging',p);stage.append(p)
+ subprocess.run(['git','add','--',*stage],cwd=R,check=True);subprocess.run(['git','diff','--cached','--check'],cwd=R,check=True);subprocess.run(['git','commit','-m','Add deep recursion chapter with exact costs, worked problems and specialized laboratories'],cwd=R,check=True);print(git('rev-parse','HEAD'))
+elif mode=='package':
+ assert not git('status','--porcelain');sha=git('rev-parse','HEAD');dest=Path('C:/Users/bheydari/AppData/Local/Temp/p-recursion-deploy.tar.gz');files=[R/'.openai/hosting.json']+sorted(p for p in(R/'dist').rglob('*')if p.is_file())
+ for p in files:assert p.resolve().is_relative_to(R.resolve())and not p.is_symlink()
+ with tarfile.open(dest,'w:gz')as tf:
+  for p in files:tf.add(p,arcname=p.relative_to(R).as_posix(),recursive=False)
+ with tarfile.open(dest,'r:gz')as tf:
+  members=tf.getmembers();assert len(members)==len(files)
+  for m,p in zip(members,files):assert m.name==p.relative_to(R).as_posix()and tf.extractfile(m).read()==p.read_bytes()
+ print(json.dumps(dict(project_id='appgprj_6ab5666f72b081918286c6b371c1eb1b',commit_sha=sha,archive=str(dest),files=len(files),archiveSha256=hashlib.sha256(dest.read_bytes()).hexdigest())))

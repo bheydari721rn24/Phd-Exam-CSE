@@ -10,13 +10,13 @@
     "title": "Recursive reverse-stride copying",
     "stem": "Copy every other element of an $N$-element array `a`, starting at its last element, into array `b` from index zero upward. Call `store(N-1,0)`. Which pseudocode is correct? Syntax below treats parameters as integers and arrays as available in the procedure.",
     "options": [
-      "Start destination at i, decrease source n by two, increase destination i by one, and stop when n<0.",
-      "Write at i+1, leaving b[0] unwritten.",
-      "Decrease source index by one rather than two.",
-      "Write at i+1 and increase the destination index by two."
+      "`if(n<0)return; b[i]=a[n]; store(n-2,i+1);`",
+      "`if(n<0)return; b[i+1]=a[n]; store(n-2,i+1);`",
+      "`if(n<0)return; b[i]=a[n]; store(n-2,i+2);`",
+      "`if(n<0)return; b[i+1]=a[n]; store(n-1,i+2);`"
     ],
     "answer": 1,
-    "solution": "At recursive depth t, the intended parameter copies satisfy $n=N-1-2t$ and $i=t$. Option 1 preserves these equations in the next call and stops exactly when no nonnegative source index remains. It writes $\\lceil N/2\\rceil$ values. For N=6, the parameter pairs are (5,0),(3,1),(1,2),(-1,3), with three writes and a final base call. Each invocation has its own n,i; the global arrays supply the shared output state. Option 2 and option 4 leave destination index zero unwritten; option 3 uses the wrong source stride. The source is pseudocode rather than a strictly declared C17 function. The English options describe the decisive properties instead of reproducing all syntax. This bridge revisits an archived item; detailed array reasoning belongs to p_arrays and recursive complexity to p_recursion.",
+    "solution": "1. After $t$ copies, the source index is $N-1-2t$ and the destination index is $t$. The recursive edge must therefore decrease `n` by two and increase `i` by one.\n2. Option 1 starts at b[0], preserves those indices, and stops before a negative source index is read. It copies the ceiling of N/2 elements.\n3. All printed alternatives have the guard n<0. Option 2 starts writing at b[1]. Option 3 advances the destination by two and skips slots. Option 4 both starts at b[1] and uses a source stride of one, so it fails the requested selection.\n4. The source is integer pseudocode, not a strictly declared C17 interface. A real C implementation must use compatible signed bounds or a prechecked remaining-length representation.\n\n**Source correction.** Options were visually rechecked against MSc CS 1393, Q167, PDF page 34 on 9 October 2026. The independently derived answer remains option 1. This is a bridge revisit, not a new unique archive question.",
     "pattern": "index invariant and stop condition",
     "difficulty": "Medium\u2013Hard",
     "repoPath": "Exams/MS/CS/1393/olum_93_konkurcomputer.pdf",
@@ -25,7 +25,8 @@
     "answerProvenance": "independently derived; not represented as an official key",
     "qNumber": 167,
     "sourceSHA": "7ed89fae8eb601a964355fde5e5d297cbb30844e5240b9e3908b798fb86e349d",
-    "provenance": "Authentic archive bridge revisit; original PDF page rechecked for this chapter. English option properties, independently derived solution; not an official key."
+    "provenance": "Authentic archive bridge revisit; original PDF page rechecked for this chapter. English option properties, independently derived solution; not an official key.",
+    "verification": "Original PDF page 34 visually rechecked on 9 October 2026. Option guards and indices corrected from the printed page for this new adaptation. Explicit bridge revisit, not a new unique archive item."
   },
   {
     "id": "Phd_CE_1405_Q9",

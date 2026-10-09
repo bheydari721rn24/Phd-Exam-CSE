@@ -460,3 +460,13 @@ Explicit user approval of i_uninformed (online version 81) permits only p_string
 ## Strings and terminators online delivery — 8 October 2026
 
 Private Site version 82 successfully published from exact source commit cf44482c5281b5280541e69b95514876e38cf607. Deployment appgdep_6ac7dd9a413081918b3e2a7364ae4aa1 succeeded; get_site_version verified source provenance and 384 archive entries. GitHub chapter content is mirrored at 5cffe5c on study-planner-1406. The current p_strings chapter remains a draft awaiting explicit student approval. No next chapter started.
+
+
+## Active chapter: Recursion — 9 October 2026
+
+Explicit user approval of p_strings (online version 82) permits only p_recursion, the next missing Week 3 topic. Preserve 46 previous pages and 3001 complete problems. Use C17 contracts, deeply worked mathematical/conceptual problems, full-sentence final rules, and subject-specific stack, tree, cache and Hanoi models. Await approval after delivery.
+
+
+## Recursion complete review draft — 9 October 2026
+
+30 sections, 80 authored/reconstructed complete solutions plus one source-checked MSc recursion bridge, 80 final rules, four core written courses, 22 specialized models and 306 checkpoints. 10480 checks include 840 independent algorithm comparisons. Browser, motion, typography, mathematics, mobile, print and app links passed. All 3001 previous entries remain: forty previous pages unchanged, six receive only a source-checked Q167 correction. Await explicit approval of p_recursion; publication tracked separately.

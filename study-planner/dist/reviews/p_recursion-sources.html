@@ -1,0 +1,137 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Recursion chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"><link rel="stylesheet" href="../chapters/p_recursion.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/p_recursion.html">Recursion chapter</a></p><article class="lesson"><h1>Recursion: written-source selection and reconciliation</h1>
+<p>Review date: 9 October 2026. Scope: Programming, Week 3, <span class="math-inline">p</span>_recursion only.</p>
+<h2>Accessible candidate pool and selection</h2>
+<p>Candidates were evaluated for accessible written material, instructional precision, execution semantics, proofs, exact costs, and restoration/caching coverage. The selection is a finite reviewed pool; it is not described as every university course worldwide. Scores summarize suitability for this chapter on a five-point scale; they are editorial judgments, not measured university rankings.</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Written material actually read</th>
+<th style="text-align:right">Conceptual coverage</th>
+<th style="text-align:right">Execution/proof</th>
+<th style="text-align:right">Advanced complement</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Berkeley CS61A, John DeNero</td>
+<td>Complete Composing Programs 1.7.1–1.7.5</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">4</td>
+<td>Core: contracts, mutual and tree recursion, partitions</td>
+</tr>
+<tr>
+<td>MIT 6.0001, Fall 2016</td>
+<td>Complete extracted text, Lecture 6, 58 PDF pages</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">5</td>
+<td>Core: frames, induction, Hanoi, memoization</td>
+</tr>
+<tr>
+<td>Stanford CS106B, Eric Roberts, Winter 2015</td>
+<td>Handouts 14 and 16, six pages extracted text</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">5</td>
+<td>Core: decomposition, geometry, maze continuations and paths</td>
+</tr>
+<tr>
+<td>CMU 15-112, Pat Virtue, Fall 2023</td>
+<td>Week 9 Lecture 2, 48 slides extracted text</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">5</td>
+<td>Core: tracing, debugging, repeated calls, backtracking undo</td>
+</tr>
+<tr>
+<td>Harvard CS50x 2025, David <span class="math-inline">J</span>. Malan</td>
+<td>Notes 3 binary-search, recursion and merge-sort sections</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">2</td>
+<td>Supplement: <span class="math-inline">C</span> surface syntax and shrinking search</td>
+</tr>
+<tr>
+<td>Stanford CS106B Summer 2023</td>
+<td>Lecture 8 index inspected; PDF not read</td>
+<td style="text-align:right">Not scored</td>
+<td style="text-align:right">Not scored</td>
+<td style="text-align:right">Not scored</td>
+<td>Catalog candidate, not counted as a read course</td>
+</tr>
+<tr>
+<td>Stanford CS106B Winter 2015 Handout <span class="math-inline">19A</span></td>
+<td>Extracted headings only; solutions embedded as images</td>
+<td style="text-align:right">Not scored</td>
+<td style="text-align:right">Not scored</td>
+<td style="text-align:right">Not scored</td>
+<td>Not treated as a fully reviewed exercise bank</td>
+</tr>
+</tbody>
+</table>
+<p>The four core selections come from four universities and are genuinely read written materials. Selecting Harvard in place of one would weaken coverage of contracts or backtracking. Different Stanford editions are not counted as different universities. Course exercises are reconstructed selectively into original worked variants; no claim is made to reproduce every copyrighted external question.</p>
+<h2>Reading evidence and scientific reconciliations</h2>
+<ol>
+<li>Berkeley: its old-edition Fibonacci has bases at indices one and two, while the chapter fixes <span class="math-inline">F0=0</span> and <span class="math-inline">F1=1</span>. Digit sum, factorial frames, cascade order, mutual parity and partition classes were reconciled with explicit domains. A statement about independent bindings is qualified: mutable pointees and globals can remain shared.</li>
+<li>MIT: rabbit-count initial values and memo-cache seeds differ from this chapter. The chapter normalizes them before deriving counts. The lecture's size-one Hanoi policy is distinguished from the zero-base construction. Its dictionary-order claims reflect the course's historical Python version and are not reused as modern Python guarantees.</li>
+<li>Stanford: path-retaining backtracking is distinguished from full state restoration. Maze search with path unmarking is not assigned global-visited <span class="math-inline">O(V+E)</span> complexity. The handout's <span class="math-inline">P/NP</span> discussion is not used as a complexity theorem. Fractal branching is taught through independently generated connected geometry.</li>
+<li>CMU: the repeated recursive evaluation in alternating-case code motivates reuse and operation counting. Incomplete demonstration code is not copied as a complete implementation. Backtracking's undo policy is reconciled with whether a successful path is retained.</li>
+<li>Harvard: the <span class="math-inline">C</span> drawing example is supplementary. Informal descriptions of Omega as best case and Theta as equality of best and worst are not repeated as definitions; bound notation and input-case analysis are kept distinct.</li>
+<li>Primary <span class="math-inline">C</span> rules: N1570 Sections 5.1.2.3 and 6.5.2.2 were read for operand order, indeterminately sequenced function bodies, and permitted direct/indirect recursion. The draft is identified as C11, used only for unchanged C17 rules. Fixed-width arithmetic, unsigned boundaries, automatic lifetime, and missing returned results are explicitly qualified.</li>
+</ol>
+<h2>Chapter-to-source map</h2>
+<table>
+<thead>
+<tr>
+<th>Chapter material</th>
+<th>Core overlap</th>
+<th>Independent extension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contracts, termination, induction</td>
+<td>Berkeley, MIT, Stanford, CMU</td>
+<td>Well-founded measures, stride guards, lexicographic encoding</td>
+</tr>
+<tr>
+<td>Frames and output order</td>
+<td>Berkeley, MIT, CMU, Stanford</td>
+<td>C17 expression ordering, pointer identity, static state</td>
+</tr>
+<tr>
+<td>Tree recursion and exact counts</td>
+<td>Berkeley, MIT, CMU</td>
+<td>Fibonacci closed counts, bit work, full-tree identities</td>
+</tr>
+<tr>
+<td>Memoization</td>
+<td>MIT, Berkeley conceptual overlap</td>
+<td>Requests versus misses, warm cache, complete state keys</td>
+</tr>
+<tr>
+<td>Hanoi</td>
+<td>MIT, Stanford, CMU</td>
+<td>Separate calls/moves, optimality cases, checked disk transit</td>
+</tr>
+<tr>
+<td>Backtracking and restoration</td>
+<td>Stanford, CMU, Berkeley partitions</td>
+<td>Output-size counts, pruning counterexamples, prefix contracts</td>
+</tr>
+<tr>
+<td>Geometry</td>
+<td>Stanford</td>
+<td>Connected Koch replacement and exact call/length formulas</td>
+</tr>
+</tbody>
+</table>
+<h2>Original examination verification</h2>
+<p>MSc Computer Science 1393, Q167, PDF page 34, was visually rechecked from the pinned archive commit bdadf6e2c9cadc4772ae137a96a3da753c7cfd08. File: Exams/<span class="math-inline">MS/CS/1393/ol</span>um_93_konkurcomputer.pdf. SHA256: 7ed89fae8eb601a964355fde5e5d297cbb30844e5240b9e3908b798fb86e349d. All printed options use <span class="math-inline">n&lt;0</span>. The adaptation's options were corrected from the original scan rather than blindly reused from the previous chapter. The answer is independently proved, not represented as an official key. This is a bridge revisit, not a new unique archive item. The same source-backed correction was applied only to Q167 options and explanations in its six earlier chapter adaptations; every other part of those pages was retained.</p>
+<h2>Remaining qualifications</h2>
+<p>Image-only source demonstrations were not counted as read transcripts. The university sources do not all cover every extension: independently proved language and counting material is identified rather than falsely attributed. No source review can certify literal 100% universal coverage or examination performance. The six previous Q167 adaptations were corrected from the source scan without changing their answer, question count, or any content outside that question. Forty other preceding pages remain byte-for-byte unchanged.</p>
+<p>Exact human-readable links are listed in the chapter References section; the reading record is research/p_recursion-evidence/reading.json.</p>
+</article></main><script src="../chapters/math-layout.js?v=79"></script></body></html>
