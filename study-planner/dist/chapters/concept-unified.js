@@ -1,7 +1,7 @@
 /* One interface; each scenario retains its subject-specific drawing and exact states. */
 "use strict";
 (() => {
- const NS='http://www.w3.org/2000/svg',players=[];let dataPromise;
+ const NS='http://www.w3.org/2000/svg',players=[],pending=new WeakMap();let dataPromise;
  const data=()=>dataPromise??(dataPromise=fetch('concept-animations.json').then(r=>{if(!r.ok)throw Error('Animation data unavailable');return r.json();}));
  const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
  const svg=(tag,attrs={})=>{const n=document.createElementNS(NS,tag);for(const [k,v]of Object.entries(attrs))n.setAttribute(k,v);return n;};
@@ -42,7 +42,8 @@
   pause(){this.api?.pause();}print(){this.api?.print();}clearPrint(){this.api?.clearPrint();}
   dispose(){this.api?.dispose();const i=players.indexOf(this);if(i>=0)players.splice(i,1);}
  }
- async function init(host){if(host.dataset.loaded)return;host.dataset.loaded='loading';try{const all=await data(),scenes=host.dataset.scenes.split(',').map(id=>all.scenes[id]);if(scenes.some(x=>!x))throw Error('Missing scenario');return new Player(host,scenes);}catch(e){host.dataset.loaded='error';host.textContent='The animation could not load. The complete written explanation remains available.';console.error(e);}}
+ function init(host){if(pending.has(host))return pending.get(host);if(host.dataset.loaded==='true')return Promise.resolve(players.find(p=>p.host===host));const task=initialize(host);pending.set(host,task);return task;}
+ async function initialize(host){host.dataset.loaded='loading';try{const all=await data(),scenes=host.dataset.scenes.split(',').map(id=>all.scenes[id]);if(scenes.some(x=>!x))throw Error('Missing scenario');return new Player(host,scenes);}catch(e){host.dataset.loaded='error';host.textContent='The animation could not load. The complete written explanation remains available.';console.error(e);}}
  const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting)init(e.target);else players.find(p=>p.host===e.target)?.pause();},{rootMargin:'250px'});document.querySelectorAll('.concept-animation').forEach(h=>observer.observe(h));
  addEventListener('beforeprint',()=>{document.querySelectorAll('.concept-animation').forEach(init);players.forEach(p=>p.print());});
  window.ConceptAnimations={ready:init,players,mount:(host,scenes)=>{players.filter(p=>p.host===host).forEach(p=>p.dispose());delete host.dataset.enlarged;return new Player(host,scenes);}};

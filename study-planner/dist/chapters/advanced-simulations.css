@@ -39,7 +39,6 @@
 .sim-timeline{margin-top:14px;border:1px solid var(--sim-border);border-radius:9px;padding:10px 13px;font-size:15px}.sim-timeline summary{cursor:pointer;min-height:32px;text-decoration:none!important}.sim-timeline-list{list-style:none;max-height:280px;overflow:auto;padding:0!important;display:grid;gap:6px}.sim-timeline-list button{display:flex;gap:12px;text-align:left;width:100%;padding:9px 12px;background:white;border:1px solid var(--sim-border);border-radius:7px;font-size:14px;color:inherit;cursor:pointer}.sim-timeline-list button[aria-current=step]{border-color:var(--sim-blue);background:#e8f2f7}.sim-timeline-list b{font-weight:500;min-width:26px}.sim-timeline-list span{line-height:1.5}
 .sim-live{font-size:14px;color:#496779;margin:12px 0 0!important}.sim-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px}.sim-compare figure{margin:0;min-width:0;overflow:auto}.sim-compare figcaption{font-size:14px;margin-bottom:8px}.sim-compare svg{min-width:560px!important}
 .sim-print{display:none}.sim-print svg{width:100%;height:auto}.sim-print figure{break-inside:avoid;margin:18px 0}.sim-print figcaption{font-size:11pt;line-height:1.5}.sim-redesign a,.sim-redesign summary{text-decoration:none!important}
-@media(min-width:1250px){.sim-redesign{width:min(1280px,calc(100vw - 100px));box-sizing:border-box;margin-left:calc((100% - min(1280px,calc(100vw - 100px))) / 2)!important}.sim-shell{grid-template-columns:minmax(0,1.8fr) minmax(300px,1fr)}.sim-redesign .sim-stage svg{min-width:620px}}
 @media(max-width:700px){.sim-redesign{padding:14px!important}.sim-teaching{padding:14px}.sim-toolbar{gap:8px}.sim-toolbar button{padding:8px 10px!important}.sim-phase{margin-left:0;width:100%}.sim-compare{grid-template-columns:1fr}.sim-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.sim-operation{font-size:22px}.sim-motion-control{padding:12px}.sim-redesign .sim-stage{scrollbar-gutter:stable}.sim-timeline-list button{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.sim-redesign *{scroll-behavior:auto!important}}
 @media print{.sim-shell,.sim-toolbar,.sim-timeline,.sim-live{display:none!important}.sim-redesign .sim-print{display:block!important}.sim-redesign{width:100%;max-width:none;margin-left:0!important;background:white;break-inside:auto}.sim-print svg{min-width:0!important}.sim-print math{font-family:"STIX Two Math",serif!important}}
@@ -60,3 +59,12 @@
 .sim-redesign .sim-stage[data-zoomed=true]{max-height:480px}.sim-redesign .sim-stage[data-zoomed=true] svg{min-width:1100px!important;max-width:none}
 @media(max-width:700px){.sim-redesign .sim-stage svg{min-width:620px!important}.sim-redesign .sim-stage{max-height:480px}.sim-teaching{padding:13px}.sim-toolbar label select{width:auto}.sim-redesign{padding:12px!important}.sim-concept-workspace{padding:0!important}}
 @media print{.sim-redesign{margin:0!important;padding:0!important}.sim-print .sim-math-proof{overflow:visible}.sim-print svg{min-width:0!important}}
+
+/* Keep tall stacks and comparison diagrams readable without widening the lesson. */
+.sim-redesign .sim-stage{max-height:420px;scrollbar-gutter:stable}
+.sim-redesign .sim-compare svg{min-width:620px!important}
+.sim-redesign .sim-stage .sim-compare figure{max-height:360px;overflow:auto;padding:8px;border:1px solid var(--sim-border);border-radius:7px}
+.sim-redesign .sim-stage .sim-compare figcaption{position:sticky;top:0;background:white;z-index:1;padding:4px 0}
+.sim-redesign .sim-stage svg{min-width:min(620px,100%)!important}
+.sim-redesign select{max-width:100%;text-overflow:ellipsis}
+@media(max-width:700px){.sim-redesign .sim-stage svg{min-width:620px!important}.sim-redesign .sim-stage{max-height:420px}}

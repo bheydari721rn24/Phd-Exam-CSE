@@ -1,0 +1,963 @@
+{
+  "status": "passed",
+  "models": [
+    {
+      "id": "concept-1",
+      "kind": "inversions",
+      "frames": 10,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "concept-2",
+      "kind": "selection",
+      "frames": 10,
+      "routedSteps": [
+        5
+      ],
+      "issues": []
+    },
+    {
+      "id": "concept-3",
+      "kind": "insertion",
+      "frames": 28,
+      "routedSteps": [
+        3,
+        7,
+        12,
+        14,
+        19,
+        21,
+        23,
+        25
+      ],
+      "issues": []
+    },
+    {
+      "id": "concept-4",
+      "kind": "bubble",
+      "frames": 35,
+      "routedSteps": [
+        7,
+        14,
+        20,
+        25,
+        29,
+        32
+      ],
+      "issues": []
+    },
+    {
+      "id": "concept-5",
+      "kind": "shell",
+      "frames": 12,
+      "routedSteps": [
+        3
+      ],
+      "issues": []
+    },
+    {
+      "id": "concept-6",
+      "kind": "merge",
+      "frames": 56,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "concept-7",
+      "kind": "merge",
+      "frames": 11,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "concept-8",
+      "kind": "quick",
+      "frames": 20,
+      "routedSteps": [
+        5,
+        9,
+        10
+      ],
+      "issues": []
+    },
+    {
+      "id": "concept-9",
+      "kind": "hoare",
+      "frames": 12,
+      "routedSteps": [
+        4
+      ],
+      "issues": []
+    },
+    {
+      "id": "concept-10",
+      "kind": "cmu",
+      "frames": 56,
+      "routedSteps": [
+        1,
+        14,
+        15,
+        17,
+        19,
+        21,
+        23,
+        27,
+        36,
+        37,
+        44,
+        45,
+        47,
+        51,
+        54
+      ],
+      "issues": []
+    },
+    {
+      "id": "concept-11",
+      "kind": "quick",
+      "frames": 72,
+      "routedSteps": [
+        16,
+        30,
+        42,
+        52,
+        60,
+        66,
+        70
+      ],
+      "issues": []
+    },
+    {
+      "id": "concept-12",
+      "kind": "three",
+      "frames": 24,
+      "routedSteps": [
+        3,
+        7,
+        9,
+        13
+      ],
+      "issues": []
+    },
+    {
+      "id": "concept-13",
+      "kind": "heap",
+      "frames": 26,
+      "routedSteps": [
+        7,
+        10,
+        12,
+        15,
+        17,
+        18,
+        21,
+        22,
+        24
+      ],
+      "issues": []
+    },
+    {
+      "id": "concept-17",
+      "kind": "decision",
+      "frames": 4,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "concept-14",
+      "kind": "counting",
+      "frames": 18,
+      "routedSteps": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        12,
+        13,
+        15,
+        16
+      ],
+      "issues": []
+    },
+    {
+      "id": "concept-15",
+      "kind": "radix",
+      "frames": 29,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "concept-16",
+      "kind": "bucket",
+      "frames": 19,
+      "routedSteps": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "issues": []
+    },
+    {
+      "id": "concept-6",
+      "kind": "merge",
+      "frames": 56,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "problem-03",
+      "kind": "selection",
+      "frames": 10,
+      "routedSteps": [
+        5
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-07",
+      "kind": "selection",
+      "frames": 122,
+      "routedSteps": [
+        21,
+        40,
+        57,
+        72,
+        85,
+        96,
+        105,
+        112,
+        117,
+        120
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-11",
+      "kind": "insertion",
+      "frames": 28,
+      "routedSteps": [
+        3,
+        7,
+        12,
+        14,
+        19,
+        21,
+        23,
+        25
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-17",
+      "kind": "inversions",
+      "frames": 14,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "problem-18",
+      "kind": "bubble",
+      "frames": 22,
+      "routedSteps": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-19",
+      "kind": "bubble",
+      "frames": 35,
+      "routedSteps": [
+        7,
+        14,
+        20,
+        25,
+        29,
+        32
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-20",
+      "kind": "bubble",
+      "frames": 16,
+      "routedSteps": [
+        2,
+        4,
+        6,
+        10
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-22",
+      "kind": "shell",
+      "frames": 12,
+      "routedSteps": [
+        3
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-23",
+      "kind": "shell",
+      "frames": 19,
+      "routedSteps": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-25",
+      "kind": "merge",
+      "frames": 17,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "problem-30",
+      "kind": "merge",
+      "frames": 11,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "problem-31",
+      "kind": "merge",
+      "frames": 14,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "problem-32",
+      "kind": "inversions",
+      "frames": 10,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "problem-33",
+      "kind": "merge",
+      "frames": 9,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "problem-40",
+      "kind": "quick",
+      "frames": 20,
+      "routedSteps": [
+        5,
+        9,
+        10
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-41",
+      "kind": "quick",
+      "frames": 72,
+      "routedSteps": [
+        16,
+        30,
+        42,
+        52,
+        60,
+        66,
+        70
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-42",
+      "kind": "hoare",
+      "frames": 12,
+      "routedSteps": [
+        4
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-53",
+      "kind": "cmu",
+      "frames": 56,
+      "routedSteps": [
+        1,
+        14,
+        15,
+        17,
+        19,
+        21,
+        23,
+        27,
+        36,
+        37,
+        44,
+        45,
+        47,
+        51,
+        54
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-55",
+      "kind": "three",
+      "frames": 24,
+      "routedSteps": [
+        3,
+        7,
+        9,
+        13
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-56",
+      "kind": "three",
+      "frames": 26,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "problem-59",
+      "kind": "heap",
+      "frames": 26,
+      "routedSteps": [
+        7,
+        10,
+        12,
+        15,
+        17,
+        18,
+        21,
+        22,
+        24
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-61",
+      "kind": "heap",
+      "frames": 56,
+      "routedSteps": [
+        3,
+        7,
+        11,
+        13,
+        17,
+        20,
+        22,
+        25,
+        28,
+        29,
+        32,
+        34,
+        37,
+        40,
+        41,
+        44,
+        46,
+        47,
+        50,
+        51,
+        53,
+        54
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-62",
+      "kind": "heap",
+      "frames": 27,
+      "routedSteps": [
+        11,
+        14,
+        17,
+        20,
+        23,
+        25
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-63",
+      "kind": "heap",
+      "frames": 10,
+      "routedSteps": [
+        5,
+        7,
+        8
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-70",
+      "kind": "counting",
+      "frames": 18,
+      "routedSteps": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        12,
+        13,
+        15,
+        16
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-72",
+      "kind": "counting",
+      "frames": 18,
+      "routedSteps": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        12,
+        13,
+        15,
+        16
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-75",
+      "kind": "radix",
+      "frames": 29,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "problem-84",
+      "kind": "bucket",
+      "frames": 19,
+      "routedSteps": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "issues": []
+    },
+    {
+      "id": "editable",
+      "kind": "insertion",
+      "frames": 25,
+      "routedSteps": [
+        3,
+        7,
+        12,
+        14,
+        19,
+        21
+      ],
+      "issues": []
+    },
+    {
+      "id": "rank-example",
+      "kind": "rank-certificate",
+      "frames": 8,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "rank-all-equal",
+      "kind": "rank-certificate",
+      "frames": 6,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "linear-success",
+      "kind": "linear-equality",
+      "frames": 6,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "linear-failure",
+      "kind": "linear-equality",
+      "frames": 7,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "binary-example",
+      "kind": "binary-boundary",
+      "frames": 10,
+      "routedSteps": [
+        2,
+        4,
+        6
+      ],
+      "issues": []
+    },
+    {
+      "id": "binary-after-end",
+      "kind": "binary-boundary",
+      "frames": 6,
+      "routedSteps": [
+        2
+      ],
+      "issues": []
+    },
+    {
+      "id": "upper-repeats",
+      "kind": "binary-boundary",
+      "frames": 8,
+      "routedSteps": [
+        2,
+        4
+      ],
+      "issues": []
+    },
+    {
+      "id": "threshold-example",
+      "kind": "binary-boundary",
+      "frames": 10,
+      "routedSteps": [
+        2,
+        4,
+        6
+      ],
+      "issues": []
+    },
+    {
+      "id": "tournament-example",
+      "kind": "tournament-certificate",
+      "frames": 5,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "paired-extrema",
+      "kind": "paired-extrema",
+      "frames": 11,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "partition-example",
+      "kind": "three-way-selection",
+      "frames": 7,
+      "routedSteps": [
+        2
+      ],
+      "issues": []
+    },
+    {
+      "id": "partition-repeats",
+      "kind": "three-way-selection",
+      "frames": 15,
+      "routedSteps": [
+        4,
+        8,
+        10,
+        14
+      ],
+      "issues": []
+    },
+    {
+      "id": "quick-rank-six",
+      "kind": "three-way-selection",
+      "frames": 48,
+      "routedSteps": [
+        2,
+        14,
+        16,
+        20,
+        22,
+        24,
+        28,
+        36,
+        40
+      ],
+      "issues": []
+    },
+    {
+      "id": "quick-all-equal",
+      "kind": "three-way-selection",
+      "frames": 12,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "extreme-pivot-run",
+      "kind": "three-way-selection",
+      "frames": 52,
+      "routedSteps": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        22,
+        24,
+        26,
+        28,
+        30,
+        38,
+        40,
+        42,
+        44,
+        50
+      ],
+      "issues": []
+    },
+    {
+      "id": "groups-example",
+      "kind": "median-groups",
+      "frames": 6,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "groups-partial",
+      "kind": "median-groups",
+      "frames": 7,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "two-example",
+      "kind": "two-array-cuts",
+      "frames": 4,
+      "routedSteps": [
+        2
+      ],
+      "issues": []
+    },
+    {
+      "id": "two-repeated",
+      "kind": "two-array-cuts",
+      "frames": 2,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "weighted-example",
+      "kind": "weighted-mass",
+      "frames": 4,
+      "routedSteps": [
+        3
+      ],
+      "issues": []
+    },
+    {
+      "id": "weighted-repeat",
+      "kind": "weighted-mass",
+      "frames": 4,
+      "routedSteps": [
+        3
+      ],
+      "issues": []
+    },
+    {
+      "id": "rank-example",
+      "kind": "rank-certificate",
+      "frames": 8,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "binary-example",
+      "kind": "binary-boundary",
+      "frames": 10,
+      "routedSteps": [
+        2,
+        4,
+        6
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-frequency-lower",
+      "kind": "binary-boundary",
+      "frames": 8,
+      "routedSteps": [
+        2,
+        4
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-range-upper",
+      "kind": "binary-boundary",
+      "frames": 8,
+      "routedSteps": [
+        2,
+        4
+      ],
+      "issues": []
+    },
+    {
+      "id": "threshold-example",
+      "kind": "binary-boundary",
+      "frames": 10,
+      "routedSteps": [
+        2,
+        4,
+        6
+      ],
+      "issues": []
+    },
+    {
+      "id": "tournament-example",
+      "kind": "tournament-certificate",
+      "frames": 5,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "problem-tournament-bye",
+      "kind": "tournament-certificate",
+      "frames": 5,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "problem-replacement",
+      "kind": "three-way-selection",
+      "frames": 7,
+      "routedSteps": [
+        2
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-quadratic",
+      "kind": "three-way-selection",
+      "frames": 34,
+      "routedSteps": [
+        4,
+        6,
+        8,
+        10,
+        18,
+        20,
+        22,
+        30,
+        32
+      ],
+      "issues": []
+    },
+    {
+      "id": "expected-example",
+      "kind": "pivot-expectation",
+      "frames": 4,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "groups-example",
+      "kind": "median-groups",
+      "frames": 6,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "problem-deterministic",
+      "kind": "three-way-selection",
+      "frames": 32,
+      "routedSteps": [
+        2,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        22,
+        24,
+        30
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-two-groups",
+      "kind": "median-groups",
+      "frames": 5,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "two-example",
+      "kind": "two-array-cuts",
+      "frames": 4,
+      "routedSteps": [
+        2
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-two-empty",
+      "kind": "two-array-cuts",
+      "frames": 2,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "problem-top-k",
+      "kind": "three-way-selection",
+      "frames": 14,
+      "routedSteps": [],
+      "issues": []
+    },
+    {
+      "id": "weighted-example",
+      "kind": "weighted-mass",
+      "frames": 4,
+      "routedSteps": [
+        3
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-weight-gap",
+      "kind": "weighted-mass",
+      "frames": 3,
+      "routedSteps": [
+        2
+      ],
+      "issues": []
+    },
+    {
+      "id": "problem-heavy-weight",
+      "kind": "weighted-mass",
+      "frames": 3,
+      "routedSteps": [
+        2
+      ],
+      "issues": []
+    }
+  ]
+}

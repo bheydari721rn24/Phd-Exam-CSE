@@ -1,0 +1,19 @@
+{
+  "manualMovement": {
+    "progress": 0.18522222222222218,
+    "button": "Play",
+    "running": false
+  },
+  "pauseButtonClick": {
+    "progress": 0.3334444444444446,
+    "button": "Pause",
+    "running": true
+  },
+  "beforeView": {
+    "caption": "Enter Hanoi(1, 0 to 2); save the caller continuation.",
+    "expectedCaption": "Enter Hanoi(2, 0 to 1); save the caller continuation.",
+    "state": "{\n  \"calls\": 3,\n  \"depth\": 3,\n  \"ops\": 0,\n  \"stack\": [\n    {\n      \"id\": 0,\n      \"label\": \"Hanoi(3, 0 to 2)\",\n      \"n\": 3,\n      \"parent\": null,\n      \"d\": 0,\n      \"x\": 500,\n      \"done\": false\n    },\n    {\n      \"id\": 1,\n      \"label\": \"Hanoi(2, 0 to 1)\",\n      \"n\": 2,\n      \"parent\": 0,\n      \"d\": 1,\n      \"x\": 500,\n      \"done\": false\n    },\n    {\n      \"id\": 2,\n      \"label\": \"Hanoi(1, 0 to 2)\",\n      \"n\": 1,\n      \"parent\": 1,\n      \"d\": 2,\n      \"x\": 500,\n      \"done\": false\n    }\n  ],\n  \"nodes\": [\n    {\n      \"id\": 0,\n      \"label\": \"Hanoi(3, 0 to 2)\",\n      \"n\": 3,\n      \"parent\": null,\n      \"d\": 0,\n      \"x\": 500,\n      \"done\": false\n    },\n    {\n      \"id\": 1,\n      \"label\": \"Hanoi(2, 0 to 1)\",\n      \"n\": 2,\n      \"parent\": 0,\n      \"d\": 1,\n      \"x\": 500,\n      \"done\": false\n    },\n    {\n      \"id\": 2,\n      \"label\": \"Hanoi(1, 0 to 2)\",\n      \"n\": 1,\n      \"parent\": 1,\n      \"d\": 2,\n      \"x\": 500,\n      \"done\": false\n    }\n  ],\n  \"output\": [],\n  \"returned\": null,\n  \"pegs\": [\n    [\n      3,\n      2,\n      1\n    ],\n    [],\n    []\n  ],\n  \"moves\": 0,\n  \"phase\": \"settled\"\n}",
+    "expectedState": "{\n  \"calls\": 2,\n  \"depth\": 2,\n  \"ops\": 0,\n  \"stack\": [\n    {\n      \"id\": 0,\n      \"label\": \"Hanoi(3, 0 to 2)\",\n      \"n\": 3,\n      \"parent\": null,\n      \"d\": 0,\n      \"x\": 500,\n      \"done\": false\n    },\n    {\n      \"id\": 1,\n      \"label\": \"Hanoi(2, 0 to 1)\",\n      \"n\": 2,\n      \"parent\": 0,\n      \"d\": 1,\n      \"x\": 500,\n      \"done\": false\n    }\n  ],\n  \"nodes\": [\n    {\n      \"id\": 0,\n      \"label\": \"Hanoi(3, 0 to 2)\",\n      \"n\": 3,\n      \"parent\": null,\n      \"d\": 0,\n      \"x\": 500,\n      \"done\": false\n    },\n    {\n      \"id\": 1,\n      \"label\": \"Hanoi(2, 0 to 1)\",\n      \"n\": 2,\n      \"parent\": 0,\n      \"d\": 1,\n      \"x\": 500,\n      \"done\": false\n    }\n  ],\n  \"output\": [],\n  \"returned\": null,\n  \"pegs\": [\n    [\n      3,\n      2,\n      1\n    ],\n    [],\n    []\n  ],\n  \"moves\": 0,\n  \"phase\": \"settled\"\n}"
+  },
+  "duplicatePrintIds": []
+}
