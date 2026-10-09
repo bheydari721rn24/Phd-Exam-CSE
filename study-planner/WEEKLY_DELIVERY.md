@@ -480,3 +480,5 @@ Private Site version 83 successfully published from source commit c274613e14c9c2
 ## Recent simulation revision — 9 October 2026
 
 Ten recent chapters, 251 distinct models and 1802 recorded checkpoints: rebuilt causal replay, exact before/result comparison, semantic views and fully checked controls. All ten editable laboratories checked. Scientific states, engines, questions and final rules retained; one corrupted literal graph-input textarea corrected. User chapter gate remains unchanged. Publication tracked in research/recent-animation-redesign/publication.json.
+
+Publication confirmed: recent simulation revision is online in version 84 from 2bf1324f8daef61f3f1cae2e4520fa3b0165d424, with 397 archived files. GitHub branch study-planner-1406 contains the source, per-model audits and screenshots. Chapter gate remains awaiting approval of p_recursion.
