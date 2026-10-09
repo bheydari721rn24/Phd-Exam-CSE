@@ -52,6 +52,7 @@
   return animations;
  }
  function raw(o){
+  if(window.AdvancedSimulations)return AdvancedSimulations.adaptRaw(o);
   const {host,model,stage,caption,formula,seek,progress,play,speed,prev,next,reset,printRoot}=o;let i=0,timer=null,running=false;const explain=panel(host,stage);
   const stop=()=>{clearTimeout(timer);timer=null;running=false;stage.getAnimations({subtree:true}).forEach(a=>{const t=a.currentTime;a.pause();if(t!==null)a.currentTime=t;});if(play){play.textContent='Play';play.setAttribute('aria-pressed','false');}host.dataset.running='false';};
   function draw(n,animate=false){

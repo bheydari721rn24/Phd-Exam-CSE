@@ -1,0 +1,7 @@
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];p=R/'dist/chapters/advanced-simulations.js';s=p.read_text();needle="if(svg.tagName.toLowerCase()==='svg'){const measuring=el('div',undefined,'sim-stage');"
+new="""if(svg.tagName.toLowerCase()==='svg'){if(model.id==='dp-ramsey'){const graph=document.createElementNS(NS,'g');graph.setAttribute('transform','translate(0 40)');for(const n of [...svg.children])if(n.tagName.toLowerCase()!=='title'&&!(n.tagName.toLowerCase()==='text'&&n.textContent.startsWith('A same-color star')))graph.append(n);svg.append(graph);svg.setAttribute('viewBox','0 0 760 440');}const measuring=el('div',undefined,'sim-stage');"""
+assert needle in s;s=s.replace(needle,new);p.write_text(s,encoding='utf-8')
+p=R/'research/qa_unified_library.py';s=p.read_text();s=s.replace("if m['key'].split(':')[0]in report['chapters']or m['key'].startswith(('concept:','problem:'))","if not m['issues']and(m['key'].split(':')[0]in report['chapters']or m['key'].startswith(('concept:','problem:')))")
+s=s.replace("if topic in report['chapters']and not report['chapters'][topic].get('failedHosts'):continue","if topic in report['chapters']and not report['chapters'][topic].get('failedHosts')and not any(m['issues']for m in report['chapters'][topic]['models']):continue")
+p.write_text(s,encoding='utf-8');print('Ramsey graph gets a dedicated title margin; topology and edge colors retained.')

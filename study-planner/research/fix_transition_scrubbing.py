@@ -1,0 +1,2 @@
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];p=R/'dist/chapters/advanced-simulations.js';s=p.read_text();old="motionSeek.oninput=()=>{stops();cancelMotion();setGeometry(Number(motionSeek.value)/100);};";new="motionSeek.oninput=()=>{const target=Number(motionSeek.value)/100;stops();cancelMotion();setGeometry(target);};";assert old in s;s=s.replace(old,new);p.write_text(s,encoding='utf-8');print('Scrubbing captures the chosen progress before freezing a paused animation.')

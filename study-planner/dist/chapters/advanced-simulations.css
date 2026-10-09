@@ -1,4 +1,4 @@
-/* Opt-in revision for the ten most recent chapters. */
+/* Consistent teaching interface throughout the written chapter library. */
 .sim-redesign{--sim-ink:#223e4e;--sim-blue:#236d93;--sim-gold:#a16b20;--sim-green:#23715e;--sim-border:#c8d7df;font-family:"Source Sans 3",sans-serif;color:var(--sim-ink)}
 .sim-redesign button,.sim-redesign select,.sim-redesign input{font:inherit}
 .sim-redesign>p:first-of-type{font-size:16px;line-height:1.6}
@@ -15,7 +15,7 @@
 .sim-phase{margin-left:auto;font-size:14px;font-weight:500}
 .sim-redesign .sim-stage{padding:10px!important;overflow:auto!important;max-width:100%;contain:inline-size;overscroll-behavior:contain}
 .sim-redesign .sim-stage svg{display:block;width:100%;height:auto;min-width:680px;overflow:visible;isolation:isolate}
-.sim-redesign .sim-stage svg text,.sim-print svg text{font-family:"Source Sans 3",sans-serif!important;font-size:18px!important;font-weight:400!important}
+.sim-redesign .sim-stage svg text,.sim-print svg text{font-family:"Source Sans 3",sans-serif;font-weight:400!important}
 .sim-redesign .sim-stage svg .sim-number,.sim-print svg .sim-number,.sim-redesign .sim-stage svg [class$="-math"],.sim-redesign .sim-stage svg [class$="-index"]{font-family:"STIX Two Math",serif!important}
 .sim-redesign .sim-stage svg .sim-code,.sim-print svg .sim-code,.sim-redesign .sim-stage svg [class$="-byte"],.sim-redesign .sim-stage svg [class$="-code"]{font-family:"JetBrains Mono",monospace!important;font-size:16px!important}
 .sim-caption{padding:0 16px;margin:8px 0 14px!important;font-size:16px!important;line-height:1.6}
@@ -43,3 +43,20 @@
 @media(max-width:700px){.sim-redesign{padding:14px!important}.sim-teaching{padding:14px}.sim-toolbar{gap:8px}.sim-toolbar button{padding:8px 10px!important}.sim-phase{margin-left:0;width:100%}.sim-compare{grid-template-columns:1fr}.sim-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.sim-operation{font-size:22px}.sim-motion-control{padding:12px}.sim-redesign .sim-stage{scrollbar-gutter:stable}.sim-timeline-list button{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.sim-redesign *{scroll-behavior:auto!important}}
 @media print{.sim-shell,.sim-toolbar,.sim-timeline,.sim-live{display:none!important}.sim-redesign .sim-print{display:block!important}.sim-redesign{width:100%;max-width:none;margin-left:0!important;background:white;break-inside:auto}.sim-print svg{min-width:0!important}.sim-print math{font-family:"STIX Two Math",serif!important}}
+
+/* Compact chapter mode: diagrams stay inside the surrounding lesson column. */
+.sim-redesign{width:100%!important;max-width:100%!important;box-sizing:border-box;margin:18px 0!important;min-width:0}
+.sim-shell{grid-template-columns:minmax(0,1fr)!important;gap:12px}
+.sim-redesign .sim-stage svg{min-width:0!important;max-width:760px;margin:0 auto}
+.sim-teaching{padding:15px;box-sizing:border-box}
+.sim-operation{font-size:21px}.sim-description{font-size:16px;line-height:1.6;margin:12px 0}
+.sim-concept-workspace{padding:0!important;border:0!important;background:none!important}
+.sim-toolbar label{display:flex;align-items:center;gap:8px;font-weight:400}.sim-toolbar label select{width:auto;min-width:90px}
+.sim-math-proof{padding:14px 10px;overflow:auto;max-width:100%;box-sizing:border-box;font-size:21px;line-height:1.7}
+.sim-math-proof math{white-space:nowrap}.sim-regions{display:flex;flex-wrap:wrap;gap:12px;padding:0;list-style:none;font-size:15px}
+.sim-counterexample{padding:10px 12px;border-left:3px solid #ad475b;background:#fcf0f3;font-size:15px;line-height:1.6}
+.sim-redesign .sim-stage svg .math-label,.sim-redesign .sim-stage svg .math-node,.sim-redesign .sim-stage svg .sort-key{font-family:"STIX Two Math",serif!important}
+.sim-compare svg{min-width:0!important}
+.sim-redesign .sim-stage[data-zoomed=true]{max-height:480px}.sim-redesign .sim-stage[data-zoomed=true] svg{min-width:1100px!important;max-width:none}
+@media(max-width:700px){.sim-redesign .sim-stage svg{min-width:620px!important}.sim-redesign .sim-stage{max-height:480px}.sim-teaching{padding:13px}.sim-toolbar label select{width:auto}.sim-redesign{padding:12px!important}.sim-concept-workspace{padding:0!important}}
+@media print{.sim-redesign{margin:0!important;padding:0!important}.sim-print .sim-math-proof{overflow:visible}.sim-print svg{min-width:0!important}}
