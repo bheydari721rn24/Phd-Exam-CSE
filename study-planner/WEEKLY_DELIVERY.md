@@ -493,3 +493,5 @@ The default figure stays in the lesson column. Zoom is contained inside its fram
 All per-frame and chapter checks passed. Eight representative chapters passed live replay/zoom/print and replacement checks. All written bodies are unchanged. Stored scientific model files match the baseline after Windows line-ending normalization, with identical parsed records. Algorithms and domain renderers are retained; the array lab exposes its already-computed exact state.
 
 Finite browser checks cover stored/default-computed traces and representative interactions, not an exhaustive proof for arbitrary inputs. p_recursion remains awaiting approval. Publication is recorded separately.
+
+Publication confirmed: Version 85 succeeded from 61ecfdaa2861dc115b0b572de0d2b015cba9a861. Saved source SHA and 404-file count verified. Native stored tar hash is recorded separately from the local gzip/PAX archive. GitHub content commit: d447d83 on study-planner-1406. All 47 written chapters and their simulation models are covered. Chapter approval state is unchanged.
