@@ -1,0 +1,8 @@
+from pathlib import Path
+import json,subprocess
+R=Path(__file__).resolve().parents[1];B=R/'research'
+r=json.loads((B/'p_recursion-publication.json').read_text());assert r['status']=='succeeded' and r['versionNumber']==83 and r['archiveFiles']==390
+g=json.loads((B/'chapter-gate.json').read_text());assert g['currentTopicId']=='p_recursion';g.update(state='awaiting_user_approval',publicationState='succeeded',publishedVersion=83,activeWork='p_recursion delivered online in version 83 and on GitHub. Await explicit user approval before beginning another chapter.',nextReview='Await explicit approval of p_recursion before beginning a following chapter.');(B/'chapter-gate.json').write_text(json.dumps(g,indent=2)+'\n',encoding='utf-8')
+with(R/'WEEKLY_DELIVERY.md').open('a',encoding='utf-8')as f:f.write('\n\n## Recursion online delivery — 9 October 2026\n\nPrivate Site version 83 successfully published from source commit c274613e14c9c28ac87b41a68e915a58788052b6. Deployment appgdep_6ac8e10778d48191a3ef19ff306cccf6 succeeded; get_site_version verified exact source provenance and 390 archive entries. GitHub content was mirrored at dcc6ad2 on study-planner-1406. The p_recursion chapter remains a review draft awaiting explicit approval. No following chapter begun.\n')
+paths=['research/record_p_recursion_publication.py','research/p_recursion-publication.json','research/chapter-gate.json','WEEKLY_DELIVERY.md'];subprocess.run(['git','add','--',*paths],cwd=R,check=True);subprocess.run(['git','diff','--cached','--check'],cwd=R,check=True);subprocess.run(['git','commit','-m','Record verified version 83 recursion delivery and approval gate'],cwd=R,check=True)
+print('Recorded verified version 83; awaiting explicit approval.')

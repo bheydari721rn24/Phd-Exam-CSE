@@ -470,3 +470,8 @@ Explicit user approval of p_strings (online version 82) permits only p_recursion
 ## Recursion complete review draft — 9 October 2026
 
 30 sections, 80 authored/reconstructed complete solutions plus one source-checked MSc recursion bridge, 80 final rules, four core written courses, 22 specialized models and 306 checkpoints. 10480 checks include 840 independent algorithm comparisons. Browser, motion, typography, mathematics, mobile, print and app links passed. All 3001 previous entries remain: forty previous pages unchanged, six receive only a source-checked Q167 correction. Await explicit approval of p_recursion; publication tracked separately.
+
+
+## Recursion online delivery — 9 October 2026
+
+Private Site version 83 successfully published from source commit c274613e14c9c28ac87b41a68e915a58788052b6. Deployment appgdep_6ac8e10778d48191a3ef19ff306cccf6 succeeded; get_site_version verified exact source provenance and 390 archive entries. GitHub content was mirrored at dcc6ad2 on study-planner-1406. The p_recursion chapter remains a review draft awaiting explicit approval. No following chapter begun.
