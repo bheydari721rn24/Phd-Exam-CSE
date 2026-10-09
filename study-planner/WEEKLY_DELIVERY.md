@@ -475,3 +475,8 @@ Explicit user approval of p_strings (online version 82) permits only p_recursion
 ## Recursion online delivery — 9 October 2026
 
 Private Site version 83 successfully published from source commit c274613e14c9c28ac87b41a68e915a58788052b6. Deployment appgdep_6ac8e10778d48191a3ef19ff306cccf6 succeeded; get_site_version verified exact source provenance and 390 archive entries. GitHub content was mirrored at dcc6ad2 on study-planner-1406. The p_recursion chapter remains a review draft awaiting explicit approval. No following chapter begun.
+
+
+## Recent simulation revision — 9 October 2026
+
+Ten recent chapters, 251 distinct models and 1802 recorded checkpoints: rebuilt causal replay, exact before/result comparison, semantic views and fully checked controls. All ten editable laboratories checked. Scientific states, engines, questions and final rules retained; one corrupted literal graph-input textarea corrected. User chapter gate remains unchanged. Publication tracked in research/recent-animation-redesign/publication.json.

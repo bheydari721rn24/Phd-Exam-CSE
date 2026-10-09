@@ -27,9 +27,16 @@ mathml.wrap_display=scope_preserving_display
 from math_typography import normalize_math,normalize_scripts
 md=MarkdownIt('commonmark',{'html':True}).enable('table')
 def text(s):
+ # A textarea contains literal user input, never mathematical HTML markup.
+ raw={}
+ def preserve(m):
+  marker='<textarea data-protected="'+str(len(raw))+'"></textarea>';raw[marker]=m[0];return marker
+ s=re.sub(r'<textarea\b[^>]*>[\s\S]*?</textarea>',preserve,s)
  s=s.replace(r'\bigl','').replace(r'\bigr','').replace(r'\mathbin{\oplus}',r'\oplus ')
  s=re.sub(r'\$\$([\s\S]*?)\$\$|\$([^$\n]+)\$',lambda m:m[0].replace('Var(',r'\operatorname{Var}(').replace('Cov(',r'\operatorname{Cov}(').replace('med(',r'\operatorname{med}(').replace('med_i',r'\operatorname{med}_i').replace('sign(',r'\operatorname{sign}('),s)
- return normalize_scripts(normalize_math(mathml.markdown_math(s,md)))
+ result=normalize_scripts(normalize_math(mathml.markdown_math(s,md)))
+ for marker,value in raw.items():result=result.replace(marker,value)
+ return result
 data=json.loads((R/'dist/chapters/i_uninformed-models.json').read_text(encoding='utf-8'));by={m['id']:m for m in data['models']}
 def trace(id):
  m=by[id];f=m['frames'][0]
@@ -59,7 +66,7 @@ assert '<!--' not in body and '$' not in body
 assert body.count('class="exam-question"')==81 and body.count('class="review-rule"')==80
 title='Uninformed Search: BFS, DFS, Uniform Cost, and Iterative Deepening';nav=' '.join('<a href="#'+k+'">'+({'ecdf':'ECDF','qq-time':'Q–Q and time','bessel':'Bessel correction','association':'Paired association'}.get(k,k.replace('-',' ').capitalize()))+'</a>' for k in anchors)
 modelCount=len(data['models']);frameCount=sum(len(m['frames']) for m in data['models'])
-page=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{title} · Doctoral CSE 1406</title><link rel="stylesheet" href="chapter.en.css"><link rel="stylesheet" href="exam-calibration.css"><link rel="stylesheet" href="teaching-transitions.css"><link rel="stylesheet" href="i_uninformed.css"></head><body><main class="chapter"><p class="top-link"><a href="../index.html#week-3">Weekly plan and chapter library</a></p><header class="hero"><p class="eyebrow">Artificial Intelligence · Week 3</p><h1>{title}</h1><p>Review draft · four core written courses from four universities · 81 worked problems · 80 examination rules · {modelCount} exact-state models / {frameCount} stored checkpoints</p></header><nav class="toc" aria-label="Chapter contents">{nav}</nav><article class="lesson">{body}</article><p class="top-link"><a href="../index.html#library">Chapter library</a></p></main><script src="math-layout.js?v=79"></script><script src="diagram-layout.js"></script><script src="teaching-transitions.js"></script><script src="i_uninformed.js"></script><script src="exam-calibration.js"></script></body></html>'''
+page=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{title} · Doctoral CSE 1406</title><link rel="stylesheet" href="chapter.en.css"><link rel="stylesheet" href="exam-calibration.css"><link rel="stylesheet" href="teaching-transitions.css"><link rel="stylesheet" href="i_uninformed.css"><link rel="stylesheet" href="advanced-simulations.css"></head><body><main class="chapter"><p class="top-link"><a href="../index.html#week-3">Weekly plan and chapter library</a></p><header class="hero"><p class="eyebrow">Artificial Intelligence · Week 3</p><h1>{title}</h1><p>Review draft · four core written courses from four universities · 81 worked problems · 80 examination rules · {modelCount} exact-state models / {frameCount} stored checkpoints</p></header><nav class="toc" aria-label="Chapter contents">{nav}</nav><article class="lesson">{body}</article><p class="top-link"><a href="../index.html#library">Chapter library</a></p></main><script src="math-layout.js?v=79"></script><script src="diagram-layout.js"></script><script src="teaching-transitions.js"></script><script src="advanced-simulations.js"></script><script src="i_uninformed.js"></script><script src="exam-calibration.js"></script></body></html>'''
 (R/'dist/chapters/i_uninformed.html').write_text(page,encoding='utf-8')
 for suffix,label in [('source-audit','sources'),('quality-audit','quality')]:
  p=B/f'i_uninformed-{suffix}.md'

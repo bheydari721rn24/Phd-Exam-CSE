@@ -1,0 +1,2643 @@
+{
+  "status": "passed",
+  "chapters": {
+    "a_select": {
+      "errors": [],
+      "counts": {
+        "players": 40,
+        "questions": 89,
+        "rules": 80
+      },
+      "models": [
+        {
+          "id": "rank-example",
+          "kind": "rank-certificate",
+          "frames": 8,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "rank-all-equal",
+          "kind": "rank-certificate",
+          "frames": 6,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "linear-success",
+          "kind": "linear-equality",
+          "frames": 6,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "linear-failure",
+          "kind": "linear-equality",
+          "frames": 7,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "binary-example",
+          "kind": "binary-boundary",
+          "frames": 10,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "binary-after-end",
+          "kind": "binary-boundary",
+          "frames": 6,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "upper-repeats",
+          "kind": "binary-boundary",
+          "frames": 8,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "threshold-example",
+          "kind": "binary-boundary",
+          "frames": 10,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "tournament-example",
+          "kind": "tournament-certificate",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "paired-extrema",
+          "kind": "paired-extrema",
+          "frames": 11,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "partition-example",
+          "kind": "three-way-selection",
+          "frames": 7,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "partition-repeats",
+          "kind": "three-way-selection",
+          "frames": 15,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "quick-rank-six",
+          "kind": "three-way-selection",
+          "frames": 48,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "quick-all-equal",
+          "kind": "three-way-selection",
+          "frames": 12,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "extreme-pivot-run",
+          "kind": "three-way-selection",
+          "frames": 52,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "groups-example",
+          "kind": "median-groups",
+          "frames": 6,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "groups-partial",
+          "kind": "median-groups",
+          "frames": 7,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "two-example",
+          "kind": "two-array-cuts",
+          "frames": 4,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "two-repeated",
+          "kind": "two-array-cuts",
+          "frames": 2,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "weighted-example",
+          "kind": "weighted-mass",
+          "frames": 4,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "weighted-repeat",
+          "kind": "weighted-mass",
+          "frames": 4,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "problem-frequency-lower",
+          "kind": "binary-boundary",
+          "frames": 8,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "problem-range-upper",
+          "kind": "binary-boundary",
+          "frames": 8,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "problem-tournament-bye",
+          "kind": "tournament-certificate",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "problem-replacement",
+          "kind": "three-way-selection",
+          "frames": 7,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "problem-quadratic",
+          "kind": "three-way-selection",
+          "frames": 34,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "expected-example",
+          "kind": "pivot-expectation",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "problem-deterministic",
+          "kind": "three-way-selection",
+          "frames": 32,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "problem-two-groups",
+          "kind": "median-groups",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "problem-two-empty",
+          "kind": "two-array-cuts",
+          "frames": 2,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "problem-top-k",
+          "kind": "three-way-selection",
+          "frames": 14,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "problem-weight-gap",
+          "kind": "weighted-mass",
+          "frames": 3,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "problem-heavy-weight",
+          "kind": "weighted-mass",
+          "frames": 3,
+          "renderers": [
+            "record-regions"
+          ],
+          "issues": []
+        }
+      ],
+      "editable": {
+        "frames": 8,
+        "issues": [],
+        "invalidPreserves": true,
+        "noPlayerLeak": true,
+        "error": ""
+      },
+      "controls": {
+        "before": true,
+        "compare": 2,
+        "prev": 1,
+        "seek": 2,
+        "timeline": 0,
+        "next": 1,
+        "reset": 0,
+        "reference": true,
+        "printed": 8,
+        "expected": 8
+      },
+      "mobileOverflow": false,
+      "enlargedOverflow": false,
+      "underlined": 0,
+      "fonts": {
+        "math": true,
+        "code": true,
+        "prose": true
+      }
+    },
+    "s_descriptive": {
+      "errors": [],
+      "counts": {
+        "players": 43,
+        "questions": 82,
+        "rules": 80
+      },
+      "models": [
+        {
+          "id": "hist-edges",
+          "kind": "histogram-density",
+          "frames": 14,
+          "renderers": [
+            "density-or-residual-contributions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "hist-equal",
+          "kind": "histogram-density",
+          "frames": 18,
+          "renderers": [
+            "density-or-residual-contributions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "ecdf-ties",
+          "kind": "empirical-step-function",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "mean-loss",
+          "kind": "squared-loss",
+          "frames": 8,
+          "renderers": [
+            "density-or-residual-contributions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "quant-four",
+          "kind": "quantile-conventions",
+          "frames": 6,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "quant-ties",
+          "kind": "quantile-conventions",
+          "frames": 6,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "loss-gap",
+          "kind": "absolute-loss",
+          "frames": 8,
+          "renderers": [
+            "density-or-residual-contributions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "loss-robust",
+          "kind": "absolute-loss",
+          "frames": 8,
+          "renderers": [
+            "density-or-residual-contributions"
+          ],
+          "issues": []
+        },
+        {
+          "id": "variance-basic",
+          "kind": "residual-energy",
+          "frames": 8,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "variance-three",
+          "kind": "residual-energy",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "variance-single",
+          "kind": "residual-energy",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "affine-negative",
+          "kind": "affine-transform",
+          "frames": 11,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "affine-shift",
+          "kind": "affine-transform",
+          "frames": 11,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "box-example",
+          "kind": "boxplot-construction",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "box-zero",
+          "kind": "boxplot-construction",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "outlier-motion",
+          "kind": "outlier-contamination",
+          "frames": 7,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "pool-constant",
+          "kind": "within-between-decomposition",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "pool-nonconstant",
+          "kind": "within-between-decomposition",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "simpson-example",
+          "kind": "mixture-rate-reversal",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "stream-example",
+          "kind": "streaming-moments",
+          "frames": 13,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "stream-constant",
+          "kind": "streaming-moments",
+          "frames": 10,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "correlation-curve",
+          "kind": "paired-covariance",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "correlation-pairs",
+          "kind": "paired-covariance",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "correlation-constant",
+          "kind": "paired-covariance",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "qq-affine",
+          "kind": "quantile-comparison",
+          "frames": 7,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "qq-different-sizes",
+          "kind": "quantile-comparison",
+          "frames": 7,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "smoothing-ma",
+          "kind": "time-series-smoothing",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "smoothing-ewma",
+          "kind": "time-series-smoothing",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        }
+      ],
+      "editable": {
+        "frames": 14,
+        "issues": [],
+        "invalidPreserves": true,
+        "noPlayerLeak": true,
+        "error": ""
+      },
+      "controls": {
+        "before": true,
+        "compare": 2,
+        "prev": 1,
+        "seek": 2,
+        "timeline": 0,
+        "next": 1,
+        "reset": 0,
+        "reference": true,
+        "printed": 14,
+        "expected": 14
+      },
+      "mobileOverflow": false,
+      "enlargedOverflow": false,
+      "underlined": 0,
+      "fonts": {
+        "math": true,
+        "code": true,
+        "prose": true
+      }
+    },
+    "s_discrete": {
+      "errors": [],
+      "counts": {
+        "players": 58,
+        "questions": 83,
+        "rules": 80
+      },
+      "models": [
+        {
+          "id": "map-weighted",
+          "kind": "weighted-fiber-map",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "cdf-three",
+          "kind": "cdf-jump-construction",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "interval-three",
+          "kind": "interval-endpoint-tests",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "inverse-three",
+          "kind": "inverse-sampling-cells",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "quantile-three",
+          "kind": "quantile-threshold-selection",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "square-five",
+          "kind": "many-to-one-transformation",
+          "frames": 6,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "bin-five-threequarter",
+          "kind": "binomial-count-recurrence",
+          "frames": 6,
+          "renderers": [
+            "fixed-mass-axis"
+          ],
+          "issues": []
+        },
+        {
+          "id": "bin-four-quarter",
+          "kind": "binomial-count-recurrence",
+          "frames": 5,
+          "renderers": [
+            "fixed-mass-axis"
+          ],
+          "issues": []
+        },
+        {
+          "id": "bin-three-third",
+          "kind": "binomial-count-recurrence",
+          "frames": 4,
+          "renderers": [
+            "fixed-mass-axis"
+          ],
+          "issues": []
+        },
+        {
+          "id": "unequal-two",
+          "kind": "poisson-binomial-recurrence",
+          "frames": 3,
+          "renderers": [
+            "fixed-mass-axis"
+          ],
+          "issues": []
+        },
+        {
+          "id": "mixture-two",
+          "kind": "latent-probability-mixture",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "hyper-forced",
+          "kind": "hypergeometric-subsets",
+          "frames": 6,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "hyper-seven",
+          "kind": "hypergeometric-subsets",
+          "frames": 9,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "urn-depletion",
+          "kind": "urn-state-propagation",
+          "frames": 5,
+          "renderers": [
+            "fixed-mass-axis"
+          ],
+          "issues": []
+        },
+        {
+          "id": "geo-quarter",
+          "kind": "geometric-wait",
+          "frames": 8,
+          "renderers": [
+            "fixed-mass-axis"
+          ],
+          "issues": []
+        },
+        {
+          "id": "geo-varying",
+          "kind": "varying-hazard-wait",
+          "frames": 7,
+          "renderers": [
+            "fixed-mass-axis"
+          ],
+          "issues": []
+        },
+        {
+          "id": "cap-four",
+          "kind": "censored-wait",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "nb-third",
+          "kind": "negative-binomial-stopping",
+          "frames": 5,
+          "renderers": [
+            "fixed-mass-axis"
+          ],
+          "issues": []
+        },
+        {
+          "id": "poisson-two",
+          "kind": "poisson-mass-recurrence",
+          "frames": 10,
+          "renderers": [
+            "fixed-mass-axis"
+          ],
+          "issues": []
+        },
+        {
+          "id": "poisson-limit",
+          "kind": "binomial-poisson-limit",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "condition-positive",
+          "kind": "conditional-law-filter",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "family-conditioning",
+          "kind": "countable-bayes-reweighting",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "conv-weighted",
+          "kind": "weighted-convolution-grid",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "max-four",
+          "kind": "maximum-joint-grid",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "affine-three",
+          "kind": "many-to-one-transformation",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "cyclic-five",
+          "kind": "many-to-one-transformation",
+          "frames": 6,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "indicator-five",
+          "kind": "many-to-one-transformation",
+          "frames": 6,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "bin-six-half",
+          "kind": "binomial-count-recurrence",
+          "frames": 7,
+          "renderers": [
+            "fixed-mass-axis"
+          ],
+          "issues": []
+        },
+        {
+          "id": "hyper-batch",
+          "kind": "hypergeometric-subsets",
+          "frames": 6,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "hyper-observed",
+          "kind": "hypergeometric-subsets",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "hyper-half",
+          "kind": "hypergeometric-subsets",
+          "frames": 6,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "bin-four-half",
+          "kind": "binomial-count-recurrence",
+          "frames": 5,
+          "renderers": [
+            "fixed-mass-axis"
+          ],
+          "issues": []
+        },
+        {
+          "id": "nb-second",
+          "kind": "negative-binomial-stopping",
+          "frames": 6,
+          "renderers": [
+            "fixed-mass-axis"
+          ],
+          "issues": []
+        },
+        {
+          "id": "poisson-six",
+          "kind": "poisson-mass-recurrence",
+          "frames": 13,
+          "renderers": [
+            "fixed-mass-axis"
+          ],
+          "issues": []
+        },
+        {
+          "id": "count-cap",
+          "kind": "many-to-one-transformation",
+          "frames": 6,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "count-distance",
+          "kind": "many-to-one-transformation",
+          "frames": 8,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "quadratic-six",
+          "kind": "many-to-one-transformation",
+          "frames": 7,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        }
+      ],
+      "editable": {
+        "frames": 4,
+        "issues": [],
+        "invalidPreserves": true,
+        "noPlayerLeak": true,
+        "error": ""
+      },
+      "controls": {
+        "before": true,
+        "compare": 2,
+        "prev": 1,
+        "seek": 2,
+        "timeline": 0,
+        "next": 1,
+        "reset": 0,
+        "reference": true,
+        "printed": 5,
+        "expected": 5
+      },
+      "mobileOverflow": false,
+      "enlargedOverflow": false,
+      "underlined": 0,
+      "fonts": {
+        "math": true,
+        "code": true,
+        "prose": true
+      }
+    },
+    "s_expectation": {
+      "errors": [],
+      "counts": {
+        "players": 35,
+        "questions": 82,
+        "rules": 80
+      },
+      "models": [
+        {
+          "id": "mean-main",
+          "kind": "signed-weighted-balance",
+          "frames": 4,
+          "renderers": [
+            "signed-contribution-or-allocation"
+          ],
+          "issues": []
+        },
+        {
+          "id": "absolute-main",
+          "kind": "signed-weighted-balance",
+          "frames": 4,
+          "renderers": [
+            "signed-contribution-or-allocation"
+          ],
+          "issues": []
+        },
+        {
+          "id": "heavy-positive",
+          "kind": "integrability-tail-test",
+          "frames": 7,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "heavy-signed",
+          "kind": "integrability-tail-test",
+          "frames": 7,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "square-main",
+          "kind": "signed-weighted-balance",
+          "frames": 4,
+          "renderers": [
+            "signed-contribution-or-allocation"
+          ],
+          "issues": []
+        },
+        {
+          "id": "square-symmetric",
+          "kind": "signed-weighted-balance",
+          "frames": 6,
+          "renderers": [
+            "signed-contribution-or-allocation"
+          ],
+          "issues": []
+        },
+        {
+          "id": "linear-dependent",
+          "kind": "outcome-wise-linearity",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "fixed-four",
+          "kind": "permutation-match-count",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "record-five",
+          "kind": "running-record-algorithm",
+          "frames": 6,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "bins-four",
+          "kind": "occupancy-ball-placement",
+          "frames": 5,
+          "renderers": [
+            "signed-contribution-or-allocation"
+          ],
+          "issues": []
+        },
+        {
+          "id": "bins-nonuniform",
+          "kind": "occupancy-ball-placement",
+          "frames": 3,
+          "renderers": [
+            "signed-contribution-or-allocation"
+          ],
+          "issues": []
+        },
+        {
+          "id": "tail-main",
+          "kind": "integer-tail-layer-cake",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "tail-second",
+          "kind": "integer-tail-layer-cake",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "cap-three",
+          "kind": "capped-waiting-survival",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "central-four",
+          "kind": "signed-weighted-balance",
+          "frames": 4,
+          "renderers": [
+            "signed-contribution-or-allocation"
+          ],
+          "issues": []
+        },
+        {
+          "id": "loss-main",
+          "kind": "least-squares-loss",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "clip-main",
+          "kind": "signed-weighted-balance",
+          "frames": 4,
+          "renderers": [
+            "signed-contribution-or-allocation"
+          ],
+          "issues": []
+        },
+        {
+          "id": "window-eight",
+          "kind": "overlapping-success-windows",
+          "frames": 6,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "graph-five",
+          "kind": "graph-edge-and-triangle-count",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        }
+      ],
+      "editable": {
+        "frames": 4,
+        "issues": [],
+        "invalidPreserves": true,
+        "noPlayerLeak": true,
+        "error": ""
+      },
+      "controls": {
+        "before": true,
+        "compare": 2,
+        "prev": 1,
+        "seek": 2,
+        "timeline": 0,
+        "next": 1,
+        "reset": 0,
+        "reference": true,
+        "printed": 4,
+        "expected": 4
+      },
+      "mobileOverflow": false,
+      "enlargedOverflow": false,
+      "underlined": 0,
+      "fonts": {
+        "math": true,
+        "code": true,
+        "prose": true
+      }
+    },
+    "l_det": {
+      "errors": [],
+      "counts": {
+        "players": 31,
+        "questions": 82,
+        "rules": 80
+      },
+      "models": [
+        {
+          "id": "geometry-main",
+          "kind": "oriented-parallelogram",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "shear-main",
+          "kind": "oriented-parallelogram",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "permutation-main",
+          "kind": "permutation-term-grid",
+          "frames": 6,
+          "renderers": [
+            "matrix-companion"
+          ],
+          "issues": []
+        },
+        {
+          "id": "eliminate-main",
+          "kind": "row-operation-matrix-ledger",
+          "frames": 6,
+          "renderers": [
+            "matrix-companion"
+          ],
+          "issues": []
+        },
+        {
+          "id": "cofactor-main",
+          "kind": "cofactor-deletion",
+          "frames": 3,
+          "renderers": [
+            "matrix-companion"
+          ],
+          "issues": []
+        },
+        {
+          "id": "cofactor-sparse",
+          "kind": "cofactor-deletion",
+          "frames": 3,
+          "renderers": [
+            "matrix-companion"
+          ],
+          "issues": []
+        },
+        {
+          "id": "adjugate-main",
+          "kind": "adjugate-product-grid",
+          "frames": 4,
+          "renderers": [
+            "matrix-companion"
+          ],
+          "issues": []
+        },
+        {
+          "id": "cramer-main",
+          "kind": "cramer-column-replacement",
+          "frames": 2,
+          "renderers": [
+            "matrix-companion"
+          ],
+          "issues": []
+        },
+        {
+          "id": "parameter-main",
+          "kind": "diagonal-subspace-volume",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "block-main",
+          "kind": "partitioned-block-elimination",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "update-main",
+          "kind": "rank-one-selected-column-expansion",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "vandermonde-main",
+          "kind": "node-to-power-matrix",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "recurrence-main",
+          "kind": "continuant-recurrence-plot",
+          "frames": 9,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "positivity-main",
+          "kind": "quadratic-form-direction-factors",
+          "frames": 6,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "triangle-main",
+          "kind": "oriented-triangle-translation",
+          "frames": 2,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "gram-main",
+          "kind": "gram-minor-area",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "reflection-main",
+          "kind": "reflection-vector-geometry",
+          "frames": 2,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        }
+      ],
+      "editable": {
+        "frames": 3,
+        "issues": [],
+        "invalidPreserves": true,
+        "noPlayerLeak": true,
+        "error": ""
+      },
+      "controls": {
+        "before": true,
+        "compare": 2,
+        "prev": 1,
+        "seek": 2,
+        "timeline": 0,
+        "next": 1,
+        "reset": 0,
+        "reference": true,
+        "printed": 3,
+        "expected": 3
+      },
+      "mobileOverflow": false,
+      "enlargedOverflow": false,
+      "underlined": 0,
+      "fonts": {
+        "math": true,
+        "code": true,
+        "prose": true
+      }
+    },
+    "l_spaces": {
+      "errors": [],
+      "counts": {
+        "players": 48,
+        "questions": 82,
+        "rules": 80
+      },
+      "models": [
+        {
+          "id": "closure-plane",
+          "kind": "plane-geometry",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "affine-failure",
+          "kind": "plane-geometry",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "redundant-parameters",
+          "kind": "matrix-column-selection",
+          "frames": 3,
+          "renderers": [
+            "matrix-companion"
+          ],
+          "issues": []
+        },
+        {
+          "id": "basis-filter",
+          "kind": "vector-geometry",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "coordinates-main",
+          "kind": "vector-geometry",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "measurement-main",
+          "kind": "plane-geometry",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "exchange-main",
+          "kind": "vector-geometry",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "pivot-main",
+          "kind": "matrix-row-reduction",
+          "frames": 4,
+          "renderers": [
+            "matrix-companion"
+          ],
+          "issues": []
+        },
+        {
+          "id": "polynomial-main",
+          "kind": "polynomial-plot",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "plane-course",
+          "kind": "plane-geometry",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "symmetric-trace",
+          "kind": "matrix-symmetry-constraint",
+          "frames": 4,
+          "renderers": [
+            "matrix-companion"
+          ],
+          "issues": []
+        },
+        {
+          "id": "symmetric-split",
+          "kind": "matrix-decomposition",
+          "frames": 3,
+          "renderers": [
+            "matrix-companion"
+          ],
+          "issues": []
+        },
+        {
+          "id": "matrix-balances",
+          "kind": "matrix-constraint-coupling",
+          "frames": 5,
+          "renderers": [
+            "matrix-companion"
+          ],
+          "issues": []
+        },
+        {
+          "id": "union-failure",
+          "kind": "vector-geometry",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "intersection-main",
+          "kind": "plane-geometry",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "three-lines",
+          "kind": "vector-geometry",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "direct-oblique",
+          "kind": "vector-geometry",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "projection-main",
+          "kind": "vector-geometry",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "quotient-main",
+          "kind": "quotient-geometry",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "finite-basis",
+          "kind": "finite-field-table",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "finite-lines",
+          "kind": "finite-field-table",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "parameter-span",
+          "kind": "vector-geometry",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "intersection-parameter",
+          "kind": "plane-geometry",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        }
+      ],
+      "editable": {
+        "frames": 8,
+        "issues": [],
+        "invalidPreserves": true,
+        "noPlayerLeak": true,
+        "error": ""
+      },
+      "controls": {
+        "before": true,
+        "compare": 2,
+        "prev": 1,
+        "seek": 2,
+        "timeline": 0,
+        "next": 1,
+        "reset": 0,
+        "reference": true,
+        "printed": 5,
+        "expected": 5
+      },
+      "mobileOverflow": false,
+      "enlargedOverflow": false,
+      "underlined": 0,
+      "fonts": {
+        "math": true,
+        "code": true,
+        "prose": true
+      }
+    },
+    "i_agents": {
+      "errors": [],
+      "counts": {
+        "players": 34,
+        "questions": 82,
+        "rules": 80
+      },
+      "models": [
+        {
+          "id": "loop-main",
+          "kind": "agent-loop",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "peas-main",
+          "kind": "task-specification",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "learning-main",
+          "kind": "learning-architecture",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "risk-main",
+          "kind": "utility-bars",
+          "frames": 3,
+          "renderers": [
+            "belief-utility-or-physical-world"
+          ],
+          "issues": []
+        },
+        {
+          "id": "threshold-main",
+          "kind": "probability-threshold",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "horizon-main",
+          "kind": "discount-bars",
+          "frames": 5,
+          "renderers": [
+            "belief-utility-or-physical-world"
+          ],
+          "issues": []
+        },
+        {
+          "id": "regret-main",
+          "kind": "regret-table",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "alias-main",
+          "kind": "history-aliasing",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "common-action",
+          "kind": "payoff-table",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "posterior-main",
+          "kind": "belief-bars",
+          "frames": 3,
+          "renderers": [
+            "belief-utility-or-physical-world"
+          ],
+          "issues": []
+        },
+        {
+          "id": "voi-main",
+          "kind": "information-tree",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "vacuum-main",
+          "kind": "vacuum-motion",
+          "frames": 4,
+          "renderers": [
+            "belief-utility-or-physical-world"
+          ],
+          "issues": []
+        },
+        {
+          "id": "sensorless-main",
+          "kind": "vacuum-belief-set",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "key-main",
+          "kind": "state-legality-graph",
+          "frames": 2,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "graph-main",
+          "kind": "state-versus-node",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "cycle-main",
+          "kind": "state-cycle",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "takeaway-main",
+          "kind": "counter-game",
+          "frames": 10,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        }
+      ],
+      "editable": {
+        "frames": 4,
+        "issues": [],
+        "invalidPreserves": true,
+        "noPlayerLeak": true,
+        "error": ""
+      },
+      "controls": {
+        "before": true,
+        "compare": 2,
+        "prev": 1,
+        "seek": 2,
+        "timeline": 0,
+        "next": 1,
+        "reset": 0,
+        "reference": true,
+        "printed": 4,
+        "expected": 4
+      },
+      "mobileOverflow": false,
+      "enlargedOverflow": false,
+      "underlined": 0,
+      "fonts": {
+        "math": true,
+        "code": true,
+        "prose": true
+      }
+    },
+    "i_uninformed": {
+      "errors": [],
+      "counts": {
+        "players": 47,
+        "questions": 81,
+        "rules": 80
+      },
+      "models": [
+        {
+          "id": "bfs-main",
+          "kind": "search-graph",
+          "frames": 20,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "dfs-main",
+          "kind": "search-graph",
+          "frames": 15,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "dls-main",
+          "kind": "search-graph",
+          "frames": 9,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "dls-cutoff",
+          "kind": "search-graph",
+          "frames": 8,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "depth-alias-main",
+          "kind": "search-graph",
+          "frames": 21,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "ids-main",
+          "kind": "search-graph",
+          "frames": 33,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "counts-main",
+          "kind": "search-count",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "ucs-main",
+          "kind": "search-graph",
+          "frames": 15,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "starvation-main",
+          "kind": "cost-contour",
+          "frames": 6,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "bidir-main",
+          "kind": "bidirectional-layers",
+          "frames": 5,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "segment-main",
+          "kind": "search-graph",
+          "frames": 17,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "weighted-bfs",
+          "kind": "search-graph",
+          "frames": 7,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "early-goal",
+          "kind": "search-graph",
+          "frames": 10,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "zero-cycle",
+          "kind": "search-graph",
+          "frames": 10,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "negative-edge",
+          "kind": "search-graph",
+          "frames": 3,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "counts-chain",
+          "kind": "search-count",
+          "frames": 3,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "counts-bfs",
+          "kind": "search-count",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "counts-dfs",
+          "kind": "search-count",
+          "frames": 8,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "dfs-infinite",
+          "kind": "search-graph",
+          "frames": 4,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "cost-bound",
+          "kind": "search-count",
+          "frames": 1,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "diamonds-main",
+          "kind": "search-count",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "finite-cycle-failure",
+          "kind": "search-graph",
+          "frames": 8,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "costly-dls",
+          "kind": "search-graph",
+          "frames": 12,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "key-main",
+          "kind": "search-graph",
+          "frames": 15,
+          "renderers": [
+            "graph-and-complete-frontier"
+          ],
+          "issues": []
+        },
+        {
+          "id": "grid-main",
+          "kind": "grid-path",
+          "frames": 8,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        }
+      ],
+      "editable": {
+        "frames": 15,
+        "issues": [],
+        "invalidPreserves": true,
+        "noPlayerLeak": true,
+        "error": ""
+      },
+      "controls": {
+        "before": true,
+        "compare": 2,
+        "prev": 1,
+        "seek": 2,
+        "timeline": 0,
+        "next": 1,
+        "reset": 0,
+        "reference": true,
+        "printed": 20,
+        "expected": 20
+      },
+      "mobileOverflow": false,
+      "enlargedOverflow": false,
+      "underlined": 0,
+      "fonts": {
+        "math": true,
+        "code": true,
+        "prose": true
+      }
+    },
+    "p_strings": {
+      "errors": [],
+      "counts": {
+        "players": 49,
+        "questions": 81,
+        "rules": 80
+      },
+      "models": [
+        {
+          "id": "scan-embedded",
+          "kind": "byte-memory",
+          "frames": 5,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "scan-missing",
+          "kind": "byte-memory",
+          "frames": 7,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "scan-empty",
+          "kind": "byte-memory",
+          "frames": 3,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "copy-fit",
+          "kind": "byte-memory",
+          "frames": 9,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "copy-empty",
+          "kind": "byte-memory",
+          "frames": 3,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "copy-reject",
+          "kind": "byte-memory",
+          "frames": 2,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "pad-copy",
+          "kind": "byte-memory",
+          "frames": 7,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "prefix-copy",
+          "kind": "byte-memory",
+          "frames": 6,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "zero-copy",
+          "kind": "byte-memory",
+          "frames": 2,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "append-fit",
+          "kind": "byte-memory",
+          "frames": 5,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "append-bound",
+          "kind": "byte-memory",
+          "frames": 6,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "append-short",
+          "kind": "byte-memory",
+          "frames": 5,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "append-reject",
+          "kind": "byte-memory",
+          "frames": 2,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "move-right",
+          "kind": "byte-memory",
+          "frames": 7,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "move-left",
+          "kind": "byte-memory",
+          "frames": 7,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "insert-main",
+          "kind": "byte-memory",
+          "frames": 7,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "delete-main",
+          "kind": "byte-memory",
+          "frames": 6,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "compare-main",
+          "kind": "byte-memory",
+          "frames": 6,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "compare-prefix",
+          "kind": "byte-memory",
+          "frames": 6,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "compare-bound",
+          "kind": "byte-memory",
+          "frames": 5,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "compare-equal",
+          "kind": "byte-memory",
+          "frames": 7,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "match-overlap",
+          "kind": "byte-memory",
+          "frames": 11,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "match-worst",
+          "kind": "byte-memory",
+          "frames": 22,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "match-empty",
+          "kind": "byte-memory",
+          "frames": 2,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "match-long",
+          "kind": "byte-memory",
+          "frames": 2,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "reverse-main",
+          "kind": "byte-memory",
+          "frames": 4,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "reverse-empty",
+          "kind": "byte-memory",
+          "frames": 2,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "compact-main",
+          "kind": "byte-memory",
+          "frames": 9,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "compact-all",
+          "kind": "byte-memory",
+          "frames": 7,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        },
+        {
+          "id": "tokens-main",
+          "kind": "byte-memory",
+          "frames": 7,
+          "renderers": [
+            "addressed-memory"
+          ],
+          "issues": []
+        }
+      ],
+      "editable": {
+        "frames": 5,
+        "issues": [],
+        "invalidPreserves": true,
+        "noPlayerLeak": true,
+        "error": ""
+      },
+      "controls": {
+        "before": true,
+        "compare": 2,
+        "prev": 1,
+        "seek": 2,
+        "timeline": 0,
+        "next": 1,
+        "reset": 0,
+        "reference": true,
+        "printed": 5,
+        "expected": 5
+      },
+      "mobileOverflow": false,
+      "enlargedOverflow": false,
+      "underlined": 0,
+      "fonts": {
+        "math": true,
+        "code": true,
+        "prose": true
+      }
+    },
+    "p_recursion": {
+      "errors": [],
+      "counts": {
+        "players": 32,
+        "questions": 81,
+        "rules": 80
+      },
+      "models": [
+        {
+          "id": "fact-four",
+          "kind": "recursion-stack",
+          "frames": 10,
+          "renderers": [
+            "continuation-stack"
+          ],
+          "issues": []
+        },
+        {
+          "id": "fact-zero",
+          "kind": "recursion-stack",
+          "frames": 2,
+          "renderers": [
+            "continuation-stack"
+          ],
+          "issues": []
+        },
+        {
+          "id": "around-three",
+          "kind": "recursion-stack",
+          "frames": 14,
+          "renderers": [
+            "continuation-stack"
+          ],
+          "issues": []
+        },
+        {
+          "id": "digits-738",
+          "kind": "recursion-stack",
+          "frames": 6,
+          "renderers": [
+            "continuation-stack"
+          ],
+          "issues": []
+        },
+        {
+          "id": "gcd-main",
+          "kind": "recursion-stack",
+          "frames": 11,
+          "renderers": [
+            "continuation-stack"
+          ],
+          "issues": []
+        },
+        {
+          "id": "gcd-reversed",
+          "kind": "recursion-stack",
+          "frames": 14,
+          "renderers": [
+            "continuation-stack"
+          ],
+          "issues": []
+        },
+        {
+          "id": "pal-even",
+          "kind": "interval-shrink",
+          "frames": 11,
+          "renderers": [
+            "explicit-half-open-interval"
+          ],
+          "issues": []
+        },
+        {
+          "id": "pal-mismatch",
+          "kind": "interval-shrink",
+          "frames": 6,
+          "renderers": [
+            "explicit-half-open-interval"
+          ],
+          "issues": []
+        },
+        {
+          "id": "pal-empty",
+          "kind": "interval-shrink",
+          "frames": 2,
+          "renderers": [
+            "explicit-half-open-interval"
+          ],
+          "issues": []
+        },
+        {
+          "id": "binary-seven",
+          "kind": "interval-shrink",
+          "frames": 11,
+          "renderers": [
+            "explicit-half-open-interval"
+          ],
+          "issues": []
+        },
+        {
+          "id": "binary-success",
+          "kind": "interval-shrink",
+          "frames": 3,
+          "renderers": [
+            "explicit-half-open-interval"
+          ],
+          "issues": []
+        },
+        {
+          "id": "fib-five",
+          "kind": "call-tree",
+          "frames": 30,
+          "renderers": [
+            "fixed-invocation-tree"
+          ],
+          "issues": []
+        },
+        {
+          "id": "fib-zero",
+          "kind": "call-tree",
+          "frames": 2,
+          "renderers": [
+            "fixed-invocation-tree"
+          ],
+          "issues": []
+        },
+        {
+          "id": "memo-six",
+          "kind": "recursion-stack",
+          "frames": 33,
+          "renderers": [
+            "continuation-stack"
+          ],
+          "issues": []
+        },
+        {
+          "id": "memo-one",
+          "kind": "recursion-stack",
+          "frames": 3,
+          "renderers": [
+            "continuation-stack"
+          ],
+          "issues": []
+        },
+        {
+          "id": "hanoi-three",
+          "kind": "hanoi-pegs",
+          "frames": 65,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "hanoi-empty",
+          "kind": "hanoi-pegs",
+          "frames": 2,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "subsets-three",
+          "kind": "recursion-stack",
+          "frames": 52,
+          "renderers": [
+            "continuation-stack"
+          ],
+          "issues": []
+        },
+        {
+          "id": "subsets-empty",
+          "kind": "recursion-stack",
+          "frames": 3,
+          "renderers": [
+            "continuation-stack"
+          ],
+          "issues": []
+        },
+        {
+          "id": "koch-three",
+          "kind": "koch-geometry",
+          "frames": 4,
+          "renderers": [
+            "retained-geometry"
+          ],
+          "issues": []
+        },
+        {
+          "id": "stride-seven",
+          "kind": "recursion-stack",
+          "frames": 14,
+          "renderers": [
+            "continuation-stack"
+          ],
+          "issues": []
+        },
+        {
+          "id": "power-thirteen",
+          "kind": "recursion-stack",
+          "frames": 8,
+          "renderers": [
+            "continuation-stack"
+          ],
+          "issues": []
+        }
+      ],
+      "editable": {
+        "frames": 8,
+        "issues": [],
+        "invalidPreserves": true,
+        "noPlayerLeak": true,
+        "error": ""
+      },
+      "controls": {
+        "before": true,
+        "compare": 2,
+        "prev": 1,
+        "seek": 2,
+        "timeline": 0,
+        "next": 1,
+        "reset": 0,
+        "reference": true,
+        "printed": 10,
+        "expected": 10
+      },
+      "mobileOverflow": false,
+      "enlargedOverflow": false,
+      "underlined": 0,
+      "fonts": {
+        "math": true,
+        "code": true,
+        "prose": true
+      }
+    }
+  },
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\recent-simulation-qa",
+  "motionPause": {
+    "motions": 1,
+    "frozen": true,
+    "geometryFrozen": true
+  },
+  "motionResume": true,
+  "manualTransition": 0.4,
+  "reducedMotion": true
+}
