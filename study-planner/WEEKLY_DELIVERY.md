@@ -541,3 +541,8 @@ Completed g_arithmetic with four reviewed written university courses, 82 fully w
 ## Selector/decoder/encoder review draft — 10 October 2026
 
 Completed g_mux: four read written university courses, 82 complete solutions, 80 final rules, 17 domain-specific models / 56 saved checkpoints. Independent references passed for 7132 cases / 26084 generated checkpoints. All 48 preceding pages retained byte for byte. Browser font, geometry, control, lab, mobile and print checks passed. Review complete, not yet student-approved. Publication tracked separately. Standing authorization advances work to d_recurrence without another start-permission request.
+
+
+## Recurrence relations review draft — 10 October 2026
+
+Completed d_recurrence: four actually read university texts, 83 complete solutions, 80 final rules, 14 distinct mathematical models / 107 checkpoints. Independent references passed 1649 cases / 9512 generated checkpoints. All 49 earlier chapter pages retained. Actual Edge font, geometry, control, editable model, mobile and print checks passed. Student approval and online publication remain separate. Standing authorization advances work to d_generating.

@@ -1,0 +1,40 @@
+{
+  "coreUniversities": [
+    "MIT",
+    "Oxford",
+    "Cornell",
+    "Berkeley"
+  ],
+  "sources": [
+    {
+      "name": "MIT",
+      "sha256": "a07e73979a55f0be10633fcba12c0195f4475288a9b84331c8eb0de0e0a1571a",
+      "pdfPages": 920,
+      "scope": "PDF 876\u2013891, Chapter 21"
+    },
+    {
+      "name": "Berkeley Thursday",
+      "sha256": "24b14af68d89b3aeae1be3298c2989120c607270e329c3111977b4ba34161fa5",
+      "pdfPages": 2,
+      "scope": "Both pages; page two visually inspected"
+    },
+    {
+      "name": "Berkeley Friday",
+      "sha256": "d0f437600ac4c9efe40d0f629ccd9612d44e96d3e7373abb00698a8cb6f2b6a2",
+      "pdfPages": 2,
+      "scope": "Both pages"
+    },
+    {
+      "name": "Oxford",
+      "scope": "Chapter 5, printed 57\u201370, one-based PDF 67\u201380; web PDF text",
+      "hash": null
+    },
+    {
+      "name": "Cornell",
+      "scope": "One-based PDF 31\u201335; actual web PDF definitions, proofs and repeated-root paragraph",
+      "hash": null
+    }
+  ],
+  "candidateAudit": "research/d_recurrence-source-audit.md",
+  "limits": "Bounded written candidate pool; exact scopes rather than entire-course claims. No native hash for failed Oxford/Cornell downloads."
+}

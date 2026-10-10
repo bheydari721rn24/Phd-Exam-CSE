@@ -1,0 +1,580 @@
+[
+  {
+    "id": "d_recurrence_original_01",
+    "title": "A valid formula with the wrong first transition",
+    "stem": "Let $a_0=7,a_1=2$, and $a_n=3a_{n-1}$ for $n\\ge2$. Decide whether $a_n=7\\cdot3^n$ is correct, and give the complete sequence formula.",
+    "solution": "The recurrence is not imposed at index one, so $a_1$ is independent of $a_0$. Starting from index one, repeated multiplication gives $a_n=2\\cdot3^{n-1}$ for $n\\ge1$. The full answer is this tail together with $a_0=7$. The proposed expression predicts twenty-one at index one, while the supplied value is two; satisfying the tail equation alone cannot correct that failure. A unified form is $a_n=(2/3)3^n+(19/3)\\delta_{n,0}$. The impulse affects only the unconstrained first term. This problem illustrates why reducing effective order must preserve the original starting index.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "zero-root-prefix"
+  },
+  {
+    "id": "d_recurrence_original_02",
+    "title": "One omitted base case invalidates an induction",
+    "stem": "For $a_n=4a_{n-1}-3a_{n-2}$, $a_0=a_1=1$, a proposed proof claims $a_n=3^n$ because the formula satisfies the recurrence and agrees at zero. Identify the flaw and solve the recurrence.",
+    "solution": "The induction step uses two earlier indices; to begin at two, both indices zero and one must satisfy the proposed statement. At one the claim predicts three, which is false. The characteristic polynomial factors as $(r-1)(r-3)$, so $a_n=A+B3^n$. The data yield $A+B=1$ and $A+3B=1$; subtracting gives $B=0$, hence $A=1$. Thus every term is one. Substituting one into the equation gives $4-3=1$, verifying the tail, and both bases agree. This is a reconstruction of the missing-base-case reasoning pattern in the Cornell reader; the independent solution shows how the erroneous growing mode is eliminated.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_03",
+    "title": "Recover an unknown initial value from a distant term",
+    "stem": "Let $a_n=2a_{n-1}+3$ for positive $n$, and suppose $a_4=109$. Determine $a_0$ and $a_7$.",
+    "solution": "Adding three to both sides gives $a_n+3=2(a_{n-1}+3)$. Therefore $a_n=(a_0+3)2^n-3$. At four, $112=16(a_0+3)$, so $a_0=4$. The seventh term is $7\\cdot128-3=893$. A backward check gives the intermediate values $4,11,25,53,109$, confirming the recovered boundary. Backward recovery is possible because the coefficient two is nonzero. If it were zero, later terms would contain no information about the earlier value, and a distant observation could not determine $a_0$.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_04",
+    "title": "A well-founded recurrence with a floor",
+    "stem": "Let $a_0=0$ and $a_n=a_{\\lfloor n/2\\rfloor}+1$ for positive $n$. Find $a_{1000}$ and prove a formula for all positive indices.",
+    "solution": "Repeated integer halving reaches zero after the number of binary digits of $n$ steps. That count is $\\lfloor\\log_2 n\\rfloor+1$, so $a_{1000}=10$ because $512\\le1000<1024$. For a rigorous proof, if $2^j\\le n<2^{j+1}$ with $j\\ge1$, then $2^{j-1}\\le\\lfloor n/2\\rfloor<2^j$. Induction on $j$ gives the predecessor value $j$, and the update gives $j+1$. The separate interval $n=1$ gives one directly. The expression is not defined by the same logarithm formula at zero; the specified zero value remains a separate boundary.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_05",
+    "title": "Diagnose insufficient information",
+    "stem": "Suppose $a_n=5a_{n-1}-6a_{n-2}$ for $n\\ge2$ and only $a_0=1$ is specified. Is $a_{10}$ uniquely determined? Express the family in terms of $a_1=t$.",
+    "solution": "Roots two and three give $a_n=A2^n+B3^n$. The equations $A+B=1$ and $2A+3B=t$ imply $B=t-2$ and $A=3-t$. Consequently $a_{10}=(3-t)1024+(t-2)59049$, which changes with $t$. One boundary value cannot determine an order-two homogeneous equation. The valid answer is a parameterized family, not a guessed extra starting value. For example, $t=2$ gives $2^n$, whereas $t=3$ gives $3^n$, and both agree at zero. Distinguishing these two solutions proves nonuniqueness without any advanced algebra.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_06",
+    "title": "Classify three superficially similar equations",
+    "stem": "Classify $a_n=n a_{n-1}+1$, $b_n=2b_{n-1}+b_{n-2}^2$, and $T(n)=2T(n/2)+n$. Which supports a fixed consecutive-index characteristic polynomial directly?",
+    "solution": "The first is linear and nonhomogeneous, but its coefficient depends on the index; unrolling or an integrating factor is appropriate. The second is nonlinear because a previous unknown value is squared; superposition fails. The third is linear in the function $T$, but it refers to a halved argument rather than a fixed lag. None supports the constant-coefficient consecutive-index polynomial directly. If the third equation is restricted to powers of two, define $u_j=T(2^j)$; then $u_j=2u_{j-1}+2^j$, which does support a constant-lag forcing method. The change of variable must include the new boundary and index domain, not merely relabel the old polynomial.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_07",
+    "title": "Subtract prefix sums without losing the first value",
+    "stem": "Let $a_0=2$ and $a_n=3\\sum_{j=0}^{n-1}a_j+1$ for $n\\ge1$. Find $a_n$ and $a_5$.",
+    "solution": "The original first equation gives $a_1=3\\cdot2+1=7$. For $n\\ge2$, subtracting the equation at $n-1$ leaves $a_n-a_{n-1}=3a_{n-1}$, hence $a_n=4a_{n-1}$. Therefore $a_n=7\\cdot4^{n-1}$ for positive $n$, with the exceptional $a_0=2$. At five the value is $7\\cdot256=1792$. To verify the original relation, sum the geometric tail up to $n-1$: $2+7(4^{n-1}-1)/3$. Multiplying by three and adding one yields $7\\cdot4^{n-1}$. Extending the simplified equation to index one would wrongly give eight instead of seven.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_08",
+    "title": "A symbolic parameter changes uniqueness",
+    "stem": "Let $p a_{n+1}=a_n$ for $n\\ge0$ and $a_0=1$. Discuss the cases $p=0$ and $p\\ne0$.",
+    "solution": "If $p\\ne0$, normalization gives $a_{n+1}=a_n/p$, so induction yields $a_n=p^{-n}$. If $p=0$, the equation at zero demands $0=a_0=1$, making the data inconsistent. A formula obtained by dividing by $p$ cannot describe this case. If the boundary had instead been $a_0=0$ with $p=0$, all equations would demand every $a_n=0$, rather than leave the whole sequence arbitrary. The newest-term coefficient is therefore part of existence analysis, not just a convenient denominator. Normalization must be justified before the standard forward recurrence theorem is applied.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_09",
+    "title": "Constant forcing with a shifted fixed point",
+    "stem": "Solve $a_n=4a_{n-1}-6$ with $a_0=5$. Determine when the sequence would instead remain constant.",
+    "solution": "The fixed point solves $u=4u-6$, giving $u=2$. Define $b_n=a_n-2$; then $b_n=4b_{n-1}$ and $b_0=3$. Hence $a_n=2+3\\cdot4^n$. Substitution gives $4(2+3\\cdot4^{n-1})-6=2+3\\cdot4^n$, and the zero-index value is five. The constant trajectory occurs exactly when $a_0=2$. The presence of root four in the homogeneous companion does not force every initial condition to grow: at the fixed point its homogeneous amplitude is zero. This same reasoning generalizes to $a_n=pa_{n-1}+q$ when $p\\ne1$.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_10",
+    "title": "Resonant first-order forcing",
+    "stem": "Solve $a_n=3a_{n-1}+2\\cdot3^n$ for $n\\ge1$, $a_0=4$.",
+    "solution": "Divide by $3^n$ and set $u_n=a_n/3^n$. The recurrence becomes $u_n=u_{n-1}+2$, with $u_0=4$, hence $u_n=4+2n$. Therefore $a_n=(4+2n)3^n$. Equivalently, unrolling gives $3^n a_0+\\sum_{j=1}^n3^{n-j}2\\cdot3^j$; every summand is $2\\cdot3^n$, so there are $n$ identical contributions. The forcing's exponential base equals the homogeneous root, which explains the extra factor $n$. A trial using only a constant multiple of $3^n$ has zero residual and cannot generate the required forcing.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_11",
+    "title": "Nonresonant first-order forcing",
+    "stem": "Solve $a_n=2a_{n-1}+5^n$ with $a_0=1$.",
+    "solution": "Try $p_n=K5^n$. Substitution yields $K=2K/5+1$, so $K=5/3$. Add the homogeneous term $A2^n$ and impose the boundary: $1=A+5/3$, so $A=-2/3$. Thus $a_n=(5^{n+1}-2^{n+1})/3$. At index one this gives seven, agreeing with $2+5$. The apparent fraction produces integers because $5\\equiv2$ modulo three, so their equal powers have a difference divisible by three. An exact rational representation does not mean the count itself is fractional. This divisibility check independently supports the algebra and is often useful in a counting interpretation.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_12",
+    "title": "Polynomial forcing through a telescoping normalization",
+    "stem": "Let $a_n=a_{n-1}+n^2$, $a_0=0$. Derive $a_n$ without guessing a cubic coefficient from a few values.",
+    "solution": "Unrolling gives $a_n=\\sum_{j=1}^n j^2$. To derive its polynomial, use $(j+1)^3-j^3=3j^2+3j+1$ and sum for $j=1,\\ldots,n$. The left side telescopes to $(n+1)^3-1$. Substitute $\\sum j=n(n+1)/2$ into the right side and solve for the square sum, obtaining $a_n=n(n+1)(2n+1)/6$. The expression vanishes at zero; subtracting its value at $n-1$ gives exactly $n^2$. These two facts, rather than a numerical fit, establish the result for every nonnegative index by uniqueness.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_13",
+    "title": "Alternating forcing and a negative root",
+    "stem": "Solve $a_n=-a_{n-1}+n$ for positive $n$, with $a_0=0$.",
+    "solution": "A linear particular term $Bn+C$ gives $Bn+C=-B(n-1)-C+n$, hence $2B=1$ and $2C=B$. Thus $B=1/2,C=1/4$. The homogeneous term is $A(-1)^n$, and the initial value gives $A=-1/4$. Therefore $a_n=n/2+(1-(-1)^n)/4$, equivalently $\\lceil n/2\\rceil$. For even $n$ the correction is zero; for odd $n$ it is one half, making the expression an integer in both cases. The first values $0,1,1,2,2$ agree with direct updates. Dropping the oscillating mode would miss the exact parity dependence even though the leading linear growth remained correct.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_14",
+    "title": "A factorial integrating factor",
+    "stem": "Solve $a_n=n a_{n-1}+n!$ with $a_0=2$.",
+    "solution": "For positive $n$, divide by $n!$ and use $n(n-1)!=n!$. The normalized value $u_n=a_n/n!$ satisfies $u_n=u_{n-1}+1$. Since $0!=1$, $u_0=2$, so $u_n=n+2$. The solution is $a_n=(n+2)n!$. Verify directly: $n(n+1)(n-1)!+n!=(n+2)n!$. A characteristic polynomial with coefficient $n$ would not be constant and would not justify an exponential answer. Here normalization works because every factorial denominator is nonzero, and it removes the changing coefficient exactly rather than approximating it.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_15",
+    "title": "A zero coefficient resets a variable-coefficient recurrence",
+    "stem": "Let $a_0=9$, $a_1=2a_0+1$, $a_2=0a_1+5$, and $a_n=3a_{n-1}+2$ for $n\\ge3$. Find $a_{10}$ and determine whether it depends on $a_0$.",
+    "solution": "The first step gives nineteen, but the second gives five regardless of any preceding value. From index two, adding one produces $a_n+1=3(a_{n-1}+1)$. Thus $a_n=6\\cdot3^{n-2}-1$ for $n\\ge2$, and $a_{10}=6\\cdot6561-1=39365$. The result does not depend on $a_0$. In the product formula, every contribution from before index two contains the coefficient zero and vanishes. Dividing by a product containing that zero would be invalid; the nondividing unrolled formula handles the reset naturally. The exceptional early values remain part of the sequence even though they no longer influence its tail.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_16",
+    "title": "Period-two variable coefficients",
+    "stem": "Let $a_0=1$, with $a_n=2a_{n-1}+1$ for odd $n$ and $a_n=3a_{n-1}+1$ for positive even $n$. Find formulas for the even and odd subsequences.",
+    "solution": "Compose two updates: $a_{2m}=3(2a_{2m-2}+1)+1=6a_{2m-2}+4$. Define $b_m=a_{2m}$ with $b_0=1$. The first-order formula gives $b_m=6^m+4(6^m-1)/5=(9\\cdot6^m-4)/5$. Then $a_{2m+1}=2b_m+1=(18\\cdot6^m-3)/5$. At $m=0$ these produce one and three, and at $m=1$ they produce ten and twenty-one. The original recurrence has variable coefficients, but grouping a complete coefficient period yields a constant-coefficient equation on each subsequence. Using an average multiplier would lose both exact values and phase information.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_17",
+    "title": "Distinct roots and explicit constants",
+    "stem": "Solve $a_n=5a_{n-1}-6a_{n-2}$ with $a_0=2,a_1=5$. Find $a_6$.",
+    "solution": "The characteristic equation is $r^2-5r+6=(r-2)(r-3)=0$. Write $a_n=A2^n+B3^n$. The initial equations $A+B=2$ and $2A+3B=5$ give $B=1,A=1$, so $a_n=2^n+3^n$. At six the answer is $64+729=793$. A substitution check uses $5r-6=r^2$ for each root, so each mode satisfies the equation and their sum does too. This is stronger than checking only index two. The starting equations must use exponents zero and one; substituting the supplied values at one and two would solve a different sequence.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_18",
+    "title": "Starting indices one and two",
+    "stem": "Let $a_1=1,a_2=3$, and $a_{n+2}=3a_{n+1}-2a_n$ for $n\\ge1$. Find the exact formula.",
+    "solution": "The roots are one and two, so $a_n=A+B2^n$. Using the actual indices gives $A+2B=1$ and $A+4B=3$, hence $B=1,A=-1$. The answer is $a_n=2^n-1$ for positive $n$. Check the two supplied values and substitute the two modes. A formula $2^{n+1}-1$ would already give three at index one and is rejected before any large-index calculation. This is a reconstruction of the Oxford practice pattern; the written answer is fitted independently to the actual stated boundaries. Shifting to $b_m=a_{m+1}$ is also valid, but its formula must be shifted back at the end.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_19",
+    "title": "A dominant root can disappear",
+    "stem": "For $a_n=4a_{n-1}-3a_{n-2}$, $a_0=2$, determine which $a_1$ makes the sequence bounded and which makes $a_n=2\\cdot3^n$.",
+    "solution": "The general solution is $A+B3^n$. Since $A+B=2$ and $A+3B=a_1$, one has $B=(a_1-2)/2$. Boundedness requires $B=0$, so $a_1=2$ and every term is two. For the pure growing mode, require $A=0,B=2$, giving $a_1=6$. All other real starting values leave a nonzero exponential amplitude; its sign determines whether the tail grows toward positive or negative infinity. Merely seeing the root three does not justify a growth claim until this amplitude is fitted. The bounded case is a one-dimensional set of initial data inside the two-dimensional solution space.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_20",
+    "title": "A stable averaging model",
+    "stem": "Let $L_n=(L_{n-1}+L_{n-2})/2$ for $n\\ge3$, $L_1=100000,L_2=300000$. Find the limit and the exact alternating correction.",
+    "solution": "The roots are one and negative one half. Use $L_n=C+D(-1/2)^{n-1}$ so the first index is explicit. The equations $C+D=100000$ and $C-D/2=300000$ give $C=700000/3,D=-400000/3$. Therefore the limit is $700000/3$, and the error from that limit alternates while its magnitude halves at each step. The simple average two hundred thousand is not the invariant weighted limit. At three the formula gives two hundred thousand, matching the arithmetic update. This reconstructs Berkeley's averaging pattern with its original boundary indices; it is a deterministic mathematical model, not a forecast about real population dynamics.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_21",
+    "title": "Fibonacci approximation has a rigorous error bound",
+    "stem": "With $F_0=0,F_1=1$, prove that $F_n$ is the nearest integer to $\\phi^n/\\sqrt5$ for nonnegative $n$. Explain why this does not validate arbitrary large floating-point evaluation.",
+    "solution": "The exact root solution gives $F_n=(\\phi^n-\\psi^n)/\\sqrt5$, where $\\psi=(1-\\sqrt5)/2$ has magnitude below one. Therefore the difference from $\\phi^n/\\sqrt5$ is $|\\psi|^n/\\sqrt5\\le1/\\sqrt5<1/2$. Because $F_n$ is an integer, it is the unique nearest integer. This bound concerns exact real arithmetic. A floating-point calculation introduces an additional error in the power and division, which can exceed one half as values grow. An exact integer recurrence or doubling algorithm avoids that unbounded rounding risk. Confusing a symbolic error bound with a machine arithmetic guarantee is a conceptual mistake.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_22",
+    "title": "Recover an earlier value from two later values",
+    "stem": "Let $a_n=5a_{n-1}-6a_{n-2}$ and suppose $a_3=35,a_4=97$. Recover $a_0,a_1$.",
+    "solution": "Backward rearrangement gives $a_{n-2}=(5a_{n-1}-a_n)/6$. Hence $a_2=(175-97)/6=13$, $a_1=(65-35)/6=5$, and $a_0=(25-13)/6=2$. These are the data of the sequence $2^n+3^n$. Backward uniqueness is available because the last coefficient negative six is nonzero over the rationals. It may fail over a modular ring where six is not invertible. The backward computations yield integers here, but integrality is a property to verify, not a general consequence of dividing by six. The fitted root form provides an independent forward check.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_23",
+    "title": "A sum of Fibonacci values from a recurrence identity",
+    "stem": "Show that $\\sum_{j=0}^n F_j=F_{n+2}-1$. Then compute $\\sum_{j=0}^{10}F_j$.",
+    "solution": "For $j\\ge0$, the Fibonacci relation rearranges to $F_j=F_{j+2}-F_{j+1}$. Summing telescopes: all middle terms cancel, leaving $F_{n+2}-F_1=F_{n+2}-1$. At ten, $F_{12}=144$, so the sum is 143. The zero-index term is zero and does not change the result, but the subtraction of $F_1=1$ remains essential. Alternatively, the formula has the correct value at zero and its successive difference is $F_n$, proving it by induction. A frequent index error is $F_{n+1}-1$, which already fails for $n=1$.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_24",
+    "title": "Nonconsecutive boundary observations",
+    "stem": "Suppose $a_n=3a_{n-1}-2a_{n-2}$, $a_0=1,a_2=7$. Determine the sequence and explain why these observations suffice.",
+    "solution": "Roots one and two give $a_n=A+B2^n$. The observations produce $A+B=1$ and $A+4B=7$, so $B=2,A=-1$. Thus $a_n=2^{n+1}-1$ and $a_1=3$. The observation matrix has determinant $4-1=3$, so it is invertible even though the observations are not consecutive. Not every pair of nonconsecutive observations is sufficient: for roots one and negative one, two even-index observations cannot distinguish the amplitudes because both modes equal one at even indices. Independence of the complete modes does not imply every chosen measurement matrix is invertible.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_25",
+    "title": "A repeated root carries an independent polynomial mode",
+    "stem": "Solve $a_n=4a_{n-1}-4a_{n-2}$ with $a_0=1,a_1=6$. Determine $a_5$.",
+    "solution": "The polynomial is $(r-2)^2$, so the complete solution is $(A+Bn)2^n$. At zero, $A=1$; at one, $2(A+B)=6$, so $B=2$. Thus $a_n=(1+2n)2^n$, and $a_5=11\\cdot32=352$. Substitution cancels the affine polynomial's second difference, confirming the recurrence identity. Using $A2^n+B2^n$ would collapse to one amplitude and predict $a_1=2a_0$, which is not the supplied six. A repeated polynomial root counts its multiplicity through independent index factors, not repeated labels on the same exponential mode.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "quadratic-differences"
+  },
+  {
+    "id": "d_recurrence_original_26",
+    "title": "A triple root and three boundary equations",
+    "stem": "Let $a_n=6a_{n-1}-12a_{n-2}+8a_{n-3}$ for $n\\ge3$, with $a_0=1,a_1=8,a_2=36$. Find $a_6$.",
+    "solution": "The polynomial is $(r-2)^3$. Write $a_n=(A+Bn+Cn^2)2^n$. The boundary equations give $A=1$, $A+B+C=4$, and $A+2B+4C=9$. Hence $B+C=3$ and $B+2C=4$, so $C=1,B=2$. The formula is $(n+1)^2 2^n$, giving $a_6=49\\cdot64=3136$. A degree-two polynomial has zero third finite difference, which independently verifies that the triple repeated shift factor annihilates the formula. Fitting only two starting values would leave one free parameter and could not establish this exact sequence.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "quadratic-differences"
+  },
+  {
+    "id": "d_recurrence_original_27",
+    "title": "A repeated root together with a distinct root",
+    "stem": "Solve $a_n=5a_{n-1}-7a_{n-2}+3a_{n-3}$, $a_0=4,a_1=12,a_2=32$.",
+    "solution": "Factor the polynomial as $(r-1)^2(r-3)$. The three independent modes give $a_n=A+Bn+C3^n$. At zero, $A+C=4$; at one, $A+B+3C=12$; at two, $A+2B+9C=32$. Subtracting the first equation gives $B+2C=8$ and $2B+8C=28$. Consequently $C=3,B=2,A=1$, so $a_n=1+2n+3^{n+1}$. Each term is annihilated by one factor of the polynomial with the required multiplicity. The linear mode associated with root one should not be confused with a particular solution: the recurrence here is homogeneous.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_28",
+    "title": "Zero roots require impulses rather than zero powers",
+    "stem": "Let $a_n=0$ for $n\\ge2$, with $a_0=4,a_1=7$. Explain why the expressions $A0^n+Bn0^n$ cannot represent the sequence, and supply a valid representation.",
+    "solution": "Even if $0^0=1$ is assigned, the second proposed mode is zero at every index: at zero its factor $n$ is zero, and at positive indices its factor $0^n$ is zero. The first mode can only affect index zero, so no value of $B$ produces seven at index one. The correct representation is $a_n=4\\delta_{n,0}+7\\delta_{n,1}$. The two impulse sequences are independent and supply the two arbitrary prefix values, while the tail is zero. This is an order-two equation with polynomial $z^2$, but the familiar nonzero repeated-root formula has an assumption that cannot be removed by an informal power convention.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_29",
+    "title": "A zero-root prefix attached to an exponential tail",
+    "stem": "Let $a_0=4,a_1=5,a_2=6$, and $a_n=2a_{n-1}$ only for $n\\ge3$. Describe the full solution and its formal order-three polynomial.",
+    "solution": "The tail beginning at two is $6\\cdot2^{n-2}$, or $(3/2)2^n$. That extension would predict $3/2$ at zero and three at one. Correct those two values with impulses: $a_n=(3/2)2^n+(5/2)\\delta_{n,0}+2\\delta_{n,1}$. The normalized order-three polynomial is $z^3-2z^2=z^2(z-2)$. Its two zero factors represent prefix freedom; its nonzero factor controls the tail. The recurrence is not imposed at indices one or two, so arbitrary prefix data are consistent. This gives three independent parameters before the supplied values are fitted, matching the dimension of the initial triple.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "zero-root-prefix"
+  },
+  {
+    "id": "d_recurrence_original_30",
+    "title": "Complex roots can produce a simple periodic sequence",
+    "stem": "Solve $a_n=-a_{n-2}$ with $a_0=1,a_1=0$, and compute $a_{2027}$.",
+    "solution": "The characteristic polynomial is $r^2+1$, with roots $i,-i$. A real representation is $a_n=A\\cos(n\\pi/2)+B\\sin(n\\pi/2)$. The data give $A=1,B=0$, so the sequence repeats $1,0,-1,0$. Since 2027 is congruent to three modulo four, the requested term is zero. Directly shifting by two negates each cosine value, verifying the recurrence. Complex roots do not mean complex final values when the coefficients and boundary data are real; conjugate modes combine into real trigonometric terms. Taking only their magnitudes would destroy the periodic signs and zeroes.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_31",
+    "title": "Growing oscillations and a conjugate pair",
+    "stem": "Solve $a_n=-2a_{n-1}-2a_{n-2}$ with $a_0=1,a_1=-1$. Is $|a_n|$ bounded below by a positive multiple of $(\\sqrt2)^n$ for all large $n$?",
+    "solution": "The roots are $-1+i,-1-i$, of modulus $\\sqrt2$ and angles plus or minus $3\\pi/4$. The data select $a_n=(\\sqrt2)^n\\cos(3n\\pi/4)$. At one this gives negative one, and the recurrence follows from the characteristic roots. For indices congruent to two modulo four, the cosine is zero. Hence no positive lower bound of the proposed kind holds at every sufficiently large index. An upper bound by $(\\sqrt2)^n$ is valid. On some other subsequences the magnitude has that exponential order. An oscillatory leading mode needs a domain-aware statement rather than an unconditional positive Theta claim.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_32",
+    "title": "Recover a minimal recurrence from a proposed sequence",
+    "stem": "For $a_n=2^n+n3^n$, find a constant-coefficient homogeneous recurrence of minimal order.",
+    "solution": "The mode $2^n$ requires the factor $E-2$, and $n3^n$ requires $(E-3)^2$. The minimal polynomial is $(z-2)(z-3)^2=z^3-8z^2+21z-18$. Thus $a_n=8a_{n-1}-21a_{n-2}+18a_{n-3}$ for $n\\ge3$, with $a_0=1,a_1=5,a_2=22$. Minimality follows from the independence of nonzero exponential-polynomial modes: a single factor at three cannot annihilate its degree-one coefficient, and removing the factor at two leaves the nonzero other mode. The sequence's visibly two summands therefore require order three, not order two.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_33",
+    "title": "Constant forcing resonant with a double root",
+    "stem": "Solve $a_n-2a_{n-1}+a_{n-2}=1$ with $a_0=0,a_1=1$.",
+    "solution": "The homogeneous polynomial is $(r-1)^2$, giving $A+Bn$. The constant forcing uses exponential base one, whose multiplicity is two; choose a particular $Kn^2$. Its backward second difference is $2K$, so $K=1/2$. Fit the complete expression $A+Bn+n^2/2$: index zero gives $A=0$, and index one gives $B=1/2$. Therefore $a_n=n(n+1)/2$. The first difference is $n$, whose difference is one, confirming the equation independently. A linear particular trial would be annihilated and cannot produce the forcing; it is the multiplicity, not the forcing's degree, that necessitates the quadratic term.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_34",
+    "title": "Exponential forcing at a double nonunit root",
+    "stem": "Let $a_n-4a_{n-1}+4a_{n-2}=2^n$, $a_0=a_1=0$. Find the exact solution.",
+    "solution": "Normalize by $2^n$ and let $u_n=a_n/2^n$. Then $u_n-2u_{n-1}+u_{n-2}=1$. Its zero bases give $u_n=n(n-1)/2$, because the backward second difference of that expression is one and it vanishes at zero and one. Therefore $a_n=n(n-1)2^{n-1}$. The same result follows from the general form $(A+Bn+Cn^2)2^n$: the residual is $2C2^n$, so $C=1/2$, and the bases determine $A=0,B=-1/2$. At two, the value is four, matching the first forced update. Forgetting either the normalization shift or the double resonance leads to a wrong coefficient.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "double-resonance"
+  },
+  {
+    "id": "d_recurrence_original_35",
+    "title": "Linear polynomial forcing with a resonant unit root",
+    "stem": "Solve $a_n=3a_{n-1}-2a_{n-2}+n$ for $n\\ge2$, with $a_0=a_1=0$.",
+    "solution": "The roots are one and two. Since the polynomial forcing has base one and that root is simple, try $p_n=An^2+Bn$. Direct substitution into $p_n-3p_{n-1}+2p_{n-2}$ gives $-2An+5A-B$. Match it to $n$, obtaining $A=-1/2,B=-5/2$. Add $C+D2^n$. At zero, $C+D=0$; at one, $C+2D=3$, so $D=3,C=-3$. The answer is $a_n=3\\cdot2^n-3-(n^2+5n)/2$. At two this is two, agreeing with the original equation. Fit the constants after adding the particular term; the zero boundary values do not imply a zero solution in a forced recurrence.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_36",
+    "title": "Polynomial times a nonresonant exponential",
+    "stem": "Solve $a_n=2a_{n-1}+n3^n$ with $a_0=0$.",
+    "solution": "Use $p_n=(An+B)3^n$. Substitution gives the normalized residual $(A/3)n+(B+2A)/3$, so matching $n$ yields $A=3,B=-6$. Add $C2^n$ and fit zero: $C=6$. Thus $a_n=(3n-6)3^n+6\\cdot2^n$. At one the value is three, and at two it is twenty-four, agreeing with two successive updates. The trial must include both a linear and a constant coefficient even though the forcing has no constant term: shifting $n$ to $n-1$ generates a lower-degree term that must cancel. Trying only $An3^n$ misses that cancellation.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_37",
+    "title": "Mixed forcing and a separate boundary fit",
+    "stem": "Solve $a_n=2a_{n-1}+3^n+5n$, $a_0=0$.",
+    "solution": "The two forcing parts can be treated independently. For $3^n$, the particular term is $3^{n+1}$. For $5n$, try $Bn+C$: its residual is $-Bn+2B-C$, so $B=-5,C=-10$. The general answer is $D2^n+3^{n+1}-5n-10$. At zero, $D+3-10=0$, giving $D=7$. Thus $a_n=7\\cdot2^n+3^{n+1}-5n-10$. Index one gives eight, which equals the direct forcing $3+5$. This reconstructs Oxford's mixed-forcing method with an independently verified boundary calculation. Adding particular terms is justified by linearity; the initial conditions belong to their full sum with the homogeneous term.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_38",
+    "title": "A third-order equation from a counting-course pattern",
+    "stem": "Find the general solution of $a_n=2a_{n-1}+5a_{n-2}-6a_{n-3}$. Then impose $a_0=0,a_1=7,a_2=-3$.",
+    "solution": "The polynomial $r^3-2r^2-5r+6$ factors as $(r-1)(r-3)(r+2)$. Hence $a_n=A+B3^n+C(-2)^n$. The boundaries give $A+B+C=0$, $A+3B-2C=7$, and $A+9B+4C=-3$. Subtracting the first equation yields $2B-3C=7$ and $8B+3C=-3$, so $B=2/5,C=-31/15,A=5/3$. The exact answer is $(25+6\\cdot3^n-31(-2)^n)/15$. Integer bases and recurrence coefficients ensure integer later values even though the modal amplitudes are rational. This is a reconstructed Berkeley higher-order pattern with new boundary data and a complete independent fit.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_39",
+    "title": "A step forcing starts later than the sequence",
+    "stem": "Let $a_0=0$ and $a_n=2a_{n-1}+q_n$, where $q_n=0$ for $n<4$ and $q_n=1$ for $n\\ge4$. Find $a_{10}$.",
+    "solution": "The first three updates are zero. At four the value becomes one. The unrolled formula includes contributions only from $j=4$ through ten: $a_{10}=\\sum_{j=4}^{10}2^{10-j}=2^7-1=127$. In general, $a_n=0$ before four and $a_n=2^{n-3}-1$ from four onward. Treating the forcing as present since one would incorrectly produce $2^{10}-1$. A particular solution for a globally constant forcing cannot be extended across a step discontinuity without the correct piecewise boundary. The contribution interpretation automatically includes the actual activation time.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_40",
+    "title": "A correct bound can resist a weak induction",
+    "stem": "Let $H_n=2H_{n-1}+1$, $H_0=0$. The true bound $H_n\\le2^n$ seems to fail under direct substitution. Repair the proof and obtain the exact answer.",
+    "solution": "The weak induction hypothesis yields $H_{n+1}\\le2\\cdot2^n+1$, which is too large to establish $2^{n+1}$. This does not disprove the bound; it shows the hypothesis lacks slack. Strengthen it to the exact formula $H_n=2^n-1$, or the upper bound $H_n\\le2^n-1$. At zero the formula is correct. Substitution gives $2(2^n-1)+1=2^{n+1}-1$, closing the induction. Therefore the stronger statement holds and implies the original bound. This reconstructs the MIT verification pattern without copying its narrative; a failed proof step should be diagnosed separately from the truth of the target statement.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_41",
+    "title": "Binary strings avoiding consecutive ones",
+    "stem": "How many binary strings of length twelve have no adjacent ones? Derive the recurrence, bases, and exact count.",
+    "solution": "Let $B_n$ count such strings. A string ending in zero comes from any valid length-$n-1$ prefix. A string ending in one, for $n\\ge2$, has a suffix zero-one; removing that pair leaves any valid length-$n-2$ prefix. The two endings are disjoint and the append operations are reversible, so $B_n=B_{n-1}+B_{n-2}$. The empty string contributes one, and both one-bit strings are allowed, giving $B_0=1,B_1=2$. Hence $B_n=F_{n+2}$ and $B_{12}=F_{14}=377$. A Fibonacci answer without specifying this two-index shift would not distinguish the string model from domino tilings.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_42",
+    "title": "No two identical restricted ternary symbols",
+    "stem": "For strings over $\\{0,1,2\\}$, forbid adjacent zeroes and adjacent ones, but allow adjacent twos. Find the number of valid length-six strings.",
+    "solution": "Let $u_n$ count strings ending in zero; symmetry gives the same count for endings in one. Let $v_n$ count endings in two. Then $u_n=u_{n-1}+v_{n-1}$, because zero can follow one or two, and $v_n=2u_{n-1}+v_{n-1}$, because two can follow any allowed ending. Start with $u_1=v_1=1$. The successive pairs are $(1,1),(2,3),(5,7),(12,17),(29,41),(70,99)$. Total length six is $2\\cdot70+99=239$. The total recurrence is $T_n=2T_{n-1}+T_{n-2}$ with $T_0=1,T_1=3$. This reconstructs Berkeley's state-counting pattern; treating all identical adjacent symbols as forbidden would instead count a different language.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "ternary-forbidden"
+  },
+  {
+    "id": "d_recurrence_original_43",
+    "title": "A generalized alphabet restriction",
+    "stem": "An alphabet has $q\\ge2$ symbols and one distinguished symbol $X$. Count length-$n$ strings with no adjacent $X$ symbols by deriving a total recurrence and its first values.",
+    "solution": "Let $A_n$ end in $X$ and $B_n$ end in a non-$X$ symbol. Then $A_n=B_{n-1}$ and $B_n=(q-1)(A_{n-1}+B_{n-1})$. For $T_n=A_n+B_n$, this gives $T_n=(q-1)(T_{n-1}+T_{n-2})$ for $n\\ge2$, with $T_0=1,T_1=q$. At two, it gives $(q-1)(q+1)=q^2-1$, which also follows by removing the one forbidden word $XX$ from all pairs. At three it gives $(q-1)(q^2+q-1)$. The multiplier $q-1$ counts available ordinary symbols; using $q$ would accidentally permit another $X$ in the forbidden transition.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_44",
+    "title": "Ordered colored payments",
+    "stem": "Let two distinct unit tokens and one five-unit token be available without limit, and let order matter. Find the number of token sequences totaling seven.",
+    "solution": "The recurrence is $W_n=2W_{n-1}+W_{n-5}$ for positive $n$, with $W_0=1$ and negative-index values zero. Thus $W_1=2,W_2=4,W_3=8,W_4=16,W_5=33,W_6=68,W_7=140$. Independently, either use seven unit tokens, giving $2^7=128$ colorings, or use one five-unit token plus two unit tokens. The latter has three possible positions for the five-unit token and four colorings of the two others, giving twelve. Their sum is 140. Two five-unit tokens are impossible at total seven. This reconstructed Berkeley pattern checks both the recurrence and the semantic assumption that token order is significant.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_45",
+    "title": "An exact domino count with a geometric split",
+    "stem": "How many domino tilings cover a $2\\times8$ board? Explain why the two-horizontal case must consume two complete columns.",
+    "solution": "In the leftmost column, a vertical domino fills both cells and leaves a $2\\times7$ board. If the top-left cell is covered horizontally, the bottom-left cell cannot be filled vertically because the top-left cell is occupied; it must also be covered horizontally. Together the two dominoes fill the first two columns and leave a $2\\times6$ board. The cases are disjoint and reversible, giving $T_n=T_{n-1}+T_{n-2}$ with $T_0=T_1=1$. Therefore $T_8=F_9=34$. Removing only one horizontal domino would leave an irregular boundary and would not justify a simple width-one reduction.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "all-domino-eight"
+  },
+  {
+    "id": "d_recurrence_original_46",
+    "title": "A missing-cell board changes the state",
+    "stem": "Can the ordinary $2\\times n$ domino recurrence count tilings of a board with its top-left cell removed? Explain and determine the count.",
+    "solution": "The altered board has $2n-1$ cells, an odd number, while every domino covers two. Therefore its tiling count is zero for every positive $n$. The ordinary recurrence assumes a complete rectangular boundary and cannot be applied after deleting a cell without redefining the state. This parity argument is stronger and faster than any recurrence calculation. If two cells were removed instead, area parity alone would no longer settle the problem; color balance or boundary-state analysis could be needed. The lesson is to check invariant feasibility before importing a recurrence from a visually similar model.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_47",
+    "title": "Compositions into odd parts",
+    "stem": "Let $C_n$ count ordered compositions of $n$ into positive odd parts, with the empty composition at zero. Find a rational generating function and the count at seven.",
+    "solution": "The allowed single-part series is $x+x^3+x^5+\\cdots=x/(1-x^2)$. A sequence of such parts has generating function $1/(1-x/(1-x^2))=(1-x^2)/(1-x-x^2)$. Coefficient comparison gives $C_0=1,C_1=1,C_2=1$, and $C_n=C_{n-1}+C_{n-2}$ for $n\\ge3$. Thus the positive-index sequence is $1,1,2,3,5,8,13$, giving $C_7=13$. The numerator changes the early correction: imposing the Fibonacci update at two with $C_0=C_1=1$ would wrongly give two. The formal-series construction is valid because every coefficient receives contributions from finitely many compositions.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_48",
+    "title": "A two-state transfer with weighted transitions",
+    "stem": "A counting model has states $U,V$ and update $(U_{n+1},V_{n+1})=(U_n+2V_n,3U_n)$, starting at $(U_0,V_0)=(1,0)$. Find a scalar recurrence for $U_n$ and compute $U_5$.",
+    "solution": "For positive $n$, substitute $V_n=3U_{n-1}$ into the first update to get $U_{n+1}=U_n+6U_{n-1}$. The starting values are $U_0=1,U_1=1$. The polynomial is $r^2-r-6=(r-3)(r+2)$. Solving $A+B=1$ and $3A-2B=1$ gives $A=3/5,B=2/5$. Hence $U_n=(3^{n+1}+2(-2)^n)/5$, and $U_5=(729-64)/5=133$. Direct state updates produce $1,1,7,13,55,133$ for $U$. The transition weight two or three means multiple labeled choices on an edge; it is not a probability unless normalized under a separately specified model.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_49",
+    "title": "Derangements from two reversible cycle cases",
+    "stem": "Compute $D_8$ using a recurrence, and explain both combinatorial terms in that recurrence.",
+    "solution": "Choose the image $j\\ne1$ of element one. If $j$ maps to one, delete their two-cycle and derange the other $n-2$ elements. Otherwise delete one from its longer cycle and splice its predecessor to $j$, leaving a derangement on $n-1$ elements. Both operations are reversible for the chosen $j$, so $D_n=(n-1)(D_{n-1}+D_{n-2})$. Starting at $D_0=1,D_1=0$ gives $1,0,1,2,9,44,265,1854,14833$. Therefore $D_8=14833$. The coefficient $n-1$ multiplies both cases because the image choice precedes the split; multiplying only the two-cycle case would miss longer cycles.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "derangement-cases"
+  },
+  {
+    "id": "d_recurrence_original_50",
+    "title": "Two derangement recurrences are equivalent",
+    "stem": "Starting from $D_n=(n-1)(D_{n-1}+D_{n-2})$, prove $D_n=nD_{n-1}+(-1)^n$.",
+    "solution": "Define $e_n=D_n-nD_{n-1}$. Rearranging the given equation yields $e_n=(n-1)D_{n-2}-D_{n-1}=-e_{n-1}$. At one, $e_1=D_1-D_0=-1$. Therefore $e_n=(-1)^n$ by induction. The first-order inhomogeneous form follows. Conversely, substitute $D_{n-1}=(n-1)D_{n-2}+(-1)^{n-1}$ into $nD_{n-1}+(-1)^n$ and rearrange to obtain $(n-1)(D_{n-1}+D_{n-2})$. The boundary data are needed for the sign pattern. This reduction does not turn the equation into a constant-coefficient recurrence; its multiplier is still the index.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "derangement-cases"
+  },
+  {
+    "id": "d_recurrence_original_51",
+    "title": "Why the empty permutation contributes one",
+    "stem": "If the derangement recurrence is required at $n=2$, determine $D_0$ from $D_1=0,D_2=1$. Explain why setting every zero-size count to zero is incorrect.",
+    "solution": "At two, the recurrence reads $1=1(0+D_0)$, so $D_0=1$. Combinatorially, the empty set has one bijection to itself, the empty function. It has no fixed point because there is no element violating the condition. Thus one is the correct number of empty derangements. Setting it to zero would predict $D_2=0$, contradicting the unique swap on two elements. The same empty-object convention supports tilings and set partitions, but not every problem automatically accepts an empty object: acceptance is part of the definition and must be checked.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_52",
+    "title": "Stirling count by insertion",
+    "stem": "Compute $S(6,3)$ and explain why the insertion multiplier is three despite the blocks being unlabeled.",
+    "solution": "The recurrence is $S(n,k)=S(n-1,k-1)+kS(n-1,k)$. Values built from $S(0,0)=1$ give $S(4,2)=7,S(4,3)=6,S(5,2)=15,S(5,3)=25$, hence $S(6,3)=15+3\\cdot25=90$. For any particular partition into three blocks, its three subsets have different members. Adding the new element to each produces three different partitions, so there are three insertion choices without assigning external labels to the blocks. Multiplying by $3!$ would overcount. The other term creates a singleton new block and is disjoint from all insertion cases.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "stirling-bell"
+  },
+  {
+    "id": "d_recurrence_original_53",
+    "title": "An exact formula for three-block set partitions",
+    "stem": "Derive $S(n,3)$ for positive $n$ from surjections, and compute $S(7,3)$.",
+    "solution": "Assign each element to one of three labeled boxes. There are $3^n$ assignments. Excluding assignments missing at least one box by inclusion-exclusion gives $3^n-3\\cdot2^n+3$ for positive $n$; the all-empty intersection contributes zero because a positive-size domain cannot map into zero boxes. Every unlabeled three-block partition corresponds to six labelings of its blocks. Therefore $S(n,3)=(3^n-3\\cdot2^n+3)/6$, giving $(2187-384+3)/6=301$ at seven. At zero this formula would give one sixth, so the positive-index qualification is essential. The true $S(0,3)$ is zero.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_54",
+    "title": "Bell numbers through the distinguished block",
+    "stem": "Compute $B_6$ using $B_{n+1}=\\sum_{j=0}^n\\binom nj B_j$, and identify the meaning of $j$.",
+    "solution": "The first values are $B_0=1,B_1=1,B_2=2,B_3=5,B_4=15,B_5=52$. At six the recurrence gives $1+5+10\\cdot2+10\\cdot5+5\\cdot15+52=203$. The index $j$ is the number of old elements outside the block containing the newly added element. Choose them in $\\binom nj$ ways and partition them in $B_j$ ways; the remaining old elements join the new distinguished block. This interpretation makes the construction unique. A source list ending $1,1,2,5,13$ is rejected because applying the recurrence at four gives fifteen, and that error would contaminate later values.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "stirling-bell"
+  },
+  {
+    "id": "d_recurrence_original_55",
+    "title": "Exactly one singleton block",
+    "stem": "Count set partitions of five labeled elements with exactly one singleton block.",
+    "solution": "Choose the singleton element in five ways. Partition the remaining four elements with no singleton blocks. Those remaining blocks can be one block of size four, or two blocks of size two. The first case has one partition; the second has $\\binom42/2=3$, because choosing one pair also chooses its complementary pair and otherwise counts each pair-pair partition twice. Thus the answer is $5(1+3)=20$. Multiplying five by all $B_4=15$ partitions would allow additional singleton blocks and overcount. A recurrence with an extra singleton-count state could solve larger instances, but the small block-size classification here is complete and reversible.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_56",
+    "title": "Marking a block changes the count",
+    "stem": "Let $M_n$ count a partition of an $n$-element labeled set together with one marked block. Show that $M_n=B_{n+1}-B_n$ for positive $n$.",
+    "solution": "Insert a new element into the marked block and then erase the mark. This gives a partition of $n+1$ elements in which the new element is not a singleton. Conversely, remove the new element from its nonsingleton block and mark the remaining block. The operations are inverses. There are $B_{n+1}$ partitions in total, and $B_n$ with the new element as a singleton, so $M_n=B_{n+1}-B_n$. At four, this is $52-15=37$. Equivalently $M_n=\\sum_k kS(n,k)$, because each partition with $k$ blocks offers $k$ marks. The bijection independently proves the weighted Stirling identity.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_57",
+    "title": "Exactly three positive integer parts",
+    "stem": "Compute $p(7,3)$ using the exact-part recurrence and list every partition to verify the answer.",
+    "solution": "The recurrence gives $p(7,3)=p(6,2)+p(4,3)$. The two-part partitions of six are $5+1,4+2,3+3$, giving three. The only partition of four into three positive parts is $2+1+1$, giving one. Thus the result is four. The complete original list is $5+1+1,4+2+1,3+3+1,3+2+2$. The first three have a one to remove; the last has every part at least two, and subtracting one from each produces the single partition of four. Treating reordered versions of a partition as new objects would instead count compositions.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "ferrers-seven"
+  },
+  {
+    "id": "d_recurrence_original_58",
+    "title": "Parts bounded above by three",
+    "stem": "How many partitions of six have no part greater than three? Use both a recurrence interpretation and an independent equation count.",
+    "solution": "The recurrence is $P(6,3)=P(6,2)+P(3,3)$, separating partitions with no three from those with at least one three. Independently let $x,y,z$ be the multiplicities of parts one, two, and three. Solve $x+2y+3z=6$ in nonnegative integers. For $z=0$, $y=0,1,2,3$ gives four choices; for $z=1$, $y=0,1$ gives two; for $z=2$, only $y=0$ works. Total seven. This verifies $P(6,2)=4$ and $P(3,3)=3$. The parameter three is a maximum part, not an exact number of parts, so the exact-part recurrence would count a different set.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_59",
+    "title": "A Ferrers conjugation identity",
+    "stem": "Prove that partitions of $n$ into at most $k$ positive parts are equinumerous with partitions of $n$ whose largest part is at most $k$.",
+    "solution": "Draw each partition as left-aligned rows of cells in nonincreasing order. Transpose the Ferrers diagram, interchanging rows and columns. A diagram with at most $k$ rows becomes one with at most $k$ cells in its longest row, so its largest part is at most $k$. The number of cells remains $n$, and transposing twice restores the original diagram. This is a bijection, proving the identity. It does not directly equate exactly $k$ parts with largest part at most $k$; exactly $k$ rows instead correspond to largest part exactly $k$. The difference between at most and exactly cannot be dropped.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "ferrers-conjugate"
+  },
+  {
+    "id": "d_recurrence_original_60",
+    "title": "Exactly two integer parts and an endpoint",
+    "stem": "Derive $p(n,2)$ for positive $n$, and determine $p(11,2)$.",
+    "solution": "Write the two parts as $a\\le b$ with $a+b=n$. Positivity gives $a\\ge1$, and ordering gives $a\\le\\lfloor n/2\\rfloor$. Every such $a$ determines exactly one $b=n-a$, so $p(n,2)=\\lfloor n/2\\rfloor$, giving five at eleven. The recurrence $p(n,2)=p(n-1,1)+p(n-2,2)$ also yields one plus the value two indices earlier, consistent with the formula. At $n=1$ no pair exists, so the floor correctly gives zero. Counting all $n-1$ positive ordered pairs would count both orders separately and, for even $n$, would also need to treat the equal pair differently.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_61",
+    "title": "Catalan count by first return",
+    "stem": "Compute $C_5$ from the nonlinear recurrence and explain each product in the sum.",
+    "solution": "With $C_0=1$, the first values are $1,1,2,5,14$. Thus $C_5=C_0C_4+C_1C_3+C_2C_2+C_3C_1+C_4C_0=14+5+4+5+14=42$. In a balanced parenthesis string, the first matched pair encloses $j$ pairs and is followed by $4-j$ pairs. Choose the enclosed and following balanced strings independently; this gives each product. The position of the first matching close makes the cases disjoint. The product of sequence values prevents a homogeneous linear characteristic method from applying. A recurrence can have a clean closed form without belonging to the linear family.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "first-return-three"
+  },
+  {
+    "id": "d_recurrence_original_62",
+    "title": "A reflection proof counts forbidden paths",
+    "stem": "Among paths with six up and six down steps, how many never go below height zero? Give a bijective subtraction argument.",
+    "solution": "All unrestricted paths number $\\binom{12}{6}=924$. For a bad path, reflect the prefix through its first visit to height negative one, swapping up and down steps in that prefix. The transformed path has seven up and five down steps, since the reflected prefix gains one up and loses one down. Conversely, a path ending at height two has a first visit to height one; reflecting that prefix gives the unique bad balanced path. Thus bad paths number $\\binom{12}{7}=792$. The valid count is $924-792=132=C_6$. Reflecting toward the opposite endpoint gives the symmetric seven-down formulation; consistency of the inverse, rather than a memorized sign, establishes the bijection.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "reflection-six"
+  },
+  {
+    "id": "d_recurrence_original_63",
+    "title": "Binary-tree sizes must distinguish internal nodes",
+    "stem": "If $T_n$ counts ordered full binary trees with $n$ internal nodes, derive its recurrence. What changes if a problem indexes by total nodes?",
+    "solution": "A tree with no internal node is a single leaf, so $T_0=1$. A nontrivial root is internal; if the left subtree has $j$ internal nodes, the right has $n-1-j$. Ordered children are distinct choices, giving $T_n=\\sum_{j=0}^{n-1}T_jT_{n-1-j}=C_n$. A full binary tree with $n$ internal nodes has $n+1$ leaves and $2n+1$ total nodes, proved by counting child edges or induction. Therefore a total-node index $N$ has zero count when even, and count $C_{(N-1)/2}$ when odd and positive. Confusing the index conventions changes both bases and allowable sizes.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_64",
+    "title": "Catalan convolution with a colored root",
+    "stem": "Let $A_0=1$ and $A_n=2\\sum_{j=0}^{n-1}A_jA_{n-1-j}$. Find $A_n$ and $A_4$.",
+    "solution": "The factor two assigns one of two colors to each internal root. A tree with $n$ internal nodes has $2^n$ independent colorings, suggesting $A_n=2^nC_n$. Substitute this form: each product contributes $2^j2^{n-1-j}=2^{n-1}$, and the outside two restores $2^n$ times the Catalan convolution. The zero base is correct, so induction proves the formula. At four, $A_4=16\\cdot14=224$. Multiplying only the final Catalan answer by two would color a single distinguished root rather than every internal node, missing a factor exponential in the node count.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_65",
+    "title": "The generating numerator records the boundary",
+    "stem": "Derive the generating function for $a_n=5a_{n-1}-6a_{n-2}$ with $a_0=2,a_1=5$.",
+    "solution": "Set $A(x)=\\sum_{n\\ge0}a_nx^n$. Multiplying by $1-5x+6x^2$, the coefficient at zero is two and at one is $a_1-5a_0=5-10=-5$. Every coefficient from two onward vanishes by the recurrence. Hence $A(x)=(2-5x)/(1-5x+6x^2)$. Factor the denominator and split: $A(x)=1/(1-2x)+1/(1-3x)$, recovering $a_n=2^n+3^n$. The numerator is not an arbitrary constant and cannot be omitted. Formal coefficient arithmetic is valid without choosing a real interval of convergence.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_66",
+    "title": "A prefix recurrence leaves a numerator correction",
+    "stem": "Let $a_0=2,a_n=3\\sum_{j=0}^{n-1}a_j+1$ for $n\\ge1$. Derive its rational generating function.",
+    "solution": "The separately verified values are $a_0=2,a_n=7\\cdot4^{n-1}$ for positive $n$. Thus $A(x)=2+7x/(1-4x)=(2-x)/(1-4x)$. The numerator coefficient negative one measures $a_1-4a_0=7-8$, because the simplified geometric recurrence begins only at two. Multiplying by the denominator gives two at zero, negative one at one, and zero afterward, exactly the correct early correction. A guess $2/(1-4x)$ would produce eight at one and would solve a falsely extended recurrence. Boundary corrections can be detected before any partial-fraction algebra.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_67",
+    "title": "Repeated poles recover index factors",
+    "stem": "Find the coefficient of $x^n$ in $(1-3x)^{-2}$ and explain the connection with a repeated characteristic root.",
+    "solution": "Multiply two geometric series: the coefficient is $\\sum_{j=0}^n3^j3^{n-j}=(n+1)3^n$. There are $n+1$ splits of the exponent. The denominator expands as $1-6x+9x^2$, so its coefficients satisfy $a_n=6a_{n-1}-9a_{n-2}$ from two onward, with $a_0=1,a_1=6$. The polynomial is $(r-3)^2$, and the coefficient formula is a linear polynomial times $3^n$, matching the repeated-root recipe. A single pole would supply only $3^n$; multiplicity counts the additional index degree.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_68",
+    "title": "A forced generating-function calculation",
+    "stem": "For $a_n=2a_{n-1}+3^n$, $a_0=0$, derive $A(x)$ and recover the exact sequence.",
+    "solution": "For positive indices, $(1-2x)A(x)=\\sum_{n\\ge1}3^nx^n=3x/(1-3x)$. Hence $A(x)=3x/((1-2x)(1-3x))$. Partial fractions give $A(x)=3/(1-3x)-3/(1-2x)$, so $a_n=3^{n+1}-3\\cdot2^n$. At zero the two constants cancel, as required. At one the result is three, the first forced update. Starting the forcing sum at zero would insert an extra one and violate the boundary. The algebra illustrates why a forcing series must use the recurrence's actual valid indices.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_69",
+    "title": "A companion matrix is a state update",
+    "stem": "For $a_n=5a_{n-1}-6a_{n-2}$, specify a matrix computing $(a_{n+1},a_n)$ from $(a_n,a_{n-1})$, and recover the scalar recurrence from its polynomial.",
+    "solution": "The state matrix is $M=\\begin{bmatrix}5&-6\\\\1&0\\end{bmatrix}$. Its characteristic polynomial is $z^2-5z+6$. Direct multiplication verifies $M^2-5M+6I=0$, so multiplying any state by this identity gives the same order-two recurrence in each coordinate. Starting at $(a_1,a_0)=(5,2)$, one update produces $(13,5)$ and the next $(35,13)$. The state must contain both recent terms; a one-dimensional update cannot determine the next value from $a_n$ alone. Matrix exponentiation preserves the exact boundary vector and is an alternative representation of the same recurrence.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "companion-state"
+  },
+  {
+    "id": "d_recurrence_original_70",
+    "title": "Constant forcing as an extra coordinate",
+    "stem": "Represent $a_n=2a_{n-1}+3$ as a homogeneous matrix update in an augmented state. Use it to explain the fixed-point shift.",
+    "solution": "Store $(a_n,1)$. Then $\\begin{bmatrix}a_{n+1}\\\\1\\end{bmatrix}=\\begin{bmatrix}2&3\\\\0&1\\end{bmatrix}\\begin{bmatrix}a_n\\\\1\\end{bmatrix}$. The extra coordinate remains one, injecting the constant forcing on every update. The matrix has eigenvalues two and one. The constant particular solution is negative three, since $-3=2(-3)+3$, and the deviation $a_n+3$ follows the root-two mode. Thus $a_n=(a_0+3)2^n-3$. Calling the original scalar equation homogeneous would be wrong; it becomes homogeneous only after augmenting the state, with its last coordinate constrained to one.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_71",
+    "title": "Fast doubling with an exact pair invariant",
+    "stem": "Given $F_5=5,F_6=8$, use doubling identities to compute $F_{10},F_{11},F_{21}$ without listing every intermediate Fibonacci term.",
+    "solution": "The identities give $F_{10}=F_5(2F_6-F_5)=5(16-5)=55$ and $F_{11}=F_5^2+F_6^2=25+64=89$. Apply the odd doubling identity at $m=10$: $F_{21}=F_{10}^2+F_{11}^2=3025+7921=10946$. The pair invariant supplies two adjacent terms at each recursive stage, so both even and odd target branches can be formed. Knowing only $F_5$ would be insufficient for the first operation. Every calculation is exact integer arithmetic; using Binet's approximation is unnecessary for these values and introduces a separate rounding obligation.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_72",
+    "title": "Arithmetic count is not bit complexity",
+    "stem": "An exact matrix method uses $O(\\log n)$ multiplications to compute $F_n$. Does this mean it takes $O(\\log n)$ bit operations? Explain using the output size.",
+    "solution": "No. Binet's formula implies $F_n$ has a number of binary digits proportional to $n$ for large $n$, because $\\log_2 F_n=n\\log_2\\phi+O(1)$. Merely writing the exact output therefore requires order $n$ bit operations. The logarithmic claim counts arithmetic stages on growing integers, treating each multiplication as one operation. A precise bit analysis must include the cost of multiplying integers of the sizes encountered. If only $F_n$ modulo a fixed small modulus is required, intermediate words can remain bounded in size, and the arithmetic-stage bound has a much closer relationship to machine time. The requested output representation changes the computational claim.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_73",
+    "title": "A modular transient is not a pure cycle",
+    "stem": "Track $a_{n+1}=2a_n$ modulo four from $a_0=1$. Give the transient length and eventual period, and explain why invertibility fails.",
+    "solution": "The states are one, two, zero, zero, and so on. The first repeated state is zero, so two initial updates lead into a fixed cycle of period one. The sequence is eventually periodic but not periodic from index zero. Multiplication by two is not invertible modulo four: both zero and two map to zero. A noninjective finite-state map can collapse several histories into a common future, which permits a transient. A pigeonhole argument guarantees some eventual repetition, not a return to the starting state. An invertible map would put every state on a cycle immediately.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_74",
+    "title": "A modular pair cycle gives a distant Fibonacci residue",
+    "stem": "Find $F_{1000}$ modulo three using a complete pair state and its cycle.",
+    "solution": "Start at $(F_0,F_1)=(0,1)$ modulo three. Updating $(u,v)$ to $(v,u+v)$ gives pairs $(0,1),(1,1),(1,2),(2,0),(0,2),(2,2),(2,1),(1,0),(0,1)$. The first return occurs after eight updates, establishing a cycle of length eight. Since 1000 is divisible by eight, the residue is $F_0=0$. The update is invertible, with inverse $(u,v)\\mapsto(v-u,u)$, so there is no transient. Observing a repeated single residue would not establish the full cycle because a second-order recurrence needs the adjacent pair to determine its future.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "fib-mod-three"
+  },
+  {
+    "id": "d_recurrence_original_75",
+    "title": "A parity condition on a distant interval",
+    "stem": "Let $a_n=7a_{n-1}+9a_{n-2}+6$, and suppose $a_{10},a_{11}$ are odd. How many even terms occur among indices fifty through seventy, inclusive?",
+    "solution": "Modulo two, the recurrence becomes $a_n=a_{n-1}+a_{n-2}$. Starting with odd, odd at ten and eleven yields even at twelve, then odd, odd, and repeats. Therefore even indices in this phase are those divisible by three. In fifty through seventy they are fifty-one, fifty-four, fifty-seven, sixty, sixty-three, sixty-six, and sixty-nine, giving seven. The count can also be written $\\lfloor70/3\\rfloor-\\lfloor49/3\\rfloor=23-16=7$. The inclusive lower endpoint requires subtracting the count through forty-nine, not fifty. Large actual values and the even constant forcing do not affect this parity projection.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_76",
+    "title": "A periodic forcing needs a phase state",
+    "stem": "Consider $a_{n+1}=a_n+q_n$ modulo five, with $q_n$ alternating between one and two and starting at one. Why is the residue $a_n$ alone not an autonomous state? Find the state period from $a_0=0$.",
+    "solution": "The same residue can be followed by an addition of one or two depending on the phase. Store $(a_n,n\\bmod2)$ so the update is deterministic. Over two steps the phase returns and the residue increases by three modulo five. Five such pairs are needed to return the residue to zero, giving a state period of ten. No odd number of steps can return the phase, and no smaller even number returns the residue because three is invertible modulo five. Thus the extended state, not the scalar residue alone, establishes the period. Arbitrary nonperiodic forcing would not admit this fixed finite phase extension.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_77",
+    "title": "Resonance can be detected by an impossible coefficient equation",
+    "stem": "A student tries $p_n=K2^n$ for $a_n-4a_{n-1}+4a_{n-2}=2^n$ and obtains zero equal to one. Diagnose the calculation and repair the trial.",
+    "solution": "The substitution is correct: $K2^n-4K2^{n-1}+4K2^{n-2}=0$ for every $K$, because two is a double characteristic root. The impossible matching equation means the trial lies in the homogeneous null space, not that the recurrence has no solution. Multiplicity two requires a factor $n^2$. Substituting $p_n=Kn^22^n$ gives the residual $2K2^n$, hence $K=1/2$. The complete family is $(A+Bn+n^2/2)2^n$. Two boundary values then fix $A,B$. Trying only an extra factor $n$ would still lie in the null space and would fail for the same reason.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation.",
+    "modelId": "double-resonance"
+  },
+  {
+    "id": "d_recurrence_original_78",
+    "title": "Parameter collision changes the solution basis",
+    "stem": "Solve $a_n=(1+t)a_{n-1}-t a_{n-2}$ with $a_0=0,a_1=1$, distinguishing $t=1$ from $t\\ne1$.",
+    "solution": "The polynomial factors as $(r-1)(r-t)$. For $t\\ne1$, solve the two starting equations to get $a_n=(t^n-1)/(t-1)$. This includes $t=0$ for positive indices with the explicit zero boundary, or can be interpreted as the finite geometric sum $1+t+\\cdots+t^{n-1}$, which avoids zero-power ambiguity. At $t=1$, the roots collide and the basis becomes $1,n$; the data select $a_n=n$. The finite geometric-sum identity also gives this value directly. Substituting one into a formula with denominator $t-1$ without taking the correct limit is invalid; the separate repeated-root case is essential.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_79",
+    "title": "Distinguish orders of counting from orders of recursion",
+    "stem": "The number of ordered compositions of $n$ into parts one and two satisfies a Fibonacci recurrence. Does the number of unordered partitions into those parts satisfy the same recurrence? Derive the latter count.",
+    "solution": "For an unordered partition, let $j$ be the number of twos. It may range from zero through $\\lfloor n/2\\rfloor$, and the remaining $n-2j$ ones are forced. Thus the count is $\\lfloor n/2\\rfloor+1$. It satisfies $P_n=P_{n-2}+1$ for $n\\ge2$ with $P_0=P_1=1$, rather than the Fibonacci equation. Removing a last part is valid for ordered compositions because the last position is distinguished; an unordered multiset has no uniquely selected last part. At four, unordered partitions number three, while ordered compositions number five. This explicit counterexample rejects the imported recurrence.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  },
+  {
+    "id": "d_recurrence_original_80",
+    "title": "Diagnose a wrong recurrence from its complete contract",
+    "stem": "A model claims to count binary strings avoiding the substring 11, but reports $a_0=0,a_1=1$ and $a_n=a_{n-1}+a_{n-2}$. Identify every boundary error, repair the model, and give its generating function.",
+    "solution": "The empty string is valid, so its count is one rather than zero. Both one-bit strings are valid, so the first positive count is two rather than one. The recurrence itself is appropriate from index two, once the last-bit decomposition has been justified. With corrected values, $a_n=F_{n+2}$ and $A(x)=(1+x)/(1-x-x^2)$, since the numerator coefficients are $a_0=1$ and $a_1-a_0=1$. The original values instead generate ordinary $F_n$ and undercount the language. Correcting only the formula's title or attaching a plausible animation would not repair its mathematical state definition; boundaries, transitions, and object meaning must agree.",
+    "origin": "Original problem, or explicitly labeled course-pattern reconstruction; independent full derivation."
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "id": "MS_CS_1405_Q130",
+    "booklet": "MS_CS_1405",
+    "pdfPage": 28,
+    "questionNumber": 130,
+    "topics": [
+      "a_recurrence",
+      "d_recurrence",
+      "d_induction"
+    ],
+    "title": "A prefix-sum recurrence",
+    "stem": "Let $c_0=1$ and $c_{n+1}=\\sum_{i=0}^n c_i$ for $n\\ge0$. Its generating function is $C(x)=(1-x)/(1-\\alpha x)$. What is $\\alpha$?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": 1,
+    "solution": "1. The first recurrence value is $c_1=1$. For $n\\ge1$, subtract the equation for $c_n$ from that for $c_{n+1}$ to obtain $c_{n+1}=2c_n$.\n2. Therefore $c_n=2^{n-1}$ for $n\\ge1$, proved directly by induction from $c_1=1$.\n3. Sum the formal series: $C(x)=1+x\\sum_{j\\ge0}(2x)^j=1+x/(1-2x)=(1-x)/(1-2x)$. Thus $\\alpha=2$.\n4. Values 3, 4, and 5 would already produce the wrong coefficient of $x^2$. Applying $c_n=2^n$ at $n=0$ would also miss the initial exception.\n\n**Transfer rule.** Subtract consecutive prefix recurrences; state precisely where the simplified recurrence begins.",
+    "pattern": "prefix subtraction and initial-value exception",
+    "difficulty": "Medium",
+    "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "Revisited chapter bridge; original PDF page rendered again in d_recurrence evidence.",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1404_Q71",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 16,
+    "questionNumber": 71,
+    "topics": [
+      "a_recurrence",
+      "a_asym",
+      "d_recurrence"
+    ],
+    "title": "A multiplicative one-step recurrence",
+    "stem": "For $T(n)=2^nT(n-1)$ and $T(0)=1$, which listed order is correct?",
+    "options": [
+      "$\\Theta(n^{2n})$",
+      "$\\Theta(2^n\\log n)$",
+      "$\\Theta(2^{n^2})$",
+      "$\\Theta((\\sqrt2)^{n^2+n})$"
+    ],
+    "answer": 4,
+    "solution": "1. Unroll the recurrence: $T(n)=\\prod_{j=1}^n2^j=2^{\\sum_{j=1}^n j}=2^{n(n+1)/2}$.\n2. The last option is exactly $(\\sqrt2)^{n^2+n}=2^{(n^2+n)/2}$.\n3. Option 3 is not a tight bound: its ratio to the true answer is $2^{(n^2-n)/2}$ and grows without bound. Option 2 is far smaller. The exponent of option 1 is $2n\\log_2 n$, also much smaller than $n(n+1)/2$ eventually.\n4. Constants multiplying an exponent of $n^2$ cannot be discarded inside a tight exponential order.\n\n**Transfer rule.** Take logarithms or add exponents when recurrence terms multiply.",
+    "pattern": "products and exponential tightness",
+    "difficulty": "Hard",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "Revisited chapter bridge; original PDF page rendered again in d_recurrence evidence.",
+    "answerProvenance": "independently derived; not represented as an official key"
+  },
+  {
+    "id": "Phd_CS_1404_Q28",
+    "booklet": "Phd_CS_1404",
+    "pdfPage": 7,
+    "questionNumber": 28,
+    "topics": [
+      "a_recurrence",
+      "d_invariants",
+      "d_induction",
+      "d_number",
+      "d_recurrence"
+    ],
+    "title": "Parity far from the given recurrence values",
+    "stem": "Let $a_n=3a_{n-1}+5a_{n-2}+4$, with $a_{16}=1403$ and $a_{17}=2025$. How many of $a_{100},a_{101},\\ldots,a_{113}$ are even?",
+    "options": [
+      "4",
+      "5",
+      "7",
+      "10"
+    ],
+    "answer": 1,
+    "solution": "1. Reduce modulo two: $a_n\\equiv a_{n-1}+a_{n-2}$. The two given values are both odd.\n2. The parity states from indices 16 onward are odd, odd, even, repeating every three. This can be checked by advancing the pair state and then proved by induction.\n3. Hence even values occur exactly at indices divisible by three. In 100 through 113 these are 102,105,108,111, giving four.\n4. There is no need to construct the enormous later terms. Counting a half split or forgetting the inclusive range gives the wrong number.\n\n**Transfer rule.** Project a recurrence into the requested residue system and track its finite pair-state cycle.",
+    "pattern": "recurrence projection into a finite residue system",
+    "difficulty": "Hard",
+    "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+    "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "Revisited chapter bridge; original PDF page rendered again in d_recurrence evidence.",
+    "answerProvenance": "independently derived; not represented as an official key"
+  }
+]

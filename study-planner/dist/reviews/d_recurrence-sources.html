@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Recurrence chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"><link rel="stylesheet" href="../chapters/d_recurrence.css"></head><body><main class="chapter"><p><a href="../chapters/d_recurrence.html">Recurrence chapter</a></p><article class="lesson"><h1>Discrete recurrence relations: source selection and reading audit</h1>
+<h2>Scope and selection contract</h2>
+<p>This is a documented comparison of accessible written candidates for exact discrete sequence recurrences. It is not an exhaustive enumeration of every university course worldwide. Selection considers mathematical derivation, coverage of initial conditions and multiplicity, forcing, combinatorial models, and problem quality. A course catalogue, search snippet, or topic list does not count as a genuinely reviewed teaching text. Four core courses from four universities were read in the scopes below. Broader fields covered in earlier algorithm chapters and the next generating-function chapter are kept distinct.</p>
+<h2>Candidate comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Written evidence actually inspected</th>
+<th>Chapter fit and decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIT 6.042J, Spring 2015; Lehman, Leighton, Meyer textbook</td>
+<td>Chapter 21, PDF 876–891, all sixteen pages</td>
+<td>Core: unrolling, constant-coefficient methods, particular solutions, and verification.</td>
+</tr>
+<tr>
+<td>Oxford Discrete Mathematics, Michaelmas 2010; Andrew <span class="math-inline">D</span>. Ker</td>
+<td>Chapter 5, web PDF text covering printed 57–70, PDF 67–80; the intervening printed page 69 contains no additional problem text</td>
+<td>Core: sequence domains, counting recurrences, characteristic methods, mixed forcing, practice and boundary cases.</td>
+</tr>
+<tr>
+<td>Cornell CS2800, Spring 2017 hosted reader; Rafael Pass and Wei-Lung Dustin Tseng</td>
+<td>PDF 31–35, inductive definitions through Theorems 2.20 and 2.21 and their proofs</td>
+<td>Core: initial-data counterexample, distinct-root proof, repeated-root recipe, Fibonacci derivation.</td>
+</tr>
+<tr>
+<td>Berkeley Math 55, Summer 2017; Ritvik Ramkumar</td>
+<td>Entire two-page Thursday and two-page Friday Week 5 worksheets; Thursday page 2 rendered and visually inspected</td>
+<td>Core: independently reconstructed counting, higher-order, and forced-recurrence exercises. Friday informs the boundary-aware generating-function bridge.</td>
+</tr>
+<tr>
+<td>Stanford Math 108</td>
+<td>Entire two-page final-review document</td>
+<td>Screened: a useful boundary checklist, but a review list without actual derivations does not meet the core teaching-text requirement. The PDF's course year and instructor were not independently established.</td>
+</tr>
+<tr>
+<td>CMU 15-251, Spring 2012; Lecture 9, Adam Blank</td>
+<td>Official course page and accessible written slide text, including early domino prompt and subsequent algorithm-cost sections</td>
+<td>Screened: most inspected content concerns algorithmic divide-and-conquer costs already taught; it is weaker for this chapter's exact constant-lag proof and forcing coverage. The colored-domino prompt is not used without its defining figure.</td>
+</tr>
+<tr>
+<td>Cambridge Discrete Mathematics</td>
+<td>Course-scope screening only</td>
+<td>Not counted as read: the inspected scope emphasized foundational proof and sets, without a confirmed recurrence treatment meeting this chapter's requirements.</td>
+</tr>
+<tr>
+<td>Harvard CS20</td>
+<td>Catalogue/search screening only</td>
+<td>Not counted as read: an accessible substantive recurrence text was not acquired in this search.</td>
+</tr>
+<tr>
+<td>ETH Zurich</td>
+<td>Search screening only</td>
+<td>Not counted as read: no specific recurrence teaching text was acquired for this chapter.</td>
+</tr>
+</tbody>
+</table>
+<p>The last three are acquisition boundaries, not evidence that these universities lack strong courses. Additional sources should be added when a concrete gap requires them. There is no assertion that exactly four sources will always suffice for later chapters.</p>
+<h2>Source-specific contributions and reconciliation</h2>
+<p>MIT supplies the first-order expansion and forcing workflow. The chapter distinguishes the textbook's staircase initial convention from the zero-one Fibonacci convention. Its use of “linear” in contrasting a halving-index cost equation is interpreted narrowly as constant-lag applicability; a halving-index equation can still be linear in the unknown function. The new lesson proves its own claims and does not reproduce the textbook's narrative.</p>
+<p>Oxford supplies a broader discrete modeling boundary and worked-method comparison. Text extraction reports Bell values ending in thirteen, although the stated finite recurrence gives fifteen. Practice answer 5.1<span class="math-inline">(ii)</span> reports an increment that produces two instead of four at the first transition; with index zero equal to one, the correct increment for consecutive squares is twice the index plus three. Practice answer 5.8 reports a formula inconsistent with the stated values at indices one and two; the independently fitted result is two to the index minus one. These are text-level discrepancies, not claims about visually inspected source glyphs. The lesson independently checks every imported mathematical pattern.</p>
+<p>Cornell supplies the distinct-root proof and an example showing why one missing base case invalidates induction. Its reader does include the repeated-root recipe; the new chapter adds a full independence proof using finite differences, rather than falsely claiming the source omits multiplicity. Reader authors are distinguished from unverified course lecturers. The general nonzero-root recipe is qualified by a separate zero-root prefix treatment.</p>
+<p>Berkeley supplies exercise patterns requiring a model before a formula. A rendered page confirmed exponential forcing and its negative particular solution. Ordered payment tokens remain distinguishable; forbidden ternary symbols require explicit states; the averaging recurrence's starting indices remain one and two. Problems here are original or reconstructed, with fresh derivations and labeled provenance, rather than a wholesale copied worksheet.</p>
+<h2>Reading access and evidence limits</h2>
+<p>The MIT PDF was read from an existing local official-source cache. The Berkeley PDFs were downloaded successfully and have recorded SHA-256 hashes. Cornell and Oxford native downloads timed out, while their official PDFs remained accessible through web text; the actual relevant passages were read there. No local hash is invented for unavailable downloads. Stanford's two-page checklist and CMU's scoped slides do not replace any of the four core readings.</p>
+<p>Lecture videos and transcripts without verified text are not counted. The independent exact calculations, proof checks, original exam page rereads, models, and browser evidence are reported separately in the scientific and visual audit.</p>
+<h2>Official source links</h2>
+<ul>
+<li><a href="https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/mit6_042js15_textbook.pdf">MIT 6.042J textbook</a></li>
+<li><a href="https://www.cs.ox.ac.uk/andrew.ker/docs/discretemaths-lecture-notes-mt2010.pdf">Oxford Discrete Mathematics notes</a></li>
+<li><a href="https://www.cs.cornell.edu/courses/cs2800/2017sp/handouts/pass_tseng_discmath.pdf">Cornell CS2800 reader</a></li>
+<li><a href="https://math.berkeley.edu/~ritvik/math55.html">Berkeley Math 55 course</a></li>
+<li><a href="https://math.berkeley.edu/~ritvik/Worksheet_5Th.pdf">Berkeley Thursday worksheet</a></li>
+<li><a href="https://math.berkeley.edu/~ritvik/Worksheet_5F.pdf">Berkeley Friday worksheet</a></li>
+<li><a href="https://web.stanford.edu/class/math108/files/final_review.pdf">Stanford Math 108 review</a></li>
+<li><a href="https://www.cs.cmu.edu/afs/cs.cmu.edu/academic/class/15251-s12/www/">CMU 15-251 course</a></li>
+<li><a href="https://www.cs.cmu.edu/afs/cs.cmu.edu/academic/class/15251-s12/www/lectures/lecture09/lecture09.pdf">CMU Lecture 9</a></li>
+</ul>
+</article></main><script src="../chapters/math-layout.js?v=79"></script></body></html>

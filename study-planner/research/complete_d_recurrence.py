@@ -1,0 +1,54 @@
+from pathlib import Path
+import json,hashlib,subprocess,re
+B=Path(__file__).resolve().parent;R=B.parent;E=B/'d_recurrence-evidence'
+def save(p,x):p.write_text(json.dumps(x,indent=2)+'\n',encoding='utf-8')
+m=json.loads((E/'mathematics.json').read_text());v=json.loads((E/'browser.json').read_text());models=json.loads((R/'dist/chapters/d_recurrence-models.json').read_text())['models'];assert m['status']==v['status']=='passed'and not v['geometry']['issues'];assert len(models)==v['geometry']['models']==14
+prior=json.loads((E/'prior-library.json').read_text())['chapters'];assert len(prior)==49
+for q in prior:
+ p=R/'dist'/q['url'];assert hashlib.sha256(p.read_bytes()).hexdigest()==q['sha256'];assert p.read_text(encoding='utf-8').count('class="exam-question"')==q['questions']
+lesson=(B/'d_recurrence.en.md').read_text(encoding='utf-8');qs=json.loads((B/'d_recurrence-questions.json').read_text());auth=json.loads((B/'d_recurrence-authentic.json').read_text());assert len(qs)==80 and len(auth)==3
+audit=f'''# Scientific and visual audit: d_recurrence
+
+## Delivery status and scope
+
+Complete English review draft, not labeled student-approved. Standing user authorization permits continuing sequentially after this chapter's quality review. Online deployment is a separate state; current OpenAI archive-upload failures do not turn a local or GitHub file into a published website.
+
+The chapter contains 32 sections, including 26 teaching sections before its complete summary, 83 worked questions, 80 full-sentence final reasoning rules, an editable laboratory, and exact references. It covers discrete sequence domains, first-order unrolling, variable coefficients, solution-space dimension, distinct/repeated/zero/complex roots, complete nonzero-root basis proof, forcing and resonance, combinatorial recurrences, generating-function boundary corrections, exact matrix/doubling methods, and modular cycles. The next chapter develops full generating-function theory; the earlier algorithm chapter retains divide-and-conquer cost methods.
+
+## Sources and problem provenance
+
+Four genuinely reviewed written courses from MIT, Oxford, Cornell and Berkeley were selected from the documented candidate pool. Actual reading scopes and access limitations are recorded in the source audit and reading ledger. Cornell and Oxford were read through their accessible official web PDF text after native downloads failed; no local hash is invented. Berkeley's exponential forcing was checked on a rendered page. Source text discrepancies were resolved by independent mathematical calculations, including Bell values and Oxford boundary-answer shifts.
+
+The bank contains eighty original or explicitly reconstructed mathematical/conceptual solutions plus three revisited original examination bridges: MSc CS 1405 Q130 and doctoral CS 1404 Q28 and Q71. Each original PDF page was rendered again, visually read, and matched by its recorded source SHA-256. Answers were independently derived and are not represented as official keys. The bank includes initial-data counterexamples, exact formulas, repeated-root and resonance calculations, counting bijections, state transitions, finite-series corrections, matrix invariants, and residue projections. Foundational diagnostic entries support the harder calculations; not every entry is mislabeled hard.
+
+## Independent mathematical verification
+
+Python exact rational recurrence references and independent enumerations passed for {m['independentlyReferencedModelCases']:,} model inputs and {m['checkedModelCheckpoints']:,} generated checkpoints. References include direct ternary-word enumeration, all small derangement permutations, restricted-growth representations of set partitions, complete domino covers with cell occupancy checks, integer-part tuples, Dyck path heights and first returns, modular pair cycles, and scalar references for the matrix states.
+
+Formula checks cover distinct, double, triple and mixed roots; third-order rational amplitudes; polynomial/exponential/mixed forcing; initial shifts; parameter collisions; and generating-function coefficient patterns. The six-pair reflection map was checked on all 792 bad balanced paths and their unique seven-up/five-down images. All eighty written solutions and the general lesson proofs were reviewed for their index domains and mathematical logic; executable finite checks supplement those proofs and do not replace them. An incorrect intermediate third-order amplitude was caught and repaired before completion.
+
+## Concept-specific visuals
+
+Fourteen distinct stored models contain {sum(len(x['frames'])for x in models)} exact checkpoints and {v['counts']['players']} mounted lesson/solution appearances. They include weighted forcing contributions, finite-difference rows, zero-root prefix handling, every two-by-eight domino covering, double-resonance normalization, a forbidden-symbol state graph, actual derangement cycle representatives, Stirling/Bell rows, both Ferrers removal cases, Ferrers transposition, Dyck first returns, the reflected-prefix proof, modular pair states, and a companion-matrix update.
+
+The cycle pictures explicitly represent one feasible example per case rather than every permutation. Opposite cycle arrows were separated into curves. Transposition and reflection companions were added for the proofs that require them; unrelated companion assignments were removed. Enumeration checkpoints represent different objects, not physical time. Labels and formulas use the designated math font, while prose and code use their own fonts. Editable exact-state readouts also use native MathML.
+
+## Real-browser checks
+
+Edge checked all stored checkpoints with no reported bounds, collision or insufficient-padding issues. Source Sans 3, Newsreader, STIX Two Math and JetBrains Mono loaded; {v['counts']['math']} MathML elements were present with the solutions and models mounted. No underlined links, closing-delimiter script bases, zero-size fences, undefined teaching text, or runtime errors were found. Playback starts paused; Play/Pause, previous/next, restart, scrubbing, reduced motion, and complete print checkpoints passed. Eleven editable scenarios and seven invalid-input preservation cases passed. Mobile width 390 has no page overflow. The library contains fifty chapter cards and the Week 4 chapter link works.
+
+Actual screenshots of boards, cycle arrows, the state graph, both partition transformations, reflected paths, weighted contributions, matrix updates, worked solutions, final rules, mobile and print views were retained and inspected. Results concern the tested browser and declared domains, not every screen or arbitrary custom mathematical model.
+
+## Retention and remaining uncertainty
+
+All forty-nine preceding chapter HTML files and their question counts remain unchanged. Synced reference files were not edited. The written-source survey is bounded, not all university courses worldwide. The trace domains intentionally use small exact numbers; asymptotic statements retain cancellation and output-size qualifications. Literal universal completeness, perfect future test performance, and a guaranteed examination score are not asserted.
+'''
+(B/'d_recurrence-quality-audit.md').write_text(audit,encoding='utf-8');subprocess.run(['python','-X','utf8',str(B/'render_d_recurrence.py')],cwd=R,check=True)
+save(E/'retention.json',dict(status='passed',unchangedChapterPages=49,unchangedQuestionCounts=49,libraryCards=50))
+save(E/'lesson-and-retention.json',dict(status='quality_review_complete',teachingSections=26,totalSections=32,workedQuestions=83,originalOrReconstructed=80,authenticBridges=3,finalRules=80,models=14,checkpoints=107,priorPagesRetained=49,manualReview='All written solution index ranges, algebraic identities and proof assumptions were reviewed. Specific source corrections and independent calculations are documented.',studentApproved=False))
+g=json.loads((B/'chapter-gate.json').read_text());g['completedReviewDrafts']=[x for x in g.get('completedReviewDrafts',[])if x['topicId']!='d_recurrence']+[dict(topicId='d_recurrence',state='quality_review_complete',studentApproved=False,url='chapters/d_recurrence.html',qualityAudit='research/d_recurrence-quality-audit.md',evidence=['research/d_recurrence-evidence/reading.json','research/d_recurrence-evidence/mathematics.json','research/d_recurrence-evidence/browser.json'],publicationState='pending_upload')]
+g.update(currentTopicId='d_generating',state='in_progress',nextTopicRequiresExplicitApproval=False,activeWork='Evaluate full written generating-function courses; d_recurrence passed its source, solution, mathematical and visual audits.',reviewScope='d_generating: formal and ordinary generating functions, counting products, rational coefficients, recurrence solving and exponential generating functions',sourceAuditPath='research/d_generating-source-audit.md',sourceAudit='research/d_generating-source-audit.md',qualityAuditPath='research/d_generating-quality-audit.md',qualityAudit='research/d_generating-quality-audit.md',lastCompletedReview='d_recurrence: 83 complete solutions, 80 final rules, four read courses, 14 models / 107 checkpoints; 1649 independent model cases.',nextReview='Complete and audit d_generating before advancing under standing authorization.',reviewEvidence=['research/d_recurrence-evidence/reading.json','research/d_recurrence-evidence/mathematics.json','research/d_recurrence-evidence/browser.json'],pendingPriorPublication='Three audited drafts, arithmetic, selectors and recurrences, are locally available. GitHub mirroring and exact archives are tracked separately; OpenAI private archive upload has failed twice. Online version 85 remains the last confirmed deployment.')
+save(B/'chapter-gate.json',g)
+with(R/'WEEKLY_DELIVERY.md').open('a',encoding='utf-8')as f:f.write('\n\n## Recurrence relations review draft — 10 October 2026\n\nCompleted d_recurrence: four actually read university texts, 83 complete solutions, 80 final rules, 14 distinct mathematical models / 107 checkpoints. Independent references passed 1649 cases / 9512 generated checkpoints. All 49 earlier chapter pages retained. Actual Edge font, geometry, control, editable model, mobile and print checks passed. Student approval and online publication remain separate. Standing authorization advances work to d_generating.\n')
+FOLDER=B/'d_generating-evidence';FOLDER.mkdir(exist_ok=True);chapters=[c for w in json.loads((R/'dist/lessons.json').read_text())for c in w['chapters']];save(FOLDER/'prior-library.json',dict(chapters=[dict(topicId=c['topicId'],url=c['url'],sha256=hashlib.sha256((R/'dist'/c['url']).read_bytes()).hexdigest(),questions=c['questionCount'])for c in chapters]))
+print('Completed d_recurrence quality review; all 49 earlier pages retained. Active chapter is d_generating.')
