@@ -526,3 +526,13 @@ The earlier static/control-endpoint review missed actual Pause behavior, Before 
 ## Publication transport blocker (2026-10-09)
 
 The verified source was pushed; the GitHub content commit is `e2dc17d` on `study-planner-1406`. The native archive upload repeatedly failed at the OpenAI file service before saving a version. Reconciliation confirms that online version 85 still contains the previous content. The exact 410-file archive is retained unchanged for a later supported retry. A local preview is available at http://127.0.0.1:8766/reviews/simulation-behavior-corrections.html while its process is running. See `research/player-behavior-repair/publication-pending.json`. No new chapter was started.
+
+
+## Standing continuation authorization — 10 October 2026
+
+The student explicitly approved the delivered simulation correction and authorized continuous sequential writing of following chapters. This supersedes prior per-chapter stop instructions for starting the next chapter. Finish and audit one chapter before starting another. Retain every quality criterion; completed unapproved notes remain review drafts rather than student-approved chapters. The next missing topic is g_arithmetic, followed by g_mux. No production timetable or autonomous runtime guarantee is implied.
+
+
+## Arithmetic-circuit review draft — 10 October 2026
+
+Completed g_arithmetic with four reviewed written university courses, 82 fully worked problems, 80 final reasoning rules and 15 concept-specific models / 71 checkpoints. Independent reference checks passed for 16,648 cases / 84,808 states. All 47 prior chapter bodies remain byte-identical. Browser checks passed for fonts, glyph bounds, controls, reduced motion, print, invalid inputs and mobile containment. The draft is review-complete but not labeled student-approved. Native Sites transport currently fails, so online publication remains pending; retain the prepared source and archive. Continuous sequential authorization advances work to g_mux without requesting another start permission.

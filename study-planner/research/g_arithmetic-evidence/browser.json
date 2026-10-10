@@ -1,0 +1,145 @@
+{
+  "topicId": "g_arithmetic",
+  "status": "passed",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\g-arithmetic-visual-qa",
+  "counts": {
+    "questions": 82,
+    "rules": 80,
+    "players": 46,
+    "math": 805,
+    "errors": []
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "heading": true,
+    "prose": true,
+    "code": true
+  },
+  "geometry": {
+    "models": 15,
+    "frames": 71,
+    "issues": []
+  },
+  "mathGeometry": {
+    "bareClosingScriptBases": [],
+    "zeroSizeFences": [],
+    "underlined": 0
+  },
+  "pause": {
+    "motions": 0,
+    "frozen": true,
+    "sameIndex": true,
+    "running": false
+  },
+  "reducedMotion": true,
+  "printCheckpoints": true,
+  "labs": [
+    {
+      "error": "",
+      "result": {
+        "sum": 0,
+        "carry": 1,
+        "borrow": null,
+        "overflow": 0,
+        "negative": 0,
+        "zero": 1,
+        "signedExact": 0
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "sum": 128,
+        "carry": 0,
+        "carries": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "sum": 128,
+        "carry": 0,
+        "fullAdders": 12,
+        "multiplexers": 5
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "digit": 9,
+        "decimalCarry": 1,
+        "initialCarry": 1,
+        "correctionCarry": 0,
+        "total": 19
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "sum": 255,
+        "carry": 255,
+        "total": 765
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "product": 65025,
+        "rows": [
+          255,
+          510,
+          1020,
+          2040,
+          4080,
+          8160,
+          16320,
+          32640
+        ]
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "quotient": 17,
+        "remainder": 0
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "signedProduct": 128,
+        "outputEncoding": 128,
+        "temporaryWidth": 9
+      },
+      "issues": []
+    }
+  ],
+  "invalidPreservesPrevious": 6,
+  "mobileOverflow": false,
+  "printVisible": true,
+  "runtimeErrors": [],
+  "library": {
+    "cards": 48,
+    "visible": true,
+    "errors": []
+  },
+  "weeklyChapterLink": true
+}

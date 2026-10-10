@@ -1,0 +1,60 @@
+[
+  {
+    "id": "Phd_CE_1405_Q31",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 8,
+    "questionNumber": 31,
+    "topics": [
+      "g_number",
+      "p_types"
+    ],
+    "title": "Four-bit signed overflow",
+    "stem": "Using four-bit two\\'s-complement numbers, which addition overflows?",
+    "options": [
+      "`0101 + 1000`",
+      "`0010 + 0101`",
+      "`0100 + 1110`",
+      "`1100 + 1011`"
+    ],
+    "answer": 4,
+    "solution": "1. Decode each operand in the range $[-8,7]$. The mathematical sums are $5+(-8)=-3$, $2+5=7$, $4+(-2)=2$, and $-4+(-5)=-9$.\n2. Only $-9$ is outside the representable range. Its low four bits are 0111, which encode positive 7, demonstrating the signed overflow.\n3. Opposite-sign operands in options 1 and 3 cannot overflow; option 2 reaches the positive endpoint but stays inside it.\n4. A hardware overflow flag describes this fixed-width addition. In C, overflowing a signed arithmetic type is undefined rather than a guaranteed wrapped result; the original item concerns representation, not a C language rule.\n\n**Transfer rule.** Check mathematical range before interpreting wrapped bits; signed overflow and unsigned carry are different properties.",
+    "pattern": "encoding range and overflow distinction",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "modelId": "subtract-overflow",
+    "visualQualification": "The diagram shows a related signed-overflow counterexample, not a separate trace of each answer choice. The solution evaluates every original option."
+  },
+  {
+    "id": "Phd_CE_1405_Q23",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 6,
+    "questionNumber": 23,
+    "topics": [
+      "g_gates",
+      "g_boolean"
+    ],
+    "title": "Recognize a NAND network",
+    "stem": "A circuit has $t=\\overline{xy}$, $u=\\overline{xt}$, $v=\\overline{yt}$, $F_1=\\overline{uv}$, and $F_2=\\overline{vv}$. These equations transcribe the connected NAND gates in the original diagram. Which describes $F_1,F_2$?",
+    "options": [
+      "Comparator outputs for equality and $x>y$, respectively.",
+      "Comparator outputs for equality and $x<y$, respectively.",
+      "Half-adder sum and carry for $x+y$, respectively.",
+      "Half-subtractor difference and borrow for $x-y$, respectively."
+    ],
+    "answer": 4,
+    "solution": "1. The first four NAND gates form an XOR: substituting $t$ gives $F_1=x\\oplus y$.\n2. The final NAND has tied inputs and inverts $v$. Thus $F_2=yt=y\\overline{xy}=\\overline{x}y$.\n3. In one-bit subtraction, difference is XOR and a borrow is needed exactly when $x=0,y=1$. These are precisely the two derived outputs.\n4. A comparator equality output would be XNOR, eliminating options 1 and 2. A half-adder carry is $xy$, not $\\overline{x}y$, eliminating option 3.\n\n**Transfer rule.** Label internal nets and calculate every output; matching one familiar subcircuit does not identify a two-output circuit.",
+    "pattern": "internal-net derivation and arithmetic interpretation",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "checked against rendered source page",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "modelId": "nand-borrow",
+    "visualQualification": "Revisited authenticated bridge. The circuit uses the original topology with the stated sample input; the trace does not replace the general Boolean derivation."
+  }
+]
