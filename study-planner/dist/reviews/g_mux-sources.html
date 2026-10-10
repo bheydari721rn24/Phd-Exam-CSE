@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Arithmetic chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"><link rel="stylesheet" href="../chapters/g_mux.css"></head><body><main class="chapter"><p><a href="../chapters/g_mux.html">Arithmetic chapter</a></p><article class="lesson"><h1>Written-source selection and reading audit: <span class="math-inline">g</span>_mux</h1>
+<h2>Selection boundary</h2>
+<p>Four core courses from four universities were actually read for the chapter boundary. The comparison uses the documented accessible source pool, with chapter-specific inspection and relevance screening. It is not a worldwide exhaustive search or a ranking of universities. A more recent course is not automatically more useful than a complete older written treatment; the selection prioritizes scope, derivation quality, independent contracts, and accessible exercise patterns.</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Actual inspected material / relevance</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stanford EE108A, Philip Levis; <span class="math-inline">W</span>. <span class="math-inline">J</span>. Dally reader</td>
+<td>PDF 119–146 and 150–162; code conversion, binary and one-hot selection, tree counts, encoders, priority, ROM, PLA/PAL, exercises</td>
+<td>Core: broadest written block-design treatment, with explicit corrections</td>
+</tr>
+<tr>
+<td>MIT 6.004, Chris Terman, Spring 2017</td>
+<td>Lecture 4 written multiplexer, function-lookup and ROM annotations; web-text lines 697–759</td>
+<td>Core: independent function-realization and lookup structure</td>
+</tr>
+<tr>
+<td>Cambridge Digital Electronics, Ian <span class="math-inline">J</span>. Wassell, 2025–26</td>
+<td>PDF 64–76; three-page Examples Paper 1; source diagrams 66,68,75 rendered</td>
+<td>Core: implementation polarity, programmable arrays, bus ownership and threshold exercise pattern</td>
+</tr>
+<tr>
+<td>ETH Zurich Digital Design and Computer Architecture, Onur Mutlu, Spring 2020</td>
+<td>Lecture 5 PDF 37–43; diagrams 39 and 43 rendered</td>
+<td>Core: independent decoder/MUX contract and hierarchy derivation; introductory rather than priority coverage</td>
+</tr>
+<tr>
+<td>Berkeley CS150, <span class="math-inline">R</span>. <span class="math-inline">H</span>. Katz, Fall 2005, combinational-logic lecture</td>
+<td>Cached lecture inspected by chapter-keyword and scope screening; principally Boolean synthesis rather than comprehensive routing/priority treatment</td>
+<td>Supplemental candidate, not counted as a reviewed core course</td>
+</tr>
+<tr>
+<td>Cornell ECE2300, Christopher Batten</td>
+<td>Accessible cached combinational-logic material has a MUX primitive passage; chapter scope screened, not a claimed current complete reading</td>
+<td>Candidate; current four cover the selected boundary more broadly</td>
+</tr>
+<tr>
+<td>Carnegie Mellon, University of Washington, Imperial College</td>
+<td>Prior candidate acquisition had unavailable, mismatched HTML, or timed-out written artifacts; no usable current chapter text claimed</td>
+<td>Excluded from actual-read count; availability is not a scientific ranking</td>
+</tr>
+</tbody>
+</table>
+<h2>Read evidence and exact source hashes</h2>
+<p>Stanford reader: 232 pages; SHA256 <code>e1be9e7e4780d5fd8baa4ce7afa7a959e1d50c60d80d6c0fc2f551afd0d617b6</code>. PDF 127–129 was reread after an output truncation. Relevant decoder/selector/priority diagrams on 130,138,144 were inspected. The ROM organization on 150–154 was read directly during this chapter's work. Exercise patterns are reconstructed with independent solutions rather than copying the entire exercise collection.</p>
+<p>Cambridge notes: 190 pages; SHA256 <code>e4790943453a7562a3f93a51180e4db72819fe48131aca7b5231ac4631c37c2e</code>. Every page 64–76 was extracted and read; formulas whose complements vanished in extraction were checked in the rendered page 66. The course materials page identifies the 2025–26 course and its notes. The chapter does not claim a reading of all 190 pages.</p>
+<p>ETH Lecture 5: 87 pages; SHA256 <code>3e84c2da3cd6caa79f14f1dacb9b192ca78c8292e5fe3fbcef490d703f849083</code>. Pages 37–43 were reread, including the 4:1 MUX gate/block exercise. Later arithmetic and sequential material is outside this chapter's source claim.</p>
+<p>MIT public annotations were read through the official web page, not downloaded as an authenticated local PDF. No invented file hash or full-course reading claim is made. The lecture's lookup argument is independently derived through Shannon expansion in the lesson.</p>
+<h2>Source discrepancies and normalization</h2>
+<ul>
+<li>Stanford's prose about arbitrary <span class="math-inline">n</span>-variable lookup occasionally confuses <span class="math-inline">n</span> data inputs with the required 2^<span class="math-inline">n</span> inputs. The lesson states both select and data counts explicitly and proves them.</li>
+<li>Stanford's example treats one as prime. The mathematical prime convention excludes one; that example is not copied as a correct prime lookup.</li>
+<li>Priority suppression requires complemented outranking requests. The reader's HDL and the independent grant proof resolve prose that omits a complement.</li>
+<li>Cambridge page 66 extraction loses overbars. The rendered cofactor example is <code>(not z, not z, 0, 1)</code> under selectors <span class="math-inline">x</span>,<span class="math-inline">y</span>, and agrees with the independent eight-row truth table.</li>
+<li>Cambridge page 68's “system 1” sentence does not agree with interpreting <span class="math-inline">x</span>,<span class="math-inline">y</span>,<span class="math-inline">z</span> as the displayed S2,S1,S0 ordering. Our circuit declares MSB-first order and uses equality to assign indices rather than inheriting that ambiguous sentence.</li>
+<li>A PLA product can omit variables, so it need not be a complete minterm. The lesson uses cube terminology and states the PAL architecture assumptions.</li>
+<li>A one-hot OR selector outside its legal domain and tied push-pull drivers are different contracts. No Boolean superposition is used to excuse electrical contention.</li>
+</ul>
+<h2>Original-examination evidence</h2>
+<p>MSc Computer Engineering 1404, booklet <span class="math-inline">335C</span>, PDF page 19 was newly rendered and inspected. Original PDF SHA256: <code>909e4efaaad96f4d39e526104bc9dc6de6d52be11fd7716e583476b0e62ff654</code>; repository commit <code>bdadf6e2c9cadc4772ae137a96a3da753c7cfd08</code>. Question 80 has the two cascaded selector topology and NOR choice four. Question 82 has a full adder with carry-in one, an XOR, two inversions, and <span class="math-inline">S1=c/S0=d</span>; its first option is independently verified over all sixteen inputs. Answers are independent derivations, not an official key.</p>
+<p>Question 80 is a deliberately revisited archive bridge, not a new unique question. Question 82 is newly checked for this chapter. No uninspected doctoral selector question is invented to satisfy an archive quota. The bank combines these two authentic items with 80 original or clearly named reconstructed patterns, from foundational counterexamples through multi-stage mathematical reasoning.</p>
+<h2>Exact references</h2>
+<ol>
+<li>Stanford University — Philip Levis, EE108A Winter 2008; William <span class="math-inline">J</span>. Dally, EE108 Class Notes, Chapters 7–8. <a href="https://web.stanford.edu/class/archive/ee/ee108a/ee108a.1082/reader/ch1to12.pdf">Reader</a>.</li>
+<li>Massachusetts Institute of Technology — Chris Terman, 6.004 Computation Structures, Spring 2017, Lecture 4. <a href="https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/c4s1/">Written annotations</a>.</li>
+<li>University of Cambridge — Ian <span class="math-inline">J</span>. Wassell, Digital Electronics, 2025–26. <a href="https://www.cl.cam.ac.uk/teaching/2526/DigElec/materials.html">Materials</a>, <a href="https://www.cl.cam.ac.uk/teaching/2526/DigElec/combined_25.pdf">notes</a>, <a href="https://www.cl.cam.ac.uk/teaching/2526/DigElec/examples_25_1.pdf">Examples Paper 1</a>.</li>
+<li>ETH Zurich — Onur Mutlu, Digital Design and Computer Architecture, Spring 2020, Lecture 5. <a href="https://safari.ethz.ch/digitaltechnik/spring2020/lib/exe/fetch.php?media=onur-digitaldesign-2020-lecture5-combinational-logic-ii-afterlecture.pdf">Slides</a>.</li>
+</ol>
+<p>The references identify actual material used. The audited synthesis remains a review draft until student approval; finite evidence cannot guarantee every unseen examination outcome.</p>
+</article></main><script src="../chapters/math-layout.js?v=79"></script></body></html>

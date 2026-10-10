@@ -536,3 +536,8 @@ The student explicitly approved the delivered simulation correction and authoriz
 ## Arithmetic-circuit review draft — 10 October 2026
 
 Completed g_arithmetic with four reviewed written university courses, 82 fully worked problems, 80 final reasoning rules and 15 concept-specific models / 71 checkpoints. Independent reference checks passed for 16,648 cases / 84,808 states. All 47 prior chapter bodies remain byte-identical. Browser checks passed for fonts, glyph bounds, controls, reduced motion, print, invalid inputs and mobile containment. The draft is review-complete but not labeled student-approved. Native Sites transport currently fails, so online publication remains pending; retain the prepared source and archive. Continuous sequential authorization advances work to g_mux without requesting another start permission.
+
+
+## Selector/decoder/encoder review draft — 10 October 2026
+
+Completed g_mux: four read written university courses, 82 complete solutions, 80 final rules, 17 domain-specific models / 56 saved checkpoints. Independent references passed for 7132 cases / 26084 generated checkpoints. All 48 preceding pages retained byte for byte. Browser font, geometry, control, lab, mobile and print checks passed. Review complete, not yet student-approved. Publication tracked separately. Standing authorization advances work to d_recurrence without another start-permission request.

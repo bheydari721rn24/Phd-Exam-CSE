@@ -1,0 +1,33 @@
+{
+  "topicId": "g_mux",
+  "coreUniversities": [
+    "Stanford",
+    "MIT",
+    "Cambridge",
+    "ETH Zurich"
+  ],
+  "readScopes": {
+    "Stanford": "PDF 119–146, 150–162; relevant core passages and diagrams reread. Chapter 7/8 exercises inspected, not copied wholesale.",
+    "MIT": "Lecture 4 written multiplexer/lookup/ROM passages, web-text lines 697–759.",
+    "Cambridge": "PDF 64–76 and all three pages of Examples Paper 1; diagrams 66,68,75 rendered.",
+    "ETH Zurich": "PDF 37–43; diagrams 39,43 rendered."
+  },
+  "corrections": [
+    "Stanford selector universality uses 2^n data ports, not n ports.",
+    "Cambridge page 68 system-one example contradicts explicitly MSB-first x,y,z wiring; derive address independently.",
+    "PLA products are cubes, not necessarily complete minterms.",
+    "Stanford prime-number lookup includes one; one is not prime.",
+    "Stanford priority prose must include negated lower requests; HDL has the correct complement."
+  ],
+  "exam": {
+    "ids": [
+      "MS_CE_1404_Q80",
+      "MS_CE_1404_Q82"
+    ],
+    "sha256": "909e4efaaad96f4d39e526104bc9dc6de6d52be11fd7716e583476b0e62ff654",
+    "page": 19,
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "answerProvenance": "independently derived, not official key"
+  },
+  "limits": "Bounded source pool and scoped actual readings; not every course worldwide. No new authenticated doctoral MUX item claimed."
+}
