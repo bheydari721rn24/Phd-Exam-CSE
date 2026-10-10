@@ -1,0 +1,608 @@
+[
+  {
+    "id": "a_balanced_original_01",
+    "title": "Exact thresholds rather than a rounded logarithm",
+    "stem": "Find the largest possible AVL edge height for 50 distinct keys. Give the two thresholds that certify it.",
+    "solution": "Start with $M_{-1}$=0 and $M_{0}$=1. Applying $M_{h}$=1+$M_{h-1}$+$M_{h-2}$ gives $M_{5}$=20, $M_{6}$=33 and $M_{7}$=54. Fifty keys can reach height six but cannot reach seven, since 50<54. The upper capacity at height six is 127, so a minimal height-six shape can be filled further while preserving that height; alternatively an independently enumerated valid construction supplies the witness. Thus the maximum is **six**. The leading constant 1.44042 is useful asymptotically but does not establish this exact integer result.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "minimum-eight",
+    "visualQualification": "The model shows exact minimum thresholds through height eight, including the two thresholds used here. It does not construct a fifty-key witness."
+  },
+  {
+    "id": "a_balanced_original_02",
+    "title": "A thousand keys and both extremal heights",
+    "stem": "Determine the minimum and maximum possible edge heights of an AVL tree with exactly 1000 nodes.",
+    "solution": "A binary tree of height eight holds at most 511 keys, while height nine holds at most 1023. A recursive midpoint construction on 1000 sorted keys is AVL and has height nine, attaining the lower bound. For the upper bound, $M_{13}$=$F_{16}$−1=986 and $M_{14}$=$F_{17}$−1=1596. Hence no height above 13 is possible. Filling suitable available positions of a minimal height-13 AVL shape yields 1000 nodes without increasing height or breaking balance; the shape-count recurrence also certifies attainable sizes. The height interval is therefore **9 through 13**, inclusive. Both bounds count actual nodes with empty height minus one.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_03",
+    "title": "A million-key height calculation",
+    "stem": "An AVL tree has one million keys. Find its greatest possible height and the maximum number of actual key comparisons on a search route of that height.",
+    "solution": "The relevant Fibonacci values are $F_{30}$=832040 and $F_{31}$=1346269. Therefore $M_{27}$=832039 and $M_{28}$=1346268. One million lies between them, so the maximum edge height is **27**. A deepest actual node lies after 27 edges and requires **28** key comparisons including the root. An unsuccessful search through a deepest missing child also compares 28 actual nodes; the null sentinel adds no key comparison. Confusing height with comparisons produces an off-by-one error. Logarithmic height is a worst-case upper guarantee, not a claim that every query costs 28.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_04",
+    "title": "Prove the Fibonacci shift",
+    "stem": "Under empty height minus one, prove $M_{h}$=$F_{h+3}$−1. Translate the result to a convention using empty height zero and singleton height one.",
+    "solution": "For h=−1, $F_{2}$−1=0; for h=0, $F_{3}$−1=1. If the identity holds at the two smaller heights, then 1+$M_{h-1}$+$M_{h-2}$=$F_{h+2}$+$F_{h+1}$−1=$F_{h+3}$−1. This completes induction. In the shifted convention H=h+1, replace h by H−1 to obtain $F_{H+2}$−1. The shapes and key counts have not changed; only the height index changes. Reusing the old h+3 subscript with the new height variable would overcount even a singleton. Base cases are part of the proof, not optional notation.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_05",
+    "title": "The logarithmic constant has a domain",
+    "stem": "Derive the AVL leading height coefficient relative to log base two and explain why floor(1.44042 $log_{2}$ n) is not an exact maximum-height formula.",
+    "solution": "Writing $M_{h}$+1=$F_{h+3}$, the Fibonacci characteristic roots give growth proportional to $\\phi^{h+3}$, up to a bounded smaller-root term. Taking logs gives h=$\\log_{\\phi}$ n+O(1) at the extremal thresholds. The change-of-base coefficient is 1/$\\log_{2}$ $\\phi$, approximately **1.44042**. The hidden additive term depends on the shift and the factor sqrt(5); the small oscillating term and integer threshold matter as well. At n=1 the approximate formula floors to zero, but its accidental success there is not a proof. For n=2 it floors to one; again use $M_{h}$ thresholds to establish an exact result. Asymptotic equivalence preserves leading growth, not every integer answer.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_06",
+    "title": "Count the sparsest AVL shapes",
+    "stem": "How many ordered AVL shapes have the minimum number of nodes at edge height four? How many have the minimum at height five?",
+    "solution": "At every internal extremal root, child heights are h−1 and h−2 and can be assigned to either side. Thus $S_{h}$=2$S_{h-1}$$S_{h-2}$, with $S_{-1}$=$S_{0}$=1. Compute $S_{1}$=2, $S_{2}$=4, $S_{3}$=16, $S_{4}$=128 and $S_{5}$=4096. The required counts are **128** and **4096**. Their node counts are $M_{4}$=12 and $M_{5}$=20. These are ordered shapes, so a left/right reflection is counted separately unless identical; distinct child heights prevent identity at an extremal internal root. A fixed increasing key set labels each shape uniquely. This does not count generating insertion permutations after rebalancing.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_07",
+    "title": "Leaves in a minimum-node AVL tree",
+    "stem": "Find the number of actual leaves in a minimum-node AVL shape of height six. Explain why this number is independent of its left/right orientation choices.",
+    "solution": "Let $L_{h}$ count leaves in the extremal shape. The bases are $L_{-1}$=0, $L_{0}$=1 and $L_{1}$=1: the two-node minimal shape has only one actual leaf. For h≥2 both child subtrees are nonempty and $L_{h}$=$L_{h-1}$+$L_{h-2}$. The sequence at heights zero through six is 1,1,2,3,5,8,13. Thus there are **13 leaves** among $M_{6}$=33 nodes. Orientation changes which side each smaller tree occupies, but does not change their leaf counts, so induction establishes independence. Null search gaps would instead number 34 and must not be confused with the actual leaves.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_08",
+    "title": "All AVL shapes on five keys",
+    "stem": "Count all ordered AVL shapes on five distinct keys. Give their root split sizes and heights.",
+    "solution": "The root has four remaining nodes. Splits 0/4 and 4/0 are invalid because an empty child has height minus one while a four-node AVL child has height two. Splits 1/3 and 3/1 are valid: the singleton has height zero and the unique balanced three-node subtree height one, contributing one shape each. Split 2/2 is also valid; each two-node child has two orientations and height one, contributing 2×2=4. Summing gives **six** shapes, all of height two. The root key is determined by the left size, so these are also the six labelled BSTs on any fixed increasing five-key set.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_09",
+    "title": "Seven keys: perfect is not the only balanced shape",
+    "stem": "Count all ordered AVL shapes on seven keys and partition the answer by edge height.",
+    "solution": "A height-two tree with seven nodes must be perfect, contributing one shape. Height three has minimum $M_{3}$=7, so every such tree is extremal and contributes $S_{3}$=16. A height above three needs at least $M_{4}$=12 and is impossible. Hence the total is **17**, partitioned as one height-two and sixteen height-three shapes. A root that splits 3/3 contributes the perfect shape; the extremal height-three roots split 4/2 or 2/4 with the valid smaller child shapes. Counting all $C_{7}$ Catalan shapes would ignore the balance requirement.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_10",
+    "title": "Root balance misses a lower violation",
+    "stem": "Construct a strict BST whose root has balance factor zero but which is not AVL. Give true heights and an offending node.",
+    "solution": "Use root 40. Its left branch is 20 with left 10 with left 5; its right branch is 60 with right 70 with right 80. Each root child has height two, so B(40)=0 and root height is three. Node 20 has left height one and empty right height minus one, giving B(20)=2; node 60 has the mirror violation −2. Inorder is 5,10,20,40,60,70,80, so ordering is valid. This witness separates strict BST order, the root-only height test and the recursive AVL certificate. Every node's balance is required.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_11",
+    "title": "Cached height corruption",
+    "stem": "In a perfect seven-key AVL tree, the root cache incorrectly says height one, while its two child caches correctly say one. Can a cache-only balance test certify the representation? Give the correct linear audit.",
+    "solution": "The root's child difference is zero, so testing only cached balance would accept that local check even though the root's true height is two. A parent relying on the false root cache could then choose an incorrect repair. The audit recursively obtains true child heights, tests their difference and verifies stored height equals one plus their maximum; it returns the true value upward. The root mismatch is detected at the final return. Combining inherited key intervals, metadata and ownership checks certifies the representation in linear time. Accepting an apparently balanced cache is not equivalent to proving the cache represents the actual tree.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_12",
+    "title": "The rotation contract counterexample",
+    "stem": "Right-rotate the perfect three-key tree with root 20 and children 10,30. Does ordering survive? Does AVL balance survive? Identify the missing contract condition.",
+    "solution": "The result is root 10, with right child 20 whose right child is 30. Inorder remains 10,20,30, so the BST ordering and content conditions survive. True heights are zero at 30, one at 20 and two at 10; B(10)=−2. The result is **not AVL**. Having two valid AVL children before an arbitrary rotation does not suffice for an AVL postcondition. A specialized right-repair must additionally constrain the root imbalance and the heavy-child configuration. A structural primitive instead promises ordering/content preservation and correct refresh, while the repair proof supplies balance.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_13",
+    "title": "Why refresh order matters",
+    "stem": "Let z=30 have left child y=20 with left 10 and no other children. Right-rotate z. Compute both final heights and explain a promoted-first refresh bug.",
+    "solution": "After rewiring, z=30 has no children, so its new height is zero. Promoted y=20 has children 10 and 30, each height zero, so its new height is one. Before the rotation z's cached height was two. If y is refreshed first, it reads that stale two from its new right child z and stores height three, even though the final tree height is one. Refreshing z first and y second obeys the actual dependency. The same ordering is required for size, sum or closest-pair aggregates that depend on child metadata.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "avl-ll",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_14",
+    "title": "Four insertion cases, one final shape",
+    "stem": "For sequences (30,20,10), (10,20,30), (30,10,20) and (10,30,20), identify the repair site, primitive rotations and final preorder.",
+    "solution": "In the first sequence, 30 becomes left-heavy with left-heavy child 20: right-rotate 30, one primitive. In the second, 10 becomes right-heavy with right-heavy child 20: left-rotate 10, one. In the third, 30 has right-heavy left child 10: left-rotate 10 then right-rotate 30, two. In the fourth, 10 has left-heavy right child 30: right-rotate 30 then left-rotate 10, two. Every final preorder is **20,10,30**, with root height one and all balances zero. The route names LL/RR/LR/RL identify geometry; their required rotation directions are not identical to those names.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "avl-lr",
+    "visualQualification": "This companion shows the LR member of the four exact three-key cases. All four case models appear in the main lesson; the solution distinguishes their primitive counts."
+  },
+  {
+    "id": "a_balanced_original_15",
+    "title": "A double rotation with a real middle subtree",
+    "stem": "Start with AVL root 50, children 20 and 70, and 20's children 10 and 30. Insert 25. Determine the lowest violation, final links, height and primitive count.",
+    "solution": "The new leaf 25 attaches as 30.left. Node 30 has balance one and height one; node 20 has left height zero and right height one, so is valid with balance −1 and height two. Node 50 now has left height two and right height zero, giving balance two. This is LR: left-rotate 20, then right-rotate 50. The new root is 30; its left child is 20 with children 10,25, and right child is 50 with right 70. Preorder is **30,20,10,25,50,70**, height two, with **two primitives**. Transferring the middle subtree 25 correctly distinguishes the repair from merely swapping three keys.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "middle-subtree",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_16",
+    "title": "One insertion can expose several apparent violations",
+    "stem": "In the pre-insertion tree from Question 15, insert 5 instead. Explain why fixing the lowest violation removes any need for a higher insertion repair.",
+    "solution": "The new 5 attaches below 10. Node 10 becomes height one; node 20 now has child heights one and zero and remains valid. Root 50 gets child heights two and zero, so it is the lowest violation, with left-heavy child 20. Right-rotate 50. The result is root 20, with left 10 whose left is 5, and right 50 with children 30,70. Its height is two, equal to the original root's height. If this subtree had an ancestor, that ancestor would receive the same height as before insertion. It can require metadata refresh but cannot require another balance repair from this insertion. The final preorder is **20,10,5,50,30,70**.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_17",
+    "title": "Deletion with a balanced heavy child",
+    "stem": "Given root 40, left 20 with children 10,30, and right leaf 60, delete 60. State the primitive count, final preorder and whether height propagation continues.",
+    "solution": "The old tree height is two. After removing 60, B(40)=1−(−1)=2 and B(20)=0. The correct repair is one right rotation at 40. The new root is 20, with left 10 and right 40 whose left child is 30. Preorder is **20,10,40,30**; height remains two. The demoted 40 has balance one and height one, and promoted 20 has balance −1. Since the repaired subtree keeps its pre-deletion height, no height decrease propagates to an ancestor. This is deletion's equality case; a strict insertion-only outer comparison is unsuitable.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "delete-zero",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_18",
+    "title": "Deletion with an outer-heavy child",
+    "stem": "Given root 40, left 20 with left 10, and right leaf 60, delete 60. Compare the outcome with Question 17.",
+    "solution": "Before deletion the root height is two and its left child's balance is one. Deleting 60 gives B(40)=2, so right-rotate 40. The result is root 20 with children 10,40, preorder **20,10,40**, height one and zero local balances. There is **one primitive**, as in Question 17, but now the subtree height decreases from two to one. An ancestor must therefore be reconsidered. Equal rotation counts do not imply equal height propagation; the heavy child's pre-repair balance determines the difference.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "delete-outer",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_19",
+    "title": "Deletion with an inner-heavy child",
+    "stem": "Given root 40, left 20 with right 30, and right leaf 60, delete 60. Explain why one right rotation fails.",
+    "solution": "After deleting 60 the root is left-heavy by two, but its heavy child 20 is right-heavy by one. A single right rotation would make 20 the root with right 40 whose left is 30; that root still has a right subtree of height one and empty left, so balance is −2. Instead left-rotate 20, then right-rotate 40. The final preorder is **30,20,40**, with height one and all balances zero. The correct count is **two primitives**, and the repaired subtree loses one height level relative to the original. Child geometry, not a memorized single-rotation direction, resolves the case.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "delete-inner",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_20",
+    "title": "A two-site deletion cascade",
+    "stem": "Use the twelve-key initial BST insertion order 50,20,10,30,40,80,60,70,90,85,100,110. It describes an already AVL initial shape, not a sequence that must be rebalanced while loading. Delete 10 and determine all repair sites, final preorder and height change.",
+    "solution": "The initial root height is four; its child heights are two at 20 and three at 80. Removing leaf 10 makes 20 right-heavy by two, with right-heavy child 30. Left-rotate 20, producing a height-one subtree rooted at 30 with children 20,40. This subtree is shorter than the original left subtree. Root 50 then has left height one and right height three, so is right-heavy by two. Child 80 has balance −1, so left-rotate 50. Final preorder is **80,50,30,20,40,60,70,90,85,100,110**. Height is three and there are **two primitive rotations at two distinct sites**. Loading this stated diagram through an AVL insertion algorithm could change its shape; the question explicitly fixes the initial links.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "delete-cascade",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_21",
+    "title": "Two-child deletion tracks the removed successor",
+    "stem": "Start with the perfect seven-node tree 40,20,60,10,30,50,70. Delete 40 using successor substitution. Give the association removed, physical removal point, final preorder and rotation count.",
+    "solution": "The target association is key 40. Its successor is 50, the left leaf of 60. Copy the full 50 association into the root, then remove the old leaf 50 from 60.left. Node 60 now has balance −1 and height one; the root still has two height-one children, so no repair rotation is needed. Final preorder is **50,20,10,30,60,70**, with **zero rotations**. The deleted association is 40, while the physically freed/relinked position belonged to 50. The repair route follows that physical position through 60 to the root. Key/value semantics and memory identity are separate.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "delete-successor",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_22",
+    "title": "Absent deletion and singleton deletion",
+    "stem": "For a singleton AVL tree containing 7, perform delete(9), then delete(7). State roots, sizes, heights and whether any rotation occurs.",
+    "solution": "The first search compares with 7 and reaches a null right child. No association is removed, so the root stays 7, size stays one and height stays zero. The second deletion removes the root, returning its null child; size becomes zero and height becomes minus one. Neither operation requires a rotation. A null root is a valid completed empty tree, not an error state. The first operation has constant actual cost in this one-node example even though a general worst-case bound is logarithmic in growing n.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_23",
+    "title": "Primitive rotations are not operation time",
+    "stem": "A standard AVL insertion performs a double rotation at a depth-eight subtree in a height-twelve tree. Is the whole insertion constant-time? Explain the cost components.",
+    "solution": "The local repair contains **two constant-time primitives**. Before reaching it, the insertion must search a root-to-null route that can contain thirteen actual nodes. Returning upward refreshes height and any relevant aggregate along that route. Restoring the repaired subtree's old height prevents another rotation site, but does not undo the search or necessarily eliminate aggregate updates above it. Thus the general insertion remains **O(log n)**, with a constant rotation count. A pointer to the insertion position could change the search resource, but metadata propagation and the explicitly supplied interface must still be analyzed. Local work and total operation work are different quantities.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_24",
+    "title": "Stop height propagation, continue aggregate propagation",
+    "stem": "After the balanced-heavy-child deletion in Question 17, the subtree has unchanged height but one fewer key. If size and sum are cached above it, may the update stop completely?",
+    "solution": "No. The unchanged height means the ancestor's AVL balance cannot newly change from this deletion, so height-based rebalancing can stop. Nevertheless the subtree size decreases by one and its sum decreases by the deleted key 60. Every ancestor whose subtree contains that position must refresh those fields. Stopping the entire return process would leave stale rank/select and range-sum answers despite a valid AVL shape. An implementation can maintain separate flags for structural height change and aggregate change, or simply return and refresh all ancestors. The latter still takes logarithmic time. A balance propagation optimization is not a semantic no-change certificate.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_25",
+    "title": "Rotation updates for rank augmentation",
+    "stem": "Before a left rotation at x with right child y, let sizes of A=x.left, B=y.left and C=y.right be 2,3 and 4. Compute the final sizes of x and y.",
+    "solution": "Before rotation, y owns 1+3+4=8 nodes and x owns 1+2+8=11. After rotation, x owns A, its own association and B, so size(x)=2+1+3=**6**. Promoted y owns the new x subtree, itself and C, so size(y)=6+1+4=**11**. The promoted total equals the original total because rotation preserves all associations. Refresh x before y so y sees six rather than x's old eleven. A select route uses these subtree counts, not the heights or a globally stored rank. The computation is constant work per rotation with fixed-size counts.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_26",
+    "title": "Closest-pair augmentation with a cross-boundary winner",
+    "stem": "At node key 40, left-subtree minimum/maximum are 5/37 and its best gap is 8. The right minimum/maximum are 44/100 and its best gap is 6. Compute the combined best gap and witness category.",
+    "solution": "The internal candidates have gaps eight and six. The two boundary candidates are (37,40), gap three, and (40,44), gap four. The minimum is therefore **three**, witnessed by **37 and 40**. A pair spanning both child subtrees has distance at least 44−37=7 and cannot beat the adjacent boundary pair; more generally closest pairs in an ordered set are adjacent in sorted order. Combined minimum and maximum are 5 and 100. Store the witness with a deterministic tie rule when equal gaps occur. A null child contributes no candidate, and a singleton returns no pair rather than a false zero gap.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_27",
+    "title": "Count versus rank and output-sensitive work",
+    "stem": "A balanced subtree-size tree holds 10,20,25,30,40,60,65,70,80. Compute strict rank(65), zero-based select(4), inclusive count [25,70] and the reporting cost for that interval.",
+    "solution": "Six keys are smaller than 65, so strict rank is **six**. Zero-based position four is the fifth sorted key, **40**. The interval contains 25,30,40,60,65,70, hence count **six**. Algebraically rank(70)−rank(25)+1=7−2+1=6 because 70 is present; if it were absent the upper presence term would be zero. Rank/select and range count each follow logarithmic routes with correct size fields. Reporting all six associations costs O(log n+6), and reporting an interval containing k keys requires Omega(k) output work. Balance changes route length, not the cost of emitting the requested results.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_28",
+    "title": "Two–three tree capacities",
+    "stem": "A 2–3 tree has edge height three. Find its minimum/maximum key counts and corresponding actual leaf counts.",
+    "solution": "For minimum capacity all nodes are two-nodes, containing one key and branching twice. The four levels contribute 1+2+4+8=**15 keys** and the bottom level has **8 leaves**. For maximum capacity all are three-nodes, containing two keys and branching three times. The levels contribute 2(1+3+9+27)=**80 keys** and **27 leaves**. These sums agree with $2^{3+1}$−1 and $3^{3+1}$−1. Counting only leaves would omit internal keys; assuming each node contains one key would undercount the full three-node tree. Every extremal leaf has exactly depth three.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_29",
+    "title": "Two–three–four tree capacities",
+    "stem": "Repeat Question 28 for a 2–3–4 tree of height three. Explain why a binary node count is not the same as its multiway node count.",
+    "solution": "Minimum capacity is unchanged: one key per two-node gives **15 keys** and eight leaves. Maximum capacity uses three keys per four-node: 3(1+4+16+64)=**255 keys**, with **64 actual leaves**. There are 1+4+16+64=85 multiway nodes in this maximum tree. Its red-black encoding has one actual binary node per key and hence 255 actual binary nodes. Collapsing red clusters changes node grouping, not the key set. Uniform leaf depth is measured in multiway edges; binary paths may contain additional red edges.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_30",
+    "title": "Necessary height bounds for a thousand multiway keys",
+    "stem": "Compute the necessary edge-height intervals for n=1000 in 2–3 and 2–3–4 trees.",
+    "solution": "The lower key bound $2^{H+1}$−1≤1000 gives H≤8. For 2–3 maximum capacity, $3^{H+1}$−1≥1000 requires H≥6 because $3^{6}$−1=728 and $3^{7}$−1=2186. Thus **6≤H≤8**. For 2–3–4 maximum capacity, $4^{4}$−1=255 and $4^{5}$−1=1023, so **4≤H≤8**. These are necessary integer bounds obtained by capacity; the problem does not specify a particular update-produced shape. Constructions and legal occupancy, if requested, require an additional argument rather than a bare interval formula.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_31",
+    "title": "B-tree root exceptions",
+    "stem": "A B-tree has minimum degree three and edge height two. Find its minimum and maximum key counts, including the root exception.",
+    "solution": "The minimum root has one key and two children. Level one then has two nodes with two keys each; level two has six nodes with two keys each. Total minimum is 1+4+12=**17**, matching 2·3²−1. The maximum root has five keys and six children, every internal node has six children and every node five keys. Total maximum is 5(1+6+36)=**215**, matching 6³−1. Applying the nonroot minimum of two keys to the root would incorrectly give a larger lower bound. 'Minimum degree three' means capacity two through five keys, not exactly three children per node.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_32",
+    "title": "CPU comparisons and block transfers",
+    "stem": "For a B-tree with minimum degree b=32, describe lookup cost under linear node scanning, binary node search and one-node-per-block storage.",
+    "solution": "The root-to-leaf route has O(1+$log_{32}$ n) node visits. Linear scanning performs at most a constant multiple of 32 comparisons per node, giving O(32(1+$log_{32}$ n)). Binary searching the sorted node keys performs O($log_{2}$ 32) comparisons per node, so the asymptotic comparison cost is O(log n) for growing n. If one node occupies one transfer block and the root is not assumed cached, block accesses are O(1+$log_{32}$ n). Insertion can still move O(32) packed entries per split; reducing comparison count does not remove those movements. These costs measure different resources and cannot be exchanged without stating the cost model.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_33",
+    "title": "The integer fanout optimization trap",
+    "stem": "Minimize f(b)=b/ln(b) over integers b≥2. Show why flooring the continuous optimum is insufficient.",
+    "solution": "Differentiate to obtain f'(b)=(ln b−1)/(ln b)². The function decreases below e and increases above e. Hence the integer minimum must be at two or three. Their values are 2/ln2≈2.88539 and 3/ln3≈2.73072, so **b=3** is smaller; f(4)=4/ln4≈2.88539 and subsequent values increase. Merely taking floor(e)=2 misses the neighboring candidate. This optimizes the given symbolic factor only. It does not prove a universal implementation choice because big-O coefficients, cache costs, key movement and memory layout can change the practical objective.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_34",
+    "title": "Top-down splitting on increasing keys",
+    "stem": "Insert 10,20,30,40,50,60,70 into an empty top-down 2–3–4 tree. Give the final root/leaf boxes and split events.",
+    "solution": "The first three keys fill root [10,20,30]. Before inserting 40, split that root, promoting 20 and leaving leaves [10] and [30]; then append 40 to the right leaf. Inserting 50 fills it to [30,40,50]. Before descending for 60, split that full leaf, promoting 40 into the root. The root becomes **[20,40]** with leaves **[10]**, **[30]** and **[50]**. Add 60 and then 70 to the last leaf, which finishes as **[50,60,70]**. There are two splits. The final full leaf is legal and need not be split until an operation actually descends into it.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "multiway-seven",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_35",
+    "title": "Bottom-up promotion is a different variant",
+    "stem": "Insert the same seven increasing keys into an empty bottom-up 2–3 tree. Compare the final structure with Question 34.",
+    "solution": "After 10,20 the root is the two-key box [10,20]. Adding 30 makes a temporary [10,20,30], promoting 20 with leaves [10],[30]. Adding 40 fills the right leaf to [30,40]. Adding 50 overflows it, promotes 40 and leaves root [20,40] with leaves [10],[30],[50]. Adding 60 fills the last leaf. Adding 70 promotes 60; the temporary root [20,40,60] then splits. The final root is **[40]**, children **[20]** and **[60]**, and leaves **[10],[30],[50],[70]**, with height two. The top-down 2–3–4 result has height one and allows the three-key leaf. Both are valid for their declared variants; expecting identical shapes is an error.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_36",
+    "title": "Borrow through the separator",
+    "stem": "In a 2–3–4 tree, parent [20,40] has leaf children [10], [30] and [50,60]. Before deleting 30, borrow from the adjacent right sibling. Give every updated box.",
+    "solution": "The middle child has only one key, while its right sibling has two. Move the separating parent key **40** down to the middle child, and the sibling's smallest key **50** up to the parent. Parent becomes **[20,50]**, middle child **[30,40]**, right sibling **[60]**, and left child stays [10]. Now removing 30 leaves middle **[40]** without emptying a nonroot node. In an internal-node version, the right sibling's leftmost child subtree would move to the middle node's new right boundary. Moving 60 directly into the middle child without the parent exchange would violate the parent interval.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "multiway-borrow",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_37",
+    "title": "Merge and shrink the root",
+    "stem": "An initial 2–3–4 tree has root [20] and leaf children [10],[30]. Delete 10 using a prepared top-down descent.",
+    "solution": "Both the target-side leaf and its only adjacent sibling contain one key, so neither can lend. Merge [10], separator 20 and [30] into **[10,20,30]**. The old root becomes empty and is replaced by that merged leaf. Deleting 10 then leaves **[20,30]**, a one-node tree of height zero. The original height was one. Every remaining leaf moved up equally, preserving uniform depth. An empty nonroot node would be invalid, but the emptied root has a specific replacement rule. Its exceptional treatment is part of correctness, not an arbitrary deletion shortcut.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "multiway-merge",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_38",
+    "title": "A general red-black tree that LLRB rejects",
+    "stem": "Color root 40 black and its children 20,60 red. All grandchildren are null. Check the general red-black and completed 2–3 LLRB invariants, and compute $\\beta$(root).",
+    "solution": "Strict order holds, the root is black and neither red child has a red child. Every root-null route contains only the black root, so **$\\beta$=1**. Thus it is **valid general red-black**. Collapsing the red children yields one three-key 2–3–4 node [20,40,60]. It is **not a completed 2–3 LLRB tree**, because the right red link is forbidden and the two red children form a persistent four-node. The same colors can therefore be accepted or rejected depending on the explicitly stated variant. A transient insertion checkpoint may allow them before its normalization finishes.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "red-cluster",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_39",
+    "title": "A black chain is not balanced",
+    "stem": "Consider black root 20 with black left child 10 and no right child. Which red-black invariant fails? Does the absence of red nodes certify anything useful?",
+    "solution": "The root is black and there are no red-red links. Strict BST ordering also holds. However the route through 10 contains two actual black nodes, while the root's right-null route contains one. Equivalently $\\beta$(left)=1 and $\\beta$(right)=0 disagree at the root. Hence equal black height fails and the tree is **invalid red-black**. The absence of red nodes only makes the red-adjacency condition vacuous; it does not prove route balance. It is a valid two-node AVL shape, because the child edge heights differ by one. The two invariants impose different conditions.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_40",
+    "title": "Translate black-height conventions",
+    "stem": "Compare this chapter's $\\beta$ with a count that excludes the starting node and includes the final black null sentinel. Find the difference for a black actual node, a red actual node and a null start.",
+    "solution": "Let the alternative count be c(v). For a black actual starting node, excluding that black subtracts one while including the terminal null adds one, so **c(v)=$\\beta$(v)**. For a red actual start, exclusion subtracts zero but the null adds one, so **c(v)=$\\beta$(v)+1**. At a null start, the usual excluded-start path has count zero, and this chapter's $\\beta$(null)=0, so both are zero. The separate null base must be stated rather than obtained by treating a null start as an ordinary red/black actual node. This translation explains why formulas can agree at a black root yet differ inside a tree.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_41",
+    "title": "Black-height size bounds",
+    "stem": "A general red-black tree has $\\beta$(root)=3. Find minimum/maximum possible numbers of actual key nodes and justify both equality structures.",
+    "solution": "There are three black layers after collapsing red clusters. Minimum capacity uses one-key clusters with branching two, giving **2³−1=7** actual keys: a perfect all-black seven-node tree. Maximum capacity uses three-key clusters with branching four at every layer, giving **4³−1=63** actual keys. Each cluster is represented by a black middle key and red outer children; the red children have black roots of the next clusters or null endpoints. Both structures have three actual black nodes on every root-null route and no red-red edge. Binary height may differ because maximum clusters add red edges.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_42",
+    "title": "Infer possible black heights from size",
+    "stem": "A valid general red-black tree has 31 keys. Infer the necessary $\\beta$(root) interval using only size bounds. Give a witness for its upper endpoint.",
+    "solution": "From 31≤$4^{b}$−1, b must be at least three, since b=2 holds at most 15. From $2^{b}$−1≤31, b must be at most five, since b=6 needs at least 63. Thus the necessary interval is **3≤b≤5**. A perfect all-black tree with 31 keys has five actual black layers and realizes b=5. The inequalities are necessary; they do not specify a particular colored tree or count its encodings. A construction for another endpoint must be given if requested, rather than inferred solely from an interval bound.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_43",
+    "title": "Root-null path lengths and actual heights",
+    "stem": "A general red-black tree has $\\beta$(root)=4. Bound root-null link length and actual edge height. Explain why subtracting null changes a ratio argument.",
+    "solution": "Every root-null route contains four black actual nodes and at most four red actual nodes, so it visits **four through eight actual nodes** and traverses the same **four through eight child links to null**. The deepest actual edge height is at most **seven**, because the route with eight actual nodes has seven edges before its terminal null. The ratio of root-null route lengths is at most two. Actual root-to-leaf edge lengths subtract one, so simply keeping the same ratio can fail at small depths; a singleton has actual height zero. A counting convention must stay fixed throughout the comparison.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_44",
+    "title": "Recoloring a red-uncle insertion",
+    "stem": "Let black root 40 have red children 20,60. Insert 10 as a red child of 20 using the classical algorithm. Describe repair and final colors.",
+    "solution": "Insertion adds no black node to the route but creates red 20 with red child 10. The uncle 60 is red, so blacken **20 and 60** and redden **40**. The active node becomes 40. Since it is the root, blacken it and stop. Final colors are black 40, black 20, black 60, red 10; the other child links are null. Beta(root) is now two on every route. There are **zero primitive rotations** and three assignments in the red-uncle transformation plus the root blackening. Recolors can change the common black count uniformly at the root without violating the equal-path condition.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "classical-red-uncle",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_45",
+    "title": "Black-uncle line insertion",
+    "stem": "Starting with black 30 and red left child 20, insert red 10 using the classical algorithm. Give repair, colors and primitive count.",
+    "solution": "The initial tree is valid because the red 20 contributes no additional black node. New red 10 creates a red-red left-left line at black grandparent 30; the uncle is null and hence black. Blacken 20, redden 30 and right-rotate 30. Final root is **20 black**, with **10 red** and **30 red** children. There is **one primitive rotation**. The root-to-null black count remains one and red nodes have no red children. This general red-black result is not completed 2–3 LLRB, since it has two red children and a right red link; a different declared algorithm may normalize it differently.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "classical-line",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_46",
+    "title": "Black-uncle triangle insertion",
+    "stem": "Starting with black 30 and red left child 10, insert red 20 using the classical algorithm. Give both primitives and final colors.",
+    "solution": "The new 20 is the right child of red 10, forming a left-right triangle below black 30 with a black/null uncle. Left-rotate **10**, which converts the active geometry into a left-left line with 20 above 10. Update the active roles; then blacken **20**, redden **30** and right-rotate **30**. Final root is **20 black**, children **10 red** and **30 red**, with **two primitives**. Skipping the triangle conversion leaves the wrong intervals or unresolved red adjacency. Black balance is preserved by the paired recolor/line rotation, not by assigning colors independently of the topology.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "classical-triangle",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_47",
+    "title": "Why a new classical node is red",
+    "stem": "Explain why inserting a black leaf below a nonroot null position generally breaks a valid red-black tree, whereas inserting red preserves path black counts before repair.",
+    "solution": "At the original null position, no actual black node is counted. Replacing it by a black actual leaf adds one black unit to routes through that position but not to sibling routes. The nearest common ancestor therefore receives unequal child black counts. A red actual leaf instead contributes zero and its two null endpoints preserve the prior count, so the only possible new internal violation is a red parent with a red child. This isolates insertion repair to color adjacency and root blackening. The empty-tree case is exceptional: the new root is blackened uniformly because there is no competing old route.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_48",
+    "title": "Deletion uses the physically removed color",
+    "stem": "A black target has two children. Its inorder successor is a red leaf. Classical deletion copies the successor association into the target and removes that red leaf. Is a missing-black repair required?",
+    "solution": "The target position remains in the tree with its original black color; only its association changes. The physically removed successor position was **red**, so its removal subtracts no black unit from any route. Hence **no missing-black repair is required**. The BST successor copy must include the full value, and size/other aggregates still need updates. If the successor had been black, a deficit could arise even when the target itself was red. Tracking target color instead of removed-position color confuses association semantics with color topology and chooses the wrong repair branch.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_49",
+    "title": "A red replacement absorbs a black deficit",
+    "stem": "A removed black node has one surviving red child. Explain the classical repair and why no rotation is needed.",
+    "solution": "Attach the surviving red child in the removed node's position and **blacken it**. Every route that previously passed through the black removed node and then the red child now passes through the replacement black child, retaining the same number of actual black units. Its child subtrees were already black-height-consistent and contain no red-red adjacency because the replacement was red before the operation. No primitive rotation is required. Parent links and aggregates must still be updated. The conclusion uses the formerly valid tree and a one-child physical removal; it is not a general permission to blacken an arbitrary red node without checking path counts.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_50",
+    "title": "Case two: absorb or propagate",
+    "stem": "In classical missing-black deletion, the active node is a left child; its sibling and both nephews are black. Compare the outcomes when the parent is red and when it is black.",
+    "solution": "Reddening the black sibling removes one ordinary black unit from that side, allowing the missing unit to move to the parent. If the parent is **red**, blacken it: that adds the required black unit to both of its child routes, and the deficit is absorbed. If the parent is **black**, it cannot gain another persistent black color; keep a single virtual deficit at that parent and continue upward. This case performs **zero rotations** in either outcome. A red parent stops propagation, while a black parent may repeat the case higher up. The virtual 'double black' is a counting ledger, not a node field with a third stable color.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_51",
+    "title": "Near and far nephews must be relative to the active side",
+    "stem": "In a classical deletion step the active deficit is p.right and sibling w=p.left. Identify near/far nephews and the mirror of the final absorption rotation.",
+    "solution": "The near nephew is **w.right**, because it is toward the active right side; the far nephew is **w.left**. If w is black with a red far nephew, give w the old parent color, blacken p and **w.left**, and **right-rotate p**. The mirror would be left rotation when the deficit is the left child. A memorized instruction to blacken 'the right nephew' is incorrect without stating which side is active. Recompute the sibling after any preceding conversion rotation. This positional definition preserves the correct interval decomposition and black-count redistribution.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_52",
+    "title": "The classical three-rotation deletion bound",
+    "stem": "Prove the at-most-three primitive rotation bound for the declared classical deletion algorithm. Why can case two repeat without violating it?",
+    "solution": "A red-sibling conversion in case one uses one primitive and yields a black sibling under a now-red parent. If case two follows, that red parent absorbs the deficit and stops; it cannot propagate beyond that conversion. Otherwise case three may use one sibling rotation, immediately followed by case four's one parent rotation, which absorbs the deficit and stops. Without case one, only the latter two can occur. Case two under a black parent may repeat upward, but performs no rotation at all. Thus at most **one case-one, one case-three and one case-four primitive**, total **three**, occur. Recolor assignments and route steps can still be logarithmic. This proof does not apply to recursive LLRB deletion.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_53",
+    "title": "The sibling cannot be null in a reachable deficit step",
+    "stem": "For a nonroot classical missing-black step obtained from a formerly valid tree, show why its sibling must be an actual node rather than null.",
+    "solution": "Before the physical black removal or deficit propagation, the active-side route contributed the sibling's equal black count. A genuine missing-black unit means the old active-side count was at least one more than its present ordinary count, hence at least one. A null sibling has this chapter's $\\beta$ zero and cannot match that positive old contribution. The same invariant is preserved when case two moves the deficit to a parent. Therefore a reachable nonroot deficit has an actual sibling. This reasoning relies on a valid pre-update tree and exactly one deficit; arbitrary corrupted inputs may violate it and need explicit rejection rather than unsafe nephew dereferences.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_54",
+    "title": "Variant-specific rotation bounds",
+    "stem": "An implementation recursively normalizes an LLRB tree at every ancestor. May it claim the classical insertion bound of two total rotations and deletion bound of three? State a justified bound instead.",
+    "solution": "No. The constant classical bounds come from its specific propagation and terminating repair cases. Recursive LLRB normalization performs constant local work at each visited ancestor, and top-down resource transfers can rotate at more than one level. Its generally justified bound here is **O(log n) primitive work and total time**, not the classical constants. Exact traces may use fewer rotations, but a small observed count is not a universal theorem. Algorithms implementing the same ordered dictionary can maintain related invariants by different schedules. Every claimed bound must name the schedule and its proof, especially when an examination asks for rotations rather than only asymptotic update time.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_55",
+    "title": "Exact LLRB insertion trace on seven keys",
+    "stem": "Insert 10,20,30,40,50,60,70 by the declared recursive 2–3 LLRB algorithm. Find the final preorder, $\\beta$, total primitive rotations and color-flip operations.",
+    "solution": "Insert 10 as the blackened root. Insert 20 with a red link and rotate left at 10. Insert 30 and split the two red children by a color flip. Insert 40 and rotate left at 30. Insert 50, flip at 40 and rotate left at 20. Insert 60 and rotate left at 50. Insert 70, flip at 60 and then at 40; finally blacken the root. Final preorder is **40,20,10,30,60,50,70**; all seven nodes are black, so **$\\beta$=3**. There are **four primitive rotations** and **four color-flip operations** across the seven insertions. Root blackening is not a three-node flip. Per-sequence totals are different from a theorem about one classical insertion.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "llrb-seven",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_56",
+    "title": "LLRB deletion of the minimum",
+    "stem": "From the final LLRB tree in Question 55, delete 10. Identify the resulting preorder and surviving colors; explain the resource transfer before left descent.",
+    "solution": "Initially every node is black. Temporarily redden root 40. The minimal left child requires moveRedLeft at 40, whose toggle makes 20 and 60 red while 40 becomes black. Within 20, another prepared left descent toggles 20 and its leaf children. Remove red minimum 10; normalization at 20 left-rotates the sole red right link to 30. On returning to 40, normalization also rotates the sole right-red link to 60. The result is root **60 black**, left **40 red** whose children are **30 black** with left **20 red**, and **50 black**; right is **70 black**. Preorder is **60,40,30,20,50,70**, with $\\beta$ two. The question counts deletion work separately from the already completed construction; missing a top-down toggle gives the wrong color trace.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "llrb-minimum",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_57",
+    "title": "Descending input is not a linear chain",
+    "stem": "Insert 70,60,50,40,30,20,10 into the declared LLRB algorithm. What is the final shape? Why does an ordinary BST comparison not predict it?",
+    "solution": "Successive red-link normalizations repeatedly split local overflow and reorient links. The final preorder is **40,20,10,30,60,50,70**, all nodes black and $\\beta$ three. The insertion sequence has **four primitive rotations** and **four color flips**. An ordinary BST would instead be a left chain of height six because it never rotates; applying that result to a balanced algorithm ignores the algorithm's central update step. Increasing and decreasing orders happen to have the same final perfect seven-key shape here, but this example does not prove mirror symmetry of every LLRB update trace, whose completed red links lean left.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "llrb-descending",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_58",
+    "title": "Why color flips must toggle for deletion",
+    "stem": "An insertion helper always assigns parent red and both children black. Is this an adequate implementation of the color flip used in moveRedLeft during deletion?",
+    "solution": "No. In a prepared deletion step the parent can be **red** with two **black** children. The resource transfer must change it to black with two red children, merging a minimal cluster or enabling a borrow. Assigning parent red/children black leaves exactly the original colors and fails to prepare the descended two-node. A toggle handles both insertion's black-parent/red-children direction and deletion's red-parent/black-children direction under their stated preconditions. It requires two actual children; blindly toggling a null child is a pointer error. The result may be transiently non-LLRB, and normalization plus final root blackening completes the update.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_59",
+    "title": "Equal key priorities require a defined tie order",
+    "stem": "A key-ordered balanced tree contains entries (key,priority,arrival label)=(20,8,5),(10,8,2),(30,7,1). A maximum-priority deletion uses earliest arrival as the tie rule. Which entry is removed, and what must argmax metadata compare?",
+    "solution": "Priority eight is maximal and is shared by keys 20 and 10. Their arrival labels are five and two, so the earliest is **key 10**. The aggregate compares first by greater priority and then by smaller arrival label; key order is only the BST routing order and is not the tie rule. A root argmax must recompute this total selection rule from its own entry and both child witnesses. After a priority change, refresh its ancestor route; rotations likewise refresh demoted/promoted nodes. Using 'leftmost key' as a substitute for earliest arrival would accidentally work for this data but fails after changing key 10's arrival label to nine, when key 20 should win.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_60",
+    "title": "Multiplicities and rotation-safe selection",
+    "stem": "A counted-key AVL tree has root 8 with multiplicity two, left key 3 with multiplicity one, and right key 11 with multiplicity three. Compute the expanded zero-based rank blocks and total mass. What changes when key 11 loses one occurrence?",
+    "solution": "Expanded sorted keys are **3,8,8,11,11,11**. Key 3 occupies rank zero, key 8 ranks one through two and key 11 ranks three through five. Total occurrence mass is **six** although there are only three structural nodes. Removing one 11 occurrence leaves multiplicity two and total mass five; no node disappears and no height changes, so no AVL rotation is required. Mass fields along the route still change, and the 11 block becomes ranks three through four. Selection must use occurrence mass and local multiplicity, not structural size. A rotation moves the entire counted association; it must not split equal keys into separate order intervals.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_61",
+    "title": "A misleading average-cost claim",
+    "stem": "An implementation reports mean update time proportional to log n on one workload. Does that establish an AVL or red-black worst-case guarantee? Describe the missing evidence.",
+    "solution": "It does not. Measurements sample a finite workload and combine algorithmic work with system effects. An ordinary BST under random permutations may show logarithmic average routes while retaining a linear adversarial chain. A worst-case balanced guarantee needs a maintained recursive invariant, a size-to-height proof, and a proof that each valid update restores the invariant at bounded route cost. Independent malformed-state certificates and update traces help catch implementation errors but do not replace those arguments. A doubling experiment is evidence about the tested implementation/workload, not a theorem about every insertion order. Separate expected-input, randomized-algorithm and deterministic worst-case claims.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_62",
+    "title": "A deletion bug caused by a strict outer test",
+    "stem": "A left-heavy deletion repair uses a single right rotation only when h(y.left)>h(y.right), otherwise choosing LR. Apply it to Question 17 and diagnose the error.",
+    "solution": "After deleting 60, heavy child 20 has children 10 and 30, both height zero. The strict comparison is false, so the helper chooses an unnecessary double rotation rather than the proved one-rotation equality case. In this tiny example the double result happens to remain balanced; it does not establish the helper's general correctness. A failure witness has initial BST order 80,40,20,10,60,70,100,90, an already AVL shape. Delete 90. Child 40 then has equally tall children 20 and 60. Incorrect LR at 80 makes demoted 40 have left subtree 20 of height one and empty right subtree, so B(40)=2 remains invalid. The correct test is **B(y)≥0 for a single right rotation**, with LR only when B(y)<0. An insertion-only proof excludes equality, but deletion permits it; recheck the contract before reusing its strict test.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "zero-large",
+    "visualQualification": "This model shows the correct single-rotation equality repair for the larger failure witness. The deliberately incorrect double branch is derived and rejected in the written solution."
+  },
+  {
+    "id": "a_balanced_original_63",
+    "title": "Single inverses versus double mirrors",
+    "stem": "Why are left and right single rotations structural inverses, while an LR repair and an RL repair are not generally inverse operations on the same tree?",
+    "solution": "A right rotation at z promotes its left child y and transfers y.right into z.left. A subsequent left rotation at that promoted y reconnects those exact three subtrees and restores z as root. Thus the inverse uses the newly promoted root and the opposite primitive. An LR repair is the composition left-at-child then right-at-root. Its inverse must reverse that exact sequence at the corresponding transformed locations, not simply apply the mirror repair's fixed root/child pattern. LR and RL are geometric mirrors for opposite imbalance configurations; they do not generally satisfy inverse-domain hypotheses on each other's output. Track node roles and intervals to prove inverses rather than swapping labels.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_64",
+    "title": "Nonroot repair must return its new root",
+    "stem": "Suppose a recursive AVL insertion rotates a subtree rooted at 30 to root 20 but its caller ignores the returned pointer and keeps the old child link to 30. What content becomes unreachable?",
+    "solution": "In the LL three-key case, right rotation makes 20 the subtree root with children 10 and 30. The demoted 30 no longer points back to 20. If the caller retains its link to 30, the subtree associations **10 and 20** are unreachable from that caller, even though they still exist in allocated memory. A local drawing of the rotated nodes can look correct while the actual global tree loses contents. Assign the returned root to the caller's old left/right link, or replace the global root if this was the whole tree. Parent pointers and caches also need updating. A rotation's return value is part of its semantic contract.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_65",
+    "title": "Full certification changes update complexity",
+    "stem": "After every AVL insertion an implementation runs a complete O(n) ownership/order/height certificate. What is the resulting cost of n successive insertions, even if each update alone is logarithmic?",
+    "solution": "At the jth completed state the full certificate visits j nodes. Total certification work is sum j from one through n, equal to **n(n+1)/2=Theta(n²)**. The balanced updates themselves sum to O(n log n), which is dominated by the audits. Thus the combined instrumented workload is quadratic despite a correct logarithmic production algorithm. Full certification is valuable for development and selected validation; it should not be silently included in a claimed logarithmic operation implementation. An audit flag or separate verification pass makes the distinction explicit. Correctness checking is real work and needs its own complexity accounting.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_66",
+    "title": "A linear red-black certificate",
+    "stem": "Give a one-pass general red-black validation algorithm returning $\\beta$. Include ordering, malformed sharing and the root check.",
+    "solution": "Traverse with inherited open key bounds and a visited-address set. A null returns $\\beta$ zero. Reject an address visited twice, a key outside its bounds or a red node with a red actual child. Recursively obtain the left and right $\\beta$ values; reject if they differ. Otherwise return the common value plus one when the current node is black. Check a nonempty global root is black. Each address is processed once and each local step uses constant work, so the certificate is **O(n)** time and O(n) visited-set memory, plus stack space. For LLRB, additionally reject red right links. The general checker must not impose that stricter condition without naming the variant.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_67",
+    "title": "Linear construction from sorted keys",
+    "stem": "Construct a valid general red-black tree from a sorted array in linear time, without inserting n keys individually. Explain the color rule and its root exception.",
+    "solution": "Build the near-complete BST recursively using midpoint splits, each node once. Its null depths differ by at most one; actual leaves occur at the deepest level H or the preceding level. Color actual nodes at deepest level **red** and all shallower nodes **black**, except that a singleton root stays black. A deepest red node has only null children. A longest route has H black actual nodes followed by a red node; a shorter route has H black actual nodes before null, so equal black count holds. Strict ordering follows sorted midpoint intervals. The construction is **Theta(n)** and yields a general red-black tree, but may have right-red links and therefore does not automatically produce completed 2–3 LLRB. The exact midpoint rule and uniform-depth property are part of the proof.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_68",
+    "title": "Repair only changes constant local metadata",
+    "stem": "During an AVL rotation, a proposed aggregate stores a sorted vector of every subtree key. Is the standard constant-time augmentation theorem applicable? Contrast subtree sum.",
+    "solution": "The vector has length proportional to subtree size. Combining or rebuilding it at a large rotated node can require linear movement, so it is neither fixed-size nor constant-time to recompute from children. The standard theorem's hypotheses therefore fail, and logarithmic update time is not established by that theorem. A scalar subtree sum, in a declared constant-word arithmetic model, is computed as sum(left)+key+sum(right) with fixed storage and constant local work. Its refresh preserves O(log n) update cost. With unbounded exact integers, bit complexity must be counted separately. Naming a value 'metadata' does not grant constant-time maintenance.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_69",
+    "title": "Course-pattern reconstruction: insertion contracts",
+    "stem": "Inspired by CMU Lecture 16's contract exercises, strengthen an AVL insertion specification enough to justify a parent's local repair. Use newly chosen interface wording rather than copying an exercise.",
+    "solution": "Require an owned ordered AVL input with correct cached fields and a comparable key. Guarantee an owned ordered AVL output whose association map is the old map updated at that key, with no loss or duplication of other entries. Guarantee the output height is either the original height or original height plus one for an absent insertion; existing-key replacement leaves height unchanged. This height-change clause, together with the unchanged opposite child, limits the parent's new balance to magnitude two. The local case proof then justifies repair. Merely promising 'output is AVL' leaves the parent unable to deduce a bounded height change from the contract alone. Value-dependent aggregates need their own preservation/update clause.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_70",
+    "title": "Course-pattern reconstruction: a failed single inner repair",
+    "stem": "Inspired by CMU's inner-case exercise, use newly chosen keys 50,10,30 to show that a single right rotation is insufficient after inserting 30.",
+    "solution": "Before insertion, root 50 has left 10 and no right child and is AVL. New 30 attaches as 10.right, making the root balance two and child balance minus one. A single right rotation at 50 yields root 10 with right 50 whose left is 30; 10's left is empty and right height one, so B(10)=−2. The correct LR composition is left at 10 then right at 50, yielding root **30**, children **10,50** and height one. The independently chosen numerical witness preserves the course's reasoning pattern while showing all true heights. A rotation preserving order can still fail the balance goal.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "contract-inner",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_71",
+    "title": "Course-pattern reconstruction: invariant recognition",
+    "stem": "Inspired by Princeton §3.3 certification exercises, compare two strict three-key colored shapes: (A) black 20 with red children 10,30; (B) black 30 with black left 20 whose left 10 is red and no right child. Classify both variants.",
+    "solution": "Shape A has equal $\\beta$ one, a black root and no red-red edge, so it is valid **general red-black** but invalid completed **2–3 LLRB** because of the right-red link and persistent four-node. Shape B has no red right link and no red-red edge, but the root's left $\\beta$ is one and right $\\beta$ zero, so it is invalid **both** variants. These checks show that passing color orientation alone does not prove black balance, and rejecting a general red right link alone would impose the wrong variant. The shape data and full reasoning are independently authored.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_72",
+    "title": "Course-pattern reconstruction: dynamic nearest neighbors",
+    "stem": "Inspired by Stanford CS166 augmentation, maintain closest points for the changing sorted set 4,11,17,26. Insert 15, then delete 17. Determine the root's best gap/witness after each operation and the required maintenance route.",
+    "solution": "Initially adjacent gaps are seven, six and nine; the best is **six**, pair **11,17**. Inserting 15 yields sorted 4,11,15,17,26 with gaps seven, four, two and nine, so the best is **two**, pair **15,17**. Deleting 17 yields 4,11,15,26 with gaps seven, four and eleven, so the best becomes **four**, pair **11,15**. Maintain subtree minimum, maximum and best adjacent pair. Refresh the search/physical-removal ancestor route and all rotated nodes in dependency order. The root query is constant-time only because update work maintained its exact witness; a stale minimum gap from the removed pair would be incorrect.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_73",
+    "title": "Course-pattern reconstruction: safe multiway descent",
+    "stem": "Inspired by Berkeley's top-down explanation, parent [30] has leaves [10] and [40,50]. Prepare descent to delete 10. Show the borrow and result.",
+    "solution": "The left leaf has one key and the adjacent right leaf has two, so borrow through separator 30. Move **30** into the left leaf and move right sibling minimum **40** into the parent. Before deletion the boxes are parent **[40]**, left **[10,30]**, right **[50]**. Removing 10 then leaves left **[30]**, preserving nonroot minimum capacity and uniform depth. No root shrink is needed. A direct move of 50 to the left would place it above the parent separator and break ordered intervals. In an internal-node version the sibling's leftmost interval child moves with the separator exchange. The new keys and solution reconstruct the pattern independently.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "multiway-borrow-left-target",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  },
+  {
+    "id": "a_balanced_original_74",
+    "title": "Worst-case sorted insertions and sorting cost",
+    "stem": "Compare inserting n increasing distinct keys into an ordinary BST and a maintained AVL tree, then inorder traversal to sort.",
+    "solution": "The ordinary BST becomes a chain. Insertion j compares j−1 old nodes, giving total n(n−1)/2=**Theta(n²)**, followed by linear traversal. AVL bounds each route by O(log j), so insertion totals **O(n log n)** and traversal **Theta(n)**. In a comparison model, sorting arbitrary permutations also has an Omega(n log n) worst-case lower bound, so AVL-based comparison sorting has **Theta(n log n)** worst-case complexity. This does not say every single insertion takes Theta(log n), nor does it contradict linear construction from an already sorted array whose order information is supplied. The input/knowledge assumptions differ.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_75",
+    "title": "Minimum caching and ownership of the extreme key",
+    "stem": "An AVL dictionary keeps a pointer to its minimum node. Explain find-min cost and the maintenance after deleting that minimum, including the empty case.",
+    "solution": "Reading the cached minimum pointer is **O(1)**. Inserting a smaller key replaces it; replacing a value at the same minimum key must retain correct association semantics. When the minimum is deleted, find or already retain its next surviving successor and update the cache during the logarithmic update. If the dictionary becomes empty, set the pointer to null; leaving it at a freed node is a use-after-free bug. A rotation preserves inorder minimum association but may move its allocation position or representation depending on implementation. The maintained pointer guarantee depends on the concrete deletion/ownership strategy, not on height balance alone.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_76",
+    "title": "Reversed sign conventions in an examination",
+    "stem": "A problem defines balance as right height minus left height. A node reports balance −2 and its left child reports +1. Which repair is required under that convention?",
+    "solution": "The root's −2 means its **left** subtree is taller by two. The left child's +1 means that child's **right** subtree is taller by one. Therefore the geometry is **left-right**, requiring **left rotation at the left child followed by right rotation at the root**, two primitives. Translate the signs before selecting a table row: under this chapter's left-minus-right convention the same values would be root +2 and left child −1. The rotation directions depend on topology, which remains unchanged by renaming the sign. Copying a balance table without translating its definition reverses the diagnosis.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_77",
+    "title": "Exact-height enumeration is not an insertion distribution",
+    "stem": "There are 17 AVL shapes on seven keys. May they be treated as equally likely outcomes of a uniform random AVL insertion permutation? Explain what must be counted instead.",
+    "solution": "No. A uniform permutation gives each of the 7!=5040 insertion orders equal probability. The balancing algorithm maps each order to a completed shape, and different shapes can have different numbers of preimages. Shape count 17 does not establish a uniform distribution on those outputs. To find a shape's probability for a specified insertion algorithm, enumerate or derive the number of orders that map to it and divide by 5040. The map itself differs from ordinary BST insertion because rotations change the shape. A Catalan or AVL shape count measures a combinatorial family; an update-produced probability needs both the algorithm and its input distribution.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_78",
+    "title": "A safe red-black upper bound is not an exact extremum",
+    "stem": "For n=1000, compute the integer upper height bound from h≤2 $log_{2}$(n+1)−1. Does that establish an achievable exact maximum?",
+    "solution": "The numerical quantity is 2 $log_{2}$(1001)−1≈18.93445, so integer height satisfies **h≤18**. This is a valid consequence of the general theorem under this chapter's actual-node $\\beta$ convention. It is not an existence proof for a 1000-key tree of height 18 and does not specify a particular colored structure. The sharper route/black-layer feasibility constraints or a construction may reduce an exact extremum. In contrast, the AVL minimum recurrence together with the proved no-gap attainable-size lemma establishes an exact maximum. Label necessary bounds and exact achievable results differently.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_79",
+    "title": "Balanced-tree range sums after a priority update",
+    "stem": "A balanced key tree caches subtree size, key sum and maximum mutable priority. A priority change affects key 25 but no key order or multiplicity. Which fields may change, and does it require an AVL rotation?",
+    "solution": "Key order, node count, subtree size, key sum and true heights do not change because no structural key update occurs. The **maximum-priority witness** may change at key 25 and along every ancestor whose previous or new maximum depends on it. Refresh that aggregate on the ancestor route with the declared tie rule. No AVL rotation is needed merely for this value change. If the sum field instead sums values or priorities, that field changes too; its definition matters. A balanced shape can still return wrong priority answers when value-dependent metadata is stale. The update has O(log n) route cost without a structural repair.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions."
+  },
+  {
+    "id": "a_balanced_original_80",
+    "title": "Compound final audit with both update types",
+    "stem": "Construct AVL by inserting 40,20,60,10,30,50,70,25,35. Then delete 10, delete 60 by successor substitution, and insert 65. Determine final inorder, true height, strict rank(65), zero-based select(4) and inclusive count [25,65]. Audit the final balance.",
+    "solution": "The initial tree is root 40 with left 20 (left 10, right 30 with children 25,35) and right 60 with children 50,70. Deleting 10 exposes a right-heavy 20 with balanced heavy child 30, so one left rotation gives left root 30 with left 20 whose right is 25, and right 35. Deleting 60 replaces it by 70 and removes the old right leaf, leaving 70 with left 50. Insert 65 into that subtree as 50.right; LR at 70 yields right root 65 with children 50,70. Final inorder is **20,25,30,35,40,50,65,70**, and preorder **40,30,20,25,35,65,50,70**. Root height is **three**. Six keys are below 65, so rank is **six**; select(4)=**40**. The inclusive interval contains 25,30,35,40,50,65, count **six**. True child heights verify every balance magnitude is at most one. The one single and one double repair use **three primitives total** during these three updates, independently of construction work.",
+    "origin": "Independently authored mathematical/conceptual problem. Named course-pattern reconstructions use new data and complete original solutions.",
+    "modelId": "compound-eight",
+    "visualQualification": "The checkpoint model uses the exact relevant keys and update rule. Read the written solution for the requested count, proof or comparison."
+  }
+]

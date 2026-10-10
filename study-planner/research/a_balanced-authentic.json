@@ -1,0 +1,44 @@
+[
+  {
+    "id": "MS_CE_1405_Q61",
+    "booklet": "MS_CE_1405",
+    "pdfPage": 13,
+    "questionNumber": 61,
+    "title": "Worst-case AVL insertion and deletion",
+    "stem": "An AVL tree supports insert(x) and delete(x), and remains AVL after every operation. What is the worst-case cost of each insertion and deletion?",
+    "options": [
+      "O(1)",
+      "O(n)",
+      "O(log n)",
+      "O(n log n)"
+    ],
+    "answer": 3,
+    "solution": "The maintained AVL invariant implies logarithmic height from the exact minimum-node recurrence. Insertion searches one route, refreshes its ancestors and repairs one lowest site with at most two primitives. Deletion follows a search/successor-removal route and may repair multiple ancestors, but each visited ancestor costs constant local work and there are logarithmically many. Thus each operation has O(log n) worst-case cost under constant-cost comparisons and metadata: option 3. The differing rotation counts do not make their asymptotic route costs differ. This is an independently derived answer, not an official key.",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "translationStatus": "Exact original page rendered and visually read; checked English adaptation and independently derived answer.",
+    "answerProvenance": "Independent solution, not an official key"
+  },
+  {
+    "id": "Phd_CE_1405_Q6",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 2,
+    "questionNumber": 6,
+    "title": "How many AVL shapes on keys 1,2,3?",
+    "stem": "How many AVL trees can be built using keys 1,2,3?",
+    "options": [
+      "1",
+      "2",
+      "6",
+      "C_3, where C_3 is the third Catalan number"
+    ],
+    "answer": 1,
+    "solution": "If root is 1 or 3, the other two keys must lie in one child subtree of height one while the other child is empty with height minus one. The root difference is two, so those choices are invalid. Root 2 permits left leaf 1 and right leaf 3, giving the unique valid shape. Therefore the answer is one, option 1. Counting the six permutations or the five Catalan shapes ignores either output equivalence or the AVL invariant. A fixed increasing key set labels each ordered valid shape uniquely. This independently derived result is not an official key.",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "translationStatus": "Exact original page rendered and visually read; checked English adaptation and independently derived answer.",
+    "answerProvenance": "Independent solution, not an official key"
+  }
+]

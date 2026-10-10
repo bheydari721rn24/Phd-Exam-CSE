@@ -1,0 +1,78 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Balanced search tree chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"><link rel="stylesheet" href="../chapters/a_balanced.css"></head><body><main class="chapter"><p><a href="../chapters/a_balanced.html">Balanced search tree chapter</a></p><article class="lesson"><h1>Written course selection: balanced search trees</h1>
+<h2>Search scope and decision</h2>
+<p>The search evaluated eight accessible offerings or official written-material candidates: MIT 6.006 Fall 2011; CMU 15-122 Fall 2026; Princeton COS226 Spring 2023; Stanford CS166 Spring 2026; Berkeley CS61B Spring 2014; ETH Zurich Datenstrukturen und Algorithmen Spring 2020; Oxford Algorithms and Data Structures 2023–2024; and the older Princeton COS226 Fall 2005 balanced-tree slides. This is a bounded, reproducible survey, not a claim that every course worldwide has been inspected. An official syllabus was not counted as a read lecture.</p>
+<p>The four core courses were selected for complementary mathematical coverage, explicit invariants, implementation contracts, precise diagrams and accessible written evidence. CMU is strongest for AVL pointer and height contracts; MIT supplies the minimum-node argument and edge-height convention; Princeton supplies the precise 2–<span class="math-inline">3/LL</span>RB correspondence and full implementation; Stanford supplies the general red-black/2–3–4 correspondence, cost-model distinctions and augmentation argument. Berkeley Lecture 27 is an additional genuinely read comparison of top-down multiway insertion and deletion. No prestige-only or random selection was used.</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Material actually inspected</th>
+<th>Decision and limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CMU 15-122, Frank Pfenning, Fall 2026</td>
+<td>All 29 pages of Lecture 16, including 11 exercises and sample solutions</td>
+<td>Core: AVL contracts and rotation reasoning; deletion and the height proof require independently supplied extensions.</td>
+</tr>
+<tr>
+<td>MIT 6.006, Erik Demaine and Srini Devadas, Fall 2011</td>
+<td>All eight pages of Lecture 6</td>
+<td>Core: height recurrence and rotation cases; printed Fibonacci index and insertion commentary require correction.</td>
+</tr>
+<tr>
+<td>Princeton COS226, written material by Robert Sedgewick and Kevin Wayne, Spring 2023 archive</td>
+<td>All 45 PDF pages, §3.3 booksite and the full linked RedBlackBST.java listing</td>
+<td>Core: specific 2–3 LLRB variant; do not transfer classical red-black rotation counts to this algorithm.</td>
+</tr>
+<tr>
+<td>Stanford CS166, Keith Schwarz, Spring 2026</td>
+<td>All 58 and 66 condensed slides for Lectures 6 and 7</td>
+<td>Core: multiway isometry and augmentation; two/three rotation claims concern the classical red-black algorithm.</td>
+</tr>
+<tr>
+<td>Berkeley CS61B, Jonathan Richard Shewchuk, Spring 2014</td>
+<td>All 195 text lines of Lecture 27 via official web text</td>
+<td>Additional: top-down 2–3–4 insertion/deletion. Native retrieval failed; no file hash is invented.</td>
+</tr>
+<tr>
+<td>ETH Zurich, Spring 2020</td>
+<td>Official course schedule and written-material link inventory</td>
+<td>Screened: relevant AVL offering; English handout itself not read, so not used as a core source.</td>
+</tr>
+<tr>
+<td>Oxford, Paul Goldberg, Hilary 2024</td>
+<td>Official course syllabus and material links</td>
+<td>Screened: red-black and splay topics; syllabus is not evidence of a lecture being read.</td>
+</tr>
+<tr>
+<td>Princeton, Fall 2005</td>
+<td>Official search-index description of balanced-tree slides</td>
+<td>Screened older alternative; modern 2023 LLRB slides and Stanford's general correspondence selected instead.</td>
+</tr>
+</tbody>
+</table>
+<h2>Exact written references</h2>
+<ol>
+<li><a href="https://www.cs.cmu.edu/~15122/handouts/lectures/16-avl.pdf">CMU 15-122 Lecture 16: AVL Trees</a>, Frank Pfenning, Fall 2026, 29 PDF pages. SHA-256: <code>e54da27f0b8a73151d924be517642543c183384e69791706bdf4706a1380adb3</code>.</li>
+<li><a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/83cdd705cd418d10d9769b741e34a2b8_MIT6_006F11_lec06.pdf">MIT 6.006 Lecture 6</a>, Fall 2011, eight PDF pages. SHA-256: <code>b4835818a5ba89b2e82b9abda0ff42d8445217b1256a112b8e1c8ae14d9f1209</code>.</li>
+<li><a href="https://www.cs.princeton.edu/courses/archive/spring23/cos226/lectures/33BalancedSearchTrees.pdf">Princeton COS226 §3.3 slides</a>, Sedgewick and Wayne, updated 2 March 2023, 45 PDF pages; slide labels skip numbers, so page references here use PDF pages. SHA-256: <code>2cb5150a0586c0cfe4584bde286d76fde8e39e92a3ea6727e26373cf46e82658</code>.</li>
+<li><a href="https://algs4.cs.princeton.edu/33balanced/">Princeton §3.3 booksite</a> and <a href="https://algs4.cs.princeton.edu/33balanced/RedBlackBST.java.html">RedBlackBST.java</a>. The page, exercises and entire public code listing were reviewed, including deletion preconditions and metadata refresh. The public listing is a reference, not a wholesale copied implementation.</li>
+<li><a href="https://web.stanford.edu/class/archive/cs/cs166/cs166.1266/lectures/06/Condensed%20Slides.pdf">Stanford CS166 Lecture 6 condensed slides</a>, 58 pages, SHA-256 <code>ee5433eea7aab338509ab1ad71249af07e5780d65c74ad136978809190175f69</code>; <a href="https://web.stanford.edu/class/archive/cs/cs166/cs166.1266/lectures/07/Condensed%20Slides.pdf">Lecture 7 condensed slides</a>, 66 pages, SHA-256 <code>e22fc73fa01e0577f6b682c72692dbc6ef4c28b6528b031358ec7a4f0c18e198</code>. <a href="https://web.stanford.edu/class/archive/cs/cs166/cs166.1266/">Course home</a> establishes the Spring 2026 offering and Keith Schwarz as instructor; the inherited copyright footer says 2025 and is not used as the offering date.</li>
+<li><a href="https://people.eecs.berkeley.edu/~jrs/61b/lec/27">Berkeley CS61B Lecture 27</a>, Jonathan Richard Shewchuk, 2 April 2014, 195 lines of official written text. Retrieved through the web reader after native HTTPS retrieval failed.</li>
+<li>Screening only: <a href="https://lec.inf.ethz.ch/DA/2020/">ETH Zurich Spring 2020 schedule</a>, <a href="https://www.cs.ox.ac.uk/teaching/courses/2023-2024/algorithms/">Oxford 2023–2024 syllabus</a>, and <a href="https://www.cs.princeton.edu/courses/archive/fall05/cos226/lectures/balanced.pdf">Princeton Fall 2005 alternative</a>.</li>
+</ol>
+<h2>Reconciliation and independently checked corrections</h2>
+<ul>
+<li>CMU uses empty height zero and singleton height one; this chapter consistently uses empty height minus one and singleton zero. Every recurrence base case is translated, not merely relabelled.</li>
+<li>MIT PDF page 3 prints an inconsistent Fibonacci subscript. With the chapter's convention the exact minimum is <span class="math-inline">F</span>_(<span class="math-inline">h+3</span>) minus one. Small base cases and induction establish the correction. Its page 5 wording about several rotations is separated into multiple primitive rotations within one insertion repair site, versus multiple deletion repair sites.</li>
+<li>CMU PDF page 27's suggested contracts do not by themselves make every rotation return an AVL tree. A rotation of an already perfect three-node tree supplies a counterexample. Our structural primitive promises ordering/content preservation and metadata correctness; a stronger balance postcondition is asserted only with the exact height-case hypotheses. The strict outer-height comparison in CMU's insertion helper is not reused for deletion's balanced-heavy-child case.</li>
+<li>Princeton's completed 2–3 LLRB tree excludes persistent right-red links and four-nodes. General red-black trees can encode 2–3–4 nodes and allow a black node with two red children. Their insertion/deletion procedures and rotation bounds are named separately.</li>
+<li>Stanford's order parameter is minimum degree: nonroot key capacity is <span class="math-inline">b−1</span> through <span class="math-inline">2b−1</span>, with a root exception. It is not the maximum-child convention used by some books. A page-41 integer minimization suggestion rounds the continuous optimum <span class="math-inline">e</span> down; under the stated <span class="math-inline">b/ln(b)</span> objective, comparing integers gives <span class="math-inline">b=3</span>, not <span class="math-inline">b=2</span>. This numerical correction does not select a universally optimal practical fanout or suppress block-access costs.</li>
+<li>Weak duplicate bounds in Berkeley are replaced by this chapter's strict distinct-key policy. Multiplicities are stored in one node when needed. The top-down and bottom-up multiway variants may produce different valid shapes.</li>
+<li>Complexity upper bounds describe worst-case routes under constant-cost comparisons and metadata. Root hits, absent deletion and tiny trees need not take Theta(log <span class="math-inline">n</span>) actual time. Full certification is linear and is not invoked after every production update.</li>
+</ul>
+<h2>Scope and originality</h2>
+<p>The lesson supplies its own complete AVL insertion/deletion proof and implementation, exact height/counting arguments, general red-black repair case analysis, a distinct LLRB implementation route, multiway split/borrow/merge reasoning, and applications of augmentation. Sources are credited by section and in the final references. Course-pattern questions use independently chosen data and original complete solutions. Entire copyrighted exercise collections are not reproduced. Source access, implemented lab domains and unproved advanced extensions are declared rather than represented as universal certainty.</p>
+</article></main><script src="../chapters/math-layout.js?v=79"></script></body></html>

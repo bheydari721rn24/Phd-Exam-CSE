@@ -1,36 +1,36 @@
 {
-  "currentTopicId": "a_balanced",
+  "currentTopicId": "a_heap",
   "state": "in_progress",
   "nextTopicRequiresExplicitApproval": false,
   "nextTopicId": null,
-  "sourceAuditPath": "research/a_balanced-source-audit.md",
+  "sourceAuditPath": "research/a_heap-source-audit.md",
   "examAuditPath": "research/exam-calibration/archive-manifest.json",
-  "lastCompletedReview": "a_bst: 82 worked solutions, 80 reasoning rules, five read universities, 27 models / 208 checkpoints; 161 independent inputs / 723 generated checkpoints.",
-  "nextReview": "Complete a_balanced audits before advancing.",
+  "lastCompletedReview": "a_balanced: 82 worked solutions, 80 final rules, five read universities, 26 models / 294 checkpoints; 340 independent inputs / 13,142 generated checkpoints.",
+  "nextReview": "Complete a_heap audits before advancing.",
   "rule": "Author one chapter at a time, finish its source, mathematical, problem, visual and browser audits, deliver as a review draft, then continue under standing user authorization. Never label an unapproved draft student-approved.",
   "studyStartJalali": "1405/07/11",
-  "qualityAuditPath": "research/a_balanced-quality-audit.md",
+  "qualityAuditPath": "research/a_heap-quality-audit.md",
   "approvedTopicId": "p_recursion",
-  "activeWork": "Evaluate and read written balanced-tree courses; author a_balanced under standing authorization.",
+  "activeWork": "Evaluate written priority-queue courses, then author a_heap under standing continuous authorization.",
   "revisionTracker": "research/exam-calibration/manifest.json",
   "libraryReviewReportPath": "research/exam-calibration/DELIVERY.en.md",
   "approvedLibraryReview": true,
   "proposedNextTopicId": null,
   "libraryRewritePath": "research/exam-calibration/manifest.json",
   "libraryRewriteRequiresApproval": true,
-  "reviewScope": "AVL balance and exact height, insertion and deletion repair, rotations, 2-3-4/red-black encodings and variant-specific invariants.",
+  "reviewScope": "Binary heap invariants, exact array/tree indices, repair and construction proofs, priority-queue interfaces, heapsort and advanced comparisons.",
   "examArchivePolicy": "Original Iranian MS and PhD archives may now be studied, classified and included; the latest user instruction supersedes final-month deferral.",
   "animationStandardPath": "research/ANIMATION_STANDARD.md",
   "animationInventoryPath": "research/library-animation-redesign/inventory.json",
   "animationModelAuditPath": "research/animation-model-audit.json",
   "animationBrowserAuditPath": "research/library-animation-redesign/browser.json",
-  "sourceAudit": "research/a_balanced-source-audit.md",
-  "qualityAudit": "research/a_balanced-quality-audit.md",
+  "sourceAudit": "research/a_heap-source-audit.md",
+  "qualityAudit": "research/a_heap-quality-audit.md",
   "visualReviewPath": "research/subject-visual-review.json",
   "reviewEvidence": [
-    "research/a_bst-evidence/reading.json",
-    "research/a_bst-evidence/mathematics.json",
-    "research/a_bst-evidence/browser.json"
+    "research/a_balanced-evidence/reading.json",
+    "research/a_balanced-evidence/mathematics.json",
+    "research/a_balanced-evidence/browser.json"
   ],
   "libraryVisualQuestionReviewPath": "research/library-visual-question-review/manifest.json",
   "publicationState": "pending_upload",
@@ -122,34 +122,42 @@
         "research/a_bst-evidence/mathematics.json",
         "research/a_bst-evidence/browser.json"
       ],
+      "publicationState": "published_private",
+      "publicationRecord": "research/a_bst-publication.json"
+    },
+    {
+      "topicId": "a_balanced",
+      "state": "quality_review_complete",
+      "studentApproved": false,
+      "url": "chapters/a_balanced.html",
+      "qualityAudit": "research/a_balanced-quality-audit.md",
+      "evidence": [
+        "research/a_balanced-evidence/reading.json",
+        "research/a_balanced-evidence/mathematics.json",
+        "research/a_balanced-evidence/browser.json"
+      ],
       "publicationState": "pending_upload"
     }
   ],
   "latestPublication": {
     "status": "published_private",
     "projectId": "appgprj_6ab5666f72b081918286c6b371c1eb1b",
-    "sourceCommit": "164f1769a25642ec05e9d1bd4341bfb12b45f18e",
-    "archiveSha256": "0d63ef7946a09c68cb896df9f2aac55b05f0ce8c40e624fd6ccc597a7bc9f3a6",
-    "archiveEntries": 434,
-    "versionId": "appgprj_6ab5666f72b081918286c6b371c1eb1b~appgver_67af0986d7348191a0cbbadbdccc78b8",
-    "deploymentId": "appgdep_6aca6c2cbf7c81919a3b7ec687b7f008",
+    "sourceCommit": "2aa5cfe5735c24f7716cee0ca378ca17f61a34ff",
+    "archiveSha256": "b1f3344311a81f2c4953c0e297e8d6e2e5ea8fc179d28d6836482adc6583973a",
+    "archiveEntries": 440,
+    "versionId": "appgprj_6ab5666f72b081918286c6b371c1eb1b~appgver_9cd1190223e48191889977e1bc922ef6",
+    "deploymentId": "appgdep_6aca943b37948191b5e7357e5b0bc55b",
     "deploymentStatus": "succeeded",
+    "updatedAt": "2026-10-10T19:38:47.744053+00:00",
     "url": "https://phd-cse-1406-plan.bheydari-as721rn.chatgpt.site",
     "githubBranch": "study-planner-1406",
-    "githubContentCommit": "086e3ba",
+    "githubContentCommit": "84bec74",
     "chaptersAdded": [
-      "g_arithmetic",
-      "g_mux",
-      "d_recurrence",
-      "d_generating"
+      "a_bst"
     ],
-    "libraryChapters": 51,
-    "questions": 3411,
-    "sourcePushEvidence": "Bundled source workflow passed push, remote-SHA and clean-tree verification; subsequently failed only at Windows shell packaging. Independently byte-verified exact archive supplied to native private publication.",
-    "verificationLimit": "Native private save/deploy returned succeeded. Follow-up site/version reads currently failed transport; no numeric version number or native tar hash is invented.",
-    "supersedes": [
-      "research/g_mux-publication-pending.json",
-      "research/player-behavior-repair/publication-pending.json"
-    ]
+    "libraryChapters": 52,
+    "questions": 3493,
+    "sourcePushEvidence": "Bundled workflow verified pushed SHA and clean source tree before Windows packaging failed; independently byte-verified archive from that exact source supplied to native private save/deploy.",
+    "verificationLimit": "Native deployment returned succeeded; numeric site version is not invented."
   }
 }

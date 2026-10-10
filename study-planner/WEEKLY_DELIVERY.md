@@ -561,3 +561,13 @@ Native private deployment appgdep_6aca6c2cbf7c81919a3b7ec687b7f008 succeeded fro
 ## Binary search trees review draft — 10 October 2026
 
 Completed a_bst with 82 fully worked questions, 80 condition-bearing final rules, 27 specialized models and 208 checkpoints. Five universities genuinely read, four core courses selected. Independent reference checks passed 161 inputs / 723 generated checkpoints. Real Edge checked moving arrow ports, pause/resume, complete checkpoint geometry, fonts, math, mobile containment and print. All 51 preceding pages retained. Library: 52 chapters / 3493 questions. Student approval and publication are separate. Standing authorization advances authoring to a_balanced.
+
+
+## BST privately published — 10 October 2026
+
+Native private deployment appgdep_6aca943b37948191b5e7357e5b0bc55b succeeded from exact pushed source 2aa5cfe5735c24f7716cee0ca378ca17f61a34ff and the byte-verified 440-entry archive. GitHub content commit 84bec74. Library: 52 chapters / 3493 worked questions. The chapter remains an unapproved review draft. Continuous authoring proceeds to balanced trees. See research/a_bst-publication.json.
+
+
+## Balanced search trees review draft — 10 October 2026
+
+Completed a_balanced with 82 fully worked questions, 80 final rules, 26 specialized models and 294 checkpoints. Four core courses plus a fifth university comparison were genuinely read. Independent checks cover 340 input specifications / 13,142 generated checkpoints; every midpoint-construction size 1 through 1024 is independently certified. Real Edge checked fonts, scripts, fence geometry, 867 edge endpoints, actual motion/pause/resume, all saved checkpoint geometry, mobile, print and editable boundaries including twelve negative four-character keys. All 52 preceding pages and counts are retained. Library: 53 chapters / 3575 questions. Student approval and publication remain separate. Authoring advances to a_heap under standing continuous authorization.

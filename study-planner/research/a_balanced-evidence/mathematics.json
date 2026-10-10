@@ -1,0 +1,376 @@
+{
+  "topicId": "a_balanced",
+  "status": "passed",
+  "questionAudits": {
+    "1": {
+      "method": "Exact integer recurrence",
+      "result": "6"
+    },
+    "2": {
+      "method": "Exact capacities and integer recurrence",
+      "result": "(9, 13)"
+    },
+    "3": {
+      "method": "Exact recurrence and route comparison count",
+      "result": "(27, 832039, 1346268)"
+    },
+    "4": {
+      "method": "Finite bases plus manual induction",
+      "result": "True"
+    },
+    "5": {
+      "method": "Independent change of base; asymptotic domain reviewed",
+      "result": "1.44042"
+    },
+    "6": {
+      "method": "Independent ordered-minimal-shape recurrence",
+      "result": "(128, 4096)"
+    },
+    "7": {
+      "method": "Leaf recurrence and external-position identity",
+      "result": "(13, 33, 34)"
+    },
+    "8": {
+      "method": "All child sizes/heights dynamically enumerated",
+      "result": "{2: 6}"
+    },
+    "9": {
+      "method": "All child sizes/heights dynamically enumerated",
+      "result": "{3: 16, 2: 1}"
+    },
+    "14": {
+      "method": "Immutable reference, recomputed heights; no production caches",
+      "result": "([20, 10, 30], 1, 2)"
+    },
+    "15": {
+      "method": "Immutable reference, recomputed heights; no production caches",
+      "result": "([30, 20, 10, 25, 50, 70], 2, 2)"
+    },
+    "16": {
+      "method": "Immutable reference, recomputed heights; no production caches",
+      "result": "([20, 10, 5, 50, 30, 70], 2, 1)"
+    },
+    "17": {
+      "method": "Immutable reference, recomputed heights; no production caches",
+      "result": "([20, 10, 40, 30], 2, 1)"
+    },
+    "18": {
+      "method": "Immutable reference, recomputed heights; no production caches",
+      "result": "([20, 10, 40], 1, 1)"
+    },
+    "19": {
+      "method": "Immutable reference, recomputed heights; no production caches",
+      "result": "([30, 20, 40], 1, 2)"
+    },
+    "20": {
+      "method": "Immutable reference, recomputed heights; no production caches",
+      "result": "([80, 50, 30, 20, 40, 60, 70, 90, 85, 100, 110], 3, 2)"
+    },
+    "21": {
+      "method": "Immutable reference, recomputed heights; no production caches",
+      "result": "([50, 20, 10, 30, 60, 70], 2, 0)"
+    },
+    "22": {
+      "method": "Immutable reference, recomputed heights; no production caches",
+      "result": "([], -1, 0)"
+    },
+    "70": {
+      "method": "Immutable reference, recomputed heights; no production caches",
+      "result": "([30, 10, 50], 1, 2)"
+    },
+    "25": {
+      "method": "Independent association count",
+      "result": "(6, 11)"
+    },
+    "26": {
+      "method": "Four augmentation candidates",
+      "result": "3"
+    },
+    "27": {
+      "method": "Sorted reference membership",
+      "result": "(6, 40, 6)"
+    },
+    "28": {
+      "method": "Exact geometric capacities",
+      "result": "(15, 80, 8, 27)"
+    },
+    "29": {
+      "method": "Keys versus nodes independently counted",
+      "result": "(255, 64, 85)"
+    },
+    "30": {
+      "method": "Capacity inequalities, labelled necessary",
+      "result": "([6, 7, 8], [4, 5, 6, 7, 8])"
+    },
+    "31": {
+      "method": "Actual occupancy level count, including exceptional root",
+      "result": "(17, 215)"
+    },
+    "33": {
+      "method": "Integer comparison plus derivative monotonicity proof",
+      "result": "3"
+    },
+    "41": {
+      "method": "Collapsed-cluster capacity proof",
+      "result": "(7, 63)"
+    },
+    "42": {
+      "method": "Necessary black-layer capacity constraints",
+      "result": "[3, 4, 5]"
+    },
+    "43": {
+      "method": "Root-null and actual-edge conventions",
+      "result": "(4, 8, 7)"
+    },
+    "60": {
+      "method": "Expanded occurrence blocks",
+      "result": "(6, [11, 11, 11])"
+    },
+    "65": {
+      "method": "Exact development-audit overhead sum",
+      "result": "5050"
+    },
+    "67": {
+      "method": "Independent midpoint/color construction certified for every size 1 through 1024; general variant only",
+      "result": "1024"
+    },
+    "72": {
+      "method": "Sorted adjacent-gap reference",
+      "result": "[6, 2, 4]"
+    },
+    "74": {
+      "method": "Actual increasing ordinary-BST comparison count; sorting proof reviewed",
+      "result": "4950"
+    },
+    "78": {
+      "method": "Safe integer bound; no attainability claim",
+      "result": "18"
+    },
+    "80": {
+      "method": "Three immutable updates, independently recomputed order and metadata queries",
+      "result": "([20, 25, 30, 35, 40, 50, 65, 70], [40, 30, 20, 25, 35, 65, 50, 70], 3, 3, 6, 40, 6)"
+    },
+    "10": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Inherited ordering and root-only counterexample"
+    },
+    "11": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "True-height dependency and corrupted root cache"
+    },
+    "12": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Arbitrary rotation order versus failed balance"
+    },
+    "13": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Demoted-first dependency proof"
+    },
+    "23": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Route work versus primitive count"
+    },
+    "24": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Aggregate propagation despite unchanged height"
+    },
+    "32": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "CPU/block resource distinctions"
+    },
+    "34": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Two actual top-down splits"
+    },
+    "35": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Bottom-up seven-key promotion sequence"
+    },
+    "36": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Borrow through 40 then promote 50"
+    },
+    "37": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Merge and root contraction"
+    },
+    "38": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "General red cluster versus completed LLRB"
+    },
+    "39": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Child beta mismatch despite no red adjacency"
+    },
+    "40": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Actual/null count translation"
+    },
+    "44": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Red-uncle black-count accounting"
+    },
+    "45": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Line recolor and interval-preserving rotation"
+    },
+    "46": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Triangle role conversion before line case"
+    },
+    "47": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "One new black leaf changes only one route family"
+    },
+    "48": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Removed successor color versus target association"
+    },
+    "49": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Red surviving child absorbs one black unit"
+    },
+    "50": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Case-two parent-color absorption and propagation"
+    },
+    "51": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Near/far labels relative to active side"
+    },
+    "52": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Only zero-rotation case propagates; terminating bound three"
+    },
+    "53": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Reachable deficit requires positive sibling beta"
+    },
+    "54": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Classical bounds cannot be assigned to recursive LLRB"
+    },
+    "55": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "All seven exact LLRB insertions independently traced"
+    },
+    "56": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Two prepared toggles and normalization rotations"
+    },
+    "57": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Descending LLRB normalization"
+    },
+    "58": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Toggle preconditions in deletion"
+    },
+    "59": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Priority/arrival tie example independent of key rank"
+    },
+    "61": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Measurements versus invariant worst-case theorem"
+    },
+    "62": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Larger strict-equality failure witness links"
+    },
+    "63": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Inverse composition reverses location and order"
+    },
+    "64": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Ignored promoted root loses two reachable keys"
+    },
+    "66": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Visited ownership set and one-pass beta induction"
+    },
+    "68": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Fixed-size augmentation hypotheses"
+    },
+    "69": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Map and height-change insertion contract"
+    },
+    "71": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "General/left-leaning versus black-balance recognition"
+    },
+    "73": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Parent-separator borrowing preserves intervals"
+    },
+    "75": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Owned cached extreme pointer maintenance"
+    },
+    "76": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Sign translation preserves LR geometry"
+    },
+    "77": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Input-preimage distribution differs from shape family"
+    },
+    "79": {
+      "method": "Manual step-by-step proof and boundary audit",
+      "result": "reviewed",
+      "reason": "Mutable value aggregate versus structural metadata"
+    }
+  },
+  "referenceInputs": 340,
+  "generatedCheckpoints": 13142,
+  "completedStoredStates": 102,
+  "midpointSizesCertified": 1024,
+  "models": 26,
+  "storedCheckpoints": 294,
+  "limits": "Finite computations corroborate named statements. Manual proof audits are identified separately. Exhaustive five-key AVL permutations and fifty twelve-key AVL/LLRB deletion sequences do not certify all inputs or arbitrary corrupted pointers."
+}

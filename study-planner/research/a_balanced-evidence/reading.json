@@ -1,0 +1,97 @@
+{
+  "coreUniversities": [
+    "CMU",
+    "MIT",
+    "Princeton",
+    "Stanford"
+  ],
+  "additionalReviewedUniversity": "UC Berkeley",
+  "nativeAcquisition": [
+    {
+      "file": "stanford6.pdf",
+      "url": "https://web.stanford.edu/class/archive/cs/cs166/cs166.1266/lectures/06/Condensed%20Slides.pdf",
+      "bytes": 612479,
+      "sha256": "ee5433eea7aab338509ab1ad71249af07e5780d65c74ad136978809190175f69",
+      "pages": 58,
+      "status": "acquired"
+    },
+    {
+      "file": "stanford7.pdf",
+      "url": "https://web.stanford.edu/class/archive/cs/cs166/cs166.1266/lectures/07/Condensed%20Slides.pdf",
+      "bytes": 641735,
+      "sha256": "e22fc73fa01e0577f6b682c72692dbc6ef4c28b6528b031358ec7a4f0c18e198",
+      "pages": 66,
+      "status": "acquired"
+    },
+    {
+      "file": "mit.pdf",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/83cdd705cd418d10d9769b741e34a2b8_MIT6_006F11_lec06.pdf",
+      "bytes": 1432026,
+      "sha256": "b4835818a5ba89b2e82b9abda0ff42d8445217b1256a112b8e1c8ae14d9f1209",
+      "pages": 8,
+      "status": "acquired"
+    },
+    {
+      "file": "cmu.pdf",
+      "url": "https://www.cs.cmu.edu/~15122/handouts/lectures/16-avl.pdf",
+      "bytes": 1185381,
+      "sha256": "e54da27f0b8a73151d924be517642543c183384e69791706bdf4706a1380adb3",
+      "pages": 29,
+      "status": "acquired"
+    },
+    {
+      "file": "berkeley27.txt",
+      "url": "https://people.eecs.berkeley.edu/~jrs/61b/lec/27",
+      "status": "unavailable",
+      "error": "HTTPSConnectionPool(host='people.eecs.berkeley.edu', port=443): Max retries exceeded with url: /~jrs/61b/lec/27 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))"
+    },
+    {
+      "file": "princeton.pdf",
+      "url": "https://www.cs.princeton.edu/courses/archive/spring23/cos226/lectures/33BalancedSearchTrees.pdf",
+      "bytes": 3603111,
+      "sha256": "2cb5150a0586c0cfe4584bde286d76fde8e39e92a3ea6727e26373cf46e82658",
+      "pages": 45,
+      "status": "acquired"
+    },
+    {
+      "file": "princeton.html",
+      "url": "https://algs4.cs.princeton.edu/33balanced/",
+      "bytes": 27338,
+      "sha256": "be54c05d4616160a84eb7393c1467b914bcd8525e60e17d80e632157d9abdbd5",
+      "status": "acquired"
+    },
+    {
+      "file": "stanford6.html",
+      "url": "https://web.stanford.edu/class/archive/cs/cs166/cs166.1266/lectures/06/",
+      "status": "unavailable",
+      "error": "HTTPSConnectionPool(host='web.stanford.edu', port=443): Read timed out. (read timeout=10)"
+    },
+    {
+      "file": "stanford7.html",
+      "url": "https://web.stanford.edu/class/archive/cs/cs166/cs166.1266/lectures/07/",
+      "bytes": 12238,
+      "sha256": "927a7951530f07db6ad4fb6d55af2bc1e6a9b8626354eafe48c720fbb3db95ef",
+      "status": "acquired"
+    },
+    {
+      "file": "eth.html",
+      "url": "https://lec.inf.ethz.ch/DA/2020/",
+      "bytes": 36883,
+      "sha256": "fd13f4b5e75b7c49c4af11a8496aafe9aac81ad10dc10047314fe345e7c209b0",
+      "status": "acquired"
+    }
+  ],
+  "readScopes": {
+    "CMU": "All 29 PDF pages including 11 exercises and sample answers; page 27 rendered and inspected.",
+    "MIT": "All eight PDF pages; page 3 rendered and inspected.",
+    "Princeton": "All 45 PDF pages, complete written \u00a73.3 booksite and full linked Java listing.",
+    "Stanford": "All 58 and 66 condensed slides for Lectures 6 and 7; lecture/course pages used to establish instructor and year.",
+    "Berkeley": "All 195 official web-text lines; web reader succeeded after native TLS retrieval failed."
+  },
+  "additionalNativeJava": {
+    "url": "https://algs4.cs.princeton.edu/33balanced/RedBlackBST.java.html",
+    "sha256": "34b79b304f1cca969783d8381d8286284a61a6af491a99c9b685025d9f791b81",
+    "bytes": 161304
+  },
+  "limits": "Eight bounded candidate offerings evaluated; schedule/link inventories and search-index-only alternatives are distinguished from genuinely read lecture texts. No claim of exhaustive worldwide source review or wholesale exercise reproduction."
+}
