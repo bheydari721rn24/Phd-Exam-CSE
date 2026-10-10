@@ -1,0 +1,45 @@
+{
+  "coreUniversities": [
+    "MIT",
+    "UC Berkeley",
+    "Carnegie Mellon",
+    "Princeton"
+  ],
+  "nativeAcquisition": [
+    {
+      "name": "cmu",
+      "url": "https://www.andrew.cmu.edu/course/15-251/Notes/gen-functions.pdf",
+      "error": "HTTPSConnectionPool(host='www.andrew.cmu.edu', port=443): Read timed out. (read timeout=25)"
+    },
+    {
+      "name": "berkeley-ordinary",
+      "url": "https://math.berkeley.edu/~mhaiman/math172-spring10/ordinary.pdf",
+      "pages": 7,
+      "sha256": "ecc4270de359515a2a3d04055d2afc98c33cb16afe17f9da815f584a43792062"
+    },
+    {
+      "name": "berkeley-exponential",
+      "url": "https://math.berkeley.edu/~mhaiman/math172-spring10/exponential.pdf",
+      "pages": 10,
+      "sha256": "ae10c867f95feef4cb74d19d94a283a000962100132a6f97a9c8e163b84dfa78"
+    },
+    {
+      "name": "berkeley-partitions",
+      "url": "https://math.berkeley.edu/~mhaiman/math172-spring10/partitions.pdf",
+      "pages": 9,
+      "sha256": "ac9a1a56abcbd58d86c8d8890f19b0d89c6968d570eb8d5f1a5dcbc48c9df508"
+    },
+    {
+      "name": "princeton-slides",
+      "url": "https://sedgewick.io/wp-content/uploads/2022/04/AA03-GFs.pdf",
+      "error": "HTTPSConnectionPool(host='sedgewick.io', port=443): Max retries exceeded with url: /wp-content/uploads/2022/04/AA03-GFs.pdf (Caused by ConnectTimeoutError(<HTTPSConnection(host='sedgewick.io', port=443) at 0x1c6923625d0>"
+    }
+  ],
+  "readScopes": {
+    "MIT": "Chapter 15, PDF pages 636–670",
+    "Berkeley": "Ordinary 7 pages, exponential 10 pages, partitions 9 pages, all read",
+    "CMU": "All 9 official PDF pages through references, web text",
+    "Princeton": "All 52 written slides, author official mirror, web text; damaged extracted glyphs independently derived"
+  },
+  "limits": "Bounded nine-candidate pool; no native hash claimed for remote-only source reads. See source audit for corrections."
+}

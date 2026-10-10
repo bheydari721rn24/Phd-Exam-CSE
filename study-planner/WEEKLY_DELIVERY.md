@@ -546,3 +546,8 @@ Completed g_mux: four read written university courses, 82 complete solutions, 80
 ## Recurrence relations review draft — 10 October 2026
 
 Completed d_recurrence: four actually read university texts, 83 complete solutions, 80 final rules, 14 distinct mathematical models / 107 checkpoints. Independent references passed 1649 cases / 9512 generated checkpoints. All 49 earlier chapter pages retained. Actual Edge font, geometry, control, editable model, mobile and print checks passed. Student approval and online publication remain separate. Standing authorization advances work to d_generating.
+
+
+## Generating functions review draft — 10 October 2026
+
+Completed d_generating: four genuinely read written courses, 82 fully worked solutions, 80 full-sentence final rules, 17 specialized models and 218 saved checkpoints. Independent references passed 100 model inputs / 781 generated checkpoints, with checks recorded for all 80 authored/reconstructed answers. Edge typography, math, geometry, controls, editable scenarios, mobile and print passed. All fifty prior pages retained. Student approval and online deployment remain separate. Standing authorization advances work to a_bst.

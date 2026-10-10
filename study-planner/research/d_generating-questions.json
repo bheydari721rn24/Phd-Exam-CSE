@@ -1,0 +1,583 @@
+[
+  {
+    "id": "d_generating_original_01",
+    "title": "Formal division with a nonunit constant",
+    "stem": "Decide whether $2-x$ has an inverse over rational coefficients and over integer coefficients. Compute its first four rational inverse coefficients.",
+    "solution": "The constant equation in $(2-x)B=1$ requires $2b_0=1$, so $b_0=1/2$. At every later degree, $2b_n-b_{n-1}=0$, giving $b_n=1/2^{n+1}$. Thus the prefix is $1/2+x/4+x^2/8+x^3/16$. The rational inverse exists and is unique because the constant is invertible over the rationals. An integer-coefficient inverse cannot exist, since even an integer constant cannot multiply two to yield one. “Nonzero constant” is sufficient over a field, but the general ring criterion is “unit constant.” This distinction prevents an unjustified division in an integer or modular coefficient ring.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_02",
+    "title": "A reciprocal determined coefficient by coefficient",
+    "stem": "Find the coefficients through degree four of $1/(1-2x-x^2)$ without using its roots.",
+    "solution": "Let the unknown coefficients be $b_n$. Matching the constant gives $b_0=1$. The degree-one equation is $b_1-2b_0=0$, so $b_1=2$. Later coefficients obey $b_n=2b_{n-1}+b_{n-2}$. Consequently $b_2=5$, $b_3=12$, and $b_4=29$. The prefix is $1+2x+5x^2+12x^3+29x^4$. Multiply this prefix by the denominator: the constant remains one and every coefficient from degrees one through four cancels. Terms beyond degree four are unspecified, so the verification is modulo $x^5$, not an exact finite polynomial identity. The example demonstrates why a reciprocal can be computed without numerical root approximation.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution.",
+    "modelId": "inverse-pell"
+  },
+  {
+    "id": "d_generating_original_03",
+    "title": "A divergent series can still satisfy an identity",
+    "stem": "Let $A(x)=\\sum_{n\\ge0}n!x^n$. Prove a formal differential equation for $A$ and explain why it does not imply convergence at a positive numerical argument.",
+    "solution": "The factorial recurrence is $a_n=na_{n-1}$ for $n\\ge1$, with $a_0=1$. Summing gives $A-1=x\\sum_{m\\ge0}(m+1)a_mx^m=x(A+xA')$. Thus $x^2A'+(x-1)A+1=0$. Every coefficient in this equation is a finite combination of factorials, so it is valid formally. For any nonzero numerical $x$, the ratio of consecutive absolute terms is $(n+1)|x|$, which eventually exceeds one and grows without bound. The terms do not tend to zero; the series diverges. A formal equation relates coefficients, while convergence concerns limits of numerical partial sums. Confusing these meanings would incorrectly permit evaluating the OGF at one.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_04",
+    "title": "Ordinary convolution versus a Hadamard product",
+    "stem": "For $A=1+2x+3x^2+4x^3$ and $B=1+3x+9x^2+27x^3$, find the degree-three coefficient of their ordinary product and their coefficientwise product.",
+    "solution": "Ordinary multiplication collects pairs of exponents summing to three: $1\\cdot27+2\\cdot9+3\\cdot3+4\\cdot1=58$. The coefficientwise, or Hadamard, product instead multiplies the two degree-three coefficients, giving $4\\cdot27=108$. These operations describe different combinations of sequences. A product of independent choices with additive total size uses 58. A sequence deliberately defined by multiplying corresponding entries uses 108. The middle two cross terms are essential in ordinary multiplication; extracting coefficients separately before multiplying erases them. A direct expansion of the two finite polynomials provides an independent check of the ordinary answer.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution.",
+    "modelId": "question-four",
+    "visualQualification": "This walkthrough uses the same target and inventory as the problem. Compare its exact checkpoints with the coefficient derivation above."
+  },
+  {
+    "id": "d_generating_original_05",
+    "title": "The amount of a prefix needed after shifting",
+    "stem": "You know an OGF through degree six. Can you determine degree six of its square, its inverse when the constant is nonzero, and $(A-a_0-a_1x)/x^2$?",
+    "solution": "The square coefficient uses only pairs from degrees zero through six, so the known prefix suffices. The inverse recurrence also uses only denominator coefficients up to the target degree, so it suffices if the constant is nonzero over the chosen field. The left-shifted series has degree-six coefficient $a_8$, which is unknown. Two sequences can share every known coefficient and differ at degree eight, producing different shifted answers. Thus the first two questions are decidable and the last is not. A formal truncation should always carry a precision statement: left shifting by two reduces the known degree by two, whereas multiplying nonnegative-degree prefixes preserves the target precision.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_06",
+    "title": "A shifted rational coefficient with an impossible target",
+    "stem": "Find $[x^{12}]x^5/(1-3x)^3$, and explain the answer for target degree four.",
+    "solution": "The shift reduces the target to degree seven of $(1-3x)^{-3}$. The negative-binomial coefficient is $3^7\\binom{9}{2}=2187\\cdot36=78732$. For target four, the shifted target is minus one, so the coefficient is zero in an ordinary power series. The numerator shift must affect both the exponential and the binomial index: using $3^{12}\\binom{14}{2}$ would count the unshifted expression. The product starts at degree five, which independently confirms the zero answer below five. This method works for any numerator monomial; a polynomial numerator is handled by summing its separate shifted contributions.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_07",
+    "title": "Removing an initial prefix before dividing",
+    "stem": "The OGF $A=1/(1-2x)$ has coefficients $2^n$. Find the OGF for $b_n=a_{n+3}$ and derive it through the left-shift formula.",
+    "solution": "Subtract the initial polynomial $1+2x+4x^2$ and divide the remainder by $x^3$. Multiplying that polynomial by $1-2x$ gives $1-8x^3$. Therefore $A-(1+2x+4x^2)=8x^3/(1-2x)$, and the shifted OGF is $8/(1-2x)$. Its degree-$n$ coefficient is $8\\cdot2^n=2^{n+3}$, as required. Dividing the uncorrected $A$ by $x^3$ would introduce three negative powers and would not be the desired OGF. This boundary polynomial is the same type of correction that appears when a recurrence sum begins after several initial indices.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_08",
+    "title": "Even-degree filtering does not compress indices",
+    "stem": "Extract the even-degree part of $1/(1-3x)$ and then find the OGF of the compressed subsequence $b_n=3^{2n}$.",
+    "solution": "Average $1/(1-3x)$ and $1/(1+3x)$ to obtain $1/(1-9x^2)$. This series retains exponent $2n$ for the original term of index $2n$. The compressed subsequence instead has OGF $1/(1-9x)$, whose exponent is $n$. Both have coefficients drawn from powers of nine but at different positions. In the first series the coefficient of degree one is zero; in the second it is nine. This smallest nontrivial check already separates the two constructions. An exam question asking for “even coefficients” must be read carefully to determine whether it wants filtering or a new indexed subsequence.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_09",
+    "title": "A residue filter with a nontrivial offset",
+    "stem": "For $a_n=2^n$, find the series retaining only indices congruent to two modulo three, and give the compressed subsequence OGF.",
+    "solution": "The retained terms are $4x^2+32x^5+256x^8+\\cdots$, so the filtered OGF is $4x^2/(1-8x^3)$. Equivalently, apply the root-of-unity filter with residue two. Its finite multiplier is one exactly at those indices and zero elsewhere. Compression defines $b_j=a_{3j+2}=4\\cdot8^j$, so its OGF is $4/(1-8x)$. The factor four is the contribution of the offset two; omitting it would change even the first retained coefficient. The original size gap is three, whereas the compressed index gap is one.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution.",
+    "modelId": "question-nine",
+    "visualQualification": "This walkthrough uses the same target and inventory as the problem. Compare its exact checkpoints with the coefficient derivation above."
+  },
+  {
+    "id": "d_generating_original_10",
+    "title": "Differentiation twice is not an index-square weight",
+    "stem": "If $A(x)=1/(1-x)$, find the OGF for $n^2$ in two ways and identify what $x^2A''$ represents.",
+    "solution": "First use the Euler operator twice: $xD(xA')=xA'+x^2A''$. Since $A'=1/(1-x)^2$ and $A''=2/(1-x)^3$, the sum simplifies to $x(1+x)/(1-x)^3$. Alternatively, the identity $n^2=n(n-1)+n$ combines the two falling-factorial weight series. The expression $x^2A''$ alone has coefficient $n(n-1)$, not $n^2$. At index one it gives zero while the target square is one, providing an immediate counterexample. The extra derivative of the intermediate factor $x$ is the reason the two operator expressions differ.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_11",
+    "title": "A cubic polynomial weight",
+    "stem": "Find the OGF of $n^3$ and explain how its numerator can be derived without memorizing a table.",
+    "solution": "Apply $xD$ to the square-weight series $x(1+x)/(1-x)^3$. The quotient derivative simplifies to $(1+4x+x^2)/(1-x)^4$ before multiplication by $x$. Therefore the cubic-weight OGF is $x(1+4x+x^2)/(1-x)^4$. A separate check uses $n^3=n(n-1)(n-2)+3n(n-1)+n$: the corresponding series are $6x^3/(1-x)^4$, $6x^2/(1-x)^3$, and $x/(1-x)^2$. Bringing them to a common denominator gives the same numerator. The first coefficients 0,1,8,27 verify both the boundary and the degree of the polynomial weight.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_12",
+    "title": "A harmonic convolution identity",
+    "stem": "Prove $\\sum_{k=1}^{n}(n+1-k)/k=(n+1)H_n-n$ using generating functions.",
+    "solution": "The logarithmic series has coefficients $1/k$ for positive $k$ and zero at zero. Multiplying it by $(1-x)^{-2}$ gives degree-$n$ coefficient $\\sum_{k=1}^{n}(n+1-k)/k$. Algebraically the sum also splits into $(n+1)\\sum_{k=1}^{n}1/k-\\sum_{k=1}^{n}1$, giving $(n+1)H_n-n$. This direct rearrangement is an independent check, not a replacement for the OGF interpretation. At zero both sides are zero by the empty-sum convention. The factor $(1-x)^{-2}$ supplies weight $n+1-k$, while a single inverse factor would produce only $H_n$.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_13",
+    "title": "Repeated prefix summation",
+    "stem": "Let $a_n=2^n$, and let $b_n$ be the prefix sum of the prefix sum of this sequence. Find $b_n$ exactly.",
+    "solution": "Two prefix operations give $B=1/((1-2x)(1-x)^2)$. Decompose it as $4/(1-2x)-2/(1-x)-1/(1-x)^2$. The coefficient is therefore $4\\cdot2^n-2-(n+1)=2^{n+2}-n-3$. At zero it is one, as both prefix operations preserve the original constant one. At one, the first prefix is 1,3 and the second is 1,4; the formula gives four. The repeated pole at one contributes the linear subtraction, whereas the simple pole at one-half supplies the exponential term. Forgetting the second prefix factor would produce a different numerator and wrong initial values.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_14",
+    "title": "A binomial transform of a geometric sequence",
+    "stem": "Find the binomial transform of $a_n=3^n$, first by its OGF and then by a finite identity.",
+    "solution": "The source OGF is $A=1/(1-3x)$. Substitute $x/(1-x)$ and multiply by $1/(1-x)$ to obtain $B=1/(1-4x)$. Thus $b_n=4^n$. Directly, $b_n=\\sum_{k=0}^{n}\\binom{n}{k}3^k=(1+3)^n$, confirming the coefficient extraction. The prefactor in the transform formula is necessary; substitution alone would give $(1-x)/(1-4x)$ and would incorrectly change the coefficients after zero. This example also shows why the binomial transform is naturally a label-choice operation, even when expressed with an ordinary rather than exponential series.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_15",
+    "title": "Inverting a binomial transform",
+    "stem": "Suppose $b_n=5^n$ is the binomial transform of an unknown sequence. Recover that sequence and check the inversion for index two.",
+    "solution": "The inverse transform is $a_n=\\sum_{k=0}^{n}(-1)^{n-k}\\binom{n}{k}5^k=(5-1)^n=4^n$. At index two it gives $1-10+25=16$. Transforming the recovered sequence forward yields $1+8+16=25$, as required. The alternating sign depends on $n-k$, not merely $k$ unless the outside factor $(-1)^n$ is also included. The inverse identity follows by pairing two nested binomial coefficients and summing a signed binomial expansion, which vanishes for every index mismatch. Hence the reconstruction is unique, rather than just a sequence that happens to match the first few values.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_16",
+    "title": "A square-root coefficient with its sign",
+    "stem": "Compute $[x^4]\\sqrt{1-4x}$ using generalized binomial coefficients and relate it to a Catalan number.",
+    "solution": "The coefficient is $\\binom{1/2}{4}(-4)^4$. The descending product is $(1/2)(-1/2)(-3/2)(-5/2)/24=-5/128$, so the answer is minus ten. The Catalan identity $\\sqrt{1-4x}=1-2xC(x)$ independently gives coefficient $-2C_3=-2\\cdot5=-10$. The negative sign is not optional: generalized binomial coefficients are not ordinary nonnegative counting coefficients. The normalized square root has constant one, and its later negative coefficients combine with the leading one in the Catalan numerator to produce positive counts after division by the variable.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_17",
+    "title": "Distinct poles and a numerator shift",
+    "stem": "Find $[x^n]x^2/((1-x)(1-3x))$ for every nonnegative $n$.",
+    "solution": "For $m\\ge0$, the unshifted inverse has coefficient $\\sum_{i=0}^{m}3^i=(3^{m+1}-1)/2$, either by convolution or by partial fractions. Set $m=n-2$ when $n\\ge2$, giving $(3^{n-1}-1)/2$. For $n=0,1$, the coefficient is zero because the numerator begins at degree two. The piecewise domain is essential: blindly inserting zero into the positive-index formula would introduce a fraction that is not a valid counting answer. At degree two the expression yields one, matching the constant of the unshifted inverse. A numerator monomial carries an actual delay in the sequence.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_18",
+    "title": "A repeated pole whose polynomial weight changes",
+    "stem": "Find the coefficient of $x^n$ in $(1+x)/(1-x)^3$ and simplify it.",
+    "solution": "The first numerator term contributes $\\binom{n+2}{2}$ and the shifted term contributes $\\binom{n+1}{2}$, with the latter zero at index zero. Their sum is $(n+1)^2$. Expanding the two products shows $(n+2)(n+1)/2+n(n+1)/2=(n+1)^2$. This OGF represents the squares 1,4,9,..., whereas $x(1+x)/(1-x)^3$ represents 0,1,4,... . The denominator multiplicity predicts quadratic index dependence, but the numerator and shift determine the exact polynomial and initial value. Testing the constant is a quick way to distinguish the two square sequences.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_19",
+    "title": "Cancellation invalidates an apparent resonance",
+    "stem": "Find the exact coefficients of $(1-2x)^2/((1-2x)^3(1+x))$, and explain why the apparent triple pole is misleading.",
+    "solution": "Cancel the two common factors first. The reduced OGF is $1/((1-2x)(1+x))$. Partial fractions give $(2/3)/(1-2x)+(1/3)/(1+x)$, so $a_n=(2^{n+1}+(-1)^n)/3$. The degree-zero coefficient is one and degree one is one, confirming the decomposition. Before cancellation the denominator has a third power, but two of those factors are removable. Therefore neither an index-square nor an index-linear factor is justified for the surviving base-two term. Pole multiplicity always means multiplicity in the reduced rational function.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_20",
+    "title": "Polynomial division creates an exact finite prefix",
+    "stem": "Find every coefficient of $(1+x^2)/(1-x)$, separating its polynomial and proper rational parts.",
+    "solution": "Polynomial division gives $-x-1+2/(1-x)$, because $(-x-1)(1-x)+2=1+x^2$. Thus $a_0=1$, $a_1=1$, and $a_n=2$ for every $n\\ge2$. Direct convolution with the all-ones series gives the same answer: the constant numerator contributes one everywhere and its degree-two term contributes another one starting at index two. Keeping only the proper rational part would incorrectly produce two at the first two indices. A finite polynomial correction is negligible for eventual growth but indispensable in an exact formula, especially when an exam asks about a small index or an initial-value condition.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_21",
+    "title": "A simple pole coefficient determined at its root",
+    "stem": "Decompose $(2+x)/((1-2x)(1-3x))$ and obtain its exact sequence.",
+    "solution": "Write $A/(1-2x)+B/(1-3x)$ and clear the denominator. Then $2+x=A(1-3x)+B(1-2x)$. At $x=1/2$, the second term vanishes, giving $A=-5$. At $x=1/3$, the first term vanishes, giving $B=7$. Hence $a_n=-5\\cdot2^n+7\\cdot3^n$. The first coefficient is two, matching the numerator constant divided by the denominator constant. The next coefficient is eleven, also obtained by multiplying $(2+x)$ by the inverse denominator prefix $1+5x+\\cdots$. Evaluation at a pole is performed only after clearing or removing its zero factor, never directly in the original singular quotient.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_22",
+    "title": "Complex poles produce exact periodic coefficients",
+    "stem": "Find the coefficients of $1/(1+x^2)$ and explain their relation to complex roots.",
+    "solution": "The geometric expansion in $-x^2$ gives $a_{2j}=(-1)^j$ and $a_{2j+1}=0$. The factors are $(1-ix)(1+ix)$, and the partial fractions average their geometric inverses, yielding $(i^n+(-i)^n)/2$. This expression is real and equals the same periodic sequence 1,0,-1,0,... . Its modulus does not stay bounded below by a positive constant on all indices, since every odd term vanishes. Equal-modulus poles can interfere; they do not support an automatic positive Theta claim at each index. Exact extraction is safer than inferring growth from a single factor in isolation.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_23",
+    "title": "A nonhomogeneous boundary polynomial",
+    "stem": "Let $a_0=2$, $a_1=3$, and $a_n=4a_{n-1}-4a_{n-2}+1$ for $n\\ge2$. Derive its OGF, including the forcing domain.",
+    "solution": "Summing from two gives $A-2-3x=4x(A-2)-4x^2A+x^2/(1-x)$. Therefore $(1-2x)^2 A=2-5x+x^2/(1-x)$ and $A=(2-7x+6x^2)/((1-x)(1-2x)^2)$. Factor the numerator as $(1-2x)(2-3x)$, then cancel to get $(2-3x)/((1-x)(1-2x))=1/(1-x)+1/(1-2x)$. Thus $a_n=1+2^n$. The apparent double root cancels once because the specific initial data and forcing select a simpler solution. At index two, the recurrence gives $12-8+1=5$, matching the derived formula. Using an unshifted forcing inverse would already corrupt the constant equation.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_24",
+    "title": "Resonant exponential forcing",
+    "stem": "For $a_0=3$ and $a_n=2a_{n-1}+2^n$ from index one, find an exact coefficient formula and explain the polynomial factor.",
+    "solution": "The equation is $A-3=2xA+2x/(1-2x)$. Hence $A=3/(1-2x)+2x/(1-2x)^2$. The second term contributes $n2^n$ for positive indices and zero at zero, so $a_n=(n+3)2^n$ for all nonnegative indices. Division by $2^n$ provides an independent proof: the normalized recurrence increments by one, starting at three. The forced base two matches the homogeneous base, increasing the pole order and requiring the linear index factor. The numerator shift is what changes the ordinary coefficient $(n+1)2^n$ into $n2^n$.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_25",
+    "title": "A reconstructed forcing pattern from CMU",
+    "stem": "For $a_0=a_1=1$ and $a_n=a_{n-1}+2a_{n-2}+(-1)^n$ for $n\\ge2$, derive the complete OGF and exact sequence. This is a reconstructed algebraic pattern from the CMU handout.",
+    "solution": "Sum only from two. The forcing series is $1/(1+x)-1+x=x^2/(1+x)$. Thus $A-1-x=x(A-1)+2x^2A+x^2/(1+x)$, so $A=(1+x+x^2)/((1+x)^2(1-2x))$. Partial fractions give $7/(9(1-2x))-1/(9(1+x))+1/(3(1+x)^2)$. Consequently $a_n=(7/9)2^n+(n/3+2/9)(-1)^n$. The first two values are one; at index two the answer is four, matching $1+2+1$. The repeated factor at minus one arises from a forcing exponential already present in the homogeneous recurrence. The index-dependent alternating term must survive unless canceled by the numerator.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_26",
+    "title": "A recurrence reconstructed from a written MIT exam pattern",
+    "stem": "Let $r_0=1$ and $r_n=5r_{n-1}+n+1$ for $n\\ge1$. Find its OGF and its exact coefficients. This changes the parameters of MIT Chapter 15's forced-recurrence exercise pattern.",
+    "solution": "The forcing OGF beginning at one is $(1-x)^{-2}-1$. Therefore $(1-5x)R=1+(1-x)^{-2}-1=(1-x)^{-2}$, giving $R=1/((1-5x)(1-x)^2)$. Decompose it as $(25/16)/(1-5x)-(5/16)/(1-x)-(1/4)/(1-x)^2$. The coefficient is $(25\\cdot5^n-4n-9)/16$. At zero it is one, and at one it is seven, matching $5+2$. The forcing starts at one, so its constant must be subtracted; this cancellation explains the particularly simple numerator. A direct first-order unrolling sums $(j+1)5^{n-j}$ and gives the same closed form.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_27",
+    "title": "A coupled system without guessing roots",
+    "stem": "Suppose $u_0=1$, $v_0=0$, and $u_n=u_{n-1}+v_{n-1}$, $v_n=2u_{n-1}$ for $n\\ge1$. Derive $U$ and $V$ and find $u_n$.",
+    "solution": "The summed equations are $U-1=xU+xV$ and $V=2xU$. Substitute the second into the first to obtain $U=1/(1-x-2x^2)=1/((1-2x)(1+x))$. Thus $u_n=(2^{n+1}+(-1)^n)/3$ and $V=2x/((1-2x)(1+x))$. Its coefficient at positive $n$ is $2u_{n-1}$, while the constant is zero. Eliminating a state introduces a second-order recurrence for $u$, but the initial value $u_1=1$ must still be retained. The system derivation determines that value automatically and avoids choosing an unsupported second boundary.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_28",
+    "title": "A binomial recurrence best handled by an EGF",
+    "stem": "Let $f_0=1$ and $f_n=\\sum_{k=0}^{n}\\binom{n}{k}f_k/2^k$ for $n\\ge1$. Prove $f_n=2^n$ and explain how to remove its apparent self-reference.",
+    "solution": "The term $k=n$ is $f_n/2^n$. For positive $n$, moving it to the left leaves a nonzero multiplier $1-2^{-n}$, so each value is uniquely determined by earlier values. If $f_k=2^k$ for all lower indices, the remaining sum is $2^n-1$; division by $1-2^{-n}$ gives $2^n$. Equivalently, the EGF equation is $F(x)=e^xF(x/2)$ with constant one. The candidate $e^{2x}$ satisfies it exactly. Coefficient uniqueness proves the candidate; there is no need to justify an infinite numerical iteration of substitutions. The equation at zero is redundant, so the separately supplied constant is essential.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_29",
+    "title": "A variable-coefficient recurrence producing a differential equation",
+    "stem": "Let $a_0=1$ and $a_{n+1}=(n+2)a_n$ for $n\\ge0$. Find the formal OGF equation and an EGF that is simpler.",
+    "solution": "The sequence is $a_n=(n+1)!$ by induction. The left-shifted OGF satisfies $(A-1)/x=xA'+2A$, or $x^2A'+(2x-1)A+1=0$. Its radius of numerical convergence is zero. The EGF is $\\widehat A=\\sum(n+1)x^n=1/(1-x)^2$, which has positive convergence radius and the same unnormalized counts. Changing generating-function type changes the coefficient interpretation, not the sequence itself. A rational EGF does not imply a rational OGF. This example shows why choosing a representation before attempting algebra can greatly simplify a recurrence.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_30",
+    "title": "A delayed recurrence with one untouched prefix value",
+    "stem": "Let $a_0=7$, $a_1=2$, and $a_n=3a_{n-1}$ for $n\\ge2$. Find the OGF and explain its finite correction.",
+    "solution": "The tail is $a_n=2\\cdot3^{n-1}$ for positive $n$, so $A=7+2x/(1-3x)=(7-19x)/(1-3x)$. The numerator records the independent initial value seven, rather than forcing $a_1=3a_0$. Polynomial division gives $19/3+(2/3)/(1-3x)$. It gives constant seven and positive-index coefficients $(2/3)3^n$. Multiplying this decomposition by $1-3x$ recovers $7-19x$, independently checking the sign of both terms. Showing the finite correction explicitly explains why an eventual recurrence can leave a prefix outside its exponential tail formula.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_31",
+    "title": "Bounded identical units in distinguishable boxes",
+    "stem": "Count solutions of $x_1+x_2+x_3+x_4=9$ with every variable an integer from zero through three.",
+    "solution": "The OGF is $(1+x+x^2+x^3)^4=(1-x^4)^4/(1-x)^4$. Extract degree nine using inclusion-exclusion: $\\binom{12}{3}-4\\binom{8}{3}+6\\binom{4}{3}=220-224+24=20$. Terms with three or four violated bounds have negative shifted targets and contribute zero under the combinatorial convention. Complementing every variable to $3-x_i$ changes total nine to total three. At total three no upper bound can be exceeded, so stars and bars gives $\\binom{6}{3}=20$, an independent check. This symmetry is particularly useful when the target is near the total upper limit.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution.",
+    "modelId": "question-thirtyone",
+    "visualQualification": "This walkthrough uses the same target and inventory as the problem. Compare its exact checkpoints with the coefficient derivation above."
+  },
+  {
+    "id": "d_generating_original_32",
+    "title": "Unequal bounds require subset-dependent shifts",
+    "stem": "Count nonnegative solutions of $a+b+c=7$ with $a\\le2$, $b\\le3$, and $c\\le4$.",
+    "solution": "The product is $(1-x^3)(1-x^4)(1-x^5)/(1-x)^3$. The unrestricted count is $\\binom{9}{2}=36$. Single upper-bound violations subtract $\\binom{6}{2}+\\binom{5}{2}+\\binom{4}{2}=15+10+6$. The pair of shifts three and four adds $\\binom{2}{2}=1$; all other pairs exceed the target. Thus the count is six. Complementation to total maximum nine changes the target to two, where bounds are irrelevant, giving $\\binom{4}{2}=6$. Treating the three unequal bounds as one common shift would lose the individual numerator exponents and produce the wrong inclusion-exclusion formula.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_33",
+    "title": "Lower bounds must be removed before upper-bound correction",
+    "stem": "Count integer solutions of $a+b+c=10$ with $1\\le a\\le4$, $2\\le b\\le5$, and $3\\le c\\le6$.",
+    "solution": "Subtract the lower bounds to define $a'=a-1$, $b'=b-2$, $c'=c-3$. Their total is four and each lies from zero through three. The OGF for the shifted variables is $(1-x^4)^3/(1-x)^3$. Degree four is $\\binom{6}{2}-3\\binom{2}{2}=15-3=12$. The original OGF carries an additional factor $x^6$, so extracting original degree ten gives the same shifted target four. The three excluded cases are exactly those with one shifted variable equal to four and the other two zero. Applying the original upper limits directly after shifting would accidentally enlarge the allowed intervals.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_34",
+    "title": "Congruence and a finite cap in the same model",
+    "stem": "Count solutions of $a+b+c=12$ with $a\\ge0$ even, $b\\ge1$ odd, and $0\\le c\\le3$.",
+    "solution": "The product is $x(1+x+x^2+x^3)/(1-x^2)^2$. To reach even total twelve, $c$ must be odd, hence one or three. With $c=1$, write $a=2u$, $b=2v+1$; then $u+v=5$, giving six solutions. With $c=3$, the equation is $u+v=4$, giving five. The answer is eleven. Coefficient extraction from the product selects degree ten or eight of the inverse squared even-step factor, yielding six and five respectively. The odd minimum in $b$ is encoded by its leading $x$; dropping it would reverse the parity condition.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_35",
+    "title": "An exact mixed-inventory cancellation",
+    "stem": "An inventory has type A in multiples of three, type B in quantities zero, one, or two, and type C in any nonnegative quantity. Find the number of selections of total $n$.",
+    "solution": "The product is $(1-x^3)^{-1}(1+x+x^2)(1-x)^{-1}=(1-x)^{-2}$. Thus the count is $n+1$. A direct explanation uses Euclidean division: every nonnegative combined quantity of A and B has a unique representation $3q+r$ with $r\\in\\{0,1,2\\}$. That combined quantity can be any number from zero through $n$, after which C is forced. The cancellation is therefore supported by a bijection, not a formal coincidence. If B could also take quantity three, the representation would cease to be unique and this count would no longer apply.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_36",
+    "title": "Unordered change with three denominations",
+    "stem": "Count unordered coin selections of total ten using denominations one, two, and five.",
+    "solution": "Use $1/((1-x)(1-x^2)(1-x^5))$. Fix the number of five-unit coins: it can be zero, one, or two. The remaining totals are ten, five, and zero. With denominations one and two, the numbers of selections are six, three, and one, respectively, because the number of two-unit coins can range from zero to the floor of half the remaining total. Thus the answer is ten. A denomination-first dynamic program gives the same coefficient. Multiplying by permutations of the coins would change the model to ordered strings; identical copies and the empty residual selection already have the correct multiplicities in the product.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution.",
+    "modelId": "question-thirtysix",
+    "visualQualification": "This walkthrough uses the same target and inventory as the problem. Compare its exact checkpoints with the coefficient derivation above."
+  },
+  {
+    "id": "d_generating_original_37",
+    "title": "The same coins counted as ordered strings",
+    "stem": "Count ordered strings of total five using denominations one and two, and compare with unordered selections.",
+    "solution": "The sequence construction gives $1/(1-x-x^2)$. Its coefficients from size zero are 1,1,2,3,5,8, so the ordered answer is eight. Equivalently, a valid nonempty string ends in one or two, yielding the sum of counts for totals four and three. Unordered selections have OGF $1/((1-x)(1-x^2))$ and answer three, according to zero, one, or two copies of denomination two. The two OGFs agree only at the earliest sizes. Their size-three coefficients already differ: ordered count three versus unordered count two. Establishing whether order matters must precede any algebraic simplification.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution.",
+    "modelId": "ordered-five",
+    "visualQualification": "This walkthrough uses the same target and inventory as the problem. Compare its exact checkpoints with the coefficient derivation above."
+  },
+  {
+    "id": "d_generating_original_38",
+    "title": "Limited copies and the direction of the update loop",
+    "stem": "There is one available item of each weight one, two, three, and four. Count subsets of total five, then explain why an increasing-sum update would be wrong.",
+    "solution": "The OGF is $(1+x)(1+x^2)(1+x^3)(1+x^4)$. The only total-five subsets are weights one and four, or weights two and three, so the coefficient is two. A zero-or-one dynamic program updates sums in decreasing order for each item: this ensures that a new coefficient cannot immediately reuse the same current item. Increasing order would reuse a newly updated lower sum and create illegal multiple copies. This is not a numerical implementation detail; it changes each factor from $1+x^w$ toward its geometric inverse. Direct subset enumeration provides a small independent reference for the loop invariant.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_39",
+    "title": "Colored items with equal weights",
+    "stem": "There are two distinguishable types of unit-weight items, both with unlimited identical copies within type. Find the count of total $n$ and explain why merging the types is incorrect.",
+    "solution": "The two independent multiplicities give $(1-x)^{-2}$, with coefficient $n+1$. The choices are the possible quantity of the first type from zero through $n$, with the second forced. Merging equal numeric weights would leave only $(1-x)^{-1}$ and count one, erasing the type distinction. Conversely, ordered strings of red and blue items have OGF $1/(1-2x)$ and count $2^n$, since positions distinguish choices. Unlimited inventory multiplicity, colored type identity, and sequence order are three separate assumptions. A weight-only data structure must not silently identify objects whose types the problem treats as distinct.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_40",
+    "title": "Exactly four positive parts with a lower part size",
+    "stem": "Count ordered compositions of sixteen into exactly four parts, each at least two.",
+    "solution": "The component OGF is $x^2/(1-x)$, and exactly four components give $x^8/(1-x)^4$. Extract degree sixteen by shifting to degree eight, yielding $\\binom{11}{3}=165$. Directly subtract two from each part to obtain four nonnegative variables summing to eight; stars and bars gives the same answer. The part positions are distinguishable, so no division by $4!$ is permitted. Equal-valued parts can occur and do not create fewer ordered positions. For target below eight the answer is zero, which the numerator shift makes immediate.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_41",
+    "title": "Restricted compositions and number-of-parts marking",
+    "stem": "Count compositions of nine with parts one or three and exactly five parts.",
+    "solution": "The bivariate sequence OGF is $1/(1-u(x+x^3))$. Extracting the fifth marker power gives $(x+x^3)^5=x^5(1+x^2)^5$. Degree nine therefore requires two of the five factors to contribute their extra square, giving $\\binom{5}{2}=10$. Directly, two parts must be threes and the other three must be ones; their locations choose the same ten compositions. The marker counts components, not total size. Using $(1-x-x^3)^{-1}$ without the marker would include compositions with several different lengths and would answer a different question.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_42",
+    "title": "Zero-size components and infinite coefficients",
+    "stem": "A component may have size zero or one. Why does the ordinary sequence construction fail when only total size is counted? How can exactly $k$ components be counted instead?",
+    "solution": "There are infinitely many size-zero sequences: any number of zero components yields a different sequence of the same total size. Thus local finiteness already fails at the constant coefficient. The formal geometric expansion $\\sum_{j\\ge0}(1+x)^j$ does not define coefficients by finite sums. The algebraic expression $1/(1-(1+x))=-1/x$ is a Laurent expression and not an OGF for these counts. If the length is fixed at $k$, use $(1+x)^k$, whose degree-$n$ coefficient is $\\binom{k}{n}$. Alternatively retain a length marker $u$ in $1/(1-u(1+x))$ and extract its $k$th coefficient before setting $u$ to one.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_43",
+    "title": "Prefix-coded binary words",
+    "stem": "Find the OGF for binary words with no adjacent ones, and compute the count at length six using a unique block decomposition.",
+    "solution": "Every such word is a sequence of blocks 0 or 10, followed by an optional terminal 1. The decomposition is unique: scan left to right and pair any nonterminal 1 with its forced following zero. The block sequence has OGF $1/(1-x-x^2)$; the terminal choice contributes $1+x$. Hence $G=(1+x)/(1-x-x^2)$. Its coefficients are 1,2,3,5,8,13,21, so length six gives 21. This is $F_8$ under the standard Fibonacci convention $F_0=0,F_1=1$. A recurrence with boundaries one and two provides a second proof. Leaving off the optional terminal block misses words that end in one.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_44",
+    "title": "Partitions into exactly three parts",
+    "stem": "Count integer partitions of ten into exactly three positive parts and derive the corresponding OGF.",
+    "solution": "Ferrers conjugation converts three parts into largest part exactly three. Thus the OGF is $x^3/((1-x)(1-x^2)(1-x^3))$. Degree ten reduces to unordered selections of total seven with denominations one, two, and three. Fixing the number of threes at zero, one, or two gives four, three, and one choices respectively, for total eight. The partitions are (8,1,1), (7,2,1), (6,3,1), (6,2,2), (5,4,1), (5,3,2), (4,4,2), and (4,3,3). This explicit list confirms both the count and the unordered interpretation; counting ordered compositions would greatly overcount them.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_45",
+    "title": "Distinct parts and the staircase shift",
+    "stem": "Count partitions of twelve into exactly three distinct positive parts.",
+    "solution": "Subtract the staircase (2,1,0) from the descending three parts. This yields a positive nonincreasing partition of nine into three parts, bijectively. The OGF is $x^6/((1-x)(1-x^2)(1-x^3))$, so extract residual total six. Fixing the number of threes at zero, one, or two yields four, two, and one choices, giving seven. The seven original partitions are (9,2,1), (8,3,1), (7,4,1), (7,3,2), (6,5,1), (6,4,2), and (5,4,3). The minimum sum is six, represented by (3,2,1). Using a numerator $x^3$ would forget distinctness and count ordinary three-part partitions instead.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_46",
+    "title": "Odd parts versus distinct parts",
+    "stem": "Prove that the number of odd-part partitions of seven equals the number of distinct-part partitions, and calculate their common value.",
+    "solution": "Multiply the distinct factors $1+x^j=(1-x^{2j})/(1-x^j)$ for positive $j$. The even-index numerator cancels even-index denominator factors, leaving inverses only for odd parts. For a target of seven, this can be justified by finite truncation; no infinite numerical cancellation is required. The distinct partitions are (7), (6,1), (5,2), (4,3), and (4,2,1), so there are five. The odd partitions are (7), (5,1,1), (3,3,1), (3,1,1,1,1), and seven ones, also five. The identity matches total counts; it does not preserve the number of parts, so a marker for that statistic cannot be carried through this cancellation unchanged.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_47",
+    "title": "A Durfee-square decomposition at a fixed size",
+    "stem": "Compute the number of partitions of seven by separating Durfee-square sizes.",
+    "solution": "Only sizes one and two can occur for nonempty size seven. For size one, the OGF is $x/(1-x)^2$, whose degree-seven coefficient is seven. For size two, the OGF is $x^4/((1-x)^2(1-x^2)^2)$. The remaining degree three receives four from zero degree in the even factor and degree three in the first squared inverse, plus $2\\cdot2=4$ from degree two in the even factor and degree one in the other. Its contribution is eight. Thus the total is fifteen. The empty Durfee case contributes only at size zero. The decomposition is disjoint because each Ferrers diagram has a unique largest top-left square.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution.",
+    "modelId": "durfee-seven",
+    "visualQualification": "This walkthrough uses the same target and inventory as the problem. Compare its exact checkpoints with the coefficient derivation above."
+  },
+  {
+    "id": "d_generating_original_48",
+    "title": "Self-conjugate diagrams and odd hooks",
+    "stem": "Count self-conjugate partitions of nine using their diagonal-hook generating function.",
+    "solution": "Diagonal hooks are distinct odd positive lengths, giving the product over odd $j$ of $1+x^j$. Distinct odd parts summing to nine are (9) and (5,3,1), so the answer is two. Their corresponding self-conjugate partitions are (5,1,1,1,1) and (3,3,3), as can be checked by transposing each Ferrers diagram. An odd-part partition with repeated odd parts does not necessarily correspond to a self-conjugate diagram by this hook construction; distinctness is essential. The hook lengths partition the cells, and their nested positions determine the original diagram uniquely, proving the count rather than merely suggesting it.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_49",
+    "title": "Catalan convolution from first return",
+    "stem": "Use the unique first-return decomposition of balanced words to compute the number with four pairs, retaining every convolution term.",
+    "solution": "The empty count is one. For a nonempty word of four pairs, its first enclosing pair contains $i$ pairs and its suffix contains $3-i$ pairs. Thus $C_4=C_0C_3+C_1C_2+C_2C_1+C_3C_0=5+2+2+5=14$. The cases are disjoint because the matching parenthesis for the first opening symbol is unique. The OGF equation $C=1+xC^2$ represents this same convolution over all sizes. It is not $1+xC$; both the interior and suffix are independently chosen balanced words. The closed binomial formula gives $\\binom{8}{4}/5=14$ as an independent check.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution.",
+    "modelId": "catalan-four",
+    "visualQualification": "This walkthrough uses the same target and inventory as the problem. Compare its exact checkpoints with the coefficient derivation above."
+  },
+  {
+    "id": "d_generating_original_50",
+    "title": "Selecting a formal square-root branch",
+    "stem": "Solve $Y=1+xY^2$ as a formal power series and explain why its algebraic second root is inadmissible.",
+    "solution": "The quadratic formula gives $(1\\pm\\sqrt{1-4x})/(2x)$. Choose the normalized square root with constant one. The minus numerator has zero constant and begins with $2x$, so its quotient is a power series with constant one. The plus numerator has constant two and produces a term $1/x$, outside the ordinary power-series ring. Recursive coefficient comparison uniquely determines all nonnegative coefficients from the constant one, confirming that only the minus branch is admissible. No numeric choice of “smaller root” is needed; the branch is selected by the series domain and prescribed initial coefficient.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_51",
+    "title": "Ordered rooted trees count all vertices",
+    "stem": "Find the number of ordered rooted unlabelled trees on five vertices, and compare it with binary trees counted by internal vertices.",
+    "solution": "For an ordered rooted tree, each child contributes a nonempty rooted subtree and the children form an ordered sequence. Therefore $T=x/(1-T)$ with zero constant coefficient. Its solution is $T=xC$, so the five-vertex count is $C_4=14$. Ordered binary trees with five internal vertices have count $C_5=42$, under a different size convention and child-slot model. The shift in the first answer is not a harmless relabelling of the same index: a nonempty general rooted tree counts its root, while the Catalan series includes an empty binary tree at index zero. Always identify the object class and size before applying a Catalan number.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_52",
+    "title": "A ternary recursive structure through coefficient inversion",
+    "stem": "Let $T=x(1+T)^3$. Find $[x^5]T$ and derive the answer from the proved inversion theorem.",
+    "solution": "Take $\\phi(t)=(1+t)^3$. For positive $n$, the theorem gives $[x^n]T=\\binom{3n}{n-1}/n$. At five this is $\\binom{15}{4}/5=1365/5=273$. The zero-constant solution is unique because each new coefficient depends on earlier ones; its first coefficients 1,3,12,55,273 can also be obtained by truncated substitution. The three positions encoded by $(1+T)^3$ are ordered optional subtree slots. An unordered set of three subtrees would not have the same expression. This illustrates how the algebraic theorem still requires a correct combinatorial specification.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_53",
+    "title": "Extracting a power of a recursive solution",
+    "stem": "For the same $T=x(1+T)^3$, find $[x^6]T^2$ and explain why a zero answer is forced below degree two.",
+    "solution": "Use coefficient inversion with $k=2$, $n=6$: the coefficient is $(2/6)[t^4](1+t)^{18}=\\binom{18}{4}/3=3060/3=1020$. A direct check convolves the first five positive coefficients: the contributions at total six are $2\\cdot273+2\\cdot3\\cdot55+12^2=546+330+144=1020$. Since $T$ has no constant and begins at degree one, its square begins at degree two. Negative-index extraction in the theorem likewise returns zero when $n<k$. The factor $k/n$ cannot be omitted; it is a consequence of the formal residue derivative in the proof.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_54",
+    "title": "Labelled rooted trees and factorial normalization",
+    "stem": "Use $T=xe^T$ to count rooted labelled trees on five labels.",
+    "solution": "The ordinary coefficient of this EGF is $(1/5)[t^4]e^{5t}=5^4/(5\\cdot4!)=5^4/5!$. Multiply by $5!$ to obtain the labelled count $5^4=625$. The root is one distinguished label and the branches form an unordered set of nonempty rooted trees, which explains the exponential construction. If the problem asked for unrooted labelled trees on five labels, divide by five, giving 125, because every unrooted tree has exactly five choices of root. The EGF coefficient itself is a rational normalized value and is not the raw integer count.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_55",
+    "title": "The same formula has two different interpretations",
+    "stem": "Interpret $1/(1-x)$ as an OGF and as an EGF. Then interpret $e^{2x}$ in both ways.",
+    "solution": "The geometric expression has ordinary coefficients one, so as an OGF it counts one object at every size. As an EGF it represents counts $n!$, because normalized coefficients are the raw counts divided by factorials. The exponential expression has ordinary coefficients $2^n/n!$, which need not be integers; as an EGF its raw counts are $2^n$. An expression's analytic or formal shape does not determine its counting interpretation. At index three, the geometric raw count is one in the OGF interpretation and six in the EGF interpretation. Stating the generating-function type beside a coefficient query prevents this fundamental normalization error.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_56",
+    "title": "A labelled product allocates the labels",
+    "stem": "Split five distinct labels into an ordered pair of sets, allowing either to be empty. Count the structures by an EGF product and compare with indistinguishable units.",
+    "solution": "Each set has one trivial structure, with EGF $e^x$. The ordered pair has EGF $e^{2x}$ and raw size-five count $2^5=32$. Equivalently, choose which labels go to the first set; there are $\\sum_{i=0}^{5}\\binom{5}{i}=32$ choices. Five indistinguishable units split between two named recipients instead have six multiplicity vectors, with OGF $(1-x)^{-2}$. The difference is the binomial allocation of distinct labels. Multiplication is formally the same operation in both series types, but their coefficient normalizations implement different combinatorial products.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution.",
+    "modelId": "label-five",
+    "visualQualification": "This walkthrough uses the same target and inventory as the problem. Compare its exact checkpoints with the coefficient derivation above."
+  },
+  {
+    "id": "d_generating_original_57",
+    "title": "Surjections onto three recipients",
+    "stem": "Count surjections from six distinct labels onto three named recipients and obtain the number of partitions into three nonempty blocks.",
+    "solution": "The EGF for surjections is $(e^x-1)^3$. Expanding gives raw count $3^6-3\\cdot2^6+3\\cdot1^6=729-192+3=540$. The missing constant-codomain term is zero since the domain is nonempty. Each partition into three blocks has $3!$ assignments to the three named recipients, so $S(6,3)=540/6=90$. The division is valid because every block is nonempty and distinct as a subset of the labels. If empty recipients were allowed, multiple empty blocks would not have the same free ordering multiplicity. Direct Stirling insertion recurrence provides a second integer computation of 90.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_58",
+    "title": "Labelled distributions with unequal occupancy constraints",
+    "stem": "Distribute five distinct labels into three named boxes: the first has exactly two labels, the second is nonempty, and the third is unrestricted. Find the count.",
+    "solution": "The EGF is $(x^2/2)(e^x-1)e^x$. The residual degree three is that of $e^{2x}-e^x$, namely $(2^3-1)/3!=7/6$. Multiplying by the first factor and then by $5!$ gives $120\\cdot7/12=70$. Directly choose the first two labels in ten ways, then assign the remaining three between the second and third boxes with the second nonempty, in $2^3-1=7$ ways. The factorial in the first factor is required to represent exactly one trivial set structure on two labels. Replacing it by $x^2$ would double the count.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_59",
+    "title": "Perfect pairings as an unordered set of pairs",
+    "stem": "Count perfect pairings of eight distinct labels and explain every divisor.",
+    "solution": "One pair has EGF $x^2/2!$; an unordered set of pairs has EGF $\\exp(x^2/2)$. Its degree-eight coefficient is $1/(2^4 4!)$. Multiply by $8!$ to get $40320/(16\\cdot24)=105$. Directly order the eight labels, divide by two for the internal order of each of four pairs, and divide by $4!$ for the order of the four pairs. The same divisors arise in the EGF expansion. An odd number of labels gives zero because all nonzero powers are even. The construction has no empty pair component, which is why the exponential set rule is legitimate.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_60",
+    "title": "Set partitions into blocks of size one or two",
+    "stem": "Count partitions of six labels whose blocks have size one or two.",
+    "solution": "The EGF is $\\exp(x+x^2/2)$. If there are $j$ pairs, there are $6-2j$ singleton blocks, and the count is $6!/((6-2j)!2^j j!)$. Sum for $j=0,1,2,3$: the contributions are 1,15,45,15, totaling 76. These cases are disjoint by the number of pairs. This also counts involutions as permutations made only of one-cycles and two-cycles. Larger cycles are absent, not merely unmarked. A recurrence choosing whether a distinguished label is fixed or paired gives $I_n=I_{n-1}+(n-1)I_{n-2}$ and confirms the same value.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_61",
+    "title": "Bell EGF with an excluded singleton component",
+    "stem": "Count partitions of four labels with no singleton blocks.",
+    "solution": "Remove the singleton term from the nonempty-block EGF, giving $B(x)=e^x-1-x$. The set of such blocks has EGF $\\exp(B)$. At degree four, possible block-size patterns are one block of size four or two blocks of size two. Their counts are one and three, giving four. In the series, the size-four block contributes $1/24$, while two pairs contribute $(x^2/2)^2/2!=x^4/8$; multiplying their sum by $4!$ gives four. Using $\\exp(e^x-1)$ would include singleton-containing partitions, so removing the component term is required before exponentiating.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_62",
+    "title": "Exactly two even-size blocks",
+    "stem": "Count partitions of six labels into exactly two nonempty even-size blocks.",
+    "solution": "The component EGF is $\\cosh x-1=x^2/2!+x^4/4!+\\cdots$. Exactly two unordered components give its square divided by two. Degree six comes from block sizes two and four; the two factor orders cancel the outside divisor, leaving coefficient $1/(2!4!)$. Multiply by $6!$ to obtain 15. Directly choose the two-element block in $\\binom{6}{2}=15$ ways; the other block is forced and has a different size, so no further division by two is needed in this direct count. Applying both the EGF division and a second direct division would undercount.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_63",
+    "title": "Ordered nonempty blocks",
+    "stem": "Count ordered set partitions of four labels and compare with ordinary Bell partitions.",
+    "solution": "Order the blocks of an ordinary partition. The count is $\\sum_{k=0}^{4}k!S(4,k)=1+2!\\cdot7+3!\\cdot6+4!=1+14+36+24=75$, where the one-block contribution is one and the empty-block contribution is zero at positive size. The EGF is $1/(2-e^x)$, whose size-four normalized coefficient is $75/24$. Ordinary partitions have $B_4=15$. The ordered answer is not $4!B_4$, because the number of blocks varies and each partition has only $k!$ block orders. An EGF recurrence or direct enumeration by block count confirms 75.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_64",
+    "title": "Derangements via cycle exclusion",
+    "stem": "Find the number of derangements on six labels from an EGF and confirm it by the recurrence.",
+    "solution": "Exclude cycles of length one, giving $e^{-x}/(1-x)$. Multiply coefficients and remove normalization: $D_6=6!\\sum_{j=0}^{6}(-1)^j/j!=265$. The integer recurrence has boundaries $D_0=1$, $D_1=0$, then gives 1,2,9,44,265 at sizes two through six. It follows from whether a distinguished label forms a two-cycle or belongs to a longer cycle. The EGF derivation and recurrence are independent descriptions of the same excluded-fixed-point class. Rounded values of $n!/e$ are a convenient derived approximation, but the finite alternating sum gives the exact result without numerical rounding uncertainty.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_65",
+    "title": "Permutations with exactly two cycles",
+    "stem": "Count permutations of five labels having exactly two directed cycles.",
+    "solution": "The cycle EGF is $L=-\\log(1-x)$. Exactly two unordered cycles have EGF $L^2/2$. Degree five receives ordered size splits one/four and two/three. After the outside division, its coefficient is $1/4+1/6=5/12$. Multiply by $5!=120$ to obtain 50. Directly, the first cycle-size pattern contributes choosing the singleton in five ways and cycling the other four in six ways, giving 30. The two/three pattern contributes choosing the pair in ten ways and cycling the other three in two ways, giving 20. Their sum confirms 50 and explains the distinction between cycle order and within-cycle orientation.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_66",
+    "title": "Exactly one three-cycle and all other labels fixed",
+    "stem": "Count permutations on seven labels with exactly one three-cycle and no other nontrivial cycle.",
+    "solution": "The distinguished cycle component contributes $x^3/3$ and unrestricted singleton cycles contribute $e^x$. The EGF is $(x^3/3)e^x$. Its size-seven count is $7!/(3\\cdot4!)=70$. Directly choose the three moving labels in $\\binom{7}{3}=35$ ways and choose one of their two directed cycles. All other labels are fixed, so there is no additional ordering. A factor $e^{x^3/3}$ would allow several three-cycles, while a factor $1/(1-x)$ would allow arbitrary permutations on the remaining labels. Exact restrictions must be built into the component expression.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_67",
+    "title": "EGF differentiation introduces a new distinguished label",
+    "stem": "For $a_n=n!$, determine the counts represented by $\\widehat A'$ and $x\\widehat A'$ and explain their different meanings.",
+    "solution": "The EGF is $(1-x)^{-1}$. Its derivative is $(1-x)^{-2}$, with normalized coefficient $n+1$ and raw count $(n+1)!$. It counts permutations on the existing labels plus one new distinguished label. Multiplying that derivative by $x$ gives raw count $n\\cdot n!$ for positive $n$, and zero at zero; it represents a permutation on the existing labels together with a marked existing label. At size two the counts are six and four respectively. The extra variable changes both the index and factorial normalization. Saying merely “differentiate to mark an item” leaves these two constructions ambiguous.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_68",
+    "title": "Odd alternating permutations from an EGF equation",
+    "stem": "Use $A'=1+A^2$, $A(0)=0$, to compute the number of odd up-down alternating permutations on five ordered labels.",
+    "solution": "Let $a_n$ be the raw EGF counts. The derivative equation gives $a_{n+1}=\\sum_{k=0}^{n}\\binom{n}{k}a_k a_{n-k}$ for positive $n$, with $a_1=1$ from the constant one and $a_0=0$. At $n=2$, only the split one/one survives, giving $a_3=2$. At $n=4$, splits one/three and three/one contribute $4\\cdot1\\cdot2$ each, so $a_5=16$. Even-sized counts in this odd-only class are zero. The usual order on the labels is part of the alternating definition; this class cannot be interpreted as an arbitrary relabelling-invariant species without additional order data.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_69",
+    "title": "Marking ones in binary words",
+    "stem": "Find the mean and variance of the number of ones in a uniformly selected length-six binary word by a two-variable OGF.",
+    "solution": "The marked OGF is $F=1/(1-x(1+u))$. Degree six is $(1+u)^6$. Its first derivative at one gives total ones $6\\cdot2^5=192$, divided by 64 words to give mean three. Its second derivative gives total $k(k-1)$ equal to $6\\cdot5\\cdot2^4=480$, so the factorial second moment is $480/64=7.5$. Add the mean to obtain the ordinary second moment 10.5, then subtract the squared mean nine to get variance 1.5. The calculation independently matches a binomial variable with six trials and success probability one-half. Forgetting to add the mean would confuse a falling-factorial moment with a square moment.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution.",
+    "modelId": "binary-six",
+    "visualQualification": "This walkthrough uses the same target and inventory as the problem. Compare its exact checkpoints with the coefficient derivation above."
+  },
+  {
+    "id": "d_generating_original_70",
+    "title": "Two meanings of a binary-tree leaf",
+    "stem": "For uniformly selected ordered binary trees with four internal vertices, compute the expected number of internal leaves and the number of external null leaves.",
+    "solution": "The Catalan total is $C_4=14$. The marked internal-leaf series is $L=x/\\sqrt{1-4x}$, so the total internal leaves is $\\binom{6}{3}=20$, giving mean $20/14=10/7$. Every tree with four internal vertices has five external null leaves, so that second statistic is deterministically five. The first formula counts internal vertices with two empty children; the second counts absent child slots. For the empty tree, there are zero internal leaves but one external null leaf under the extended-tree convention. This boundary and terminology must be explicit before using a leaf-generating function.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_71",
+    "title": "A finite inventory probability model",
+    "stem": "Choose uniformly a nonnegative pair summing to six. Let $X$ be its first entry. Find its PGF, mean, and variance.",
+    "solution": "There are seven equally likely pairs, so $G(s)=(1+s+\\cdots+s^6)/7$. The mean is $(0+1+\\cdots+6)/7=3$. The ordinary second moment is $(0^2+1^2+\\cdots+6^2)/7=91/7=13$, giving variance four. PGF differentiation yields the same result: $G'(1)=3$ and $G''(1)=10$, hence $10+3-9=4$. A generating function for counts must be divided by the actual number of equiprobable outcomes before it becomes a probability generating function. The two coordinates are dependent because their sum is fixed; their marginal PGFs cannot be multiplied to recover the fixed-sum joint model.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_72",
+    "title": "Geometric support conventions",
+    "stem": "A success has probability one-quarter. Find the PGF and mean of failures before the first success, then of trials through that success.",
+    "solution": "Failures have probabilities $(1/4)(3/4)^n$ for nonnegative $n$. Their PGF is $(1/4)/(1-(3/4)s)$ and its derivative at one is three. The trials count is failures plus one, so its PGF is $sG(s)$ and its mean is four. The trial-count constant coefficient is zero, whereas the failures constant coefficient is one-quarter. That small-index difference fixes the support convention. Both derivatives are finite because these geometric distributions have exponentially decaying tails. Applying a remembered geometric mean without stating whether it counts failures or trials would risk a one-unit error.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_73",
+    "title": "Independent Poisson sums",
+    "stem": "For independent Poisson variables of means two and three, derive the distribution, mean, and variance of their sum using PGFs.",
+    "solution": "Their PGFs are $e^{2(s-1)}$ and $e^{3(s-1)}$. Independence gives the product $e^{5(s-1)}$, which is the PGF of a Poisson variable with mean five. Differentiate at one: the first derivative is five and the second is 25. Therefore variance is $25+5-25=5$. The coefficient formula is $e^{-5}5^n/n!$, so every probability is nonnegative and the coefficients sum to one. Without independence, the product rule is not valid and the marginal means alone do not determine the sum distribution or variance.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_74",
+    "title": "A distribution with an infinite mean",
+    "stem": "Let $p_n=1/((n+1)(n+2))$ for $n\\ge0$. Show it is a probability distribution and determine whether its PGF derivative at one is finite.",
+    "solution": "Write $p_n=1/(n+1)-1/(n+2)$. The partial sums telescope to $1-1/(N+2)$ and tend to one, so the probabilities are normalized. The mean term is $n/((n+1)(n+2))$, which behaves like $1/n$ and produces a divergent harmonic-type sum. For example, for $n\\ge2$ it is at least $1/(4n)$, proving divergence by comparison. Thus the left boundary derivative $G'(1)$ is infinite, although the PGF itself converges at one. Convergence of a probability series at its boundary does not imply finite derivative moments. A finite variance formula cannot be used here.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_75",
+    "title": "Dominant poles with periodic zero terms",
+    "stem": "Can coefficients of $1/(1-4x^2)$ be described as Theta of $2^n$ on every nonnegative index? Give the exact answer and a valid restricted growth statement.",
+    "solution": "Expansion gives $a_{2j}=4^j=2^{2j}$ and $a_{2j+1}=0$. A positive Theta lower bound by $2^n$ fails at every odd index, so the proposed statement is false for the complete sequence. On the even subsequence, the coefficients equal $2^n$ exactly. The two poles at plus and minus one-half have equal modulus and their contributions cancel on odd indices. One may give an upper bound $O(2^n)$ for all indices and an exact residue-class statement. Inspecting only the positive pole would discard a surviving term needed for exact and asymptotic behavior.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_76",
+    "title": "A numerator removes the largest exponential base",
+    "stem": "Determine the sequence and growth for $(1-3x)/((1-2x)(1-3x))$.",
+    "solution": "Cancel $1-3x$ to obtain $(1-2x)^{-1}$, with coefficients $2^n$. The sequence is exactly Theta of $2^n$, not Theta of $3^n$. The apparent pole at one-third is removable; no contribution with base three survives. In particular, the ratio of the actual coefficients to $3^n$ is $(2/3)^n$, which tends to zero and disproves a base-three lower bound. This example requires no complex analysis, only exact rational simplification. Growth statements must be made after reducing the function and checking the coefficients of every purported dominant term.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_77",
+    "title": "A repeated dominant pole with an exact shift",
+    "stem": "Find an exact and an asymptotic expression for $[x^n]x^3/(1-2x)^4$.",
+    "solution": "For $n\\ge3$, shift the target to $n-3$, obtaining $2^{n-3}\\binom{n}{3}$. For lower indices the coefficient is zero. Since $\\binom{n}{3}=n(n-1)(n-2)/6$, the positive-index coefficients are asymptotic to $n^3 2^n/48$. The factor 48 combines the binomial leading coefficient six and the exponential shift eight. Merely identifying a fourth-order pole predicts a cubic polynomial multiplier but not this exact constant or the three zero initial coefficients. The exact formula also shows a valid Theta bound for sufficiently large indices, with no periodic cancellations.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_78",
+    "title": "A counting model with a nonuniform statistic",
+    "stem": "Choose uniformly a composition of five into positive parts. Compute the expected number of parts from a marker and verify it by the separator interpretation.",
+    "solution": "The marked OGF is $F=(1-x)/(1-x-ux)$. Differentiate in $u$ and set $u=1$ to get $x(1-x)/(1-2x)^2$. Degree five is $5\\cdot2^4-4\\cdot2^3=48$. There are $2^4=16$ compositions, so the mean is three. Alternatively, a composition of five chooses a subset of the four interior separators; each separator occurs in half the subsets. The number of parts is one plus the number of chosen separators, giving $1+4/2=3$. The empty composition has zero parts and a different boundary, so this positive-size formula must not be extended to zero without qualification.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_79",
+    "title": "A nonlinear recurrence that is not a rational OGF",
+    "stem": "For $c_0=1$ and $c_n=\\sum_{i=0}^{n-1}c_i c_{n-1-i}$, derive its functional equation and explain why the finite-lag rational-recurrence recipe does not apply.",
+    "solution": "Multiply the convolution recurrence by $x^n$ and sum from one. The shifted double sum is $xC^2$, so $C=1+xC^2$. Its valid solution is the Catalan square-root expression, which is algebraic and not rational. The recurrence is nonlinear in its previous values and uses a growing number of lags, so it is outside the constant-coefficient finite-lag theorem. Formal generating functions still work because convolution is represented by a product, but “use a generating function” does not mean “expect partial fractions.” The first values 1,1,2,5,14 provide a direct coefficient check of the functional equation.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution."
+  },
+  {
+    "id": "d_generating_original_80",
+    "title": "A complete method-selection synthesis",
+    "stem": "Compare three counts at total six: ordered strings of parts one or two; unordered selections of those weights; and partitions of six distinct labels into singleton or pair blocks. Derive all three answers with the correct generating-function type.",
+    "solution": "Ordered positive-size components give OGF $(1-x-x^2)^{-1}$ and coefficient 13 at six, by the Fibonacci-type last-component recurrence. Unordered multiplicities give OGF $((1-x)(1-x^2))^{-1}$ and coefficient four, according to zero through three copies of weight two. Distinct labels partitioned into unordered singleton and pair blocks give EGF $\\exp(x+x^2/2)$ and raw count 76, as derived by label allocation and pair-order divisions. All three use the same possible component sizes, yet answer different object-identity questions. The correct workflow identifies labels, order, component multiplicity, and the target size before applying an algebraic dictionary. Each final count can be checked independently by a small enumeration or recurrence.",
+    "origin": "Original mathematical/conceptual problem, or explicitly credited course-pattern reconstruction; independently derived solution.",
+    "modelId": "question-eighty",
+    "visualQualification": "This walkthrough enumerates the ordered strings in the first part of this question. The unordered and labelled classes are derived separately above."
+  }
+]
