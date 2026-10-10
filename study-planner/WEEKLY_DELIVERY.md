@@ -551,3 +551,13 @@ Completed d_recurrence: four actually read university texts, 83 complete solutio
 ## Generating functions review draft — 10 October 2026
 
 Completed d_generating: four genuinely read written courses, 82 fully worked solutions, 80 full-sentence final rules, 17 specialized models and 218 saved checkpoints. Independent references passed 100 model inputs / 781 generated checkpoints, with checks recorded for all 80 authored/reconstructed answers. Edge typography, math, geometry, controls, editable scenarios, mobile and print passed. All fifty prior pages retained. Student approval and online deployment remain separate. Standing authorization advances work to a_bst.
+
+
+## Four new review drafts privately published — 10 October 2026
+
+Native private deployment appgdep_6aca6c2cbf7c81919a3b7ec687b7f008 succeeded from source 164f1769a25642ec05e9d1bd4341bfb12b45f18e, exact 434-file archive. It includes arithmetic circuits, selectors/encoders/decoders, recurrence relations and generating functions, plus the earlier pending simulation behavior fixes. GitHub content commit 086e3ba. Library: 51 chapters and 3411 worked questions. Follow-up site/version reads failed transport, so the numeric Site version remains unverified. Work continues on a_bst under standing authorization; unapproved notes remain review drafts. See research/d_generating-publication.json.
+
+
+## Binary search trees review draft — 10 October 2026
+
+Completed a_bst with 82 fully worked questions, 80 condition-bearing final rules, 27 specialized models and 208 checkpoints. Five universities genuinely read, four core courses selected. Independent reference checks passed 161 inputs / 723 generated checkpoints. Real Edge checked moving arrow ports, pause/resume, complete checkpoint geometry, fonts, math, mobile containment and print. All 51 preceding pages retained. Library: 52 chapters / 3493 questions. Student approval and publication are separate. Standing authorization advances authoring to a_balanced.

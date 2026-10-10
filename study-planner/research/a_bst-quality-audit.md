@@ -1,0 +1,47 @@
+# Scientific and visual audit: binary search trees
+
+## Status and instructional scope
+
+English review draft; not labelled student-approved. Continuous sequential authoring is authorized, but each chapter must complete its source, mathematics, questions, visual and browser review before advancement. Publication is recorded separately from local availability and approval.
+
+The chapter contains 27 main sections, including 22 numbered teaching sections, a complete summary, 82 worked problems, 80 complete reasoning rules and an editable tree laboratory. Its scope includes finite owned-tree representation, strict ancestor bounds, height conventions, complete search contracts, returned-root insertion, all deletion cases, successor/predecessor, traversal and reconstruction, subtree-size and sum augmentation, counted multiplicities, exact internal/external costs, weighted query distributions, producing-order counts, Catalan versus permutation models, expected rank depth, construction versus insertion cost, iterators, LCA, rotations as a bridge, threading and pointer lifetime. Self-balancing repair proofs are deliberately assigned to the following chapter, rather than claimed by one rotation.
+
+## Written-source evidence
+
+Four core courses from four universities were genuinely read: CMU 15-122 Lecture 15, all 22 pages; Princeton COS226's 31 written BST slides and the official §3.2 booksite; Berkeley CS61B Lectures 24 and 26, all 215 and 232 text lines; MIT 6.006 Lecture 5, all eight pages. Stanford CS106B Summer 2025's complete written deletion/traversal lecture is an additional fifth-university reference. Native file acquisition succeeded for all seven files, and exact hashes and reading scopes are stored in the reading ledger.
+
+The source audit documents a bounded accessible pool and the selection criteria. It does not claim a ranking of all courses worldwide. Disagreements are resolved explicitly: node versus edge height, weak duplicate versus strict unique-key policies, inclusive versus strict rank, absent-insertion versus successful-search comparison counts, and uniform permutations versus uniform Catalan shapes. The lesson's proofs, data, examples and solutions are independently authored; complete copyrighted exercise collections are not reproduced.
+
+## Question bank and examination evidence
+
+Eighty original mathematical/conceptual questions include five clearly credited course-pattern reconstructions with new data and independent solutions. Their range includes foundational error witnesses as well as medium-to-hard exact counts, probability models, compound updates and representation proofs; the entire bank is not falsely labelled uniformly difficult. End rules retain hypotheses, boundary conditions and the consequence of each common error.
+
+Two authentic examination bridges were checked against rendered original PDF pages and exact source hashes. MSc CE 1404 Q65 connects key-median selection to mutable-priority augmentation. The solution distinguishes bare BST order from the additional subtree-size and argmax fields, states the leftmost tie rule separately from key order, and identifies balancing and hash assumptions. PhD CE 1405 Q3 proves a dyadic actual-leaf mass inequality and explicitly distinguishes actual leaves from null search gaps. These bridges are not mislabelled as direct plain-BST shape questions or official answer keys.
+
+## Independent mathematical checks
+
+Every original/reconstructed question has an audit entry. Numerical and structural questions use a separate immutable Python tree, exact rational arithmetic, sorted-array query references and actual insertion-permutation enumeration. Proof-oriented contracts are labelled manual proof audits rather than fabricated numerical tests. Examples include all 5040 seven-key permutations screened for a perfect shape and additional precedence, all 120 five-key permutation/gap outcomes for the exact failed-query mean, rank-dependent harmonic fractions, chain probabilities, weighted costs and a compound delete/insert state.
+
+The JavaScript models were independently checked on 161 input specifications and 723 generated checkpoints. The 27 stored models contain 208 exact checkpoints. Checks establish content preservation, ordering, traversal results, deletion survivors, strict rank, zero-based select, inclusive ranges, counted occurrence blocks, shape multiplicities and exact path sums on those cases. They supplement the general written arguments; finite cases are not a universal guarantee.
+
+## Diagrams and simulation behavior
+
+Twenty-seven models are mounted in 41 lesson/solution locations. They show real tree links, interval violations, actual comparison routes, all insertion prefixes, bracketing, upward successor search, leaf/one-child/deep-successor/immediate-successor deletion, traversal emissions, valid and invalid preorder reconstruction, augmentation, range pruning, occurrence blocks, exact depth accumulation, all producing orders for one perfect tree, rotation, and the six-permutation three-key distribution. Six additional problem-only models use the question's own inputs. Companion scope is explicit for a first operation, a general theorem witness or a final-state audit.
+
+The stage is bounded by 760 units wide and at most 400 high; long chains reduce level spacing within that bound. Connected parent-to-child arrows terminate at actual circle boundaries. A chapter-local port synchronizer follows moving token coordinates, so geometric replay does not detach connectors. Visual entities represent key associations, not allocation identities; topology changes are defined by the exact target checkpoint and intermediate movement makes no assertion of another valid BST state.
+
+Real Edge checks inspected every stored frame, text bounds, padding and overlaps, and 1209 actual-node arrow connections. A live deletion transition exhibited seven interpolated geometry pairs and an active clock; its moving arrow endpoints remained connected. Pause froze both the clock and displayed progress. Resume, previous, reset, checkpoint seek, Before/Compare/Result, reduced motion and print were checked. Ten malformed editable inputs preserved the preceding valid model. Desktop, 390-pixel mobile containment, zero runtime errors and the library/Week 4 entry were verified.
+
+The chapter uses STIX Two Math for native MathML and mathematical node labels, Source Sans 3 for prose, Newsreader for headings and JetBrains Mono for code. Browser checks found no bare closing-fence script bases, no zero-size formula fences and no underlined links. Screenshots were manually inspected for title, insertion, successor removal, exact ordering permutations, rank labels, rotation, solved questions, rules and mobile layout.
+
+## Retention and practical limits
+
+All 51 prior chapter pages retain their recorded exact hashes and worked-question counts. The library now has 52 chapters and 3493 worked questions. Shared rendering behavior and prior lesson pages were not changed by this chapter-local implementation.
+
+The account does not guarantee uninterrupted execution, publication timing, literal error-free coverage of every possible question, or examination performance. Comparison costs assume constant-cost key comparisons unless a question states otherwise. Random-order expectations assume distinct keys and uniform insertion permutations; they are not transferred to every update workload. Advanced probability proofs for maximum random-tree height and self-balancing maintenance remain explicitly outside this chapter's established theorem scope.
+
+## Evidence
+
+- [Source selection and reconciliation](a_bst-sources.html).
+- Local ledgers: `research/a_bst-evidence/reading.json`, `mathematics.json`, `browser.json`, and `prior-library.json`.
+- Original exam pages, screenshots and complete source Markdown are retained in the project and mirrored branch; the source PDFs themselves remain reference material outside the published site bundle.

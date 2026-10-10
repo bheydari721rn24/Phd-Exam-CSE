@@ -1,0 +1,604 @@
+[
+  {
+    "id": "a_bst_original_01",
+    "title": "A locally correct but globally invalid tree",
+    "stem": "Root 20 has left child 10 and right child 30. Node 10 has right child 25. Every other link is null. Decide whether this is a strict BST, give a failed search witness, and repair it without changing the keys.",
+    "solution": "The 10-to-25 edge is locally ordered, but every node below root 20's left link must be below 20. The key 25 violates that ancestor bound. Searching for 25 compares with 20 and 30, then reaches null at 30's left link, despite the stored occurrence. Move the node 25 from 10.right to 30.left. Its new allowed interval is $(20,30)$, so every bound holds. The repaired inorder is 10,20,25,30. A child-only validator would miss the original failure; interval validation rejects 25 in $(10,20)$.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "ancestor-bound",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_02",
+    "title": "Sharp height bounds for a nonpower size",
+    "stem": "For a strict BST with 1000 distinct keys, find the sharp minimum and maximum edge heights, the number of null links, and the largest possible successful-search comparison count.",
+    "solution": "The capacity of height $h$ is $2^{h+1}-1$. Since 511 is too small and 1023 is sufficient, the minimum height is 9, attained by direct midpoint construction. A chain attains height 999. There are exactly 1001 null links because $2n-(n-1)=n+1$. The deepest stored key in the chain needs 1000 three-way comparisons. A failed query can also compare with all 1000 stored keys before the final null test. The capacity argument bounds height from below; it does not say every 1000-node tree has height 9.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_03",
+    "title": "Complete insertion trace and exact cost",
+    "stem": "Insert 40,20,70,10,30,60,80,25,65 into an empty unique-key BST. Give all three depth-first traversals, the height, and the exact total number of insertion comparisons.",
+    "solution": "The root is 40, with children 20 and 70. Node 20 has 10 and 30; 30 has left child 25. Node 70 has 60 and 80; 60 has right child 65. Preorder is 40,20,10,30,25,70,60,65,80. Inorder is 10,20,25,30,40,60,65,70,80. Postorder is 10,25,30,20,65,60,80,70,40. Final depths in insertion order are 0,1,1,2,2,2,2,3,3, so insertion comparisons sum to 16 and height is 3. Each absent insertion compares with its existing ancestors; it does not compare with its newly allocated node.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "insert-nine",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_04",
+    "title": "Failed search and bracketing",
+    "stem": "In the tree of Question 3, search for 27. Give the comparison path, null-gap depth, floor, ceiling, strict rank and inclusive rank.",
+    "solution": "The visited keys are 40,20,30,25, after which the search takes 25.right to null. Four actual comparator calls are made and the terminal gap has depth 4. The largest encountered key below 27 is 25 and the smallest above is 30, so floor and ceiling are 25 and 30. Exactly 10,20,25 are smaller: strict rank is 3. Since 27 is absent, inclusive rank is also 3. Reusing the insertion position as a one-based rank would incorrectly give 4.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "search-27",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_05",
+    "title": "Repeated key versus repeated node",
+    "stem": "Insert the pairs (8,A),(4,B),(12,C),(8,D),(4,E) under replacement-value semantics. Give size, inorder associations and the total comparisons. Contrast counted-occurrence semantics.",
+    "solution": "The first pair creates the root without a key comparison. The next two each compare once with 8. Replacing 8 compares once; replacing 4 compares with 8 then 4, using two. Total comparisons are 5. Distinct-node size is 3 and inorder associations are (4,E),(8,D),(12,C). Under counted-node multiset semantics, the same shape has multiplicities 2,2,1 and mass 5; values require a separate policy, such as one shared value or a collection per key. Adding a new equal-key node would be a third design and would not obey the strict unique-node invariant.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_06",
+    "title": "Minimum with a nonnull right child",
+    "stem": "A subtree rooted at 30 has left child 20; node 20 has no left child and has right child 25. Explain delete-min and determine the surviving subtree.",
+    "solution": "The minimum is 20 because its left link is null. Its right child 25 is not a contradiction: only smaller descendants are excluded. Delete-min returns 20.right, so 30.left becomes 25. The resulting subtree has root 30 and left child 25, with size 2. Setting 30.left to null would lose a valid surviving key. If parent links are maintained, 25.parent becomes 30 before the allocation for 20 is released.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "minimum-child",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_07",
+    "title": "A successor that requires climbing",
+    "stem": "Use Question 3's tree. Find successors of 25,30,65,80 with parent pointers, specifying each upward or downward route.",
+    "solution": "Node 25 has no right child and is the left child of 30, so its successor is 30. Node 30 has no right child; climb to 20 from its right child, then to 40 from its left child, yielding 40. Node 65 similarly climbs from 60's right side to 70's left side, yielding 70. Node 80 climbs from 70's right side and then 40's right side to null, so no successor exists. Stopping at any ancestor with a nonempty right subtree would incorrectly return 20 for the 30 query.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "successor-30",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_08",
+    "title": "Two-child deletion with a deep successor",
+    "stem": "Start with Question 3's tree and delete 40 using successor association copying. Give the successor, the final links, preorder, size and height.",
+    "solution": "The successor is the minimum of the right subtree, namely 60. It has a surviving right child 65. Copy (60,value-of-60) to the root object, then remove the old node 60 by setting 70.left to 65. The root's left subtree stays rooted at 20; its right subtree stays rooted at 70. Preorder becomes 60,20,10,30,25,70,65,80. There are 8 nodes, height 3, and inorder is the original sorted list with only 40 removed. Copying the key without its value would preserve order but corrupt the dictionary association. Discarding 65 would remove an unintended second key.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "delete-deep",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_09",
+    "title": "Immediate-right successor and a self-cycle trap",
+    "stem": "Insert 40,20,60,70, then delete root 40 by physically transplanting its successor. Give correct final links and explain why blindly assigning successor.right to the old right root can create a cycle.",
+    "solution": "The successor is the immediate right child 60. The new root is that existing node, with left child 20 and its original right child 70. Its parent becomes null, and 20.parent becomes 60. The old root object 40 is removed. The old right root is already 60; assigning 60.right to that pointer would set 60.right to itself. A deep-successor transplant first extracts a different node and can reconnect the remaining right root, but the immediate-child case must retain the successor's existing right link. Association-copy deletion avoids this identity change while still deleting the correct key.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "delete-immediate",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_10",
+    "title": "Successor versus predecessor deletion",
+    "stem": "In Question 3's tree, delete 40 using predecessor replacement instead. Compare the resulting inorder and preorder with Question 8.",
+    "solution": "The predecessor is the maximum of the left subtree, 30. It has left child 25 and no right child. Copy its association to the root and replace 20.right by 25. Preorder is 30,20,10,25,70,60,65,80. Inorder remains 10,20,25,30,60,65,70,80, identical to the successor-deletion result's inorder. The shapes and identities differ, but both remove exactly 40 and preserve the map on other keys. An exam that prescribes successor replacement must use that convention when asking for an exact final shape.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_11",
+    "title": "Root replacement and absent deletion",
+    "stem": "Insert 9,5,3. Delete 9, then delete 8, then delete 3, then delete 5. Give the root after each operation and identify every size change.",
+    "solution": "The initial tree is a left chain of size 3. Deleting 9 returns its child 5 as the new root, size 2; parent 5 must become null. Deleting absent 8 follows 5.right to null and changes neither root nor size. Deleting leaf 3 sets 5.left to null, size 1. Deleting the remaining root returns null, size 0. The header object may remain allocated throughout; its root field changes. A helper whose returned root is ignored fails at the first and final operations.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "chain-root",
+    "visualQualification": "This model shows the first root deletion in the stated chain. The subsequent absent, leaf and singleton deletions are derived separately in the solution."
+  },
+  {
+    "id": "a_bst_original_12",
+    "title": "Traversal accounting and workspace",
+    "stem": "A perfect tree has edge height 6. How many actual-node visits and recursive calls occur in a full binary inorder traversal that calls both children even when null? Compare recursive and breadth-first auxiliary storage.",
+    "solution": "There are $2^7-1=127$ actual nodes and 128 null positions. Actual processing occurs 127 times, while all recursive calls total $127+128=255$. The maximum chain of actual active recursive calls is 7; a null call can add one further frame depending on implementation. Breadth-first traversal has a level of 64 nodes and therefore linear-width queue storage. The output array, if retained, contains 127 keys under either method. Neither a logarithmic height nor a constant action per visit makes the complete traversal logarithmic in time.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_13",
+    "title": "Iterative inorder states",
+    "stem": "For insertions 8,4,12,2,6,10,14, list the stack just before each of the first four inorder emissions. Explain the amortized scan bound.",
+    "solution": "Writing the stack from bottom to top, before emitting 2 it is [8,4,2]. After removing 2, before emitting 4 it is [8,4]. Then descend into 4's right subtree, giving [8,6] before emitting 6. Before emitting 8 it is [8]. Each actual node enters and leaves the stack exactly once, so all seven emissions use linear aggregate work. One emission may include a long left descent; constant amortized cost is a statement about the full sequence, not every individual step. The maximum retained stack here has three actual nodes.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "stack-seven",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_14",
+    "title": "BST preorder reconstruction",
+    "stem": "Reconstruct a strict BST from preorder 50,30,20,40,35,80,70,90. Give postorder and explain the bounds assigned to 35.",
+    "solution": "Root 50 splits keys below and above 50. Its left root is 30, with left child 20 and right root 40; 40 has left child 35. Its right root is 80 with children 70 and 90. Postorder is 20,35,40,30,70,90,80,50. The key 35 inherits $(30,50)$ on entering 30's right subtree and then $(30,40)$ on entering 40's left subtree. Keeping only the immediate upper bound would discard the necessary lower bound. All eight tokens are consumed, so the parser certifies the supplied preorder as well as constructing its tree.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "preorder-eight",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_15",
+    "title": "Invalid preorder despite plausible adjacent comparisons",
+    "stem": "Determine whether 20,10,5,30,15 can be the preorder of a strict BST. Identify the first unconsumed key in an interval parser and prove impossibility.",
+    "solution": "The parser builds root 20 and its left subtree rooted at 10 with left child 5. The next token 30 ends all left-subtree slots and starts root 20's right subtree. Key 15 is then outside that subtree's lower bound 20; it fits no remaining slot and is unconsumed. Any preorder visits the whole left subtree before the right subtree. Once 30, greater than 20, appears in the right block, the smaller key 15 cannot return to the left block. Repeated insertion of these numbers still creates a valid BST, but its preorder is different; insertion success is not preorder validity.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "preorder-invalid",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_16",
+    "title": "Arbitrary-tree reconstruction and an ambiguity witness",
+    "stem": "Given inorder 1,2,3,4,5 and preorder 3,2,1,5,4, find the tree. Would the preorder alone determine an arbitrary binary tree? Would it determine a strict BST?",
+    "solution": "Root 3 splits inorder into [1,2] and [4,5]. The left preorder block [2,1] makes root 2 with left child 1; the right block [5,4] makes root 5 with left child 4. The supplied preorder alone does not identify an arbitrary tree: even the smaller example [3,2] permits 2 as either child. Under strict BST order, side placement is fixed by comparisons, and the supplied five-key preorder uniquely gives the reconstructed tree. Distinct keys are essential; repeated labels without identities can make a traversal pair ambiguous.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "pair-reconstruction",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_17",
+    "title": "Level order versus an insertion sequence",
+    "stem": "Could 20,10,30,25,5 be the level-order traversal of a strict BST? Contrast this claim with using the same list as an ordinary insertion order.",
+    "solution": "After root 20 and its two children 10,30, depth-two nodes belonging to 10 must precede those belonging to 30. Key 25 belongs below 30 while key 5 belongs below 10, so the claimed level order is invalid. The interval-slot queue skips 10's slots to place 25 under 30; once those earlier slots are skipped, 5 cannot occupy them. Ordinary insertion nevertheless creates a valid tree with 5 as 10.left and 25 as 30.left. Its actual level order is 20,10,30,5,25. Reconstructing by insertion without comparing the resulting traversal would fail to validate the assertion.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_18",
+    "title": "Strict rank, inclusive rank and zero-based select",
+    "stem": "Use Question 3's tree. Calculate strict rank of 30, strict rank of 31, inclusive rank of 30, and select at ranks 0,3,8. State the subtree quantities used when selecting rank 6.",
+    "solution": "The sorted list is 10,20,25,30,40,60,65,70,80. Therefore strict rank of 30 is 3; strict rank of absent 31 is 4; inclusive rank of 30 is 4. Select(0), select(3) and select(8) return 10,30,80. For rank 6, root 40 has left size 4, so descend right with residual $6-4-1=1$. At 70 the left size is 2, so descend left without changing that residual. At 60 its left size is 0, so descend right with residual 0 and return 65. Counts identify complete rank blocks; no inorder scan is needed.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "select-six",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_19",
+    "title": "Inclusive range counts with absent endpoints",
+    "stem": "For Question 3's keys, find counts in [25,70], [26,69], [5,9], [80,80] and [90,10]. Derive each using strict rank rather than enumeration alone.",
+    "solution": "For [25,70], ranks are 2 and 7 and 70 is present, giving $7-2+1=6$. For [26,69], strict ranks are 3 and 7 and 69 is absent, giving 4. For [5,9], both ranks are zero, giving zero. For [80,80], ranks cancel but membership contributes one. The reversed interval [90,10] is explicitly empty under our interface; do not evaluate the normal formula and report a negative count. The membership correction belongs only to the inclusive upper endpoint because subtracting strict rank already retains the lower endpoint when it is present.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "range-inclusive",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_20",
+    "title": "A sorted tree with invalid augmentation",
+    "stem": "A root 8 has leaf children 4 and 12. Its stored size is 3, but the left leaf's stored size is incorrectly 2. Explain the result of select(1), and why checking only the root's stored size against the number of nodes is insufficient.",
+    "solution": "Select sees left size 2 and descends left with residual rank 1. At leaf 4, left size is zero, so it descends right with residual 0 and reaches null instead of returning 8. Inorder remains 4,8,12, so sortedness cannot detect the metadata error. The root's size happens to equal the real total 3, but its local equation $3=1+2+1$ is false. A complete augmentation validator checks every node's equation and the null size zero. It must also reject the left leaf's claim that it contains two nodes.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_21",
+    "title": "Weighted prefix sums",
+    "stem": "Keys 2,5,9,12 carry weights 7,-3,10,4. Build any correctly augmented BST. Find the sum for [5,12], the strict prefix sum at 9, and the effect of changing key 5's weight to 8.",
+    "solution": "The strict prefix at 9 includes keys 2 and 5 and equals 4. The strict prefix at 12 is 14; at 5 it is 7. The inclusive range sum is $14-7+4=11$. Updating key 5 changes its weight by 11, so every subtree sum whose subtree contains that node increases by 11, while all other subtree sums remain unchanged. The interval [5,12] then sums to 22. Negative weights do not invalidate subtraction; the BST is ordered by keys, not by subtree sums. A rank structure using size alone cannot answer these sum queries without another scan.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_22",
+    "title": "Counted multiset rank blocks",
+    "stem": "Store keys 3,8,11 with counts 2,3,1 in a counted-node BST. Find mass, strict occurrence rank of 8, inclusive occurrence rank of 8, select at ranks 1,2,4,5, and the median occurrences.",
+    "solution": "The expanded sorted sequence is 3,3,8,8,8,11, so mass is 6. Strict occurrence rank of 8 is 2 and inclusive rank is $2+3=5$. Select gives 3,8,8,11 at ranks 1,2,4,5. Both central ranks 2 and 3 return 8, so either lower or upper median convention gives 8. A unique-key dictionary would have size 3 and strict distinct-key rank of 8 equal to 1; substituting that size into the occurrence formula loses multiplicity. Every stored node's count must stay positive.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "counted-three",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_23",
+    "title": "Count transfer in two-child multiset deletion",
+    "stem": "Root key 8 has count 1, left key 3 has count 2, and right key 11 has count 4. Delete one occurrence of 8 using successor replacement. Determine the correct count transfers and show the error in deleting only one successor occurrence.",
+    "solution": "Removing 8 is structural because its count is one. Transfer successor key 11 and its full count 4 to the root, then remove the old node 11 completely. The left key 3 keeps count 2. New mass is 6, exactly original mass 7 minus one. If only one occurrence is removed from the old successor node, the root retains count 4 while another node 11 retains count 3: strict node order is broken and mass becomes 9 rather than 6. Association transfer and occurrence deletion must be distinguished. A helper that removes a whole successor node is needed in this case.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_24",
+    "title": "Exact path-length averages",
+    "stem": "Compute internal path length, external path length and uniform successful and uniform-gap unsuccessful comparator averages for Question 3's tree.",
+    "solution": "The actual depths sum to $I=16$ and $n=9$. Therefore $E=I+2n=34$. Successful search costs depth plus one, so its uniform mean is $(16+9)/9=25/9$. There are ten null gaps, making the uniform-gap failed-search mean $34/10=17/5$. These conditional means differ because unsuccessful searches run to null while successful searches stop at the matching actual key. They cannot be combined into one unconditional average without the probability of success and the within-family query distributions.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "exact-costs",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_25",
+    "title": "Nonuniform gap probabilities",
+    "stem": "For root 10 with right child 20, successful key probabilities are 0.1 and 0.2. The three null-gap probabilities, from smallest to largest, are 0.4,0.2,0.1. Find the unconditional comparison expectation and the conditional successful mean.",
+    "solution": "The successful costs are 1 and 2. The left root gap has depth 1; the two gaps below 20 have depth 2. The total probabilities sum to one. The unconditional expectation is $0.1\\cdot1+0.2\\cdot2+0.4\\cdot1+0.2\\cdot2+0.1\\cdot2=1.5$. Success probability is 0.3, and its conditional expectation is $(0.1+0.4)/0.3=5/3$. Uniform-gap averaging would give $5/3$ for the failed family, but its actual conditional average is $1.0/0.7=10/7$. The shape alone does not determine a query-weighted expectation.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_26",
+    "title": "Perfect-tree depth sums",
+    "stem": "Derive internal path length and uniform successful cost for a perfect tree of edge height $h$, then evaluate at $h=3$.",
+    "solution": "At depth $j$ there are $2^j$ nodes, so $I=\\sum_{j=0}^h j2^j=(h-1)2^{h+1}+2$. The finite-sum identity follows by subtracting twice the sum shifted one index, or by differentiating the finite geometric polynomial. With $n=2^{h+1}-1$, the successful mean is $((h-1)2^{h+1}+2+n)/n$. At height 3, $n=15$, $I=34$, and the mean is $49/15$. Every null gap is at depth 4, so the failed mean is exactly 4 and $E=64=34+30$ verifies the external identity.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_27",
+    "title": "A chain is expensive on average too",
+    "stem": "For a chain of $n$ distinct keys, derive internal path length and uniform successful and uniform-gap unsuccessful means. Evaluate at $n=5$.",
+    "solution": "Actual depths are 0 through $n-1$, regardless of the left/right direction pattern, so $I=n(n-1)/2$. Successful mean is $(I+n)/n=(n+1)/2$. External mean is $(I+2n)/(n+1)=n(n+3)/(2(n+1))$. For five keys these are 3 and $10/3$, with $I=10$ and $E=20$. A chain does not become logarithmic merely because queries are uniformly spread over its stored keys. Random queries on a fixed worst-case tree and random insertion order are different probability models.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_28",
+    "title": "Counting orders for a seven-node perfect shape",
+    "stem": "For root 4, children 2 and 6, and leaves 1,3,5,7, count insertion permutations producing exactly this tree. Give its probability under uniform permutations.",
+    "solution": "Root 4 must be first. Each three-node child shape has two valid local orders because its root must precede its two leaves. Interleave the left and right triples in $\\binom{6}{3}=20$ ways. Therefore $W=20\\cdot2\\cdot2=80$. Equivalently, the subtree-size product is $7\\cdot3\\cdot3=63$, so $W=7!/63=80$. Uniform permutations assign probability $80/5040=1/63$. Uniform Catalan shapes would give probability $1/C_7=1/429$, a different model.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "perfect-orders",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_29",
+    "title": "An asymmetric hook-product calculation",
+    "stem": "Insert 5,2,1,4,3,8,7,9. Find the number of insertion orders producing the same final tree and its probability.",
+    "solution": "The root has a four-node left subtree and a three-node right subtree. Left root 2 has leaf 1 and right root 4 with left leaf 3, so its local count is $\\binom{3}{1}=3$. Right root 8 has leaves 7,9, giving count 2. Interleaving the two child sequences after 5 gives $\\binom{7}{4}\\cdot3\\cdot2=210$. Subtree sizes multiply to $8\\cdot4\\cdot2\\cdot3=192$, confirming $8!/192=210$. The probability is $1/192$. Requiring an entire child block to precede the other would omit most valid interleavings.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_30",
+    "title": "All random three-key trees",
+    "stem": "Enumerate the six insertion permutations of keys 1,2,3, group them by resulting shape, and find expected height and expected internal path length.",
+    "solution": "Orders 2,1,3 and 2,3,1 produce the balanced tree of height 1 and internal sum 2. Each of 1,2,3; 1,3,2; 3,1,2; 3,2,1 produces a different chain of height 2 and internal sum 3. Thus expected height is $(2\\cdot1+4\\cdot2)/6=5/3$, and expected internal sum is $(2\\cdot2+4\\cdot3)/6=8/3$. The five possible shapes are not equally likely. Uniformly choosing those shapes would instead yield height $9/5$ and internal sum $14/5$.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "three-permutations",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_31",
+    "title": "Chains with changing directions",
+    "stem": "For four keys, count all insertion permutations yielding a chain, list them, and find their probability. Explain why only counting sorted orders is wrong.",
+    "solution": "The first inserted key must be either the minimum or maximum of the remaining set; otherwise it would have nonempty children on both sides. Repeat that choice until one key remains. This gives $2^3=8$ orders: 1,2,3,4; 1,2,4,3; 1,4,2,3; 1,4,3,2; 4,1,2,3; 4,1,3,2; 4,3,1,2; 4,3,2,1. Each creates a different left/right chain shape. The probability is $8/24=1/3$. Increasing and decreasing orders count only two of these eight possibilities.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_32",
+    "title": "Catalan counts versus permutation counts",
+    "stem": "Find the number of strict BST shapes on five fixed distinct keys and compare it with the number of insertion permutations. Why is division of these two totals not a probability for each shape?",
+    "solution": "The number of shapes is $C_5=\\binom{10}{5}/6=42$, while insertion permutations number $5!=120$. The ratio $120/42$ is an average multiplicity of producing orders, not the multiplicity of every shape; indeed it is not an integer. A chain has multiplicity one, while a more branching shape has several valid descendant interleavings. For any specified shape use $W(T)=5!/\\prod_vs(v)$ and its probability $1/\\prod_vs(v)$. Catalan enumeration counts ordered left/right shapes, so mirroring a nonsymmetric tree generally produces a different shape.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_33",
+    "title": "Fixed-rank expected depth",
+    "stem": "Under uniform insertion permutations of seven distinct keys, find expected depths of ranks 1 and 4 and their expected successful comparator counts.",
+    "solution": "Using $H_7=363/140$, rank 1 has expected depth $H_1+H_7-2=223/140$. Rank 4 has $2H_4-2=2(25/12)-2=13/6$. Add one to convert depths to successful comparator counts: $363/140$ and $19/6$. The middle rank is expected to be deeper than an extreme even though a balanced deterministic tree would place a central key at the root. Root rank is uniform in the random-permutation model, so the deterministic median-first construction is not that distribution.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_34",
+    "title": "Expected insertion work",
+    "stem": "Insert ten distinct keys in uniform random order. Find the exact expected total insertion comparisons, the expected uniform successful-search cost in the final tree, and their relationship.",
+    "solution": "The insertion cost of each key equals its final depth because later insertions do not move existing nodes. Therefore total cost is internal path length. With $H_{10}=7381/2520$, its expectation is $22H_{10}-40=30791/1260$. Adding ten and dividing by ten yields successful mean $43391/12600$. A new key's insertion cost excludes comparison with itself, whereas a later successful search includes that final comparison. This is why the two quantities differ by one per stored key when averaged.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_35",
+    "title": "Expected failed search under a specified gap model",
+    "stem": "For a uniformly random five-key insertion permutation, then a uniformly selected one of its six null gaps, find expected failed-search comparisons. Would uniformly choosing a real number between the smallest and largest keys give the same model?",
+    "solution": "The expected internal path sum is $12H_5-20=37/5$. Adding $2n=10$ gives expected external sum $87/5$, then dividing by six gives $29/10$. Equivalently, $2H_5-10/6=29/10$. A real-number query gives gap probabilities proportional to interval lengths and excludes the outer gaps when restricted between the endpoints. It therefore need not give the same expectation. Both randomness stages are stated here; choosing a uniform permutation alone does not specify the query distribution.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_36",
+    "title": "Why expected depth does not prove expected height",
+    "stem": "Suppose every fixed rank in a random BST has expected depth at most $2\\ln n$. Is it valid to conclude expected height is at most $2\\ln n$ by taking a maximum? Give a concrete probabilistic counterexample to that inference.",
+    "solution": "No. In general the expected maximum is at least the maximum of expectations, with the inequality in the wrong direction for the proposed bound. As a counterexample, choose one of $n$ positions uniformly and set its value to $n$, all others to zero. Each fixed position has expectation 1, while the maximum is always $n$. This example is about the logical inference, not a model of tree depths. Random BST height has a logarithmic theorem, but it needs a separate argument controlling unusually long routes and their dependence.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_37",
+    "title": "Direct construction versus ordinary insertion",
+    "stem": "For sorted keys 1 through 15, choose midpoint roots recursively. Give the first seven preorder keys, exact ordinary insertion comparisons in that order, and the direct-construction operation count up to asymptotic order.",
+    "solution": "The preorder begins 8,4,2,1,3,6,5. The final tree is perfect of height 3. Ordinary absent-key insertion comparisons equal final depth sum $I=34$, because no existing node is moved. Direct construction allocates each of the 15 nodes and assigns each of 14 nonnull child links once; it therefore costs linear time. For growing perfect sizes, depth sum is $\\Theta(n\\log n)$ while allocation and link assignment stay $\\Theta(n)$. The same resulting shape does not imply the same construction cost.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_38",
+    "title": "Median-first does not require a perfect tree",
+    "stem": "Construct a minimum-height BST from sorted keys 1 through 10 using the lower midpoint of each half. Give root, height and subtree sizes at the root. Explain why it is not perfect.",
+    "solution": "The lower midpoint key is 5, leaving four keys on the left and five on the right. Applying the same rule recursively gives height 3, since capacity 7 at height 2 is insufficient while capacity 15 at height 3 suffices. The root's left and right sizes are 4 and 5. A perfect height-three tree has 15 nodes, not ten; minimum height only requires that no deeper route is necessary, not that every possible position is occupied. Stored sizes and heights must still be computed from the actual allocated children.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_39",
+    "title": "Range-reporting complexity with no output",
+    "stem": "In a right chain of keys 1 through $n$, report keys in $[n+1,n+2]$. How many actual nodes are visited? Does zero output contradict an output-sensitive bound?",
+    "solution": "Every current key is below the lower endpoint, so the algorithm descends right through all $n$ nodes and then reaches null. It emits no keys but uses $n$ actual-node comparisons. Height is $n-1$, so $O(h+m+1)$ becomes $O(n)$ when $m=0$, fully consistent with the observed work. Claiming $O(m)$ would incorrectly predict zero work. A balanced tree would reduce the boundary route to logarithmic length but would still need to locate the empty interval.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_40",
+    "title": "LCA versus an interval split point",
+    "stem": "In Question 3's tree, find LCAs of stored pairs (25,10), (25,65) and (60,65). What would the same descent return for absent pair (26,28), and what can it legitimately mean?",
+    "solution": "For 25 and 10, both are below 40 and straddle 20, so LCA is 20. For 25 and 65 they split at 40. For 60 and 65, descent reaches node 60 itself, an ancestor of 65, so LCA is 60. Queries 26 and 28 descend through 40,20,30,25 and reach null because neither stored key lies in that interval. More generally an absent pair can still straddle an existing node, but that node is only a range split point. Membership checks are required to promise an LCA of actual nodes.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_41",
+    "title": "A rotation with augmentation",
+    "stem": "Root 20 has left leaf 10 and right child 40; node 40 has leaves 30,50. Perform one left rotation at 20. Give all changed links, the new sizes of 20 and 40, and the inorder sequence.",
+    "solution": "Node 40 becomes the root. Set 20.right to 30 and 40.left to 20; 20.left stays 10 and 40.right stays 50. The old root link must now point to 40. Node 20 has subtree size 3 and 40 has subtree size 5. Recompute 20 first because 40's new size uses 20's updated size. Inorder remains 10,20,30,40,50. With parent links, 40.parent becomes null, 20.parent becomes 40 and 30.parent becomes 20. The operation preserves order but is not by itself proof of a global AVL invariant.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "left-rotation",
+    "visualQualification": "This checkpoint model uses the same tree or structural witness and target as the relevant part of this problem. Other requested quantities are derived in the written solution."
+  },
+  {
+    "id": "a_bst_original_42",
+    "title": "A mirror preserves shape size but reverses order",
+    "stem": "Swap left and right child links at every node of a strict BST with distinct keys. Is the result a standard BST? What traversal retrieves increasing order afterward?",
+    "solution": "The mirror has every original smaller subtree on the right and larger subtree on the left, so it is a reverse BST under the original comparator. Ordinary inorder now produces decreasing order. Reverse inorder, visiting right, root, left, restores increasing output. A singleton is both standard and reverse because it has no inequalities between different nodes; any nontrivial tree fails standard order after mirroring. The operation visits each actual node once, so it is linear, and a recursive implementation uses height-proportional workspace.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_43",
+    "title": "Two swapped keys",
+    "stem": "An otherwise correct distinct-key BST has inorder 1,7,3,4,5,6,2,8 after exactly two key fields were swapped. Locate the keys and show the repair. What if the swapped positions were adjacent?",
+    "solution": "The descents are 7 greater than 3 and 6 greater than 2. The first descent's left value and the last descent's right value are the misplaced keys, 7 and 2. Swapping them yields 1,2,3,4,5,6,7,8. If the swapped positions are adjacent, there is only one descent and its two values are swapped back. This diagnostic assumes exactly two distinct keys were exchanged; arbitrary corruption can create more descents or imitate this pattern without satisfying the promise. Values associated with keys must be moved consistently when repairing a dictionary.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_44",
+    "title": "Exact comparator versus language-expression counts",
+    "stem": "Search for 65 in Question 3's tree with code that tests equality, then less-than if unequal. Count three-way comparator calls in the mathematical model and primitive Boolean comparisons in that code.",
+    "solution": "The path is 40,70,60,65. The comparator model uses four calls, each giving less, equal or greater. The language code performs equality and less-than at the first three nodes, then equality only at 65, for seven primitive comparisons. A different branch ordering or comparator API gives a different primitive count. The path bound is still linear in the number of visited nodes when each comparison has constant cost. For long strings, comparator work can itself depend on common-prefix lengths, which should be multiplied or summed rather than ignored.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_45",
+    "title": "Integer-sentinel validation bug",
+    "stem": "An integer BST validator starts with exclusive lower bound INT_MIN and exclusive upper bound INT_MAX. Give valid trees it rejects and a correct representation of the initial interval.",
+    "solution": "A singleton containing either INT_MIN or INT_MAX is a valid strict BST, yet one of the exclusive sentinel tests fails. No legal integer can serve as an exclusive bound beyond the entire integer domain. Use an absent-bound flag, an optional bound, or a wider type only if it can genuinely represent values beyond all legal keys. The root interval is mathematically unbounded; the implementation must encode that fact. Replacing strict comparisons by nonstrict ones to admit endpoints introduces another error by admitting duplicate keys under a unique-node policy.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_46",
+    "title": "Comparator overflow",
+    "stem": "A signed 32-bit comparator returns the sign of $a-b$. Analyze inputs $a=2^{31}-1$ and $b=-1$, and replace this implementation safely.",
+    "solution": "The mathematical difference is $2^{31}$, beyond the signed 32-bit positive maximum. In a wrapping implementation its sign can become negative; in a language with undefined signed overflow the program is not even defined. Either outcome fails the ordering contract. Compute `(a > b) - (a < b)` instead; both relational tests are legal and the result lies in -1,0,1. Widening before subtraction also works only if the widened type is guaranteed to contain the entire difference range. A wrong comparator can cause search to discard the subtree containing the actual key.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_47",
+    "title": "Root field and caller-visible mutation",
+    "stem": "Why does `put(root,k,v)` without assigning its returned pointer sometimes appear to work on a nonempty tree but fail on an empty one? Give a caller-visible correction.",
+    "solution": "On a nonempty tree, a helper can mutate existing nodes reached through the copied root pointer, so some insertions appear to succeed even if the return value is ignored. With an empty root, it allocates a new node but only its local pointer changes; the caller still stores null. Deleting a one-child root has the same caller-link issue. Always assign `root = put(root,k,v)` and `root = erase(root,k)`, or explicitly pass a mutable reference to the root field. Mutation of a referenced object and mutation of the variable holding its address are different operations.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_48",
+    "title": "Height recursion with one missing child",
+    "stem": "Diagnose a height function that returns zero when both children are null and otherwise calls height on both children without a null base case. Give the smallest nonempty counterexample and the corrected recurrence.",
+    "solution": "A root with just one child reaches the nonleaf branch and calls height on its null missing child, which is then dereferenced. An empty initial tree fails immediately too. Set height(null) to minus one, then return one plus the maximum child height for every nonnull node. This yields zero on leaves without a special leaf condition and correctly handles one-child nodes. A full traversal computes heights in linear time; returning a cached root height is constant only when every update maintains those cached fields.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_49",
+    "title": "Iterator aggregate cost",
+    "stem": "A parent-pointer inorder iterator scans a chain of 100 keys from its minimum through exhaustion. Can a next operation cost 99 upward edges? Can the whole scan cost quadratic time?",
+    "solution": "In a right chain, the last key's next operation climbs 99 edges to reach the root and then null. Earlier steps move to the immediate right child. Each edge is traversed at most once downward and once upward during a continuous full scan, so total work is linear, not quadratic. In a left chain, finding the initial minimum descends the whole chain, then successive ancestors are reached one edge at a time. Resetting to the root for every successor query is another algorithm and can repeat routes; the aggregate bound assumes iterator state or parent links are retained.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_50",
+    "title": "Search-path inequalities",
+    "stem": "Could the visited-key sequence 50,20,40,30,35 occur when searching for 34 in a strict BST? Give the successive allowed intervals and final decision.",
+    "solution": "Yes. Starting unbounded, query 34 goes left at 50, right at 20, left at 40, then right at 30. The node intervals are successively unrestricted, below 50, $(20,50)$, $(20,40)$ and $(30,40)$. Key 35 lies inside the final interval and sends the query left. A null left link would certify absence after five comparisons. Every turn preserves all prior lower and upper bounds. The visited sequence is not monotone, so monotonicity of consecutive visited values is not a correct search-path criterion.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_51",
+    "title": "Impossible search-path sequence",
+    "stem": "Could 50,20,40,10 be the visited-key sequence when searching for 34? Prove your conclusion using bounds.",
+    "solution": "After visiting 20, the query is greater than 20, so every subsequently visited node must be in 20's right subtree and have key above 20. After visiting 40, the search goes left but retains the lower bound 20, so the next node must lie in $(20,40)$. Key 10 violates that inherited interval. No strict BST can realize the claimed path under a correct search, even though 10 is less than its immediate predecessor 40. This is the same ancestor-bound issue as global validation, applied to a query trace.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_52",
+    "title": "Scheduling conflicts require only adjacent stored times",
+    "stem": "Existing reservation times are 10,20,35,50. A new time is allowed only if its distance from every existing time is at least 8. Decide queries 27,28,43,58 and prove the nearest-neighbor criterion.",
+    "solution": "The predecessor and successor of 27 are 20,35; distances 7 and 8 reject it. For 28 the distances are 8 and 7, also rejecting it. For 43 neighbors 35,50 give distances 8 and 7, rejecting it. For 58 only predecessor 50 exists and distance 8 permits it. Every earlier stored time is no closer than the predecessor, and every later stored time is no closer than the successor. Thus checking those two bounds is sufficient, with an inclusive distance threshold as stated. If the rule instead forbade distance equal to 8, the final decision would change.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_53",
+    "title": "Two simultaneous orderings",
+    "stem": "Entries have unique identifier keys and independent mutable priorities. Explain why one plain BST ordered by identifier cannot find maximum priority in path time. Design augmentation that supports it and identifier-rank median.",
+    "solution": "Priority values need not follow identifier order, so descending the right spine finds the maximum identifier, not maximum priority. Store subtree size and a subtree argmax-priority entry at each node; the argmax is chosen from the node and its two child aggregates with a declared tie rule. The root aggregate gives maximum priority in constant time, while rank/select use size along a path. A priority update finds the identifier and refreshes aggregates back to the root. Balance is still needed for logarithmic worst-case update routes; a plain chain can require linear time despite correct augmentation.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_54",
+    "title": "Safe postorder release",
+    "stem": "A node has two child allocations. Why is `delete v; free(v.left); free(v.right)` invalid? Give a safe alternative and state which external reference must be cleared.",
+    "solution": "Deleting v releases the allocation containing its child fields, so reading v.left or v.right afterward dereferences freed memory. Recursively release both children while v is still alive, then delete v and clear the caller's owning pointer. Alternatively save both child pointers before deletion, but the ownership model must ensure that deleting v does not already destroy them. Clearing a local copied pointer alone leaves the caller's root dangling; use returned null or a reference to its pointer field. Postorder specifies when storage is released, not just when a key is printed.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_55",
+    "title": "A joint ancestor probability",
+    "stem": "Under uniform permutations of keys 1 through 6, find the probability that 2 is an ancestor of 5. Are the ancestor indicators for keys 2 and 3 independent?",
+    "solution": "Key 2 is an ancestor of 5 exactly when it appears first among 2,3,4,5, so its probability is $1/4$. Key 3 is an ancestor of 5 exactly when it is first among 3,4,5, with probability $1/3$. Both events hold exactly when 2 precedes 3, which precedes 4 and 5 within those four keys. There are two such relative orders, differing only in the order of 4 and 5, out of 24, giving joint probability $1/12$. Here that equals the product, so these particular two nested-interval indicators are independent. This calculation does not justify assuming independence for arbitrary tree events; for example the incompatible events “2 is ancestor of 5” and “5 is ancestor of 2” cannot both hold. Linearity of expectation needs no such assumption.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_56",
+    "title": "Root-rank distribution and a weighted shape",
+    "stem": "For uniform insertion permutations of five distinct ranks, find the probability that the root has rank 3. Conditional on that root, find the probability that both two-key children increase along their right edges.",
+    "solution": "Each key is equally likely to be inserted first, so root rank 3 has probability $1/5$. Conditional on this event, each two-key subtree has either local order with probability one half. Relative orders in the disjoint left and right key sets are independent under a uniform permutation, so both right-oriented chains occur with conditional probability one fourth. The joint shape probability is $1/20$. Its subtree-size product is $5\\cdot2\\cdot2=20$, agreeing with the hook formula. Interleaving the two local sequences accounts for six producing full permutations, $6/120=1/20$.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_57",
+    "title": "Conditional expected subtree sizes",
+    "stem": "For a random-permutation BST on $n$ distinct keys, find the expected left-subtree size and the probability that exactly $k$ keys are in the left subtree. Does equality of expected left and right sizes prove that the root is balanced in every realization?",
+    "solution": "The root rank is uniform from 1 through $n$, so left size is uniform over 0 through $n-1$. Its probability at each $k$ in that range is $1/n$, and its expectation is $(n-1)/2$. The right-size expectation is the same by symmetry. Yet root rank 1 gives an empty left subtree and all $n-1$ keys on the right, with positive probability $1/n$. Equality of averages is not a pointwise balance condition. Even root-level equal sizes would not establish height balance deeper in the tree.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_58",
+    "title": "Insertion orders subject to an extra precedence",
+    "stem": "For the perfect seven-key tree in Question 28, count producing insertion orders with key 1 preceding key 7. Explain the symmetry used rather than dividing automatically.",
+    "solution": "The full count is 80. Exchanging the entire left and right subtrees by mapping each rank $k$ to $8-k$ preserves the shape and its ancestor-before-descendant constraints, but exchanges labels 1 and 7. It pairs every producing order with 1 before 7 to a producing order with 7 before 1. The two events partition the orders since distinct keys cannot tie, so each count is 40. A nonsymmetric shape may lack this bijection; an arbitrary extra precedence cannot always be enforced by halving the total.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_59",
+    "title": "An adjacent pair and its parent",
+    "stem": "In a strict BST, let a leaf $x$ have parent $p$. Prove that $p$ is either the predecessor or successor of $x$. Would the statement hold if $x$ were not a leaf?",
+    "solution": "If $x$ is a left leaf, it has no right subtree and is reached from the left side of its parent. The successor-climb rule therefore stops immediately at $p$. If it is a right leaf, the predecessor rule similarly returns $p$. For a nonleaf this can fail: root 20, left child 10 with right child 15 makes 10's successor equal to 15, not 20; 10's predecessor may be absent or another descendant. The leaf hypothesis removes the possible nearer descendant on the relevant side.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "leaf-parent",
+    "visualQualification": "This three-key witness illustrates the left-leaf case of the general statement. The nonleaf counterexample and mirror proof are given in the solution."
+  },
+  {
+    "id": "a_bst_original_60",
+    "title": "The two external gaps adjacent to a leaf",
+    "stem": "In a strict BST a leaf key is at depth $d$. Find the failed-search comparator cost in its two null-child gaps, and compare their contribution with its successful cost.",
+    "solution": "Each null child is at external depth $d+1$, so a failed query in either gap visits exactly the root-to-leaf route and uses $d+1$ comparisons. A successful lookup of that leaf also uses $d+1$ comparisons and stops at the leaf rather than testing a null child. The gap intervals may have different query probabilities, so equality of these individual costs does not imply equal weighted contributions. If the node is not a leaf, one or both neighboring gaps can lie deeper inside a child subtree.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_61",
+    "title": "Counting nodes from leaves and one-child nodes",
+    "stem": "A finite nonempty binary tree has $n_0$ actual leaves, $n_1$ one-child nodes and $n_2$ two-child nodes. Derive a relation between $n_0$ and $n_2$ and determine total nodes when $n_0=9$ and $n_1=6$.",
+    "solution": "The child-edge count is $n_1+2n_2=n-1$, while $n=n_0+n_1+n_2$. Subtracting yields $n_0=n_2+1$, independent of the one-child count. Thus nine leaves imply eight two-child nodes, and total nodes are $9+6+8=23$. This concerns actual leaves, not the $n+1=24$ null gaps. For an empty tree the nonempty edge equation and the leaf relation do not apply unchanged. The identities need no BST order, so they also audit a BST's structural counts.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_62",
+    "title": "Dyadic leaf mass and null gaps",
+    "stem": "For the chain of three actual nodes at depths 0,1,2, compute actual-leaf mass $\\sum2^{-d}$ and null-gap mass. Generalize the null-gap identity to every finite binary tree.",
+    "solution": "The only actual leaf has mass $2^{-2}=1/4$. The four null gaps have depths 1,2,3,3, so their mass is $1/2+1/4+1/8+1/8=1$. For a general finite tree, give the root mass one and split each actual node's mass equally between its two child positions. Actual children continue splitting; null gaps receive the mass permanently. Every finite branch terminates, so all mass reaches null gaps and their sum is exactly one. Actual leaves occupy only some of these structural allocations, making their sum at most one. The two kinds of leaves must not be conflated.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_63",
+    "title": "Catalan recurrence from root decomposition",
+    "stem": "Compute $C_4$ from the root-size recurrence and explain each contribution. What would the recurrence count if left and right children were not distinguished?",
+    "solution": "With $C_0=1,C_1=1,C_2=2,C_3=5$, the four contributions for left sizes 0,1,2,3 are $1\\cdot5$, $1\\cdot2$, $2\\cdot1$, $5\\cdot1$, totaling 14. The recurrence treats the ordered pair of child shapes as distinct, appropriate because a BST's left and right links have different meanings. If children were unordered, mirror pairs could collapse and symmetric pairs would need separate handling; the same Catalan recurrence would not count that new class. A fixed sorted key set labels each of the 14 ordered shapes uniquely.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_64",
+    "title": "Maximum height conditional on the root",
+    "stem": "A BST has seven distinct keys and root rank 4. Determine the maximum possible height and give an attaining insertion order. Is the minimum-height tree forced?",
+    "solution": "There are three smaller keys and three larger keys. Either child can be a three-node chain of height 2, making whole-tree height 3. No child can contain more than three nodes, so height 3 is the maximum with this fixed root. Order 4,1,2,3,5,6,7 attains it. Median-first at only the root does not force a perfect height-two tree; the rest of each subtree's insertion order matters. The perfect tree is attained by 4,2,1,3,6,5,7 and has height 2.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_65",
+    "title": "Sorted construction with duplicate compression",
+    "stem": "A sorted array is 1,1,1,3,5,5,8,8. Design a linear-time counted-BST construction and identify distinct-node size, mass and minimum possible edge height.",
+    "solution": "Scan adjacent equal keys into pairs (1,3),(3,1),(5,2),(8,2), costing linear time in array length. Build midpoint subtrees directly from the four distinct pairs and compute each node's mass from its count and child masses. There are four distinct nodes and mass eight. The minimum height for four nodes is $\\lceil\\log_2(5)\\rceil-1=2$. Treating all eight occurrences as strictly ordered node keys would violate the unique-key invariant. Computing median by occurrence rank still uses mass eight, not the distinct-node count four.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_66",
+    "title": "Rank validation is not pointer validation",
+    "stem": "If every stored node's keys appear sorted in a separately supplied array and that array's rank/select operations are consistent, does this validate the BST's child pointers? Give a failure and state the actual checks needed.",
+    "solution": "No. The array could contain the correct set while a tree link omits a node, duplicates ownership of a subtree or creates a cycle. Array rank/select consistency validates that array's indexing, not reachability or ordering of the actual pointer graph. Traverse the actual owned graph with identity tracking to reject cycles and shared children, then check ancestor intervals, parent back-links and local augmentation equations. Comparing reached keys with the expected dictionary validates content separately. A specification must name the object it certifies rather than infer graph correctness from an unrelated representation.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_67",
+    "title": "Cost of naive interval-independent validation",
+    "stem": "A validator computes the maximum key of each node's entire left subtree by a fresh traversal before recursively checking both children. Analyze a left chain of $n$ keys and give a linear replacement.",
+    "solution": "At the root it traverses $n-1$ nodes, then at the next node $n-2$, continuing to zero. These scans alone sum to $n(n-1)/2$, making worst-case time quadratic. An interval validator passes ancestor bounds once and examines each actual node once. Alternatively a postorder helper returns each subtree's minimum, maximum and validity so those aggregates are reused rather than rescanned; that also takes linear time. A correct criterion can still have a poor implementation cost when its subresults are repeatedly recomputed.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_68",
+    "title": "Recovering an insertion order from a fixed shape",
+    "stem": "For any strict BST, show that its preorder is a producing insertion order. Is its inorder always a producing insertion order for the same shape?",
+    "solution": "Preorder places every ancestor before its descendants. The sufficiency theorem for producing orders therefore shows that ordinary insertion of that preorder reconstructs exactly the tree. Inorder lists keys increasingly, so ordinary insertion creates a right chain. It reproduces the original shape only when the original tree is that right chain, including the empty and singleton boundaries. Postorder puts descendants before the root and generally fails the necessary root-first condition. The statement concerns reconstruction through insertion without rotations or balancing.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_69",
+    "title": "All course-pattern contracts in one implementation",
+    "stem": "Reconstruct the CMU-style iterative insertion task with keys 18,9,27,6,12,24,30 and then replacement of key 12's value. State the trailing-parent invariant and all outer-root cases.",
+    "solution": "Maintain current pointer v and its last nonnull parent p. Before each iteration, v is the only subtree that can contain the key, and p is its parent when p exists. A matching key changes only its value and returns. At null, allocate the new node and attach it to p on the side determined by the last comparator; if p is null, update the dictionary root. The seven distinct insertions create a perfect height-two tree, and replacement leaves node count seven. This is an original reconstruction of the lecture's iterative-insertion pattern; the values and solution are independently chosen. Augmentation additionally requires storing the ancestor route and refreshing it backward.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_70",
+    "title": "Berkeley-style bracketing with exact endpoints",
+    "stem": "Reconstruct a nearest-neighbor exercise for stored keys 6,14,19,31. Find floor and ceiling at queries 5,14,20,40 and state each missing-bound result.",
+    "solution": "At 5, floor is absent and ceiling is 6. At exact stored key 14, both floor and ceiling are 14; strict predecessor and successor would instead be 6 and 19. At 20, floor is 19 and ceiling is 31. At 40, floor is 31 and ceiling is absent. The candidate search must represent absence explicitly instead of returning a numerical sentinel. This is an original reconstruction of Berkeley's bracketing-query pattern. Equality must be handled before continuing a strict neighbor descent, or the exact-endpoint semantics change.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_71",
+    "title": "Princeton-style augmentation certification",
+    "stem": "Give a complete recursive check of subtree-size consistency and explain whether it proves BST order. Then estimate the cost of checking rank(select(j)) for every stored rank by repeated path queries.",
+    "solution": "For null return actual size zero and validity true. For a node recursively obtain both actual child sizes and validity flags; return their sum plus one, and require its stored size to equal that sum. This bottom-up computation is linear and validates all size fields. It says nothing about key inequalities, so combine it with a separate interval check. Repeated rank and select checks across $n$ ranks cost $O(n(h+1))$, potentially quadratic on a chain; they can be useful additional diagnostics but are not the most efficient size certificate. This is an original reconstruction of the booksite's metadata-certification pattern.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_72",
+    "title": "Stanford-style null and lifetime diagnosis",
+    "stem": "Design an interface for maximum on an empty or nonempty BST that permits the smallest signed integer as a real key. Explain why returning that extreme as an absence sentinel is ambiguous.",
+    "solution": "Return an optional entry or a pair `(found, entry)` rather than a legal key alone. On empty input set found false; otherwise follow right links to an actual node and return found true with its association. A singleton whose key is the smallest signed integer then returns that key unambiguously. Throwing an exception or stating a nonempty precondition are also coherent interfaces, but they impose different caller obligations. This is an original reconstruction of Stanford's empty-tree diagnostic pattern. If an entry pointer is returned, its validity after later deletion must be part of the ownership contract.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_73",
+    "title": "MIT-style inclusive rank in a schedule",
+    "stem": "Reservations are 5,15,25,35,45. A scheduling API reports how many times are at most a query. Find its results at 25,26,4 and relate them to this chapter's strict rank.",
+    "solution": "The inclusive counts are 3,3,0. Strict ranks are respectively 2,3,0. Add the stored-query membership indicator to strict rank, giving the correct inclusive values. For a query above every reservation the count is five, which is a valid count but not a valid zero-based select index. This is an original reconstruction of MIT's scheduling-rank pattern. Rank's definition must be specified before using a course's formula; equality is exactly where the two conventions differ.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_74",
+    "title": "A weighted-search root choice",
+    "stem": "Three ordered keys have successful-query probabilities 0.8,0.1,0.1 and no failed queries. Compare a median-root tree with a minimum-root tree whose right child is the largest key and whose left descendant there is the middle key.",
+    "solution": "The median-root tree has costs 2,1,2 for the ordered keys, so weighted expectation is $0.8\\cdot2+0.1\\cdot1+0.1\\cdot2=1.9$. The specified minimum-root tree has costs 1,3,2 and expectation $0.8+0.3+0.2=1.3$. Its height is worse, yet its probability-weighted expected query cost is better. Balancing optimizes worst-case path length, not every weighted workload. This comparison is not a proof of global optimality among all possible trees; it establishes the stated pairwise claim using the explicit probabilities.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_75",
+    "title": "Building a range iterator",
+    "stem": "Design a sorted iterator reporting keys in inclusive interval [a,b] without materializing every key first. State setup time, aggregate emission time and workspace.",
+    "solution": "Use a stack descent to the first key at least a: at a node at least a, push it and go left; at a smaller node, go right without pushing it. Then repeatedly pop the next key, stop if it exceeds b, and push the left spine of its right subtree. The setup follows one route, costing $O(h+1)$. Complete emission of m matching entries costs $O(h+m+1)$ in aggregate because route edges are shared rather than restarted. Workspace is $O(h+1)$. A single next step can still descend a long spine; the aggregate bound does not grant every emission constant worst-case cost.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_76",
+    "title": "Mixed-direction chain null-depth distribution",
+    "stem": "For any chain of $n\\ge1$ nodes, determine the multiset of null-gap depths and derive the external sum directly. Does the direction pattern affect it?",
+    "solution": "Each of the first $n-1$ actual nodes has one missing child, giving gap depths 1,2,...,$n-1$. The terminal actual leaf has two missing children, each at depth n. Thus $E=n(n-1)/2+2n=n(n+3)/2$. Left/right directions change which sorted gap occupies each depth, but not this multiset or its sum. A query distribution over numeric intervals can still make the direction pattern relevant, because those intervals may receive different probabilities. Uniform gaps disregard that distinction.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_77",
+    "title": "Can a deletion increase edge height?",
+    "stem": "For association-copy successor deletion in a plain strict BST, can the tree's edge height increase? Can its stored root key change? Justify both answers, including root and singleton cases.",
+    "solution": "Height cannot increase. Zero/one-child deletion removes an actual node and possibly shortens descendant routes. Two-child deletion keeps the target position, copies an association, and removes a successor with at most one child, again creating no longer route. The root key can change when the root itself is deleted; Question 8 changes it from 40 to 60. A one-child root deletion can change the root object too, and singleton deletion yields empty height minus one. This proof applies to plain deletion without balancing rotations; a repair algorithm can change intermediate heights differently while maintaining its own invariant.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_78",
+    "title": "Failed-search insertion equivalence",
+    "stem": "For an absent key q in a strict BST, show that its failed-search comparison count equals its depth after insertion. Compare the cost of a subsequent successful lookup and discuss equal-key insertion.",
+    "solution": "Failed search visits the ancestors of the terminal null position, so if that position has depth g there are exactly g comparator calls. Insertion replaces it by the new node at depth g and does not move its ancestors. A later successful lookup adds comparison with the new node, using g+1 calls. Equal-key insertion does not reach a null position; it stops at a node of depth d and uses d+1 calls while leaving depth unchanged. Confusing these cases creates an off-by-one in total construction work and replacement costs.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_79",
+    "title": "Merge two ordered BST inventories",
+    "stem": "Given two strict BSTs with total $n$ distinct-node entries and possibly overlapping keys, design a linear-time construction of a balanced union dictionary with an explicit overlapping-value rule. Can ordinary insertion of the merged sorted list preserve that bound?",
+    "solution": "Traverse each input inorder to obtain sorted entries, merge the two sorted streams and resolve equal keys under a declared rule, for example choosing the second dictionary's value. Direct midpoint construction on the merged distinct list allocates each result node once, giving total $\\Theta(n)$ time and linear materialized workspace. Ordinary insertion of the merged increasing list instead produces a right chain and uses quadratic comparisons in its length. Streaming construction can reduce materialization only with additional counting and iterator design; it is not implied by simply merging streams.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions."
+  },
+  {
+    "id": "a_bst_original_80",
+    "title": "Full contract audit after a compound update",
+    "stem": "Insert 40,20,70,10,30,60,80,25,65, replace key 30's value, delete 40 by successor copying, then insert 50. Give final preorder, size, internal path sum, strict rank of 65 and select(4). List the contracts this result checks.",
+    "solution": "Replacement changes no key or size. Deleting 40 yields root association 60, with 70.left=65; inserting 50 descends through 60,20,30 and attaches as 30.right. Final preorder is 60,20,10,30,25,50,70,65,80. Size is 9. Depths are 0; two nodes at depth 1; four at depth 2; two at depth 3, so $I=0+2+8+6=16$. Sorted keys are 10,20,25,30,50,60,65,70,80, giving strict rank(65)=6 and select(4)=50. Audit global bounds, exact content, retained values, root assignment, child ownership, parent links if present, size equations and rank conventions separately. A sorted inorder alone does not prove the other contracts.",
+    "origin": "Independently authored mathematical/conceptual problem; explicitly identified university-pattern reconstructions use new data and original solutions.",
+    "modelId": "compound-result",
+    "visualQualification": "This model audits the final tree after the compound update, with the exact nine surviving keys and path sum. It does not replay the earlier association replacement and deletion."
+  }
+]

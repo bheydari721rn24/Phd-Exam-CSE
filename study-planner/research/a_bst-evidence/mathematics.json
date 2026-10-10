@@ -1,0 +1,481 @@
+{
+  "status": "passed",
+  "topicId": "a_bst",
+  "questionChecks": [
+    {
+      "question": 1,
+      "method": "independent exact calculation or enumeration",
+      "result": "[20, 30]",
+      "reason": "Ancestor-bound witness and repaired sorted placement reviewed separately."
+    },
+    {
+      "question": 2,
+      "method": "independent exact calculation or enumeration",
+      "result": "(9, 999, 1001)",
+      "reason": "Binary level capacities and child-position identity."
+    },
+    {
+      "question": 3,
+      "method": "independent exact calculation or enumeration",
+      "result": "([40, 20, 10, 30, 25, 70, 60, 65, 80], [10, 25, 30, 20, 65, 60, 80, 70, 40], 3, 16)",
+      "reason": "Immutable reference construction."
+    },
+    {
+      "question": 4,
+      "method": "independent exact calculation or enumeration",
+      "result": "([40, 20, 30, 25], 3)",
+      "reason": "Actual comparison path and independent sorted rank."
+    },
+    {
+      "question": 5,
+      "method": "independent exact calculation or enumeration",
+      "result": "5",
+      "reason": "Replacement is not a fresh absent insertion."
+    },
+    {
+      "question": 6,
+      "method": "independent exact calculation or enumeration",
+      "result": "[30, 25]",
+      "reason": "Minimum right child remains reachable."
+    },
+    {
+      "question": 7,
+      "method": "independent exact calculation or enumeration",
+      "result": "[30, 40, 70, None]",
+      "reason": "Successors independently read from sorted keys."
+    },
+    {
+      "question": 8,
+      "method": "independent exact calculation or enumeration",
+      "result": "([60, 20, 10, 30, 25, 70, 65, 80], 8, 3)",
+      "reason": "Independent persistent deletion."
+    },
+    {
+      "question": 9,
+      "method": "independent exact calculation or enumeration",
+      "result": "[60, 20, 70]",
+      "reason": "Immediate successor retains right child; identity proof reviewed."
+    },
+    {
+      "question": 10,
+      "method": "independent exact calculation or enumeration",
+      "result": "[10, 20, 25, 30, 60, 65, 70, 80]",
+      "reason": "Predecessor association replacement retains exact content."
+    },
+    {
+      "question": 11,
+      "method": "independent exact calculation or enumeration",
+      "result": "[5, 5, 5, None]",
+      "reason": "Root/absence boundaries."
+    },
+    {
+      "question": 12,
+      "method": "independent exact calculation or enumeration",
+      "result": "(127, 255, 64)",
+      "reason": "Actual nodes, null calls and level width."
+    },
+    {
+      "question": 13,
+      "method": "independent exact calculation or enumeration",
+      "result": "[2, 4, 6, 8]",
+      "reason": "Independent emission order; stack invariants reviewed."
+    },
+    {
+      "question": 14,
+      "method": "independent exact calculation or enumeration",
+      "result": "[20, 35, 40, 30, 70, 90, 80, 50]",
+      "reason": "Unique preorder example reconstructed independently."
+    },
+    {
+      "question": 15,
+      "method": "independent exact calculation or enumeration",
+      "result": "False",
+      "reason": "All 120 possible insertion trees screened for claimed preorder."
+    },
+    {
+      "question": 16,
+      "method": "independent exact calculation or enumeration",
+      "result": "[1, 2, 3, 4, 5]",
+      "reason": "Distinct-key traversal-pair root decomposition."
+    },
+    {
+      "question": 17,
+      "method": "independent exact calculation or enumeration",
+      "result": "[20, 10, 5, 30, 25]",
+      "reason": "Breadth-first order contradiction separately proved from depth blocks."
+    },
+    {
+      "question": 18,
+      "method": "independent exact calculation or enumeration",
+      "result": "(3, 4, 65)",
+      "reason": "Sorted-array order statistics."
+    },
+    {
+      "question": 19,
+      "method": "independent exact calculation or enumeration",
+      "result": "[6, 4, 0, 1, 0]",
+      "reason": "Actual endpoint membership counts."
+    },
+    {
+      "question": 20,
+      "method": "independent exact calculation or enumeration",
+      "result": "False",
+      "reason": "Root stored-size equation is false despite matching actual total."
+    },
+    {
+      "question": 21,
+      "method": "independent exact calculation or enumeration",
+      "result": "(11, 4)",
+      "reason": "Signed weights directly summed."
+    },
+    {
+      "question": 22,
+      "method": "independent exact calculation or enumeration",
+      "result": "(6, 2, 5, [3, 8, 8, 11])",
+      "reason": "Occurrence blocks and boundary ranks independently expanded."
+    },
+    {
+      "question": 23,
+      "method": "independent exact calculation or enumeration",
+      "result": "(6, 9)",
+      "reason": "Complete count transfer versus duplicate-node failure."
+    },
+    {
+      "question": 24,
+      "method": "independent exact calculation or enumeration",
+      "result": "(16, 34, Fraction(25, 9), Fraction(17, 5))",
+      "reason": "Actual external depths enumerated, not only identity reused."
+    },
+    {
+      "question": 25,
+      "method": "independent exact calculation or enumeration",
+      "result": "3/2",
+      "reason": "Jointly normalized weighted costs."
+    },
+    {
+      "question": 26,
+      "method": "independent exact calculation or enumeration",
+      "result": "(34, Fraction(49, 15))",
+      "reason": "Depth-level enumeration."
+    },
+    {
+      "question": 27,
+      "method": "independent exact calculation or enumeration",
+      "result": "(10, Fraction(3, 1), Fraction(10, 3))",
+      "reason": "Chain actual and gap depths."
+    },
+    {
+      "question": 28,
+      "method": "independent exact calculation or enumeration",
+      "result": "80",
+      "reason": "Recursive child interleavings."
+    },
+    {
+      "question": 29,
+      "method": "independent exact calculation or enumeration",
+      "result": "210",
+      "reason": "Asymmetric interleavings."
+    },
+    {
+      "question": 30,
+      "method": "independent exact calculation or enumeration",
+      "result": "(Fraction(5, 3), Fraction(8, 3))",
+      "reason": "All six actual permutation outcomes."
+    },
+    {
+      "question": 31,
+      "method": "independent exact calculation or enumeration",
+      "result": "8",
+      "reason": "All 24 permutations explicitly built."
+    },
+    {
+      "question": 32,
+      "method": "independent exact calculation or enumeration",
+      "result": "42",
+      "reason": "All 120 permutations grouped by shape."
+    },
+    {
+      "question": 33,
+      "method": "independent exact calculation or enumeration",
+      "result": "(Fraction(223, 140), Fraction(13, 6))",
+      "reason": "Exact harmonic fractions."
+    },
+    {
+      "question": 34,
+      "method": "independent exact calculation or enumeration",
+      "result": "(Fraction(30791, 1260), Fraction(43391, 12600))",
+      "reason": "Exact nonasymptotic expectations."
+    },
+    {
+      "question": 35,
+      "method": "independent exact calculation or enumeration",
+      "result": "29/10",
+      "reason": "All permutation/gap pairs enumerated."
+    },
+    {
+      "question": 36,
+      "method": "independent exact calculation or enumeration",
+      "result": "(1, 5)",
+      "reason": "Expected-max counterexample with five equally likely outcomes."
+    },
+    {
+      "question": 37,
+      "method": "independent exact calculation or enumeration",
+      "result": "34",
+      "reason": "Perfect-depth insertion count; linear direct allocation argument reviewed."
+    },
+    {
+      "question": 38,
+      "method": "independent exact calculation or enumeration",
+      "result": "(3, 4, 5)",
+      "reason": "Lower midpoint and capacity."
+    },
+    {
+      "question": 39,
+      "method": "independent exact calculation or enumeration",
+      "result": "10",
+      "reason": "No-output query still visits a complete chain."
+    },
+    {
+      "question": 40,
+      "method": "independent exact calculation or enumeration",
+      "result": "[20, 40, 60, None]",
+      "reason": "Each target route split checked against immutable example; absent pair reaches null."
+    },
+    {
+      "question": 41,
+      "method": "independent exact calculation or enumeration",
+      "result": "[10, 20, 30, 40, 50]",
+      "reason": "Rotation sorted blocks and subtree sizes 3/5 reviewed."
+    },
+    {
+      "question": 42,
+      "method": "independent exact calculation or enumeration",
+      "result": "[80, 70, 65, 60, 40, 30, 25, 20, 10]",
+      "reason": "Mirror/reverse-inorder induction reviewed."
+    },
+    {
+      "question": 43,
+      "method": "independent exact calculation or enumeration",
+      "result": "[1, 5]",
+      "reason": "Exact adjacent descent positions."
+    },
+    {
+      "question": 44,
+      "method": "independent exact calculation or enumeration",
+      "result": "(4, 7)",
+      "reason": "Declared comparison models."
+    },
+    {
+      "question": 45,
+      "method": "independent exact calculation or enumeration",
+      "result": "(False, False)",
+      "reason": "Exclusive legal-extreme sentinel collisions."
+    },
+    {
+      "question": 46,
+      "method": "independent exact calculation or enumeration",
+      "result": "(2147483648, 1)",
+      "reason": "Mathematical difference outside signed32 range; relational comparator valid."
+    },
+    {
+      "question": 47,
+      "method": "manual proof and contract audit",
+      "reason": "Returned owning-root assignment and call-by-value alias distinction."
+    },
+    {
+      "question": 48,
+      "method": "independent exact calculation or enumeration",
+      "result": "1",
+      "reason": "Empty-height recurrence covers one missing child."
+    },
+    {
+      "question": 49,
+      "method": "manual proof and contract audit",
+      "reason": "Each edge traversed at most twice in retained-state successor scan."
+    },
+    {
+      "question": 50,
+      "method": "independent exact calculation or enumeration",
+      "result": "[50, 20, 40, 30, 35]",
+      "reason": "Actual legal route."
+    },
+    {
+      "question": 51,
+      "method": "independent exact calculation or enumeration",
+      "result": "False",
+      "reason": "Persistent lower bound rejects the last key."
+    },
+    {
+      "question": 52,
+      "method": "independent exact calculation or enumeration",
+      "result": "[False, False, False, True]",
+      "reason": "Every reservation checked independently of neighbor shortcut."
+    },
+    {
+      "question": 53,
+      "method": "manual proof and contract audit",
+      "reason": "Subtree argmax plus size recurrence; independent orders need augmentation."
+    },
+    {
+      "question": 54,
+      "method": "manual proof and contract audit",
+      "reason": "Child fields read before release; caller owning field cleared."
+    },
+    {
+      "question": 55,
+      "method": "independent exact calculation or enumeration",
+      "result": "(Fraction(1, 4), Fraction(1, 3), Fraction(1, 12))",
+      "reason": "All relative permutations; particular nested events genuinely independent."
+    },
+    {
+      "question": 56,
+      "method": "independent exact calculation or enumeration",
+      "result": "1/20",
+      "reason": "Specified five-key shape."
+    },
+    {
+      "question": 57,
+      "method": "independent exact calculation or enumeration",
+      "result": "3",
+      "reason": "Uniform root ranks induce uniform left sizes."
+    },
+    {
+      "question": 58,
+      "method": "independent exact calculation or enumeration",
+      "result": "40",
+      "reason": "All 5040 permutations screened, then extra precedence counted."
+    },
+    {
+      "question": 59,
+      "method": "manual proof and contract audit",
+      "reason": "Successor/predecessor climb stops immediately at a leaf parent."
+    },
+    {
+      "question": 60,
+      "method": "independent exact calculation or enumeration",
+      "result": "(4, 4)",
+      "reason": "Gap depth and successful count agree at a leaf."
+    },
+    {
+      "question": 61,
+      "method": "independent exact calculation or enumeration",
+      "result": "(8, 23)",
+      "reason": "Actual child-edge count identity."
+    },
+    {
+      "question": 62,
+      "method": "independent exact calculation or enumeration",
+      "result": "(Fraction(1, 4), 1)",
+      "reason": "Dyadic null-gap conservation checked independently."
+    },
+    {
+      "question": 63,
+      "method": "independent exact calculation or enumeration",
+      "result": "14",
+      "reason": "Explicit ordered root-size cases."
+    },
+    {
+      "question": 64,
+      "method": "independent exact calculation or enumeration",
+      "result": "3",
+      "reason": "Conditional root example attains maximum child-chain height."
+    },
+    {
+      "question": 65,
+      "method": "independent exact calculation or enumeration",
+      "result": "(4, 8, 2)",
+      "reason": "Duplicate compression separates distinct size from mass."
+    },
+    {
+      "question": 66,
+      "method": "manual proof and contract audit",
+      "reason": "Graph identity, metadata and content certificates are separate."
+    },
+    {
+      "question": 67,
+      "method": "independent exact calculation or enumeration",
+      "result": "45",
+      "reason": "Repeated subtree scans on a ten-node left chain."
+    },
+    {
+      "question": 68,
+      "method": "independent exact calculation or enumeration",
+      "result": "(40, (20, (10, None, None), (30, (25, None, None), None)), (70, (60, None, (65, None, None)), (80, None, None)))",
+      "reason": "Preorder ancestor precedence reconstructs the same shape."
+    },
+    {
+      "question": 69,
+      "method": "independent exact calculation or enumeration",
+      "result": "(7, 2)",
+      "reason": "Reconstructed CMU-pattern example."
+    },
+    {
+      "question": 70,
+      "method": "independent exact calculation or enumeration",
+      "result": "[(None, 6), (14, 14), (19, 31), (31, None)]",
+      "reason": "Direct sorted nearest-neighbor reference."
+    },
+    {
+      "question": 71,
+      "method": "manual proof and contract audit",
+      "reason": "Bottom-up actual-size computation is linear; repeated rank/select is path bounded."
+    },
+    {
+      "question": 72,
+      "method": "manual proof and contract audit",
+      "reason": "Optional result distinguishes legal minimum integer from absence."
+    },
+    {
+      "question": 73,
+      "method": "independent exact calculation or enumeration",
+      "result": "[3, 3, 0]",
+      "reason": "Inclusive MIT-style counts."
+    },
+    {
+      "question": 74,
+      "method": "independent exact calculation or enumeration",
+      "result": "(Fraction(19, 10), Fraction(13, 10))",
+      "reason": "Exact weighted comparator expectations."
+    },
+    {
+      "question": 75,
+      "method": "manual proof and contract audit",
+      "reason": "Initial ceiling route plus push-once/pop-once interval scan."
+    },
+    {
+      "question": 76,
+      "method": "independent exact calculation or enumeration",
+      "result": "[1, 2, 3, 4, 4]",
+      "reason": "Actual mixed-chain gap depth multiset."
+    },
+    {
+      "question": 77,
+      "method": "manual proof and contract audit",
+      "reason": "Plain successor-copy deletion creates no longer route."
+    },
+    {
+      "question": 78,
+      "method": "independent exact calculation or enumeration",
+      "result": "3",
+      "reason": "Absent path becomes new-node depth three."
+    },
+    {
+      "question": 79,
+      "method": "manual proof and contract audit",
+      "reason": "Sorted-stream merge plus direct allocation is linear; sorted ordinary insertion is quadratic."
+    },
+    {
+      "question": 80,
+      "method": "independent exact calculation or enumeration",
+      "result": "([60, 20, 10, 30, 25, 50, 70, 65, 80], 9, 16, 6, 50)",
+      "reason": "Independent immutable compound update."
+    }
+  ],
+  "independentModelInputs": 161,
+  "modelCheckpoints": 723,
+  "storedModels": 27,
+  "storedCheckpoints": 208,
+  "priorChaptersRetained": 51,
+  "limitations": "Proof-oriented entries are identified separately from numerical/exhaustive checks. Finite input checks supplement general proofs and do not guarantee all unseen cases."
+}

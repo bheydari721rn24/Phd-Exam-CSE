@@ -1,0 +1,56 @@
+[
+  {
+    "id": "MS_CE_1404_Q65",
+    "booklet": "MS_CE_1404",
+    "pdfPage": 15,
+    "questionNumber": 65,
+    "topics": [
+      "a_bst",
+      "a_balanced",
+      "a_hash"
+    ],
+    "title": "Dynamic priorities and median keys: an augmentation bridge",
+    "stem": "A dynamic priority list stores entries with a key and priority. It supports insert(x,p), deleting a maximum-priority entry (ties select the leftmost entry), finding the median of all keys, and increasing the priority of key x by k. Which proposed combination best supports all operations efficiently?",
+    "options": [
+      "A stack and a queue for arrivals, departures, keys and priorities.",
+      "A Fibonacci heap and a plain linked list for entries and priorities.",
+      "A double-ended heap for priorities and an ordered structure for direct entry access.",
+      "A balanced binary search tree for keys and priorities, with a hash table for entry access."
+    ],
+    "answer": 4,
+    "solution": "The required key median is an order statistic, not the maximum priority. A balanced key-ordered BST stores subtree sizes for select and a subtree maximum-priority entry with a deterministic leftmost tie rule. Its root aggregate identifies the deletion candidate; deleting that known key and refreshing aggregates costs logarithmic tree height. Insert and priority increase likewise refresh only one ancestor route. The tie rule can be represented by a stable list-position label; it is distinct from key order. A hash table maps keys to entries, subject to its expected lookup assumptions; searching the balanced BST by key can also retain logarithmic worst-case lookup without relying on hashing. If equal keys are allowed, entry identities or occurrence collections must be specified. A plain stack/queue or linked list cannot maintain median keys and arbitrary mutable priorities at logarithmic route cost; a heap alone does not maintain key ranks. Option 4 is the proposed combination that accommodates both requirements. Its subtree augmentations and declared tie policy are necessary details, not automatic features of a bare tree. This is an augmentation bridge: the next chapter supplies the height-guarantee proof, and hashing is analyzed separately. The answer is independently derived, not an official key.",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "repoPath": "Exams/MS/CE/1404/Daftarche-Soalat-Konkur-Arshad-Computer-1404 (konkurcomputer.ir).pdf",
+    "translationStatus": "Exact original PDF page re-rendered and visually read for this chapter; independently derived answer.",
+    "answerProvenance": "Independently derived; not an official key",
+    "sourceSha256": "909e4efaaad96f4d39e526104bc9dc6de6d52be11fd7716e583476b0e62ff654"
+  },
+  {
+    "id": "Phd_CE_1405_Q3",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 2,
+    "questionNumber": 3,
+    "topics": [
+      "d_induction",
+      "d_invariants",
+      "a_model"
+    ],
+    "title": "Leaf weights in a binary tree",
+    "stem": "For each leaf $x$ at depth $d$ of a binary tree $T$, put $w(x)=2^{-d}$. If $L$ is the set of all leaves and $\\alpha=\\sum_{x\\in L}w(x)$, which is always correct?",
+    "options": [
+      "$\\alpha=1$.",
+      "$\\alpha\\le1$.",
+      "$\\alpha>1$.",
+      "$\\alpha<1$."
+    ],
+    "answer": 2,
+    "solution": "1. Assign mass one to the root and half of a node's mass to each possible child. Missing children leave unused mass; a leaf receives exactly $2^{-d}$.\n2. Leaf masses are disjoint allocations of the root mass, so their sum is at most one. This can also be proved by structural induction on the two subtrees.\n3. Equality occurs in a finite full binary tree, including a single root leaf. A root with just one leaf child has sum one half, so equality is not guaranteed.\n4. These examples eliminate the always-equal and always-strict alternatives; the greater-than alternative contradicts conservation of mass.\n\n**Transfer rule.** An upper bound can be universal even when equality depends on fullness of the structure.\n\n**BST connection and boundary.** This question concerns actual leaves in a general binary tree, not null search gaps. Extending a finite BST by its null positions instead gives exact dyadic gap mass one. The three-node chain has actual-leaf mass one quarter and null-gap mass one, separating the two notions. No BST ordering is needed for the original inequality.",
+    "pattern": "structural mass invariant",
+    "difficulty": "Medium",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "Exact original PDF page re-rendered and visually read for this chapter; independently derived answer.",
+    "answerProvenance": "independently derived; not represented as an official key"
+  }
+]

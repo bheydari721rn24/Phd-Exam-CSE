@@ -1,0 +1,152 @@
+{
+  "topicId": "a_bst",
+  "status": "passed",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\a-bst-visual-qa",
+  "counts": {
+    "questions": 82,
+    "rules": 80,
+    "players": 41,
+    "math": 429,
+    "errors": []
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "heading": true,
+    "prose": true,
+    "code": true
+  },
+  "geometry": {
+    "models": 27,
+    "frames": 208,
+    "issues": []
+  },
+  "treeConnections": {
+    "edges": 1209,
+    "issues": []
+  },
+  "mathGeometry": {
+    "bareClosingScriptBases": [],
+    "zeroSizeFences": [],
+    "underlined": 0
+  },
+  "movingArrowPorts": {
+    "pairs": 7,
+    "progress": 0.12966666666666646,
+    "issues": [],
+    "clocks": 1
+  },
+  "pause": {
+    "motions": 1,
+    "frozen": true,
+    "sameIndex": true,
+    "running": false
+  },
+  "resumeGeometricMotion": true,
+  "beforeCompareResult": true,
+  "reducedMotion": true,
+  "printCheckpoints": true,
+  "labs": [
+    {
+      "operation": "search",
+      "error": "",
+      "result": {
+        "found": false,
+        "comparisons": 9,
+        "floor": 9,
+        "ceiling": null
+      },
+      "issues": []
+    },
+    {
+      "operation": "insert",
+      "error": "",
+      "result": {
+        "preorder": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "comparisons": 36,
+        "height": 8
+      },
+      "issues": []
+    },
+    {
+      "operation": "delete",
+      "error": "",
+      "result": {
+        "preorder": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9
+        ],
+        "inorder": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9
+        ],
+        "size": 8,
+        "height": 7
+      },
+      "issues": []
+    },
+    {
+      "operation": "rank",
+      "error": "",
+      "result": {
+        "rank": 4
+      },
+      "issues": []
+    },
+    {
+      "operation": "select",
+      "error": "",
+      "result": {
+        "selected": 9
+      },
+      "issues": []
+    },
+    {
+      "operation": "range",
+      "error": "",
+      "result": {
+        "keys": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "count": 5
+      },
+      "issues": []
+    }
+  ],
+  "invalidPreservesPrevious": 10,
+  "mobileOverflow": false,
+  "printVisible": true,
+  "runtimeErrors": [],
+  "library": {
+    "cards": 52,
+    "visible": true,
+    "errors": []
+  },
+  "weeklyChapterLink": true
+}
