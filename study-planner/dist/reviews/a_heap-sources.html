@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Heap and priority queue chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"><link rel="stylesheet" href="../chapters/a_heap.css"></head><body><main class="chapter"><p><a href="../chapters/a_heap.html">Heap and priority queue chapter</a></p><article class="lesson"><h1>Written course selection: heaps and priority queues</h1>
+<h2>Survey and selection</h2>
+<p>The reproducible candidate pool contains MIT 6.006 Spring 2020, CMU 15-122 Fall 2026, Princeton COS226 Spring 2025, Stanford CS106B Spring 2020 and Autumn 2023, Cambridge Algorithms 2023–2024, ETH Zurich Data Structures and Algorithms 2020, Berkeley CS61B Spring 2014, and Oxford Algorithms 2023–2024. It spans nine offerings from eight universities. This is a bounded survey of accessible written material; it does not claim to have inspected every course worldwide. An inaccessible document or a course inventory is never counted as a read lecture.</p>
+<p>Four core university sources were selected by complementary coverage, proof quality, implementation precision and accessible written evidence. MIT contributes zero-based representation and the construction/sorting distinction. CMU contributes strengthened loop invariants and contracts. Princeton contributes indexed queues, multiway heaps, practical interfaces and heapsort. Cambridge contributes binomial and Fibonacci heaps, potential analysis and degree proofs. Stanford's fifth-university comparison explains basic repair traces; its limited advanced coverage makes it a complement rather than a substitute for Cambridge or CMU.</p>
+<table>
+<thead>
+<tr>
+<th>Offering</th>
+<th>Material actually read</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIT 6.006 Spring 2020; Erik Demaine, Jason Ku, Justin Solomon</td>
+<td>All seven pages of Lecture 8, Binary Heaps; page 3 visually rendered to check height notation</td>
+<td>Core: representation and build proof; printed height uses a ceiling where the edge-height convention requires a floor.</td>
+</tr>
+<tr>
+<td>CMU 15-122 Fall 2026; Frank Pfenning</td>
+<td>All 13 PDF pages of Lecture 25 and all 24 pages of Lecture 26 via official PDF web text; final proof assumptions and all conclusions read in text</td>
+<td>Core: safety, order exceptions, grandparent conditions and client boundaries. Native retrieval failed; no native hash is invented.</td>
+</tr>
+<tr>
+<td>Princeton COS226 Spring 2025; Robert Sedgewick and Kevin Wayne</td>
+<td>All 43 PDF pages of Priority Queues plus the full §2.4 written booksite, exercises and supplied discussion</td>
+<td>Core: PQ interfaces, indexed arrays, multiway tradeoffs and heapsort. The slide table places ordinary Fibonacci amortized bounds under a worst-case heading; the chapter corrects that qualification.</td>
+</tr>
+<tr>
+<td>Cambridge Algorithms 2023–2024; Damon Wischik, with course materials by Frank Stajano</td>
+<td>Algorithms 2, PDF pages 53–<span class="math-inline">76 / pr</span>inted pages 51–74, including binomial recap, Fibonacci algorithms, implementations and analysis; both pages of example sheet 6</td>
+<td>Core: advanced PQs and amortization. Other graph/disjoint-set sections were not used or represented as read for this chapter.</td>
+</tr>
+<tr>
+<td>Stanford CS106B Spring 2020; Chris Gregg and Julie Zelenski</td>
+<td>All 16 written HTML slides on heaps; additional Autumn 2023 written heap page inspected</td>
+<td>Additional comparison: repair illustrations and code. Random-input average insertion and incomplete arbitrary-deletion discussion are not promoted to universal guarantees.</td>
+</tr>
+<tr>
+<td>ETH Zurich 2020</td>
+<td>Course inventory and exact Lecture 11 written-material links</td>
+<td>Screened only; not counted as a read teaching source.</td>
+</tr>
+<tr>
+<td>Berkeley CS61B Spring 2014</td>
+<td>Official candidate listing/search evidence; attempted PDF unavailable</td>
+<td>Screened only; not counted as read.</td>
+</tr>
+<tr>
+<td>Oxford 2023–2024</td>
+<td>Course listing; native connection unavailable</td>
+<td>Screened only; not counted as read.</td>
+</tr>
+</tbody>
+</table>
+<h2>Reconciliation and independent corrections</h2>
+<ol>
+<li>All primary executable binary models use zero-based indices. One-based source formulas are translated explicitly, including root and missing-child cases.</li>
+<li>The edge height of a nonempty complete binary tree is the floor of the base-two logarithm of its size. A ceiling is not interchangeable, even if both give the same asymptotic bound.</li>
+<li>Repair takes logarithmic worst-case route work and can terminate immediately. A dynamic-array resize can make a single insertion linear. Amortized cost is stated separately.</li>
+<li>Fibonacci insertion/meld/decrease-key are constant amortized costs for the ordinary structure; extract-min is logarithmic amortized cost. A cascade or consolidation can take linear actual time. No claim about strict Fibonacci heaps is transferred to ordinary heaps.</li>
+<li>A weakened order invariant excluding one upward edge is insufficient by itself: the displaced parent must remain below the active node's children. The chapter supplies a counterexample and the additional grandparent condition.</li>
+<li>CMU Lecture 26 page 19 describes a singleton with next equal to one, although its representation requires next equal to two. The chapter distinguishes size from next. Page 21 calls an index-based helper with payloads in its minimum-priority scan; the chapter compares entries directly and does not copy that code.</li>
+<li>Cambridge page 73 writes a cancellation of an unspecified big-O coefficient against a potential drop. The chapter proves amortization in normalized primitive units and explains scaling; it never subtracts an unknown coefficient as though it were one.</li>
+<li>Princeton's written min-max heap paragraph reverses the extrema relative to its even-min level invariant. Under root depth zero and even-min levels, the root is minimum and maximum is among its children. The chapter uses that explicit convention.</li>
+<li>Distinct label counting concerns valid heap arrangements, not sorted orders. Heap construction has a linear comparison lower bound; sorting has a logarithmic-per-item aggregate lower bound.</li>
+<li>Course exercises are independently reconstructed in selected families with changed data and extended solutions. The bank is not a reproduction of every copyrighted assignment, and no unsolved source exercise is silently described as solved.</li>
+</ol>
+<h2>Coverage boundary</h2>
+<p>This chapter covers exact binary and multiway shape arithmetic, construction, repair proofs, indexed handles, sorting, selection/stream applications, binomial forests and ordinary Fibonacci amortization. It includes a worked survey of min-max and leftist meldable alternatives. Specialized optimal heap-selection proofs, strict Fibonacci heaps, pairing-heap optimal bounds, external-memory queues and language-specific production libraries are outside its claimed scope. The candidate search, problem bank and audits provide evidence, not an infallibility or unseen-examination guarantee.</p>
+<h2>Written references</h2>
+<ul>
+<li>MIT: <a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/40d4851e550507ca14dc778b9b2266cc_MIT6_006S20_lec8.pdf">6.006 Lecture 8, Binary Heaps</a>.</li>
+<li>CMU: <a href="https://www.cs.cmu.edu/~15122/handouts/lectures/25-pq.pdf">15-122 Lecture 25, Priority Queues</a> and <a href="https://www.cs.cmu.edu/~15122/handouts/lectures/26-heap.pdf">Lecture 26, Restoring Invariants</a>.</li>
+<li>Princeton: <a href="https://www.cs.princeton.edu/courses/archive/spring25/cos226/lectures/24PriorityQueues.pdf">COS226 Spring 2025 Priority Queues slides</a> and <a href="https://algs4.cs.princeton.edu/24pq/">Algorithms §2.4</a>.</li>
+<li>Cambridge: <a href="https://www.cl.cam.ac.uk/teaching/2324/Algorithm1/content/algorithms2.pdf">Algorithms 2 notes</a>, printed §§7.1–7.8, and <a href="https://www.cl.cam.ac.uk/teaching/2324/Algorithm1/ex/ex6.pdf">Example sheet 6</a>.</li>
+<li>Stanford: <a href="https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1206/lectures/heaps/">CS106B Spring 2020 written heap slides</a> and <a href="https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1242/lectures/17-pqheap/">Autumn 2023 priority-queue notes</a>.</li>
+</ul>
+</article></main><script src="../chapters/math-layout.js?v=79"></script></body></html>

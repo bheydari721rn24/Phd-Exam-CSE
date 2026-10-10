@@ -1,0 +1,643 @@
+# Independent worked problem bank: heaps and priority queues
+
+These are original problems or independently reconstructed course exercise families. Numerical data and extended solutions are authored for this chapter. Princeton §2.4 motivates counting, frontier selection and indexed queues; CMU Lectures 25–26 motivate repair contracts; Cambridge example sheet 6 motivates aggregate/potential questions; MIT and Stanford motivate build and array/tree traces. These attributions identify idea families, not copied assignment text. Questions 1, 4, 6 and 7 include foundation diagnostics; the larger bank emphasizes medium and hard calculations and proofs.
+
+## Q1. Exact height thresholds
+
+### Prompt
+Determine edge height, occupied final-level population and missing final-level positions for complete binary heaps of sizes 31, 32 and 47. Explain why a ceiling-log answer fails.
+
+### Solution
+The height is $\lfloor\log_2 n\rfloor$. At size 31 it is four; earlier depths contain 15 nodes, so the final level has 16 of its 16 positions. At size 32 the height is five; earlier depths contain 31 nodes, so one of 32 final positions is occupied and 31 are missing. At size 47, height is still five and the last level contains $47-31=16$ nodes, leaving 16 missing. The ceiling of the logarithm gives six at size 47, although no depth-six node exists. The relevant transition is the first node of a new level, not rounding to the next power.
+
+## Q2. Mixed index conventions
+
+### Prompt
+A zero-based heap has 26 entries. For index 12 determine parent, children, depth and the complete one-based translation. Which potential child accesses are valid?
+
+### Solution
+The parent is $\lfloor11/2\rfloor=5$. Children have indices 25 and 26, so only the left child exists because valid indices stop at 25. Depth is $\lfloor\log_2(13)\rfloor=3$. Translate index 12 to one-based index 13: parent six, children 26 and 27, active indices one through 26. These describe the same entries as zero-based parent five and children 25 and 26. Applying one-based parent division directly to zero-based 12 would give six, which is a different record. Check existence after translating size and indices consistently.
+
+## Q3. Count nodes with exactly one child
+
+### Prompt
+For complete binary heaps of sizes 18 and 19, count leaves, two-child nodes and one-child nodes. Prove the general parity rule.
+
+### Solution
+Internal count is $\lfloor n/2\rfloor$, so both heaps have nine internal nodes. At size 18 there are nine leaves, eight two-child nodes and one one-child node. At size 19 there are ten leaves and nine two-child nodes. A one-child node exists when the final active index is a left child: zero-based left indices are odd, and final index is $n-1$. Thus it occurs exactly when size is even. Its parent is $n/2-1$. There cannot be an earlier one-child node because complete filling would have occupied that node's right child before any later position.
+
+## Q4. Heap order does not sort an array
+
+### Prompt
+Certify $[1,7,3,9,8,4,5]$ as a min heap. Give its inorder sequence and explain why binary search is invalid.
+
+### Solution
+The root is below 7 and 3; 7 is below 9 and 8; 3 is below 4 and 5. All six actual edges are ordered, so this is a valid min heap. Inorder visits left subtree, root and right subtree, giving $[9,7,8,1,4,3,5]$. Neither that sequence nor the original array is sorted. The key 4 is in the right subtree even though it is less than left root 7, illustrating the absence of a BST interval rule. Membership can use heap-based pruning under suitable thresholds, but it cannot select a single branch by comparing only a parent key.
+
+## Q5. Opposite extreme with duplicates
+
+### Prompt
+Prove that a maximum value of a min heap can be found among leaves, even when priorities repeat. Is every maximum occurrence a leaf? Give a counterexample and a worst-case search bound without metadata.
+
+### Solution
+Starting at a maximum occurrence, follow any existing child. Heap order makes that child at least the parent's value; maximality makes it equal. Continuing reaches a leaf with the same maximum. An internal maximum is possible: $[4,4,4]$ is a min heap and its root is also maximum. With distinct priorities a maximal internal node would have a strictly larger child, a contradiction. There are $\lceil n/2\rceil$ leaf candidates whose values can vary independently above small ancestor keys. Identifying their maximum needs linear worst-case comparison work. The existence of a maximal leaf does not imply a fixed known leaf is maximal.
+
+## Q6. The second extreme
+
+### Prompt
+For a min heap with distinct priorities and at least two entries, identify the candidate positions for its second minimum. How do size two and repeated priorities change the statement?
+
+### Solution
+Every nonroot entry is beneath a root child. A deeper entry has that child as a smaller ancestor, so it cannot be second minimum. With two root children, compare them; with size two, the single child is the answer without a child-child comparison. With repetitions, the second entry in sorted multiset order may have the same priority as the root, and a minimal child still realizes the next multiset value after removing one root occurrence. The identity order among equal records depends on the comparator's secondary fields. Do not claim the second distinct priority without separately handling all copies of the minimum.
+
+## Q7. Allocated cells versus live nodes
+
+### Prompt
+A one-based queue has capacity 12 and next equal to ten. Its data cells are unused zero, then $[3,5,4,7,12,8,6,9,13]$, followed by spare cells. Determine active size, tree height, leaf indices and whether the allocation length is the tree size.
+
+### Solution
+Active entries occupy indices one through nine, so size is nine and allocation length is 13. Height is $\lfloor\log_2 9\rfloor=3$. Leaves begin at one-based index $\lfloor9/2\rfloor+1=5$, giving five leaf indices five through nine. The array satisfies min order: 3 is below 5 and 4; 5 below 7 and 12; 4 below 8 and 6; 7 below 9 and 13. Spare cells do not appear as children. A singleton would have next two, and an empty queue next one. Confusing next with size shifts bounds by one and can expose inactive cells.
+
+## Q8. Ancestor addresses
+
+### Prompt
+Find the root-to-position route for one-based index 26, then translate every position to zero-based storage. Does the binary address encode comparisons of keys?
+
+### Solution
+Twenty-six in binary is 11010. Removing the leading one leaves 1010, encoding right, left, right, left. The one-based route is $1,3,6,13,26$. Subtract one from every position to obtain zero-based $0,2,5,12,25$. Parent arithmetic confirms each predecessor. The route exists only if active size includes index 26. It describes complete-tree structure, regardless of the keys stored there. A heap may swap entire records along such a route, so a key's structural address can change; unlike BST search, those direction bits are not derived from key comparisons.
+
+## Q9. Rank bounds by depth
+
+### Prompt
+In a distinct-key min heap, can the fourth smallest key be at depth four? Can a node at depth two have rank 20? Explain both answers.
+
+### Solution
+A depth-four node has four distinct smaller ancestors, so its rank is at least five. It cannot be fourth. Depth two supplies only a lower bound of three on rank; incomparable nodes in other branches may all be smaller, so rank 20 is possible in a sufficiently large heap. Construct a complete shape with a large priority on that depth-two subtree and many smaller entries in other branches, preserving ancestor order within each branch. The useful implication is depth at most rank minus one, not rank equal to depth plus one. A shallow position can contain a very late-ranked key.
+
+## Q10. Exact subtree height
+
+### Prompt
+For a complete binary shape of size 50, determine heights of subtrees rooted at zero-based indices 0, 2, 5, 11 and 24. Derive the formula without assuming all subtrees are perfect.
+
+### Solution
+The leftmost descendant $j$ edges below index $i$ has index $2^j(i+1)-1$. It exists if $2^j(i+1)\le50$, giving height $\lfloor\log_2(50/(i+1))\rfloor$. The five heights are five, four, three, two and one. For index 24, its left child 49 exists but right child 50 does not, which still gives height one. Counting only complete levels within each subtree would miss this final left descendant. The formula uses existence of a route, not uniform leaf depth within an incomplete subtree.
+
+## Q11. Full verification cost
+
+### Prompt
+Give a linear-time heap certification algorithm and distinguish checking sorted output after repeated extraction from checking the heap's internal invariant after each operation.
+
+### Solution
+Scan every nonroot active index $i$ and reject if its key precedes its parent at $\lfloor(i-1)/2\rfloor$. There are exactly $n-1$ edge comparisons for a valid heap, and constant extra space. Shape is already represented by the dense active prefix; capacity/safety conditions must be checked separately. A successful extraction sequence matching sorted input is useful behavioral evidence, but it may miss transient corruption, lost identities or stale inverse maps. A robust audit checks complete checkpoint order, multiset preservation, identity-to-position consistency and extraction values. Full certification is linear and should not be included inside every logarithmic operation when claiming logarithmic production cost.
+
+## Q12. Equality and stable scheduling
+
+### Prompt
+Records A, B and C arrive in that order with priorities 5, 5 and 3. State their extraction order with and without a FIFO secondary key. Does left-child tie selection alone make a queue stable?
+
+### Solution
+With comparator `(priority, arrival)`, C comes first because priority three precedes five; A then B because A's arrival number is smaller. With only numeric priorities, C is first and either A or B can be next. Choosing the left child on a tied sift-down is a local positional rule; root-last moves and earlier swaps can change which identity is left. Therefore it does not implement a global arrival policy. Store arrival metadata and compare it consistently in all repairs. Stability concerns identities among equivalent primary keys, not whether equal numeric keys happen to exchange in a particular loop.
+
+## Q13. Three-level insertion trace
+
+### Prompt
+Insert 2 into min heap $[5,9,8,12,10,14,11]$. List every exchange, final array, priority comparisons and repair exchanges under early-stop sift-up.
+
+### Solution
+Append at index seven. Compare 2 with 12 at parent three and exchange: $[5,9,8,2,10,14,11,12]$. Compare 2 with 9 at parent one and exchange: $[5,2,8,9,10,14,11,12]$. Compare 2 with 5 at parent zero and exchange: $[2,5,8,9,10,14,11,12]$. The root stops the loop without another priority comparison. Hence there are three comparisons and three exchanges. Every displaced ancestor remains legal above its new children because insertion began at a leaf of an initially valid heap. An additional root-loop test is not a priority comparison.
+
+## Q14. Immediate insertion termination
+
+### Prompt
+Insert 20 into $[2,5,8,9,10,14,11]$. Explain the exact counters and why logarithmic worst-case complexity remains correct.
+
+### Solution
+The new index is seven and its parent is three, holding 9. Since 20 does not precede 9, sift-up stops with array $[2,5,8,9,10,14,11,20]$. There is one priority comparison and zero exchanges; the new record is a leaf, so it has no downward constraints. A logarithmic worst-case bound describes the maximum over input priorities and valid heaps of this size. Choosing a new smallest priority makes the record climb all three ancestors instead. Calling this particular immediate-stop operation logarithmic exact work would confuse worst-case growth with its realized cost.
+
+## Q15. Weak upward invariant counterexample
+
+### Prompt
+A min-tree has parent 10, active child 1, and the active child's children 2 and 3. All other edges are legal. Show why excluding only the active upward edge is insufficient for a general sift-up contract.
+
+### Solution
+Before the exchange, 1 is legal above 2 and 3, and the single parent-to-active edge fails. Exchange 1 and 10. The rising 1 is now legal above 10, but displaced 10 exceeds both children 2 and 3. The next active position is the parent of that displaced record, so those two violations are no longer the allowed upward exception. Require additionally that the active record's parent be no larger than its existing children before a swap. This condition holds along genuine insertion routes but not in the stated counterexample. A postcondition may follow from loop exit even when the proposed invariant is not preserved; both proof obligations must be checked.
+
+## Q16. Extract-min with two repair exchanges
+
+### Prompt
+Extract from $[2,5,8,9,10,14,11,12]$. Separate the root replacement from the repair exchanges and count only priority comparisons.
+
+### Solution
+Save 2 and move final record 12 to the root, shrinking active size to seven. Compare children 5 and 8, then 5 with 12; exchange indices zero and one. The intermediate array is $[5,12,8,9,10,14,11]$. Compare children 9 and 10, then 9 with 12; exchange indices one and three, producing $[5,9,8,12,10,14,11]$. Index three is now a leaf. Four priority comparisons and two repair exchanges were used. If a convention represents the initial move as a root-last exchange, the total exchange counter is three, but that convention must be stated.
+
+## Q17. The only-child boundary
+
+### Prompt
+Extract the minimum from $[1,4,2,9]$ using the chapter's code. Determine the final array and exact comparison count.
+
+### Solution
+After saving 1, move 9 to the root and reduce size to three. Both children exist: compare 2 at index two against 4 at index one, choose two, then compare 2 against 9 and exchange. The result is $[2,4,9]$, with two priority comparisons and one repair exchange. For comparison, extracting from $[1,4,9]$ leaves active size two; only child index one exists, so there is no sibling comparison. Comparing 4 against replacement 9 gives $[4,9]$ in one priority comparison. The boundary depends on the size **after** shrinking, not before extraction.
+
+## Q18. Choosing the wrong child
+
+### Prompt
+A min-heap repair begins with root 12 and child roots 7 and 3, whose subtrees are valid. Why is swapping with the left child merely because $7<12$ incorrect?
+
+### Solution
+Swapping 12 and 7 puts 7 at the root while the right child remains 3. The root-to-right edge still fails, and following only the displaced 12 downward cannot repair that unrelated edge. Choose the smaller child 3 instead: it is no larger than 7, and since 3 precedes 12 it is also legal above the displaced record. Only 12's outgoing edges may now fail. This proves why child selection is a correctness step rather than a cosmetic tie preference. If children are equal, either is numerically legal; identity stability still needs its own comparator.
+
+## Q19. Equal-child tie trace
+
+### Prompt
+Replace the root of min heap $[1,4,4,7,9,8,10]$ by 6 without changing size, then repair downward with left preference on equal children. Give the resulting array and counters.
+
+### Solution
+Compare the two root children, both 4; strict right-before-left is false, so choose index one. Compare 4 with 6 and exchange, giving $[4,6,4,7,9,8,10]$. At index one, compare children 7 and 9, choose 7, then compare 7 with 6 and stop. There are four priority comparisons and one exchange. The final active key 6 did not reach a leaf. Thus the number of comparisons need not equal twice the realized exchanges; the terminal failed parent comparison is real work. Right preference would give another valid final array, so an exact-array answer must declare its tie policy.
+
+## Q20. Prove downward parent preservation
+
+### Prompt
+Let active node $x$ have parent $a$ and children $b,c$, with $c<x\le b$, and child $c$ have children $u,v$. Give sufficient assumptions proving a swap with $c$ preserves all nonexception edges.
+
+### Solution
+Assume $a\le c$ as a strengthened grandparent condition, and $c\le u,v$ from the child's valid subtree. After the swap, the edges $a$ to promoted $c$, $c$ to $b$, and $c$ to displaced $x$ are legal: the first uses the grandparent condition, the second uses $c<x\le b$, and the third uses $c<x$. The outgoing edges from displaced $x$ to $u,v$ are the new permitted exception. The next strengthened condition is satisfied because their new grandparent $c$ is below $u,v$. At a global root, the condition involving $a$ is absent. Bounds and termination remain separate proof obligations.
+
+## Q21. Hole movements versus exchanges
+
+### Prompt
+In Q13 the inserted record moves three edges. Compare record assignment counts for three-variable swaps and a hole-style sift, ignoring the initial append and counting temporary assignments explicitly.
+
+### Solution
+Three-variable swapping uses three assignments per exchange: save a record, write one array cell, then write the other. Three exchanges use nine assignments under that convention. A hole-style implementation saves the inserted record once, copies three ancestors downward once each, then writes the held record to its final cell once, using five assignments. Both choose the same route and use the same three priority comparisons if stopping and ties agree. If one counts only array writes, the counts become six and four. State the unit; an assignment optimization does not change the logarithmic route bound or justify copying exact swap counters from another algorithm.
+
+## Q22. Max-heap orientation reversal
+
+### Prompt
+Insert 16 into max heap $[15,10,12,8,6,9,11]$. Give the route and final array, and explain why min-heap comparisons would be invalid.
+
+### Solution
+Append 16 at index seven, then compare it with 8 at three, 10 at one and 15 at zero. Max orientation makes each comparison trigger an exchange. Arrays progress to $[15,10,12,16,6,9,11,8]$, then $[15,16,12,10,6,9,11,8]$, then $[16,15,12,10,6,9,11,8]$. There are three comparisons and three exchanges. A min comparison would stop immediately because 16 is not smaller than 8, preserving a shape whose parent key is below a larger child and therefore violating max order. Naming the operation insert does not determine its comparator.
+
+## Q23. Deleting a singleton safely
+
+### Prompt
+Describe extraction from a singleton indexed heap holding identifier A with key 7. What state and inverse map must result, and which accesses are invalid?
+
+### Solution
+Save and return A's record, remove its only active cell, and set A's position to the absent sentinel. Size becomes zero; the active array and inverse map are empty. No replacement record remains, so do not read array zero, compute a parent of root, or call a repair whose precondition requires a live node. A capacity array may retain allocated storage, but stale payload references should be cleared where memory retention matters. Subsequent peek/extract must report underflow. The returned record's key remains 7; zero size and absent identifier are independent aspects of the completed state.
+
+## Q24. Repeated construction is not a unique heap
+
+### Prompt
+Insert $[9,4,7,1,0,3,2]$ one at a time into a min heap. Compare the final array with bottom-up build on the same input.
+
+### Solution
+The arrays after the first three insertions are $[9]$, $[4,9]$ and $[4,9,7]$. Inserting 1 yields $[1,4,7,9]$; inserting 0 yields $[0,1,7,9,4]$; inserting 3 yields $[0,1,3,9,4,7]$; inserting 2 yields $[0,1,2,9,4,7,3]$. Bottom-up build produces $[0,1,2,9,4,3,7]$. Both satisfy every parent-child relation and contain the same multiset. Heap order leaves sibling and branch choices unconstrained, so correctness should not require equality to one preferred valid array unless the construction procedure is specified.
+
+## Q25. Bottom-up exact build
+
+### Prompt
+Build a min heap from $[9,4,7,1,0,3,2]$ by descending internal index. Give each completed subtree step, comparisons and exchanges.
+
+### Solution
+Internal indices are two, one and zero. At two, compare children 3 and 2, then 2 with 7 and exchange: $[9,4,2,1,0,3,7]$. At one, compare 1 and 0, then 0 with 4 and exchange: $[9,0,2,1,4,3,7]$. At zero, choose 0 over 2 and exchange with 9, then at index one choose 1 over 4 and exchange with 9. The final array is $[0,1,2,9,4,3,7]$. Each of four visited repair levels has two child/parent comparisons, totaling eight and four exchanges. The general linear bound does not imply every size-seven input realizes these counters.
+
+## Q26. Size ten height budget
+
+### Prompt
+Compute the total available downward height for bottom-up construction on ten entries. Give the safe exchange and comparison bounds and explain why these are upper bounds rather than equalities.
+
+### Solution
+Nodes with height at least one, two and three number five, two and one. Summing gives eight. Equivalently ten in binary is 1010, with two set bits, so $10-s_2(10)=8$. A sift starting at each node cannot exchange more often than its height, hence total repair exchanges are at most eight and priority comparisons at most sixteen. Some roots stop before reaching a leaf, and a single-child last level needs only one comparison. Therefore neither upper bound is an exact count for arbitrary input. An already heap-ordered array performs zero exchanges but still inspects comparisons.
+
+## Q27. Perfect-tree closed form
+
+### Prompt
+For a perfect binary tree of edge height six, evaluate the height budget by both a weighted sum and the bit-count identity.
+
+### Solution
+Size is $2^7-1=127$. There are one height-six node, two height-five nodes, four height-four nodes, eight height-three nodes, sixteen height-two nodes and thirty-two height-one nodes. The weighted sum is $6+10+16+24+32+32=120$. Since 127 has seven set bits, the alternative is $127-7=120$. In general a perfect tree has $h+1$ set bits and height budget $n-h-1$. Leaves contribute zero although they are most of the nodes. Multiplying 63 internal nodes by height six would give 378 and lose the linear proof's structural information.
+
+## Q28. Consecutive size budgets
+
+### Prompt
+Find the height budgets at sizes 15 and 16. Why can adding only one complete-tree position increase the budget by four?
+
+### Solution
+For 15, set-bit count is four, so budget is 11. For 16, bit count is one, so budget is 15. The new node appears as the leftmost depth-four leaf. Its insertion extends the height of each ancestor on its root route: indices seven, three, one and zero. Four subtree heights increase by one, while the new leaf has height zero. Equivalently binary increment clears four trailing ones and sets a new bit. The height budget measures all subtrees, not only global height, so its change need not equal the single global-height increase.
+
+## Q29. Sequential insertion aggregate
+
+### Prompt
+For descending priorities inserted into a min heap of final size 16, compute the total sift-up exchanges exactly and derive its general expression.
+
+### Solution
+Each new key is minimum and rises from its appended depth to the root. Depth groups contribute $2\cdot1+4\cdot2+8\cdot3+1\cdot4=38$ exchanges, with the first root contributing zero. If final size is $n$ and $h=\lfloor\log_2 n\rfloor$, sum full groups through depth $h-1$ and the remaining depth-$h$ nodes. This simplifies to $hn-2^{h+1}+h+2$, giving $4\cdot16-32+4+2=38$. It is proportional to $n\log n$ in the worst case, whereas bottom-up construction at size 16 has height budget 15. The two construction algorithms must not be conflated.
+
+## Q30. Already ordered input counters
+
+### Prompt
+Bottom-up min-build runs on $[1,2,3,4,5,6,7,8]$. Determine exchanges and priority comparisons for the chapter's code, and explain why comparisons are not twice exchanges.
+
+### Solution
+Internal indices three, two, one and zero are visited. Index three has only child seven, so one parent-child comparison stops. Each other internal index has two children, giving one child-choice comparison and one failed child-before-parent comparison. Total is seven comparisons and zero exchanges. The comparison number equals the seven actual edges for this already ordered example, but its derivation uses the code. A claim of at most twice **realized** exchanges would incorrectly predict zero comparisons. The safe proof charges comparisons to available subtree levels, including unsuccessful stopping checks.
+
+## Q31. Build lower bound without sorting
+
+### Prompt
+Prove a linear comparison lower bound for building a min heap and explain why the full sorting lower bound cannot be applied to claim logarithmic-per-item construction.
+
+### Solution
+The heap root must be the minimum of all input entries. In a comparison model, every nonminimum candidate must lose at least one comparison; one comparison can eliminate at most one candidate, so at least $n-1$ comparisons are needed in the worst case. This yields a linear lower bound. Constructing a heap does not identify the complete order of all entries: incomparable siblings and branches can be rearranged validly. Sorting distinguishes all $n!$ total orders; heap output does not. Bottom-up build's linear upper bound therefore matches the relevant lower bound without contradicting comparison sorting's logarithmic-per-item aggregate requirement.
+
+## Q32. Count six-node heaps
+
+### Prompt
+How many min-heap arrays use the distinct ranks one through six? What is the probability that a uniform random permutation is a min heap?
+
+### Solution
+The root is rank one. The complete left subtree has three nodes and the right has two. Choose the three left ranks in $\binom53=10$ ways. A three-node heap has two arrangements because its root is its least selected rank and the other two ranks may occupy either child. A two-node heap has one arrangement. Hence $H(6)=10\cdot2\cdot1=20$. There are $6!=720$ equiprobable permutations, so the probability is $20/720=1/36$. This counts valid arrays, not the probability that a particular builder outputs a particular valid array from a random input.
+
+## Q33. Count eight-node heaps
+
+### Prompt
+Compute the left and right subtree sizes and heap count for eight distinct ranks. Why is splitting the remaining seven ranks into equal-size halves invalid?
+
+### Solution
+Edge height is three and one node occupies the final level. Earlier left levels have three nodes and receive that extra node, so left size is four and right size three. A four-node heap has left subtree size two and right size one, yielding $H(4)=\binom32=3$. A three-node heap has count two. Therefore $H(8)=\binom74\cdot3\cdot2=210$. Complete filling is left-biased at the final level; it fixes subtree sizes independently of the key values. Using sizes three and four in the opposite positions counts a different noncomplete shape relative to the standard array numbering.
+
+## Q34. Product formula on seven nodes
+
+### Prompt
+Verify the subtree-size product formula for seven distinct ranks. Derive its probability interpretation.
+
+### Solution
+The subtree sizes are seven at the root, three at each child, and one at each of four leaves. Their product is $7\cdot3\cdot3=63$. The formula gives $7!/63=5040/63=80$ valid min heaps, agreeing with the root-split recurrence. Dividing by $7!$ shows that a uniformly random rank permutation respects ancestor order with probability $1/63$. The factors arise from the fixed tree poset's linear extensions, not independent events that every node happens to be minimum of a separately sampled subtree. The inductive factorial cancellation proves the formula despite overlapping ancestor subtrees.
+
+## Q35. Duplicate counting trap
+
+### Prompt
+Count distinct min-heap arrays for the multiset $\{1,1,2\}$. Compare with dividing the distinct-rank count by two factorial and explain the failure.
+
+### Solution
+The root must be 1. The remaining child values are 1 and 2, which can occupy left/right in either order, giving arrays $[1,1,2]$ and $[1,2,1]$. Thus the count is two. For three distinct ranks, heap count is also two, and dividing by $2!$ would predict one incorrectly. When formerly distinct ranks collapse to equality, some arrangements that violated strict ancestor ranking become valid under nonstrict heap order. The valid labeled assignments are not partitioned into uniform groups obtained from the original distinct-rank count. Duplicate counting needs a multiset recurrence tracking how many copies of the smallest value occupy each subtree.
+
+## Q36. Builder invariant direction
+
+### Prompt
+Why must the bottom-up builder process decreasing internal indices? Give a concrete input where sifting the root once before its child subtrees does not complete construction.
+
+### Solution
+Consider $[2,9,3,1]$. Sifting root zero first sees children 9 and 3 and stops because 2 is below both. The left subtree is not a heap: 9 exceeds child 1. Repairing that left subtree next gives $[2,1,3,9]$, which now violates the root-left edge. A second root repair would be needed. In decreasing-index order, repair index one first, then root zero, obtaining a valid result. Sift-down's subtree proof assumes its child subtrees are already heaps; processing ancestors first does not supply that precondition. Loop direction is a correctness contract, not merely a locality optimization.
+
+## Q37. Decrease-key with moving handles
+
+### Prompt
+Records A through G occupy a min heap with keys $[2,5,8,9,10,14,11]$. Decrease F's key from 14 to 1. Give the final identifier/key arrays and inverse positions of A, C and F.
+
+### Solution
+F starts at index five; its parent C at two has key eight. Exchange F and C, then exchange F with root A. Identifier order becomes $[F,B,A,D,E,C,G]$, with keys $[1,5,2,9,10,8,11]$. Inverse positions are A two, C five and F zero. After the first exchange, both F and C positions must be updated; after the second, both F and A positions must be updated. Updating only the changed record F leaves stale positions for displaced records. The numeric heap may look valid while later handle operations mutate the wrong record, so inverse-map consistency is a separate invariant.
+
+## Q38. Increase-key downward
+
+### Prompt
+Increase the root key of $[2,5,8,9,10,14,11]$ to 12. Determine the repaired array and counters.
+
+### Solution
+The updated root exceeds both children, so choose 5 and exchange. At index one choose 9 over 10 and exchange with 12. The result is $[5,9,8,12,10,14,11]$. Four priority comparisons and two repair exchanges occur; no root-last removal is involved. Since increasing the root cannot create an upward violation, sift-up would do no useful work. For an internal record, the same direction holds because its old parent was below its old key and remains below its increased key. Handle maps must be updated for every displaced identity.
+
+## Q39. Arbitrary deletion requiring upward repair
+
+### Prompt
+Delete the record at index three from min heap $[1,10,2,11,12,3,4]$. Show why always sifting downward is incorrect.
+
+### Solution
+Save 11, move final key 4 into index three and reduce size to six. Its parent at one holds 10, so the upward edge fails. Index three is a leaf; downward repair would stop immediately and leave the failure. Exchange 4 with 10, producing $[1,4,2,10,12,3]$. Comparing 4 with root 1 then stops. The changed record was smaller than its new parent, and therefore also no larger than the old entry's children, so only the upward direction needs repair. Total direction/repair comparisons depend on whether the initial parent-direction test is reused or repeated; the final array does not.
+
+## Q40. Arbitrary deletion requiring downward repair
+
+### Prompt
+Delete index one from $[1,3,2,5,4,6,7]$. Give the final array and prove the upward edge remains legal.
+
+### Solution
+Move final key 7 into index one and shrink to six. Its parent key is 1, which remains below 7, so upward order is legal. Children at three and four hold 5 and 4; choose 4 and exchange with 7. Final array is $[1,4,2,5,7,6]$. Index four is a leaf. The unaffected edges were already valid and remain unchanged; only the moved key's outgoing edges could fail. Deleting an internal position does not preserve order merely by filling the hole, but the parent test correctly selects the only potentially necessary repair direction.
+
+## Q41. Unknown keys and dictionary assumptions
+
+### Prompt
+Compare deletion by known array position, by record identifier with a direct inverse array, and by a numeric priority without an index. State which logarithmic claims are valid.
+
+### Solution
+A known valid position allows final-record replacement and one logarithmic repair route. A direct inverse array indexed by bounded identifier locates that position in constant worst-case time, so the complete operation remains logarithmic, at the cost of identifier-universe storage. A hash map can give expected constant lookup under its assumptions, not an unconditional constant worst-case guarantee. A bare heap searched by numeric priority may require linear inspection because sibling/subtree order does not identify one route and duplicates may have many identities. Repair remains logarithmic after locating an occurrence, but the entire search-plus-delete is linear worst case without more indexing.
+
+## Q42. One-based inverse permutation
+
+### Prompt
+An indexed queue has one-based `pq = [C,A,D,B]` and inverse positions C one, A two, D three, B four. Exchange positions two and four. State every changed field and give a certification rule.
+
+### Solution
+The new permutation is $[C,B,D,A]$. Set inverse position of B to two and of A to four; C and D remain one and three. Keys indexed by identifiers do not move, while the position permutation does. Certification checks $\operatorname{pos}(\operatorname{pq}(j))=j$ for every live position, plus that every live identifier maps to a valid cell containing that same identifier. Absent identifiers use a distinct sentinel. Heap priority order must be checked using keys of identifiers, not lexicographic order of identifier names. Swapping the permutation without its inverse is a detectable representation failure even if priorities tie.
+
+## Q43. Heapsort prefix and suffix
+
+### Prompt
+For ascending heapsort starting at $[9,4,7,1,0,3,2]$, give the built max heap and state after extracting the first two maxima, including active size.
+
+### Solution
+The input already satisfies max order, so build changes no values. Exchange 9 with final 2, shrink to six and repair by swapping 2 with 7 then with 3. State is $[7,4,3,1,0,2,9]$. Exchange 7 with active final 2, shrink to five and repair by swapping 2 with 4; its children 1 and 0 require no further exchange. State becomes $[4,2,3,1,0,7,9]$. The active prefix has size five and is a max heap. The suffix $[7,9]$ is sorted in final positions and every suffix value exceeds every prefix value. Draw only active prefix nodes in the heap view.
+
+## Q44. Equal-key best case
+
+### Prompt
+Analyze early-stop heapsort on $n$ equal priorities. Does this contradict its logarithmic-per-item worst case? Discuss identity stability separately.
+
+### Solution
+Each internal build call inspects at most two priority comparisons and stops without a repair exchange. Each sortdown root-last exchange then invokes a sink that also stops after the first child checks. There are linear numbers of calls and constant work per call, so total work is linear on this input. A worst-case bound is a maximum over inputs and remains proportional to $n\log n$. Equal values can conceal reordered identities: root-last exchanges still move records even when priority comparisons are equal. Thus the linear equal-key execution does not establish stability; stability requires preserving original identity order among ties.
+
+## Q45. A concrete instability witness
+
+### Prompt
+Run ascending heapsort on records $[2_A,2_B,1_C]$ using primary key only and early stopping on ties. Show whether A precedes B in the output.
+
+### Solution
+Build leaves the array unchanged because the root ties left child and exceeds right child. First root-last exchange gives $[1_C,2_B,2_A]$ with active size two. Repair exchanges C with B, giving $[2_B,1_C,2_A]$. The final active root-last exchange gives $[1_C,2_B,2_A]$. B now precedes A, reversing their original tie order. No equal-key parent-child exchange was needed for this failure. Compare the full `(key, originalArrival)` pair to obtain a stable total order, but that is an augmented algorithm and may require additional stored metadata.
+
+## Q46. Space claims depend on code
+
+### Prompt
+Compare auxiliary space for iterative in-place heapsort, recursive in-place sift, and sorting through a separately allocated priority queue. Why is the input array not counted as auxiliary memory?
+
+### Solution
+The iterative algorithm uses a few indices and a temporary record, so auxiliary storage is constant. A recursive sift may have one call per tree level, giving logarithmic call-stack storage even while swaps occur inside the input array. A separately allocated queue containing all input entries uses linear auxiliary storage. The input/output array is the problem's supplied representation and is excluded from additional workspace by convention; copying it creates auxiliary storage. A claim about in-place sorting must describe whether recursion, stable arrival tags and output buffers are counted. Time correctness alone does not settle the space classification.
+
+## Q47. Array growth versus route work
+
+### Prompt
+A binary queue has 1024 live entries and capacity 1024. Its next insertion doubles capacity. State actual storage work, worst-case repair work and the aggregate insertion conclusion from empty.
+
+### Solution
+This insertion copies 1024 records to a capacity-2048 buffer, giving linear actual storage work. Its appended index 1024 has depth ten, so it can make at most ten sift-up exchanges; the repair component is logarithmic. The total single-operation cost is linear. Starting empty with geometric doubling, copied capacities sum to less than twice the final insertion count. Thus storage work is linear aggregate and constant amortized per insertion, while worst-case aggregate repair work is logarithmic per insertion. Combining them gives logarithmic amortized insertion without converting the expensive resizing operation into logarithmic actual time.
+
+## Q48. Why simultaneous constant insertion and extraction fail
+
+### Prompt
+Suppose a comparison-based queue guarantees constant amortized insertion and constant amortized extract-min on arbitrary distinct keys, from empty. Derive a contradiction and identify an assumption whose removal avoids it.
+
+### Solution
+Insert an arbitrary permutation of $n$ distinct entries, then extract all $n$ entries. The extraction sequence is sorted and the assumed aggregate charge is linear for $2n$ operations. Yet any comparison sort must distinguish $n!$ possible total orders, requiring worst-case decision-tree depth at least $\log_2(n!)$, which grows as $n\log n$. The guarantees cannot both hold for all such sequences. Bounded integer keys with radix/bucket operations operate outside a pure comparison model and can avoid this argument under suitable universe assumptions. Constant peek alone reveals only one extreme and does not imply constant extraction after it is removed.
+
+## Q49. Ternary indices and exact height
+
+### Prompt
+A zero-based ternary heap has 20 entries. Find root height, children of index five, its parent and the number of leaves.
+
+### Solution
+Capacities through depths zero, one and two are one, four and thirteen; through depth three it is forty, so height is three. Children of five are 16, 17 and 18, all active. Its parent is $\lfloor(5-1)/3\rfloor=1$. An internal node satisfies $3i+1<20$, giving indices zero through six, seven internal nodes and thirteen leaves. Index six has only child 19. Equivalently internal count is $\lceil(n-1)/d\rceil$, with leaves $n-\lceil(n-1)/d\rceil$ for nonempty heaps. Applying binary leaf parity formulas to ternary shape is invalid.
+
+## Q50. Multiway height boundaries
+
+### Prompt
+Find exact edge heights of quaternary heaps with sizes 21, 22, 85 and 86. Verify the logarithmic expression using integer level capacities.
+
+### Solution
+Level capacities through depths two and three are $1+4+16=21$ and $1+4+16+64=85$. Therefore sizes 21, 22, 85 and 86 have heights two, three, three and four. The exact formula is $\lceil\log_4(3n+1)\rceil-1$: arguments at 21 and 85 are 64 and 256, exact powers giving two and three; one additional node requires the next ceiling. Floating rounding at those powers can produce an off-by-one answer, so integer cumulative capacities provide a reliable executable check. The approximation $\log_4 n$ alone is not an exact boundary formula.
+
+## Q51. Arity comparison objective
+
+### Prompt
+For deletion-only work in large heaps, compare binary, ternary and quaternary child-comparison coefficients $d/\ln d$. Which integer is favored by this model, and what is excluded?
+
+### Solution
+The coefficients are approximately 2.8854, 2.7307 and 2.8854. Ternary is best among these three. Differentiating $d/\ln d$ gives numerator $\ln d-1$, whose zero is $d=e$; compare neighboring integers rather than interpreting a noninteger arity literally. The model charges linear child selection per visited level and logarithmic tree height. It ignores incomplete last levels, branch/caching cost, array growth and any upward-operation workload. A measured best arity may differ. The mathematical conclusion is about this declared comparison objective, not a universal implementation recommendation.
+
+## Q52. Mixed workload optimum
+
+### Prompt
+With $U/D=8$, compare arities four and eight under objective $(U+Dd)/\ln d$. Derive the stationary equation and explain why insertion-heavy work shifts the choice.
+
+### Solution
+Normalize by $D$. At four the coefficient is $12/\ln4\approx8.6562$, while at eight it is $16/\ln8\approx7.6944$, so eight is favored among these candidates. Differentiation gives zero when $d\ln d-(8+d)=0$, or $d(\ln d-1)=8$. An upward step uses one parent comparison independent of arity, while height decreases as arity rises. Many upward operations therefore reward shorter routes enough to offset more costly downward child scans. Feasible integer candidates around the stationary solution should be compared; neither eight nor any other fixed integer is always optimal for all ratios.
+
+## Q53. Stream top-three trace
+
+### Prompt
+Retain the largest three values from stream $[5,1,9,4,8,2,10]$ using a min heap. Give the retained heap after each new candidate once full and prove the invariant.
+
+### Solution
+After the first three insertions, retained heap is $[1,5,9]$. Candidate 4 replaces root 1 and already satisfies child order, giving $[4,5,9]$. Candidate 8 replaces 4 then exchanges with 5, giving $[5,8,9]$. Candidate 2 is rejected because it cannot beat the weakest retained key 5. Candidate 10 replaces 5 and exchanges with 8, yielding $[8,10,9]$, representing top values 8, 9 and 10. Inductively a rejected key cannot enter the current largest three; an accepted key displaces exactly the smallest retained entry. A max heap would expose the strongest retained value instead and would not provide this replacement threshold.
+
+## Q54. Nonmutating fourth-smallest frontier
+
+### Prompt
+Find the fourth smallest key in min heap $[1,4,2,8,5,3,7]$ using a separate frontier queue. List extracted source positions and frontier contents as key/index pairs.
+
+### Solution
+Start frontier $(1,0)$. Extract it and add children $(4,1),(2,2)$. Extract $(2,2)$ and add $(3,5),(7,6)$, leaving $(3,5),(4,1),(7,6)$ in key order. Extract $(3,5)$, a leaf, leaving $(4,1),(7,6)$. The fourth extraction is $(4,1)$, so the answer is 4. Its children need not be inserted if the algorithm stops now. Source positions are zero, two, five and one, and the source heap remains unchanged. Each unreturned source entry is below a frontier ancestor whose key is no greater, proving that no smaller value was skipped.
+
+## Q55. Rank complexity when k grows slowly
+
+### Prompt
+Given an existing max heap of size $n$, compare finding its $k$th largest key by destructive repeated extraction and by a secondary frontier heap when $k=\lceil\log_2 n\rceil$.
+
+### Solution
+Repeated extraction from the original heap takes at most $O(k\log n)$ route work, giving $O((\log n)^2)$ for the stated $k$. A frontier max heap stores at most $k+1$ candidate source positions, and performs $O(k)$ insertions/removals at logarithmic frontier size, giving $O(k\log(k+1))=O(\log n\log\log n)$ for sufficiently large $n$. It also preserves the source. A full scan is linear and ignores existing ancestor order. This is a constructive bound for the frontier algorithm, not a lower-bound proof that no more advanced selection algorithm can improve it.
+
+## Q56. Threshold pruning counter
+
+### Prompt
+For max heap $[20,15,18,8,12,14,16]$, decide whether at least four entries are at least 14. Give one depth-first visit route and explain the general small-k bound.
+
+### Solution
+Visit 20 and count one, then 15 and count two. Its children 8 and 12 fail the threshold, so their subtrees are pruned. Visit 18 and count three, then 14 and count four; stop without visiting 16. Six nodes were tested in this traversal. Any qualifying node expands at most two child tests, and the algorithm stops after $k$ qualifying nodes. Before stopping or exhaustion, visited failing roots are bounded by the explored qualifying frontier, giving at most a constant multiple of $k+1$ tests. The decision does not return the exact fourth largest key; that is a different task.
+
+## Q57. Three sorted streams
+
+### Prompt
+Merge lists $[1,7,10]$, $[2,4,11]$ and $[3,5,8]$ through a heap of heads. Give output, maximum candidate count and the correctness argument.
+
+### Solution
+Initialize heads 1, 2 and 3. Extract in order and replace only the extracted list's head. Output is $[1,2,3,4,5,7,8,10,11]$. At most three candidates are live because each nonempty list contributes exactly one first unconsumed entry. Every remaining element in a list is at least its head, so the least head is the least remaining global value. Exhausted lists add no replacement. Bottom-up initial construction is linear in list count and nine outputs require logarithmic work in at most three candidates each. Scanning all nine original entries to choose each next value would waste the sorted-list structure.
+
+## Q58. Sequential merge contrast
+
+### Prompt
+There are eight sorted lists of equal length $N/8$. Compare sequential accumulated merging with a balanced merge tree and a heap of heads. Express the sequential coefficient before simplifying growth.
+
+### Solution
+Sequential stages merge accumulated sizes two through eight list lengths, totaling $(N/8)(2+3+4+5+6+7+8)=35N/8$ under linear full-stage work. Eight is fixed here, so this example is linear in $N$, though the parameterized general expression is $\Theta(Nr)$ when list count $r$ grows. A balanced tree has three merge levels and linear total work per level, giving $\Theta(N\log r)$. A head heap costs $O(N\log(r+1))$ and needs only $O(r)$ candidates. Do not compare parameterized bounds after silently treating one algorithm's list count as fixed and another's as variable.
+
+## Q59. Running lower medians
+
+### Prompt
+For arrivals $[8,1,6,3,10,2]$, give lower medians after every insertion under a max lower-half heap and min upper-half heap. State both required invariants.
+
+### Solution
+Sorted prefixes give lower medians $[8,1,6,3,6,3]$. The heaps must satisfy cross-order: every lower-half value is no greater than every upper-half value. They must also have equal sizes or one extra lower value. For the final prefix, lower multiset is $\{1,2,3\}$ and upper is $\{6,8,10\}$; lower root is 3. Merely equalizing sizes can leave 8 in the lower heap and 2 in the upper heap, giving a wrong median despite balanced counts. An arrival is first placed on the appropriate side of the partition, then an extreme is transferred if necessary to restore size.
+
+## Q60. Restricted cached opposite extreme
+
+### Prompt
+Explain why a max heap with only insert and delete-max can cache its minimum value in constant space, then give an allowed-operation extension that invalidates this simple cache.
+
+### Solution
+On insertion, update the cached minimum if the new key is smaller. Deleting a larger maximum cannot remove the minimum. If all current keys equal the minimum, deleting one copy leaves another until the queue becomes empty, when the cache is cleared. Thus the numeric minimum remains valid under this restricted interface. Arbitrary deletion of the sole minimum while larger keys remain invalidates the cache, as does increasing that minimum's priority beyond another entry. The proof concerns minimum value; returning a particular minimum record identity needs additional handling when an equal extreme record is removed. A cache's validity depends on all supported operations.
+
+## Q61. Binomial rank populations
+
+### Prompt
+For a binomial tree of rank five, find total size, edge height, root degree and depth populations. Explain why degree and depth are distinct.
+
+### Solution
+Repeated equal-rank linking doubles size, so size is $2^5=32$. Each link adds a root child and one level along the new attached tree, yielding root degree five and height five. Pascal's recurrence gives depth populations $\binom50,\binom51,\binom52,\binom53,\binom54,\binom55$, namely $[1,5,10,10,5,1]$, summing to 32. Degree counts direct children of a node; depth counts edges from the global root to that node. A rank-five root has depth zero and degree five. The equality of rank, root degree and global tree height is a property of binomial trees, not all heap families.
+
+## Q62. Canonical forest from size bits
+
+### Prompt
+Determine the ranks, root count and tree sizes in a canonical binomial heap of size 45. Can two rank-three trees remain after completed canonical consolidation?
+
+### Solution
+Forty-five equals $32+8+4+1$, so ranks are five, three, two and zero. There are four roots and tree sizes 32, 8, 4 and 1. Two equal-rank trees cannot remain in the canonical form: they link to a rank-four tree. During a meld, equal-rank trees may coexist temporarily as carry work, so a transient checkpoint can show them only if it is explicitly labeled unconsolidated. Canonical size bits constrain ranks independent of key values, while heap order determines which record is each root. A Fibonacci heap does not maintain this canonical rank condition after every insertion.
+
+## Q63. Exact meld carry count
+
+### Prompt
+Meld canonical binomial heaps of sizes 13 and 11. Give initial/final rank sets and number of links, including the three-tree carry case.
+
+### Solution
+Initial rank sets are $\{0,2,3\}$ and $\{0,1,3\}$. Link the two rank-zero trees to carry rank one. Link that carry with the existing rank-one tree to carry rank two. Link with the existing rank-two tree to carry rank three. Now three rank-three trees are present: retain one and link two, carrying rank four. Final size is 24 with ranks three and four. Four links occurred, matching $s_2(13)+s_2(11)-s_2(24)=3+3-2=4$. Linking all three equal-rank trees as though they were only two would lose a whole subtree; preserve one explicitly.
+
+## Q64. Worst binomial insertion
+
+### Prompt
+Insert a singleton into canonical forests of sizes 31 and 32. Give link counts, resulting ranks and the distinction between worst-case and amortized cost.
+
+### Solution
+Size 31 has ranks zero through four. Inserting one carries successively through all five ranks, making five links and ending with rank five only, size 32. Inserting into size 32 instead adds rank zero alongside rank five, with zero links and size 33. A single insertion may therefore take logarithmic linking work, but the five-link event consolidates roots and makes the next insertion cheap. Across a sequence from empty, potential based on root count pays for carries, giving constant amortized linking work. A full scan over all absent ranks on the cheap insertion would be an unnecessary implementation cost outside that carry-only algorithm.
+
+## Q65. Total singleton links
+
+### Prompt
+Insert 100 singleton entries into an initially empty canonical binomial heap. Find exact total links and prove the count by conservation of roots.
+
+### Solution
+Each singleton creates one root, so 100 roots would exist without linking. Each link reduces root count by exactly one. The final binary expansion of 100 is 1100100, with three set bits and hence three roots. Therefore total links are $100-3=97$. The argument is independent of priority values because they choose the winning parent but cannot change size or rank. It counts only links; allocating records and touching constant metadata adds linear work. Thus total work is linear for the carry-only insertion implementation, even though some individual insertions traverse logarithmically many ranks.
+
+## Q66. Binomial potential charge
+
+### Prompt
+For an insertion with seven links, compute actual normalized cost, root-potential change and amortized charge using one unit for singleton work plus one per link. What if each link costs three units?
+
+### Solution
+Actual cost is eight. Root count changes by $1-7=-6$, so with potential equal to roots the charge is $8-6=2$. If each link costs three units, actual cost is 22; keeping the unscaled potential gives charge 16, which still depends on the number of links. Scale potential to three times root count. Its change is $3(1-7)=-18$, yielding charge four. Nonnegative potential starts at zero and telescopes, so these charges bound aggregate work. Hidden constants in big-O notation cannot be canceled without this scaling argument.
+
+## Q67. Binomial extraction degree arithmetic
+
+### Prompt
+A canonical heap of size 13 contains ranks zero, two and three. Its minimum root is the rank-three root. After removing that root, which ranks arise, how many links are needed, and what are the final ranks?
+
+### Solution
+Removing the rank-three root leaves its child trees of ranks two, one and zero, totaling seven nodes. The other original roots have ranks zero and two, totaling five nodes. Before consolidation, root multiplicities are two at zero, one at one, and two at two: five roots on twelve nodes. Link rank zero, then rank one with the carry. At rank two there are three trees; retain one and link the other two into rank three. Final ranks are two and three, corresponding to twelve equals four plus eight. Three links reduce five roots to two. The minimum-root search cost and child-list traversal are additional logarithmic work.
+
+## Q68. Handle identity during binomial decrease
+
+### Prompt
+A binomial decrease-key swaps entry records with ancestors. Why is a handle referring to a tree node insufficient by itself to identify the same logical entry after repair?
+
+### Solution
+If node X originally stores entry A and exchanges its payload with parent node Y storing B, X now stores B and Y stores A. A client holding X as A's handle would subsequently update B by mistake. Maintain an entry-to-node map and update both mappings on every record swap, or use an implementation that moves nodes structurally while preserving node identity. A numeric key can remain heap-ordered despite a stale logical handle. Array heaps have the same issue with positions. Distinguish a physical storage location, a stable record identifier and a handle whose promised identity must survive repair.
+
+## Q69. Cached minimum after meld
+
+### Prompt
+Two binomial heaps have cached minimum roots with priorities 4 and 2. Their meld includes links. Can the final minimum pointer be chosen before all links? What must the linking procedure preserve?
+
+### Solution
+Priority 2 is globally minimal among both input heaps because each cached pointer certifies its own heap. During equal-rank links, the smaller root remains the parent, so the record of priority 2 cannot become a child of a strictly larger root. If another root ties at 2, either can be numerically minimum; a stable secondary comparator selects the required identity. Therefore the surviving minimum record can be tracked through linking without scanning all keys. The pointer must follow that actual record/node if payloads move, and extraction must refresh it after removing it. Merely retaining a pointer to an old storage location is not sufficient.
+
+## Q70. Binary heap meld alternative
+
+### Prompt
+Meld binary heaps of sizes $n$ and $m$ by concatenating their arrays and bottom-up building. Compare this with inserting each entry of the smaller heap separately. Explain why binomial meld has a different bound.
+
+### Solution
+Concatenation plus bottom-up build costs $\Theta(n+m)$ including copying to a combined dense representation. Repeatedly inserting $m$ records into the other heap costs at most $O(m\log(n+m))$ route work, assuming $m$ is the smaller size and capacity work is handled. For small $m$, repeated insertion may be favorable; for comparable sizes, linear rebuilding improves the worst-case aggregate bound. Binomial forests already contain heap-ordered trees whose ranks encode size, so meld links only logarithmically many roots and does not copy every record. The data representation enables that bound; calling two array heaps binomial without changing their structure would not.
+
+## Q71. Fibonacci degree thresholds
+
+### Prompt
+Using $F_0=0,F_1=1$, determine the minimum subtree sizes guaranteed for degrees six, seven and eight. Can a Fibonacci heap of total size 50 contain degree eight?
+
+### Solution
+The lower bound is $F_{d+2}$. Fibonacci values give $F_8=21$, $F_9=34$ and $F_{10}=55$. Thus degrees six, seven and eight require at least 21, 34 and 55 subtree nodes respectively. A heap of total size 50 cannot contain a degree-eight node, whether root or internal. Degree seven is not ruled out by this bound alone; the bound is a necessary condition and does not certify attainability of every proposed marked forest. Logarithmic degree comes from exponential descendant growth, not from assuming the trees are complete or AVL-balanced.
+
+## Q72. Child acquisition order
+
+### Prompt
+A Fibonacci node currently has six surviving children ordered by last link time. Give their guaranteed degree lower bounds and show how these produce the Fibonacci size recurrence.
+
+### Solution
+The bounds are zero, zero, one, two, three and four. When the $i$th surviving child linked, the parent had at least the earlier $i-1$ surviving children, so equal-degree linking gave the child at least $i-1$ children then. It could lose at most one while attached, giving $\max(0,i-2)$ now. Counting a root plus minimal child subtrees yields $S_6\ge1+S_0+S_0+S_1+S_2+S_3+S_4=1+1+1+2+3+5+8=21$. The same expression minus the degree-five expression gives the Fibonacci recurrence. Children lost entirely are omitted from surviving acquisition order, so the proof uses at least rather than equality at link time.
+
+## Q73. First loss versus second loss
+
+### Prompt
+Root 1 has child 4, whose children are 7 and 9. Decrease 7 to 0, then 9 to 2. Give roots, marks and potential after each completed operation.
+
+### Solution
+Initially roots are just 1 and no node is marked, so potential is one. Decreasing 7 to 0 violates its parent edge: cut it to an unmarked root and mark nonroot 4 for its first child loss. Roots are 1 and 0, one mark remains, giving potential four. Decreasing 9 to 2 cuts it, then cuts already-marked 4 after its second loss and clears 4's mark. Roots are 1, 0, 2 and 4, all unmarked, so potential is four again. The second operation makes two cuts with zero net potential change. Root 1 is not marked for losing 4 because root loss has no cascading-parent obligation.
+
+## Q74. A long cascade charge
+
+### Prompt
+A decrease-key cuts five nodes, including four previously marked ancestors, and marks one previously unmarked stopping ancestor. Compute root/mark changes and the normalized charge with actual cut cost plus one.
+
+### Solution
+Root count rises by five. Four cut marked ancestors become unmarked, and the stopping ancestor adds one mark, so marked count changes by minus three. Potential change is $5+2(-3)=-1$. Actual normalized cost is six, giving charge five. The general calculation is $\Delta\Phi\le4-c$ for $c$ cuts and cost $c+1$, so charge is at most five. If the initial cut node was also marked, the potential drop is greater and the charge lower. This is aggregate accounting; the realized operation still performed five cuts and need not be constant actual work.
+
+## Q75. Lazy roots and expensive extraction
+
+### Prompt
+Insert 65 records as singleton roots into an empty Fibonacci heap without extraction, then extract a uniquely minimum singleton. Determine the remaining consolidation links and explain actual versus amortized cost.
+
+### Solution
+After insertions, there are 65 rank-zero roots and potential 65. Removing the minimum leaves 64 singleton roots. Equal-degree consolidation forms one rank-six binomial tree, using 63 links. Root potential after completion is one, a drop of 64 including the removed root. The operation must inspect many roots and execute 63 links, so actual work is linear in this example. Earlier insertions stored enough root potential to pay for consolidation under appropriately scaled primitive costs; amortized extract-min is logarithmic. A logarithmic bound for this individual actual operation would be false despite the logarithmic maximum degree of the result.
+
+## Q76. Potential from a nonempty initial heap
+
+### Prompt
+A sequence begins with a Fibonacci heap having 20 roots and eight marked nodes. If the sum of amortized charges is 100 and final potential is 12, what bound follows for actual aggregate cost? Why can the initial term not be dropped?
+
+### Solution
+Initial potential is $20+2\cdot8=36$. Telescoping gives actual total equal to amortized total plus initial potential minus final potential, namely $100+36-12=124$ in the stated normalized accounting. If 100 is an upper bound on charges rather than their exact sum, 124 is an upper bound on actual work. Dropping the initial term would incorrectly claim cost at most 100 although initial stored structural work was not charged during this sequence. Amortized guarantees from empty have zero initial potential; prebuilt heaps require an explicit initialization allowance or retained initial credit.
+
+## Q77. Delete a specified tied minimum
+
+### Prompt
+Two Fibonacci entries A and B both have numeric key negative infinity. You must delete B specifically. Why is decrease B to negative infinity followed by ordinary extract-min insufficient, and how can the interface be repaired?
+
+### Solution
+The numeric key change does not make B strictly precede A. The minimum pointer or tie policy may still select A, deleting the wrong identity. Use a distinct forced-min comparator field that places the target ahead of every ordinary entry, then perform necessary cuts and extract it, or implement direct handle deletion with proper consolidation. The forced field must participate consistently in all comparisons and be removed with the target; other entries keep ordinary order. A numeric sentinel works only if it is strictly outside the valid ordinary-key domain and the interface guarantees that exclusion. Extremal value and requested entry identity are different requirements.
+
+## Q78. Dijkstra operation accounting
+
+### Prompt
+For adjacency-list Dijkstra on $V$ vertices and $E$ edges with nonnegative weights, derive indexed binary and Fibonacci queue bounds. Contrast a lazy-duplicate binary implementation.
+
+### Solution
+There are at most $V$ finalized vertex extractions and at most $E$ successful relaxation updates, plus initialization work. An indexed binary queue with at most $V$ live records gives $O((V+E)\log(V+1))$. Fibonacci constant-amortized decrease-key and logarithmic-amortized extraction give $O(E+V\log(V+1))$. Lazy duplicates can insert a new entry for each successful relaxation; up to an edge-dependent number of entries may exist and be extracted, so a safe bound uses $O((V+E)\log(E+V+1))$ and corresponding storage, discarding stale entries before finalization. Nonnegative weights support the algorithm's correctness; faster queue operations do not remedy a negative-edge correctness failure.
+
+## Q79. Leftist rank versus height
+
+### Prompt
+A leftist heap uses null rank zero and node rank one plus the smaller child rank. Prove a rank-five subtree has at least 31 nodes. Does this imply every root-to-leaf path has at most five edges?
+
+### Solution
+A rank-$r$ node has both child ranks at least $r-1$. Inducting from a null subtree gives minimum size $M_r=1+2M_{r-1}=2^r-1$, hence $M_5=31$. The leftist condition places the smaller rank on the right, so right-spine rank decreases by one at each step and its length is logarithmic in size. The left subtree can be much deeper; a long left chain can have rank one at many nodes. Therefore rank bounds right-spine meld work, not the entire tree height. Confusing null-path rank with edge height would incorrectly assert AVL-like global balance.
+
+## Q80. A complete queue design decision
+
+### Prompt
+Design a structure for stable min and max peek, deletion at either end, and priority changes by known identifier. Give invariants, update steps, costs and a tie-policy pitfall.
+
+### Solution
+Maintain an indexed min heap and indexed max heap containing the same live identifiers, with shared priority/arrival records. Each heap has its own inverse map. Insert into both; when deleting one extreme, use its identifier to remove its counterpart from the other heap. A priority change repairs its record in both orientations, updating every displaced inverse entry. Peeks use the two roots in constant time; fixed-capacity known updates and deletions use logarithmic worst-case route work; storage is linear in live records plus any direct identifier universe. FIFO among maximum-priority ties is not obtained by reversing the entire min comparator, because that reverses arrival preference too. Reverse primary priority only and keep earlier arrival preferred in both orientations. Certify equal live identity sets as well as each local heap invariant.

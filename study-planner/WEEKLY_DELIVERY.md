@@ -571,3 +571,8 @@ Native private deployment appgdep_6aca943b37948191b5e7357e5b0bc55b succeeded fro
 ## Balanced search trees review draft — 10 October 2026
 
 Completed a_balanced with 82 fully worked questions, 80 final rules, 26 specialized models and 294 checkpoints. Four core courses plus a fifth university comparison were genuinely read. Independent checks cover 340 input specifications / 13,142 generated checkpoints; every midpoint-construction size 1 through 1024 is independently certified. Real Edge checked fonts, scripts, fence geometry, 867 edge endpoints, actual motion/pause/resume, all saved checkpoint geometry, mobile, print and editable boundaries including twelve negative four-character keys. All 52 preceding pages and counts are retained. Library: 53 chapters / 3575 questions. Student approval and publication remain separate. Authoring advances to a_heap under standing continuous authorization.
+
+
+## Heap and priority-queue review draft
+
+Completed a_heap: 82 fully worked questions, 80 final rules, five genuinely read universities, 21 specialized models / 359 checkpoints. Independent verification passed 2120 inputs / 24992 checkpoints; real Edge passed all checkpoint geometry, 1864 arrow endpoints, movement/pause/resume, editable boundaries, MathML, fonts, mobile and print. All 53 preceding pages remain unchanged. Library: 54 chapters / 3657 worked questions. Publication is tracked separately; no student approval is inferred. Authoring proceeds to a_hash under standing continuous authorization.

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "Phd_CE_1405_Q4",
+    "booklet": "Phd_CE_1405",
+    "pdfPage": 2,
+    "questionNumber": 4,
+    "topics": [
+      "a_heap"
+    ],
+    "title": "Selecting a logarithmic rank from an existing max heap",
+    "stem": "In an existing binary max heap of size $n$, in what running-time order can the $(\\log n)$th largest entry be obtained efficiently?",
+    "options": [
+      "$O(n)$",
+      "$O((\\log n)^2)$",
+      "$O(\\log n)$",
+      "$O(\\log n\\log\\log n)$"
+    ],
+    "answer": 4,
+    "solution": "Use a second max heap of frontier positions in the existing source heap. Initially insert the source root. Each time a frontier record is extracted, insert its existing source children. Every unreturned source record lies below a frontier ancestor no smaller than it, so successive frontier extractions yield the next source ranks without modifying the source. After $k$ selections, frontier size is at most $k+1$; the total is $O(k\\log(k+1))$. For the intended asymptotic rank $k=\\Theta(\\log n)$, this gives $O(\\log n\\log\\log n)$, option 4. Repeatedly extracting from the source instead gives a valid but larger $O((\\log n)^2)$ upper bound. A full scan ignores heap order. The listed answer is a constructive bound for the standard frontier algorithm; this derivation does not claim an optimal-selection lower bound. The original notation leaves integer rounding implicit; choose floor or ceiling consistently for sufficiently large n.",
+    "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
+    "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "Original PDF page 2 visually read for this chapter; independently derived answer.",
+    "answerProvenance": "Independently derived; not an official key"
+  },
+  {
+    "id": "MS_CE_1405_Q56",
+    "booklet": "MS_CE_1405",
+    "pdfPage": 12,
+    "questionNumber": 56,
+    "topics": [
+      "a_heap"
+    ],
+    "title": "Sequential merge versus a heap-head frontier",
+    "stem": "There are $k$ sorted lists, each containing $n/k$ elements. Merge lists 1 and 2, then merge the result with list 3, and continue in this way. What is the worst-case running-time bound of this algorithm?",
+    "options": [
+      "$O(k\\log n)$",
+      "$O(n)$",
+      "$O(n\\log k)$",
+      "$O(nk)$"
+    ],
+    "answer": 4,
+    "solution": "1. At stage $j$, merge an accumulated list of $j n/k$ elements with the next list of $n/k$ elements. In the standard linear-time merge model, the worst-case work is proportional to $(j+1)n/k$.\n2. Sum the stage costs for $j=1,\\ldots,k-1$: $(n/k)(2+3+\\cdots+k)=(n/k)(k(k+1)/2-1)$. For $2\\le k\\le n$, this is $\\Theta(nk)$, so option 4 is the stated bound.\n3. A balanced merge tree instead processes all $n$ elements at each of $\\Theta(\\log k)$ levels and takes $\\Theta(n\\log k)$. A heap can achieve the same asymptotic bound, but neither is the sequential algorithm in the question.\n4. The worst case includes inputs whose keys remain interleaved at successive merges; one cannot price every stage at the size of the incoming list alone. If $k$ is fixed independently of $n$, the expression becomes linear in $n$, but the listed options treat both parameters as variable.\n\n**Transfer rule.** Write the accumulated problem size at each iteration before summing costs. A correct bound for a different merge strategy is a distractor, not an answer.",
+    "pattern": "growing work per iteration and two-parameter cost",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "Original PDF page 12 re-rendered and visually read for this chapter.",
+    "answerProvenance": "independently derived; not represented as an official key"
+  }
+]

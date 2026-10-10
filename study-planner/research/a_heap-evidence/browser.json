@@ -1,0 +1,990 @@
+{
+  "topicId": "a_heap",
+  "status": "passed",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\a-heap-visual-qa",
+  "counts": {
+    "questions": 82,
+    "rules": 80,
+    "players": 27,
+    "math": 519,
+    "errors": []
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "heading": true,
+    "prose": true,
+    "code": true
+  },
+  "geometry": {
+    "models": 21,
+    "frames": 359,
+    "issues": []
+  },
+  "treeConnections": {
+    "edges": 1864,
+    "issues": []
+  },
+  "mathGeometry": {
+    "bareClosingScriptBases": [],
+    "zeroSizeFences": [],
+    "underlined": 0
+  },
+  "movingArrowPorts": {
+    "pairs": 8,
+    "progress": 0.12966666666666843,
+    "issues": [],
+    "clocks": 1
+  },
+  "pause": {
+    "motions": 1,
+    "frozen": true,
+    "sameIndex": true,
+    "running": false
+  },
+  "resumeGeometricMotion": true,
+  "beforeCompareResult": true,
+  "reducedMotion": true,
+  "printCheckpoints": true,
+  "labs": [
+    {
+      "operation": "build",
+      "error": "",
+      "result": {
+        "array": [
+          0,
+          1,
+          2,
+          9,
+          4,
+          3,
+          7
+        ],
+        "entries": [
+          {
+            "key": 0,
+            "id": "E4"
+          },
+          {
+            "key": 1,
+            "id": "E3"
+          },
+          {
+            "key": 2,
+            "id": "E6"
+          },
+          {
+            "key": 9,
+            "id": "E0"
+          },
+          {
+            "key": 4,
+            "id": "E1"
+          },
+          {
+            "key": 3,
+            "id": "E5"
+          },
+          {
+            "key": 7,
+            "id": "E2"
+          }
+        ],
+        "active": 7,
+        "comparisons": 8,
+        "swaps": 4,
+        "moves": 0,
+        "selected": [],
+        "positions": {
+          "E4": 0,
+          "E3": 1,
+          "E6": 2,
+          "E0": 3,
+          "E1": 4,
+          "E5": 5,
+          "E2": 6
+        },
+        "valid": true
+      },
+      "issues": []
+    },
+    {
+      "operation": "insert",
+      "error": "",
+      "result": {
+        "array": [
+          -999,
+          1,
+          2,
+          4,
+          5,
+          3,
+          7,
+          8
+        ],
+        "entries": [
+          {
+            "key": -999,
+            "id": "NEW"
+          },
+          {
+            "key": 1,
+            "id": "E0"
+          },
+          {
+            "key": 2,
+            "id": "E2"
+          },
+          {
+            "key": 4,
+            "id": "E1"
+          },
+          {
+            "key": 5,
+            "id": "E4"
+          },
+          {
+            "key": 3,
+            "id": "E5"
+          },
+          {
+            "key": 7,
+            "id": "E6"
+          },
+          {
+            "key": 8,
+            "id": "E3"
+          }
+        ],
+        "active": 8,
+        "comparisons": 3,
+        "swaps": 3,
+        "moves": 1,
+        "selected": [],
+        "positions": {
+          "NEW": 0,
+          "E0": 1,
+          "E2": 2,
+          "E1": 3,
+          "E4": 4,
+          "E5": 5,
+          "E6": 6,
+          "E3": 7
+        },
+        "valid": true
+      },
+      "issues": []
+    },
+    {
+      "operation": "extract",
+      "error": "",
+      "result": {
+        "array": [
+          2,
+          4,
+          3,
+          8,
+          5,
+          7
+        ],
+        "entries": [
+          {
+            "key": 2,
+            "id": "E2"
+          },
+          {
+            "key": 4,
+            "id": "E1"
+          },
+          {
+            "key": 3,
+            "id": "E5"
+          },
+          {
+            "key": 8,
+            "id": "E3"
+          },
+          {
+            "key": 5,
+            "id": "E4"
+          },
+          {
+            "key": 7,
+            "id": "E6"
+          }
+        ],
+        "active": 6,
+        "comparisons": 3,
+        "swaps": 2,
+        "moves": 1,
+        "selected": [
+          {
+            "key": 1,
+            "id": "E0"
+          }
+        ],
+        "positions": {
+          "E2": 0,
+          "E1": 1,
+          "E5": 2,
+          "E3": 3,
+          "E4": 4,
+          "E6": 5
+        },
+        "valid": true
+      },
+      "issues": []
+    },
+    {
+      "operation": "change",
+      "error": "",
+      "result": {
+        "array": [
+          -999,
+          4,
+          1,
+          8,
+          5,
+          2,
+          7
+        ],
+        "entries": [
+          {
+            "key": -999,
+            "id": "E5"
+          },
+          {
+            "key": 4,
+            "id": "E1"
+          },
+          {
+            "key": 1,
+            "id": "E0"
+          },
+          {
+            "key": 8,
+            "id": "E3"
+          },
+          {
+            "key": 5,
+            "id": "E4"
+          },
+          {
+            "key": 2,
+            "id": "E2"
+          },
+          {
+            "key": 7,
+            "id": "E6"
+          }
+        ],
+        "active": 7,
+        "comparisons": 2,
+        "swaps": 2,
+        "moves": 0,
+        "selected": [],
+        "positions": {
+          "E5": 0,
+          "E1": 1,
+          "E0": 2,
+          "E3": 3,
+          "E4": 4,
+          "E2": 5,
+          "E6": 6
+        },
+        "valid": true
+      },
+      "issues": []
+    },
+    {
+      "operation": "delete",
+      "error": "",
+      "result": {
+        "array": [
+          1,
+          4,
+          2,
+          10,
+          12,
+          3
+        ],
+        "entries": [
+          {
+            "key": 1,
+            "id": "E0"
+          },
+          {
+            "key": 4,
+            "id": "E6"
+          },
+          {
+            "key": 2,
+            "id": "E2"
+          },
+          {
+            "key": 10,
+            "id": "E1"
+          },
+          {
+            "key": 12,
+            "id": "E4"
+          },
+          {
+            "key": 3,
+            "id": "E5"
+          }
+        ],
+        "active": 6,
+        "comparisons": 2,
+        "swaps": 1,
+        "moves": 1,
+        "selected": [
+          {
+            "key": 11,
+            "id": "E3"
+          }
+        ],
+        "positions": {
+          "E0": 0,
+          "E6": 1,
+          "E2": 2,
+          "E1": 3,
+          "E4": 4,
+          "E5": 5
+        },
+        "valid": true
+      },
+      "issues": []
+    },
+    {
+      "operation": "sort",
+      "error": "",
+      "result": {
+        "array": [
+          -999,
+          3,
+          5,
+          5
+        ],
+        "entries": [
+          {
+            "key": -999,
+            "id": "E2"
+          },
+          {
+            "key": 3,
+            "id": "E3"
+          },
+          {
+            "key": 5,
+            "id": "E1"
+          },
+          {
+            "key": 5,
+            "id": "E0"
+          }
+        ],
+        "active": 1,
+        "comparisons": 6,
+        "swaps": 5,
+        "moves": 0,
+        "selected": [],
+        "positions": {
+          "E2": 0
+        },
+        "valid": true
+      },
+      "issues": []
+    },
+    {
+      "operation": "multiway",
+      "error": "",
+      "result": {
+        "array": [
+          0,
+          2,
+          7,
+          1,
+          9,
+          3,
+          4
+        ],
+        "entries": [
+          {
+            "key": 0,
+            "id": "E4"
+          },
+          {
+            "key": 2,
+            "id": "E6"
+          },
+          {
+            "key": 7,
+            "id": "E2"
+          },
+          {
+            "key": 1,
+            "id": "E3"
+          },
+          {
+            "key": 9,
+            "id": "E0"
+          },
+          {
+            "key": 3,
+            "id": "E5"
+          },
+          {
+            "key": 4,
+            "id": "E1"
+          }
+        ],
+        "active": 7,
+        "comparisons": 6,
+        "swaps": 2,
+        "moves": 0,
+        "selected": [],
+        "positions": {
+          "E4": 0,
+          "E6": 1,
+          "E2": 2,
+          "E3": 3,
+          "E0": 4,
+          "E5": 5,
+          "E1": 6
+        },
+        "valid": true
+      },
+      "issues": []
+    },
+    {
+      "operation": "topk",
+      "error": "",
+      "result": {
+        "array": [
+          8,
+          10,
+          9
+        ],
+        "entries": [
+          {
+            "key": 8,
+            "id": "E4"
+          },
+          {
+            "key": 10,
+            "id": "E6"
+          },
+          {
+            "key": 9,
+            "id": "E2"
+          }
+        ],
+        "active": 3,
+        "comparisons": 8,
+        "swaps": 3,
+        "moves": 3,
+        "selected": [
+          {
+            "key": 1,
+            "id": "E1"
+          },
+          {
+            "key": 4,
+            "id": "E3"
+          },
+          {
+            "key": 5,
+            "id": "E0"
+          }
+        ],
+        "positions": {
+          "E4": 0,
+          "E6": 1,
+          "E2": 2
+        },
+        "valid": true
+      },
+      "issues": []
+    },
+    {
+      "operation": "frontier",
+      "error": "",
+      "result": {
+        "array": [
+          1,
+          4,
+          2,
+          8,
+          5,
+          3,
+          7
+        ],
+        "entries": [
+          {
+            "key": 1,
+            "id": "E0"
+          },
+          {
+            "key": 4,
+            "id": "E1"
+          },
+          {
+            "key": 2,
+            "id": "E2"
+          },
+          {
+            "key": 8,
+            "id": "E3"
+          },
+          {
+            "key": 5,
+            "id": "E4"
+          },
+          {
+            "key": 3,
+            "id": "E5"
+          },
+          {
+            "key": 7,
+            "id": "E6"
+          }
+        ],
+        "active": 7,
+        "comparisons": 0,
+        "swaps": 0,
+        "moves": 0,
+        "selected": [
+          {
+            "key": 1,
+            "id": "E0",
+            "index": 0
+          },
+          {
+            "key": 2,
+            "id": "E2",
+            "index": 2
+          },
+          {
+            "key": 3,
+            "id": "E5",
+            "index": 5
+          },
+          {
+            "key": 4,
+            "id": "E1",
+            "index": 1
+          }
+        ],
+        "positions": {
+          "E0": 0,
+          "E1": 1,
+          "E2": 2,
+          "E3": 3,
+          "E4": 4,
+          "E5": 5,
+          "E6": 6
+        },
+        "valid": true,
+        "rankValue": 4
+      },
+      "issues": []
+    },
+    {
+      "operation": "binomial",
+      "error": "",
+      "result": {
+        "roots": [
+          {
+            "key": 1,
+            "id": "B7",
+            "children": [
+              {
+                "key": 2,
+                "id": "B6",
+                "children": []
+              },
+              {
+                "key": 3,
+                "id": "B5",
+                "children": [
+                  {
+                    "key": 4,
+                    "id": "B4",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "key": 5,
+                "id": "B3",
+                "children": [
+                  {
+                    "key": 6,
+                    "id": "B2",
+                    "children": []
+                  },
+                  {
+                    "key": 7,
+                    "id": "B1",
+                    "children": [
+                      {
+                        "key": 8,
+                        "id": "B0",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "links": 7,
+        "size": 8
+      },
+      "issues": []
+    },
+    {
+      "operation": "fibonacci",
+      "error": "",
+      "result": {
+        "roots": [
+          {
+            "id": "F1",
+            "key": 1,
+            "marked": false,
+            "children": []
+          },
+          {
+            "id": "F7",
+            "key": 0,
+            "marked": false,
+            "children": []
+          },
+          {
+            "id": "F9",
+            "key": 2,
+            "marked": false,
+            "children": []
+          },
+          {
+            "id": "F4",
+            "key": 4,
+            "marked": false,
+            "children": []
+          }
+        ],
+        "potential": 4
+      },
+      "issues": []
+    },
+    {
+      "operation": "build",
+      "error": "",
+      "result": {
+        "array": [
+          -999,
+          -998,
+          -997,
+          -996,
+          -995,
+          -994,
+          -993,
+          -992,
+          -991,
+          -990,
+          -989,
+          -988,
+          -987,
+          -986,
+          -985
+        ],
+        "entries": [
+          {
+            "key": -999,
+            "id": "E0"
+          },
+          {
+            "key": -998,
+            "id": "E1"
+          },
+          {
+            "key": -997,
+            "id": "E2"
+          },
+          {
+            "key": -996,
+            "id": "E3"
+          },
+          {
+            "key": -995,
+            "id": "E4"
+          },
+          {
+            "key": -994,
+            "id": "E5"
+          },
+          {
+            "key": -993,
+            "id": "E6"
+          },
+          {
+            "key": -992,
+            "id": "E7"
+          },
+          {
+            "key": -991,
+            "id": "E8"
+          },
+          {
+            "key": -990,
+            "id": "E9"
+          },
+          {
+            "key": -989,
+            "id": "E10"
+          },
+          {
+            "key": -988,
+            "id": "E11"
+          },
+          {
+            "key": -987,
+            "id": "E12"
+          },
+          {
+            "key": -986,
+            "id": "E13"
+          },
+          {
+            "key": -985,
+            "id": "E14"
+          }
+        ],
+        "active": 15,
+        "comparisons": 14,
+        "swaps": 0,
+        "moves": 0,
+        "selected": [],
+        "positions": {
+          "E0": 0,
+          "E1": 1,
+          "E2": 2,
+          "E3": 3,
+          "E4": 4,
+          "E5": 5,
+          "E6": 6,
+          "E7": 7,
+          "E8": 8,
+          "E9": 9,
+          "E10": 10,
+          "E11": 11,
+          "E12": 12,
+          "E13": 13,
+          "E14": 14
+        },
+        "valid": true
+      },
+      "issues": []
+    },
+    {
+      "operation": "sort",
+      "error": "",
+      "result": {
+        "array": [
+          -999,
+          -998,
+          -997,
+          -996,
+          -995,
+          -994,
+          -993,
+          -992,
+          -991,
+          -990,
+          -989,
+          -988,
+          -987,
+          -986,
+          -985
+        ],
+        "entries": [
+          {
+            "key": -999,
+            "id": "E0"
+          },
+          {
+            "key": -998,
+            "id": "E1"
+          },
+          {
+            "key": -997,
+            "id": "E2"
+          },
+          {
+            "key": -996,
+            "id": "E3"
+          },
+          {
+            "key": -995,
+            "id": "E4"
+          },
+          {
+            "key": -994,
+            "id": "E5"
+          },
+          {
+            "key": -993,
+            "id": "E6"
+          },
+          {
+            "key": -992,
+            "id": "E7"
+          },
+          {
+            "key": -991,
+            "id": "E8"
+          },
+          {
+            "key": -990,
+            "id": "E9"
+          },
+          {
+            "key": -989,
+            "id": "E10"
+          },
+          {
+            "key": -988,
+            "id": "E11"
+          },
+          {
+            "key": -987,
+            "id": "E12"
+          },
+          {
+            "key": -986,
+            "id": "E13"
+          },
+          {
+            "key": -985,
+            "id": "E14"
+          }
+        ],
+        "active": 1,
+        "comparisons": 77,
+        "swaps": 52,
+        "moves": 0,
+        "selected": [],
+        "positions": {
+          "E0": 0
+        },
+        "valid": true
+      },
+      "issues": []
+    },
+    {
+      "operation": "binomial",
+      "error": "",
+      "result": {
+        "roots": [
+          {
+            "key": -985,
+            "id": "B14",
+            "children": []
+          },
+          {
+            "key": -987,
+            "id": "B12",
+            "children": [
+              {
+                "key": -986,
+                "id": "B13",
+                "children": []
+              }
+            ]
+          },
+          {
+            "key": -991,
+            "id": "B8",
+            "children": [
+              {
+                "key": -990,
+                "id": "B9",
+                "children": []
+              },
+              {
+                "key": -989,
+                "id": "B10",
+                "children": [
+                  {
+                    "key": -988,
+                    "id": "B11",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": -999,
+            "id": "B0",
+            "children": [
+              {
+                "key": -998,
+                "id": "B1",
+                "children": []
+              },
+              {
+                "key": -997,
+                "id": "B2",
+                "children": [
+                  {
+                    "key": -996,
+                    "id": "B3",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "key": -995,
+                "id": "B4",
+                "children": [
+                  {
+                    "key": -994,
+                    "id": "B5",
+                    "children": []
+                  },
+                  {
+                    "key": -993,
+                    "id": "B6",
+                    "children": [
+                      {
+                        "key": -992,
+                        "id": "B7",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "links": 11,
+        "size": 15
+      },
+      "issues": []
+    }
+  ],
+  "invalidPreservesPrevious": 12,
+  "mobileOverflow": false,
+  "printVisible": true,
+  "runtimeErrors": [],
+  "library": {
+    "cards": 54,
+    "visible": true,
+    "errors": []
+  },
+  "weeklyChapterLink": true
+}
