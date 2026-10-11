@@ -1,0 +1,278 @@
+[
+  {
+    "id": "binomial-eight",
+    "spec": {
+      "kind": "independent",
+      "probabilities": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "N": null,
+      "K": null,
+      "n": 8
+    }
+  },
+  {
+    "id": "binomial-thinning",
+    "spec": {
+      "kind": "independent",
+      "probabilities": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "N": null,
+      "K": null,
+      "n": 6
+    }
+  },
+  {
+    "id": "heterogeneous",
+    "spec": {
+      "kind": "independent",
+      "probabilities": [
+        0.5,
+        0.3333333333333333,
+        0.25
+      ],
+      "N": null,
+      "K": null,
+      "n": 3
+    }
+  },
+  {
+    "id": "hypergeometric-small",
+    "spec": {
+      "kind": "hyper",
+      "probabilities": [
+        0,
+        0,
+        0
+      ],
+      "N": 10,
+      "K": 4,
+      "n": 3
+    }
+  },
+  {
+    "id": "hypergeometric-dense",
+    "spec": {
+      "kind": "hyper",
+      "probabilities": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "N": 8,
+      "K": 6,
+      "n": 5
+    }
+  },
+  {
+    "id": "geometric-six",
+    "spec": {
+      "kind": "wait",
+      "r": 1,
+      "p": 0.16666666666666666,
+      "steps": 8
+    }
+  },
+  {
+    "id": "negative-two",
+    "spec": {
+      "kind": "wait",
+      "r": 2,
+      "p": 0.25,
+      "steps": 8
+    }
+  },
+  {
+    "id": "negative-convolution",
+    "spec": {
+      "kind": "wait",
+      "r": 5,
+      "p": 0.5,
+      "steps": 8
+    }
+  },
+  {
+    "id": "censored",
+    "spec": {
+      "kind": "censored",
+      "p": 0.5,
+      "horizon": 4
+    }
+  },
+  {
+    "id": "truncated",
+    "spec": {
+      "kind": "truncated",
+      "p": 0.5,
+      "horizon": 4
+    }
+  },
+  {
+    "id": "failure-code",
+    "spec": {
+      "kind": "failure-code",
+      "p": 0.5,
+      "horizon": 4
+    }
+  },
+  {
+    "id": "finite-wait",
+    "spec": {
+      "kind": "subsets",
+      "N": 7,
+      "K": 3,
+      "r": 2
+    }
+  },
+  {
+    "id": "finite-one-mark",
+    "spec": {
+      "kind": "subsets",
+      "N": 6,
+      "K": 1,
+      "r": 1
+    }
+  },
+  {
+    "id": "classification",
+    "spec": {
+      "kind": "classification",
+      "n": 4,
+      "a": 0.25,
+      "b": 0.5
+    }
+  },
+  {
+    "id": "poisson-splitting",
+    "spec": {
+      "kind": "poisson-splitting",
+      "probability": 0.3333333333333333,
+      "exposures": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "limit": 4
+    }
+  },
+  {
+    "id": "poisson-one",
+    "spec": {
+      "kind": "poisson",
+      "lam": 1,
+      "limit": 8
+    }
+  },
+  {
+    "id": "poisson-mode",
+    "spec": {
+      "kind": "poisson",
+      "lam": 3,
+      "limit": 8
+    }
+  },
+  {
+    "id": "poisson-small-interval",
+    "spec": {
+      "kind": "poisson",
+      "lam": 0.1,
+      "limit": 8
+    }
+  },
+  {
+    "id": "poisson-conditional",
+    "spec": {
+      "kind": "binomial",
+      "n": 4,
+      "p": 0.4
+    }
+  },
+  {
+    "id": "latent-count",
+    "spec": {
+      "kind": "latent-binomial",
+      "n": 6,
+      "ps": [
+        0.25,
+        0.75
+      ]
+    }
+  },
+  {
+    "id": "mixed-poisson",
+    "spec": {
+      "kind": "mixed-poisson",
+      "parameters": [
+        1,
+        3
+      ],
+      "limit": 8
+    }
+  },
+  {
+    "id": "family-posterior",
+    "spec": {
+      "kind": "geometric-failures",
+      "p": 0.75,
+      "limit": 8
+    }
+  },
+  {
+    "id": "poisson-approximation",
+    "spec": {
+      "kind": "approximation",
+      "lam": 1,
+      "ns": [
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128
+      ]
+    }
+  },
+  {
+    "id": "hypergeometric-mode",
+    "spec": {
+      "kind": "hypergeometric",
+      "N": 12,
+      "K": 5,
+      "n": 5
+    }
+  },
+  {
+    "id": "race",
+    "spec": {
+      "kind": "race",
+      "p1": 0.3333333333333333,
+      "p2": 0.5
+    }
+  },
+  {
+    "id": "uniform-lattice",
+    "spec": {
+      "kind": "uniform",
+      "m": 5,
+      "a": 2,
+      "b": -3
+    }
+  }
+]

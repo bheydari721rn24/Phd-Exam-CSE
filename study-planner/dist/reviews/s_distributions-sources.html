@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Discrete distributions chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"><link rel="stylesheet" href="../chapters/s_distributions.css"></head><body><main class="chapter"><p><a href="../chapters/s_distributions.html">Discrete distributions chapter</a></p><article class="lesson"><h1>Discrete distributions: evaluated written-course pool</h1>
+<h2>Search boundary and selection</h2>
+<p>Nine university candidates were compared using course inventories and accessible chapter text. Five courses were actually read. Oxford, Cambridge, Berkeley and MIT form the core; Stanford supplies an application extension. Selection follows chapter-level scientific coverage, derivation quality, support and parameter clarity, computational interpretation and accessible written evidence. An inventory, title or download is not counted as a lecture reading. This is a bounded documented search; it is not possible to certify that every course worldwide has been evaluated or that four courses are globally best.</p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Course and attribution</th>
+<th>Actual reading</th>
+<th>Chapter role and limitations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core, structural proof</td>
+<td>Oxford Prelims Probability, James Martin, Michaelmas 2019</td>
+<td>Native PDF pages 18–26 and 39–44, read completely</td>
+<td>Parameter contracts, geometric first-step moments, PGF uniqueness, sums, random-sum composition and thinning. The geometric support starts at one. The random-urn example's final expectation line uses an inconsistent capital <span class="math-inline">N</span>; its model uses the stated lowercase <span class="math-inline">n</span>.</td>
+</tr>
+<tr>
+<td>Core, waiting and rare-event derivations</td>
+<td>Berkeley CS 70, Rao and Walrand, Spring 2016, Note19 in Fall 2016 archive</td>
+<td>All eight pages read, including both halves of the Poisson-limit proof</td>
+<td>Tail-sum proof, geometric factorial moments, coupon stages, Poisson moments and limits. Its single-peak wording omits the tied modes at a positive integer parameter. Average arrival rate alone cannot identify a Poisson law.</td>
+</tr>
+<tr>
+<td>Core, precise building blocks</td>
+<td>MIT 18.05 Spring 2022; course instructors Jeremy Orloff and Jennifer French Kamrin; written-note authors Jeremy Orloff and Jonathan Bloom</td>
+<td>Combined PDF pages34–51; the initially truncated pages42–43 were reread separately</td>
+<td>Independent sequence grouping, binomial moments, failure-based geometric convention and explicit convolution. The neutral stopping probability must be distinguished from the probability of an event colloquially called success. The binomial-table sentence has a parameter-letter typo; the formula uses <span class="math-inline">n</span>,<span class="math-inline">p</span>.</td>
+</tr>
+<tr>
+<td>Additional, application and model criticism</td>
+<td>Stanford CS 109, Chris Piech, Winter 2022, Lecture 8</td>
+<td>All 66 native textual slides read; progressive duplicated slides recognized</td>
+<td>Poisson limits, rate units, corruption counts, tail computation and model change. Although the lecture landing page advertises geometric/negative-binomial objectives, the acquired slide deck only summarizes them; it is not counted as a detailed derivation of those laws. Slide65's fixed-n Poisson description is corrected; finite fixed-n counts are bounded. Heuristic approximation thresholds and mild-dependence claims are not universal guarantees.</td>
+</tr>
+<tr>
+<td>Core, complete model catalogue</td>
+<td>Cambridge Introduction to Probability, 2023–24 Lecture 4, Mateja Jamnik and Thomas Sauerwald</td>
+<td>All 23 native PDF pages read after a bounded retry succeeded</td>
+<td>Negative-binomial stopped counts and sums, hypergeometric samples and moments. The broad hypergeometric range is refined to its positive-mass support. Finite Poisson-process intervals are not literally Bernoulli trials; the small-interval approximation is stated correctly.</td>
+</tr>
+<tr>
+<td>Screened extension</td>
+<td>CMU36-700 Fall 2016, Siva Balakrishnan</td>
+<td>Lecture 4 inventory and common-law section already evaluated in the preceding chapter; not counted as a new full reading here</td>
+<td>Useful MGF comparison, but does not replace this chapter's waiting/support derivations.</td>
+</tr>
+<tr>
+<td>Screened extension</td>
+<td>ETH Zurich Probability Theory FS2020, Johanna <span class="math-inline">F</span>.Ziegel</td>
+<td>Previously verified written-course inventory; no additional discrete-distribution pages read here</td>
+<td>Not counted as a chapter reading.</td>
+</tr>
+<tr>
+<td>Screened extension</td>
+<td>Harvard Stat110, Joe Blitzstein; book by Blitzstein and Hwang</td>
+<td>Official free-book inventory verified; no book chapters read in this delivery</td>
+<td>Course title or textbook availability alone is not a synthesis contribution.</td>
+</tr>
+<tr>
+<td>Screened extension</td>
+<td>Cornell CS2800 Fall2017</td>
+<td>Previously inspected expectation lecture establishes context</td>
+<td>Not a complete named-distribution catalogue; not counted here.</td>
+</tr>
+</tbody>
+</table>
+<h2>Synthesis decisions</h2>
+<p>Oxford supplies the algebraic framework; Berkeley derives infinite waiting laws; MIT reconciles fixed horizons and counting conventions; Cambridge fills the negative-binomial and hypergeometric catalogue; Stanford supplies engineering applications and examples of model assumptions failing. Full stopped-sequence, subset-count and finite-population waiting proofs develop the displayed formulas. These derivations are verified independently by exhaustive finite enumeration and symbolic identities.</p>
+<p>The source discrepancy register is part of the lesson: positive and zero-based geometric conventions are both stated; two Poisson modes occur when the positive parameter is an integer; rate must be multiplied by exposure; finite binomial counts remain distinct from unbounded Poisson limits; a shared random probability changes the law and variance; and independence is never inferred merely from identical marginal probabilities.</p>
+<h2>Exact primary references</h2>
+<ol>
+<li>James Martin. Prelims Probability. Oxford, Michaelmas 2019. https://courses.maths.ox.ac.<span class="math-inline">uk/mo</span>d/resource/view.php?<span class="math-inline">id=48553</span></li>
+<li>Rao and Walrand. CS 70 Note19: Some Important Distributions. Berkeley, Spring 2016. https://fa16.eecs70.org/static/notes/n19.pdf</li>
+<li>Jeremy Orloff and Jonathan Bloom. MIT 18.05 combined probability readings, Classes 4–5. https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-<span class="math-inline">2022/mi</span>t18_05_s22_probability.pdf</li>
+<li>Chris Piech. CS 109 Lecture 8: Poisson. Stanford, Winter 2022. https://web.stanford.edu/class/archive/<span class="math-inline">cs/cs109/cs109</span>.<span class="math-inline">1224/le</span>ctures/8-Poisson/8-Poisson.pdf</li>
+<li>Stanford lecture inventory: https://web.stanford.edu/class/archive/<span class="math-inline">cs/cs109/cs109</span>.<span class="math-inline">1224/le</span>ctures/8-Poisson/</li>
+<li>Mateja Jamnik and Thomas Sauerwald. Cambridge Introduction to Probability, Lecture 4, 2023–24. Read handout: https://www.cl.cam.ac.<span class="math-inline">uk/te</span>aching/<span class="math-inline">2324/In</span>troProb/slides/04-poisson-geometric-discr-rv-all-handout.pdf</li>
+<li>Harvard screened home: https://stat110.hsites.harvard.edu/</li>
+</ol>
+<p>Acquisition hashes and outcomes are recorded separately. Only declared page ranges are counted as read. The wording, diagrams and worked problems are independently authored; the bank does not claim to reproduce every copyrighted course exercise.</p>
+<h2>Original Iranian examination bridges</h2>
+<p>The original rendered PhDCS1404 PDF page15 and MSCE1405 PDF page8 were visually reinspected in this chapter. The relevant binomial and posterior-geometric questions are explicitly reused for deeper distribution analysis; they are not newly discovered unique archive entries. Ordered printed alternatives, immutable repository commit, page numbers, PDF hashes and independently derived answers remain inspectable. No official answer key is claimed.</p>
+</article></main><script src="../chapters/math-layout.js?v=79"></script></body></html>

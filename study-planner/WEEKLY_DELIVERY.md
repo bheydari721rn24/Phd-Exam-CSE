@@ -596,3 +596,8 @@ Completed s_variance: eighteen deep teaching sections, 87 worked entries (84 ori
 ## Five new drafts privately published
 
 Native private deployment appgdep_6acaf3125c108191a0b77a0b47cd6126 succeeded from exact pushed source f05657ab1022545f83046d98d7f54af76df9e44e and its byte-verified 470-entry archive. It publishes balanced trees, heaps, hashing, amortized analysis and variance/covariance. Library: 57 chapters / 3913 worked entries. GitHub content commit 27ff627. No student approval is inferred. Continue s_distributions under standing authorization. See research/s_variance-publication.json.
+
+
+## Discrete distributions review draft
+
+Completed s_distributions with 28 sections, 88 worked entries (85 original/reconstructed and three explicitly revisited authenticated items), 84 complete final rules, four core written university courses plus Stanford. Twenty-six mechanism-specific models provide 358 checkpoints and 66 teaching/problem placements. Independent review passed 594 enumerated experiments, 105 actual editable-calculator cases and 921 native MathML fence checks. Edge inspected all models, 987 mounted formulas, fonts, geometry, pause/resume, comparison, reduced motion, print, mobile containment and library links. All 57 earlier chapter pages are unchanged. Library: 58 chapters / 4001 worked entries. The chapter stays an unapproved review draft. Continue sequentially with l_linear under the standing authorization; publication is recorded separately.
