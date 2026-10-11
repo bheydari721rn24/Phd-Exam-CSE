@@ -1,0 +1,134 @@
+{
+  "status": "passed",
+  "topicId": "a_asym",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-asym-browser",
+  "counts": {
+    "questions": 46,
+    "solutions": 46,
+    "questionTables": 7,
+    "math": 1102,
+    "errors": []
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "prose": true
+  },
+  "delimiters": [],
+  "models": [
+    {
+      "id": "growth-threshold",
+      "frames": 6,
+      "issues": []
+    },
+    {
+      "id": "encoding-length",
+      "frames": 6,
+      "issues": []
+    },
+    {
+      "id": "loop-doubling",
+      "frames": 5,
+      "issues": []
+    },
+    {
+      "id": "recurrence-levels",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "asym-parity-ratio",
+      "frames": 16,
+      "issues": []
+    },
+    {
+      "id": "asym-log-oscillation",
+      "frames": 8,
+      "issues": []
+    },
+    {
+      "id": "asym-floor-ratio",
+      "frames": 10,
+      "issues": []
+    }
+  ],
+  "controlChecks": [
+    {
+      "id": "asym-parity-ratio",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "asym-log-oscillation",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "asym-floor-ratio",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  ],
+  "staticDiagrams": [
+    {
+      "label": "Exact normalized ratio three plus seven over n; lower envelope three, upper envelope four, and threshold seven",
+      "outside": []
+    },
+    {
+      "label": "Strict fixed-parameter growth chain from logarithm to factorial",
+      "outside": []
+    }
+  ],
+  "responsive": [
+    {
+      "width": 1360,
+      "pageWidth": 1345,
+      "tableOverflow": [],
+      "underlined": 0
+    },
+    {
+      "width": 768,
+      "pageWidth": 753,
+      "tableOverflow": [],
+      "underlined": 0
+    },
+    {
+      "width": 390,
+      "pageWidth": 390,
+      "tableOverflow": [],
+      "underlined": 0
+    }
+  ],
+  "print": {
+    "solutions": 46,
+    "errors": []
+  },
+  "humanInspectedScreenshots": [
+    "ratio-envelopes.png",
+    "strict-hierarchy.png",
+    "asym-log-oscillation-7.png",
+    "asym-floor-ratio-9.png",
+    "question-2.png",
+    "question-3-mobile.png",
+    "final-rules.png"
+  ],
+  "mobileDiagramBehavior": "Each full-size diagram has local horizontal scrolling; page and question tables remain within the phone viewport. Finite discrete samples are explicitly distinguished from infinite-tail proofs."
+}

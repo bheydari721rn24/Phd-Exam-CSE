@@ -218791,6 +218791,1227 @@
           }
         }
       ]
+    },
+    "asym-parity-ratio": {
+      "id": "asym-parity-ratio",
+      "title": "Question 7: one upper envelope fails on odd inputs",
+      "description": "The ratio to n is one on even inputs and n on odd inputs. These finite points illustrate the two unbounded subsequences analyzed in the solution.",
+      "descriptionHtml": "<p>The ratio to n is one on even inputs and n on odd inputs. These finite points illustrate the two unbounded subsequences analyzed in the solution.</p>",
+      "invariant": "Each point belongs to the stated integer input and the specified normalized function; no continuous interpolation is claimed.",
+      "visual": {
+        "type": "plot",
+        "claim": "Question-specific discrete ratio or log-ratio with fixed, labeled axes.",
+        "revision": "exact-asymptotic-examples-v1"
+      },
+      "code": [
+        "Evaluate the chosen integer input, then the specified normalized quantity"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 1,
+            "ordinate": "1",
+            "family": "odd quadratic"
+          },
+          "caption": "At integer n=1, the odd quadratic definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=1, the odd quadratic definition gives ratio 1. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 1,
+            "Displayed ordinate": "1"
+          },
+          "formula": "\\frac{f(1)}{1}=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(1)}{1}=1\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>1</mn><mo>)</mo></mrow></mrow><mrow><mn>1</mn></mrow></mfrac><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=1, the odd quadratic definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 1,
+              "ordinate": "1",
+              "family": "odd quadratic"
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 2,
+            "ordinate": "1",
+            "family": "even linear"
+          },
+          "caption": "At integer n=2, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=2, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 2,
+            "Displayed ordinate": "1"
+          },
+          "formula": "\\frac{f(2)}{2}=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(2)}{2}=1\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>2</mn><mo>)</mo></mrow></mrow><mrow><mn>2</mn></mrow></mfrac><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=2, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 2,
+              "ordinate": "1",
+              "family": "even linear"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 3,
+            "ordinate": "3",
+            "family": "odd quadratic"
+          },
+          "caption": "At integer n=3, the odd quadratic definition gives ratio 3. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=3, the odd quadratic definition gives ratio 3. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 3,
+            "Displayed ordinate": "3"
+          },
+          "formula": "\\frac{f(3)}{3}=3",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(3)}{3}=3\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>3</mn><mo>)</mo></mrow></mrow><mrow><mn>3</mn></mrow></mfrac><mo>=</mo><mn>3</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=3, the odd quadratic definition gives ratio 3. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 3,
+              "ordinate": "3",
+              "family": "odd quadratic"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 4,
+            "ordinate": "1",
+            "family": "even linear"
+          },
+          "caption": "At integer n=4, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=4, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 4,
+            "Displayed ordinate": "1"
+          },
+          "formula": "\\frac{f(4)}{4}=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(4)}{4}=1\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>4</mn><mo>)</mo></mrow></mrow><mrow><mn>4</mn></mrow></mfrac><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=4, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 4,
+              "ordinate": "1",
+              "family": "even linear"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 5,
+            "ordinate": "5",
+            "family": "odd quadratic"
+          },
+          "caption": "At integer n=5, the odd quadratic definition gives ratio 5. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=5, the odd quadratic definition gives ratio 5. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 5,
+            "Displayed ordinate": "5"
+          },
+          "formula": "\\frac{f(5)}{5}=5",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(5)}{5}=5\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>5</mn><mo>)</mo></mrow></mrow><mrow><mn>5</mn></mrow></mfrac><mo>=</mo><mn>5</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=5, the odd quadratic definition gives ratio 5. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 5,
+              "ordinate": "5",
+              "family": "odd quadratic"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 6,
+            "ordinate": "1",
+            "family": "even linear"
+          },
+          "caption": "At integer n=6, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=6, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 6,
+            "Displayed ordinate": "1"
+          },
+          "formula": "\\frac{f(6)}{6}=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(6)}{6}=1\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>6</mn><mo>)</mo></mrow></mrow><mrow><mn>6</mn></mrow></mfrac><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=6, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 6,
+              "ordinate": "1",
+              "family": "even linear"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 7,
+            "ordinate": "7",
+            "family": "odd quadratic"
+          },
+          "caption": "At integer n=7, the odd quadratic definition gives ratio 7. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=7, the odd quadratic definition gives ratio 7. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 7,
+            "Displayed ordinate": "7"
+          },
+          "formula": "\\frac{f(7)}{7}=7",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(7)}{7}=7\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>7</mn><mo>)</mo></mrow></mrow><mrow><mn>7</mn></mrow></mfrac><mo>=</mo><mn>7</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=7, the odd quadratic definition gives ratio 7. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 7,
+              "ordinate": "7",
+              "family": "odd quadratic"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "ordinate": "1",
+            "family": "even linear"
+          },
+          "caption": "At integer n=8, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=8, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 8,
+            "Displayed ordinate": "1"
+          },
+          "formula": "\\frac{f(8)}{8}=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(8)}{8}=1\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow></mrow><mrow><mn>8</mn></mrow></mfrac><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=8, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 8,
+              "ordinate": "1",
+              "family": "even linear"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 9,
+            "ordinate": "9",
+            "family": "odd quadratic"
+          },
+          "caption": "At integer n=9, the odd quadratic definition gives ratio 9. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=9, the odd quadratic definition gives ratio 9. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 9,
+            "Displayed ordinate": "9"
+          },
+          "formula": "\\frac{f(9)}{9}=9",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(9)}{9}=9\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>9</mn><mo>)</mo></mrow></mrow><mrow><mn>9</mn></mrow></mfrac><mo>=</mo><mn>9</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=9, the odd quadratic definition gives ratio 9. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 9,
+              "ordinate": "9",
+              "family": "odd quadratic"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 10,
+            "ordinate": "1",
+            "family": "even linear"
+          },
+          "caption": "At integer n=10, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=10, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 10,
+            "Displayed ordinate": "1"
+          },
+          "formula": "\\frac{f(10)}{10}=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(10)}{10}=1\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>10</mn><mo>)</mo></mrow></mrow><mrow><mn>10</mn></mrow></mfrac><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=10, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 10,
+              "ordinate": "1",
+              "family": "even linear"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 11,
+            "ordinate": "11",
+            "family": "odd quadratic"
+          },
+          "caption": "At integer n=11, the odd quadratic definition gives ratio 11. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=11, the odd quadratic definition gives ratio 11. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 11,
+            "Displayed ordinate": "11"
+          },
+          "formula": "\\frac{f(11)}{11}=11",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(11)}{11}=11\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>11</mn><mo>)</mo></mrow></mrow><mrow><mn>11</mn></mrow></mfrac><mo>=</mo><mn>11</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=11, the odd quadratic definition gives ratio 11. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 11,
+              "ordinate": "11",
+              "family": "odd quadratic"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 12,
+            "ordinate": "1",
+            "family": "even linear"
+          },
+          "caption": "At integer n=12, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=12, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 12,
+            "Displayed ordinate": "1"
+          },
+          "formula": "\\frac{f(12)}{12}=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(12)}{12}=1\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>12</mn><mo>)</mo></mrow></mrow><mrow><mn>12</mn></mrow></mfrac><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=12, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 12,
+              "ordinate": "1",
+              "family": "even linear"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 13,
+            "ordinate": "13",
+            "family": "odd quadratic"
+          },
+          "caption": "At integer n=13, the odd quadratic definition gives ratio 13. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=13, the odd quadratic definition gives ratio 13. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 13,
+            "Displayed ordinate": "13"
+          },
+          "formula": "\\frac{f(13)}{13}=13",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(13)}{13}=13\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>13</mn><mo>)</mo></mrow></mrow><mrow><mn>13</mn></mrow></mfrac><mo>=</mo><mn>13</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=13, the odd quadratic definition gives ratio 13. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 13,
+              "ordinate": "13",
+              "family": "odd quadratic"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 14,
+            "ordinate": "1",
+            "family": "even linear"
+          },
+          "caption": "At integer n=14, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=14, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 14,
+            "Displayed ordinate": "1"
+          },
+          "formula": "\\frac{f(14)}{14}=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(14)}{14}=1\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>14</mn><mo>)</mo></mrow></mrow><mrow><mn>14</mn></mrow></mfrac><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=14, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 14,
+              "ordinate": "1",
+              "family": "even linear"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 15,
+            "ordinate": "15",
+            "family": "odd quadratic"
+          },
+          "caption": "At integer n=15, the odd quadratic definition gives ratio 15. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=15, the odd quadratic definition gives ratio 15. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 15,
+            "Displayed ordinate": "15"
+          },
+          "formula": "\\frac{f(15)}{15}=15",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(15)}{15}=15\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>15</mn><mo>)</mo></mrow></mrow><mrow><mn>15</mn></mrow></mfrac><mo>=</mo><mn>15</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=15, the odd quadratic definition gives ratio 15. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 15,
+              "ordinate": "15",
+              "family": "odd quadratic"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 16,
+            "ordinate": "1",
+            "family": "even linear"
+          },
+          "caption": "At integer n=16, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+          "captionHtml": "<p>At integer n=16, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.</p>",
+          "metrics": {
+            "Integer input": 16,
+            "Displayed ordinate": "1"
+          },
+          "formula": "\\frac{f(16)}{16}=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{f(16)}{16}=1\"><mrow><mfrac><mrow><mi>f</mi><mrow><mo>(</mo><mn>16</mn><mo>)</mo></mrow></mrow><mrow><mn>16</mn></mrow></mfrac><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=16, the even linear definition gives ratio 1. The even points stay at one; the odd points grow with the input.",
+            "currentState": {
+              "n": 16,
+              "ordinate": "1",
+              "family": "even linear"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        }
+      ]
+    },
+    "asym-floor-ratio": {
+      "id": "asym-floor-ratio",
+      "title": "Question 46: binary blocks and a nonconvergent ratio",
+      "description": "Every displayed ratio lies above one half and at most one. Block starts return to one; block ends approach one half. The exact subsequences in the solution establish nonconvergence.",
+      "descriptionHtml": "<p>Every displayed ratio lies above one half and at most one. Block starts return to one; block ends approach one half. The exact subsequences in the solution establish nonconvergence.</p>",
+      "invariant": "Each point belongs to the stated integer input and the specified normalized function; no continuous interpolation is claimed.",
+      "visual": {
+        "type": "plot",
+        "claim": "Question-specific discrete ratio or log-ratio with fixed, labeled axes.",
+        "revision": "exact-asymptotic-examples-v1"
+      },
+      "code": [
+        "Evaluate the chosen integer input, then the specified normalized quantity"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 1,
+            "ordinate": "1",
+            "power": 1
+          },
+          "caption": "At integer n=1, the largest power of two no greater than n is 1. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+          "captionHtml": "<p>At integer n=1, the largest power of two no greater than n is 1. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.</p>",
+          "metrics": {
+            "Integer input": 1,
+            "Displayed ordinate": "1"
+          },
+          "formula": "\\frac{2^{\\lfloor\\log_2 1\\rfloor}}{1}=\\frac{1}{1}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{2^{\\lfloor\\log_2 1\\rfloor}}{1}=\\frac{1}{1}\"><mrow><mfrac><mrow><msup><mn>2</mn><mrow><mo>⌊</mo><msub><mi mathvariant=\"normal\">log</mi><mn>2</mn></msub><mn>1</mn><mo>⌋</mo></mrow></msup></mrow><mrow><mn>1</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>1</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=1, the largest power of two no greater than n is 1. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+            "currentState": {
+              "n": 1,
+              "ordinate": "1",
+              "power": 1
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 2,
+            "ordinate": "1",
+            "power": 2
+          },
+          "caption": "At integer n=2, the largest power of two no greater than n is 2. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+          "captionHtml": "<p>At integer n=2, the largest power of two no greater than n is 2. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.</p>",
+          "metrics": {
+            "Integer input": 2,
+            "Displayed ordinate": "1"
+          },
+          "formula": "\\frac{2^{\\lfloor\\log_2 2\\rfloor}}{2}=\\frac{2}{2}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{2^{\\lfloor\\log_2 2\\rfloor}}{2}=\\frac{2}{2}\"><mrow><mfrac><mrow><msup><mn>2</mn><mrow><mo>⌊</mo><msub><mi mathvariant=\"normal\">log</mi><mn>2</mn></msub><mn>2</mn><mo>⌋</mo></mrow></msup></mrow><mrow><mn>2</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=2, the largest power of two no greater than n is 2. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+            "currentState": {
+              "n": 2,
+              "ordinate": "1",
+              "power": 2
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 3,
+            "ordinate": "2/3",
+            "power": 2
+          },
+          "caption": "At integer n=3, the largest power of two no greater than n is 2. The exact normalized ratio is 2/3. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+          "captionHtml": "<p>At integer n=3, the largest power of two no greater than n is 2. The exact normalized ratio is 2/3. Discrete jumps at block boundaries do not violate the tight linear envelopes.</p>",
+          "metrics": {
+            "Integer input": 3,
+            "Displayed ordinate": "2/3"
+          },
+          "formula": "\\frac{2^{\\lfloor\\log_2 3\\rfloor}}{3}=\\frac{2}{3}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{2^{\\lfloor\\log_2 3\\rfloor}}{3}=\\frac{2}{3}\"><mrow><mfrac><mrow><msup><mn>2</mn><mrow><mo>⌊</mo><msub><mi mathvariant=\"normal\">log</mi><mn>2</mn></msub><mn>3</mn><mo>⌋</mo></mrow></msup></mrow><mrow><mn>3</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>3</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=3, the largest power of two no greater than n is 2. The exact normalized ratio is 2/3. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+            "currentState": {
+              "n": 3,
+              "ordinate": "2/3",
+              "power": 2
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 4,
+            "ordinate": "1",
+            "power": 4
+          },
+          "caption": "At integer n=4, the largest power of two no greater than n is 4. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+          "captionHtml": "<p>At integer n=4, the largest power of two no greater than n is 4. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.</p>",
+          "metrics": {
+            "Integer input": 4,
+            "Displayed ordinate": "1"
+          },
+          "formula": "\\frac{2^{\\lfloor\\log_2 4\\rfloor}}{4}=\\frac{4}{4}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{2^{\\lfloor\\log_2 4\\rfloor}}{4}=\\frac{4}{4}\"><mrow><mfrac><mrow><msup><mn>2</mn><mrow><mo>⌊</mo><msub><mi mathvariant=\"normal\">log</mi><mn>2</mn></msub><mn>4</mn><mo>⌋</mo></mrow></msup></mrow><mrow><mn>4</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>4</mn></mrow><mrow><mn>4</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=4, the largest power of two no greater than n is 4. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+            "currentState": {
+              "n": 4,
+              "ordinate": "1",
+              "power": 4
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 7,
+            "ordinate": "4/7",
+            "power": 4
+          },
+          "caption": "At integer n=7, the largest power of two no greater than n is 4. The exact normalized ratio is 4/7. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+          "captionHtml": "<p>At integer n=7, the largest power of two no greater than n is 4. The exact normalized ratio is 4/7. Discrete jumps at block boundaries do not violate the tight linear envelopes.</p>",
+          "metrics": {
+            "Integer input": 7,
+            "Displayed ordinate": "4/7"
+          },
+          "formula": "\\frac{2^{\\lfloor\\log_2 7\\rfloor}}{7}=\\frac{4}{7}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{2^{\\lfloor\\log_2 7\\rfloor}}{7}=\\frac{4}{7}\"><mrow><mfrac><mrow><msup><mn>2</mn><mrow><mo>⌊</mo><msub><mi mathvariant=\"normal\">log</mi><mn>2</mn></msub><mn>7</mn><mo>⌋</mo></mrow></msup></mrow><mrow><mn>7</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>4</mn></mrow><mrow><mn>7</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=7, the largest power of two no greater than n is 4. The exact normalized ratio is 4/7. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+            "currentState": {
+              "n": 7,
+              "ordinate": "4/7",
+              "power": 4
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "ordinate": "1",
+            "power": 8
+          },
+          "caption": "At integer n=8, the largest power of two no greater than n is 8. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+          "captionHtml": "<p>At integer n=8, the largest power of two no greater than n is 8. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.</p>",
+          "metrics": {
+            "Integer input": 8,
+            "Displayed ordinate": "1"
+          },
+          "formula": "\\frac{2^{\\lfloor\\log_2 8\\rfloor}}{8}=\\frac{8}{8}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{2^{\\lfloor\\log_2 8\\rfloor}}{8}=\\frac{8}{8}\"><mrow><mfrac><mrow><msup><mn>2</mn><mrow><mo>⌊</mo><msub><mi mathvariant=\"normal\">log</mi><mn>2</mn></msub><mn>8</mn><mo>⌋</mo></mrow></msup></mrow><mrow><mn>8</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>8</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=8, the largest power of two no greater than n is 8. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+            "currentState": {
+              "n": 8,
+              "ordinate": "1",
+              "power": 8
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 15,
+            "ordinate": "8/15",
+            "power": 8
+          },
+          "caption": "At integer n=15, the largest power of two no greater than n is 8. The exact normalized ratio is 8/15. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+          "captionHtml": "<p>At integer n=15, the largest power of two no greater than n is 8. The exact normalized ratio is 8/15. Discrete jumps at block boundaries do not violate the tight linear envelopes.</p>",
+          "metrics": {
+            "Integer input": 15,
+            "Displayed ordinate": "8/15"
+          },
+          "formula": "\\frac{2^{\\lfloor\\log_2 15\\rfloor}}{15}=\\frac{8}{15}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{2^{\\lfloor\\log_2 15\\rfloor}}{15}=\\frac{8}{15}\"><mrow><mfrac><mrow><msup><mn>2</mn><mrow><mo>⌊</mo><msub><mi mathvariant=\"normal\">log</mi><mn>2</mn></msub><mn>15</mn><mo>⌋</mo></mrow></msup></mrow><mrow><mn>15</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>8</mn></mrow><mrow><mn>15</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=15, the largest power of two no greater than n is 8. The exact normalized ratio is 8/15. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+            "currentState": {
+              "n": 15,
+              "ordinate": "8/15",
+              "power": 8
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 16,
+            "ordinate": "1",
+            "power": 16
+          },
+          "caption": "At integer n=16, the largest power of two no greater than n is 16. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+          "captionHtml": "<p>At integer n=16, the largest power of two no greater than n is 16. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.</p>",
+          "metrics": {
+            "Integer input": 16,
+            "Displayed ordinate": "1"
+          },
+          "formula": "\\frac{2^{\\lfloor\\log_2 16\\rfloor}}{16}=\\frac{16}{16}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{2^{\\lfloor\\log_2 16\\rfloor}}{16}=\\frac{16}{16}\"><mrow><mfrac><mrow><msup><mn>2</mn><mrow><mo>⌊</mo><msub><mi mathvariant=\"normal\">log</mi><mn>2</mn></msub><mn>16</mn><mo>⌋</mo></mrow></msup></mrow><mrow><mn>16</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>16</mn></mrow><mrow><mn>16</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=16, the largest power of two no greater than n is 16. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+            "currentState": {
+              "n": 16,
+              "ordinate": "1",
+              "power": 16
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 31,
+            "ordinate": "16/31",
+            "power": 16
+          },
+          "caption": "At integer n=31, the largest power of two no greater than n is 16. The exact normalized ratio is 16/31. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+          "captionHtml": "<p>At integer n=31, the largest power of two no greater than n is 16. The exact normalized ratio is 16/31. Discrete jumps at block boundaries do not violate the tight linear envelopes.</p>",
+          "metrics": {
+            "Integer input": 31,
+            "Displayed ordinate": "16/31"
+          },
+          "formula": "\\frac{2^{\\lfloor\\log_2 31\\rfloor}}{31}=\\frac{16}{31}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{2^{\\lfloor\\log_2 31\\rfloor}}{31}=\\frac{16}{31}\"><mrow><mfrac><mrow><msup><mn>2</mn><mrow><mo>⌊</mo><msub><mi mathvariant=\"normal\">log</mi><mn>2</mn></msub><mn>31</mn><mo>⌋</mo></mrow></msup></mrow><mrow><mn>31</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>16</mn></mrow><mrow><mn>31</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=31, the largest power of two no greater than n is 16. The exact normalized ratio is 16/31. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+            "currentState": {
+              "n": 31,
+              "ordinate": "16/31",
+              "power": 16
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 32,
+            "ordinate": "1",
+            "power": 32
+          },
+          "caption": "At integer n=32, the largest power of two no greater than n is 32. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+          "captionHtml": "<p>At integer n=32, the largest power of two no greater than n is 32. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.</p>",
+          "metrics": {
+            "Integer input": 32,
+            "Displayed ordinate": "1"
+          },
+          "formula": "\\frac{2^{\\lfloor\\log_2 32\\rfloor}}{32}=\\frac{32}{32}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\frac{2^{\\lfloor\\log_2 32\\rfloor}}{32}=\\frac{32}{32}\"><mrow><mfrac><mrow><msup><mn>2</mn><mrow><mo>⌊</mo><msub><mi mathvariant=\"normal\">log</mi><mn>2</mn></msub><mn>32</mn><mo>⌋</mo></mrow></msup></mrow><mrow><mn>32</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>32</mn></mrow><mrow><mn>32</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "At integer n=32, the largest power of two no greater than n is 32. The exact normalized ratio is 1. Discrete jumps at block boundaries do not violate the tight linear envelopes.",
+            "currentState": {
+              "n": 32,
+              "ordinate": "1",
+              "power": 32
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        }
+      ]
+    },
+    "asym-log-oscillation": {
+      "id": "asym-log-oscillation",
+      "title": "Question 45: integer subsequences in logarithmic coordinates",
+      "description": "Horizontal coordinate is ln(n); vertical coordinate is ln(f(n)/n squared). Positive and negative sampled subsequences witness opposite directions. Floating values are display approximations; the solution proves the integer-subsequence claims analytically.",
+      "descriptionHtml": "<p>Horizontal coordinate is ln(n); vertical coordinate is ln(f(n)/n squared). Positive and negative sampled subsequences witness opposite directions. Floating values are display approximations; the solution proves the integer-subsequence claims analytically.</p>",
+      "invariant": "Each point belongs to the stated integer input and the specified normalized function; no continuous interpolation is claimed.",
+      "visual": {
+        "type": "plot",
+        "claim": "Question-specific discrete ratio or log-ratio with fixed, labeled axes.",
+        "revision": "exact-asymptotic-examples-v1"
+      },
+      "code": [
+        "Evaluate the chosen integer input, then the specified normalized quantity"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 4,
+            "phase": 1.5707963267948966,
+            "logn": 1.3862943611198906,
+            "exponent": 0.9830277404112437,
+            "ordinate": 1.3627658133565348,
+            "sign": 1
+          },
+          "caption": "Round the exponential phase down to integer n=4. Its logarithm is approximately 1.386294, the sine exponent is 0.983028, and ln(R) is 1.362766. This belongs to the large-ratio subsequence, with exponent at least one half.",
+          "captionHtml": "<p>Round the exponential phase down to integer n=4. Its logarithm is approximately 1.386294, the sine exponent is 0.983028, and ln(R) is 1.362766. This belongs to the large-ratio subsequence, with exponent at least one half.</p>",
+          "metrics": {
+            "Integer input": 4,
+            "Displayed ordinate": 1.3627658133565348
+          },
+          "formula": "\\ln R(4)=\\ln(4)\\sin(\\ln(4))",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\ln R(4)=\\ln(4)\\sin(\\ln(4))\"><mrow><mi mathvariant=\"normal\">ln</mi><mi>R</mi><mrow><mo>(</mo><mn>4</mn><mo>)</mo></mrow><mo>=</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>4</mn><mo>)</mo></mrow><mi mathvariant=\"normal\">sin</mi><mrow><mo>(</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>4</mn><mo>)</mo></mrow><mo>)</mo></mrow></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "Round the exponential phase down to integer n=4. Its logarithm is approximately 1.386294, the sine exponent is 0.983028, and ln(R) is 1.362766. This belongs to the large-ratio subsequence, with exponent at least one half.",
+            "currentState": {
+              "n": 4,
+              "phase": 1.5707963267948966,
+              "logn": 1.3862943611198906,
+              "exponent": 0.9830277404112437,
+              "ordinate": 1.3627658133565348,
+              "sign": 1
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 111,
+            "phase": 4.71238898038469,
+            "logn": 4.709530201312334,
+            "exponent": -0.9999959136938907,
+            "ordinate": -4.7095109567303,
+            "sign": -1
+          },
+          "caption": "Round the exponential phase down to integer n=111. Its logarithm is approximately 4.709530, the sine exponent is -0.999996, and ln(R) is -4.709511. This belongs to the small-ratio subsequence, with exponent at most negative one half.",
+          "captionHtml": "<p>Round the exponential phase down to integer n=111. Its logarithm is approximately 4.709530, the sine exponent is -0.999996, and ln(R) is -4.709511. This belongs to the small-ratio subsequence, with exponent at most negative one half.</p>",
+          "metrics": {
+            "Integer input": 111,
+            "Displayed ordinate": -4.7095109567303
+          },
+          "formula": "\\ln R(111)=\\ln(111)\\sin(\\ln(111))",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\ln R(111)=\\ln(111)\\sin(\\ln(111))\"><mrow><mi mathvariant=\"normal\">ln</mi><mi>R</mi><mrow><mo>(</mo><mn>111</mn><mo>)</mo></mrow><mo>=</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>111</mn><mo>)</mo></mrow><mi mathvariant=\"normal\">sin</mi><mrow><mo>(</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>111</mn><mo>)</mo></mrow><mo>)</mo></mrow></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "Round the exponential phase down to integer n=111. Its logarithm is approximately 4.709530, the sine exponent is -0.999996, and ln(R) is -4.709511. This belongs to the small-ratio subsequence, with exponent at most negative one half.",
+            "currentState": {
+              "n": 111,
+              "phase": 4.71238898038469,
+              "logn": 4.709530201312334,
+              "exponent": -0.9999959136938907,
+              "ordinate": -4.7095109567303,
+              "sign": -1
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 2575,
+            "phase": 7.853981633974483,
+            "logn": 7.853604813097837,
+            "exponent": 0.9999999290030143,
+            "ordinate": 7.853604255515568,
+            "sign": 1
+          },
+          "caption": "Round the exponential phase down to integer n=2575. Its logarithm is approximately 7.853605, the sine exponent is 1.000000, and ln(R) is 7.853604. This belongs to the large-ratio subsequence, with exponent at least one half.",
+          "captionHtml": "<p>Round the exponential phase down to integer n=2575. Its logarithm is approximately 7.853605, the sine exponent is 1.000000, and ln(R) is 7.853604. This belongs to the large-ratio subsequence, with exponent at least one half.</p>",
+          "metrics": {
+            "Integer input": 2575,
+            "Displayed ordinate": 7.853604255515568
+          },
+          "formula": "\\ln R(2575)=\\ln(2575)\\sin(\\ln(2575))",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\ln R(2575)=\\ln(2575)\\sin(\\ln(2575))\"><mrow><mi mathvariant=\"normal\">ln</mi><mi>R</mi><mrow><mo>(</mo><mn>2575</mn><mo>)</mo></mrow><mo>=</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>2575</mn><mo>)</mo></mrow><mi mathvariant=\"normal\">sin</mi><mrow><mo>(</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>2575</mn><mo>)</mo></mrow><mo>)</mo></mrow></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "Round the exponential phase down to integer n=2575. Its logarithm is approximately 7.853605, the sine exponent is 1.000000, and ln(R) is 7.853604. This belongs to the large-ratio subsequence, with exponent at least one half.",
+            "currentState": {
+              "n": 2575,
+              "phase": 7.853981633974483,
+              "logn": 7.853604813097837,
+              "exponent": 0.9999999290030143,
+              "ordinate": 7.853604255515568,
+              "sign": 1
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 59609,
+            "phase": 10.995574287564276,
+            "logn": 10.995561848364485,
+            "exponent": -0.9999999999226331,
+            "ordinate": -10.995561847513793,
+            "sign": -1
+          },
+          "caption": "Round the exponential phase down to integer n=59609. Its logarithm is approximately 10.995562, the sine exponent is -1.000000, and ln(R) is -10.995562. This belongs to the small-ratio subsequence, with exponent at most negative one half.",
+          "captionHtml": "<p>Round the exponential phase down to integer n=59609. Its logarithm is approximately 10.995562, the sine exponent is -1.000000, and ln(R) is -10.995562. This belongs to the small-ratio subsequence, with exponent at most negative one half.</p>",
+          "metrics": {
+            "Integer input": 59609,
+            "Displayed ordinate": -10.995561847513793
+          },
+          "formula": "\\ln R(59609)=\\ln(59609)\\sin(\\ln(59609))",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\ln R(59609)=\\ln(59609)\\sin(\\ln(59609))\"><mrow><mi mathvariant=\"normal\">ln</mi><mi>R</mi><mrow><mo>(</mo><mn>59609</mn><mo>)</mo></mrow><mo>=</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>59609</mn><mo>)</mo></mrow><mi mathvariant=\"normal\">sin</mi><mrow><mo>(</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>59609</mn><mo>)</mo></mrow><mo>)</mo></mrow></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "Round the exponential phase down to integer n=59609. Its logarithm is approximately 10.995562, the sine exponent is -1.000000, and ln(R) is -10.995562. This belongs to the small-ratio subsequence, with exponent at most negative one half.",
+            "currentState": {
+              "n": 59609,
+              "phase": 10.995574287564276,
+              "logn": 10.995561848364485,
+              "exponent": -0.9999999999226331,
+              "ordinate": -10.995561847513793,
+              "sign": -1
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 1379410,
+            "phase": 14.137166941154069,
+            "logn": 14.13716642948183,
+            "exponent": 0.9999999999998691,
+            "ordinate": 14.13716642947998,
+            "sign": 1
+          },
+          "caption": "Round the exponential phase down to integer n=1379410. Its logarithm is approximately 14.137166, the sine exponent is 1.000000, and ln(R) is 14.137166. This belongs to the large-ratio subsequence, with exponent at least one half.",
+          "captionHtml": "<p>Round the exponential phase down to integer n=1379410. Its logarithm is approximately 14.137166, the sine exponent is 1.000000, and ln(R) is 14.137166. This belongs to the large-ratio subsequence, with exponent at least one half.</p>",
+          "metrics": {
+            "Integer input": 1379410,
+            "Displayed ordinate": 14.13716642947998
+          },
+          "formula": "\\ln R(1379410)=\\ln(1379410)\\sin(\\ln(1379410))",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\ln R(1379410)=\\ln(1379410)\\sin(\\ln(1379410))\"><mrow><mi mathvariant=\"normal\">ln</mi><mi>R</mi><mrow><mo>(</mo><mn>1379410</mn><mo>)</mo></mrow><mo>=</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>1379410</mn><mo>)</mo></mrow><mi mathvariant=\"normal\">sin</mi><mrow><mo>(</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>1379410</mn><mo>)</mo></mrow><mo>)</mo></mrow></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "Round the exponential phase down to integer n=1379410. Its logarithm is approximately 14.137166, the sine exponent is 1.000000, and ln(R) is 14.137166. This belongs to the large-ratio subsequence, with exponent at least one half.",
+            "currentState": {
+              "n": 1379410,
+              "phase": 14.137166941154069,
+              "logn": 14.13716642948183,
+              "exponent": 0.9999999999998691,
+              "ordinate": 14.13716642947998,
+              "sign": 1
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 31920519,
+            "phase": 17.27875959474386,
+            "logn": 17.278759589812196,
+            "exponent": -1.0,
+            "ordinate": -17.278759589812196,
+            "sign": -1
+          },
+          "caption": "Round the exponential phase down to integer n=31920519. Its logarithm is approximately 17.278760, the sine exponent is -1.000000, and ln(R) is -17.278760. This belongs to the small-ratio subsequence, with exponent at most negative one half.",
+          "captionHtml": "<p>Round the exponential phase down to integer n=31920519. Its logarithm is approximately 17.278760, the sine exponent is -1.000000, and ln(R) is -17.278760. This belongs to the small-ratio subsequence, with exponent at most negative one half.</p>",
+          "metrics": {
+            "Integer input": 31920519,
+            "Displayed ordinate": -17.278759589812196
+          },
+          "formula": "\\ln R(31920519)=\\ln(31920519)\\sin(\\ln(31920519))",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\ln R(31920519)=\\ln(31920519)\\sin(\\ln(31920519))\"><mrow><mi mathvariant=\"normal\">ln</mi><mi>R</mi><mrow><mo>(</mo><mn>31920519</mn><mo>)</mo></mrow><mo>=</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>31920519</mn><mo>)</mo></mrow><mi mathvariant=\"normal\">sin</mi><mrow><mo>(</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>31920519</mn><mo>)</mo></mrow><mo>)</mo></mrow></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "Round the exponential phase down to integer n=31920519. Its logarithm is approximately 17.278760, the sine exponent is -1.000000, and ln(R) is -17.278760. This belongs to the small-ratio subsequence, with exponent at most negative one half.",
+            "currentState": {
+              "n": 31920519,
+              "phase": 17.27875959474386,
+              "logn": 17.278759589812196,
+              "exponent": -1.0,
+              "ordinate": -17.278759589812196,
+              "sign": -1
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 738662922,
+            "phase": 20.420352248333657,
+            "logn": 20.420352247655906,
+            "exponent": 1.0,
+            "ordinate": 20.420352247655906,
+            "sign": 1
+          },
+          "caption": "Round the exponential phase down to integer n=738662922. Its logarithm is approximately 20.420352, the sine exponent is 1.000000, and ln(R) is 20.420352. This belongs to the large-ratio subsequence, with exponent at least one half.",
+          "captionHtml": "<p>Round the exponential phase down to integer n=738662922. Its logarithm is approximately 20.420352, the sine exponent is 1.000000, and ln(R) is 20.420352. This belongs to the large-ratio subsequence, with exponent at least one half.</p>",
+          "metrics": {
+            "Integer input": 738662922,
+            "Displayed ordinate": 20.420352247655906
+          },
+          "formula": "\\ln R(738662922)=\\ln(738662922)\\sin(\\ln(738662922))",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\ln R(738662922)=\\ln(738662922)\\sin(\\ln(738662922))\"><mrow><mi mathvariant=\"normal\">ln</mi><mi>R</mi><mrow><mo>(</mo><mn>738662922</mn><mo>)</mo></mrow><mo>=</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>738662922</mn><mo>)</mo></mrow><mi mathvariant=\"normal\">sin</mi><mrow><mo>(</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>738662922</mn><mo>)</mo></mrow><mo>)</mo></mrow></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "Round the exponential phase down to integer n=738662922. Its logarithm is approximately 20.420352, the sine exponent is 1.000000, and ln(R) is 20.420352. This belongs to the large-ratio subsequence, with exponent at least one half.",
+            "currentState": {
+              "n": 738662922,
+              "phase": 20.420352248333657,
+              "logn": 20.420352247655906,
+              "exponent": 1.0,
+              "ordinate": 20.420352247655906,
+              "sign": 1
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 17093171648,
+            "phase": 23.561944901923447,
+            "logn": 23.56194490187562,
+            "exponent": -1.0,
+            "ordinate": -23.56194490187562,
+            "sign": -1
+          },
+          "caption": "Round the exponential phase down to integer n=17093171648. Its logarithm is approximately 23.561945, the sine exponent is -1.000000, and ln(R) is -23.561945. This belongs to the small-ratio subsequence, with exponent at most negative one half.",
+          "captionHtml": "<p>Round the exponential phase down to integer n=17093171648. Its logarithm is approximately 23.561945, the sine exponent is -1.000000, and ln(R) is -23.561945. This belongs to the small-ratio subsequence, with exponent at most negative one half.</p>",
+          "metrics": {
+            "Integer input": 17093171648,
+            "Displayed ordinate": -23.56194490187562
+          },
+          "formula": "\\ln R(17093171648)=\\ln(17093171648)\\sin(\\ln(17093171648))",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\ln R(17093171648)=\\ln(17093171648)\\sin(\\ln(17093171648))\"><mrow><mi mathvariant=\"normal\">ln</mi><mi>R</mi><mrow><mo>(</mo><mn>17093171648</mn><mo>)</mo></mrow><mo>=</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>17093171648</mn><mo>)</mo></mrow><mi mathvariant=\"normal\">sin</mi><mrow><mo>(</mo><mi mathvariant=\"normal\">ln</mi><mrow><mo>(</mo><mn>17093171648</mn><mo>)</mo></mrow><mo>)</mo></mrow></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Evaluate the exact integer input and normalize",
+            "why": "Round the exponential phase down to integer n=17093171648. Its logarithm is approximately 23.561945, the sine exponent is -1.000000, and ln(R) is -23.561945. This belongs to the small-ratio subsequence, with exponent at most negative one half.",
+            "currentState": {
+              "n": 17093171648,
+              "phase": 23.561944901923447,
+              "logn": 23.56194490187562,
+              "exponent": -1.0,
+              "ordinate": -23.56194490187562,
+              "sign": -1
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "plot",
+            "reading": "Saved points are finite illustrations. The written subsequence or envelope argument proves the infinite-tail statement."
+          }
+        }
+      ]
     }
   }
 }

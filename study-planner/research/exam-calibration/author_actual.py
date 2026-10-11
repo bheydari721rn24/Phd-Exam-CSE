@@ -197,10 +197,10 @@ add('Phd_CE_1405',2,1,'a_recurrence a_divide a_asym','Unequal recursive splits',
 4. The equal-split Master theorem does not directly apply to unequal branches; equal sizes cannot be invented.
 
 **Transfer rule.** Solve for the branching exponent before comparing candidate bounds; coefficients and exponents play different roles.''','unequal splits and exponent selection','Hard')
-add('Phd_CE_1405',2,2,'a_recurrence a_asym','A polylogarithmic toll',r'What is the order of $T(n)=T(2n/3)+\log^2 n$, with bounded base cost?', [r'$\Theta(n)$',r'$\Theta(\log^2 n)$',r'$\Theta(\log^3 n)$',r'$\Theta(\log n)$'],3,r'''1. There is one recursive branch and $\Theta(\log n)$ levels. At level $j$, the toll is $(\log n-j\log(3/2))^2$ until the argument reaches the base region.
+add('Phd_CE_1405',2,2,'a_recurrence a_asym','A polylogarithmic toll',r'What is the order of $T(n)=T(2n/3)+\log^2 n$, with bounded base cost?', [r'$\Theta(n)$',r'$\Theta(\log^2 n)$',r'$\Theta(\log^3 n)$',r'$\Theta(n\log^2 n)$'],3,r'''1. There is one recursive branch and $\Theta(\log n)$ levels. At level $j$, the toll is $(\log n-j\log(3/2))^2$ until the argument reaches the base region.
 2. The upper bound is $O(\log n)$ tolls each at most $O(\log^2 n)$, giving $O(\log^3 n)$.
 3. In the first fixed fraction of the levels, each logarithm remains $\Theta(\log n)$, so there are $\Theta(\log n)$ tolls of size $\Theta(\log^2 n)$. This gives the matching lower bound.
-4. Option 2 counts only the root toll; option 4 counts only levels; option 1 is a loose upper bound but the question asks the tight order.
+4. Option 2 counts only the root toll; option 4 proposes a much larger tight order, n times the root toll; option 1 is a loose upper bound but the question asks the tight order.
 
 **Transfer rule.** A tight estimate needs both the number of significant levels and their accumulated toll.''','logarithmic levels times toll')
 add('Phd_CE_1405',2,3,'d_induction d_invariants a_model','Leaf weights in a binary tree',r'For each leaf $x$ at depth $d$ of a binary tree $T$, put $w(x)=2^{-d}$. If $L$ is the set of all leaves and $\alpha=\sum_{x\in L}w(x)$, which is always correct?',[r'$\alpha=1$.',r'$\alpha\le1$.',r'$\alpha>1$.',r'$\alpha<1$.'],2,r'''1. Assign mass one to the root and half of a node's mass to each possible child. Missing children leave unused mass; a leaf receives exactly $2^{-d}$.

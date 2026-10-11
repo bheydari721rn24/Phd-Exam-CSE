@@ -828,16 +828,16 @@
       "$\\Theta(n)$",
       "$\\Theta(\\log^2 n)$",
       "$\\Theta(\\log^3 n)$",
-      "$\\Theta(\\log n)$"
+      "$\\Theta(n\\log^2 n)$"
     ],
     "answer": 3,
-    "solution": "1. There is one recursive branch and $\\Theta(\\log n)$ levels. At level $j$, the toll is $(\\log n-j\\log(3/2))^2$ until the argument reaches the base region.\n2. The upper bound is $O(\\log n)$ tolls each at most $O(\\log^2 n)$, giving $O(\\log^3 n)$.\n3. In the first fixed fraction of the levels, each logarithm remains $\\Theta(\\log n)$, so there are $\\Theta(\\log n)$ tolls of size $\\Theta(\\log^2 n)$. This gives the matching lower bound.\n4. Option 2 counts only the root toll; option 4 counts only levels; option 1 is a loose upper bound but the question asks the tight order.\n\n**Transfer rule.** A tight estimate needs both the number of significant levels and their accumulated toll.",
+    "solution": "1. There is one recursive branch and $\\Theta(\\log n)$ levels. At level $j$, the toll is $(\\log n-j\\log(3/2))^2$ until the argument reaches the base region.\n2. The upper bound is $O(\\log n)$ tolls each at most $O(\\log^2 n)$, giving $O(\\log^3 n)$.\n3. In the first fixed fraction of the levels, each logarithm remains $\\Theta(\\log n)$, so there are $\\Theta(\\log n)$ tolls of size $\\Theta(\\log^2 n)$. This gives the matching lower bound.\n4. Option 2 counts only the root toll; option 4 proposes a much larger tight order, n times the root toll; option 1 is a loose upper bound but the question asks the tight order.\n\n**Transfer rule.** A tight estimate needs both the number of significant levels and their accumulated toll.",
     "pattern": "logarithmic levels times toll",
     "difficulty": "Medium",
     "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
     "sourceSha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
     "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
-    "translationStatus": "checked against rendered source page",
+    "translationStatus": "Original PDF page visually rechecked on 11 October 2026; fourth option corrected to Theta(n log^2 n).",
     "answerProvenance": "independently derived; not represented as an official key"
   },
   {

@@ -1,0 +1,21 @@
+{
+  "id": "Phd_CE_1405_Q2",
+  "originalPdfPage": 2,
+  "oldFourthOption": "$\\Theta(\\log n)$",
+  "correctedFourthOption": "$\\Theta(n\\log^2 n)$",
+  "answerRemains": 3,
+  "reason": "The original fourth option visibly includes n multiplying log squared; the earlier translation omitted n and the square.",
+  "changedPlacements": [
+    {
+      "topicId": "a_asym",
+      "beforeSha256": "1139e7af36dc48592786c850213d5a0b1b84978e406b6a8863f52da4ab3b80c9",
+      "afterSha256": "b641e4e437d6e137a38c0e55ddb4acbbd45df358b3c2220a7766469ace6ce78f"
+    },
+    {
+      "topicId": "a_recurrence",
+      "beforeSha256": "3b7ac34423512f24035bb5aecd16f324f130a165416161aceb2f34f11e817225",
+      "afterSha256": "08143495c2e477ba133de20d463e8d4f0edad7ba242147423119a7e5907e7743"
+    }
+  ],
+  "fullReviewStatus": "a_asym in progress; a_recurrence source correction only, not full revision"
+}
