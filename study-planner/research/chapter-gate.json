@@ -1,36 +1,36 @@
 {
-  "currentTopicId": "s_variance",
+  "currentTopicId": "s_distributions",
   "state": "in_progress",
   "nextTopicRequiresExplicitApproval": false,
   "nextTopicId": null,
-  "sourceAuditPath": "research/s_variance-source-audit.md",
+  "sourceAuditPath": "research/s_distributions-source-audit.md",
   "examAuditPath": "research/exam-calibration/archive-manifest.json",
-  "lastCompletedReview": "a_amortized: 87 worked problems, 80 final rules, five reviewed universities, 20 models / 691 checkpoints; 9334 independent inputs / 294906 checkpoints.",
-  "nextReview": "Complete s_variance scientific and visual audits.",
+  "lastCompletedReview": "s_variance: 87 worked entries, 80 final rules, six universities actually read, 23 models / 169 checkpoints; 414 independent enumeration cases and 162 editable calculator cases.",
+  "nextReview": "Complete s_distributions source, scientific and visual audits.",
   "rule": "Author one chapter at a time, finish its source, mathematical, problem, visual and browser audits, deliver as a review draft, then continue under standing user authorization. Never label an unapproved draft student-approved.",
   "studyStartJalali": "1405/07/11",
-  "qualityAuditPath": "research/s_variance-quality-audit.md",
+  "qualityAuditPath": "research/s_distributions-quality-audit.md",
   "approvedTopicId": "p_recursion",
-  "activeWork": "Evaluate written probability sources and author variance and covariance under standing continuous authorization.",
+  "activeWork": "Evaluate written university sources and author discrete distributions under standing continuous authorization.",
   "revisionTracker": "research/exam-calibration/manifest.json",
   "libraryReviewReportPath": "research/exam-calibration/DELIVERY.en.md",
   "approvedLibraryReview": true,
   "proposedNextTopicId": null,
   "libraryRewritePath": "research/exam-calibration/manifest.json",
   "libraryRewriteRequiresApproval": true,
-  "reviewScope": "Second moments, covariance, correlation, conditional variance, transformations, independence and inequalities.",
+  "reviewScope": "Bernoulli, binomial, geometric, negative-binomial, hypergeometric, Poisson and discrete-uniform laws; parameter conventions, modeling, moments, limits and solved problems.",
   "examArchivePolicy": "Original Iranian MS and PhD archives may now be studied, classified and included; the latest user instruction supersedes final-month deferral.",
   "animationStandardPath": "research/ANIMATION_STANDARD.md",
   "animationInventoryPath": "research/library-animation-redesign/inventory.json",
   "animationModelAuditPath": "research/animation-model-audit.json",
   "animationBrowserAuditPath": "research/library-animation-redesign/browser.json",
-  "sourceAudit": "research/s_variance-source-audit.md",
-  "qualityAudit": "research/s_variance-quality-audit.md",
+  "sourceAudit": "research/s_distributions-source-audit.md",
+  "qualityAudit": "research/s_distributions-quality-audit.md",
   "visualReviewPath": "research/subject-visual-review.json",
   "reviewEvidence": [
-    "research/a_amortized-evidence/reading.json",
-    "research/a_amortized-evidence/mathematics.json",
-    "research/a_amortized-evidence/browser.json"
+    "research/s_variance-evidence/reading.json",
+    "research/s_variance-evidence/mathematics.json",
+    "research/s_variance-evidence/browser.json"
   ],
   "libraryVisualQuestionReviewPath": "research/library-visual-question-review/manifest.json",
   "publicationState": "publication_pending_service_transport",
@@ -196,6 +196,19 @@
       ],
       "publicationState": "publication_pending_service_transport",
       "publicationRecord": "research/a_amortized-publication-pending.json"
+    },
+    {
+      "topicId": "s_variance",
+      "state": "quality_review_complete",
+      "studentApproved": false,
+      "url": "chapters/s_variance.html",
+      "qualityAudit": "research/s_variance-quality-audit.md",
+      "evidence": [
+        "research/s_variance-evidence/reading.json",
+        "research/s_variance-evidence/mathematics.json",
+        "research/s_variance-evidence/browser.json"
+      ],
+      "publicationState": "pending_upload"
     }
   ],
   "latestPublication": {

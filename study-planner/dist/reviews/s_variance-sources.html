@@ -1,0 +1,100 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Variance and covariance chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"><link rel="stylesheet" href="../chapters/s_variance.css"></head><body><main class="chapter"><p><a href="../chapters/s_variance.html">Variance and covariance chapter</a></p><article class="lesson"><h1>Variance and covariance: written-source comparison</h1>
+<h2>Search boundary and selection</h2>
+<p>This is a chapter-specific evaluation of nine accessible university course inventories, not an assertion that all courses worldwide were found. Written text, proof detail, second-moment breadth, conditional decomposition, and suitability for formula/concept problems determine selection. University prestige alone does not determine rank. Rankings below describe complementary roles rather than a universal league table. Six universities supplied text actually read for this chapter. Video content is excluded.</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>University, course and attribution</th>
+<th>Actual chapter reading</th>
+<th>Contribution and limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core: visual foundations</td>
+<td>MIT, 18.05, Spring 2022. Course instructors Jeremy Orloff and Jennifer French Kamrin; combined probability-note authors Jeremy Orloff and Jonathan Bloom.</td>
+<td>Combined PDF pages 46–51, 70–76, 103–112; all listed prose and mathematical derivations read. Plot-glyph extraction artifacts were filtered on pages 108–110.</td>
+<td>Discrete/continuous variance, overlap, covariance and correlation proofs. Several worked-example transcription errors require independent correction; conditional decomposition is supplemented by CMU.</td>
+</tr>
+<tr>
+<td>Core: conditional and multivariate extension</td>
+<td>CMU, 36-700, Fall 2016, Siva Balakrishnan.</td>
+<td>Lecture 3 pages 7–8; Lecture 4 all eight pages read in official text, with native reinspection of pages 5 and 8.</td>
+<td>Quadratic-form variance, Cauchy–Schwarz, conditional variance and the tower law. Correct the dependent-average variance, exponential parameter wording, and chi-square definition.</td>
+</tr>
+<tr>
+<td>Core: rigorous assumptions and continuous examples</td>
+<td>Oxford, Prelims Probability, Michaelmas 2019, James Martin.</td>
+<td>PDF pages 1–3, 23–29, 57, 64–68 read completely; earlier unrelated pages 30–35 are not counted as variance coverage.</td>
+<td>Absolute-integrability assumptions, joint laws, continuous covariance, Gaussian factorization and Chebyshev/WLLN. Conditional variance needs another course; the Markov proof has a strict-inequality typo.</td>
+</tr>
+<tr>
+<td>Core: computational examination patterns</td>
+<td>Berkeley, CS70, Lecture 17, Spring 2016, Rao and Walrand, hosted in the Fall 2016 archive.</td>
+<td>All five variance-note pages read in official text; original PDF acquired.</td>
+<td>Indicator expansions, random walks, fixed points, uniform and binomial variance. Fixed-point variance requires the omitted <span class="math-inline">n≥2</span> condition. It does not establish general independence from zero covariance.</td>
+</tr>
+<tr>
+<td>Additional: integrability and matrix transformation</td>
+<td>ETH Zurich, Probability Theory, FS2020, Johanna <span class="math-inline">F</span>. Ziegel, translated by Alexander Henzi.</td>
+<td>Native PDF title page and pages 8 and 16 read in full.</td>
+<td>Square-integrability, covariance-matrix definition, independence/product proof, affine matrix transformation. This is a selected section review, not a full reading of the 58-page course.</td>
+</tr>
+<tr>
+<td>Additional: foundational proof contrast</td>
+<td>Cornell, CS2800, Fall2017, Lecture9; no lecturer name established from the lecture page.</td>
+<td>Entire official HTML lecture reread.</td>
+<td>Expectation as a functional, variance algebra, product expectation and review exercises. Finite-space explanations cannot justify infinite-space manipulations without integrability.</td>
+</tr>
+<tr>
+<td>Screened only</td>
+<td>Stanford, CS109 Summer2019, Noah Arthurs.</td>
+<td>Course inventory and instructor verified; advertised variance-note acquisition in an earlier chapter returned mismatched content, so it is not counted here.</td>
+<td>Relevant variance/conditional-joint materials exist; no claim that its written variance chapter was actually reviewed in this chapter.</td>
+</tr>
+<tr>
+<td>Screened only</td>
+<td>Harvard, Stat110, Joe Blitzstein; textbook by Joe Blitzstein and Jessica Hwang.</td>
+<td>Official course home and free-textbook availability verified.</td>
+<td>Promising supplementary probability text; book chapters not read for this delivery and not counted.</td>
+</tr>
+<tr>
+<td>Screened only</td>
+<td>Cambridge, Introduction to Probability 2024–25, Mateja Jamnik and Thomas Sauerwald on indexed handout title.</td>
+<td>Official search inventory identifies independence/covariance handout; the directly attempted handout returned HTTP404.</td>
+<td>A broken attempted address is not evidence that all Cambridge text is unavailable; not counted as read.</td>
+</tr>
+</tbody>
+</table>
+<h2>Actual comparison and synthesis choices</h2>
+<p>MIT's foundation is strongest for the progression from probability-weighted distances to jointly varying measurements. Berkeley adds exact indicator reasoning that avoids constructing a large distribution. Oxford supplies assumptions and a derivation of the Gaussian exception. CMU supplies the conditional decomposition missing from those foundations. ETH strengthens matrix and existence conditions; Cornell contrasts probability-space sums with value-space sums. This combination was selected after comparing the available chapter text and identifying these gaps. No random four-course selection or globally-best claim is made.</p>
+<h2>Corrections incorporated</h2>
+<ol>
+<li>MIT combined PDF page106 states a cubic joint density but later writes <span class="math-inline">x+y</span>, and substitutes <span class="math-inline">7/12</span> for its actual mean13/20 in a centered integral. The chapter recomputes <span class="math-inline">E</span>[XY]<span class="math-inline">=2/5</span>, both variances31/400, covariance<span class="math-inline">−9/400</span> and correlation<span class="math-inline">−9/31</span> from the stated cubic density.</li>
+<li>MIT page76's half-line standard-normal first-moment integral equals <span class="math-inline">1/sq</span>rt(2<span class="math-inline">π</span>), not1. This does not affect the zero full mean, but the intermediate computation must be corrected.</li>
+<li>CMU Lectures3/4 write sigma instead of sigma squared for the variance of an average of identical random variables. The correct variance is sigma squared.</li>
+<li>CMU Lecture4 page6 calls the exponential rate lambda a mean. For density lambda exp(<span class="math-inline">−</span>lambda <span class="math-inline">x</span>), the mean <span class="math-inline">is1/la</span>mbda. Its unit-rate MGF diverges also at <span class="math-inline">t=1</span>.</li>
+<li>CMU Lecture4 page8 initially writes the square of a sum for chi-square. Chi-square is the sum of squares of independent standard normals; equal means do not make these laws equal.</li>
+<li>Oxford page68 says the conditional mean on {<span class="math-inline">Y≥t</span>} is strictly greater than <span class="math-inline">t</span>. The valid inequality <span class="math-inline">is ≥t</span>, allowing equality and sharpness.</li>
+<li>Berkeley fixed-point variance equals1 for <span class="math-inline">n≥2</span>; for <span class="math-inline">n=1</span> the sole permutation has one fixed point and variance0. The general calculation cannot divide by <span class="math-inline">n(n−1)</span> at <span class="math-inline">n=1</span>.</li>
+<li>Correlation requires both variances finite and strictly positive. Independence implies zero covariance only where covariance is defined; a degenerate variable has zero covariance with every square-integrable variable but no defined Pearson correlation.</li>
+</ol>
+<h2>Source links and exact identities</h2>
+<ul>
+<li>MIT 18.05 combined probability notes: https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-<span class="math-inline">2022/mi</span>t18_05_s22_probability.pdf</li>
+<li>MIT course attribution: https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/</li>
+<li>CMU Lecture3: https://www.stat.cmu.edu/~siva/teaching/<span class="math-inline">700/le</span>c3.pdf</li>
+<li>CMU Lecture4: https://www.stat.cmu.edu/~siva/teaching/<span class="math-inline">700/le</span>c4.pdf</li>
+<li>Oxford Probability: https://courses.maths.ox.ac.<span class="math-inline">uk/mo</span>d/resource/view.php?<span class="math-inline">id=48553</span></li>
+<li>Berkeley CS70 Lecture17: https://fa16.eecs70.org/static/notes/n17.pdf</li>
+<li>ETH Probability Theory: https://people.math.ethz.ch/~ziegelj/WTSkript.pdf</li>
+<li>Cornell Lecture9: https://www.cs.cornell.edu/courses/<span class="math-inline">cs2800/2017fa/le</span>ctures/lec09-expect.html</li>
+<li>Stanford screened inventory: https://web.stanford.edu/class/archive/<span class="math-inline">cs/cs109/cs109</span>.1198/</li>
+<li>Harvard screened inventory: https://stat110.hsites.harvard.edu/</li>
+<li>Cambridge attempted handout: https://www.cl.cam.ac.<span class="math-inline">uk/te</span>aching/<span class="math-inline">2425/In</span>troProb/slides/07-covariance-all-handout.pdf</li>
+</ul>
+<p>Cached document hashes and acquisition outcomes are in <span class="math-inline">s</span>_variance-evidence/acquisition.json. MIT combined PDF SHA256: 32896358099cebefe133b2c92fe4324f4ef4745328eed0937f5d04d21c039ab2. Oxford PDF SHA256: 0a04507ba176bbb5185d0eb5111bb8bd2b0274597ad1ac139f1dad0dc753a635. CMU Lecture3 SHA256: 4c0ddda389679134676c5770fd82e6d882b7e4d52d9a1c40df98955f11ced333. Acquisition is not a claim of reading every downloaded page.</p>
+<h2>Exercise provenance and remaining boundaries</h2>
+<p>Original problems are authored independently. Reconstructed course exercise types cite the precise section without reproducing a full university question bank. Iranian items record their immutable repository path, original PDF page, ordered options, verified hash and independently derived answer; no official key is claimed. General measure-theoretic existence proofs, a complete distribution catalogue, estimation theory and multivariate Gaussian integration belong to later chapters. Their required second-moment interfaces are taught here.</p>
+</article></main><script src="../chapters/math-layout.js?v=79"></script></body></html>

@@ -1,0 +1,121 @@
+{
+  "topicId": "s_variance",
+  "status": "passed",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\s-variance-visual-qa",
+  "counts": {
+    "questions": 87,
+    "rules": 80,
+    "players": 47,
+    "math": 760,
+    "errors": []
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "heading": true,
+    "prose": true,
+    "code": true
+  },
+  "geometry": {
+    "models": 23,
+    "frames": 169,
+    "issues": []
+  },
+  "mathGeometry": {
+    "bareClosingScriptBases": [],
+    "underlined": 0
+  },
+  "motion": {
+    "pairs": 2,
+    "progress": 0.12966666666666693,
+    "clocks": 1
+  },
+  "pause": {
+    "motions": 1,
+    "frozen": true,
+    "sameIndex": true,
+    "running": false
+  },
+  "resume": true,
+  "comparison": true,
+  "reducedMotion": true,
+  "printCheckpoints": true,
+  "labs": [
+    {
+      "kind": "moments",
+      "error": "",
+      "result": {
+        "mean": 0,
+        "second": 400,
+        "variance": 400,
+        "center": 20,
+        "squaredError": 800
+      },
+      "issues": []
+    },
+    {
+      "kind": "moments",
+      "error": "",
+      "result": {
+        "mean": 0,
+        "second": 0,
+        "variance": 0,
+        "center": 0,
+        "squaredError": 0
+      },
+      "issues": []
+    },
+    {
+      "kind": "joint",
+      "error": "",
+      "result": {
+        "meanX": 0,
+        "meanY": 0.6666666666666666,
+        "varX": 0.6666666666666666,
+        "varY": 0.2222222222222222,
+        "covariance": 0,
+        "mixed": 0,
+        "correlation": 0
+      },
+      "issues": []
+    },
+    {
+      "kind": "joint",
+      "error": "",
+      "result": {
+        "meanX": 0,
+        "meanY": 0,
+        "varX": 400,
+        "varY": 400,
+        "covariance": -400,
+        "mixed": -400,
+        "correlation": -1
+      },
+      "issues": []
+    },
+    {
+      "kind": "joint",
+      "error": "",
+      "result": {
+        "meanX": 1,
+        "meanY": 2,
+        "varX": 0,
+        "varY": 0,
+        "covariance": 0,
+        "mixed": 2,
+        "correlation": null
+      },
+      "issues": []
+    }
+  ],
+  "invalidPreservesPrevious": 8,
+  "mobileOverflow": false,
+  "printVisible": true,
+  "runtimeErrors": [],
+  "library": {
+    "cards": 57,
+    "visible": true,
+    "errors": []
+  },
+  "weeklyChapterLink": true
+}

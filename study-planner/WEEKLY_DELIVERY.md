@@ -586,3 +586,8 @@ Completed a_hash: 82 worked questions, 80 final rules, four core written courses
 ## Amortized-analysis review draft
 
 Completed a_amortized: twenty deep teaching sections, 87 worked problem entries, 80 final rules, four core university courses and one additional university actually read. Twenty specialized models / 691 exact checkpoints. Independent checks passed 9334 inputs / 294906 checkpoints / 10869 result contracts; real Edge passed geometry, fonts, native mathematics, control behavior, editable boundaries, mobile and print. All 55 previous chapter HTML files are unchanged. Library: 56 chapters / 3826 worked entries. No student approval is inferred. Publication is tracked separately. Continue with s_variance under standing continuous authorization.
+
+
+## Variance and covariance review draft
+
+Completed s_variance: eighteen deep teaching sections, 87 worked entries (84 original/reconstructed, three authentic, two explicitly revisited), 80 final rules, four core university courses plus two genuinely read university extensions. Twenty-three specialized models / 169 checkpoints / 47 placements. Independent review passed 414 enumeration cases, 162 editable calculator cases and 713 static MathML fence checks; real Edge passed every checkpoint, geometry, fonts, motion/pause/resume, mobile and print. All 56 previous chapter pages are unchanged. Library: 57 chapters / 3913 worked entries. No student approval is inferred; publication is tracked separately. Continue sequential authoring with s_distributions under standing authorization.

@@ -1,0 +1,18 @@
+from pathlib import Path
+B=Path(__file__).resolve().parent;R=B.parent
+s=(B/'render_a_amortized.py').read_text(encoding='utf-8').replace('a_amortized','s_variance').replace('am-','sv-').replace('exsv-','exam-').replace('diagrsv-','diagram-').replace('#am','#sv')
+s=s.replace('originalQuestionCount=85','originalQuestionCount=84').replace('authenticQuestionCount=2','authenticQuestionCount=3').replace('animationCount=20','animationCount=23').replace('animationWalkthroughCount=20','animationWalkthroughCount=23')
+s=s.replace("title='Amortized Analysis and Dynamic Resizing'","title='Variance, Covariance, and Second-Moment Reasoning'").replace('Data Structures and Algorithms','Probability and Statistics').replace('four core written university courses plus one reviewed comparison','four core written university courses plus two reviewed comparisons').replace('20 specialized exact-cost models','23 subject-specific second-moment models').replace('Amortized-analysis chapter','Variance and covariance chapter').replace('amortized-analysis chapter','variance and covariance chapter')
+lo=s.index("lab='");hi=s.index("\nsource=",lo)
+s=s[:lo]+"""lab='<section class="lab"><form id="sv-form"><label>Law<select name="kind"><option>moments</option><option>joint</option></select></label><label>X values<input name="x" value="1,3,5"></label><label>Probabilities<input name="p" value="0.25,0.25,0.5"></label><label>Y values for a joint law<input name="y" value="1,0,1"></label><label>Squared-error center, optional<input name="center" value=""></label><button type="submit">Inspect the finite law</button></form><p id="sv-error" role="alert"></p><p>Use one through nine atoms, values between minus twenty and twenty, and nonnegative probabilities summing to one. Duplicate-valued atoms represent separate weighted outcomes and are legitimate; they need not be merged. A blank center uses the population mean. A joint-law experiment ignores the squared-error center. Invalid input preserves the preceding valid law. Snapshots retain full numerical precision; labels are rounded to five decimal places.</p><div id="sv-output"></div></section>'\n""" +s[hi:]
+lo=s.index("anchors=[");hi=s.index(";it=iter(anchors)",lo)
+s=s[:lo]+"anchors=['sources','existence','raw-moments','prediction-center','transformations','joint-laws','sum-algebra','correlation','independence','indicators','sampling','random-sums','conditional','prediction','matrices','bounds','walks','continuous','implementation','summary','problems','review','laboratory','references']"+s[hi:]
+s=s.replace("mathml.SYMBOLS.update(ell=","mathml.SYMBOLS.update(ell=")
+s=s.replace('Phd-Exsv-CSE','Phd-Exam-CSE')
+s=s.replace("provenance='<a href=", "provenance='<a href=")
+s=s.replace("Revisited original examination bridge; independently derived answer, not an official key.", "Original examination bridge; independently derived answer, not an official key. Two previously used items are explicitly identified as revisited in the audit.")
+(B/'render_s_variance.py').write_text(s,encoding='utf-8')
+css=(R/'dist/chapters/a_amortized.css').read_text(encoding='utf-8').replace('am-','sv-').replace('#am','#sv').replace('760 400','760 360')
+css+='\n.sv-prose{font-family:\"Source Sans 3\",sans-serif;font-size:16px;fill:#163d55}.sv-math{font-family:\"STIX Two Math\",serif;font-size:16px;fill:#163d55}.sv-stage svg{height:auto;max-height:360px}.sv-stage{max-height:400px}.sv-model pre{font-size:.85rem}.sv-model .sim-compare svg{max-height:360px}\n'
+(R/'dist/chapters/s_variance.css').write_text(css,encoding='utf-8')
+print('Dedicated variance renderer and compact typography prepared.')
