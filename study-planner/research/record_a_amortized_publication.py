@@ -1,0 +1,11 @@
+from pathlib import Path
+import json
+B=Path(__file__).resolve().parent
+p=B/'a_amortized-publication-pending.json'
+data=dict(status='publication_pending_service_transport',projectId='appgprj_6ab5666f72b081918286c6b371c1eb1b',sourceCommit='25e1913d6ffc939bd7c4b4d3bdf78b08686e63b1',archive='C:/Users/bheydari/AppData/Local/Temp/a-amortized-reviewed.tar.gz',archiveSha256='42935527845840dc708c5528ff95e1ab962705f93c6e8505f67f435d05b32dcb',archiveEntries=464,githubContentCommit='c3e7bc0',githubBranch='study-planner-1406',chaptersAdded=['a_balanced','a_heap','a_hash','a_amortized'],libraryChapters=56,questions=3826,reason='Fresh credential succeeded; exact source push and remote SHA/clean-source verification preceded the bundled Windows packaging failure. Independently byte-verified committed-blob archive was supplied to private save/deploy. The call failed at backend-api/ps/mcp. One successful newest-version reconciliation still returned version 87, without the attempted source SHA. No new saved version or deployment is confirmed.',lastConfirmedOnlineSource='2aa5cfe5735c24f7716cee0ca378ca17f61a34ff',lastConfirmedNumericVersion=87,localPreview='http://127.0.0.1:8795/chapters/a_amortized.html')
+p.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
+g=json.loads((B/'chapter-gate.json').read_text());g.update(publicationState=data['status'],publicationRecordPath='research/'+p.name)
+for c in g['completedReviewDrafts']:
+ if c['topicId']in data['chaptersAdded']:c.update(publicationState=data['status'],publicationRecord='research/'+p.name)
+(B/'chapter-gate.json').write_text(json.dumps(g,indent=2)+'\n',encoding='utf-8')
+print('Publication reconciliation recorded; no new online version claimed.')
