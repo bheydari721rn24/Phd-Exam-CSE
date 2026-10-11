@@ -37,7 +37,7 @@ try:
  assert report['models'] and all(not p['issues']for p in report['models']),report['models']
  capture('.concept-animation','induction-animation.png')
  for host,key,name in[('#animation-ordinary-induction','induction-square','square-final.png'),('#animation-strong-induction','strong-coins','coins-final.png'),('#animation-strengthening','euclid','euclid-final.png'),('.question-specific-animation','induction-gap','question-46-final.png')]:
-  js('(()=>{const h=document.querySelector('+json.dumps(host)+');const c=ConceptAnimations.players.find(c=>c.api.host===h || h.contains(c.api.host));const select=h.querySelector("select");select.value='+json.dumps(key)+';select.dispatchEvent(new Event("change"));c.api.show(c.api.model.frames.length-1);})()')
+  js('(()=>{const h=document.querySelector('+json.dumps(host)+');const c=ConceptAnimations.players.find(c=>c.api.host===h || h.contains(c.api.host));const select=h.querySelector("select");select.value=String(c.scenes.findIndex(s=>s.id==='+json.dumps(key)+'));select.dispatchEvent(new Event("change"));c.api.show(c.api.model.frames.length-1);if(c.api.model.id!=='+json.dumps(key)+')throw Error("Wrong selected model");})()')
   capture(host,name)
  report['staticDiagrams']=js("""(()=>[...document.querySelectorAll('.logic-diagram svg')].map(svg=>{const v=svg.viewBox.baseVal;return{label:svg.getAttribute('aria-label'),outside:[...svg.querySelectorAll('text')].filter(t=>{const b=t.getBBox();return b.x<v.x||b.y<v.y||b.x+b.width>v.x+v.width||b.y+b.height>v.y+v.height;}).map(t=>t.textContent)}}))()""")
  assert all(not s['outside']for s in report['staticDiagrams']),report['staticDiagrams']

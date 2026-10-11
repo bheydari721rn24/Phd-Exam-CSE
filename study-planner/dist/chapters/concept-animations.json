@@ -217581,6 +217581,1216 @@
           "Check the output, fault witness or timing restriction."
         ]
       }
+    },
+    "model-merge-exact": {
+      "id": "model-merge-exact",
+      "title": "Authentic eight-key merge sort: all 16 comparisons",
+      "description": "This exact trace follows the authentic eight-key input. Checkpoints distinguish the 16 charged front-pair comparisons from seven tail-copy events, each of which adds zero key comparisons.",
+      "descriptionHtml": "<p>This exact trace follows the authentic eight-key input. Checkpoints distinguish the 16 charged front-pair comparisons from seven tail-copy events, each of which adds zero key comparisons.</p>",
+      "invariant": "Each merge output is a sorted prefix of its two inputs. The comparison counter changes only while both fronts exist.",
+      "visual": {
+        "type": "array",
+        "claim": "Exact original input, consumed positions, compared fronts and emitted prefixes.",
+        "revision": "exact-authentic-merge-v1"
+      },
+      "code": [
+        "Compare nonempty fronts and emit the smaller",
+        "Copy the remaining tail without comparing keys"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [12] with [7]",
+            "left": [
+              12
+            ],
+            "right": [
+              7
+            ],
+            "i": 0,
+            "j": 0,
+            "output": [
+              7
+            ],
+            "chosen": 7,
+            "finished": false,
+            "total": 1
+          },
+          "caption": "In Merge [12] with [7], compare the highlighted fronts 12 and 7, then emit 7. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [12] with [7], compare the highlighted fronts 12 and 7, then emit 7. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 1,
+            "Current merge output keys": 1
+          },
+          "formula": "C=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=1\"><mrow><mi>C</mi><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [12] with [7], compare the highlighted fronts 12 and 7, then emit 7. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 1,
+              "output": [
+                7
+              ]
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Tail copy: Merge [12] with [7]",
+            "left": [
+              12
+            ],
+            "right": [
+              7
+            ],
+            "i": 0,
+            "j": 1,
+            "output": [
+              7,
+              12
+            ],
+            "chosen": null,
+            "finished": true,
+            "total": 1
+          },
+          "caption": "The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.",
+          "captionHtml": "<p>The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 1,
+            "Current merge output keys": 2
+          },
+          "formula": "C=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=1\"><mrow><mi>C</mi><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 1,
+          "teaching": {
+            "operation": "Copy the unconsumed tail",
+            "why": "The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.",
+            "currentState": {
+              "totalComparisons": 1,
+              "output": [
+                7,
+                12
+              ]
+            },
+            "initial": false,
+            "activeLine": 1,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [5] with [9]",
+            "left": [
+              5
+            ],
+            "right": [
+              9
+            ],
+            "i": 0,
+            "j": 0,
+            "output": [
+              5
+            ],
+            "chosen": 5,
+            "finished": false,
+            "total": 2
+          },
+          "caption": "In Merge [5] with [9], compare the highlighted fronts 5 and 9, then emit 5. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [5] with [9], compare the highlighted fronts 5 and 9, then emit 5. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 2,
+            "Current merge output keys": 1
+          },
+          "formula": "C=2",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=2\"><mrow><mi>C</mi><mo>=</mo><mn>2</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [5] with [9], compare the highlighted fronts 5 and 9, then emit 5. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 2,
+              "output": [
+                5
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Tail copy: Merge [5] with [9]",
+            "left": [
+              5
+            ],
+            "right": [
+              9
+            ],
+            "i": 1,
+            "j": 0,
+            "output": [
+              5,
+              9
+            ],
+            "chosen": null,
+            "finished": true,
+            "total": 2
+          },
+          "caption": "The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.",
+          "captionHtml": "<p>The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 2,
+            "Current merge output keys": 2
+          },
+          "formula": "C=2",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=2\"><mrow><mi>C</mi><mo>=</mo><mn>2</mn></mrow></math></div>",
+          "line": 1,
+          "teaching": {
+            "operation": "Copy the unconsumed tail",
+            "why": "The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.",
+            "currentState": {
+              "totalComparisons": 2,
+              "output": [
+                5,
+                9
+              ]
+            },
+            "initial": false,
+            "activeLine": 1,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [7, 12] with [5, 9]",
+            "left": [
+              7,
+              12
+            ],
+            "right": [
+              5,
+              9
+            ],
+            "i": 0,
+            "j": 0,
+            "output": [
+              5
+            ],
+            "chosen": 5,
+            "finished": false,
+            "total": 3
+          },
+          "caption": "In Merge [7, 12] with [5, 9], compare the highlighted fronts 7 and 5, then emit 5. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [7, 12] with [5, 9], compare the highlighted fronts 7 and 5, then emit 5. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 3,
+            "Current merge output keys": 1
+          },
+          "formula": "C=3",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=3\"><mrow><mi>C</mi><mo>=</mo><mn>3</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [7, 12] with [5, 9], compare the highlighted fronts 7 and 5, then emit 5. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 3,
+              "output": [
+                5
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [7, 12] with [5, 9]",
+            "left": [
+              7,
+              12
+            ],
+            "right": [
+              5,
+              9
+            ],
+            "i": 0,
+            "j": 1,
+            "output": [
+              5,
+              7
+            ],
+            "chosen": 7,
+            "finished": false,
+            "total": 4
+          },
+          "caption": "In Merge [7, 12] with [5, 9], compare the highlighted fronts 7 and 9, then emit 7. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [7, 12] with [5, 9], compare the highlighted fronts 7 and 9, then emit 7. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 4,
+            "Current merge output keys": 2
+          },
+          "formula": "C=4",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=4\"><mrow><mi>C</mi><mo>=</mo><mn>4</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [7, 12] with [5, 9], compare the highlighted fronts 7 and 9, then emit 7. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 4,
+              "output": [
+                5,
+                7
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [7, 12] with [5, 9]",
+            "left": [
+              7,
+              12
+            ],
+            "right": [
+              5,
+              9
+            ],
+            "i": 1,
+            "j": 1,
+            "output": [
+              5,
+              7,
+              9
+            ],
+            "chosen": 9,
+            "finished": false,
+            "total": 5
+          },
+          "caption": "In Merge [7, 12] with [5, 9], compare the highlighted fronts 12 and 9, then emit 9. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [7, 12] with [5, 9], compare the highlighted fronts 12 and 9, then emit 9. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 5,
+            "Current merge output keys": 3
+          },
+          "formula": "C=5",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=5\"><mrow><mi>C</mi><mo>=</mo><mn>5</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [7, 12] with [5, 9], compare the highlighted fronts 12 and 9, then emit 9. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 5,
+              "output": [
+                5,
+                7,
+                9
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Tail copy: Merge [7, 12] with [5, 9]",
+            "left": [
+              7,
+              12
+            ],
+            "right": [
+              5,
+              9
+            ],
+            "i": 1,
+            "j": 2,
+            "output": [
+              5,
+              7,
+              9,
+              12
+            ],
+            "chosen": null,
+            "finished": true,
+            "total": 5
+          },
+          "caption": "The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.",
+          "captionHtml": "<p>The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 5,
+            "Current merge output keys": 4
+          },
+          "formula": "C=5",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=5\"><mrow><mi>C</mi><mo>=</mo><mn>5</mn></mrow></math></div>",
+          "line": 1,
+          "teaching": {
+            "operation": "Copy the unconsumed tail",
+            "why": "The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.",
+            "currentState": {
+              "totalComparisons": 5,
+              "output": [
+                5,
+                7,
+                9,
+                12
+              ]
+            },
+            "initial": false,
+            "activeLine": 1,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [3] with [8]",
+            "left": [
+              3
+            ],
+            "right": [
+              8
+            ],
+            "i": 0,
+            "j": 0,
+            "output": [
+              3
+            ],
+            "chosen": 3,
+            "finished": false,
+            "total": 6
+          },
+          "caption": "In Merge [3] with [8], compare the highlighted fronts 3 and 8, then emit 3. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [3] with [8], compare the highlighted fronts 3 and 8, then emit 3. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 6,
+            "Current merge output keys": 1
+          },
+          "formula": "C=6",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=6\"><mrow><mi>C</mi><mo>=</mo><mn>6</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [3] with [8], compare the highlighted fronts 3 and 8, then emit 3. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 6,
+              "output": [
+                3
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Tail copy: Merge [3] with [8]",
+            "left": [
+              3
+            ],
+            "right": [
+              8
+            ],
+            "i": 1,
+            "j": 0,
+            "output": [
+              3,
+              8
+            ],
+            "chosen": null,
+            "finished": true,
+            "total": 6
+          },
+          "caption": "The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.",
+          "captionHtml": "<p>The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 6,
+            "Current merge output keys": 2
+          },
+          "formula": "C=6",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=6\"><mrow><mi>C</mi><mo>=</mo><mn>6</mn></mrow></math></div>",
+          "line": 1,
+          "teaching": {
+            "operation": "Copy the unconsumed tail",
+            "why": "The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.",
+            "currentState": {
+              "totalComparisons": 6,
+              "output": [
+                3,
+                8
+              ]
+            },
+            "initial": false,
+            "activeLine": 1,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [2] with [6]",
+            "left": [
+              2
+            ],
+            "right": [
+              6
+            ],
+            "i": 0,
+            "j": 0,
+            "output": [
+              2
+            ],
+            "chosen": 2,
+            "finished": false,
+            "total": 7
+          },
+          "caption": "In Merge [2] with [6], compare the highlighted fronts 2 and 6, then emit 2. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [2] with [6], compare the highlighted fronts 2 and 6, then emit 2. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 7,
+            "Current merge output keys": 1
+          },
+          "formula": "C=7",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=7\"><mrow><mi>C</mi><mo>=</mo><mn>7</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [2] with [6], compare the highlighted fronts 2 and 6, then emit 2. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 7,
+              "output": [
+                2
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Tail copy: Merge [2] with [6]",
+            "left": [
+              2
+            ],
+            "right": [
+              6
+            ],
+            "i": 1,
+            "j": 0,
+            "output": [
+              2,
+              6
+            ],
+            "chosen": null,
+            "finished": true,
+            "total": 7
+          },
+          "caption": "The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.",
+          "captionHtml": "<p>The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 7,
+            "Current merge output keys": 2
+          },
+          "formula": "C=7",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=7\"><mrow><mi>C</mi><mo>=</mo><mn>7</mn></mrow></math></div>",
+          "line": 1,
+          "teaching": {
+            "operation": "Copy the unconsumed tail",
+            "why": "The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.",
+            "currentState": {
+              "totalComparisons": 7,
+              "output": [
+                2,
+                6
+              ]
+            },
+            "initial": false,
+            "activeLine": 1,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [3, 8] with [2, 6]",
+            "left": [
+              3,
+              8
+            ],
+            "right": [
+              2,
+              6
+            ],
+            "i": 0,
+            "j": 0,
+            "output": [
+              2
+            ],
+            "chosen": 2,
+            "finished": false,
+            "total": 8
+          },
+          "caption": "In Merge [3, 8] with [2, 6], compare the highlighted fronts 3 and 2, then emit 2. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [3, 8] with [2, 6], compare the highlighted fronts 3 and 2, then emit 2. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 8,
+            "Current merge output keys": 1
+          },
+          "formula": "C=8",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=8\"><mrow><mi>C</mi><mo>=</mo><mn>8</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [3, 8] with [2, 6], compare the highlighted fronts 3 and 2, then emit 2. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 8,
+              "output": [
+                2
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [3, 8] with [2, 6]",
+            "left": [
+              3,
+              8
+            ],
+            "right": [
+              2,
+              6
+            ],
+            "i": 0,
+            "j": 1,
+            "output": [
+              2,
+              3
+            ],
+            "chosen": 3,
+            "finished": false,
+            "total": 9
+          },
+          "caption": "In Merge [3, 8] with [2, 6], compare the highlighted fronts 3 and 6, then emit 3. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [3, 8] with [2, 6], compare the highlighted fronts 3 and 6, then emit 3. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 9,
+            "Current merge output keys": 2
+          },
+          "formula": "C=9",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=9\"><mrow><mi>C</mi><mo>=</mo><mn>9</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [3, 8] with [2, 6], compare the highlighted fronts 3 and 6, then emit 3. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 9,
+              "output": [
+                2,
+                3
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [3, 8] with [2, 6]",
+            "left": [
+              3,
+              8
+            ],
+            "right": [
+              2,
+              6
+            ],
+            "i": 1,
+            "j": 1,
+            "output": [
+              2,
+              3,
+              6
+            ],
+            "chosen": 6,
+            "finished": false,
+            "total": 10
+          },
+          "caption": "In Merge [3, 8] with [2, 6], compare the highlighted fronts 8 and 6, then emit 6. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [3, 8] with [2, 6], compare the highlighted fronts 8 and 6, then emit 6. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 10,
+            "Current merge output keys": 3
+          },
+          "formula": "C=10",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=10\"><mrow><mi>C</mi><mo>=</mo><mn>10</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [3, 8] with [2, 6], compare the highlighted fronts 8 and 6, then emit 6. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 10,
+              "output": [
+                2,
+                3,
+                6
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Tail copy: Merge [3, 8] with [2, 6]",
+            "left": [
+              3,
+              8
+            ],
+            "right": [
+              2,
+              6
+            ],
+            "i": 1,
+            "j": 2,
+            "output": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "chosen": null,
+            "finished": true,
+            "total": 10
+          },
+          "caption": "The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.",
+          "captionHtml": "<p>The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 10,
+            "Current merge output keys": 4
+          },
+          "formula": "C=10",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=10\"><mrow><mi>C</mi><mo>=</mo><mn>10</mn></mrow></math></div>",
+          "line": 1,
+          "teaching": {
+            "operation": "Copy the unconsumed tail",
+            "why": "The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.",
+            "currentState": {
+              "totalComparisons": 10,
+              "output": [
+                2,
+                3,
+                6,
+                8
+              ]
+            },
+            "initial": false,
+            "activeLine": 1,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [5, 7, 9, 12] with [2, 3, 6, 8]",
+            "left": [
+              5,
+              7,
+              9,
+              12
+            ],
+            "right": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "i": 0,
+            "j": 0,
+            "output": [
+              2
+            ],
+            "chosen": 2,
+            "finished": false,
+            "total": 11
+          },
+          "caption": "In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 5 and 2, then emit 2. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 5 and 2, then emit 2. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 11,
+            "Current merge output keys": 1
+          },
+          "formula": "C=11",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=11\"><mrow><mi>C</mi><mo>=</mo><mn>11</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 5 and 2, then emit 2. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 11,
+              "output": [
+                2
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [5, 7, 9, 12] with [2, 3, 6, 8]",
+            "left": [
+              5,
+              7,
+              9,
+              12
+            ],
+            "right": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "i": 0,
+            "j": 1,
+            "output": [
+              2,
+              3
+            ],
+            "chosen": 3,
+            "finished": false,
+            "total": 12
+          },
+          "caption": "In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 5 and 3, then emit 3. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 5 and 3, then emit 3. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 12,
+            "Current merge output keys": 2
+          },
+          "formula": "C=12",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=12\"><mrow><mi>C</mi><mo>=</mo><mn>12</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 5 and 3, then emit 3. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 12,
+              "output": [
+                2,
+                3
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [5, 7, 9, 12] with [2, 3, 6, 8]",
+            "left": [
+              5,
+              7,
+              9,
+              12
+            ],
+            "right": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "i": 0,
+            "j": 2,
+            "output": [
+              2,
+              3,
+              5
+            ],
+            "chosen": 5,
+            "finished": false,
+            "total": 13
+          },
+          "caption": "In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 5 and 6, then emit 5. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 5 and 6, then emit 5. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 13,
+            "Current merge output keys": 3
+          },
+          "formula": "C=13",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=13\"><mrow><mi>C</mi><mo>=</mo><mn>13</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 5 and 6, then emit 5. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 13,
+              "output": [
+                2,
+                3,
+                5
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [5, 7, 9, 12] with [2, 3, 6, 8]",
+            "left": [
+              5,
+              7,
+              9,
+              12
+            ],
+            "right": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "i": 1,
+            "j": 2,
+            "output": [
+              2,
+              3,
+              5,
+              6
+            ],
+            "chosen": 6,
+            "finished": false,
+            "total": 14
+          },
+          "caption": "In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 7 and 6, then emit 6. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 7 and 6, then emit 6. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 14,
+            "Current merge output keys": 4
+          },
+          "formula": "C=14",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=14\"><mrow><mi>C</mi><mo>=</mo><mn>14</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 7 and 6, then emit 6. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 14,
+              "output": [
+                2,
+                3,
+                5,
+                6
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [5, 7, 9, 12] with [2, 3, 6, 8]",
+            "left": [
+              5,
+              7,
+              9,
+              12
+            ],
+            "right": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "i": 1,
+            "j": 3,
+            "output": [
+              2,
+              3,
+              5,
+              6,
+              7
+            ],
+            "chosen": 7,
+            "finished": false,
+            "total": 15
+          },
+          "caption": "In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 7 and 8, then emit 7. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 7 and 8, then emit 7. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 15,
+            "Current merge output keys": 5
+          },
+          "formula": "C=15",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=15\"><mrow><mi>C</mi><mo>=</mo><mn>15</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 7 and 8, then emit 7. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 15,
+              "output": [
+                2,
+                3,
+                5,
+                6,
+                7
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Merge [5, 7, 9, 12] with [2, 3, 6, 8]",
+            "left": [
+              5,
+              7,
+              9,
+              12
+            ],
+            "right": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "i": 2,
+            "j": 3,
+            "output": [
+              2,
+              3,
+              5,
+              6,
+              7,
+              8
+            ],
+            "chosen": 8,
+            "finished": false,
+            "total": 16
+          },
+          "caption": "In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 9 and 8, then emit 8. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+          "captionHtml": "<p>In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 9 and 8, then emit 8. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 16,
+            "Current merge output keys": 6
+          },
+          "formula": "C=16",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=16\"><mrow><mi>C</mi><mo>=</mo><mn>16</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Compare the two nonempty front keys and emit the smaller",
+            "why": "In Merge [5, 7, 9, 12] with [2, 3, 6, 8], compare the highlighted fronts 9 and 8, then emit 8. Dimmed keys were consumed earlier in this merge; the output row is shown after this comparison.",
+            "currentState": {
+              "totalComparisons": 16,
+              "output": [
+                2,
+                3,
+                5,
+                6,
+                7,
+                8
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": "Complete eight-key result",
+            "left": [
+              5,
+              7,
+              9,
+              12
+            ],
+            "right": [
+              2,
+              3,
+              6,
+              8
+            ],
+            "i": 2,
+            "j": 4,
+            "output": [
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12
+            ],
+            "chosen": null,
+            "finished": true,
+            "total": 16
+          },
+          "caption": "The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.",
+          "captionHtml": "<p>The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.</p>",
+          "metrics": {
+            "Total key comparisons": 16,
+            "Current merge output keys": 8
+          },
+          "formula": "C=16",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=16\"><mrow><mi>C</mi><mo>=</mo><mn>16</mn></mrow></math></div>",
+          "line": 1,
+          "teaching": {
+            "operation": "Copy the unconsumed tail",
+            "why": "The complete sorted merge output includes the tail copied after one input emptied. This checkpoint adds no key comparison.",
+            "currentState": {
+              "totalComparisons": 16,
+              "output": [
+                2,
+                3,
+                5,
+                6,
+                7,
+                8,
+                9,
+                12
+              ]
+            },
+            "initial": false,
+            "activeLine": 1,
+            "checks": [],
+            "changes": [],
+            "mode": "array",
+            "reading": "The input rows highlight the fronts immediately before this event; the output row contains the prefix immediately after it. Each event charges one key comparison. Tail copying charges none."
+          }
+        }
+      ]
     }
   }
 }

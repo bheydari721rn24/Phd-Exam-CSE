@@ -1,0 +1,101 @@
+{
+  "status": "passed",
+  "topicId": "a_model",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-model-browser",
+  "counts": {
+    "questions": 46,
+    "solutions": 46,
+    "questionTables": 6,
+    "math": 914,
+    "errors": []
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "prose": true
+  },
+  "delimiters": [],
+  "models": [
+    {
+      "id": "insertion",
+      "frames": 29,
+      "issues": []
+    },
+    {
+      "id": "shortest-path-certificate",
+      "frames": 5,
+      "issues": []
+    },
+    {
+      "id": "encoding-length",
+      "frames": 6,
+      "issues": []
+    },
+    {
+      "id": "word-bit-cost",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "encoding-length",
+      "frames": 6,
+      "issues": []
+    },
+    {
+      "id": "model-merge-exact",
+      "frames": 23,
+      "issues": []
+    }
+  ],
+  "staticDiagrams": [
+    {
+      "label": "An abstract input is encoded into bits, packed or aligned into words, and processed using declared instructions",
+      "outside": []
+    },
+    {
+      "label": "A unary root leaves half the mass unused; a full tree with leaf depths one, two and two has total mass one",
+      "outside": []
+    },
+    {
+      "label": "A full binary tree with leaf depths one, two, three and three and respective masses one half, one quarter, one eighth and one eighth",
+      "outside": []
+    }
+  ],
+  "responsive": [
+    {
+      "width": 1360,
+      "pageWidth": 1345,
+      "tableOverflow": [],
+      "underlined": 0
+    },
+    {
+      "width": 768,
+      "pageWidth": 753,
+      "tableOverflow": [],
+      "underlined": 0
+    },
+    {
+      "width": 390,
+      "pageWidth": 390,
+      "tableOverflow": [],
+      "underlined": 0
+    }
+  ],
+  "print": {
+    "solutions": 46,
+    "errors": []
+  },
+  "humanInspectedScreenshots": [
+    "merge-first.png",
+    "merge-middle.png",
+    "merge-final.png",
+    "merge-mobile.png",
+    "question-12-depths.png",
+    "question-3-mobile.png",
+    "question-4.png",
+    "question-45.png",
+    "model-representation.png",
+    "final-rules.png"
+  ],
+  "mobileDiagramBehavior": "Full-size diagrams use local horizontal scrolling so labels retain readable size. The page itself and question tables have no horizontal overflow."
+}

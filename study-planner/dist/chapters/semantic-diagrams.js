@@ -145,6 +145,14 @@ function geometryExact(p,g,f,pos){const id=p.scene.id,s=f.snapshot||{};
  if(rank&&s.kind==="rank-map")text(g,280,160,`Image of ${s.inputs.length} inputs`,21);
 }
 function arrayExact(p,g,f,pos){const s=f.snapshot||{},id=p.scene.id;
+ if(id==="model-merge-exact"){
+  text(g,380,38,s.stage,21);
+  strip(g,90,100,s.left,{cell:58,active:s.finished?-1:s.i,title:"Left input: fronts before this event",tones:s.left.map((_,i)=>i<s.i?"#8d9fac":C.ink)});
+  strip(g,425,100,s.right,{cell:58,active:s.finished?-1:s.j,title:"Right input: fronts before this event",tones:s.right.map((_,i)=>i<s.j?"#8d9fac":C.ink)});
+  strip(g,90,250,s.output,{cell:65,labels:false,title:s.finished?"Complete merge output, including the copied tail":"Output after the highlighted comparison",active:s.finished?-1:s.output.length-1});
+  text(g,380,215,s.finished?"No additional key comparison for tail copies":`Compare ${s.left[s.i]} with ${s.right[s.j]}; emit ${s.chosen}`,19);
+  return;
+ }
  if(id==="arr-ring"){const r=112,cx=235,cy=185;for(let i=0;i<7;i++){const a=-Math.PI/2+i*2*Math.PI/7,x=cx+r*Math.cos(a),y=cy+r*Math.sin(a);dot(g,x,y,23,i===s.physical?C.amber:C.blue);text(g,x,y+7,i,20,"middle","white");}text(g,540,140,`Logical offset = ${s.t}`,22);text(g,540,190,`Physical slot = ${s.physical}`,22);text(g,540,255,"(head 5 + offset) mod 7",22);return;}
  if(id==="arr-transpose"){const source=[[0,1,2],[3,4,5]],dest=[s.target.slice(0,2),s.target.slice(2,4),s.target.slice(4,6)];matrix(g,source,80,95,"Source 2 × 3",[[s.i,s.j]]);matrix(g,dest,480,95,"Transpose 3 × 2",[[s.j,s.i]]);arrow(g,300,160,440,160);text(g,380,315,`${s.phase}: source offset ${s.source} → destination offset ${s.destination}`,20);return;}
  if(id==="arr-packed"){const M=Array.from({length:3},(_,i)=>Array.from({length:3},(_,j)=>j<=i?i*(i+1)/2+j:"—"));matrix(g,M,125,85,"Three-row packed lower triangle",[[s.i,s.j]]);text(g,550,170,`Offset ${s.offset}`,24);return;}
