@@ -650,23 +650,32 @@
       "d_functions",
       "d_proof"
     ],
-    "title": "Strict order and injectivity",
-    "stem": "Evaluate (a) if $(A,<)$ is linearly ordered and $f:A\\to A$ preserves that strict order, then $f$ is injective; (b) every countable set is well-orderable.",
+    "title": "Order preservation versus identity",
+    "stem": "Evaluate (a) if $(A,<)$ is linearly ordered and $f:A\\to A$ preserves that strict order, then $f$ is the identity function; (b) every countable set is well-orderable.",
     "options": [
       "Only (a).",
       "Only (b).",
       "Both.",
       "Neither."
     ],
-    "answer": 3,
-    "solution": "1. If $x\\ne y$, linearity makes either $x<y$ or $y<x$. Strict preservation gives a strict inequality between the outputs, so the outputs are different.\n2. A finite set can be listed in a finite order. A countably infinite set can inherit the natural-number order from a listing/bijection. Each nonempty subset then has a least-indexed member.\n3. Thus both claims hold. Preservation of a weak order would not imply (a): a constant map is weakly monotone. The strict symbol in the source is essential.\n4. The other options falsely reject one or both arguments.\n\n**Transfer rule.** Read strictness and comparability assumptions before invoking order-based injectivity.",
-    "pattern": "theorem hypotheses and strictness",
+    "answer": 2,
+    "solution": "**Correct option: 2.** The source booklet's Persian phrase means **the identity function**, not an injective function. Assertion (a) is false. On $A=\\mathbb Z$ with its usual strict order, define $f(k)=k+1$. For any $i<j$, addition of one gives $f(i)<f(j)$, so the map preserves the order. It is a self-map of $\\mathbb Z$, yet $f(0)=1\\ne0$, proving that it is not the identity.\n\n<figure class=\"logic-diagram question-specific-diagram\"><svg viewBox=\"0 0 720 200\" role=\"img\" aria-label=\"Three values of the order-preserving shift on the integers; each output is one greater than its input\"><defs><marker id=\"q19-shift-tip\" markerWidth=\"8\" markerHeight=\"8\" refX=\"8\" refY=\"4\" orient=\"auto\"><path d=\"M0 0L8 4L0 8Z\" fill=\"#47768a\"/></marker></defs><g fill=\"#28495b\" style=\"font-family: Source Sans 3,sans-serif; font-size:17px\"><text x=\"16\" y=\"52\">Input</text><text x=\"16\" y=\"164\">Output</text></g><g fill=\"#f2f8fa\" stroke=\"#a2bac6\"><circle cx=\"190\" cy=\"48\" r=\"25\"/><circle cx=\"390\" cy=\"48\" r=\"25\"/><circle cx=\"590\" cy=\"48\" r=\"25\"/><circle cx=\"190\" cy=\"160\" r=\"25\"/><circle cx=\"390\" cy=\"160\" r=\"25\"/><circle cx=\"590\" cy=\"160\" r=\"25\"/></g><g style=\"font-family: STIX Two Math,serif; font-size:21px\" text-anchor=\"middle\" fill=\"#28495b\"><text x=\"190\" y=\"55\">−1</text><text x=\"390\" y=\"55\">0</text><text x=\"590\" y=\"55\">1</text><text x=\"190\" y=\"167\">0</text><text x=\"390\" y=\"167\">1</text><text x=\"590\" y=\"167\">2</text></g><g fill=\"none\" stroke=\"#47768a\" stroke-width=\"2\" marker-end=\"url(#q19-shift-tip)\"><path d=\"M190 73V135\"/><path d=\"M390 73V135\"/><path d=\"M590 73V135\"/></g></svg><figcaption>Three values of the shift on the full integer domain. Left-to-right order is retained, but no displayed output equals its own input. The diagram is a finite excerpt of the map on all integers, not a self-map of these three inputs alone.</figcaption></figure>\n\nStrict order preservation does imply the weaker claim of injectivity: if $x\\ne y$, linear comparability gives $x<y$ or $y<x$, and the corresponding strict output inequality excludes equality of outputs. That correct theorem does not prove the source's stronger identity claim. On a **finite** linearly ordered set, an injective self-map is bijective and an order-preserving bijection must fix each successive element, so identity does follow there. The source places no finiteness hypothesis on $A$; the infinite counterexample decides its universal statement.\n\nFor (b), a finite set can be enumerated and ordered by its finite index. A countably infinite set has a bijective listing $g:\\mathbb N\\to B$. Define $g(i)\\prec g(j)$ exactly when $i<j$. For any nonempty subset $C\\subseteq B$, its index set $\\{i:g(i)\\in C\\}$ is a nonempty subset of the natural numbers and has a least member. The element at that index is the least element of $C$. This constructs a well-order. The empty set is well-ordered vacuously.\n\nThis is existence of a suitable order, not a claim that every order already placed on a countable set is a well-order. The integers with their usual order have no least element, but a listing such as $0,1,-1,2,-2,\\ldots$ induces a different well-order. Thus only (b) is true. Option 1 wrongly accepts (a) and rejects (b); option 3 wrongly accepts both; option 4 wrongly rejects the constructed well-order. The correct choice is 2. This revision corrects the earlier translation and answer, while retaining the source's four-option order.",
+    "pattern": "identity versus injectivity and existence of a well-order",
     "difficulty": "Medium",
     "repoPath": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
     "sourceSha256": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
     "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
-    "translationStatus": "checked against rendered source page",
-    "answerProvenance": "independently derived; not represented as an official key"
+    "translationStatus": "Original Persian identity-function wording visually rechecked at enlarged PDF page 8 on 11 October 2026; previous injectivity translation corrected.",
+    "answerProvenance": "independently derived; not represented as an official key",
+    "correctionHistory": [
+      {
+        "date": "2026-10-11",
+        "previousTranslation": "injective",
+        "originalMeaning": "identity function",
+        "previousAnswer": 3,
+        "correctedIndependentAnswer": 2
+      }
+    ]
   },
   {
     "id": "Phd_CS_1405_Q20",

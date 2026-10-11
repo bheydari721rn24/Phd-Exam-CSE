@@ -1,0 +1,89 @@
+{
+  "status": "passed",
+  "topicId": "d_proof",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-proof-browser",
+  "counts": {
+    "questions": 48,
+    "solutions": 48,
+    "questionTables": 8,
+    "math": 1036,
+    "errors": []
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "prose": true
+  },
+  "delimiters": [],
+  "models": [
+    {
+      "id": "direct-even",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "contrapositive",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "sqrt-contradiction",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "quantifier-fixed",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "induction-gap",
+      "frames": 4,
+      "issues": []
+    }
+  ],
+  "staticDiagrams": [
+    {
+      "label": "Three routes that prove an implication and the separate route that refutes it",
+      "outside": []
+    },
+    {
+      "label": "Three values of the order-preserving shift on the integers; each output is one greater than its input",
+      "outside": []
+    }
+  ],
+  "responsive": [
+    {
+      "width": 1360,
+      "pageWidth": 1345,
+      "tableOverflow": [],
+      "underlined": 0
+    },
+    {
+      "width": 768,
+      "pageWidth": 753,
+      "tableOverflow": [],
+      "underlined": 0
+    },
+    {
+      "width": 390,
+      "pageWidth": 390,
+      "tableOverflow": [],
+      "underlined": 0
+    }
+  ],
+  "print": {
+    "solutions": 48,
+    "errors": []
+  },
+  "humanInspectedScreenshots": [
+    "proof-strategies.png",
+    "question-2.png",
+    "question-6.png",
+    "question-6-shift.png",
+    "question-8-mobile.png",
+    "question-31.png",
+    "final-rules.png"
+  ],
+  "animationSemanticReview": "Five fixed proof scenarios read checkpoint by checkpoint: even-square algebra; equivalent contrapositive with predicates explicitly defined in the lesson; reduced-fraction square-root contradiction; each fixed equality witness on a three-object domain; even-only reachability from a zero base and step two. Fixed explanations do not certify arbitrary inputs."
+}

@@ -152,12 +152,12 @@ add('Phd_CS_1405',8,18,'d_sets d_proof','Transitivity of two small families',r'A
 4. The single-family options overlook one inclusion, while neither confuses a member with a subset.
 
 **Transfer rule.** Enumerate members at each brace level before evaluating a union of sets of sets.''','brace-depth and union calculation')
-add('Phd_CS_1405',8,19,'d_functions d_proof','Strict order and injectivity',r'Evaluate (a) if $(A,<)$ is linearly ordered and $f:A\to A$ preserves that strict order, then $f$ is injective; (b) every countable set is well-orderable.',['Only (a).','Only (b).','Both.','Neither.'],3,r'''1. If $x\ne y$, linearity makes either $x<y$ or $y<x$. Strict preservation gives a strict inequality between the outputs, so the outputs are different.
+add('Phd_CS_1405',8,19,'d_functions d_proof','Order preservation versus identity',r'Evaluate (a) if $(A,<)$ is linearly ordered and $f:A\to A$ preserves that strict order, then $f$ is the identity function; (b) every countable set is well-orderable.',['Only (a).','Only (b).','Both.','Neither.'],2,r'''1. The original Persian phrase means the identity function. On the integers with their usual order, $f(k)=k+1$ is a strictly order-preserving self-map, yet $f(0)=1$, so it is not the identity. This refutes (a). Injectivity is a weaker property and does follow from strict linear-order preservation.
 2. A finite set can be listed in a finite order. A countably infinite set can inherit the natural-number order from a listing/bijection. Each nonempty subset then has a least-indexed member.
-3. Thus both claims hold. Preservation of a weak order would not imply (a): a constant map is weakly monotone. The strict symbol in the source is essential.
-4. The other options falsely reject one or both arguments.
+3. Thus only (b) holds. A finite linearly ordered domain would force an order-preserving self-map to be the identity, but the source imposes no finiteness hypothesis.
+4. Options 1 and 3 accept the false identity claim; option 4 rejects the well-order construction. The independently derived answer is option 2.
 
-**Transfer rule.** Read strictness and comparability assumptions before invoking order-based injectivity.''','theorem hypotheses and strictness')
+**Transfer rule.** Distinguish identity, injectivity and the existence of a suitable order. The previous injectivity translation of this authentic item was corrected against the enlarged source PDF on 11 October 2026.''','identity versus injectivity and well-order existence')
 add('Phd_CS_1405',8,20,'a_loop p_flow s_counting','Exact count of ordered triples',r'Assume the variables have types large enough for the following code. What is the final value of `Cod`?', ['610','690','630','710'],2,r'''1. Each increment corresponds to exactly one triple $1\le i\le j\le k\le15$.
 2. Such triples are multisets of size three drawn from fifteen values, numbering $\binom{15+3-1}{3}=\binom{17}3=680$.
 3. The initial value is ten, so the final value is $10+680=690$.
