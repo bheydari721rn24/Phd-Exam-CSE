@@ -1,0 +1,605 @@
+[
+  {
+    "id": "LO-001",
+    "title": "A parameterized Gram form",
+    "stem": "For $G=\\begin{pmatrix}2&t\\\\t&3\\end{pmatrix}$, find exactly which real $t$ define an inner product. Explain both endpoints.",
+    "solution": "The form is symmetric. Completing the square gives $2(x_1+tx_2/2)^2+(3-t^2/2)x_2^2$. Strict positivity for every nonzero vector is therefore equivalent to $6-t^2>0$, or $-\\sqrt6<t<\\sqrt6$. At either endpoint the vector $(-t/2,1)^T$ is nonzero and has self-product zero, so the form is semidefinite, not an inner product. Outside the interval the same vector has negative self-product. Testing only the standard basis vectors would miss that obstruction.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-002",
+    "title": "An indefinite counterexample",
+    "stem": "For $B(x,y)=x_1y_1-x_2y_2$, determine whether $u=(1,1)^T$ is perpendicular to itself and whether this defines an inner product.",
+    "solution": "Compute $B(u,u)=1-1=0$ although $u\\ne0$. Thus it is an isotropic vector for this form. The form is symmetric and bilinear, but fails strict positivity; for example $B((0,1),(0,1))=-1$. Neither taking a square root as a real norm nor deducing independence from perpendicularity is valid. The intersection of a subspace and its perpendicular complement need not be the zero subspace under an indefinite form.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-003",
+    "title": "Cauchy–Schwarz with all equality cases",
+    "stem": "Prove $|\\langle x,y\\rangle|^2\\le\\|x\\|^2\\|y\\|^2$ and characterize equality, including zero inputs.",
+    "solution": "For $y\\ne0$, let $r=x-y\\langle y,x\\rangle/\\|y\\|^2$. Its product with $y$ is zero and expansion gives $\\|r\\|^2=\\|x\\|^2-|\\langle y,x\\rangle|^2/\\|y\\|^2\\ge0$. Multiplying by the positive denominator proves the inequality. Equality means $\\|r\\|=0$, hence $x$ is a scalar multiple of $y$. If either input is zero, both sides vanish. Therefore equality is exactly linear dependence, interpreted to include zero vectors.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-004",
+    "title": "Triangle equality is stronger than dependence",
+    "stem": "Find the equality condition in $\\|x+y\\|\\le\\|x\\|+\\|y\\|$ for real vectors. Test $x=(1,0)^T$, $y=(-2,0)^T$.",
+    "solution": "Squaring shows that equality requires $\\langle x,y\\rangle=\\|x\\|\\|y\\|$. Cauchy–Schwarz gives dependence, and the positive sign requires the same nonnegative direction for nonzero inputs. Zero inputs also give equality. In the proposed test the left side is one and the right side is three, so equality fails despite dependence. The absolute-value equality in Cauchy–Schwarz must not be substituted for the signed equality needed here.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-005",
+    "title": "A complex Pythagorean trap",
+    "stem": "In $\\mathbb C$, take $x=1$, $y=i$ with $\\langle x,y\\rangle=\\overline xy$. Does $\\|x+y\\|^2=\\|x\\|^2+\\|y\\|^2$ imply perpendicularity?",
+    "solution": "The left side is $|1+i|^2=2$, and the right side is also two. However $\\langle x,y\\rangle=i\\ne0$. Expanding a complex self-product introduces $2\\operatorname{Re}\\langle x,y\\rangle$, which vanishes here. Thus the real converse to Pythagoras cannot be transferred without controlling the imaginary part. Replacing the inner product by its real part changes the real vector-space structure and is a different interpretation.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-006",
+    "title": "An orthogonal list containing zero",
+    "stem": "Is the pairwise perpendicular list $(0,e_1,e_2)$ independent? Give the corrected theorem.",
+    "solution": "It is dependent because the coefficient one on the zero vector, with all other coefficients zero, is a nontrivial zero combination. Pairwise products still vanish. The corrected theorem requires all vectors in the orthogonal list to be nonzero. Then taking a product with each list vector isolates its coefficient times a strictly positive squared norm, forcing every coefficient to vanish.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-007",
+    "title": "The Berkeley unnormalized basis",
+    "stem": "Find the coordinates of $(1,2)^T$ in basis $((3,-1)^T,(1,3)^T)$, then compute its squared norm from those coordinates.",
+    "solution": "The cross-product is $3-3=0$ and each squared length is ten. Coefficients are $(3-2)/10=1/10$ and $(1+6)/10=7/10$. Reconstruction gives $(3/10+7/10,-1/10+21/10)=(1,2)$. The squared norm is $10(1/10)^2+10(7/10)^2=5$, agreeing with the physical vector. Summing coefficient squares without weighting would give $1/2$, because the basis is orthogonal but not normalized.",
+    "origin": "Independent reconstruction of Berkeley Math54 Orthogonal Sets, pages1–2"
+  },
+  {
+    "id": "LO-008",
+    "title": "Rectangular orthonormal columns are independent",
+    "stem": "Let $Q\\in\\mathbb R^{m\\times r}$ satisfy $Q^TQ=I_r$. Prove independence without using $Q^{-1}$.",
+    "solution": "If $Qc=0$, multiplying by $Q^T$ gives $c=Q^TQc=0$. Hence the kernel is zero and the columns are independent, so necessarily $r\\le m$. Rectangular $Q$ does not have a two-sided inverse. Its transpose is a left inverse, and $QQ^T$ is a projector onto its column space. This distinction is the point of the proof.",
+    "origin": "Independent reconstruction of MIT18.06SC exercise17.1"
+  },
+  {
+    "id": "LO-009",
+    "title": "A complement by equations",
+    "stem": "For $W=\\operatorname{span}\\{(1,1,0)^T,(0,1,1)^T\\}$ in $\\mathbb R^3$, find $W^\\perp$ and its dimension.",
+    "solution": "Testing the generators gives $x_1+x_2=0$ and $x_2+x_3=0$. Thus $x=(-s,s,-s)^T$ and $W^\\perp=\\operatorname{span}\\{(-1,1,-1)^T\\}$. The two original generators are independent, so $W$ has dimension two and the complement has dimension one. Both tests vanish for the proposed complement vector; perpendicularity to one generator alone would be insufficient.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-010",
+    "title": "A left-null certificate of inconsistency",
+    "stem": "For $A=\\begin{pmatrix}1&0\\\\0&1\\\\1&1\\end{pmatrix}$ and $b=(1,1,3)^T$, prove that $Ac=b$ is inconsistent.",
+    "solution": "The vector $z=(-1,-1,1)^T$ lies in $\\ker A^T$, since both products with columns vanish. But $z^Tb=-1-1+3=1\\ne0$. If $Ac=b$ held, it would imply $z^Tb=z^TAc=0$, a contradiction. Direct equations give $c_1=c_2=1$ and then require a third entry two, not three. The certificate method generalizes without solving all coefficient equations.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-011",
+    "title": "Complement identities for sums and intersections",
+    "stem": "Prove $(U+W)^\\perp=U^\\perp\\cap W^\\perp$ and derive $(U\\cap W)^\\perp=U^\\perp+W^\\perp$ in finite dimension.",
+    "solution": "A vector perpendicular to every sum is perpendicular to $U$ and $W$ by setting one summand zero. Conversely, perpendicularity to both makes every summed product zero. This proves the first identity. Apply it to $U^\\perp,W^\\perp$ and take perpendicular complements, using the finite-dimensional double-complement theorem. The second equality follows. In infinite dimension, a closure may be required; the finite-dimensional theorem is the declared scope.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-012",
+    "title": "Projection onto a nonunit line",
+    "stem": "Project $x=(1,3)^T$ onto $\\operatorname{span}\\{(2,1)^T\\}$ and find the squared distance.",
+    "solution": "The numerator is $2+3=5$ and the denominator is $4+1=5$, so the coefficient is one. Thus $p=(2,1)^T$ and $r=(-1,2)^T$. The residual product is $-2+2=0$. Its squared norm is five, and $\\|p\\|^2+\\|r\\|^2=5+5=10=\\|x\\|^2$. The normalization denominator cannot be omitted.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "line"
+  },
+  {
+    "id": "LO-013",
+    "title": "A nonorthogonal basis requires a Gram system",
+    "stem": "Project $b=(0,0,1)^T$ onto the columns of $A=\\begin{pmatrix}1&1\\\\0&1\\\\1&0\\end{pmatrix}$.",
+    "solution": "The Gram matrix is $\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}$, while $A^Tb=(1,0)^T$. Inverting the Gram matrix gives $c=(2/3,-1/3)^T$, and $p=Ac=(1/3,-1/3,2/3)^T$. The residual $(-1/3,1/3,1/3)^T$ has zero product with both columns. Its squared norm is $1/3$. Independently dividing each numerator by its diagonal Gram entry would ignore the off-diagonal coupling and give a wrong result.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-014",
+    "title": "The Berkeley plane calculation",
+    "stem": "For $u_1=(1,-1,1)^T$, $u_2=(-1,0,1)^T$ and $y=(1,2,3)^T$, calculate the projection and distance to their span.",
+    "solution": "The cross-product is $-1+1=0$, and squared lengths are three and two. Both products with $y$ are two. Therefore $p=(2/3)u_1+u_2=(-1/3,-2/3,5/3)^T$. The residual is $(4/3,8/3,4/3)^T$, perpendicular to both generators. Its squared length is $96/9=32/3$, so the distance is $\\sqrt{96}/3=4\\sqrt6/3$. This is a projection onto a plane, not an independent coordinate expansion of all of $y$.",
+    "origin": "Independent reconstruction of Berkeley Math54 Orthogonal Projections, page3"
+  },
+  {
+    "id": "LO-015",
+    "title": "A plane from a normal vector",
+    "stem": "Project $y=(1,2,4)^T$ onto $x_1+x_2-x_3=0$ and verify the answer two ways.",
+    "solution": "The normal $n=(1,1,-1)^T$ has squared norm three and product $n^Ty=-1$. Subtracting the normal component gives $p=(4/3,7/3,11/3)^T$. Its coordinates satisfy $4/3+7/3-11/3=0$, proving membership. The residual is $(-1/3,-1/3,1/3)^T=-n/3$, proving perpendicularity. The squared distance is $1/3$, which also equals $(n^Ty)^2/(n^Tn)$.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-016",
+    "title": "Dependent generators and a unique projection",
+    "stem": "Let $A=((1,1)^T,2(1,1)^T)$ and $b=(2,0)^T$. Find the projected vector and every coefficient representation.",
+    "solution": "The line projection is $p=(1,1)^T$, because the generator product with $b$ is two and its squared norm is two. Coefficients satisfy $c_1+2c_2=1$, so all are $(1-2s,s)^T$. The Gram matrix is singular and its inverse formula is inadmissible. The physical minimizer remains unique because it is a perpendicular projection; only generator coefficients are nonunique. Selecting the first column as a basis resolves computation without changing $p$.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-017",
+    "title": "A complete symmetric idempotent characterization",
+    "stem": "Prove that a real matrix $P$ is an orthogonal projector exactly when $P=P^T$ and $P^2=P$.",
+    "solution": "For a perpendicular projection, an orthonormal basis gives $P=QQ^T$, hence both identities. Conversely idempotence gives $x=Px+(I-P)x$, with the first term in the image and the second in the kernel. For $u=Pa$ and $v\\in\\ker P$, symmetry yields $u^Tv=a^TP^Tv=a^TPv=0$. Thus image and kernel are perpendicular complements, and $Px$ is the unique image component. Symmetry alone and idempotence alone are each insufficient.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-018",
+    "title": "An oblique norm expansion",
+    "stem": "For $P=\\begin{pmatrix}1&2\\\\0&0\\end{pmatrix}$, determine image, kernel and whether $\\|Px\\|\\le\\|x\\|$ always holds.",
+    "solution": "Multiplication gives $P^2=P$. Its image is the horizontal axis and its kernel is the line $x_1+2x_2=0$, generated by $(-2,1)^T$. These are algebraic complements but not perpendicular. For $x=(0,1)^T$, the output is $(2,0)^T$, with length two instead of one. Hence the contraction inequality fails. Idempotence fixes image vectors but does not guarantee Euclidean closest points.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "oblique"
+  },
+  {
+    "id": "LO-019",
+    "title": "A shifted affine plane",
+    "stem": "Find the closest point to $b=(1,0,0)^T$ on $x_1+x_2+x_3=3$.",
+    "solution": "Let $n=(1,1,1)^T$. The closest point must be $p=b+\\lambda n$, and the affine constraint gives $1+3\\lambda=3$, so $\\lambda=2/3$. Thus $p=(5/3,2/3,2/3)^T$. The residual $b-p=-(2/3)n$ is perpendicular to every tangent direction satisfying coordinate sum zero. Its squared length is $4/3$. Projection onto a shifted affine set includes a constant term and is generally not a linear map.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-020",
+    "title": "Bessel computes a distance",
+    "stem": "An orthonormal pair has coefficients $2,-1$ for a vector of squared length14. Find the distance to the pair span.",
+    "solution": "The projected squared length is $|2|^2+|-1|^2=5$. Perpendicular decomposition gives residual squared length $14-5=9$, so the distance is three. This is a use of Bessel with a residual, not Parseval for the entire vector. If proposed coefficient squares exceeded14, they would violate Bessel and be impossible under the stated assumptions.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-021",
+    "title": "Parseval and normalization",
+    "stem": "If $(u_1,u_2)$ is an orthogonal basis with squared lengths $4,9$, find the squared norm of $x=3u_1-2u_2$.",
+    "solution": "Cross terms vanish, leaving $9\\cdot4+4\\cdot9=72$. In the normalized basis $(u_1/2,u_2/3)$, coefficients become $6,-6$, whose squared magnitudes also sum to72. Summing $3^2+(-2)^2$ would be incorrect because the original basis is not normalized. The metric in its coordinates is diagonal with entries4 and9.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-022",
+    "title": "A rank–trace identity",
+    "stem": "Prove that an idempotent real matrix has trace equal to rank, without presuming ordinary symmetry.",
+    "solution": "Idempotence decomposes the space as image plus kernel: every vector is $Px+(I-P)x$, and a vector in both must equal its own image and zero simultaneously. In an adapted basis the matrix is $\\operatorname{diag}(I_r,0)$. Similarity preserves trace, giving trace $r$. Thus symmetry is unnecessary for rank–trace, although it is needed for Euclidean orthogonal projection. The trace statement does not imply that an arbitrary trace $r$ matrix is a projector.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-023",
+    "title": "The full three-column orthogonalization",
+    "stem": "Apply Gram–Schmidt to $(1,1,0)^T,(1,0,1)^T,(0,1,1)^T$ and report normalized outputs.",
+    "solution": "The first vector has squared norm two. The second residual is $(1/2,-1/2,1)^T$ with squared norm $3/2$. The third input products against these residuals are one and $1/2$, so its removal coefficients are $1/2$ and $1/3$. The third residual is $(-2/3,2/3,2/3)^T$ with squared norm $4/3$. Normalize to $(1,1,0)^T/\\sqrt2$, $(1,-1,2)^T/\\sqrt6$ and $(-1,1,1)^T/\\sqrt3$. Checking all cross-products and unit lengths establishes orthonormality.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "gram"
+  },
+  {
+    "id": "LO-024",
+    "title": "MIT four-dimensional difference vectors",
+    "stem": "Orthogonalize $a=(1,-1,0,0)^T$, $b=(0,1,-1,0)^T$, $c=(0,0,1,-1)^T$. Prove the outputs span the hyperplane perpendicular to $(1,1,1,1)^T$.",
+    "solution": "Use unnormalized outputs $A=a$, $B=b+A/2=(1/2,1/2,-1,0)^T$, and $C=c+(2/3)B=(1/3,1/3,1/3,-1)^T$. Their squared lengths are $2,3/2,4/3$, and all cross-products vanish. Each coordinate sum is zero. Three nonzero perpendicular vectors are independent, while the coordinate-sum-zero hyperplane has dimension three by rank–nullity. Hence they form a basis. Multiplying outputs by2 or3 avoids fractions without changing orthogonality or span.",
+    "origin": "Independent reconstruction of MIT18.06SC exercise17.2"
+  },
+  {
+    "id": "LO-025",
+    "title": "Gram–Schmidt detects a dependency",
+    "stem": "Process $(1,0)^T,(2,0)^T,(0,1)^T$ while retaining a basis for the entire input span.",
+    "solution": "The first accepted output is $e_1$. The second input is twice it, so subtracting its component produces the zero residual. Skip this residual rather than divide by zero. The third input has zero component along $e_1$ and becomes $e_2$. Thus the retained orthonormal basis is $(e_1,e_2)$ and the span is the whole plane. Stopping permanently at the second column would miss the later independent direction.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-026",
+    "title": "An ordered basis changes the outputs",
+    "stem": "Explain why swapping the first two nonorthogonal independent inputs changes the Gram–Schmidt outputs but not the final projector.",
+    "solution": "The first normalized output is always in the direction of the first input, so swapping different input directions changes that output. The second is the portion of the other input perpendicular to the first. Nevertheless the prefix invariant at the final step says that the output span equals the original span in either order. The unique perpendicular projector is determined by that subspace, hence remains identical. Intermediate projectors onto first prefixes can differ.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-027",
+    "title": "The Berkeley reduced QR calculation",
+    "stem": "Find reduced QR with positive diagonal for $A=\\begin{pmatrix}1&1&1\\\\0&1&0\\\\0&0&3\\\\0&0&4\\end{pmatrix}$.",
+    "solution": "The first unit output is $e_1$. Removing it from the second column gives $e_2$. Removing the first two components from the third gives $(0,0,3,4)^T$, of norm five. Thus $Q=(e_1,e_2,(0,0,3/5,4/5)^T)$ and $R=\\begin{pmatrix}1&1&1\\\\0&1&0\\\\0&0&5\\end{pmatrix}$. Multiply $QR$ to recover the original matrix and check $Q^TQ=I_3$. The product $QQ^T$ is not $I_4$; it removes the remaining normal direction.",
+    "origin": "Independent reconstruction of Berkeley Math54 Gram-Schmidt, pages3–4",
+    "modelId": "qr"
+  },
+  {
+    "id": "LO-028",
+    "title": "ETH upper triangular inputs",
+    "stem": "What does Gram–Schmidt return for an invertible real upper triangular matrix? State how negative diagonal entries matter.",
+    "solution": "The first column is a nonzero multiple of $e_1$, so its normalized output is its diagonal sign times $e_1$. Inductively earlier outputs span the first coordinate axes; subtracting them leaves $a_{jj}e_j$. The next unit vector is therefore $\\operatorname{sign}(a_{jj})e_j$. All positive diagonal entries give $Q=I$ and $R=A$. Mixed signs give a diagonal sign matrix $Q$ and $R=Q^TA$, whose diagonal is positive. The canonical axes alone require qualification by signs.",
+    "origin": "Independent reconstruction of ETH PartII section6.3 upper-triangular exercise"
+  },
+  {
+    "id": "LO-029",
+    "title": "Why the QR diagonal condition matters",
+    "stem": "For $A=QR$, construct a different valid factorization when no positive-diagonal condition is imposed.",
+    "solution": "Choose a diagonal matrix $D$ with entries $1$ or $-1$. Then $QD$ still has orthonormal columns and $DR$ remains upper triangular, with $(QD)(DR)=QR$. A minus sign flips a column of $Q$ and the corresponding row of $R$. Thus QR is not unique without a sign convention. Requiring every diagonal entry of $R$ positive eliminates this ambiguity for full-column-rank inputs.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-030",
+    "title": "Least squares with an inconsistency certificate",
+    "stem": "For $A=\\begin{pmatrix}1&0\\\\0&1\\\\1&1\\end{pmatrix}$, $b=(1,1,3)^T$, find the least-squares coefficients and residual.",
+    "solution": "The normal matrix is $\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}$ and the right side is $(4,4)^T$. Solving gives $c=(4/3,4/3)^T$. The fitted vector is $(4/3,4/3,8/3)^T$ and residual $(-1/3,-1/3,1/3)^T$. Both column products with the residual are zero. Its squared norm is $1/3$. The original equations were inconsistent, but the nearest column-space vector is uniquely determined.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-031",
+    "title": "A rank-deficient least-squares family",
+    "stem": "Fit $b=(1,0)^T$ using columns $e_1,e_1$. Describe all minimizers.",
+    "solution": "The fit is $(c_1+c_2,0)^T$, so squared error is $(1-c_1-c_2)^2$. Its minimum zero occurs for every pair $(1-s,s)^T$. The fitted vector is uniquely $b$, even though coefficients are nonunique. If one additionally minimizes coefficient norm, completing the square along this family selects $(1/2,1/2)^T$. That extra criterion is distinct from minimizing the original residual.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-032",
+    "title": "A QR residual without constructing the fit",
+    "stem": "Given a full-column-rank reduced QR with $\\|b\\|^2=25$ and $Q^Tb=(3,2)^T$, find the residual norm.",
+    "solution": "The projected squared norm is $3^2+2^2=13$. Orthogonal decomposition gives residual squared norm $25-13=12$, so its norm is $2\\sqrt3$. This result does not require solving $Rc=Q^Tb$. The coefficient vector itself still depends on $R$ and cannot be inferred from $Q^Tb$ alone unless $R=I$.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-033",
+    "title": "A weighted line projection",
+    "stem": "Use $G=\\operatorname{diag}(1,4)$ to project $(2,0)^T$ onto $\\operatorname{span}\\{(1,1)^T\\}$.",
+    "solution": "The weighted numerator is two and denominator is five, so $p=(2/5,2/5)^T$. The residual is $(8/5,-2/5)^T$ and its weighted product with the generator is $8/5-8/5=0$. Squared residual length in this metric is $64/25+16/25=16/5$. The ordinary perpendicular projection would instead give $(1,1)^T$; the metric changes the minimizer.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "weighted"
+  },
+  {
+    "id": "LO-034",
+    "title": "Weighted self-adjointness is the right test",
+    "stem": "Check idempotence and metric self-adjointness for $P=\\frac15\\begin{pmatrix}1&4\\\\1&4\\end{pmatrix}$ under $G=\\operatorname{diag}(1,4)$.",
+    "solution": "Direct multiplication gives $P^2=P$. Also $GP=\\frac15\\begin{pmatrix}1&4\\\\4&16\\end{pmatrix}=P^TG$, proving metric self-adjointness. Ordinary $P^T=P$ fails, but that is not the applicable criterion. Its image is the diagonal line, and its kernel $x_1+4x_2=0$ is precisely the weighted perpendicular line.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-035",
+    "title": "A skew basis makes a projector nonsymmetric",
+    "stem": "Transport horizontal Euclidean projection through $S=\\begin{pmatrix}1&1\\\\0&1\\end{pmatrix}$. Find the projector and Gram matrix in new coordinates.",
+    "solution": "Compute $S^{-1}\\operatorname{diag}(1,0)S=\\begin{pmatrix}1&1\\\\0&0\\end{pmatrix}$. Meanwhile $S^TS=\\begin{pmatrix}1&1\\\\1&2\\end{pmatrix}$. Their products satisfy $P_{\\rm new}^TG_{\\rm new}=G_{\\rm new}P_{\\rm new}$. Thus the physical operator remains perpendicular projection in transported coordinates. Inspecting ordinary symmetry while discarding the Gram matrix would misclassify the physical map.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-036",
+    "title": "A complex line needs conjugation",
+    "stem": "Project $x=(1,0)^T$ onto the complex line spanned by $u=(1,i)^T$.",
+    "solution": "Under $\\langle u,x\\rangle=u^*x$, the numerator is one and $u^*u=2$, so $p=(1/2,i/2)^T$. The residual is $(1/2,-i/2)^T$, and $u^*r=1/2+(-i)(-i/2)=0$. A transpose without conjugation would give $u^Tu=0$ and an invalid denominator. The complex line projector is $\\frac12\\begin{pmatrix}1&-i\\\\i&1\\end{pmatrix}$, Hermitian and idempotent.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-037",
+    "title": "A complex coefficient convention trap",
+    "stem": "For unit $u$ and our second-argument-linear convention, which coefficient reconstructs the component of $x$ along $u$: $\\langle x,u\\rangle$ or $\\langle u,x\\rangle$?",
+    "solution": "Writing $p=cu$, perpendicularity requires $\\langle u,x-cu\\rangle=\\langle u,x\\rangle-c=0$. Therefore $c=\\langle u,x\\rangle$. The reverse product is its conjugate. As a check take $u=1$, $x=i$: the correct coefficient is $i$, whereas $\\langle x,u\\rangle=-i$. A real example cannot reveal this convention error because conjugation changes nothing there.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-038",
+    "title": "A non-inner-product norm",
+    "stem": "Explain why $\\|(x_1,x_2)\\|_1=|x_1|+|x_2|$ does not come from an inner product.",
+    "solution": "Every inner-product norm satisfies the parallelogram identity. For $x=e_1,y=e_2$, the left side $\\|x+y\\|_1^2+\\|x-y\\|_1^2$ is $4+4=8$, while the required right side $2\\|x\\|_1^2+2\\|y\\|_1^2$ is four. Thus no inner product induces this norm. A closest-point problem in that norm may have multiple minimizers; the perpendicular-projection proof does not apply.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-039",
+    "title": "Even–odd projection corrects a source example",
+    "stem": "Project $t^3$ onto $\\operatorname{span}\\{1,t^2\\}$ using integration on $[-1,1]$.",
+    "solution": "The product of $t^3$ with either even generator is odd, so each integral is zero. The target is already perpendicular to the entire subspace, making the projection zero. The squared residual norm is $\\int_{-1}^1t^6\\,dt=2/7$. Orthogonalizing the even basis to $1,t^2-1/3$ gives the same zero numerators. The nonzero coefficient displayed in the source example cannot be transferred to this odd input.",
+    "origin": "Independent correction of Berkeley Math54 Inner Product Spaces, page4",
+    "modelId": "polynomial"
+  },
+  {
+    "id": "LO-040",
+    "title": "Cubic projection onto a different subspace",
+    "stem": "Project $t^3$ onto $\\operatorname{span}\\{1,t\\}$ on $[-1,1]$ and compute the squared error.",
+    "solution": "The constant coefficient is zero by oddness. The linear coefficient is $(\\int t^4)/(\\int t^2)=(2/5)/(2/3)=3/5$. Thus $p=(3/5)t$. Squared error is $2/7-2(3/5)(2/5)+(9/25)(2/3)=8/175$. This cannot be confused with projection onto the even subspace, which was zero.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-041",
+    "title": "A nonzero fourth-power projection",
+    "stem": "Project $t^4$ onto $\\operatorname{span}\\{1,t^2\\}$ on $[-1,1]$.",
+    "solution": "Use orthogonal basis $1,v=t^2-1/3$. The first coefficient is $(2/5)/2=1/5$. The second numerator is $2/7-(1/3)(2/5)=16/105$ and denominator $8/45$, so the coefficient is $6/7$. Therefore $p=1/5+(6/7)(t^2-1/3)=(6/7)t^2-3/35$. Both original-generator products of $t^4-p$ vanish. Squared error is $2/9-2/25-32/245=128/11025$.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-042",
+    "title": "Polynomial Gram–Schmidt",
+    "stem": "Orthogonalize $1,t,t^2$ under integration on $[-1,1]$ and give exact squared norms.",
+    "solution": "Parity makes $t$ perpendicular to one. The quadratic has component $(\\int t^2)/(\\int1)=1/3$ along one and zero component along $t$. Thus outputs are $1,t,t^2-1/3$. Integrals of their squares are $2,2/3,2/5-4/9+2/9=8/45$. Normalize using those squared norms if an orthonormal rather than orthogonal basis is requested.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-043",
+    "title": "Sampled polynomial positivity",
+    "stem": "On degree-at-most-two polynomials, when does $\\sum_{j=1}^k p(t_j)q(t_j)$ define an inner product for distinct real nodes?",
+    "solution": "Three or more distinct nodes suffice: zero self-product forces every sampled value zero, and a nonzero quadratic cannot have three distinct roots. One or two nodes fail, because the nonzero product of the corresponding linear factors has degree at most two and vanishes at every node. Symmetry and nonnegativity hold in both cases; it is strict positivity that changes. Repeated nodes do not count as additional distinct roots.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-044",
+    "title": "A discrete polynomial product differs from integration",
+    "stem": "For nodes $-1,0,1$, project $t^2$ onto constants using the sampled product, and compare with integration on $[-1,1]$.",
+    "solution": "The sampled numerator is $1+0+1=2$ and constant squared length is three, so the discrete projection is $2/3$. The integrated numerator is $2/3$ and constant squared length is two, so the continuous projection is $1/3$. These are different inner products and therefore different least-squares problems. Neither coefficient can be used interchangeably with the other.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-045",
+    "title": "Cosine indices must not duplicate",
+    "stem": "Are $\\cos(2t)$ and $\\cos(-2t)$ perpendicular on $[-\\pi,\\pi]$ because their integer indices differ?",
+    "solution": "They are the same function, since cosine is even. Their product integral is $\\pi$, not zero. Distinct positive frequencies are perpendicular; for unrestricted integer cosine indices one must compare absolute values. The constant frequency also has squared norm $2\\pi$, unlike nonzero frequencies. This explains both the duplicate-index trap and the normalization exception.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-046",
+    "title": "A finite Fourier projection",
+    "stem": "Project $f(t)=1+2\\cos t+3\\sin(2t)$ onto $\\operatorname{span}\\{1,\\cos t,\\sin t\\}$ on $[-\\pi,\\pi]$.",
+    "solution": "Finite trigonometric orthogonality keeps the constant and cosine terms and removes $\\sin(2t)$. Thus $p=1+2\\cos t$. The residual is $3\\sin(2t)$ with squared norm $9\\pi$. The full squared norm is $2\\pi+4\\pi+9\\pi=15\\pi$, and projected squared norm is $6\\pi$. No infinite series or convergence theorem is needed for this exact finite calculation.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-047",
+    "title": "An integral zero at a point is not strict positivity",
+    "stem": "Why does $\\int_0^1 f^2$ fail to define an inner product on all pointwise functions if functions are distinguished at every point?",
+    "solution": "Take $f$ equal to one at a single point and zero elsewhere. It is not the zero pointwise function, but its squared integral is zero under the usual Lebesgue interpretation. Positivity therefore fails. Continuous functions avoid this counterexample, since nonzero values persist on an interval. Alternatively $L^2$ identifies functions equal almost everywhere, removing this distinction in the vector-space definition.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-048",
+    "title": "Householder calculation",
+    "stem": "For $v=(1,1)^T$, compute $H=I-2vv^T/(v^Tv)$ and apply it to $(2,0)^T$.",
+    "solution": "The denominator is two, so $H=\\begin{pmatrix}0&-1\\\\-1&0\\end{pmatrix}$. Its output is $(0,-2)^T$, with the same squared length four. The vector $v$ changes sign, while $(1,-1)^T$ is fixed. Direct multiplication gives $H^TH=I$ and $H^2=I$. This is reflection across the perpendicular line, not projection onto it.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "reflection"
+  },
+  {
+    "id": "LO-049",
+    "title": "Construct a reflection between equal-length vectors",
+    "stem": "Find a Householder reflection sending $x=(3,4)^T$ to $y=(5,0)^T$.",
+    "solution": "Both squared norms are25. Set $v=x-y=(-2,4)^T$, whose squared norm is20 and product with $x$ is ten. Thus $Hx=x-2v(10/20)=x-v=y$. Explicitly $H=\\begin{pmatrix}3/5&4/5\\\\4/5&-3/5\\end{pmatrix}$. It is symmetric, its columns are orthonormal, and its determinant is minus one. The construction works because target norms agree and $x\\ne y$.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-050",
+    "title": "Noncommuting line projectors",
+    "stem": "Let $P=\\operatorname{diag}(1,0)$ and $Q=\\frac12\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}$. Is $PQ$ an orthogonal projector?",
+    "solution": "The product is $\\frac12\\begin{pmatrix}1&1\\\\0&0\\end{pmatrix}$. It is nonsymmetric, and squaring gives one half of that product rather than itself. Thus it is neither an orthogonal projector nor idempotent. Each factor separately is an orthogonal projector. Their image lines intersect only at zero, so projection onto their intersection is zero, not $PQ$.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-051",
+    "title": "A product is a projector exactly under commutation",
+    "stem": "Prove the necessary and sufficient commutation condition for the product of two orthogonal projectors to be an orthogonal projector.",
+    "solution": "If they commute, $(PQ)^2=P^2Q^2=PQ$ and $(PQ)^*=QP=PQ$. Its image belongs to both image spaces, and every common image vector is fixed by both, proving the intersection image. Conversely an orthogonal projector is self-adjoint, so $PQ=(PQ)^*=QP$. This converse concerns orthogonal-projector products; ordinary idempotence alone is a different condition.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-052",
+    "title": "Nested projectors subtract correctly",
+    "stem": "For $U\\subseteq W$, prove that $P_W-P_U$ is an orthogonal projector and identify its image.",
+    "solution": "Nestedness gives $P_UP_W=P_U$ because projection onto $W$ preserves all $U$ components, and by transpose $P_WP_U=P_U$. Thus $(P_W-P_U)^2=P_W-P_U$ and the difference is symmetric. Its outputs lie in $W$ and have zero $U$ component. It fixes every vector in $W\\cap U^\\perp$. Therefore that intersection is its image, with rank $\\dim W-\\dim U$.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-053",
+    "title": "When a projector sum works",
+    "stem": "For orthogonal projectors $P_U,P_W$, prove that their sum is an orthogonal projector if the subspaces are perpendicular.",
+    "solution": "Perpendicularity gives both products zero. The sum is symmetric, and its square is $P_U+P_W$, so it is an orthogonal projector. Its image is $U\\oplus W$. If the spaces coincide and are nonzero, the sum is $2P_U$, whose square is $4P_U$; therefore the general statement fails without the perpendicularity hypothesis.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-054",
+    "title": "Alternating projections contract geometrically",
+    "stem": "For $P=\\operatorname{diag}(1,0)$ and $Q=\\frac12\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}$, find $(PQ)^k$ for $k\\ge1$.",
+    "solution": "Let $M=PQ$. Direct multiplication gives $M^2=M/2$. Induction therefore gives $M^k=2^{-(k-1)}M=2^{-k}\\begin{pmatrix}1&1\\\\0&0\\end{pmatrix}$. It converges to zero, which is the projector onto the two image lines intersection. No finite positive power equals zero. This separates asymptotic alternating projection from an exact one-step intersection projector.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-055",
+    "title": "Trace measures overlap of two lines",
+    "stem": "For unit real vectors $u,v$, show $\\operatorname{tr}(P_uP_v)=(u^Tv)^2$ and interpret its extremes.",
+    "solution": "Write $P_u=uu^T$ and $P_v=vv^T$. Their product is $u(u^Tv)v^T$, so its trace is $(u^Tv)(v^Tu)=(u^Tv)^2$. This is $\\cos^2\\theta$. Zero means perpendicular lines; one means the same line, including opposite generator orientations. A value strictly between zero and one indicates partial overlap without equality of subspaces.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-056",
+    "title": "The adjoint in a weighted metric",
+    "stem": "For $T=\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}$ and $G=\\operatorname{diag}(1,4)$, compute the metric adjoint.",
+    "solution": "The identity $\\langle Tx,y\\rangle_G=\\langle x,T^\\dagger y\\rangle_G$ gives $T^TG=GT^\\dagger$, hence $T^\\dagger=G^{-1}T^TG=\\begin{pmatrix}0&0\\\\1/4&0\\end{pmatrix}$. It differs from ordinary transpose. Substitution verifies $x^TT^TGy=x^TGT^\\dagger y$ for every $x,y$. The Gram matrix must be invertible and positive definite under the inner-product interpretation.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-057",
+    "title": "A constraint minimum has a normal component",
+    "stem": "Find the real vector of minimum Euclidean norm satisfying $x_1+2x_2=5$.",
+    "solution": "The affine constraint has normal $n=(1,2)^T$. Any feasible vector splits into a normal component plus a perpendicular component. The normal coefficient is forced to $5/(n^Tn)=1$, so $x_0=(1,2)^T$. Every other feasible vector is $x_0+w$ with $n^Tw=0$, giving squared norm $5+\\|w\\|^2$. Thus $x_0$ is the unique minimum. The proof uses a full perpendicular decomposition rather than guessing proportional coordinates.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-058",
+    "title": "An orthonormal completion",
+    "stem": "Complete $q_1=(1,1,1)^T/\\sqrt3$ and $q_2=(1,-1,0)^T/\\sqrt2$ to a real orthonormal basis.",
+    "solution": "A normal vector to both satisfies $x_1-x_2=0$ and $x_1+x_2+x_3=0$, so take $(1,1,-2)^T$. Its squared length is six, giving $q_3=(1,1,-2)^T/\\sqrt6$. All products vanish and lengths equal one. The negative of $q_3$ gives another valid completion; the subspace and projector do not determine orientation.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-059",
+    "title": "Norm preservation requires linearity for products",
+    "stem": "Explain why a real linear norm-preserving map preserves products, but a distance-preserving translation need not preserve norms.",
+    "solution": "Apply polarization to $Tx,Ty$ and use linearity to replace $Tx\\pm Ty$ with $T(x\\pm y)$. Norm preservation then gives $\\langle Tx,Ty\\rangle=\\langle x,y\\rangle$. A translation $x\\mapsto x+a$ preserves differences and distances, but sends zero to $a$, whose norm is nonzero when $a\\ne0$. Thus it fails the norm condition and the linearity needed by the product argument.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-060",
+    "title": "The zero and whole-space endpoints",
+    "stem": "What are projection, complement and distance for $W=\\{0\\}$ and $W=V$?",
+    "solution": "For the zero subspace,$P_W=0$, $W^\\perp=V$ and the distance is $\\|x\\|$. For the whole space,$P_W=I$, $W^\\perp=\\{0\\}$ and the distance is zero. These endpoints obey the same decomposition and norm rules. The zero-subspace case has an empty basis sum, not a zero-vector denominator in the line formula.",
+    "origin": "Original mathematical and conceptual synthesis"
+  },
+  {
+    "id": "LO-061",
+    "title": "Euclidean subspace certificate 1",
+    "stem": "Use the Euclidean inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1\\\\2\\end{pmatrix},\\qquad x=\\begin{pmatrix}3\\\\-1\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1\\\\2\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}5\\end{pmatrix},\\quad c=\\begin{pmatrix}\\frac{1}{5}\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{1}{5} & \\frac{2}{5}\\\\\\frac{2}{5} & \\frac{4}{5}\\end{pmatrix},\\quad p=\\begin{pmatrix}\\frac{1}{5}\\\\\\frac{2}{5}\\end{pmatrix},\\quad r=\\begin{pmatrix}\\frac{14}{5}\\\\- \\frac{7}{5}\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=\\frac{49}{5}.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-1"
+  },
+  {
+    "id": "LO-062",
+    "title": "Euclidean subspace certificate 2",
+    "stem": "Use the Euclidean inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}2\\\\-1\\end{pmatrix},\\qquad x=\\begin{pmatrix}1\\\\4\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}2\\\\-1\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}5\\end{pmatrix},\\quad c=\\begin{pmatrix}- \\frac{2}{5}\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{4}{5} & - \\frac{2}{5}\\\\- \\frac{2}{5} & \\frac{1}{5}\\end{pmatrix},\\quad p=\\begin{pmatrix}- \\frac{4}{5}\\\\\\frac{2}{5}\\end{pmatrix},\\quad r=\\begin{pmatrix}\\frac{9}{5}\\\\\\frac{18}{5}\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=\\frac{81}{5}.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-2"
+  },
+  {
+    "id": "LO-063",
+    "title": "Euclidean subspace certificate 3",
+    "stem": "Use the Euclidean inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1 & 0\\\\1 & 1\\\\0 & 1\\end{pmatrix},\\qquad x=\\begin{pmatrix}2\\\\-1\\\\3\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1, 2. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1 & 0\\\\1 & 1\\\\0 & 1\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}2 & 1\\\\1 & 2\\end{pmatrix},\\quad c=\\begin{pmatrix}0\\\\1\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{2}{3} & \\frac{1}{3} & - \\frac{1}{3}\\\\\\frac{1}{3} & \\frac{2}{3} & \\frac{1}{3}\\\\- \\frac{1}{3} & \\frac{1}{3} & \\frac{2}{3}\\end{pmatrix},\\quad p=\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix},\\quad r=\\begin{pmatrix}2\\\\-2\\\\2\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=12.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-3"
+  },
+  {
+    "id": "LO-064",
+    "title": "Euclidean subspace certificate 4",
+    "stem": "Use the Euclidean inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1 & 1\\\\0 & 1\\\\1 & 0\\end{pmatrix},\\qquad x=\\begin{pmatrix}1\\\\2\\\\-1\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1, 2. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1 & 1\\\\0 & 1\\\\1 & 0\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}2 & 1\\\\1 & 2\\end{pmatrix},\\quad c=\\begin{pmatrix}-1\\\\2\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{2}{3} & \\frac{1}{3} & \\frac{1}{3}\\\\\\frac{1}{3} & \\frac{2}{3} & - \\frac{1}{3}\\\\\\frac{1}{3} & - \\frac{1}{3} & \\frac{2}{3}\\end{pmatrix},\\quad p=\\begin{pmatrix}1\\\\2\\\\-1\\end{pmatrix},\\quad r=\\begin{pmatrix}0\\\\0\\\\0\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=0.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-4"
+  },
+  {
+    "id": "LO-065",
+    "title": "Euclidean subspace certificate 5",
+    "stem": "Use the Euclidean inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1 & 0\\\\0 & 1\\\\1 & -1\\end{pmatrix},\\qquad x=\\begin{pmatrix}3\\\\2\\\\1\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1, 2. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1 & 0\\\\0 & 1\\\\1 & -1\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}2 & -1\\\\-1 & 2\\end{pmatrix},\\quad c=\\begin{pmatrix}3\\\\2\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{2}{3} & \\frac{1}{3} & \\frac{1}{3}\\\\\\frac{1}{3} & \\frac{2}{3} & - \\frac{1}{3}\\\\\\frac{1}{3} & - \\frac{1}{3} & \\frac{2}{3}\\end{pmatrix},\\quad p=\\begin{pmatrix}3\\\\2\\\\1\\end{pmatrix},\\quad r=\\begin{pmatrix}0\\\\0\\\\0\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=0.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-5"
+  },
+  {
+    "id": "LO-066",
+    "title": "Euclidean subspace certificate 6",
+    "stem": "Use the Euclidean inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1 & 2\\\\2 & 4\\\\0 & 1\\end{pmatrix},\\qquad x=\\begin{pmatrix}1\\\\-2\\\\3\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1, 2. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1 & 2\\\\2 & 4\\\\0 & 1\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}5 & 10\\\\10 & 21\\end{pmatrix},\\quad c=\\begin{pmatrix}- \\frac{33}{5}\\\\3\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{1}{5} & \\frac{2}{5} & 0\\\\\\frac{2}{5} & \\frac{4}{5} & 0\\\\0 & 0 & 1\\end{pmatrix},\\quad p=\\begin{pmatrix}- \\frac{3}{5}\\\\- \\frac{6}{5}\\\\3\\end{pmatrix},\\quad r=\\begin{pmatrix}\\frac{8}{5}\\\\- \\frac{4}{5}\\\\0\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=\\frac{16}{5}.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-6"
+  },
+  {
+    "id": "LO-067",
+    "title": "Euclidean subspace certificate 7",
+    "stem": "Use the Euclidean inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1 & 1\\\\0 & 0\\\\1 & 1\\end{pmatrix},\\qquad x=\\begin{pmatrix}2\\\\3\\\\4\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}2\\end{pmatrix},\\quad c=\\begin{pmatrix}3\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{1}{2} & 0 & \\frac{1}{2}\\\\0 & 0 & 0\\\\\\frac{1}{2} & 0 & \\frac{1}{2}\\end{pmatrix},\\quad p=\\begin{pmatrix}3\\\\0\\\\3\\end{pmatrix},\\quad r=\\begin{pmatrix}-1\\\\3\\\\1\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=11.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-7"
+  },
+  {
+    "id": "LO-068",
+    "title": "Euclidean subspace certificate 8",
+    "stem": "Use the Euclidean inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1 & 0\\\\0 & 0\\\\0 & 0\\end{pmatrix},\\qquad x=\\begin{pmatrix}2\\\\3\\\\4\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}1\\end{pmatrix},\\quad c=\\begin{pmatrix}2\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}1 & 0 & 0\\\\0 & 0 & 0\\\\0 & 0 & 0\\end{pmatrix},\\quad p=\\begin{pmatrix}2\\\\0\\\\0\\end{pmatrix},\\quad r=\\begin{pmatrix}0\\\\3\\\\4\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=25.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-8"
+  },
+  {
+    "id": "LO-069",
+    "title": "Euclidean subspace certificate 9",
+    "stem": "Use the Euclidean inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1 & 0\\\\0 & 1\\\\1 & 1\\\\0 & 1\\end{pmatrix},\\qquad x=\\begin{pmatrix}1\\\\2\\\\3\\\\4\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1, 2. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1 & 0\\\\0 & 1\\\\1 & 1\\\\0 & 1\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}2 & 1\\\\1 & 3\\end{pmatrix},\\quad c=\\begin{pmatrix}\\frac{3}{5}\\\\\\frac{14}{5}\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{3}{5} & - \\frac{1}{5} & \\frac{2}{5} & - \\frac{1}{5}\\\\- \\frac{1}{5} & \\frac{2}{5} & \\frac{1}{5} & \\frac{2}{5}\\\\\\frac{2}{5} & \\frac{1}{5} & \\frac{3}{5} & \\frac{1}{5}\\\\- \\frac{1}{5} & \\frac{2}{5} & \\frac{1}{5} & \\frac{2}{5}\\end{pmatrix},\\quad p=\\begin{pmatrix}\\frac{3}{5}\\\\\\frac{14}{5}\\\\\\frac{17}{5}\\\\\\frac{14}{5}\\end{pmatrix},\\quad r=\\begin{pmatrix}\\frac{2}{5}\\\\- \\frac{4}{5}\\\\- \\frac{2}{5}\\\\\\frac{6}{5}\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=\\frac{12}{5}.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-9"
+  },
+  {
+    "id": "LO-070",
+    "title": "Euclidean subspace certificate 10",
+    "stem": "Use the Euclidean inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1 & 1\\\\1 & -1\\\\0 & 1\\\\1 & 0\\end{pmatrix},\\qquad x=\\begin{pmatrix}2\\\\-1\\\\3\\\\1\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1, 2. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1 & 1\\\\1 & -1\\\\0 & 1\\\\1 & 0\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}3 & 0\\\\0 & 3\\end{pmatrix},\\quad c=\\begin{pmatrix}\\frac{2}{3}\\\\2\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{2}{3} & 0 & \\frac{1}{3} & \\frac{1}{3}\\\\0 & \\frac{2}{3} & - \\frac{1}{3} & \\frac{1}{3}\\\\\\frac{1}{3} & - \\frac{1}{3} & \\frac{1}{3} & 0\\\\\\frac{1}{3} & \\frac{1}{3} & 0 & \\frac{1}{3}\\end{pmatrix},\\quad p=\\begin{pmatrix}\\frac{8}{3}\\\\- \\frac{4}{3}\\\\2\\\\\\frac{2}{3}\\end{pmatrix},\\quad r=\\begin{pmatrix}- \\frac{2}{3}\\\\\\frac{1}{3}\\\\1\\\\\\frac{1}{3}\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=\\frac{5}{3}.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-10"
+  },
+  {
+    "id": "LO-071",
+    "title": "Euclidean subspace certificate 11",
+    "stem": "Use the Euclidean inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}0\\\\0\\end{pmatrix},\\qquad x=\\begin{pmatrix}1\\\\2\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns (none; the subspace is zero). This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. The zero subspace has projector zero; there is no division by a zero generator.\n\n3. The exact results are $$P=\\begin{pmatrix}0 & 0\\\\0 & 0\\end{pmatrix},\\quad p=\\begin{pmatrix}0\\\\0\\end{pmatrix},\\quad r=\\begin{pmatrix}1\\\\2\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=5.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-11"
+  },
+  {
+    "id": "LO-072",
+    "title": "Euclidean subspace certificate 12",
+    "stem": "Use the Euclidean inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1 & 0\\\\0 & 1\\end{pmatrix},\\qquad x=\\begin{pmatrix}3\\\\-2\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1, 2. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1 & 0\\\\0 & 1\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}1 & 0\\\\0 & 1\\end{pmatrix},\\quad c=\\begin{pmatrix}3\\\\-2\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}1 & 0\\\\0 & 1\\end{pmatrix},\\quad p=\\begin{pmatrix}3\\\\-2\\end{pmatrix},\\quad r=\\begin{pmatrix}0\\\\0\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=0.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-12"
+  },
+  {
+    "id": "LO-073",
+    "title": "Weighted subspace certificate 13",
+    "stem": "Use the weighted inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1\\\\1\\end{pmatrix},\\qquad x=\\begin{pmatrix}3\\\\0\\end{pmatrix}.$$The metric is $$G=\\begin{pmatrix}2 & 1\\\\1 & 3\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1\\\\1\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}7\\end{pmatrix},\\quad c=\\begin{pmatrix}\\frac{9}{7}\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{3}{7} & \\frac{4}{7}\\\\\\frac{3}{7} & \\frac{4}{7}\\end{pmatrix},\\quad p=\\begin{pmatrix}\\frac{9}{7}\\\\\\frac{9}{7}\\end{pmatrix},\\quad r=\\begin{pmatrix}\\frac{12}{7}\\\\- \\frac{9}{7}\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=\\frac{45}{7}.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-13"
+  },
+  {
+    "id": "LO-074",
+    "title": "Weighted subspace certificate 14",
+    "stem": "Use the weighted inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1\\\\2\\end{pmatrix},\\qquad x=\\begin{pmatrix}0\\\\3\\end{pmatrix}.$$The metric is $$G=\\begin{pmatrix}3 & 0\\\\0 & 2\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1\\\\2\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}11\\end{pmatrix},\\quad c=\\begin{pmatrix}\\frac{12}{11}\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{3}{11} & \\frac{4}{11}\\\\\\frac{6}{11} & \\frac{8}{11}\\end{pmatrix},\\quad p=\\begin{pmatrix}\\frac{12}{11}\\\\\\frac{24}{11}\\end{pmatrix},\\quad r=\\begin{pmatrix}- \\frac{12}{11}\\\\\\frac{9}{11}\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=\\frac{54}{11}.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-14"
+  },
+  {
+    "id": "LO-075",
+    "title": "Weighted subspace certificate 15",
+    "stem": "Use the weighted inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}2\\\\-1\\end{pmatrix},\\qquad x=\\begin{pmatrix}1\\\\4\\end{pmatrix}.$$The metric is $$G=\\begin{pmatrix}2 & 1\\\\1 & 2\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}2\\\\-1\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}6\\end{pmatrix},\\quad c=\\begin{pmatrix}\\frac{1}{2}\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}1 & 0\\\\- \\frac{1}{2} & 0\\end{pmatrix},\\quad p=\\begin{pmatrix}1\\\\- \\frac{1}{2}\\end{pmatrix},\\quad r=\\begin{pmatrix}0\\\\\\frac{9}{2}\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=\\frac{81}{2}.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-15"
+  },
+  {
+    "id": "LO-076",
+    "title": "Weighted subspace certificate 16",
+    "stem": "Use the weighted inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1 & 0\\\\0 & 1\\\\1 & 1\\end{pmatrix},\\qquad x=\\begin{pmatrix}2\\\\-1\\\\3\\end{pmatrix}.$$The metric is $$G=\\begin{pmatrix}1 & 0 & 0\\\\0 & 2 & 0\\\\0 & 0 & 3\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1, 2. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1 & 0\\\\0 & 1\\\\1 & 1\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}4 & 3\\\\3 & 5\\end{pmatrix},\\quad c=\\begin{pmatrix}\\frac{34}{11}\\\\- \\frac{5}{11}\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{5}{11} & - \\frac{6}{11} & \\frac{6}{11}\\\\- \\frac{3}{11} & \\frac{8}{11} & \\frac{3}{11}\\\\\\frac{2}{11} & \\frac{2}{11} & \\frac{9}{11}\\end{pmatrix},\\quad p=\\begin{pmatrix}\\frac{34}{11}\\\\- \\frac{5}{11}\\\\\\frac{29}{11}\\end{pmatrix},\\quad r=\\begin{pmatrix}- \\frac{12}{11}\\\\- \\frac{6}{11}\\\\\\frac{4}{11}\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=\\frac{24}{11}.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-16"
+  },
+  {
+    "id": "LO-077",
+    "title": "Weighted subspace certificate 17",
+    "stem": "Use the weighted inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1 & 1\\\\0 & 1\\\\1 & 0\\end{pmatrix},\\qquad x=\\begin{pmatrix}1\\\\3\\\\-2\\end{pmatrix}.$$The metric is $$G=\\begin{pmatrix}2 & 0 & 0\\\\0 & 3 & 0\\\\0 & 0 & 1\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1, 2. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1 & 1\\\\0 & 1\\\\1 & 0\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}3 & 2\\\\2 & 5\\end{pmatrix},\\quad c=\\begin{pmatrix}-2\\\\3\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{8}{11} & \\frac{3}{11} & \\frac{3}{11}\\\\\\frac{2}{11} & \\frac{9}{11} & - \\frac{2}{11}\\\\\\frac{6}{11} & - \\frac{6}{11} & \\frac{5}{11}\\end{pmatrix},\\quad p=\\begin{pmatrix}1\\\\3\\\\-2\\end{pmatrix},\\quad r=\\begin{pmatrix}0\\\\0\\\\0\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=0.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-17"
+  },
+  {
+    "id": "LO-078",
+    "title": "Weighted subspace certificate 18",
+    "stem": "Use the weighted inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix},\\qquad x=\\begin{pmatrix}2\\\\3\\\\4\\end{pmatrix}.$$The metric is $$G=\\begin{pmatrix}2 & 1 & 0\\\\1 & 2 & 0\\\\0 & 0 & 3\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}5\\end{pmatrix},\\quad c=\\begin{pmatrix}\\frac{19}{5}\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{2}{5} & \\frac{1}{5} & \\frac{3}{5}\\\\0 & 0 & 0\\\\\\frac{2}{5} & \\frac{1}{5} & \\frac{3}{5}\\end{pmatrix},\\quad p=\\begin{pmatrix}\\frac{19}{5}\\\\0\\\\\\frac{19}{5}\\end{pmatrix},\\quad r=\\begin{pmatrix}- \\frac{9}{5}\\\\3\\\\\\frac{1}{5}\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=\\frac{69}{5}.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-18"
+  },
+  {
+    "id": "LO-079",
+    "title": "Weighted subspace certificate 19",
+    "stem": "Use the weighted inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1 & 2\\\\1 & 2\\end{pmatrix},\\qquad x=\\begin{pmatrix}2\\\\-1\\end{pmatrix}.$$The metric is $$G=\\begin{pmatrix}3 & 1\\\\1 & 2\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1\\\\1\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}7\\end{pmatrix},\\quad c=\\begin{pmatrix}\\frac{5}{7}\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{4}{7} & \\frac{3}{7}\\\\\\frac{4}{7} & \\frac{3}{7}\\end{pmatrix},\\quad p=\\begin{pmatrix}\\frac{5}{7}\\\\\\frac{5}{7}\\end{pmatrix},\\quad r=\\begin{pmatrix}\\frac{9}{7}\\\\- \\frac{12}{7}\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=\\frac{45}{7}.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-19"
+  },
+  {
+    "id": "LO-080",
+    "title": "Weighted subspace certificate 20",
+    "stem": "Use the weighted inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1 & 0\\\\0 & 1\\end{pmatrix},\\qquad x=\\begin{pmatrix}2\\\\3\\end{pmatrix}.$$The metric is $$G=\\begin{pmatrix}2 & 1\\\\1 & 2\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1, 2. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1 & 0\\\\0 & 1\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}2 & 1\\\\1 & 2\\end{pmatrix},\\quad c=\\begin{pmatrix}2\\\\3\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}1 & 0\\\\0 & 1\\end{pmatrix},\\quad p=\\begin{pmatrix}2\\\\3\\end{pmatrix},\\quad r=\\begin{pmatrix}0\\\\0\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=0.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-20"
+  },
+  {
+    "id": "LO-081",
+    "title": "Weighted subspace certificate 21",
+    "stem": "Use the weighted inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}0\\\\0\\end{pmatrix},\\qquad x=\\begin{pmatrix}2\\\\-3\\end{pmatrix}.$$The metric is $$G=\\begin{pmatrix}1 & 0\\\\0 & 4\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns (none; the subspace is zero). This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. The zero subspace has projector zero; there is no division by a zero generator.\n\n3. The exact results are $$P=\\begin{pmatrix}0 & 0\\\\0 & 0\\end{pmatrix},\\quad p=\\begin{pmatrix}0\\\\0\\end{pmatrix},\\quad r=\\begin{pmatrix}2\\\\-3\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=40.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-21"
+  },
+  {
+    "id": "LO-082",
+    "title": "Weighted subspace certificate 22",
+    "stem": "Use the weighted inner product to find a column basis, projection matrix, projected vector, residual and squared distance for $$A=\\begin{pmatrix}1 & 0\\\\1 & 1\\\\0 & 1\\\\1 & -1\\end{pmatrix},\\qquad x=\\begin{pmatrix}1\\\\2\\\\0\\\\-1\\end{pmatrix}.$$The metric is $$G=\\begin{pmatrix}1 & 0 & 0 & 0\\\\0 & 2 & 0 & 0\\\\0 & 0 & 3 & 0\\\\0 & 0 & 0 & 4\\end{pmatrix}.$$",
+    "solution": "1. Retain original pivot columns 1, 2. This preserves the column span and avoids inverting a dependent Gram matrix.\n\n2. In the retained basis, compute $$B=\\begin{pmatrix}1 & 0\\\\1 & 1\\\\0 & 1\\\\1 & -1\\end{pmatrix},\\quad B^TGB=\\begin{pmatrix}7 & -2\\\\-2 & 9\\end{pmatrix},\\quad c=\\begin{pmatrix}\\frac{25}{59}\\\\\\frac{58}{59}\\end{pmatrix}.$$ The positive definite Gram matrix is invertible; multiplication by the original basis reconstructs the physical result.\n\n3. The exact results are $$P=\\begin{pmatrix}\\frac{9}{59} & \\frac{22}{59} & \\frac{6}{59} & \\frac{28}{59}\\\\\\frac{11}{59} & \\frac{40}{59} & \\frac{27}{59} & \\frac{8}{59}\\\\\\frac{2}{59} & \\frac{18}{59} & \\frac{21}{59} & - \\frac{20}{59}\\\\\\frac{7}{59} & \\frac{4}{59} & - \\frac{15}{59} & \\frac{48}{59}\\end{pmatrix},\\quad p=\\begin{pmatrix}\\frac{25}{59}\\\\\\frac{83}{59}\\\\\\frac{58}{59}\\\\- \\frac{33}{59}\\end{pmatrix},\\quad r=\\begin{pmatrix}\\frac{34}{59}\\\\\\frac{35}{59}\\\\- \\frac{58}{59}\\\\- \\frac{26}{59}\\end{pmatrix}.$$\n\n4. Check membership using $p=Bc$ when a basis exists, and check $B^TGr=0$. Direct multiplication verifies $P^2=P$ and $P^TG=GP$. Thus the residual is perpendicular in the stated metric and the nearest point is certified.\n\n5. The squared distance is $$d^2=r^TGr=\\frac{278}{59}.$$ Pythagoras independently checks $x^TGx=p^TGp+r^TGr$. Generator coefficients may be nonunique, but the physical projection and residual are unique.",
+    "origin": "Original mathematical and conceptual synthesis",
+    "modelId": "computed-22"
+  }
+]

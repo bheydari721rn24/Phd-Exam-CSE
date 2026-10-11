@@ -615,3 +615,8 @@ Completed l_linear:30 instructional sections,84 complete worked entries,84 final
 ## Confirmed private delivery: l_linear
 
 Native deployment succeeded for source 03f3c2006ebf7737e2468163a9e8763fd7c183ad. The library now has 59 chapters and 4,085 worked-entry placements. The new chapter remains a review draft, without invented student approval. Exact IDs and archive evidence: research/l_linear-publication.json. Continuous authoring proceeds to l_orthogonality.
+
+
+## Orthogonality review draft
+
+Completed l_orthogonality:30 sections,84 worked entries,84 final rules,four core written courses from four universities,31 compact models/134 checkpoints/38 placements. Exact calculations and120 actual JavaScript oracle cases passed; Edge verified fonts, geometry, full Gram–Schmidt steps, controls, print, reduced motion, phone containment and weekly routing. All59 prior pages match the published source after line-ending normalization. Library:60 chapters/4169 worked-entry placements. Continue with l_projection under continuous authorization; publication is recorded separately.
