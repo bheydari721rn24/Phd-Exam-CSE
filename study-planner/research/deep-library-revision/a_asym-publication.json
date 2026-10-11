@@ -6,11 +6,18 @@
   "archiveSha256": "a7f7ec6b52a1bf0be2b51614938dc02d4b2a93f6cad3f3b67c19abc901b91b4b",
   "archiveEntries": 489,
   "attempts": [
-    {"result": "connection_error", "stage": "backend-api/files/file_0000000052908210b8d88e9a2ec48050/uploaded"},
-    {"result": "connection_error", "stage": "backend-api/files"}
+    {
+      "result": "connection_error",
+      "stage": "backend-api/files/file_0000000052908210b8d88e9a2ec48050/uploaded"
+    },
+    {
+      "result": "connection_error",
+      "stage": "backend-api/files"
+    }
   ],
   "savedVersionId": null,
   "deploymentId": null,
   "latestConfirmedPublication": "research/deep-library-revision/a_model-publication.json",
-  "note": "All six reviewed chapters are saved in the source repository and GitHub mirror. The latest confirmed online deployment contains the earlier five reviews. A later combined immutable archive may supersede these failed upload attempts."
+  "note": "Historical failed upload attempt. The exact later eight-review immutable archive was successfully published privately; see supersededBy for the current confirmed deployment.",
+  "supersededBy": "research/deep-library-revision/s_axioms-publication.json"
 }

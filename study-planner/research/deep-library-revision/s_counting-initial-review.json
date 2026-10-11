@@ -1,0 +1,38 @@
+{
+  "topicId": "s_counting",
+  "state": "in_progress_not_a_completed_revision",
+  "questionCount": 77,
+  "questionsActuallyInspected": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],
+  "currentQuestionRewriteCount": 0,
+  "candidatePoolReference": "research/s_counting-source-audit.md",
+  "freshWrittenSourceReadings": [
+    {
+      "university": "MIT",
+      "course": "6.041 / 6.431 Probabilistic Systems Analysis and Applied Probability, Fall 2010",
+      "instructor": "John N. Tsitsiklis",
+      "sources": [
+        {"url": "https://ocw.mit.edu/courses/6-041-probabilistic-systems-analysis-and-applied-probability-fall-2010/b200b6217af1cd5dbea8c659ebbf046a_MIT6_041F10_L03.pdf", "actuallyRead": "All instructional PDF text on pages 1–2; attribution page also inspected."},
+        {"url": "https://ocw.mit.edu/courses/6-041-probabilistic-systems-analysis-and-applied-probability-fall-2010/f25004e3104e9bb7cf51ed0111ed7cf2_MIT6_041F10_L04.pdf", "actuallyRead": "All instructional PDF text on pages 1–2; attribution page also inspected."}
+      ],
+      "usedFor": "Separate counting products from independent probability products; contrast conditional and unconditional independence; derive constant-fiber group counts and binomial patterns. Extracted formulas require independent derivation."
+    }
+  ],
+  "otherSelectedUniversitiesPendingFreshRecheck": ["Stanford", "UC Berkeley", "Oxford"],
+  "sameSourceQuestionsEligibleForCheckedDerivationReuse": [
+    {"question": 10, "sourceId": "Phd_CS_1405_Q20", "checkedChapter": "a_loop", "checkedQuestion": 1},
+    {"question": 11, "sourceId": "Phd_CS_1405_Q21", "checkedChapter": "s_axioms", "checkedQuestion": 1},
+    {"question": 12, "sourceId": "Phd_CS_1404_Q68", "checkedChapter": "s_axioms", "checkedQuestion": 2},
+    {"question": 13, "sourceId": "Phd_CS_1404_Q70", "checkedChapter": "s_axioms", "checkedQuestion": 4},
+    {"question": 15, "sourceId": "MS_CE_1405_Q35", "checkedChapter": "s_axioms", "checkedQuestion": 6}
+  ],
+  "reviewPriorities": [
+    "For coupled integer equations, eliminate shared sums and prove the resulting Cartesian product of solution sets; do not confuse a counting product with probabilistic independence.",
+    "For unlabeled equal groups, prove constant labeling multiplicity for nonempty groups and handle the empty boundary separately.",
+    "For weakly monotone maps, prove the multiplicity encoding in both directions.",
+    "For bounded parity allocations, shift lower bounds first, preserve the constrained variable, and enumerate the exact feasible rows.",
+    "For existential witness pairs, use complement counting or correct variable fiber multiplicity rather than count an object once per possible witness.",
+    "The contradictory authentic Phd_CS_1404_Q67 remains excluded; do not silently change replacement or its printed factorial denominator.",
+    "Every remaining question, complete solution, final rule, static diagram and animation still requires individual review before this chapter can be marked revised."
+  ],
+  "studentApproved": false
+}

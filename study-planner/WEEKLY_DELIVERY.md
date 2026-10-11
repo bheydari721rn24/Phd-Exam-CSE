@@ -662,3 +662,7 @@ All 48 answers individually rewritten; eight mathematical tables, a specific ord
 ## Probability foundations individual revision, 12 October 2026
 
 48 individually authored solutions (7,399 words), 13 mathematical tables, five dedicated probability models, two rebuilt diagrams, six construction sections and 32 final rules. The full lesson and all 24 prior derivation tutorials were read and retained. Four bounded core university selections and six authentic questions rechecked against official text/original PDF pages; the separate conflicting Phd_CS_1404_Q67 is excluded. 380 bounded mathematical/source/preservation checks, 50 mounted checkpoints, 30 control checks, 24 label/formula separation checks and responsive/print/font checks passed. Eight of 60 reviewed; continue s_counting. Latest confirmed online individual-review publication still contains five chapters; upload failures for the newer asymptotic and loop archive are recorded.
+
+## Confirmed eight-review private publication, 12 October 2026
+
+The source commit cac0ef58f67a154295bc10f557b00dd6a3989a1e and GitHub content commit 4a96fb9 contain eight individually revised review drafts. The 489-entry byte-verified archive (SHA-256 89a56713899d5e13b1c82af4c7ec7d0e96e2aae2c34e8491fa17064ca9f790b1) was saved and privately deployed successfully as appgdep_6acc0c3c7a048191bd517ab26e3b8172. Asymptotic, loop and probability revisions are now online together with the earlier five. Historical failed uploads are retained as superseded attempts. Continue s_counting; 52 individual chapter reviews remain.

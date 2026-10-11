@@ -5,9 +5,15 @@
   "archive": "C:/Users/bheydari/AppData/Local/Temp/deep-loop-immutable-20261012.tar.gz",
   "archiveSha256": "545a547a280355f0d18cb370e337be2104ced5d244131c9cac308fcd9cf580d4",
   "archiveEntries": 489,
-  "attempt": {"result": "connection_timeout", "durationMs": 300004, "stage": "OpenAI file blob upload", "requestId": "60e31c6c-7724-4f9f-8e59-9b4ff6cbce5e"},
+  "attempt": {
+    "result": "connection_timeout",
+    "durationMs": 300004,
+    "stage": "OpenAI file blob upload",
+    "requestId": "60e31c6c-7724-4f9f-8e59-9b4ff6cbce5e"
+  },
   "savedVersionId": null,
   "deploymentId": null,
   "latestConfirmedPublication": "research/deep-library-revision/a_model-publication.json",
-  "note": "The seven individually revised chapters are saved in the source repository and GitHub mirror. The latest confirmed online deployment still contains the earlier five reviews. Failed upload is not a saved version or successful publication."
+  "note": "Historical failed upload attempt. The exact later eight-review immutable archive was successfully published privately; see supersededBy for the current confirmed deployment.",
+  "supersededBy": "research/deep-library-revision/s_axioms-publication.json"
 }
