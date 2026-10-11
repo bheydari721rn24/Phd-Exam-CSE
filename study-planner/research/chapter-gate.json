@@ -34,7 +34,7 @@
   ],
   "libraryVisualQuestionReviewPath": "research/library-visual-question-review/manifest.json",
   "publicationState": "published_private",
-  "publicationRecordPath": "research/s_variance-publication.json",
+  "publicationRecordPath": "research/s_distributions-publication.json",
   "approvedVersion": 82,
   "publishedVersion": null,
   "mathematicalDelimiterRevision": "published",
@@ -222,34 +222,31 @@
         "research/s_distributions-evidence/mathematics.json",
         "research/s_distributions-evidence/browser.json"
       ],
-      "publicationState": "pending_upload"
+      "publicationState": "published_private",
+      "publicationRecord": "research/s_distributions-publication.json"
     }
   ],
   "latestPublication": {
     "status": "published_private",
     "projectId": "appgprj_6ab5666f72b081918286c6b371c1eb1b",
-    "sourceCommit": "f05657ab1022545f83046d98d7f54af76df9e44e",
-    "archive": "C:/Users/bheydari/AppData/Local/Temp/s-variance-reviewed.tar.gz",
-    "archiveSha256": "165540d4dddd047508f0a29a5c6b20fa97cad6138a732df072558cfc8eea30d7",
-    "archiveEntries": 470,
-    "versionId": "appgprj_6ab5666f72b081918286c6b371c1eb1b~appgver_ad8fd5a30fb881919b7e5c1722ac8b48",
-    "deploymentId": "appgdep_6acaf3125c108191a0b77a0b47cd6126",
+    "sourceCommit": "073b709a0613a1cef8c79cb036ba56e60933f47e",
+    "versionId": "appgprj_6ab5666f72b081918286c6b371c1eb1b~appgver_d965ef7a88848191a028e91470f4366d",
+    "deploymentId": "appgdep_6acafb5db58081919ddd1ae869773944",
     "deploymentStatus": "succeeded",
-    "updatedAt": "2026-10-11T02:23:45.849866+00:00",
     "url": "https://phd-cse-1406-plan.bheydari-as721rn.chatgpt.site",
+    "updatedAt": "2026-10-11T02:58:56.903054+00:00",
+    "archive": "C:/Users/bheydari/AppData/Local/Temp/s-distributions-reviewed.tar.gz",
+    "archiveSha256": "a66bd399380dafa3fa4fa6a205cda0f91c1478b20a1e2f7fc24f7e9dd27eceb1",
+    "archiveEntries": 476,
     "githubBranch": "study-planner-1406",
-    "githubContentCommit": "27ff627",
+    "githubContentCommit": "082d930",
     "chaptersAdded": [
-      "a_balanced",
-      "a_heap",
-      "a_hash",
-      "a_amortized",
-      "s_variance"
+      "s_distributions"
     ],
-    "libraryChapters": 57,
-    "questions": 3913,
-    "sourcePushEvidence": "Bundled source workflow verified exact pushed SHA and clean tree before Windows package-path failure. Archive independently packaged and verified from exact Git blobs.",
-    "verificationLimit": "Native private deployment succeeded. No numeric version number is invented."
+    "libraryChapters": 58,
+    "questions": 4001,
+    "studentApproved": false,
+    "note": "Exact pushed source and independently byte-verified archive; native private deployment succeeded. No numeric version number is invented."
   },
   "currentChapterPublicationState": "in_authoring"
 }
