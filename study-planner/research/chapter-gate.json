@@ -11,7 +11,7 @@
   "studyStartJalali": "1405/07/11",
   "qualityAuditPath": "research/l_projection-quality-audit.md",
   "approvedTopicId": "p_recursion",
-  "activeWork": "Evaluate written sources and develop the scheduled orthogonal-projection chapter under continuous authorization.",
+  "activeWork": "l_projection authoring draft:20 substantive sections written;14 independently certified worked-example identities;full bank,final rules,models and browser review pending.",
   "revisionTracker": "research/exam-calibration/manifest.json",
   "libraryReviewReportPath": "research/exam-calibration/DELIVERY.en.md",
   "approvedLibraryReview": true,
@@ -28,9 +28,8 @@
   "qualityAudit": "research/l_projection-quality-audit.md",
   "visualReviewPath": "research/subject-visual-review.json",
   "reviewEvidence": [
-    "research/l_linear-evidence/reading.json",
-    "research/l_linear-evidence/mathematics.json",
-    "research/l_linear-evidence/browser.json"
+    "research/l_projection-source-audit.md",
+    "research/l_projection-evidence/draft-mathematics.json"
   ],
   "libraryVisualQuestionReviewPath": "research/library-visual-question-review/manifest.json",
   "publicationState": "published_private",
@@ -245,30 +244,32 @@
       "studentApproved": false,
       "url": "chapters/l_orthogonality.html",
       "qualityAudit": "research/l_orthogonality-quality-audit.md",
-      "publicationState": "pending_upload"
+      "publicationState": "published_private",
+      "publication": "research/l_orthogonality-publication.json"
     }
   ],
   "latestPublication": {
     "status": "published_private",
     "projectId": "appgprj_6ab5666f72b081918286c6b371c1eb1b",
-    "sourceCommit": "03f3c2006ebf7737e2468163a9e8763fd7c183ad",
-    "versionId": "appgprj_6ab5666f72b081918286c6b371c1eb1b~appgver_61aeab1abb9481918cfdc3f7aef654ab",
-    "deploymentId": "appgdep_6acb98749eb4819198e4b07bc68c0b84",
+    "sourceCommit": "7ac738a54daf26186045b4e654e9e1ae40879533",
+    "versionId": "appgprj_6ab5666f72b081918286c6b371c1eb1b~appgver_db6c4bb162ec81919791532b6f1b5d1d",
+    "deploymentId": "appgdep_6acba5778a1c8191a7d54578c4d085e9",
     "deploymentStatus": "succeeded",
     "url": "https://phd-cse-1406-plan.bheydari-as721rn.chatgpt.site",
-    "updatedAt": "2026-10-11T14:09:06.199149+00:00",
-    "archive": "C:/Users/bheydari/AppData/Local/Temp/l-linear-reviewed-pushed.tar.gz",
-    "archiveSha256": "147117ee2141510e7f33dfd047cf80cb963571fc130b2a5109213e578c6ef597",
-    "archiveEntries": 482,
+    "updatedAt": "2026-10-11T15:04:49.638772+00:00",
+    "archive": "C:/Users/bheydari/AppData/Local/Temp/l-orthogonality-reviewed-pushed.tar.gz",
+    "archiveSha256": "3dbd6524d16eca414ad8c8126e09a55772894e5b12f7580e26b76d2428843f40",
+    "archiveEntries": 488,
     "githubBranch": "study-planner-1406",
-    "githubContentCommit": "1dd2587",
+    "githubContentCommit": "dda3959",
     "chaptersAdded": [
-      "l_linear"
+      "l_orthogonality"
     ],
-    "libraryChapters": 59,
-    "questions": 4085,
+    "libraryChapters": 60,
+    "questions": 4169,
     "studentApproved": false,
-    "note": "Exact pushed source and independently byte-verified archive; native private deployment succeeded. The Sites helper also committed the authorized native Oxford complex-inner-product source image for the next chapter. No numeric version number is invented."
+    "note": "First upload timed out before saving a version. Retrying the same immutable archive succeeded; audience remains owner-private. No numeric version number is invented."
   },
-  "currentChapterPublicationState": "in_authoring"
+  "currentChapterPublicationState": "in_authoring",
+  "currentDraftPath": "research/l_projection.en.md"
 }

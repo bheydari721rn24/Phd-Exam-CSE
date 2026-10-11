@@ -620,3 +620,13 @@ Native deployment succeeded for source 03f3c2006ebf7737e2468163a9e8763fd7c183ad.
 ## Orthogonality review draft
 
 Completed l_orthogonality:30 sections,84 worked entries,84 final rules,four core written courses from four universities,31 compact models/134 checkpoints/38 placements. Exact calculations and120 actual JavaScript oracle cases passed; Edge verified fonts, geometry, full Gram–Schmidt steps, controls, print, reduced motion, phone containment and weekly routing. All59 prior pages match the published source after line-ending normalization. Library:60 chapters/4169 worked-entry placements. Continue with l_projection under continuous authorization; publication is recorded separately.
+
+
+## Confirmed orthogonality publication
+
+Native owner-private publication succeeded on2026-10-11 at15:04:49 UTC from exact pushed source7ac738a54daf26186045b4e654e9e1ae40879533. The first archive upload timed out before a version was saved; the same immutable488-entry archive succeeded on retry. Library:60 chapters/4169 worked-entry placements. Publication provenance is research/l_orthogonality-publication.json. The next scheduled draft is l_projection.
+
+
+## Active projection draft
+
+Started l_projection with20 instructional sections,complete derivations and explicit worked examples. Fourteen independent draft-example certificates passed. Additional Stanford Lecture5 and MIT Session2.3 written sources were read and their conventions recorded. Full source selection,solved bank,final rules,mechanism-specific models and browser review remain pending. This authoring draft is not published or counted as a completed chapter.
