@@ -634,3 +634,7 @@ Started l_projection with20 instructional sections,complete derivations and expl
 ## Latest instruction: full existing-library revision, 11 October 2026
 
 The current user rejected abstract problem explanations and requested individual A-to-Z review of every existing chapter. This supersedes new-chapter authoring priority. The frozen baseline contains 60 chapters / 4,169 worked-entry placements. Logic now has 53 separately rewritten answers, 12 actual question tables, seven additional mathematical instruction sections and 17 rewritten final rules. Two PhD Q15 option transcription errors and the Q19 missing hypothesis were corrected. Recorded checks and browser/source-image review passed within their stated bounds. Remaining 59 chapters are not certified. Preserve l_projection; continue d_sets under standing authorization. Current evidence and status are research/deep-library-revision/progress.json and REVIEW_PROTOCOL.md. No repeated approval request or student quiz is required. Publication is recorded separately.
+
+## Sets individual revision, 11 October 2026
+
+All 46 problem solutions rewritten individually; seven mathematical construction sections and twenty final rules added. Four authentic booklet pages visually rechecked. 316 bounded checks passed; nine animation scenarios / 66 geometry checkpoints, 32 membership-lab evaluations, mobile and print passed. Logic and sets now revised: 2 of 60; 58 remain. Continue d_proof under standing full-library revision authorization; preserve unfinished l_projection. Publication evidence is kept separately.
