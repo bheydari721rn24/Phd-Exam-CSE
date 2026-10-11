@@ -606,3 +606,8 @@ Completed s_distributions with 28 sections, 88 worked entries (85 original/recon
 ## Discrete distributions privately published
 
 Native private deployment appgdep_6acafb5db58081919ddd1ae869773944 succeeded from exact pushed source 073b709a0613a1cef8c79cb036ba56e60933f47e and its byte-verified 476-entry archive. Discrete distributions is now online. Library: 58 chapters / 4001 worked entries. GitHub content commit 082d930. Student approval is not inferred. Continue l_linear under standing authorization. See research/s_distributions-publication.json.
+
+
+## Linear transformations review draft
+
+Completed l_linear:30 instructional sections,84 complete worked entries,84 final rules,four core read university courses plus CMU comparison,39 compact subject models/137 checkpoints/63 placements. Exact formulas and120 actual JavaScript calculator cases passed; Edge verified1252 mounted formulas, every model, motion/pause, comparison, print, phone containment and library routes. All58 prior chapter pages are unchanged. Library:59 chapters/4085 worked entries. The chapter remains a review draft, not student-approved; publication is recorded separately. Continue sequentially under the existing user authorization.

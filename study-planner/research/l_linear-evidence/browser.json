@@ -1,0 +1,198 @@
+{
+  "topicId": "l_linear",
+  "status": "passed",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\l-linear-visual-qa",
+  "counts": {
+    "questions": 84,
+    "rules": 84,
+    "players": 63,
+    "math": 1252,
+    "errors": []
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "heading": true,
+    "prose": true,
+    "code": true
+  },
+  "geometry": {
+    "models": 39,
+    "frames": 137,
+    "issues": []
+  },
+  "mathGeometry": {
+    "bareClosingScriptBases": [],
+    "underlined": 0
+  },
+  "motion": {
+    "pairs": 1,
+    "progress": 0.12959555555555624,
+    "clocks": 1
+  },
+  "rotationMotion": {
+    "determinant": 1.0000000000000002,
+    "firstLength": 1.0000000000000002,
+    "secondLength": 1.0000000000000002
+  },
+  "pause": {
+    "motions": 1,
+    "frozen": true,
+    "sameIndex": true,
+    "running": false
+  },
+  "resume": true,
+  "comparison": true,
+  "reducedMotion": true,
+  "printCheckpoints": true,
+  "labs": [
+    {
+      "error": "",
+      "result": {
+        "matrix": [
+          [
+            "2",
+            "1"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "physicalInput": [
+          [
+            "2"
+          ],
+          [
+            "1"
+          ]
+        ],
+        "physicalOutput": [
+          [
+            "4"
+          ],
+          [
+            "1"
+          ]
+        ],
+        "output": [
+          [
+            "3"
+          ],
+          [
+            "1"
+          ]
+        ],
+        "rank": 2,
+        "checks": {
+          "pathsAgree": true,
+          "outputReconstruction": true,
+          "inputReconstruction": true
+        }
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "matrix": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "physicalInput": [
+          [
+            "-1"
+          ],
+          [
+            "1"
+          ]
+        ],
+        "physicalOutput": [
+          [
+            "0"
+          ],
+          [
+            "0"
+          ]
+        ],
+        "output": [
+          [
+            "0"
+          ],
+          [
+            "0"
+          ]
+        ],
+        "rank": 0,
+        "checks": {
+          "pathsAgree": true,
+          "outputReconstruction": true,
+          "inputReconstruction": true
+        }
+      },
+      "issues": []
+    },
+    {
+      "error": "",
+      "result": {
+        "matrix": [
+          [
+            "2",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "physicalInput": [
+          [
+            "5"
+          ],
+          [
+            "-2"
+          ]
+        ],
+        "physicalOutput": [
+          [
+            "7"
+          ],
+          [
+            "0"
+          ]
+        ],
+        "output": [
+          [
+            "7"
+          ],
+          [
+            "0"
+          ]
+        ],
+        "rank": 1,
+        "checks": {
+          "pathsAgree": true,
+          "outputReconstruction": true,
+          "inputReconstruction": true
+        }
+      },
+      "issues": []
+    }
+  ],
+  "invalidPreservesPrevious": 5,
+  "mobileOverflow": false,
+  "printVisible": true,
+  "runtimeErrors": [],
+  "library": {
+    "cards": 59,
+    "visible": true,
+    "errors": []
+  },
+  "weeklyChapterLink": true
+}
