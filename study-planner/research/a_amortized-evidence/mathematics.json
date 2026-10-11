@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "independentInputs": 9334,
+  "checkedCheckpoints": 294906,
+  "contractChecks": 10869,
+  "unchangedChapterPages": 55,
+  "costModels": [
+    "finite-width XOR bit flips",
+    "capacity-event sums",
+    "all append/pop prefixes through length nine",
+    "FIFO transfer count through length eight",
+    "suffix-dominance certificate through length seven",
+    "binary level output-write counts",
+    "bounded record conservation",
+    "incremental copy deadline"
+  ],
+  "limits": "Finite spaces establish mechanism consistency; derivations are also reviewed in the chapter. They do not certify all future questions or all production runtimes."
+}

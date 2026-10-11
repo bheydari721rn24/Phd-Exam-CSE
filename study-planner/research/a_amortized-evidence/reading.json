@@ -1,0 +1,47 @@
+{
+  "status": "reviewed_written_sources",
+  "candidateUniversities": 8,
+  "coreUniversities": [
+    "MIT",
+    "CMU",
+    "Princeton",
+    "Stanford"
+  ],
+  "additionalUniversities": [
+    "ETH Zurich"
+  ],
+  "readRanges": {
+    "MIT": "All nine Lecture 11 PDF pages via official web text.",
+    "CMU": "All eleven Lecture 6 PDF pages via official web text.",
+    "Princeton": "All 49 native slide pages.",
+    "Stanford": "All 79 native condensed slide pages.",
+    "ETH": "All 57 native handout pages; amortization pages14–29 and competitive analysis34–45."
+  },
+  "nativeHashes": [
+    {
+      "id": "stanford9",
+      "url": "https://web.stanford.edu/class/archive/cs/cs166/cs166.1266/lectures/09/Condensed%20Slides.pdf",
+      "status": "acquired_not_yet_read",
+      "pages": 79,
+      "sha256": "8293ac5c51d8dc55e9c7939382b3937e15b173aeacf6ad530d324336b990094c",
+      "local": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\a-amortized-sources\\stanford9.pdf"
+    },
+    {
+      "id": "princeton",
+      "url": "https://www.cs.princeton.edu/courses/archive/spring13/cos423/lectures/AmortizedAnalysis.pdf",
+      "status": "acquired_not_yet_read",
+      "pages": 49,
+      "sha256": "d8262485a004de4dfe3234097aebaafbc2ed556f615f86468ba15e7f54e05441",
+      "local": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\a-amortized-sources\\princeton.pdf"
+    },
+    {
+      "id": "eth8",
+      "url": "https://lec.inf.ethz.ch/DA/2022/slides/daLecture8.en.handout.pdf",
+      "status": "acquired_not_yet_read",
+      "pages": 57,
+      "sha256": "20219690daab13ba36ddbf27277dbffdd4d8dd9e359820e5327159dc5ff324f4",
+      "local": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\a-amortized-sources\\eth8.pdf"
+    }
+  ],
+  "limits": "Cambridge, Berkeley and Oxford screened but not counted as read; no global-all-courses claim."
+}

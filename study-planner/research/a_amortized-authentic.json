@@ -1,0 +1,52 @@
+[
+  {
+    "id": "Phd_CE_1404_Q9",
+    "booklet": "Phd_CE_1404",
+    "repoPath": "Exams/PhD/CE/1404/Q906A-PHD1404-[www.konkur.in].pdf",
+    "questionNumber": 9,
+    "pdfPage": 4,
+    "title": "Constant-time maximum with restoration",
+    "stem": "A stack S supports PUSH, POP and TOP. Design FIND-MAX(S) to return the largest currently stored value efficiently. Which proposed approach is correct and efficient?",
+    "options": [
+      "Maintain one MAX variable on PUSH. FIND-MAX is constant time, but rebuilding MAX after a POP needs linear time.",
+      "Each FIND-MAX pops all elements, computes the maximum, and restores the original order. Each query is linear.",
+      "On every PUSH, an auxiliary stack M stores the maximum of the prefix then present in S. A POP also removes M's top. FIND-MAX is constant time.",
+      "On every PUSH, recursively compute the maximum of the current stack and append it to S. FIND-MAX takes logarithmic time."
+    ],
+    "answer": 3,
+    "solution": "Option 3 stores one cached maximum per data-stack prefix. Induction proves each M entry is the maximum of the corresponding S prefix; synchronous POP exposes the prior valid prefix. PUSH, POP, TOP of M and FIND-MAX all use constant operations, and M uses O(n) space. Duplicates are retained because every push stores a prefix result. Option 1 explicitly needs a linear rebuild after removing the current maximum, so it does not give the same complete efficient interface. Option 2 preserves the answer and order only with restoration storage but scans on every query. Option 4 adds metadata as if it were data and gives no valid logarithmic recurrence. Empty-stack maximum must have a specified error/identity policy. This is an independently derived answer, not an official key.\n\n**Amortization test.** Repeated FIND-MAX calls that pop and restore the same n records each cost linear time: restoration recreates the work rather than consuming it permanently. N such calls cost Theta(Nn). The prefix-max metadata construction instead gives constant worst-case calls; it does not rely on amortizing repeated full scans.",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "sourceSha256": "9a4f63260faf8628af4118db39fd68b7775bedf42c9749b93bc5b9302ed8e713",
+    "answerProvenance": "Independently derived; no official key asserted",
+    "translationStatus": "Original PDF page rendered and visually re-read for this chapter; bridge revisit, not a new unique archive question.",
+    "topics": [
+      "a_amortized"
+    ]
+  },
+  {
+    "id": "MS_CE_1405_Q56",
+    "booklet": "MS_CE_1405",
+    "pdfPage": 12,
+    "questionNumber": 56,
+    "topics": [
+      "a_amortized"
+    ],
+    "title": "Sequential merge versus a heap-head frontier",
+    "stem": "There are $k$ sorted lists, each containing $n/k$ elements. Merge lists 1 and 2, then merge the result with list 3, and continue in this way. What is the worst-case running-time bound of this algorithm?",
+    "options": [
+      "$O(k\\log n)$",
+      "$O(n)$",
+      "$O(n\\log k)$",
+      "$O(nk)$"
+    ],
+    "answer": 4,
+    "solution": "1. At stage $j$, merge an accumulated list of $j n/k$ elements with the next list of $n/k$ elements. In the standard linear-time merge model, the worst-case work is proportional to $(j+1)n/k$.\n2. Sum the stage costs for $j=1,\\ldots,k-1$: $(n/k)(2+3+\\cdots+k)=(n/k)(k(k+1)/2-1)$. For $2\\le k\\le n$, this is $\\Theta(nk)$, so option 4 is the stated bound.\n3. A balanced merge tree instead processes all $n$ elements at each of $\\Theta(\\log k)$ levels and takes $\\Theta(n\\log k)$. A heap can achieve the same asymptotic bound, but neither is the sequential algorithm in the question.\n4. The worst case includes inputs whose keys remain interleaved at successive merges; one cannot price every stage at the size of the incoming list alone. If $k$ is fixed independently of $n$, the expression becomes linear in $n$, but the listed options treat both parameters as variable.\n\n**Transfer rule.** Write the accumulated problem size at each iteration before summing costs. A correct bound for a different merge strategy is a distractor, not an answer.\n\n**Amortization test.** Sequential accumulation revisits old elements in many later merges, creating an arithmetic sum. Binary-level rebuilding lets each record participate only once per level, creating logarithmic amortized insertion. The different total bounds follow from different lifetime participation counts, not the word merge alone.",
+    "pattern": "growing work per iteration and two-parameter cost",
+    "difficulty": "Hard",
+    "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
+    "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "translationStatus": "Original PDF page rendered and visually re-read for this chapter; bridge revisit, not a new unique archive question.",
+    "answerProvenance": "independently derived; not represented as an official key"
+  }
+]

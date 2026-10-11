@@ -1,0 +1,401 @@
+[
+  {
+    "id": "counter17",
+    "title": "Seventeen increments from zero, six-bit storage",
+    "spec": {
+      "kind": "counter",
+      "count": 17,
+      "width": 6
+    }
+  },
+  {
+    "id": "counter-carry",
+    "title": "Five trailing ones: 31 to 32",
+    "spec": {
+      "kind": "counter",
+      "start": 31,
+      "count": 1,
+      "width": 6
+    }
+  },
+  {
+    "id": "counter-wrap",
+    "title": "Four-bit counter: sixteen increments including wrap",
+    "spec": {
+      "kind": "counter",
+      "count": 16,
+      "width": 4
+    }
+  },
+  {
+    "id": "counter-nonzero",
+    "title": "Five-bit counter: 30 to 31 to 0 to 1",
+    "spec": {
+      "kind": "counter",
+      "count": 3,
+      "width": 5,
+      "start": 30
+    }
+  },
+  {
+    "id": "growth8",
+    "title": "Eight appends: filling capacity eight without copying it",
+    "spec": {
+      "kind": "growth",
+      "count": 8
+    }
+  },
+  {
+    "id": "growth9",
+    "title": "Nine appends: the first append beyond capacity eight",
+    "spec": {
+      "kind": "growth",
+      "count": 9
+    }
+  },
+  {
+    "id": "growth-round",
+    "title": "Growth factor three halves with integer capacities",
+    "spec": {
+      "kind": "growth",
+      "count": 9,
+      "factor": 1.5
+    }
+  },
+  {
+    "id": "shrink16",
+    "title": "Quarter shrink: size five/capacity sixteen, then pop",
+    "spec": {
+      "kind": "shrink",
+      "size": 5,
+      "capacity": 16,
+      "operations": [
+        {
+          "type": "pop"
+        }
+      ]
+    }
+  },
+  {
+    "id": "shrink4",
+    "title": "Smallest shrink: size two/capacity four, then pop",
+    "spec": {
+      "kind": "shrink",
+      "size": 2,
+      "capacity": 4,
+      "operations": [
+        {
+          "type": "pop"
+        }
+      ]
+    }
+  },
+  {
+    "id": "midpoint",
+    "title": "Cross the potential midpoint at size four/capacity eight",
+    "spec": {
+      "kind": "shrink",
+      "size": 4,
+      "capacity": 8,
+      "operations": [
+        {
+          "type": "pop"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mixed-array",
+    "title": "Interleaved appends and post-removal quarter shrinking",
+    "spec": {
+      "kind": "shrink",
+      "size": 0,
+      "capacity": 2,
+      "operations": [
+        {
+          "type": "append"
+        },
+        {
+          "type": "append"
+        },
+        {
+          "type": "append"
+        },
+        {
+          "type": "append"
+        },
+        {
+          "type": "append"
+        },
+        {
+          "type": "append"
+        },
+        {
+          "type": "append"
+        },
+        {
+          "type": "append"
+        },
+        {
+          "type": "append"
+        },
+        {
+          "type": "pop"
+        },
+        {
+          "type": "pop"
+        },
+        {
+          "type": "pop"
+        },
+        {
+          "type": "pop"
+        },
+        {
+          "type": "pop"
+        },
+        {
+          "type": "pop"
+        },
+        {
+          "type": "pop"
+        },
+        {
+          "type": "pop"
+        },
+        {
+          "type": "pop"
+        }
+      ]
+    }
+  },
+  {
+    "id": "thrash",
+    "title": "Half-threshold counterexample: size five/capacity eight",
+    "spec": {
+      "kind": "thrash",
+      "size": 5,
+      "capacity": 8,
+      "operations": [
+        {
+          "type": "pop"
+        },
+        {
+          "type": "append"
+        },
+        {
+          "type": "pop"
+        },
+        {
+          "type": "append"
+        },
+        {
+          "type": "pop"
+        },
+        {
+          "type": "append"
+        }
+      ]
+    }
+  },
+  {
+    "id": "queue12",
+    "title": "Twelve enqueues followed by five dequeues",
+    "spec": {
+      "kind": "queue",
+      "operations": [
+        {
+          "type": "enqueue",
+          "value": 1
+        },
+        {
+          "type": "enqueue",
+          "value": 2
+        },
+        {
+          "type": "enqueue",
+          "value": 3
+        },
+        {
+          "type": "enqueue",
+          "value": 4
+        },
+        {
+          "type": "enqueue",
+          "value": 5
+        },
+        {
+          "type": "enqueue",
+          "value": 6
+        },
+        {
+          "type": "enqueue",
+          "value": 7
+        },
+        {
+          "type": "enqueue",
+          "value": 8
+        },
+        {
+          "type": "enqueue",
+          "value": 9
+        },
+        {
+          "type": "enqueue",
+          "value": 10
+        },
+        {
+          "type": "enqueue",
+          "value": 11
+        },
+        {
+          "type": "enqueue",
+          "value": 12
+        },
+        {
+          "type": "dequeue"
+        },
+        {
+          "type": "dequeue"
+        },
+        {
+          "type": "dequeue"
+        },
+        {
+          "type": "dequeue"
+        },
+        {
+          "type": "dequeue"
+        }
+      ]
+    }
+  },
+  {
+    "id": "queue-interleave",
+    "title": "Queue input 1,2,3; dequeue; input 4,5; three dequeues",
+    "spec": {
+      "kind": "queue",
+      "operations": [
+        {
+          "type": "enqueue",
+          "value": 1
+        },
+        {
+          "type": "enqueue",
+          "value": 2
+        },
+        {
+          "type": "enqueue",
+          "value": 3
+        },
+        {
+          "type": "dequeue"
+        },
+        {
+          "type": "enqueue",
+          "value": 4
+        },
+        {
+          "type": "enqueue",
+          "value": 5
+        },
+        {
+          "type": "dequeue"
+        },
+        {
+          "type": "dequeue"
+        },
+        {
+          "type": "dequeue"
+        }
+      ]
+    }
+  },
+  {
+    "id": "monotonic",
+    "title": "Strict dominance in [3,1,4,2,5]",
+    "spec": {
+      "kind": "monotonic",
+      "values": [
+        3,
+        1,
+        4,
+        2,
+        5
+      ]
+    }
+  },
+  {
+    "id": "ties-strict",
+    "title": "Equal values remain under strict-smaller dominance",
+    "spec": {
+      "kind": "monotonic",
+      "values": [
+        4,
+        4,
+        4
+      ]
+    }
+  },
+  {
+    "id": "ties-inclusive",
+    "title": "Later equal values replace earlier candidates",
+    "spec": {
+      "kind": "monotonic",
+      "values": [
+        4,
+        4,
+        4
+      ],
+      "equal": true
+    }
+  },
+  {
+    "id": "multipop",
+    "title": "Push 4,8,3; remove two; push 9; bounded remove five",
+    "spec": {
+      "kind": "multipop",
+      "operations": [
+        {
+          "type": "push",
+          "value": 4
+        },
+        {
+          "type": "push",
+          "value": 8
+        },
+        {
+          "type": "push",
+          "value": 3
+        },
+        {
+          "type": "multipop",
+          "k": 2
+        },
+        {
+          "type": "push",
+          "value": 9
+        },
+        {
+          "type": "multipop",
+          "k": 5
+        }
+      ]
+    }
+  },
+  {
+    "id": "blocks8",
+    "title": "Eight singleton insertions into binary sorted blocks",
+    "spec": {
+      "kind": "blocks",
+      "count": 8
+    }
+  },
+  {
+    "id": "migration",
+    "title": "Four old records: copy one per append into eight slots",
+    "spec": {
+      "kind": "migration"
+    }
+  }
+]

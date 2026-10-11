@@ -581,3 +581,8 @@ Completed a_heap: 82 fully worked questions, 80 final rules, five genuinely read
 ## Hash-table review draft
 
 Completed a_hash: 82 worked questions, 80 final rules, four core written courses from four universities and two additional reviewed universities. Twenty-one specialized models / 551 checkpoints; independent checks passed 1167 inputs / 70392 checkpoints and 11967 dictionary contracts. Real Edge passed geometry, 69 attached connections, native mathematics, controls, editable boundaries, mobile and print. All 54 preceding pages remain unchanged. Library: 55 chapters / 3739 worked questions. Publication is tracked separately; no student approval is inferred. Continue with a_amortized under standing continuous authorization.
+
+
+## Amortized-analysis review draft
+
+Completed a_amortized: twenty deep teaching sections, 87 worked problem entries, 80 final rules, four core university courses and one additional university actually read. Twenty specialized models / 691 exact checkpoints. Independent checks passed 9334 inputs / 294906 checkpoints / 10869 result contracts; real Edge passed geometry, fonts, native mathematics, control behavior, editable boundaries, mobile and print. All 55 previous chapter HTML files are unchanged. Library: 56 chapters / 3826 worked entries. No student approval is inferred. Publication is tracked separately. Continue with s_variance under standing continuous authorization.

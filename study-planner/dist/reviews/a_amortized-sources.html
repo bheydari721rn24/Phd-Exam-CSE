@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Amortized-analysis chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"><link rel="stylesheet" href="../chapters/a_amortized.css"></head><body><main class="chapter"><p><a href="../chapters/a_amortized.html">Amortized-analysis chapter</a></p><article class="lesson"><h1>Written-course selection: amortized analysis</h1>
+<h2>Scope and selection rule</h2>
+<p>This is a documented, bounded comparison of accessible written courses from eight universities. It is not an enumeration of every course ever taught. A course inventory is not evidence that its lecture was read. Four core courses were selected after reading their entire relevant lectures; a fifth university provides an independent comparison. Video recordings were not used. The chapter is an original synthesis, not a reproduction of the source slides or exercise collections.</p>
+<table>
+<thead>
+<tr>
+<th>University and course</th>
+<th>Instructor</th>
+<th>Reading evidence</th>
+<th>Selection and contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIT, 6.046J, Spring 2012, Lecture 11</td>
+<td>Dana Moshkovitz and Bruce Tidor</td>
+<td>All nine PDF pages, including the license page, read through official OCW PDF text; native download timed out. Lecture 10 was screened but not counted as fully read.</td>
+<td>Core: stack, geometric growth, accounting, expansion and contraction.</td>
+</tr>
+<tr>
+<td>Carnegie Mellon, 15-<span class="math-inline">451/651</span>, Spring 2024, Lecture 6</td>
+<td>Daniel Anderson and David Woodruff, verified on course homepage</td>
+<td>All eleven PDF pages, including four exercise prompts, read through official university PDF text; native connection was refused.</td>
+<td>Core: exact cost contracts, initial potential, failed potential guesses, shrink timing.</td>
+</tr>
+<tr>
+<td>Princeton, COS423, Spring 2013, Amortized Analysis</td>
+<td>Kevin Wayne, printed on slide 1</td>
+<td>All 49 native PDF pages read. SHA-256 d8262485a004de4dfe3234097aebaafbc2ed556f615f86468ba15e7f54e05441.</td>
+<td>Core: counter, multipop, sparse initialization, aggregate/accounting/potential comparison.</td>
+</tr>
+<tr>
+<td>Stanford, CS166, Spring 2026, Lecture 9</td>
+<td>Keith Schwarz, verified on archived course homepage</td>
+<td>All 79 native condensed slide pages read. SHA-256 8293ac5c51d8dc55e9c7939382b3937e15b173aeacf6ad530d324336b990094c.</td>
+<td>Core: two-stack queue, latency versus throughput, dynamic arrays, right-spine <span class="math-inline">B</span>-tree extension.</td>
+</tr>
+<tr>
+<td>ETH Zurich, Data Structures and Algorithms, Spring 2022, Lecture 8</td>
+<td>Felix Friedrich, verified on course homepage</td>
+<td>All 57 native handout pages screened/read, including amortization pages 14–29 and move-to-front pages 34–45. SHA-256 20219690daab13ba36ddbf27277dbffdd4d8dd9e359820e5327159dc5ff324f4.</td>
+<td>Additional reviewed comparison: finite-counter endpoints, state-relative potential, competitive analysis.</td>
+</tr>
+<tr>
+<td>Cambridge, Algorithms <span class="math-inline">1/2</span>, <span class="math-inline">2023/24</span></td>
+<td>Course inventory names Damon Wischik and Frank Stajano</td>
+<td>Public inventory screened. A guessed Algorithm2/alg2.pdf URL returned 404. No amortization lecture is counted as read in this chapter.</td>
+<td>Candidate for later expansion; not counted toward four-course requirement.</td>
+</tr>
+<tr>
+<td>Berkeley, CS170 archived inventories</td>
+<td>Not attributed without lecture evidence</td>
+<td>Public inventories screened; no relevant complete written lecture read in this chapter.</td>
+<td>Not counted as a reviewed course.</td>
+</tr>
+<tr>
+<td>Oxford, Algorithms, <span class="math-inline">2019/20</span></td>
+<td>Andreas Galanis, inventory attribution</td>
+<td>Public syllabus includes amortised analysis; no complete relevant lecture read.</td>
+<td>Not counted as a reviewed course.</td>
+</tr>
+</tbody>
+</table>
+<p>No numerical ranking based on invented scores was used. The four core selections complement one another: MIT covers resizing, CMU exposes proof assumptions, Princeton supplies exact counter/stack development, and Stanford adds queue and tree mechanisms. ETH strengthens endpoint and competitive reasoning. This is an evidence-based choice within the recorded pool, not a claim of globally optimal selection.</p>
+<h2>Corrections and harmonization</h2>
+<ol>
+<li>MIT's single POP must not be confused with a linear MULTIPOP. The new-minus-old potential difference is written explicitly rather than copying a repeated new-size term.</li>
+<li>CMU's initial capacity-one, size-zero potential is minus one for the expression two times size minus capacity; the printed minus-one-half value is inconsistent with that expression. The chapter uses a nonnegative clipped potential for insert-only tables.</li>
+<li>CMU tests quarter occupancy before removal. This chapter's main algorithm tests after removal. Both are legitimate policies, but their states and exact charges differ. They are not mixed in one proof.</li>
+<li>Princeton's insert-only page 39 labels a copying-only model, while subsequent pages also charge the new-element write. This chapter distinguishes those models. Its exact growth sum stops strictly before the final element count; an unused power of two is not included.</li>
+<li>Princeton's multipop removes exactly the requested number only when enough records exist; this chapter uses a bounded removal contract and counts call overhead explicitly when requested.</li>
+<li>Princeton's sparse-initialization technique is a word-RAM technique. Uninitialized <span class="math-inline">C/C++</span> values cannot be read portably merely because the mathematical model permits arbitrary machine words.</li>
+<li>Stanford slide 45 says the amortized charges never overestimate work, whereas the displayed inequality makes them an upper bound that must not underestimate total work. The chapter uses the displayed inequality with the correct wording.</li>
+<li>Stanford slide 75 names the number of right-spine nodes, but its argument counts keys moved off that spine. The chapter gives a charging argument instead of equating unspecified big-O and Theta terms. Variable branching factor, pointer traversal, and allocation must be accounted for.</li>
+<li>ETH's finite counter stops before overflow in its example. At an actual modulo wrap, no zero bit becomes one. The wrap charge is zero in the bit-flip model, and the exact finite-width sum differs from an unbounded counter.</li>
+<li>All sources are reconciled using explicit cost units, initial state, legal operations, resize timing and endpoint potential. Expected collision costs are separated from deterministic rebuilding costs.</li>
+</ol>
+<h2>References</h2>
+<ul>
+<li>MIT. Dana Moshkovitz and Bruce Tidor. 6.046J Design and Analysis of Algorithms, Spring 2012, Lecture 11. https://ocw.mit.edu/courses/6-<span class="math-inline">046j</span>-design-and-analysis-of-algorithms-spring-<span class="math-inline">2012/83b</span>82d45beb3776da72b7f3e1b3f42df_MIT6_046JS12_lec11.pdf</li>
+<li>Carnegie Mellon University. Daniel Anderson and David Woodruff. 15-<span class="math-inline">451/651</span> Algorithm Design and Analysis, Spring 2024, Lecture 6. https://www.cs.cmu.edu/~15451-<span class="math-inline">s24/le</span>ctures/lecture06-amortized.pdf</li>
+<li>Princeton University. Kevin Wayne. COS423, Spring 2013, Amortized Analysis. https://www.cs.princeton.edu/courses/archive/spring13/cos423/lectures/AmortizedAnalysis.pdf</li>
+<li>Stanford University. Keith Schwarz. CS166 Advanced Data Structures, Spring 2026, Lecture 9. https://web.stanford.edu/class/archive/<span class="math-inline">cs/cs166/cs166</span>.<span class="math-inline">1266/le</span>ctures/<span class="math-inline">09/Co</span>ndensed%20Slides.pdf</li>
+<li>ETH Zurich. Felix Friedrich. Data Structures and Algorithms, Spring 2022, Lecture 8, English handout. https://lec.inf.ethz.<span class="math-inline">ch/DA/2022/sl</span>ides/daLecture8.en.handout.pdf</li>
+</ul>
+</article></main><script src="../chapters/math-layout.js?v=79"></script></body></html>

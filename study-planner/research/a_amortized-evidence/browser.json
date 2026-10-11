@@ -1,0 +1,343 @@
+{
+  "topicId": "a_amortized",
+  "status": "passed",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\a-amortized-visual-qa",
+  "counts": {
+    "questions": 87,
+    "rules": 80,
+    "players": 32,
+    "math": 353,
+    "errors": []
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "heading": true,
+    "prose": true,
+    "code": true
+  },
+  "geometry": {
+    "models": 20,
+    "frames": 691,
+    "issues": []
+  },
+  "mathGeometry": {
+    "bareClosingScriptBases": [],
+    "underlined": 0
+  },
+  "motion": {
+    "pairs": 5,
+    "progress": 0.14811111111110936,
+    "clocks": 1
+  },
+  "pause": {
+    "motions": 1,
+    "frozen": true,
+    "sameIndex": true,
+    "running": false
+  },
+  "resume": true,
+  "comparison": true,
+  "reducedMotion": true,
+  "printCheckpoints": true,
+  "labs": [
+    {
+      "kind": "counter",
+      "error": "",
+      "result": {
+        "kind": "counter",
+        "operation": 32,
+        "actual": 63,
+        "charges": 62,
+        "potential": 5,
+        "initialPotential": 6,
+        "complete": true,
+        "local": 1,
+        "action": "Complete operation 32",
+        "why": "Real flips plus final-minus-initial popcount certify this increment. A wrap has zero charge.",
+        "records": [],
+        "capacity": 1,
+        "value": 31,
+        "width": 6,
+        "bits": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "beforePotential": 4,
+        "cursor": 0,
+        "charge": 2
+      },
+      "issues": []
+    },
+    {
+      "kind": "growth",
+      "error": "",
+      "result": {
+        "kind": "growth",
+        "operation": 32,
+        "actual": 108,
+        "charges": 122,
+        "potential": 14,
+        "initialPotential": 0,
+        "complete": true,
+        "local": 1,
+        "action": "Complete operation 32",
+        "why": "Use completed size and capacity to select the correct potential branch.",
+        "records": [
+          {
+            "id": "K0",
+            "value": 1
+          },
+          {
+            "id": "K1",
+            "value": 2
+          },
+          {
+            "id": "K2",
+            "value": 3
+          },
+          {
+            "id": "K3",
+            "value": 4
+          },
+          {
+            "id": "K4",
+            "value": 5
+          },
+          {
+            "id": "K5",
+            "value": 6
+          },
+          {
+            "id": "K6",
+            "value": 7
+          },
+          {
+            "id": "K7",
+            "value": 8
+          },
+          {
+            "id": "K8",
+            "value": 9
+          },
+          {
+            "id": "K9",
+            "value": 10
+          },
+          {
+            "id": "K10",
+            "value": 11
+          },
+          {
+            "id": "K11",
+            "value": 12
+          },
+          {
+            "id": "K12",
+            "value": 13
+          },
+          {
+            "id": "K13",
+            "value": 14
+          },
+          {
+            "id": "K14",
+            "value": 15
+          },
+          {
+            "id": "K15",
+            "value": 16
+          },
+          {
+            "id": "K16",
+            "value": 17
+          },
+          {
+            "id": "K17",
+            "value": 18
+          },
+          {
+            "id": "K18",
+            "value": 19
+          },
+          {
+            "id": "K19",
+            "value": 20
+          },
+          {
+            "id": "K20",
+            "value": 21
+          },
+          {
+            "id": "K21",
+            "value": 22
+          },
+          {
+            "id": "K22",
+            "value": 23
+          },
+          {
+            "id": "K23",
+            "value": 24
+          },
+          {
+            "id": "K24",
+            "value": 25
+          },
+          {
+            "id": "K25",
+            "value": 26
+          },
+          {
+            "id": "K26",
+            "value": 27
+          },
+          {
+            "id": "K27",
+            "value": 28
+          },
+          {
+            "id": "K28",
+            "value": 29
+          },
+          {
+            "id": "K29",
+            "value": 30
+          },
+          {
+            "id": "K30",
+            "value": 31
+          },
+          {
+            "id": "K31",
+            "value": 32
+          }
+        ],
+        "capacity": 41,
+        "beforePotential": 11,
+        "charge": 4,
+        "old": null,
+        "oldCapacity": 27,
+        "cursor": 26
+      },
+      "issues": []
+    },
+    {
+      "kind": "growth",
+      "error": "",
+      "result": {
+        "kind": "growth",
+        "operation": 0,
+        "actual": 0,
+        "charges": 0,
+        "potential": 0,
+        "initialPotential": 0,
+        "complete": true,
+        "local": 0,
+        "action": "Array initialized",
+        "why": "A numbered storage position is fixed; a K identifier follows its record. Copies and new writes are counted separately.",
+        "records": [],
+        "capacity": 1
+      },
+      "issues": []
+    },
+    {
+      "kind": "monotonic",
+      "error": "",
+      "result": {
+        "kind": "monotonic",
+        "operation": 6,
+        "actual": 10,
+        "charges": 12,
+        "potential": 2,
+        "initialPotential": 0,
+        "complete": true,
+        "local": 1,
+        "action": "Complete operation 6",
+        "why": "Only stack modifications are charged; value comparisons have their own visible counter.",
+        "records": [],
+        "capacity": 1,
+        "values": [
+          -99,
+          0,
+          99,
+          -99,
+          99,
+          0
+        ],
+        "stack": [
+          4,
+          5
+        ],
+        "comparisons": 6,
+        "beforePotential": 1,
+        "current": 5,
+        "charge": 2,
+        "predicate": false
+      },
+      "issues": []
+    },
+    {
+      "kind": "blocks",
+      "error": "",
+      "result": {
+        "kind": "blocks",
+        "operation": 16,
+        "actual": 80,
+        "charges": 80,
+        "potential": 0,
+        "initialPotential": 0,
+        "complete": true,
+        "local": 31,
+        "action": "Complete operation 16",
+        "why": "The real write total is shown directly; this model uses aggregate level counting, not a constant insertion potential.",
+        "records": [],
+        "capacity": 1,
+        "blocks": [
+          null,
+          null,
+          null,
+          null,
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ]
+        ],
+        "beforePotential": 0,
+        "pending": null,
+        "charge": 31,
+        "level": 4,
+        "cursor": 15
+      },
+      "issues": []
+    }
+  ],
+  "invalidPreservesPrevious": 11,
+  "mobileOverflow": false,
+  "printVisible": true,
+  "runtimeErrors": [],
+  "library": {
+    "cards": 56,
+    "visible": true,
+    "errors": []
+  },
+  "weeklyChapterLink": true
+}

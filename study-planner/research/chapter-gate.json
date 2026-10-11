@@ -1,36 +1,36 @@
 {
-  "currentTopicId": "a_amortized",
+  "currentTopicId": "s_variance",
   "state": "in_progress",
   "nextTopicRequiresExplicitApproval": false,
   "nextTopicId": null,
-  "sourceAuditPath": "research/a_amortized-source-audit.md",
+  "sourceAuditPath": "research/s_variance-source-audit.md",
   "examAuditPath": "research/exam-calibration/archive-manifest.json",
-  "lastCompletedReview": "a_hash: 82 complete solutions, 80 final rules, six reviewed universities, 21 models / 551 checkpoints; 1167 independent inputs / 70392 checkpoints.",
-  "nextReview": "Complete a_amortized scientific and visual audits.",
+  "lastCompletedReview": "a_amortized: 87 worked problems, 80 final rules, five reviewed universities, 20 models / 691 checkpoints; 9334 independent inputs / 294906 checkpoints.",
+  "nextReview": "Complete s_variance scientific and visual audits.",
   "rule": "Author one chapter at a time, finish its source, mathematical, problem, visual and browser audits, deliver as a review draft, then continue under standing user authorization. Never label an unapproved draft student-approved.",
   "studyStartJalali": "1405/07/11",
-  "qualityAuditPath": "research/a_amortized-quality-audit.md",
+  "qualityAuditPath": "research/s_variance-quality-audit.md",
   "approvedTopicId": "p_recursion",
-  "activeWork": "Evaluate written amortized-analysis sources and author the next chapter under continuous user authorization.",
+  "activeWork": "Evaluate written probability sources and author variance and covariance under standing continuous authorization.",
   "revisionTracker": "research/exam-calibration/manifest.json",
   "libraryReviewReportPath": "research/exam-calibration/DELIVERY.en.md",
   "approvedLibraryReview": true,
   "proposedNextTopicId": null,
   "libraryRewritePath": "research/exam-calibration/manifest.json",
   "libraryRewriteRequiresApproval": true,
-  "reviewScope": "Aggregate, accounting and potential proofs; dynamic arrays, hysteresis, counters, queues and amortized versus expected bounds.",
+  "reviewScope": "Second moments, covariance, correlation, conditional variance, transformations, independence and inequalities.",
   "examArchivePolicy": "Original Iranian MS and PhD archives may now be studied, classified and included; the latest user instruction supersedes final-month deferral.",
   "animationStandardPath": "research/ANIMATION_STANDARD.md",
   "animationInventoryPath": "research/library-animation-redesign/inventory.json",
   "animationModelAuditPath": "research/animation-model-audit.json",
   "animationBrowserAuditPath": "research/library-animation-redesign/browser.json",
-  "sourceAudit": "research/a_amortized-source-audit.md",
-  "qualityAudit": "research/a_amortized-quality-audit.md",
+  "sourceAudit": "research/s_variance-source-audit.md",
+  "qualityAudit": "research/s_variance-quality-audit.md",
   "visualReviewPath": "research/subject-visual-review.json",
   "reviewEvidence": [
-    "research/a_hash-evidence/reading.json",
-    "research/a_hash-evidence/mathematics.json",
-    "research/a_hash-evidence/browser.json"
+    "research/a_amortized-evidence/reading.json",
+    "research/a_amortized-evidence/mathematics.json",
+    "research/a_amortized-evidence/browser.json"
   ],
   "libraryVisualQuestionReviewPath": "research/library-visual-question-review/manifest.json",
   "publicationState": "publication_pending_archive_upload",
@@ -182,6 +182,19 @@
       ],
       "publicationState": "publication_pending_archive_upload",
       "publicationRecord": "research/a_hash-publication-pending.json"
+    },
+    {
+      "topicId": "a_amortized",
+      "state": "quality_review_complete",
+      "studentApproved": false,
+      "url": "chapters/a_amortized.html",
+      "qualityAudit": "research/a_amortized-quality-audit.md",
+      "evidence": [
+        "research/a_amortized-evidence/reading.json",
+        "research/a_amortized-evidence/mathematics.json",
+        "research/a_amortized-evidence/browser.json"
+      ],
+      "publicationState": "pending_upload"
     }
   ],
   "latestPublication": {
