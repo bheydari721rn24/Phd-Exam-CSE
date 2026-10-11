@@ -221172,6 +221172,2298 @@
           }
         }
       ]
+    },
+    "axioms-question-atoms39": {
+      "id": "axioms-question-atoms39",
+      "title": "Question 39: exact eight-cell feasibility",
+      "description": "Three membership bits specify whether A, B and C occur. Changing only the triple parameter recovers every cell. The final valid endpoints and explicit invalid candidates expose the sharp interval.",
+      "descriptionHtml": "<p>Three membership bits specify whether A, B and C occur. Changing only the triple parameter recovers every cell. The final valid endpoints and explicit invalid candidates expose the sharp interval.</p>",
+      "invariant": "Displayed masses and counts belong to the declared experiment. Negative candidate masses are explicitly marked impossible, never presented as probabilities.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "A question-specific exact atomic law, conditional pair space or count partition."
+      },
+      "code": [
+        "Build the exact partition; check all masses; select and normalize the target"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "question": 39,
+            "t": "0",
+            "masses": [
+              "0",
+              "3/10",
+              "1/5",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>"
+            ],
+            "valid": true,
+            "total": "1"
+          },
+          "caption": "Candidate triple mass t=0. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+          "captionHtml": "<p>Candidate triple mass t=0. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.</p>",
+          "metrics": {},
+          "formula": "t=0,\\quad\\sum_{s}p_s=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"t=0,\\quad\\sum_{s}p_s=1\"><mrow><mi>t</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width=\"1em\"/><munder><mo>∑</mo><mrow><mi>s</mi></mrow></munder><msub><mi>p</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Candidate triple mass t=0. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+            "currentState": {
+              "question": 39,
+              "t": "0",
+              "masses": [
+                "0",
+                "3/10",
+                "1/5",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>"
+              ],
+              "valid": true,
+              "total": "1"
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "question": 39,
+            "t": "1/40",
+            "masses": [
+              "1/40",
+              "11/40",
+              "7/40",
+              "3/40",
+              "1/8",
+              "1/8",
+              "1/8",
+              "3/40"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{40}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{11}{40}\"><mrow><mfrac><mrow><mn>11</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{7}{40}\"><mrow><mfrac><mrow><mn>7</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{40}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{40}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>"
+            ],
+            "valid": true,
+            "total": "1"
+          },
+          "caption": "Candidate triple mass t=1/40. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+          "captionHtml": "<p>Candidate triple mass t=1/40. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.</p>",
+          "metrics": {},
+          "formula": "t=\\frac{1}{40},\\quad\\sum_{s}p_s=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"t=\\frac{1}{40},\\quad\\sum_{s}p_s=1\"><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>40</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\"/><munder><mo>∑</mo><mrow><mi>s</mi></mrow></munder><msub><mi>p</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Candidate triple mass t=1/40. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+            "currentState": {
+              "question": 39,
+              "t": "1/40",
+              "masses": [
+                "1/40",
+                "11/40",
+                "7/40",
+                "3/40",
+                "1/8",
+                "1/8",
+                "1/8",
+                "3/40"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{40}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{11}{40}\"><mrow><mfrac><mrow><mn>11</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{7}{40}\"><mrow><mfrac><mrow><mn>7</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{40}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{40}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>"
+              ],
+              "valid": true,
+              "total": "1"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "question": 39,
+            "t": "1/20",
+            "masses": [
+              "1/20",
+              "1/4",
+              "3/20",
+              "1/20",
+              "3/20",
+              "3/20",
+              "3/20",
+              "1/20"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{4}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>4</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>"
+            ],
+            "valid": true,
+            "total": "1"
+          },
+          "caption": "Candidate triple mass t=1/20. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+          "captionHtml": "<p>Candidate triple mass t=1/20. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.</p>",
+          "metrics": {},
+          "formula": "t=\\frac{1}{20},\\quad\\sum_{s}p_s=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"t=\\frac{1}{20},\\quad\\sum_{s}p_s=1\"><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\"/><munder><mo>∑</mo><mrow><mi>s</mi></mrow></munder><msub><mi>p</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Candidate triple mass t=1/20. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+            "currentState": {
+              "question": 39,
+              "t": "1/20",
+              "masses": [
+                "1/20",
+                "1/4",
+                "3/20",
+                "1/20",
+                "3/20",
+                "3/20",
+                "3/20",
+                "1/20"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{4}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>4</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>"
+              ],
+              "valid": true,
+              "total": "1"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "question": 39,
+            "t": "3/40",
+            "masses": [
+              "3/40",
+              "9/40",
+              "1/8",
+              "1/40",
+              "7/40",
+              "7/40",
+              "7/40",
+              "1/40"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{40}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{9}{40}\"><mrow><mfrac><mrow><mn>9</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{40}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{7}{40}\"><mrow><mfrac><mrow><mn>7</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{7}{40}\"><mrow><mfrac><mrow><mn>7</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{7}{40}\"><mrow><mfrac><mrow><mn>7</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{40}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>"
+            ],
+            "valid": true,
+            "total": "1"
+          },
+          "caption": "Candidate triple mass t=3/40. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+          "captionHtml": "<p>Candidate triple mass t=3/40. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.</p>",
+          "metrics": {},
+          "formula": "t=\\frac{3}{40},\\quad\\sum_{s}p_s=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"t=\\frac{3}{40},\\quad\\sum_{s}p_s=1\"><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mn>3</mn></mrow><mrow><mn>40</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\"/><munder><mo>∑</mo><mrow><mi>s</mi></mrow></munder><msub><mi>p</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Candidate triple mass t=3/40. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+            "currentState": {
+              "question": 39,
+              "t": "3/40",
+              "masses": [
+                "3/40",
+                "9/40",
+                "1/8",
+                "1/40",
+                "7/40",
+                "7/40",
+                "7/40",
+                "1/40"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{40}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{9}{40}\"><mrow><mfrac><mrow><mn>9</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{40}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{7}{40}\"><mrow><mfrac><mrow><mn>7</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{7}{40}\"><mrow><mfrac><mrow><mn>7</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{7}{40}\"><mrow><mfrac><mrow><mn>7</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{40}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>"
+              ],
+              "valid": true,
+              "total": "1"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "question": 39,
+            "t": "1/10",
+            "masses": [
+              "1/10",
+              "1/5",
+              "1/10",
+              "0",
+              "1/5",
+              "1/5",
+              "1/5",
+              "0"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>"
+            ],
+            "valid": true,
+            "total": "1"
+          },
+          "caption": "Candidate triple mass t=1/10. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+          "captionHtml": "<p>Candidate triple mass t=1/10. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.</p>",
+          "metrics": {},
+          "formula": "t=\\frac{1}{10},\\quad\\sum_{s}p_s=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"t=\\frac{1}{10},\\quad\\sum_{s}p_s=1\"><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\"/><munder><mo>∑</mo><mrow><mi>s</mi></mrow></munder><msub><mi>p</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Candidate triple mass t=1/10. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+            "currentState": {
+              "question": 39,
+              "t": "1/10",
+              "masses": [
+                "1/10",
+                "1/5",
+                "1/10",
+                "0",
+                "1/5",
+                "1/5",
+                "1/5",
+                "0"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>"
+              ],
+              "valid": true,
+              "total": "1"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "question": 39,
+            "t": "1/8",
+            "masses": [
+              "1/8",
+              "7/40",
+              "3/40",
+              "-1/40",
+              "9/40",
+              "9/40",
+              "9/40",
+              "-1/40"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{7}{40}\"><mrow><mfrac><mrow><mn>7</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{40}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{40}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{9}{40}\"><mrow><mfrac><mrow><mn>9</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{9}{40}\"><mrow><mfrac><mrow><mn>9</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{9}{40}\"><mrow><mfrac><mrow><mn>9</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{40}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>"
+            ],
+            "valid": false,
+            "total": "1"
+          },
+          "caption": "Candidate triple mass t=1/8. All eight exact membership masses sum to one. At least one mass is negative, so this candidate cannot define a probability law; the red cells identify the contradiction.",
+          "captionHtml": "<p>Candidate triple mass t=1/8. All eight exact membership masses sum to one. At least one mass is negative, so this candidate cannot define a probability law; the red cells identify the contradiction.</p>",
+          "metrics": {},
+          "formula": "t=\\frac{1}{8},\\quad\\sum_{s}p_s=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"t=\\frac{1}{8},\\quad\\sum_{s}p_s=1\"><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\"/><munder><mo>∑</mo><mrow><mi>s</mi></mrow></munder><msub><mi>p</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Candidate triple mass t=1/8. All eight exact membership masses sum to one. At least one mass is negative, so this candidate cannot define a probability law; the red cells identify the contradiction.",
+            "currentState": {
+              "question": 39,
+              "t": "1/8",
+              "masses": [
+                "1/8",
+                "7/40",
+                "3/40",
+                "-1/40",
+                "9/40",
+                "9/40",
+                "9/40",
+                "-1/40"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{7}{40}\"><mrow><mfrac><mrow><mn>7</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{40}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{40}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{9}{40}\"><mrow><mfrac><mrow><mn>9</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{9}{40}\"><mrow><mfrac><mrow><mn>9</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{9}{40}\"><mrow><mfrac><mrow><mn>9</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{40}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>40</mn></mrow></mfrac></mrow></math>"
+              ],
+              "valid": false,
+              "total": "1"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        }
+      ]
+    },
+    "axioms-question-atoms47": {
+      "id": "axioms-question-atoms47",
+      "title": "Question 47: exact eight-cell feasibility",
+      "description": "Three membership bits specify whether A, B and C occur. Changing only the triple parameter recovers every cell. The final valid endpoints and explicit invalid candidates expose the sharp interval.",
+      "descriptionHtml": "<p>Three membership bits specify whether A, B and C occur. Changing only the triple parameter recovers every cell. The final valid endpoints and explicit invalid candidates expose the sharp interval.</p>",
+      "invariant": "Displayed masses and counts belong to the declared experiment. Negative candidate masses are explicitly marked impossible, never presented as probabilities.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "A question-specific exact atomic law, conditional pair space or count partition."
+      },
+      "code": [
+        "Build the exact partition; check all masses; select and normalize the target"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "question": 47,
+            "t": "0",
+            "masses": [
+              "0",
+              "3/10",
+              "3/10",
+              "3/10",
+              "-1/10",
+              "-1/10",
+              "-1/10",
+              "2/5"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{10}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{10}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{10}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{2}{5}\"><mrow><mfrac><mrow><mn>2</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>"
+            ],
+            "valid": false,
+            "total": "1"
+          },
+          "caption": "Candidate triple mass t=0. All eight exact membership masses sum to one. At least one mass is negative, so this candidate cannot define a probability law; the red cells identify the contradiction.",
+          "captionHtml": "<p>Candidate triple mass t=0. All eight exact membership masses sum to one. At least one mass is negative, so this candidate cannot define a probability law; the red cells identify the contradiction.</p>",
+          "metrics": {},
+          "formula": "t=0,\\quad\\sum_{s}p_s=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"t=0,\\quad\\sum_{s}p_s=1\"><mrow><mi>t</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width=\"1em\"/><munder><mo>∑</mo><mrow><mi>s</mi></mrow></munder><msub><mi>p</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Candidate triple mass t=0. All eight exact membership masses sum to one. At least one mass is negative, so this candidate cannot define a probability law; the red cells identify the contradiction.",
+            "currentState": {
+              "question": 47,
+              "t": "0",
+              "masses": [
+                "0",
+                "3/10",
+                "3/10",
+                "3/10",
+                "-1/10",
+                "-1/10",
+                "-1/10",
+                "2/5"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{10}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{10}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{10}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{2}{5}\"><mrow><mfrac><mrow><mn>2</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>"
+              ],
+              "valid": false,
+              "total": "1"
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "question": 47,
+            "t": "1/10",
+            "masses": [
+              "1/10",
+              "1/5",
+              "1/5",
+              "1/5",
+              "0",
+              "0",
+              "0",
+              "3/10"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>"
+            ],
+            "valid": true,
+            "total": "1"
+          },
+          "caption": "Candidate triple mass t=1/10. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+          "captionHtml": "<p>Candidate triple mass t=1/10. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.</p>",
+          "metrics": {},
+          "formula": "t=\\frac{1}{10},\\quad\\sum_{s}p_s=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"t=\\frac{1}{10},\\quad\\sum_{s}p_s=1\"><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\"/><munder><mo>∑</mo><mrow><mi>s</mi></mrow></munder><msub><mi>p</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Candidate triple mass t=1/10. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+            "currentState": {
+              "question": 47,
+              "t": "1/10",
+              "masses": [
+                "1/10",
+                "1/5",
+                "1/5",
+                "1/5",
+                "0",
+                "0",
+                "0",
+                "3/10"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>"
+              ],
+              "valid": true,
+              "total": "1"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "question": 47,
+            "t": "3/20",
+            "masses": [
+              "3/20",
+              "3/20",
+              "3/20",
+              "3/20",
+              "1/20",
+              "1/20",
+              "1/20",
+              "1/4"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{4}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>4</mn></mrow></mfrac></mrow></math>"
+            ],
+            "valid": true,
+            "total": "1"
+          },
+          "caption": "Candidate triple mass t=3/20. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+          "captionHtml": "<p>Candidate triple mass t=3/20. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.</p>",
+          "metrics": {},
+          "formula": "t=\\frac{3}{20},\\quad\\sum_{s}p_s=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"t=\\frac{3}{20},\\quad\\sum_{s}p_s=1\"><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\"/><munder><mo>∑</mo><mrow><mi>s</mi></mrow></munder><msub><mi>p</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Candidate triple mass t=3/20. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+            "currentState": {
+              "question": 47,
+              "t": "3/20",
+              "masses": [
+                "3/20",
+                "3/20",
+                "3/20",
+                "3/20",
+                "1/20",
+                "1/20",
+                "1/20",
+                "1/4"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{4}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>4</mn></mrow></mfrac></mrow></math>"
+              ],
+              "valid": true,
+              "total": "1"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "question": 47,
+            "t": "1/5",
+            "masses": [
+              "1/5",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/5"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>"
+            ],
+            "valid": true,
+            "total": "1"
+          },
+          "caption": "Candidate triple mass t=1/5. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+          "captionHtml": "<p>Candidate triple mass t=1/5. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.</p>",
+          "metrics": {},
+          "formula": "t=\\frac{1}{5},\\quad\\sum_{s}p_s=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"t=\\frac{1}{5},\\quad\\sum_{s}p_s=1\"><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\"/><munder><mo>∑</mo><mrow><mi>s</mi></mrow></munder><msub><mi>p</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Candidate triple mass t=1/5. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+            "currentState": {
+              "question": 47,
+              "t": "1/5",
+              "masses": [
+                "1/5",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/5"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>"
+              ],
+              "valid": true,
+              "total": "1"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "question": 47,
+            "t": "1/4",
+            "masses": [
+              "1/4",
+              "1/20",
+              "1/20",
+              "1/20",
+              "3/20",
+              "3/20",
+              "3/20",
+              "3/20"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{4}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>4</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>"
+            ],
+            "valid": true,
+            "total": "1"
+          },
+          "caption": "Candidate triple mass t=1/4. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+          "captionHtml": "<p>Candidate triple mass t=1/4. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.</p>",
+          "metrics": {},
+          "formula": "t=\\frac{1}{4},\\quad\\sum_{s}p_s=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"t=\\frac{1}{4},\\quad\\sum_{s}p_s=1\"><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>4</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\"/><munder><mo>∑</mo><mrow><mi>s</mi></mrow></munder><msub><mi>p</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Candidate triple mass t=1/4. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+            "currentState": {
+              "question": 47,
+              "t": "1/4",
+              "masses": [
+                "1/4",
+                "1/20",
+                "1/20",
+                "1/20",
+                "3/20",
+                "3/20",
+                "3/20",
+                "3/20"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{4}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>4</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{20}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{20}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>20</mn></mrow></mfrac></mrow></math>"
+              ],
+              "valid": true,
+              "total": "1"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "question": 47,
+            "t": "3/10",
+            "masses": [
+              "3/10",
+              "0",
+              "0",
+              "0",
+              "1/5",
+              "1/5",
+              "1/5",
+              "1/10"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>"
+            ],
+            "valid": true,
+            "total": "1"
+          },
+          "caption": "Candidate triple mass t=3/10. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+          "captionHtml": "<p>Candidate triple mass t=3/10. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.</p>",
+          "metrics": {},
+          "formula": "t=\\frac{3}{10},\\quad\\sum_{s}p_s=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"t=\\frac{3}{10},\\quad\\sum_{s}p_s=1\"><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\"/><munder><mo>∑</mo><mrow><mi>s</mi></mrow></munder><msub><mi>p</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Candidate triple mass t=3/10. All eight exact membership masses sum to one. Every mass is nonnegative, so these atoms construct a valid law with the stated marginals and pair intersections.",
+            "currentState": {
+              "question": 47,
+              "t": "3/10",
+              "masses": [
+                "3/10",
+                "0",
+                "0",
+                "0",
+                "1/5",
+                "1/5",
+                "1/5",
+                "1/10"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{5}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>"
+              ],
+              "valid": true,
+              "total": "1"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "question": 47,
+            "t": "2/5",
+            "masses": [
+              "2/5",
+              "-1/10",
+              "-1/10",
+              "-1/10",
+              "3/10",
+              "3/10",
+              "3/10",
+              "0"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{2}{5}\"><mrow><mfrac><mrow><mn>2</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{10}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{10}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{10}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>"
+            ],
+            "valid": false,
+            "total": "1"
+          },
+          "caption": "Candidate triple mass t=2/5. All eight exact membership masses sum to one. At least one mass is negative, so this candidate cannot define a probability law; the red cells identify the contradiction.",
+          "captionHtml": "<p>Candidate triple mass t=2/5. All eight exact membership masses sum to one. At least one mass is negative, so this candidate cannot define a probability law; the red cells identify the contradiction.</p>",
+          "metrics": {},
+          "formula": "t=\\frac{2}{5},\\quad\\sum_{s}p_s=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"t=\\frac{2}{5},\\quad\\sum_{s}p_s=1\"><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>5</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\"/><munder><mo>∑</mo><mrow><mi>s</mi></mrow></munder><msub><mi>p</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Candidate triple mass t=2/5. All eight exact membership masses sum to one. At least one mass is negative, so this candidate cannot define a probability law; the red cells identify the contradiction.",
+            "currentState": {
+              "question": 47,
+              "t": "2/5",
+              "masses": [
+                "2/5",
+                "-1/10",
+                "-1/10",
+                "-1/10",
+                "3/10",
+                "3/10",
+                "3/10",
+                "0"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{2}{5}\"><mrow><mfrac><mrow><mn>2</mn></mrow><mrow><mn>5</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{10}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{10}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"-\\frac{1}{10}\"><mrow><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{10}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>"
+              ],
+              "valid": false,
+              "total": "1"
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        }
+      ]
+    },
+    "axioms-question-urn": {
+      "id": "axioms-question-urn",
+      "title": "Question 41: all ten labeled pairs and conditioning",
+      "description": "No random sampling is approximated here: every unordered two-ball subset is enumerated exactly. Gray excludes a pair, blue retains a mixed pair and green marks the red-red target.",
+      "descriptionHtml": "<p>No random sampling is approximated here: every unordered two-ball subset is enumerated exactly. Gray excludes a pair, blue retains a mixed pair and green marks the red-red target.</p>",
+      "invariant": "Displayed masses and counts belong to the declared experiment. Negative candidate masses are explicitly marked impossible, never presented as probabilities.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "A question-specific exact atomic law, conditional pair space or count partition."
+      },
+      "code": [
+        "Build the exact partition; check all masses; select and normalize the target"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": 0,
+            "pairs": [
+              [
+                "R1",
+                "R2"
+              ],
+              [
+                "R1",
+                "R3"
+              ],
+              [
+                "R1",
+                "B1"
+              ],
+              [
+                "R1",
+                "B2"
+              ],
+              [
+                "R2",
+                "R3"
+              ],
+              [
+                "R2",
+                "B1"
+              ],
+              [
+                "R2",
+                "B2"
+              ],
+              [
+                "R3",
+                "B1"
+              ],
+              [
+                "R3",
+                "B2"
+              ],
+              [
+                "B1",
+                "B2"
+              ]
+            ],
+            "kept": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              false
+            ],
+            "target": [
+              true,
+              true,
+              false,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            "weights": [
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>"
+            ]
+          },
+          "caption": "Ten unordered labeled pairs each have original mass 1/10. Three are red-red, six mixed and one blue-blue.",
+          "captionHtml": "<p>Ten unordered labeled pairs each have original mass 1/10. Three are red-red, six mixed and one blue-blue.</p>",
+          "metrics": {},
+          "formula": "P(RR\\mid\\text{at least one red})=\\frac{3/10}{9/10}=\\frac13",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P(RR\\mid\\text{at least one red})=\\frac{3/10}{9/10}=\\frac13\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>P</mi><mrow><mo>(</mo><mi>R</mi><mi>R</mi><mo>∣</mo><mtext>at least one red</mtext><mo>)</mo></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mfrac><mrow><mn>3</mn><mo>/</mo><mn>10</mn></mrow><mrow><mn>9</mn><mo>/</mo><mn>10</mn></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Ten unordered labeled pairs each have original mass 1/10. Three are red-red, six mixed and one blue-blue.",
+            "currentState": {
+              "stage": 0,
+              "pairs": [
+                [
+                  "R1",
+                  "R2"
+                ],
+                [
+                  "R1",
+                  "R3"
+                ],
+                [
+                  "R1",
+                  "B1"
+                ],
+                [
+                  "R1",
+                  "B2"
+                ],
+                [
+                  "R2",
+                  "R3"
+                ],
+                [
+                  "R2",
+                  "B1"
+                ],
+                [
+                  "R2",
+                  "B2"
+                ],
+                [
+                  "R3",
+                  "B1"
+                ],
+                [
+                  "R3",
+                  "B2"
+                ],
+                [
+                  "B1",
+                  "B2"
+                ]
+              ],
+              "kept": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                false
+              ],
+              "target": [
+                true,
+                true,
+                false,
+                false,
+                true,
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "weights": [
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>"
+              ]
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": 1,
+            "pairs": [
+              [
+                "R1",
+                "R2"
+              ],
+              [
+                "R1",
+                "R3"
+              ],
+              [
+                "R1",
+                "B1"
+              ],
+              [
+                "R1",
+                "B2"
+              ],
+              [
+                "R2",
+                "R3"
+              ],
+              [
+                "R2",
+                "B1"
+              ],
+              [
+                "R2",
+                "B2"
+              ],
+              [
+                "R3",
+                "B1"
+              ],
+              [
+                "R3",
+                "B2"
+              ],
+              [
+                "B1",
+                "B2"
+              ]
+            ],
+            "kept": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              false
+            ],
+            "target": [
+              true,
+              true,
+              false,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            "weights": [
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "1/10",
+              "0"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>"
+            ]
+          },
+          "caption": "The observation excludes only the blue-blue pair. Its original mass is 1/10, so the conditioning event has mass 9/10. The surviving original masses shown here are not yet renormalized.",
+          "captionHtml": "<p>The observation excludes only the blue-blue pair. Its original mass is 1/10, so the conditioning event has mass 9/10. The surviving original masses shown here are not yet renormalized.</p>",
+          "metrics": {},
+          "formula": "P(RR\\mid\\text{at least one red})=\\frac{3/10}{9/10}=\\frac13",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P(RR\\mid\\text{at least one red})=\\frac{3/10}{9/10}=\\frac13\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>P</mi><mrow><mo>(</mo><mi>R</mi><mi>R</mi><mo>∣</mo><mtext>at least one red</mtext><mo>)</mo></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mfrac><mrow><mn>3</mn><mo>/</mo><mn>10</mn></mrow><mrow><mn>9</mn><mo>/</mo><mn>10</mn></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "The observation excludes only the blue-blue pair. Its original mass is 1/10, so the conditioning event has mass 9/10. The surviving original masses shown here are not yet renormalized.",
+            "currentState": {
+              "stage": 1,
+              "pairs": [
+                [
+                  "R1",
+                  "R2"
+                ],
+                [
+                  "R1",
+                  "R3"
+                ],
+                [
+                  "R1",
+                  "B1"
+                ],
+                [
+                  "R1",
+                  "B2"
+                ],
+                [
+                  "R2",
+                  "R3"
+                ],
+                [
+                  "R2",
+                  "B1"
+                ],
+                [
+                  "R2",
+                  "B2"
+                ],
+                [
+                  "R3",
+                  "B1"
+                ],
+                [
+                  "R3",
+                  "B2"
+                ],
+                [
+                  "B1",
+                  "B2"
+                ]
+              ],
+              "kept": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                false
+              ],
+              "target": [
+                true,
+                true,
+                false,
+                false,
+                true,
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "weights": [
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "1/10",
+                "0"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{10}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>10</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>"
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": 2,
+            "pairs": [
+              [
+                "R1",
+                "R2"
+              ],
+              [
+                "R1",
+                "R3"
+              ],
+              [
+                "R1",
+                "B1"
+              ],
+              [
+                "R1",
+                "B2"
+              ],
+              [
+                "R2",
+                "R3"
+              ],
+              [
+                "R2",
+                "B1"
+              ],
+              [
+                "R2",
+                "B2"
+              ],
+              [
+                "R3",
+                "B1"
+              ],
+              [
+                "R3",
+                "B2"
+              ],
+              [
+                "B1",
+                "B2"
+              ]
+            ],
+            "kept": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              false
+            ],
+            "target": [
+              true,
+              true,
+              false,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            "weights": [
+              "1/9",
+              "1/9",
+              "1/9",
+              "1/9",
+              "1/9",
+              "1/9",
+              "1/9",
+              "1/9",
+              "1/9",
+              "0"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>"
+            ]
+          },
+          "caption": "Divide every surviving original mass 1/10 by the same positive denominator 9/10. All nine conditional masses now sum to one.",
+          "captionHtml": "<p>Divide every surviving original mass 1/10 by the same positive denominator 9/10. All nine conditional masses now sum to one.</p>",
+          "metrics": {},
+          "formula": "P(RR\\mid\\text{at least one red})=\\frac{3/10}{9/10}=\\frac13",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P(RR\\mid\\text{at least one red})=\\frac{3/10}{9/10}=\\frac13\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>P</mi><mrow><mo>(</mo><mi>R</mi><mi>R</mi><mo>∣</mo><mtext>at least one red</mtext><mo>)</mo></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mfrac><mrow><mn>3</mn><mo>/</mo><mn>10</mn></mrow><mrow><mn>9</mn><mo>/</mo><mn>10</mn></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Divide every surviving original mass 1/10 by the same positive denominator 9/10. All nine conditional masses now sum to one.",
+            "currentState": {
+              "stage": 2,
+              "pairs": [
+                [
+                  "R1",
+                  "R2"
+                ],
+                [
+                  "R1",
+                  "R3"
+                ],
+                [
+                  "R1",
+                  "B1"
+                ],
+                [
+                  "R1",
+                  "B2"
+                ],
+                [
+                  "R2",
+                  "R3"
+                ],
+                [
+                  "R2",
+                  "B1"
+                ],
+                [
+                  "R2",
+                  "B2"
+                ],
+                [
+                  "R3",
+                  "B1"
+                ],
+                [
+                  "R3",
+                  "B2"
+                ],
+                [
+                  "B1",
+                  "B2"
+                ]
+              ],
+              "kept": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                false
+              ],
+              "target": [
+                true,
+                true,
+                false,
+                false,
+                true,
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "weights": [
+                "1/9",
+                "1/9",
+                "1/9",
+                "1/9",
+                "1/9",
+                "1/9",
+                "1/9",
+                "1/9",
+                "1/9",
+                "0"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>"
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": 3,
+            "pairs": [
+              [
+                "R1",
+                "R2"
+              ],
+              [
+                "R1",
+                "R3"
+              ],
+              [
+                "R1",
+                "B1"
+              ],
+              [
+                "R1",
+                "B2"
+              ],
+              [
+                "R2",
+                "R3"
+              ],
+              [
+                "R2",
+                "B1"
+              ],
+              [
+                "R2",
+                "B2"
+              ],
+              [
+                "R3",
+                "B1"
+              ],
+              [
+                "R3",
+                "B2"
+              ],
+              [
+                "B1",
+                "B2"
+              ]
+            ],
+            "kept": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              false
+            ],
+            "target": [
+              true,
+              true,
+              false,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            "weights": [
+              "1/9",
+              "1/9",
+              "1/9",
+              "1/9",
+              "1/9",
+              "1/9",
+              "1/9",
+              "1/9",
+              "1/9",
+              "0"
+            ],
+            "massMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>"
+            ]
+          },
+          "caption": "The target consists of the three red-red pairs, each with conditional mass 1/9. Add their disjoint masses to obtain 1/3.",
+          "captionHtml": "<p>The target consists of the three red-red pairs, each with conditional mass 1/9. Add their disjoint masses to obtain 1/3.</p>",
+          "metrics": {},
+          "formula": "P(RR\\mid\\text{at least one red})=\\frac{3/10}{9/10}=\\frac13",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P(RR\\mid\\text{at least one red})=\\frac{3/10}{9/10}=\\frac13\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>P</mi><mrow><mo>(</mo><mi>R</mi><mi>R</mi><mo>∣</mo><mtext>at least one red</mtext><mo>)</mo></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mfrac><mrow><mn>3</mn><mo>/</mo><mn>10</mn></mrow><mrow><mn>9</mn><mo>/</mo><mn>10</mn></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "The target consists of the three red-red pairs, each with conditional mass 1/9. Add their disjoint masses to obtain 1/3.",
+            "currentState": {
+              "stage": 3,
+              "pairs": [
+                [
+                  "R1",
+                  "R2"
+                ],
+                [
+                  "R1",
+                  "R3"
+                ],
+                [
+                  "R1",
+                  "B1"
+                ],
+                [
+                  "R1",
+                  "B2"
+                ],
+                [
+                  "R2",
+                  "R3"
+                ],
+                [
+                  "R2",
+                  "B1"
+                ],
+                [
+                  "R2",
+                  "B2"
+                ],
+                [
+                  "R3",
+                  "B1"
+                ],
+                [
+                  "R3",
+                  "B2"
+                ],
+                [
+                  "B1",
+                  "B2"
+                ]
+              ],
+              "kept": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                false
+              ],
+              "target": [
+                true,
+                true,
+                false,
+                false,
+                true,
+                false,
+                false,
+                false,
+                false,
+                false
+              ],
+              "weights": [
+                "1/9",
+                "1/9",
+                "1/9",
+                "1/9",
+                "1/9",
+                "1/9",
+                "1/9",
+                "1/9",
+                "1/9",
+                "0"
+              ],
+              "massMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{9}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>9</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"0\"><mrow><mn>0</mn></mrow></math>"
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        }
+      ]
+    },
+    "axioms-question-report": {
+      "id": "axioms-question-report",
+      "title": "Question 43: the induced head-count distribution",
+      "description": "Four bars show exact preimage counts on a fixed common scale. Highlighting each group identifies its ordered sequences; adding the final two groups gives the target probability.",
+      "descriptionHtml": "<p>Four bars show exact preimage counts on a fixed common scale. Highlighting each group identifies its ordered sequences; adding the final two groups gives the target probability.</p>",
+      "invariant": "Displayed masses and counts belong to the declared experiment. Negative candidate masses are explicitly marked impossible, never presented as probabilities.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "A question-specific exact atomic law, conditional pair space or count partition."
+      },
+      "code": [
+        "Build the exact partition; check all masses; select and normalize the target"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "active": 0,
+            "counts": [
+              1,
+              3,
+              3,
+              1
+            ],
+            "sequences": [
+              [
+                "TTT"
+              ],
+              [
+                "HTT",
+                "THT",
+                "TTH"
+              ],
+              [
+                "HHT",
+                "HTH",
+                "THH"
+              ],
+              [
+                "HHH"
+              ]
+            ],
+            "masses": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>"
+            ]
+          },
+          "caption": "The active head count is 0; its detailed preimages are TTT. There are 1 such sequences, each of mass 1/8. The four group sizes remain 1,3,3,1; the reported values are not uniform.",
+          "captionHtml": "<p>The active head count is 0; its detailed preimages are TTT. There are 1 such sequences, each of mass 1/8. The four group sizes remain 1,3,3,1; the reported values are not uniform.</p>",
+          "metrics": {},
+          "formula": "P(K=0)=\\frac{1}{8}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P(K=0)=\\frac{1}{8}\"><mrow><mi>P</mi><mrow><mo>(</mo><mi>K</mi><mo>=</mo><mn>0</mn><mo>)</mo></mrow><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "The active head count is 0; its detailed preimages are TTT. There are 1 such sequences, each of mass 1/8. The four group sizes remain 1,3,3,1; the reported values are not uniform.",
+            "currentState": {
+              "active": 0,
+              "counts": [
+                1,
+                3,
+                3,
+                1
+              ],
+              "sequences": [
+                [
+                  "TTT"
+                ],
+                [
+                  "HTT",
+                  "THT",
+                  "TTH"
+                ],
+                [
+                  "HHT",
+                  "HTH",
+                  "THH"
+                ],
+                [
+                  "HHH"
+                ]
+              ],
+              "masses": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>"
+              ]
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "active": 1,
+            "counts": [
+              1,
+              3,
+              3,
+              1
+            ],
+            "sequences": [
+              [
+                "TTT"
+              ],
+              [
+                "HTT",
+                "THT",
+                "TTH"
+              ],
+              [
+                "HHT",
+                "HTH",
+                "THH"
+              ],
+              [
+                "HHH"
+              ]
+            ],
+            "masses": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>"
+            ]
+          },
+          "caption": "The active head count is 1; its detailed preimages are HTT, THT, TTH. There are 3 such sequences, each of mass 1/8. The four group sizes remain 1,3,3,1; the reported values are not uniform.",
+          "captionHtml": "<p>The active head count is 1; its detailed preimages are HTT, THT, TTH. There are 3 such sequences, each of mass 1/8. The four group sizes remain 1,3,3,1; the reported values are not uniform.</p>",
+          "metrics": {},
+          "formula": "P(K=1)=\\frac{3}{8}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P(K=1)=\\frac{3}{8}\"><mrow><mi>P</mi><mrow><mo>(</mo><mi>K</mi><mo>=</mo><mn>1</mn><mo>)</mo></mrow><mo>=</mo><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "The active head count is 1; its detailed preimages are HTT, THT, TTH. There are 3 such sequences, each of mass 1/8. The four group sizes remain 1,3,3,1; the reported values are not uniform.",
+            "currentState": {
+              "active": 1,
+              "counts": [
+                1,
+                3,
+                3,
+                1
+              ],
+              "sequences": [
+                [
+                  "TTT"
+                ],
+                [
+                  "HTT",
+                  "THT",
+                  "TTH"
+                ],
+                [
+                  "HHT",
+                  "HTH",
+                  "THH"
+                ],
+                [
+                  "HHH"
+                ]
+              ],
+              "masses": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>"
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "active": 2,
+            "counts": [
+              1,
+              3,
+              3,
+              1
+            ],
+            "sequences": [
+              [
+                "TTT"
+              ],
+              [
+                "HTT",
+                "THT",
+                "TTH"
+              ],
+              [
+                "HHT",
+                "HTH",
+                "THH"
+              ],
+              [
+                "HHH"
+              ]
+            ],
+            "masses": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>"
+            ]
+          },
+          "caption": "The active head count is 2; its detailed preimages are HHT, HTH, THH. There are 3 such sequences, each of mass 1/8. The four group sizes remain 1,3,3,1; the reported values are not uniform.",
+          "captionHtml": "<p>The active head count is 2; its detailed preimages are HHT, HTH, THH. There are 3 such sequences, each of mass 1/8. The four group sizes remain 1,3,3,1; the reported values are not uniform.</p>",
+          "metrics": {},
+          "formula": "P(K=2)=\\frac{3}{8}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P(K=2)=\\frac{3}{8}\"><mrow><mi>P</mi><mrow><mo>(</mo><mi>K</mi><mo>=</mo><mn>2</mn><mo>)</mo></mrow><mo>=</mo><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "The active head count is 2; its detailed preimages are HHT, HTH, THH. There are 3 such sequences, each of mass 1/8. The four group sizes remain 1,3,3,1; the reported values are not uniform.",
+            "currentState": {
+              "active": 2,
+              "counts": [
+                1,
+                3,
+                3,
+                1
+              ],
+              "sequences": [
+                [
+                  "TTT"
+                ],
+                [
+                  "HTT",
+                  "THT",
+                  "TTH"
+                ],
+                [
+                  "HHT",
+                  "HTH",
+                  "THH"
+                ],
+                [
+                  "HHH"
+                ]
+              ],
+              "masses": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>"
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "active": 3,
+            "counts": [
+              1,
+              3,
+              3,
+              1
+            ],
+            "sequences": [
+              [
+                "TTT"
+              ],
+              [
+                "HTT",
+                "THT",
+                "TTH"
+              ],
+              [
+                "HHT",
+                "HTH",
+                "THH"
+              ],
+              [
+                "HHH"
+              ]
+            ],
+            "masses": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>"
+            ]
+          },
+          "caption": "The active head count is 3; its detailed preimages are HHH. There are 1 such sequences, each of mass 1/8. The four group sizes remain 1,3,3,1; the reported values are not uniform.",
+          "captionHtml": "<p>The active head count is 3; its detailed preimages are HHH. There are 1 such sequences, each of mass 1/8. The four group sizes remain 1,3,3,1; the reported values are not uniform.</p>",
+          "metrics": {},
+          "formula": "P(K=3)=\\frac{1}{8}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P(K=3)=\\frac{1}{8}\"><mrow><mi>P</mi><mrow><mo>(</mo><mi>K</mi><mo>=</mo><mn>3</mn><mo>)</mo></mrow><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "The active head count is 3; its detailed preimages are HHH. There are 1 such sequences, each of mass 1/8. The four group sizes remain 1,3,3,1; the reported values are not uniform.",
+            "currentState": {
+              "active": 3,
+              "counts": [
+                1,
+                3,
+                3,
+                1
+              ],
+              "sequences": [
+                [
+                  "TTT"
+                ],
+                [
+                  "HTT",
+                  "THT",
+                  "TTH"
+                ],
+                [
+                  "HHT",
+                  "HTH",
+                  "THH"
+                ],
+                [
+                  "HHH"
+                ]
+              ],
+              "masses": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{3}{8}\"><mrow><mfrac><mrow><mn>3</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\frac{1}{8}\"><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>8</mn></mrow></mfrac></mrow></math>"
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        }
+      ]
+    },
+    "axioms-question-collision": {
+      "id": "axioms-question-collision",
+      "title": "Question 45: exact collision categories and overcount",
+      "description": "Bar heights show actual ordered-outcome counts, not the number of category names. The pair-equality bound counts each all-equal outcome three times; the union counts it once.",
+      "descriptionHtml": "<p>Bar heights show actual ordered-outcome counts, not the number of category names. The pair-equality bound counts each all-equal outcome three times; the union counts it once.</p>",
+      "invariant": "Displayed masses and counts belong to the declared experiment. Negative candidate masses are explicitly marked impossible, never presented as probabilities.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "A question-specific exact atomic law, conditional pair space or count partition."
+      },
+      "code": [
+        "Build the exact partition; check all masses; select and normalize the target"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": 0,
+            "counts": [
+              24,
+              36,
+              4
+            ],
+            "total": 64,
+            "repeat": 40,
+            "boundCount": 48,
+            "overcount": 8
+          },
+          "caption": "The 64 ordered outcomes partition into 24 all-distinct, 36 exactly-one-pair and four all-equal outcomes.",
+          "captionHtml": "<p>The 64 ordered outcomes partition into 24 all-distinct, 36 exactly-one-pair and four all-equal outcomes.</p>",
+          "metrics": {},
+          "formula": "24+36+4=64",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"24+36+4=64\"><mrow><mn>24</mn><mo>+</mo><mn>36</mn><mo>+</mo><mn>4</mn><mo>=</mo><mn>64</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "The 64 ordered outcomes partition into 24 all-distinct, 36 exactly-one-pair and four all-equal outcomes.",
+            "currentState": {
+              "stage": 0,
+              "counts": [
+                24,
+                36,
+                4
+              ],
+              "total": 64,
+              "repeat": 40,
+              "boundCount": 48,
+              "overcount": 8
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": 1,
+            "counts": [
+              24,
+              36,
+              4
+            ],
+            "total": 64,
+            "repeat": 40,
+            "boundCount": 48,
+            "overcount": 8
+          },
+          "caption": "Repetition includes the second and third categories once: 36+4=40, hence probability 40/64=5/8.",
+          "captionHtml": "<p>Repetition includes the second and third categories once: 36+4=40, hence probability 40/64=5/8.</p>",
+          "metrics": {},
+          "formula": "P(\\text{repeat})=\\frac{40}{64}=\\frac58",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P(\\text{repeat})=\\frac{40}{64}=\\frac58\"><mrow><mi>P</mi><mrow><mo>(</mo><mtext>repeat</mtext><mo>)</mo></mrow><mo>=</mo><mfrac><mrow><mn>40</mn></mrow><mrow><mn>64</mn></mrow></mfrac><mo>=</mo><mfrac><mn>5</mn><mn>8</mn></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Repetition includes the second and third categories once: 36+4=40, hence probability 40/64=5/8.",
+            "currentState": {
+              "stage": 1,
+              "counts": [
+                24,
+                36,
+                4
+              ],
+              "total": 64,
+              "repeat": 40,
+              "boundCount": 48,
+              "overcount": 8
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "stage": 2,
+            "counts": [
+              24,
+              36,
+              4
+            ],
+            "total": 64,
+            "repeat": 40,
+            "boundCount": 48,
+            "overcount": 8
+          },
+          "caption": "Summing three pair-equality counts includes 36 single-pair outcomes once and four all-equal outcomes three times: 36+12=48. The union bound is 48/64=3/4; its excess is 8/64.",
+          "captionHtml": "<p>Summing three pair-equality counts includes 36 single-pair outcomes once and four all-equal outcomes three times: 36+12=48. The union bound is 48/64=3/4; its excess is 8/64.</p>",
+          "metrics": {},
+          "formula": "P(\\text{repeat})\\le\\frac{48}{64}=\\frac34",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P(\\text{repeat})\\le\\frac{48}{64}=\\frac34\"><mrow><mi>P</mi><mrow><mo>(</mo><mtext>repeat</mtext><mo>)</mo></mrow><mo>≤</mo><mfrac><mrow><mn>48</mn></mrow><mrow><mn>64</mn></mrow></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>4</mn></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the exact outcome partition and probability law",
+            "why": "Summing three pair-equality counts includes 36 single-pair outcomes once and four all-equal outcomes three times: 36+12=48. The union bound is 48/64=3/4; its excess is 8/64.",
+            "currentState": {
+              "stage": 2,
+              "counts": [
+                24,
+                36,
+                4
+              ],
+              "total": 64,
+              "repeat": 40,
+              "boundCount": 48,
+              "overcount": 8
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Outcome cards are not area-scaled. Fractions give exact masses. Bar heights use the declared exact counting scale."
+          }
+        }
+      ]
     }
   }
 }

@@ -1,6 +1,6 @@
 # Source selection and boundary audit: s_axioms
 
-Date: 2026-10-01. Subject: Probability and Statistics. Chapter: Sample Spaces, Events, and Probability Axioms. Only this chapter is active. Iranian entrance-exam archives remain deferred until the final month.
+Original selection date: 2026-10-01. Individual recheck date: 2026-10-12. Subject: Probability and Statistics. Chapter: Sample Spaces, Events, and Probability Axioms. The current user-authorized library revision includes original Iranian examination PDFs; the earlier final-month deferral has been superseded.
 
 ## Search boundary and comparison criteria
 
