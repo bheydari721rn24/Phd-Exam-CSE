@@ -1,0 +1,115 @@
+{
+  "status": "passed",
+  "independentInputs": 1167,
+  "checkpoints": 70392,
+  "dictionaryOperationChecks": 11967,
+  "placementSpaces": [
+    {
+      "capacity": 2,
+      "keys": 1,
+      "outcomes": 2
+    },
+    {
+      "capacity": 2,
+      "keys": 2,
+      "outcomes": 4
+    },
+    {
+      "capacity": 2,
+      "keys": 3,
+      "outcomes": 8
+    },
+    {
+      "capacity": 2,
+      "keys": 4,
+      "outcomes": 16
+    },
+    {
+      "capacity": 3,
+      "keys": 1,
+      "outcomes": 3
+    },
+    {
+      "capacity": 3,
+      "keys": 2,
+      "outcomes": 9
+    },
+    {
+      "capacity": 3,
+      "keys": 3,
+      "outcomes": 27
+    },
+    {
+      "capacity": 3,
+      "keys": 4,
+      "outcomes": 81
+    },
+    {
+      "capacity": 4,
+      "keys": 1,
+      "outcomes": 4
+    },
+    {
+      "capacity": 4,
+      "keys": 2,
+      "outcomes": 16
+    },
+    {
+      "capacity": 4,
+      "keys": 3,
+      "outcomes": 64
+    },
+    {
+      "capacity": 4,
+      "keys": 4,
+      "outcomes": 256
+    },
+    {
+      "capacity": 5,
+      "keys": 1,
+      "outcomes": 5
+    },
+    {
+      "capacity": 5,
+      "keys": 2,
+      "outcomes": 25
+    },
+    {
+      "capacity": 5,
+      "keys": 3,
+      "outcomes": 125
+    },
+    {
+      "capacity": 5,
+      "keys": 4,
+      "outcomes": 625
+    },
+    {
+      "capacity": 6,
+      "keys": 1,
+      "outcomes": 6
+    },
+    {
+      "capacity": 6,
+      "keys": 2,
+      "outcomes": 36
+    },
+    {
+      "capacity": 6,
+      "keys": 3,
+      "outcomes": 216
+    },
+    {
+      "capacity": 6,
+      "keys": 4,
+      "outcomes": 1296
+    }
+  ],
+  "idealProbePermutationOutcomes": 40318,
+  "universalFamilyPairCases": 66,
+  "universalParametersRestrictedCounterexample": 6,
+  "routeCoverage": "gcd cycles, triangular powers of two, signed-square primes",
+  "handTraces": "wraparound, marker updates/reuse, route failure, perfect allocation, double-hash query, cuckoo obstruction",
+  "priorChapterPagesUnchanged": 54,
+  "limits": "Finite enumerations test implementation and small-space formulas; universal statements additionally depend on the explicit written proofs. No official MS65 unique key or unseen-exam guarantee asserted."
+}

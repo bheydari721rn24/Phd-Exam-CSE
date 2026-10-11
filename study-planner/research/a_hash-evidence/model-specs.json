@@ -1,0 +1,438 @@
+[
+  {
+    "id": "chaining",
+    "title": "Head insertion and exact chain comparisons",
+    "spec": {
+      "operation": "chain",
+      "capacity": 5,
+      "keys": [
+        1,
+        6,
+        11,
+        2,
+        7,
+        3
+      ],
+      "commands": [
+        {
+          "type": "get",
+          "key": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "linear",
+    "title": "Q31: wraparound linear route and an unsuccessful search",
+    "spec": {
+      "operation": "open",
+      "capacity": 11,
+      "keys": [
+        10,
+        21,
+        32,
+        43,
+        9
+      ],
+      "commands": [
+        {
+          "type": "get",
+          "key": 54
+        }
+      ]
+    }
+  },
+  {
+    "id": "tombstone",
+    "title": "Q35: a deleted marker preserves displaced keys",
+    "spec": {
+      "operation": "open",
+      "capacity": 11,
+      "keys": [
+        10,
+        21,
+        32,
+        43,
+        9
+      ],
+      "commands": [
+        {
+          "type": "delete",
+          "key": 21
+        },
+        {
+          "type": "get",
+          "key": 32
+        }
+      ]
+    }
+  },
+  {
+    "id": "update",
+    "title": "Q36: search beyond a marker before updating 32",
+    "spec": {
+      "operation": "open",
+      "capacity": 11,
+      "keys": [
+        10,
+        21,
+        32,
+        43,
+        9
+      ],
+      "commands": [
+        {
+          "type": "delete",
+          "key": 21
+        },
+        {
+          "type": "put",
+          "key": 32,
+          "value": 99
+        }
+      ]
+    }
+  },
+  {
+    "id": "reuse",
+    "title": "Q37: establish absence before reusing a tombstone",
+    "spec": {
+      "operation": "open",
+      "capacity": 11,
+      "keys": [
+        10,
+        21,
+        32,
+        43,
+        9
+      ],
+      "commands": [
+        {
+          "type": "delete",
+          "key": 21
+        },
+        {
+          "type": "put",
+          "key": 54
+        }
+      ]
+    }
+  },
+  {
+    "id": "shift",
+    "title": "Q39: repair a circular cluster after deleting 21",
+    "spec": {
+      "operation": "shift",
+      "capacity": 11,
+      "keys": [
+        10,
+        21,
+        32,
+        43,
+        9
+      ],
+      "commands": [
+        {
+          "type": "delete",
+          "key": 21
+        }
+      ]
+    }
+  },
+  {
+    "id": "mixed-shift",
+    "title": "Q40: skip an at-home record during repair",
+    "spec": {
+      "operation": "shift",
+      "capacity": 5,
+      "keys": [
+        0,
+        1,
+        5
+      ],
+      "commands": [
+        {
+          "type": "delete",
+          "key": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "square",
+    "title": "Q47: square offsets at prime capacity eleven",
+    "spec": {
+      "operation": "open",
+      "capacity": 11,
+      "policy": "square",
+      "keys": [
+        10,
+        21,
+        32,
+        43
+      ]
+    }
+  },
+  {
+    "id": "square-failure",
+    "title": "Q48: a composite square route can exhaust early",
+    "spec": {
+      "operation": "open",
+      "capacity": 8,
+      "policy": "square",
+      "keys": [
+        0,
+        8,
+        16,
+        24
+      ]
+    }
+  },
+  {
+    "id": "alternating",
+    "title": "Q50: signed square coverage at prime capacity seven",
+    "spec": {
+      "operation": "open",
+      "capacity": 7,
+      "policy": "alternating",
+      "keys": [
+        0,
+        7,
+        14,
+        21,
+        28,
+        35,
+        42
+      ]
+    }
+  },
+  {
+    "id": "triangular",
+    "title": "Q51: a triangular permutation at capacity eight",
+    "spec": {
+      "operation": "open",
+      "capacity": 8,
+      "policy": "triangular",
+      "keys": [
+        0,
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        56
+      ]
+    }
+  },
+  {
+    "id": "double",
+    "title": "Q54: key-dependent double-hash steps",
+    "spec": {
+      "operation": "open",
+      "capacity": 11,
+      "policy": "double",
+      "keyStep": true,
+      "keys": [
+        10,
+        21,
+        32,
+        43
+      ],
+      "commands": [
+        {
+          "type": "get",
+          "key": 54
+        }
+      ]
+    }
+  },
+  {
+    "id": "double-failure",
+    "title": "Q52: step eight visits only three slots at capacity twelve",
+    "spec": {
+      "operation": "open",
+      "capacity": 12,
+      "policy": "double",
+      "step": 8,
+      "keys": [
+        2,
+        14,
+        26,
+        38
+      ]
+    }
+  },
+  {
+    "id": "rebuild",
+    "title": "Recompute homes while changing capacity seven to eleven",
+    "spec": {
+      "operation": "rebuild",
+      "capacity": 7,
+      "newCapacity": 11,
+      "keys": [
+        12,
+        26,
+        19,
+        33
+      ]
+    }
+  },
+  {
+    "id": "perfect",
+    "title": "Q68: bucket zero and fourteen second-level slots",
+    "spec": {
+      "operation": "perfect",
+      "capacity": 6,
+      "keys": [
+        0,
+        6,
+        12,
+        2,
+        3,
+        9
+      ]
+    }
+  },
+  {
+    "id": "horner",
+    "title": "Q4: base-five polynomial prefix residues modulo seventeen",
+    "spec": {
+      "operation": "horner",
+      "capacity": 17,
+      "base": 5,
+      "keys": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "bloom",
+    "title": "Bit sharing and a possible false-positive query",
+    "spec": {
+      "operation": "bloom",
+      "capacity": 13,
+      "hashes": 3,
+      "keys": [
+        2,
+        7,
+        11
+      ],
+      "commands": [
+        {
+          "type": "get",
+          "key": 15
+        }
+      ]
+    }
+  },
+  {
+    "id": "cuckoo",
+    "title": "Successful two-candidate placement with displacements",
+    "spec": {
+      "operation": "cuckoo",
+      "capacity": 3,
+      "keys": [
+        0,
+        1,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "id": "cuckoo-failure",
+    "title": "Three keys competing for two candidate positions",
+    "spec": {
+      "operation": "cuckoo",
+      "capacity": 3,
+      "keys": [
+        0,
+        9,
+        18
+      ]
+    }
+  },
+  {
+    "id": "robin",
+    "title": "Displacement comparison in Robin Hood insertion",
+    "spec": {
+      "operation": "robin",
+      "capacity": 7,
+      "keys": [
+        0,
+        7,
+        1,
+        14
+      ]
+    }
+  },
+  {
+    "id": "all-markers",
+    "title": "Q38: one live key, nine markers and bounded reuse",
+    "spec": {
+      "operation": "open",
+      "capacity": 10,
+      "keys": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "commands": [
+        {
+          "type": "delete",
+          "key": 0
+        },
+        {
+          "type": "delete",
+          "key": 1
+        },
+        {
+          "type": "delete",
+          "key": 2
+        },
+        {
+          "type": "delete",
+          "key": 3
+        },
+        {
+          "type": "delete",
+          "key": 4
+        },
+        {
+          "type": "delete",
+          "key": 5
+        },
+        {
+          "type": "delete",
+          "key": 6
+        },
+        {
+          "type": "delete",
+          "key": 7
+        },
+        {
+          "type": "delete",
+          "key": 8
+        },
+        {
+          "type": "get",
+          "key": 10
+        },
+        {
+          "type": "put",
+          "key": 10
+        }
+      ]
+    }
+  }
+]

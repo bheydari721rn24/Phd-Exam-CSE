@@ -1,0 +1,46 @@
+{
+  "arithmetic": [
+    "horner"
+  ],
+  "bucketOrder": [
+    "chaining"
+  ],
+  "lookupAndClusters": [
+    "linear"
+  ],
+  "markerAndUpdateInvariants": [
+    "tombstone",
+    "update",
+    "reuse",
+    "all-markers"
+  ],
+  "backwardRepair": [
+    "shift",
+    "mixed-shift"
+  ],
+  "routeCoverage": [
+    "square",
+    "square-failure",
+    "alternating",
+    "triangular",
+    "double",
+    "double-failure"
+  ],
+  "capacityChange": [
+    "rebuild"
+  ],
+  "fixedSetPlacement": [
+    "perfect"
+  ],
+  "approximateFilter": [
+    "bloom"
+  ],
+  "candidatePlacement": [
+    "cuckoo",
+    "cuckoo-failure"
+  ],
+  "displacementExchange": [
+    "robin"
+  ],
+  "boundaries": "Probabilistic formulas are derived in text and checked by independently enumerated finite spaces; deterministic drawings are not mislabeled random-distribution proofs."
+}

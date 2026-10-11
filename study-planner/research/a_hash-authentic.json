@@ -1,0 +1,51 @@
+[
+  {
+    "id": "Phd_CE_1404_Q4",
+    "booklet": "Phd_CE_1404",
+    "pdfPage": 3,
+    "questionNumber": 4,
+    "title": "Total collisions versus the collisions of one key",
+    "stem": "Insert $n$ distinct keys into $m$ buckets using simple uniform hashing and separate chaining. For any fixed distinct pair, collision probability is $1/m$. What is the asymptotic order of the expected total number of colliding pairs?",
+    "options": [
+      "$\\Theta(n/m)$",
+      "$\\Theta(m/n)$",
+      "$\\Theta(1/m)$",
+      "$\\Theta(n^2/m)$"
+    ],
+    "answer": 4,
+    "solution": "For each unordered pair $\\{i,j\\}$ define $I_{ij}=1$ if their homes coincide and zero otherwise. The total pair count is $C=\\sum_{i<j}I_{ij}$. Linearity gives $E[C]=\\sum_{i<j}E[I_{ij}]=\\binom n2/m=n(n-1)/(2m)$. Therefore the intended asymptotic answer is option 4, for $n\\geq2$ and the standard growing-input interpretation. At $n=1$ the exact answer is zero, so the formula rather than an unqualified Theta statement should be used for degenerate inputs. Option 1 describes the order of collisions involving one selected key, whose expectation is $(n-1)/m$; it does not count all unordered pairs. The argument needs the specified pair probability but does not need independent pair indicators.",
+    "topics": [
+      "a_hash"
+    ],
+    "repoPath": "Exams/Phd/CE/1404/Q906A-PHD1404-[www.konkur.in].pdf",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "sourceSha256": "9a4f63260faf8628af4118db39fd68b7775bedf42c9749b93bc5b9302ed8e713",
+    "translationStatus": "Original PDF page visually read; English mathematical adaptation.",
+    "answerProvenance": "Independently derived; no official key claimed"
+  },
+  {
+    "id": "MS_CE_1404_Q65",
+    "booklet": "MS_CE_1404",
+    "pdfPage": 15,
+    "questionNumber": 65,
+    "title": "A hash index within a dynamic priority and median structure",
+    "stem": "A dynamic priority list stores a key and priority in every record. It must support insert(x,p), DeleteMax(), FindMedian() over the keys, and IncreasePriority(x,k). DeleteMax removes the first record from the left when maximum priorities tie. Which combined structure best supports efficient operations?",
+    "options": [
+      "A heap and a queue for entry order and removal.",
+      "A Fibonacci heap and a simple classification of keys and priorities.",
+      "A double-ended heap for priorities and a sorted structure for median access.",
+      "A balanced binary search tree storing keys and priorities, plus a hash table for fast access."
+    ],
+    "answer": 4,
+    "answerLabel": "Independently justified construction: option",
+    "solution": "Option 4 supports an explicit efficient construction, provided the tree is augmented rather than treated as an unmodified search tree. Order the balanced tree by key; store subtree size and the best-priority record, with actual list-order metadata breaking ties. A hash index maps a unique key to its tree record. Insert changes one search path and rebalances, updating both aggregates. DeleteMax follows the best-record aggregate, removes that record and its hash entry, and repairs the same aggregates. FindMedian performs a rank selection using subtree sizes. IncreasePriority finds the record through the index and propagates the changed priority aggregate to the root. Tree work is $O(\\log n)$ per operation; hash-index access is expected $O(1)$ under its declared model, with a linear worst case unless a stronger dictionary is supplied. This construction assumes insertion appends to the list, so a stable arrival identifier gives the left-to-right tie order. If insertion instead chooses an arbitrary list position, additional order-maintenance machinery and its costs must be analyzed. If duplicate keys are legal, the key-to-record contract needs explicit disambiguation; if insertion changes list position, tie metadata must represent that position rather than blindly assume arrival order. The short booklet options do not specify augmentations or the meaning of the sorted structure in option 3. If that structure is itself a balanced order-statistic tree with handles into an indexed double-ended heap, option 3 can also support logarithmic updates. Thus this chapter demonstrates option 4 as a viable intended combination; it does not assert a uniquely certified official answer. The important lesson is to design every operation and tie rule, rather than infer efficiency from names of structures alone.",
+    "topics": [
+      "a_hash"
+    ],
+    "repoPath": "Exams/MS/CE/1404/Daftarche-Soalat-Konkur-Arshad-Computer-1404 (konkurcomputer.ir).pdf",
+    "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+    "sourceSha256": "909e4efaaad96f4d39e526104bc9dc6de6d52be11fd7716e583476b0e62ff654",
+    "translationStatus": "Original PDF page visually read; English mathematical adaptation.",
+    "answerProvenance": "Independently derived; no official key claimed"
+  }
+]

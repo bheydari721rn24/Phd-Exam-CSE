@@ -1,0 +1,1287 @@
+{
+  "topicId": "a_hash",
+  "status": "passed",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\a-hash-visual-qa",
+  "counts": {
+    "questions": 82,
+    "rules": 80,
+    "players": 35,
+    "math": 566,
+    "errors": []
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "heading": true,
+    "prose": true,
+    "code": true
+  },
+  "geometry": {
+    "models": 21,
+    "frames": 551,
+    "issues": []
+  },
+  "connections": {
+    "count": 69,
+    "issues": []
+  },
+  "mathGeometry": {
+    "bareClosingScriptBases": [],
+    "zeroSizeFences": [],
+    "underlined": 0
+  },
+  "motion": {
+    "pairs": 2,
+    "progress": 0.148151111111111,
+    "clocks": 1
+  },
+  "pause": {
+    "motions": 1,
+    "frozen": true,
+    "sameIndex": true,
+    "running": false
+  },
+  "resume": true,
+  "comparison": true,
+  "reducedMotion": true,
+  "printCheckpoints": true,
+  "labs": [
+    {
+      "operation": "open",
+      "error": "",
+      "result": {
+        "slots": [
+          {
+            "key": 21,
+            "value": 21,
+            "id": "K1"
+          },
+          {
+            "key": 32,
+            "value": 32,
+            "id": "K2"
+          },
+          {
+            "key": 43,
+            "value": 43,
+            "id": "K3"
+          },
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          {
+            "key": 9,
+            "value": 9,
+            "id": "K4"
+          },
+          {
+            "key": 10,
+            "value": 10,
+            "id": "K0"
+          }
+        ],
+        "buckets": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "probes": 16,
+        "comparisons": 10,
+        "links": 0,
+        "moves": 0,
+        "cursor": 3,
+        "key": 54,
+        "route": [
+          10,
+          0,
+          1,
+          2,
+          3
+        ],
+        "answer": {
+          "status": "absent"
+        },
+        "extra": {},
+        "liveKeys": [
+          21,
+          32,
+          43,
+          9,
+          10
+        ]
+      },
+      "issues": []
+    },
+    {
+      "operation": "chain",
+      "error": "",
+      "result": {
+        "slots": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "buckets": [
+          [],
+          [
+            {
+              "key": 43,
+              "id": "K6"
+            },
+            {
+              "key": 15,
+              "id": "K3"
+            }
+          ],
+          [
+            {
+              "key": 2,
+              "id": "K4"
+            }
+          ],
+          [],
+          [],
+          [
+            {
+              "key": 19,
+              "id": "K5"
+            },
+            {
+              "key": 5,
+              "id": "K2"
+            },
+            {
+              "key": 26,
+              "id": "K1"
+            },
+            {
+              "key": 12,
+              "id": "K0"
+            }
+          ],
+          []
+        ],
+        "probes": 0,
+        "comparisons": 11,
+        "links": 7,
+        "moves": 0,
+        "cursor": 5,
+        "key": 12,
+        "route": [
+          1
+        ],
+        "answer": {
+          "status": "found"
+        },
+        "extra": {
+          "inspected": "K0"
+        },
+        "liveKeys": [
+          43,
+          15,
+          2,
+          19,
+          5,
+          26,
+          12
+        ]
+      },
+      "issues": []
+    },
+    {
+      "operation": "shift",
+      "error": "",
+      "result": {
+        "slots": [
+          {
+            "key": 32,
+            "value": 32,
+            "id": "K2"
+          },
+          {
+            "key": 43,
+            "value": 43,
+            "id": "K3"
+          },
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          {
+            "key": 9,
+            "value": 9,
+            "id": "K4"
+          },
+          {
+            "key": 10,
+            "value": 10,
+            "id": "K0"
+          }
+        ],
+        "buckets": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "probes": 11,
+        "comparisons": 6,
+        "links": 0,
+        "moves": 2,
+        "cursor": 2,
+        "key": 21,
+        "route": [
+          9
+        ],
+        "answer": {
+          "status": "deleted",
+          "hole": 2
+        },
+        "extra": {
+          "distanceToHole": 2,
+          "distanceToSlot": 3
+        },
+        "liveKeys": [
+          32,
+          43,
+          9,
+          10
+        ]
+      },
+      "issues": []
+    },
+    {
+      "operation": "rebuild",
+      "error": "",
+      "result": {
+        "slots": [
+          {
+            "key": 26,
+            "value": 26,
+            "id": "K1"
+          },
+          null,
+          null,
+          null,
+          null,
+          null,
+          {
+            "key": 19,
+            "value": 19,
+            "id": "K2"
+          },
+          {
+            "key": 33,
+            "value": 33,
+            "id": "K3"
+          },
+          null,
+          null,
+          null,
+          null,
+          {
+            "key": 12,
+            "value": 12,
+            "id": "K0"
+          }
+        ],
+        "buckets": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "probes": 10,
+        "comparisons": 6,
+        "links": 0,
+        "moves": 4,
+        "cursor": 0,
+        "key": 26,
+        "route": [
+          5,
+          6,
+          0,
+          1
+        ],
+        "answer": {
+          "status": "rebuilt",
+          "keys": [
+            19,
+            33,
+            12,
+            26
+          ]
+        },
+        "extra": {
+          "oldSlots": [
+            {
+              "key": 19,
+              "value": 19,
+              "id": "K2"
+            },
+            {
+              "key": 33,
+              "value": 33,
+              "id": "K3"
+            },
+            null,
+            null,
+            null,
+            {
+              "key": 12,
+              "value": 12,
+              "id": "K0"
+            },
+            {
+              "key": 26,
+              "value": 26,
+              "id": "K1"
+            }
+          ],
+          "oldCapacity": 7
+        },
+        "liveKeys": [
+          26,
+          19,
+          33,
+          12
+        ]
+      },
+      "issues": []
+    },
+    {
+      "operation": "perfect",
+      "error": "",
+      "result": {
+        "slots": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "buckets": [
+          [
+            {
+              "key": 0,
+              "id": "K0"
+            },
+            {
+              "key": 6,
+              "id": "K1"
+            },
+            {
+              "key": 12,
+              "id": "K2"
+            }
+          ],
+          [],
+          [
+            {
+              "key": 2,
+              "id": "K3"
+            }
+          ],
+          [
+            {
+              "key": 3,
+              "id": "K4"
+            },
+            {
+              "key": 9,
+              "id": "K5"
+            }
+          ],
+          [],
+          []
+        ],
+        "probes": 0,
+        "comparisons": 0,
+        "links": 0,
+        "moves": 0,
+        "cursor": 3,
+        "key": null,
+        "route": [],
+        "answer": {
+          "squaredSpace": 14,
+          "second": [
+            {
+              "a": 1,
+              "b": 0,
+              "prime": 2003,
+              "size": 9,
+              "keys": [
+                0,
+                6,
+                12
+              ],
+              "targets": [
+                0,
+                6,
+                3
+              ],
+              "bucket": 0
+            },
+            {
+              "a": 1,
+              "b": 0,
+              "prime": 2003,
+              "size": 1,
+              "keys": [
+                2
+              ],
+              "targets": [
+                0
+              ],
+              "bucket": 2
+            },
+            {
+              "a": 1,
+              "b": 0,
+              "prime": 2003,
+              "size": 4,
+              "keys": [
+                3,
+                9
+              ],
+              "targets": [
+                2,
+                0
+              ],
+              "bucket": 3
+            }
+          ]
+        },
+        "extra": {
+          "second": [
+            {
+              "a": 1,
+              "b": 0,
+              "prime": 2003,
+              "size": 9,
+              "keys": [
+                0,
+                6,
+                12
+              ],
+              "targets": [
+                0,
+                6,
+                3
+              ],
+              "bucket": 0
+            },
+            {
+              "a": 1,
+              "b": 0,
+              "prime": 2003,
+              "size": 1,
+              "keys": [
+                2
+              ],
+              "targets": [
+                0
+              ],
+              "bucket": 2
+            },
+            {
+              "a": 1,
+              "b": 0,
+              "prime": 2003,
+              "size": 4,
+              "keys": [
+                3,
+                9
+              ],
+              "targets": [
+                2,
+                0
+              ],
+              "bucket": 3
+            }
+          ],
+          "squaredSpace": 14
+        },
+        "liveKeys": [
+          0,
+          6,
+          12,
+          2,
+          3,
+          9
+        ]
+      },
+      "issues": []
+    },
+    {
+      "operation": "cuckoo",
+      "error": "",
+      "result": {
+        "slots": [
+          {
+            "key": 9,
+            "id": "K1"
+          },
+          null,
+          null
+        ],
+        "buckets": [
+          [],
+          [],
+          []
+        ],
+        "probes": 0,
+        "comparisons": 0,
+        "links": 9,
+        "moves": 0,
+        "cursor": 0,
+        "key": 0,
+        "route": [],
+        "answer": {
+          "status": "needs_rebuild",
+          "pending": {
+            "key": 18,
+            "id": "K2"
+          }
+        },
+        "extra": {
+          "right": [
+            {
+              "key": 0,
+              "id": "K0"
+            },
+            null,
+            null
+          ],
+          "pending": {
+            "key": 18,
+            "id": "K2"
+          },
+          "side": 1
+        },
+        "liveKeys": [
+          9,
+          0
+        ]
+      },
+      "issues": []
+    },
+    {
+      "operation": "bloom",
+      "error": "",
+      "result": {
+        "slots": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "buckets": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "probes": 9,
+        "comparisons": 0,
+        "links": 0,
+        "moves": 0,
+        "cursor": 11,
+        "key": 15,
+        "route": [
+          2,
+          5,
+          10
+        ],
+        "answer": {
+          "possiblyPresent": true
+        },
+        "extra": {
+          "testedBits": [
+            2,
+            5,
+            10
+          ]
+        },
+        "liveKeys": []
+      },
+      "issues": []
+    },
+    {
+      "operation": "horner",
+      "error": "",
+      "result": {
+        "slots": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "buckets": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "probes": 0,
+        "comparisons": 0,
+        "links": 0,
+        "moves": 0,
+        "cursor": null,
+        "key": 3,
+        "route": [],
+        "answer": {
+          "hash": 4
+        },
+        "extra": {
+          "codes": [
+            1,
+            2,
+            3
+          ],
+          "prefix": 3,
+          "base": 5,
+          "previous": 7,
+          "value": 4
+        },
+        "liveKeys": []
+      },
+      "issues": []
+    },
+    {
+      "operation": "robin",
+      "error": "",
+      "result": {
+        "slots": [
+          {
+            "key": 0,
+            "id": "K0"
+          },
+          {
+            "key": 7,
+            "id": "K1"
+          },
+          {
+            "key": 14,
+            "id": "K3"
+          },
+          {
+            "key": 1,
+            "id": "K2"
+          },
+          null,
+          null,
+          null
+        ],
+        "buckets": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "probes": 9,
+        "comparisons": 0,
+        "links": 0,
+        "moves": 1,
+        "cursor": 3,
+        "key": 1,
+        "route": [],
+        "answer": {
+          "status": "built"
+        },
+        "extra": {
+          "pending": null,
+          "displacement": 2
+        },
+        "liveKeys": [
+          0,
+          7,
+          14,
+          1
+        ]
+      },
+      "issues": []
+    },
+    {
+      "operation": "open",
+      "error": "",
+      "result": {
+        "slots": [
+          {
+            "key": 0,
+            "value": 0,
+            "id": "K4"
+          },
+          {
+            "key": 1,
+            "value": 1,
+            "id": "K5"
+          },
+          {
+            "key": -999,
+            "value": -999,
+            "id": "K0"
+          },
+          {
+            "key": -998,
+            "value": -998,
+            "id": "K1"
+          },
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          {
+            "key": 998,
+            "value": 998,
+            "id": "K3"
+          },
+          {
+            "key": 999,
+            "value": 999,
+            "id": "K2"
+          },
+          null
+        ],
+        "buckets": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "probes": 7,
+        "comparisons": 0,
+        "links": 0,
+        "moves": 0,
+        "cursor": 4,
+        "key": -997,
+        "route": [
+          4
+        ],
+        "answer": {
+          "status": "absent"
+        },
+        "extra": {},
+        "liveKeys": [
+          0,
+          1,
+          -999,
+          -998,
+          998,
+          999
+        ]
+      },
+      "issues": []
+    },
+    {
+      "operation": "open",
+      "error": "",
+      "result": {
+        "slots": [
+          {
+            "key": 0,
+            "value": 0,
+            "id": "K4"
+          },
+          {
+            "key": 1,
+            "value": 1,
+            "id": "K5"
+          },
+          {
+            "key": -999,
+            "value": -999,
+            "id": "K0"
+          },
+          {
+            "key": -998,
+            "value": -998,
+            "id": "K1"
+          },
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          {
+            "key": 998,
+            "value": 998,
+            "id": "K3"
+          },
+          {
+            "key": 999,
+            "value": 999,
+            "id": "K2"
+          },
+          null
+        ],
+        "buckets": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "probes": 7,
+        "comparisons": 0,
+        "links": 0,
+        "moves": 0,
+        "cursor": 4,
+        "key": -997,
+        "route": [
+          4
+        ],
+        "answer": {
+          "status": "absent"
+        },
+        "extra": {},
+        "liveKeys": [
+          0,
+          1,
+          -999,
+          -998,
+          998,
+          999
+        ]
+      },
+      "issues": []
+    },
+    {
+      "operation": "open",
+      "error": "",
+      "result": {
+        "slots": [
+          {
+            "key": 0,
+            "value": 0,
+            "id": "K4"
+          },
+          {
+            "key": 1,
+            "value": 1,
+            "id": "K5"
+          },
+          {
+            "key": -999,
+            "value": -999,
+            "id": "K0"
+          },
+          {
+            "key": -998,
+            "value": -998,
+            "id": "K1"
+          },
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          {
+            "key": 998,
+            "value": 998,
+            "id": "K3"
+          },
+          {
+            "key": 999,
+            "value": 999,
+            "id": "K2"
+          },
+          null
+        ],
+        "buckets": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "probes": 7,
+        "comparisons": 0,
+        "links": 0,
+        "moves": 0,
+        "cursor": 4,
+        "key": -997,
+        "route": [
+          4
+        ],
+        "answer": {
+          "status": "absent"
+        },
+        "extra": {},
+        "liveKeys": [
+          0,
+          1,
+          -999,
+          -998,
+          998,
+          999
+        ]
+      },
+      "issues": []
+    },
+    {
+      "operation": "open",
+      "error": "",
+      "result": {
+        "slots": [
+          {
+            "key": 0,
+            "value": 0,
+            "id": "K4"
+          },
+          {
+            "key": 1,
+            "value": 1,
+            "id": "K5"
+          },
+          {
+            "key": -999,
+            "value": -999,
+            "id": "K0"
+          },
+          {
+            "key": -998,
+            "value": -998,
+            "id": "K1"
+          },
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          {
+            "key": 998,
+            "value": 998,
+            "id": "K3"
+          },
+          {
+            "key": 999,
+            "value": 999,
+            "id": "K2"
+          },
+          null
+        ],
+        "buckets": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "probes": 7,
+        "comparisons": 0,
+        "links": 0,
+        "moves": 0,
+        "cursor": 4,
+        "key": -997,
+        "route": [
+          4
+        ],
+        "answer": {
+          "status": "absent"
+        },
+        "extra": {},
+        "liveKeys": [
+          0,
+          1,
+          -999,
+          -998,
+          998,
+          999
+        ]
+      },
+      "issues": []
+    },
+    {
+      "operation": "open",
+      "error": "",
+      "result": {
+        "slots": [
+          {
+            "key": 0,
+            "value": 0,
+            "id": "K4"
+          },
+          {
+            "key": 1,
+            "value": 1,
+            "id": "K5"
+          },
+          {
+            "key": -999,
+            "value": -999,
+            "id": "K0"
+          },
+          {
+            "key": -998,
+            "value": -998,
+            "id": "K1"
+          },
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          {
+            "key": 998,
+            "value": 998,
+            "id": "K3"
+          },
+          {
+            "key": 999,
+            "value": 999,
+            "id": "K2"
+          },
+          null
+        ],
+        "buckets": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "probes": 7,
+        "comparisons": 0,
+        "links": 0,
+        "moves": 0,
+        "cursor": 4,
+        "key": -997,
+        "route": [
+          4
+        ],
+        "answer": {
+          "status": "absent"
+        },
+        "extra": {},
+        "liveKeys": [
+          0,
+          1,
+          -999,
+          -998,
+          998,
+          999
+        ]
+      },
+      "issues": []
+    },
+    {
+      "operation": "chain",
+      "error": "",
+      "result": {
+        "slots": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "buckets": [
+          [],
+          [
+            {
+              "key": -943,
+              "id": "K7"
+            },
+            {
+              "key": -951,
+              "id": "K6"
+            },
+            {
+              "key": -959,
+              "id": "K5"
+            },
+            {
+              "key": -967,
+              "id": "K4"
+            },
+            {
+              "key": -975,
+              "id": "K3"
+            },
+            {
+              "key": -983,
+              "id": "K2"
+            },
+            {
+              "key": -991,
+              "id": "K1"
+            },
+            {
+              "key": -999,
+              "id": "K0"
+            }
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "probes": 0,
+        "comparisons": 28,
+        "links": 8,
+        "moves": 0,
+        "cursor": 1,
+        "key": -943,
+        "route": [
+          1
+        ],
+        "answer": {
+          "status": "inserted"
+        },
+        "extra": {
+          "inspected": "K0"
+        },
+        "liveKeys": [
+          -943,
+          -951,
+          -959,
+          -967,
+          -975,
+          -983,
+          -991,
+          -999
+        ]
+      },
+      "issues": []
+    }
+  ],
+  "invalidPreservesPrevious": 14,
+  "mobileOverflow": false,
+  "printVisible": true,
+  "runtimeErrors": [],
+  "library": {
+    "cards": 55,
+    "visible": true,
+    "errors": []
+  },
+  "weeklyChapterLink": true
+}

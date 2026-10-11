@@ -1,0 +1,679 @@
+[
+  {
+    "id": "a_hash_Q1",
+    "title": "One key, two equality representations",
+    "stem": "A map treats strings case-insensitively but hashes their original character codes. Explain a failure with `\"Map\"` and `\"map\"`, and specify a correct contract without claiming collision-free hashing.",
+    "solution": "Those two keys are equal under the map's declared equality, so both must follow the same home and probe route. Original-case hashes can send them to different buckets, making lookup miss an equal existing key or creating duplicates. Hash the same normalized representation used by equality, for example the specified case-folded character sequence. Keep that normalization consistent for insertion, query and deletion. Different normalized strings may still collide; compare actual normalized keys within the bucket or route. The corrected implication is equality implies equal hash, never equal hash implies equality. Changing normalization while records are stored requires rebuilding.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q2",
+    "title": "Signed remainder and overflow",
+    "stem": "At capacity 11, compute normalized homes for $-1,-12,-999$. Explain why `abs(key) % 11` differs and why it can fail at the minimum signed integer.",
+    "solution": "Write each key as $11q+r$ with $0\\le r<11$. The residues are ten, ten and two because $-999=11(-91)+2$. Absolute-value reduction gives one, one and nine, which are valid indices but a different hash mapping. In a fixed-width signed type, the negative endpoint has no representable positive counterpart; taking its absolute value can overflow or retain a negative result. Instead compute a remainder safely and add capacity when that remainder is negative. This normalizes the mathematical modulo without negating the original key. Every operation must use the same convention.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q3",
+    "title": "Strides and attainable homes",
+    "stem": "Keys are $5+18t$, with $t=0,\\ldots,19$, at capacity 24. How many distinct homes can they reach? Give the homes and explain the correct greatest-common-divisor argument.",
+    "solution": "The residue difference is always a multiple of 18. A repeat occurs when $24$ divides $18d$, whose smallest positive solution is $d=24/\\gcd(18,24)=4$. Starting at five gives homes five, 23, 17 and 11, then repeats. Each receives five of the twenty keys. The table's overall load is $20/24$, but only four buckets receive entries. Primality is irrelevant to the argument actually used here: the cycle is determined by the greatest common divisor. A capacity relatively prime to the stride would yield a full residue cycle, while still not proving randomness for other datasets.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q4",
+    "title": "Horner arithmetic with a degenerate base",
+    "stem": "Evaluate codes $[1,2,3]$ with base five modulo 17. Then compare codes $[1,3,2]$ when the base is 18 modulo 17, and explain what information that base loses.",
+    "solution": "For base five, the successive prefix residues are $1$, $5(1)+2=7$, and $5(7)+3=38\\equiv4$. The expanded polynomial is $1(25)+2(5)+3=38$, giving the same result. Base 18 is congruent to one modulo 17, so every positional power is one; both sequences have residue $1+2+3=6$. This preserves a character sum but discards ordering information. The recurrence's correctness follows by prefix induction, yet a mathematically correct recurrence can implement a poor hash. Speed, valid indices and useful distribution are separate properties.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "horner",
+    "visualQualification": "Exact companion for the first part: [1,2,3] at base five modulo seventeen. The written second part separately demonstrates the degenerate base eighteen."
+  },
+  {
+    "id": "a_hash_Q5",
+    "title": "A finite-word polynomial collision",
+    "stem": "Two length-two code blocks have base-31 polynomial values 2112. Prove that any concatenation of $r$ such blocks gives the same hash for all $2^r$ choices, including word-overflow reduction. State the resulting string length.",
+    "solution": "Appending a two-code block transforms a prefix hash $v$ into $31^2v+2112$. The transformation is identical for either block, so induction on the number of appended blocks makes every choice sequence produce the same result. Reducing each update modulo $2^w$ preserves equality, so intentional finite-word overflow does not remove this collision. There are $2^r$ block-choice strings if the blocks differ, but each has length $2r$, not $r$. This constructive collision family shows that deterministic polynomial hashing does not provide a universal protection against inputs chosen after the function is known.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q6",
+    "title": "A decision-tree boundary",
+    "stem": "A dictionary has 255 keys and binary comparison-only tests. Give the least possible decision-tree height needed to distinguish all present-key outputs and absence, then explain why arithmetic hashing does not contradict it.",
+    "solution": "There are at least 256 distinct terminal outputs. A binary tree of height $h$ has at most $2^h$ leaves, so $h\\ge8$. This is a necessary bound for the specified comparison model; it does not by itself construct an optimal dictionary. Hashing uses arithmetic on key bits and indexed memory access, allowing distinctions that are not limited to binary comparison branches. Therefore a constant expected slot-access claim changes the permitted operations rather than violating this lower bound. If string length is unbounded, hashing still has to account for the cost of reading the key representation.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q7",
+    "title": "An immutable-key requirement",
+    "stem": "A key with field value 12 is stored at $h(k)=k\\bmod7$. Its field is changed to 13 without removing the entry. Explain the broken invariant and a reliable repair.",
+    "solution": "The entry was stored in bucket five or a probe route starting there. The new field value makes equality and hashing use home six. A query for the mutated key can inspect bucket six and fail even though the object remains physically stored elsewhere. Accidental collisions could conceal the bug, so failure is not universal for every hash or capacity. Remove the entry while its original representation still determines the old route, then insert the new representation, or rebuild the table from the live objects. Prefer immutable equality-relevant fields so that stored placement and future lookup remain consistent.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q8",
+    "title": "Constant slot work versus string work",
+    "stem": "Every query hashes a fresh length-$L$ string and inspects an expected two bucket records. Give a justified total complexity, including the case of a fingerprint collision requiring full equality.",
+    "solution": "Horner hashing reads $L$ codes, so it already costs $\\Theta(L)$. If two expected record comparisons can each inspect up to $L$ characters, expected total character work is bounded by a constant multiple of $L$, assuming the expected record count is independent of any unbounded comparison cost or using the uniform worst-case $O(L)$ bound. Thus total expected work is $O(L)$ and at least $\\Omega(L)$ for fresh full-string hashing. Cached record fingerprints reject mismatches cheaply but do not remove the query's initial hash cost, nor justify accepting equal fingerprints as equal strings. The slot-access statement and total runtime are different measures.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q9",
+    "title": "Constant hash and map insertion",
+    "stem": "All $n$ distinct keys hash to one chained bucket. Compare total cost of ordinary map insertion with inserting records promised distinct using unconditional head insertion. State what changes in the contract.",
+    "solution": "Ordinary `put` scans the current chain to rule out an existing equal key. The successive failed equality counts are $0,1,\\ldots,n-1$, summing to $n(n-1)/2$, plus linear total linking/hash work. The total is quadratic. If the caller guarantees distinctness and the implementation omits duplicate checks, each head insertion has constant pointer work and the total is linear. It is a different precondition, not an improvement of arbitrary map `put`. Future lookup still has a linear worst case in the single bucket. A multimap may intentionally allow duplicates and also avoid uniqueness search, but changes the data abstraction.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q10",
+    "title": "Nullable values and absence",
+    "stem": "A table returns `null` from `get` both when a key is absent and when its stored value is null. Why can a two-sum implementation using this result be wrong? Specify the interface change.",
+    "solution": "Membership and value retrieval are different questions. A present complement whose value is null would be mistaken for absence, possibly causing a valid pair to be missed or a duplicate record to be inserted. Return a presence flag separately, provide `contains`, or reserve a value that the contract explicitly forbids storing. The collision strategy cannot repair an ambiguous API. When two-sum uses a set, the relevant result is whether a prior position with that value exists. The query must occur before adding the current position, so a single occurrence cannot pair with itself.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q11",
+    "title": "Exact head-insertion chains",
+    "stem": "Insert $[12,26,5,15,2,19,43]$ into seven buckets using floor-modulo and head insertion. Give all nonempty chains, the longest chain, and the number of collision pairs.",
+    "solution": "Homes are five, five, five, one, two, five and one. Reversing the insertion order within each bucket gives bucket five $[19,5,26,12]$, bucket one $[43,15]$, and bucket two $[2]$. Four is the maximum chain length. Pair collisions are $\\binom42+\\binom22+\\binom12=6+1+0=7$. Overflow entries are instead $(4-1)+(2-1)+(1-1)=4$. These two collision measures should not be substituted for one another. The chain ordering also determines exact successful-search ranks, so a tail-insertion answer would represent a different policy.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q12",
+    "title": "A fixed-table successful average",
+    "stem": "For Q11's table, equally likely stored-key queries scan from each chain head. Compute the exact average comparisons and compare it with average bucket length.",
+    "solution": "The four-entry chain contributes $1+2+3+4=10$, the two-entry chain contributes three, and the singleton contributes one. Total successful comparisons over the seven possible keys are 14, giving average two. Average bucket length is $7/7=1$. These quantities differ because successful queries choose records, making longer buckets more likely, and because a successful scan includes the matching comparison. The exact average follows from the actual chain lengths, not a universal probabilistic theorem. Head versus tail order can change individual-key ranks while leaving this equally likely all-key total unchanged.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q13",
+    "title": "A fixed-table miss distribution",
+    "stem": "In Q11, a miss has probability one-half of selecting bucket five, one-quarter bucket one and one-quarter an empty bucket. Compute its expected entry comparisons and explain why $n/m$ is not the answer.",
+    "solution": "A miss scans its entire selected chain. The expected comparisons are $(1/2)4+(1/4)2+(1/4)0=5/2$. The arithmetic load is one, but the query distribution favors crowded buckets, so it does not sample all buckets uniformly. Hash computation and accessing the bucket pointer add constant work separately. Under uniformly chosen home buckets, a miss would average one record comparison for this fixed table. Stating “average chain length equals one” without defining how a query selects a chain cannot justify the cost of a biased workload.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q14",
+    "title": "Bucket lengths and pair counts",
+    "stem": "A chained table has bucket lengths $[0,4,1,3,0,2]$. Compute live load, occupied buckets, overflow entries, pair collisions and equally likely successful comparisons.",
+    "solution": "The live count is ten and capacity six, so load is $5/3$. Four buckets are nonempty and overflow entries total $10-4=6$. Pair collisions total $6+0+3+1=10$. Successful comparisons total $10+1+6+3=20$, so the average is two. The identity $\\sum_j\\ell_j^2=\\sum_j\\ell_j+2\\sum_j\\binom{\\ell_j}{2}$ gives squared sum $10+20=30$, which also yields $(30+10)/(2\\cdot10)=2$. This provides an independent arithmetic check. Chaining permits load above one; applying an open-addressing fullness rule here would be incorrect.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q15",
+    "title": "Success-weighted size bias",
+    "stem": "A table has one chain of length 20 and eighty empty buckets. Compare average bucket length with the expected chain length seen by a uniformly chosen stored key. Then compute the expected successful scan rank.",
+    "solution": "There are 81 buckets and 20 records, so average bucket length is $20/81$. Every stored key belongs to the only nonempty chain, hence its selected chain length is exactly 20. Its equally likely successful position has average rank $(1+20)/2=10.5$. The small bucket average cannot bound stored-key search cost. More generally, the record-selected expected bucket length is $\\sum_j\\ell_j^2/n$, whereas the bucket-selected mean is $n/m$. This is a concrete demonstration of size bias. A uniform-home probabilistic model would need to justify why this configuration is unlikely, not deny that it exists.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q16",
+    "title": "Expected occupied buckets",
+    "stem": "Five independent keys choose uniformly among eight buckets. Compute expected occupied and empty buckets exactly, without treating occupancy indicators as independent.",
+    "solution": "A specified bucket is empty with probability $(7/8)^5=16807/32768$. Summing the eight empty indicators gives expected empty count $16807/4096$. Expected occupied count is eight minus that value, $15961/4096$, approximately 3.897. The indicators across buckets are dependent because the fixed five keys constrain total occupancy, but linearity of expectation still applies. The expected number of overflow entries is five minus expected occupied count, $4519/4096$. That is not the same as expected collision-pair count $\\binom52/8=5/4$, which counts multiple pairs within longer buckets.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q17",
+    "title": "Fixed-bucket variance",
+    "stem": "Under independent uniform homes, $n=48,m=12$. Give one specified bucket's expected length and variance. Does this prove that every bucket has exactly four entries?",
+    "solution": "Each key contributes an independent Bernoulli indicator of probability $1/12$. The bucket length is binomial with mean $48/12=4$ and variance $48(1/12)(11/12)=11/3$. Positive variance immediately rules out a deterministic length of four. Different buckets are also not independent because their counts sum to 48. A theorem about maximum load or simultaneous concentration requires additional analysis; it cannot be inferred from the mean alone. An exact query in a displayed table should use that table's lengths, while an expectation question can use this specified random model.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q18",
+    "title": "Successful chaining expectation",
+    "stem": "Thirty distinct keys are independently hashed to ten buckets and inserted at chain tails. A uniformly chosen stored key is queried. Derive expected successful entry comparisons exactly.",
+    "solution": "For the $j$th inserted key, earlier colliding keys precede it. Each of the $j-1$ earlier keys collides with probability $1/10$, so expected rank is $1+(j-1)/10$. Average these ranks over the thirty equally likely stored keys: $1+(1/30)(0+1+\\cdots+29)/10=1+29/20=49/20$. The result is 2.45 comparisons, including the match but excluding hashing. Head insertion reverses which later collisions precede each key yet gives the same all-key expectation. A biased query distribution or self-organizing chains can change it. Universal bucket-size bounds alone do not automatically provide this exact equality.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q19",
+    "title": "Sorted array buckets",
+    "stem": "A bucket contains $r$ ordered keys in a contiguous growable array. Explain the worst-case costs of search, inserting a new smallest key, and deleting a middle key. Distinguish comparisons from moves.",
+    "solution": "Binary search finds a key or insertion location using $O(\\log r)$ comparisons. Inserting the new smallest key shifts all $r$ live records one position, giving $\\Theta(r)$ moves even without a capacity change. A resize can add further linear copying but does not change that worst-case order. Deleting a middle entry shifts roughly half the remaining records and also takes $\\Theta(r)$ moves. Therefore logarithmic location search does not make updates logarithmic. If the bucket were a balanced tree, a different representation could support logarithmic updates, but its pointer and balancing costs would need their own analysis.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q20",
+    "title": "Best bucket ordering for a biased workload",
+    "stem": "A three-key chain is queried with probabilities $1/2,1/3,1/6$. Determine the least possible expected successful comparisons and prove that decreasing-probability order is optimal.",
+    "solution": "Put the keys in decreasing probability order. The expectation is $(1/2)1+(1/3)2+(1/6)3=5/3$. For two positions $i<j$ containing probabilities $p<q$, swapping them changes expected cost by $(qi+pj)-(pi+qj)=(q-p)(i-j)<0$. Any inversion therefore increases cost; repeatedly removing inversions yields decreasing-probability order. This does not alter bucket membership or key uniqueness. Maintaining an estimated frequency ordering has update overhead and may respond poorly to changing workloads, so the static optimality proof is not a free constant-time implementation claim.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q21",
+    "title": "Pair expectation versus a per-query expectation",
+    "stem": "Twenty fixed distinct keys use independent uniform homes in ten buckets. Compute expected total collision pairs, expected colliders of one absent query, and expected bucket size of one present key.",
+    "solution": "There are 190 unordered pairs, each with collision probability one-tenth, so expected pair count is 19. An absent fixed query has twenty potential colliders, giving expected count two. A present key always counts itself plus 19 potential other colliders, giving expected bucket size $1+19/10=2.9$. The three quantities are different because their indicator sums have different index sets. The pair expectation is of order $n^2/m$, while a query's bucket work is of order $n/m$. Conflating a pair's probability $1/m$ with the expectation of all pairs is the central trap in the authentic doctoral question.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q22",
+    "title": "Exact birthday probability",
+    "stem": "Four independent keys choose uniformly among eight buckets. Compute the exact probability of at least one pair collision and compare it with the expected number of pairs.",
+    "solution": "The no-collision probability is $(8\\cdot7\\cdot6\\cdot5)/8^4=105/256$. Its complement is $151/256$, approximately 0.589844. Expected pair count is $\\binom42/8=3/4$. These do not coincide: outcomes with multiple collisions contribute more than one to the pair count but only one to the collision-event indicator. The union bound gives collision probability at most $3/4$, consistent with the exact result. The birthday exponential estimate would be $1-e^{-3/4}$, which is an approximation and should not replace the requested exact fraction.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q23",
+    "title": "Birthday memory scaling",
+    "stem": "Use a union bound to give a sufficient capacity ensuring collision probability at most $0.01$ for 100 fixed keys with universal hashing. Explain whether the bound needs independent outputs.",
+    "solution": "There are $\\binom{100}{2}=4950$ pairs. Universal hashing bounds each pair's collision probability by $1/m$. The union bound therefore gives probability of any collision at most $4950/m$. A sufficient choice is $m\\ge495000$. No independence between pair events is required for this bound. It is sufficient rather than necessary and can be loose. The much smaller capacity used by ordinary chained tables permits collisions while keeping individual expected query work low; insisting on almost no collisions solves a stronger requirement than efficient lookup.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q24",
+    "title": "A universal-family enumeration",
+    "stem": "For prime seven, capacity three and keys zero and two, enumerate the collision fraction in the family with $a\\in\\{1,\\ldots,6\\}$ and $b\\in\\{0,\\ldots,6\\}$. Derive it from residue-class sizes.",
+    "solution": "The affine map gives all 42 ordered pairs of distinct residues equally likely for these two distinct keys. Modulo-three classes within $0,\\ldots,6$ have sizes three, two and two. Colliding ordered distinct pairs count $3(2)+2(1)+2(1)=10$. The fraction is $10/42=5/21$, below $1/3$. It is not exactly $1/3$, because the intermediate prime range is not a multiple of the final capacity and the two intermediate residues must differ. This calculation checks the bijection proof without assuming independent intermediate outputs, which would incorrectly include equal residues.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q25",
+    "title": "A restricted-parameter counterexample",
+    "stem": "Keys are $\\{0,1,2\\}$, prime modulus seven and final capacity two. Restrict affine parameters to $a\\in\\{1,2\\}$ and $b\\in\\{0,1,2\\}$. Is this family universal? Exhibit a violating pair.",
+    "solution": "Choose keys zero and two. Before final reduction their affine outputs differ by $2a$, and with the specified ranges neither pair wraps modulo seven: zero maps to $b$ and two to $2a+b\\le6$. Both outputs therefore have the same parity for every one of the six parameter choices. Collision probability is one, exceeding $1/2$. The family is not universal. The standard theorem chooses parameters across the full prime field, not just the smaller key universe. This explicit counterexample explains why changing parameter ranges invalidates the ordered-residue bijection and must not be treated as a harmless notational variation.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q26",
+    "title": "Pairwise bounds without independence",
+    "stem": "A universal family hashes 60 fixed keys into 20 buckets. Bound expected colliders of an absent fixed query. Can you infer a binomial distribution for its bucket length from universality alone?",
+    "solution": "Sum sixty collision indicators, each with expectation at most $1/20$, giving expected colliders at most three. Including hashing and the bucket access yields $O(1+3)$ expected unit-cost work for a complete failed scan. Universality does not assert that these indicators are independent or have exactly probability $1/20$, so a binomial distribution is not justified. It supports a first-moment bound through linearity of expectation. A tail bound can be obtained from Markov using that moment, but the stronger concentration conclusions of independent uniform homes require additional assumptions.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q27",
+    "title": "A Markov tail bound",
+    "stem": "In Q26, bound the probability an absent query encounters at least 30 colliding records. Compare that statement with a guaranteed maximum chain length.",
+    "solution": "Let $X$ be the nonnegative collider count with $E[X]\\le3$. Markov's inequality gives $\\Pr(X\\ge30)\\le3/30=1/10$. This bounds a particular fixed query over random function selection; it is not a deterministic maximum-chain guarantee, nor an automatic bound for a query chosen adaptively after observing the table. To control many fixed queries simultaneously, a union bound would introduce their count and could be loose. A sampled function can still produce a bad table. Expected constant lookup permits rare expensive outcomes and must not be restated as a worst-case guarantee.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q28",
+    "title": "Choosing a function once",
+    "stem": "An implementation randomly resamples the hash function at each operation without rebuilding. Explain why expected collision performance does not rescue its lookup correctness.",
+    "solution": "An inserted key is placed according to the function chosen for insertion. A later query using a different function can begin at a different bucket or probe route and report absence. Correct placement depends on a stable table-lifetime function, not merely on each separately sampled function having a good distribution. Sample once when creating a table; retain the parameters with the table; resample only while relocating every live record during rebuilding. Probability analysis assumes that placement and lookup share the chosen function. Randomness can improve expected collisions but cannot replace the representation invariant that makes retrieval meaningful.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q29",
+    "title": "Collision pairs from a squared sum",
+    "stem": "Bucket lengths sum to 18 and their squared sum is 54. Determine exact collision pairs and equally likely successful chained comparisons.",
+    "solution": "Use $\\ell^2=\\ell+2\\binom\\ell2$ in each bucket and sum. Pair count is $(54-18)/2=18$. Successful comparison totals are $\\sum\\ell(\\ell+1)/2=(54+18)/2=36$, giving average two over eighteen keys. These exact identities require no randomness and work for any valid nonnegative bucket lengths. The mean selected bucket length for a uniform stored key is $54/18=3$, so its average scan rank is $(3+1)/2=2$. This links size bias, collision counts and search costs while keeping each quantity distinct.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q30",
+    "title": "An adaptive-input limitation",
+    "stem": "After a public deterministic division hash is chosen, an adversary selects $n$ keys. Construct a worst case at capacity $m$ and explain why a universal-family expected theorem with fixed keys does not directly cover this adaptive selection.",
+    "solution": "Select $r,r+m,\\ldots,r+(n-1)m$ within a sufficiently large allowed universe. Every key has home $r$, producing a chain of length $n$ or a linear-probing cluster. A universal-family proof averages over the function while holding the input set fixed independently of the sampled function. Here the chosen keys depend on that function, so the order of quantifiers changes and the theorem cannot simply be invoked. Secret randomized hashing or adversarially robust structures need additional analysis. The counterexample does not claim every practical randomized implementation is vulnerable; it identifies the missing assumption in the proposed argument.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q31",
+    "title": "Circular linear-probing insertion",
+    "stem": "Insert $[10,21,32,43,9]$ into eleven empty slots using linear probing. Give every destination and probe count, then search for absent 54.",
+    "solution": "The first four keys share home ten. Their routes stop at ten, zero, one and two, using one, two, three and four probes. Key nine goes directly to slot nine in one probe. Total insertion probes are eleven. Absent 54 shares home ten and visits ten, zero, one, two and the first empty slot three, so it requires five probes. A diagram that splits the run at the physical array boundary can conceal the wraparound; logically the cluster is nine, ten, zero, one, two. The terminating empty cell is counted as a probe but not as a live unequal-key comparison.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "linear",
+    "visualQualification": "Exact deterministic companion for the stated inputs and declared operation. Read the saved state to distinguish intermediate repair from completed lookup invariants."
+  },
+  {
+    "id": "a_hash_Q32",
+    "title": "Exact miss average for a circular run",
+    "stem": "For Q31's table, absent-query homes are uniform over eleven slots. Compute exact average unsuccessful probes from the run structure.",
+    "solution": "The nonempty run has length five, including its circular wrap. The exact formula gives $1+5(6)/(2\\cdot11)=26/11$. Alternatively homes at the five occupied positions incur extra work five, four, three, two and one, totaling fifteen beyond the eleven initial probes. The result is approximately 2.364. It is not the insertion average eleven/five, nor the probability of a home collision five/eleven. Those measure different events. A load-based asymptotic linear-probing estimate is unnecessary when the exact occupancy is provided and may not equal this finite-table answer.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q33",
+    "title": "Two tables with the same load",
+    "stem": "Capacity is twelve and six slots are occupied. Table A has one circular run of six. Table B has six isolated occupied slots. Compare exact uniform-home miss probes and explain the difference.",
+    "solution": "For A, extra-probe sum is $6(7)/2=21$, giving average $1+21/12=11/4$. For B, each singleton contributes one extra probe, so the average is $1+6/12=3/2$. Both live loads are one-half, yet exact query costs differ because run lengths enter quadratically. This is the concrete effect of clustering. The asymptotic model estimate at one-half load, 2.5 misses, is an expectation over a specified random construction model; it is not an exact answer for every half-full table. A question giving only load needs additional distribution assumptions.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q34",
+    "title": "Cluster attraction probabilities",
+    "stem": "A capacity-twelve table has runs of lengths four and two, each followed by a distinct empty slot. A new absent key's home is uniform. What are the probabilities that insertion lands in those two terminating empty slots?",
+    "solution": "A run's terminating empty slot receives the insertion when the home is any of the run's occupied positions or that empty position itself. The four-run therefore contributes five home choices and probability $5/12$; the two-run contributes three and probability $3/12$. Other empty positions receive their direct home probabilities. Empty destination slots are not uniformly likely, even though homes are uniform. Once a terminating slot is filled, its run grows and may merge with another run if adjacent. This positive feedback is primary clustering and explains why the random-permutation miss bound cannot simply be applied to linear probing.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q35",
+    "title": "Tombstone reachability",
+    "stem": "Delete key 21 at slot zero in Q31. Compare marking zero `DELETED` with clearing it to `EMPTY` when searching for 32 and absent 54.",
+    "solution": "With a tombstone, search for 32 probes ten, zero and one and succeeds; absent 54 probes through two and terminates at three. The deleted marker therefore counts toward both routes but does not provide a stopping certificate. If zero is cleared to `EMPTY`, the search for 32 incorrectly stops after two probes, because the deleted position was occupied when 32 was displaced to one. The representation invariant is broken despite the live count being correct. A valid deletion either preserves a nonempty marker or repairs all affected linear-probing survivors before exposing a completed table state.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "tombstone",
+    "visualQualification": "Exact deterministic companion for the stated inputs and declared operation. Read the saved state to distinguish intermediate repair from completed lookup invariants."
+  },
+  {
+    "id": "a_hash_Q36",
+    "title": "Updating past a tombstone",
+    "stem": "After Q35's valid deletion, put key 32 with a new value. Give the correct probe route and count changes; show the duplicate bug caused by inserting immediately at the deleted slot.",
+    "solution": "Start at home ten, inspect its unequal live key, remember the deleted slot zero, then find existing 32 at slot one. Replace its value there. Live count remains four and deleted count remains one. If insertion stops at zero, a second live 32 is created while the original remains at one, violating the map's uniqueness contract. Future lookup might return one value while deletion reveals the other, so this is a functional error rather than only a performance issue. A remembered tombstone is reusable only after the continuing search establishes that the key is absent.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "update",
+    "visualQualification": "Exact deterministic companion for the stated inputs and declared operation. Read the saved state to distinguish intermediate repair from completed lookup invariants."
+  },
+  {
+    "id": "a_hash_Q37",
+    "title": "Reusing a tombstone after proving absence",
+    "stem": "From the same post-deletion table, insert absent 54 using correct tombstone-aware `put`. Give examined slots, destination, live and deleted counts, and successful lookup probes afterward.",
+    "solution": "Examine ten, zero, one, two and empty three. Remember zero but do not commit there until the scan reaches empty three and proves absence. Place 54 at zero, increasing live count from four to five and decreasing deleted count from one to zero. Its subsequent lookup visits ten then zero, taking two probes. The insertion's five probes differ from the later lookup's two because absence certification had to inspect possible duplicates farther along the old route. Search reachability remains valid: no empty slot precedes zero on 54's route, and all existing keys retain their reachable positions.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "reuse",
+    "visualQualification": "Exact deterministic companion for the stated inputs and declared operation. Read the saved state to distinguish intermediate repair from completed lookup invariants."
+  },
+  {
+    "id": "a_hash_Q38",
+    "title": "Low live load with high marker occupancy",
+    "stem": "A capacity-ten table has one live entry and nine tombstones, with no empty slot. Explain the cost of an unsuccessful linear search and how an absent insertion can still succeed.",
+    "solution": "The search must inspect all ten slots because no `EMPTY` provides an earlier absence certificate. It stops at the explicit route limit and returns absent. Live load is $0.1$, while nonempty occupancy is one; the live-load number alone does not describe failed-query work. A correct insertion remembers the first tombstone, completes the duplicate search over ten slots, then places the absent record there. It increments live count and decrements the marker count without increasing nonempty occupancy. Rebuilding at the same capacity can remove all tombstones and restore useful empty stopping positions. An unbounded loop would be incorrect even though insertion space physically exists.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "all-markers",
+    "visualQualification": "Exact deterministic companion for the stated inputs and declared operation. Read the saved state to distinguish intermediate repair from completed lookup invariants."
+  },
+  {
+    "id": "a_hash_Q39",
+    "title": "Backward shifting across wraparound",
+    "stem": "Repair Q31 after deleting 21 from slot zero using backward shifting. Give the shifts and the final hole, applying circular-distance conditions.",
+    "solution": "The hole begins at zero. Record 32 at one has home ten; its distance to the hole is one and to its current slot is two, so move it to zero and make one the hole. Record 43 at two also has home ten; distances two and three satisfy the move condition, so move it to one and make two the hole. Slot three was empty, so stop and mark two empty. Keys 10 and 9 stay in slots ten and nine. Both survivors remain searchable from home ten. The proof uses the route distances, not merely moving every adjacent record left.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "shift",
+    "visualQualification": "Exact deterministic companion for the stated inputs and declared operation. Read the saved state to distinguish intermediate repair from completed lookup invariants."
+  },
+  {
+    "id": "a_hash_Q40",
+    "title": "A record that must not shift",
+    "stem": "Capacity is seven, a hole is at slot two, and a live key at three has home three. Should backward-shift deletion move that record into the hole? Give a failure trace if it does.",
+    "solution": "Circular distance from home three to current slot three is zero, while distance to hole two is six. The required inequality $D(h,\\mathrm{hole})<D(h,j)$ is false, so the record must stay. Moving it to two places it before its own home along the forward route. Search starts at three and can terminate at an empty position without ever reaching two, yielding a false miss. Continue examining the cluster while retaining the hole; a later record whose home precedes the hole may need to move. Correct shifting depends on each record's own home rather than physical adjacency alone.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "mixed-shift",
+    "visualQualification": "The compact five-slot example illustrates why an at-home record is skipped; use the written solution for its particular slot layout."
+  },
+  {
+    "id": "a_hash_Q41",
+    "title": "A full-table termination rule",
+    "stem": "A full capacity-seven linear-probing table is queried for an absent key. Specify a finite correct stopping rule and explain why the usual empty-slot loop is insufficient.",
+    "solution": "Linear probing visits each of the seven slots exactly once before returning to the home. Inspect at most seven slots; if no equal key appears, report absence. A loop that terminates only when it finds `EMPTY` cannot finish because none exists. The explicit limit is also needed when every slot is live or deleted. An absent insertion can reuse a tombstone after this complete scan, but must report fullness if all seven are live. Implementations often resize before full occupancy to improve performance; that policy does not justify omitting the logical termination rule in the underlying search.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q42",
+    "title": "Reverse successful costs",
+    "stem": "At capacity eleven, keys with common home ten are inserted in this order: 10, 21, 32, 43. Determine their successful lookup probe counts and the probability-weighted average when the last key is queried half the time and each other key one-sixth.",
+    "solution": "The keys occupy ten, zero, one and two, so their successful probe counts are one, two, three and four. The weighted average is $(1/6)(1+2+3)+(1/2)4=3$. The equal-key-query average would instead be $(1+2+3+4)/4=2.5$. A table built with a specified insertion order has deterministic key positions; changing query popularity affects average cost without changing load or layout. Neither average is an expected bound over random hash choices. This illustrates why “average successful search” needs an explicit distribution over queried keys.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q43",
+    "title": "Incremental insertion totals",
+    "stem": "Insert $r$ distinct keys with the same home into a sufficiently large initially empty linear-probing table. Derive exact probe and live-unequal-comparison totals.",
+    "solution": "The $j$th insertion passes $j-1$ unequal live records and examines the first empty slot on probe $j$. Total probes are $1+2+\\cdots+r=r(r+1)/2$, while unequal live comparisons total $0+1+\\cdots+(r-1)=r(r-1)/2$. The difference of $r$ counts the terminating empty probes. The sequence has quadratic work even if the final load is only one-half, because the specified hash homes are adversarially concentrated. Resizing does not automatically remove this pattern if the new hash context still maps all keys to one home. Exact counters and asymptotic claims must describe the same events.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q44",
+    "title": "Deriving the circular-run identity",
+    "stem": "Prove the exact uniform-home unsuccessful-probe formula for a table with at least one empty slot, including a run crossing the capacity boundary.",
+    "solution": "Every home costs one initial probe. In a maximal nonempty run of length $r$, a home at its first slot needs $r$ additional probes before the following empty slot, the next needs $r-1$, and the last needs one. Their extra total is $r(r+1)/2$. Empty homes add zero extra. Sum these contributions over all maximal circular runs and divide by the capacity, obtaining $1+\\sum r(r+1)/(2m)$. A wrapping run is counted as one run because its terminating empty boundary is unique. The argument fails for a table with no empty slot; explicit full-route search then gives a different calculation.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q45",
+    "title": "Exact lookup after same-capacity cleanup",
+    "stem": "At capacity seven, slots zero through four are `DELETED`, slot five holds key 12 and slot six is empty. Compare unsuccessful lookup for key zero before and after rebuilding at the same capacity.",
+    "solution": "Before cleanup, home zero traverses five deleted slots, the live record at five and empty six, requiring seven probes. Rebuilding removes all deleted markers and reinserts 12 at its unchanged home five. Slots zero through four become empty. The same unsuccessful query then stops at zero in one probe. Live count remains one and capacity remains seven; the improvement comes from reducing nonempty occupancy and restoring empty stopping certificates, not from a change in live load. Cleanup has a real scan/reinsert cost, so its triggering frequency must be analyzed when claiming an amortized guarantee.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q46",
+    "title": "Prime-square probing coverage",
+    "stem": "List the first six square offsets modulo eleven. Prove their distinctness and state the load condition that guarantees an empty position among them.",
+    "solution": "Offsets for indices zero through five are $[0,1,4,9,5,3]$. If two indices in this range had equal squares modulo eleven, eleven would divide $(i-j)(i+j)$. A prime divides one factor; the allowed index ranges force $i=j$, because a distinct sum is positive and below eleven. There are six distinct reachable slots. If at most five slots in the entire table are occupied, at least one of those six is empty. This proves a below-half-load insertion guarantee for this exact policy, not a permutation of all eleven slots. Deleted markers and duplicate searches need separately stated handling.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q47",
+    "title": "Quadratic insertion trace",
+    "stem": "Insert $[10,21,32,43]$ at capacity eleven with square probing and common home ten. Give destination slots and attempted routes.",
+    "solution": "The translated offsets are ten, zero, three, eight, four and two. The first key stops at ten; the second checks ten then zero; the third checks ten, zero and three; the fourth checks ten, zero, three and eight. Destinations are $[10,0,3,8]$ with probe counts one through four. Unlike linear probing, the final occupied slots are not one contiguous run. Yet every key with this same home follows the same square route, retaining secondary clustering. A diagram or solution using offsets one, two and three would accidentally solve linear probing rather than the specified quadratic policy.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "square",
+    "visualQualification": "Exact deterministic companion for the stated inputs and declared operation. Read the saved state to distinguish intermediate repair from completed lookup invariants."
+  },
+  {
+    "id": "a_hash_Q48",
+    "title": "Composite-capacity failure despite free slots",
+    "stem": "At capacity eight, use square probing from home zero and insert keys $0,8,16,24$. Show why the fourth insertion can fail although five slots remain free.",
+    "solution": "Square residues modulo eight cycle among zero, one and four: $i=0,1,2,3,4$ gives $0,1,4,1,0$. The first three keys occupy zero, one and four. Key 24 has the same home and never reaches any other slot, even when the first eight probe attempts are exhausted. Physical occupancy is only three-eighths, but the reachable subset is full. The failure is route exhaustion, not a full table. Increasing a probe limit without changing the route does not help. A valid recovery changes capacity or probing policy and reinserts records under that new context.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "square-failure",
+    "visualQualification": "Exact deterministic companion for the stated inputs and declared operation. Read the saved state to distinguish intermediate repair from completed lookup invariants."
+  },
+  {
+    "id": "a_hash_Q49",
+    "title": "Secondary clustering",
+    "stem": "Two unequal keys have the same home in ordinary square probing. Prove they have identical routes. Contrast this with double hashing using different steps.",
+    "solution": "The square route is determined solely by home and probe number: $(h+i^2)\\bmod m$. Equal homes therefore give equal positions at every attempt, making those keys compete along the same sequence. They can be separated physically only by insertion order and prior occupancies, not by a different route. Double hashing uses $(h+i s)\\bmod m$, so different steps can produce different positions after the common first probe. Sharing both home and step restores identical double-hash routes. Avoiding primary adjacent-home clustering does not mean that all collisions become independent or disappear; it removes one mechanism while retaining another.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q50",
+    "title": "Alternating signed squares",
+    "stem": "List alternating signed-square offsets modulo seven and explain why the same full-coverage theorem cannot be quoted for prime five.",
+    "solution": "At seven the offsets $0,+1,-1,+4,-4,+9,-9$ reduce to $[0,1,6,4,3,2,5]$, a permutation. Seven is a prime congruent to three modulo four, so negative nonzero squares occupy the nonsquare residues and complement the positive square set. At five, $-1$ is itself a square; positive and negative square sets overlap. The sequence begins $[0,1,4,4,1,4,1]$ and misses two and three. Both capacities are prime, but the congruence condition changes the coverage proof. General claims about quadratic probing must retain the particular offset formula and modulus conditions.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "alternating",
+    "visualQualification": "Exact deterministic companion for the stated inputs and declared operation. Read the saved state to distinguish intermediate repair from completed lookup invariants."
+  },
+  {
+    "id": "a_hash_Q51",
+    "title": "Triangular offsets at a power of two",
+    "stem": "Compute triangular offsets $i(i+1)/2$ modulo eight for $i=0,\\ldots,7$. Prove the permutation property by considering an assumed equality of two offsets.",
+    "solution": "The offsets are $[0,1,3,6,2,7,5,4]$. If distinct $i,j$ produced equal residues, $(i-j)(i+j+1)$ would be divisible by sixteen. The factors have opposite parity, so all factors of two must lie in the even one. But $|i-j|<8$ and $0<i+j+1<16$ for distinct indices in the range, making a nonzero even factor divisible by sixteen impossible. Thus all eight offsets differ and cover the table. This is a different policy from square offsets modulo eight, whose coverage failed in Q48; the word “quadratic” alone does not determine a correct trace.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "triangular",
+    "visualQualification": "Exact deterministic companion for the stated inputs and declared operation. Read the saved state to distinguish intermediate repair from completed lookup invariants."
+  },
+  {
+    "id": "a_hash_Q52",
+    "title": "Double-hash cycle length",
+    "stem": "Capacity is twelve, home two and step eight. Give the complete distinct route, its length and why “the step does not divide capacity” is insufficient.",
+    "solution": "The route is two, ten, six, then two again. Its length is $12/\\gcd(8,12)=12/4=3$. Step eight is nonzero and does not divide twelve, yet shares a factor four with it. After three occupied route positions, an insertion fails even if the other nine slots are empty. The necessary and sufficient full-cycle condition is coprimality, not either weaker condition. To derive it, solve $12\\mid8t$ for the smallest positive return time. Dividing by the greatest common divisor leaves relatively prime factors and forces the reduced capacity to divide $t$.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "double-failure",
+    "visualQualification": "Exact deterministic companion for the stated inputs and declared operation. Read the saved state to distinguish intermediate repair from completed lookup invariants."
+  },
+  {
+    "id": "a_hash_Q53",
+    "title": "Safe steps for a power-of-two capacity",
+    "stem": "At capacity sixteen, classify steps three, six, eight and fifteen by cycle length. Give a rule that guarantees full-cycle double hashing.",
+    "solution": "The lengths are $16/1=16$ for three, $16/2=8$ for six, $16/8=2$ for eight and $16/1=16$ for fifteen. A step must be odd to be relatively prime to a power of two. Nonzero even steps can produce severely restricted routes. An implementation can derive an odd step from a separately mixed code, but this guarantees coverage only; it does not prove that home and step are statistically independent or that query costs match a uniformly random permutation model. Coverage is a correctness condition for reaching free slots, while random-distribution quality is a performance condition.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q54",
+    "title": "Exact double-hashing trace",
+    "stem": "Use capacity eleven, home $k\\bmod11$, and step $1+(k\\bmod7)$. Insert $[10,21,32,43]$, then search for absent 54. Give its full route through the first empty cell.",
+    "solution": "The four steps are four, one, five and two. Insertion destinations are ten, zero, four and one: every insertion after the first collides at ten and takes its own second step. For 54, step is $1+5=6$ and home is ten. Its route begins ten, five, zero, six, one, seven and so on. Slot five is already empty, so the absent search terminates after two probes, not after traversing all occupied keys. The live table's locations alone cannot determine a query cost without the query's own secondary hash. All these steps are nonzero below the prime capacity, ensuring full coverage if necessary.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "double",
+    "visualQualification": "Exact deterministic companion for the stated inputs and declared operation. Read the saved state to distinguish intermediate repair from completed lookup invariants."
+  },
+  {
+    "id": "a_hash_Q55",
+    "title": "Counting affine routes",
+    "stem": "For prime capacity seven, how many distinct full-cycle affine routes are possible? Compare this with the number of arbitrary probe permutations and explain the modeling implication.",
+    "solution": "There are seven choices of starting home and six nonzero steps, giving 42 affine routes. Each pair is unique because the first position determines home and the second determines step. Arbitrary permutations number $7!=5040$. Double hashing therefore samples only a small structured subset even if home and step are uniformly chosen. It is not literally equivalent to a uniformly chosen permutation, so a theorem assuming all 5040 permutations cannot be transferred without a justified approximation or separate result. Coprime steps establish route coverage; they do not establish the stronger uniform-permutation distribution.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q56",
+    "title": "Finite ideal-probing miss expectation",
+    "stem": "Under ideal uniform random probe permutations, capacity ten has nine occupied slots. Compute exact unsuccessful probes and compare the geometric upper bound.",
+    "solution": "There is one empty slot. Its position in a uniformly random permutation is uniform among positions one through ten, giving exact mean $(1+10)/2=11/2$. The finite formula $(m+1)/(m-n+1)$ gives the same result. The geometric upper bound is $1/(1-9/10)=10$, which is valid but loose. An explicit bound should not be labeled the exact expectation. A linear-probing table with one circular run of nine also has uniform-home mean 5.5, but that coincidence at this near-full size does not make the two random models identical for other layouts.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q57",
+    "title": "Tail probabilities with a finite boundary",
+    "stem": "Capacity seven has four occupied positions and an independent uniform probe permutation. Compute $\\Pr(X\\ge3)$ and the largest possible $X$ for a miss.",
+    "solution": "Reaching the third probe requires the first two sampled positions to be occupied. Sampling without replacement gives $(4/7)(3/6)=2/7$. The miss cannot inspect more than five positions before encountering one of the three empty slots, since only four occupied slots exist. Thus $X\\le5$ and the tail is zero for thresholds above five. The geometric bound would give $(4/7)^2$, slightly larger than the exact probability. Correct finite boundaries matter when occupancy approaches capacity; a statement that the tail is already zero at $X=m$ fails when exactly one slot is empty.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q58",
+    "title": "Exact successful ideal-probing average",
+    "stem": "Four distinct records are inserted with independent uniform probe permutations into eight slots, without deletion. A stored key is chosen uniformly for lookup. Compute the exact average probes from insertion history.",
+    "solution": "The four insertion expectations are $9/9$, $9/8$, $9/7$ and $9/6$, since prior occupancies are zero through three. Successful lookup follows each key's original route and stops at its inserted position. The all-key expected average is $(1+9/8+9/7+3/2)/4=275/224$, approximately 1.228. This differs from the miss expectation at final occupancy, $9/5=1.8$. Successful-query costs average historical insertion costs, not simply the cost of the next absent insertion. Deletion, changed routes or a popularity-biased choice of stored key would require a different calculation.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q59",
+    "title": "Three random models at one load",
+    "stem": "At load 0.9, compare the standard linear-probing hit/miss estimates, the ideal-uniform-probing miss bound, and chained absent-query record expectation.",
+    "solution": "Linear-probing estimates are $\\frac12(1+10)=5.5$ for hits and $\\frac12(1+100)=50.5$ for misses. The ideal permutation miss bound is ten. Chaining under independent uniform homes gives 0.9 expected record comparisons for an absent query, plus constant hash/bucket work. These are not competing answers to one unqualified question; they describe different data structures, counters and random models. Linear probing pays for primary clustering. A chained miss may examine no records, while open addressing always examines at least its first slot. The assumptions and counter definitions must accompany every numerical value.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q60",
+    "title": "Inverting a linear-probing miss budget",
+    "stem": "Under the standard asymptotic linear-probing estimate, require average misses of at most five probes. Solve for an allowed load and state why the conclusion is not a deterministic promise.",
+    "solution": "Solve $\\frac12(1+(1-\\alpha)^{-2})\\le5$, giving $(1-\\alpha)^{-2}\\le9$. For $0\\le\\alpha<1$, this yields $1-\\alpha\\ge1/3$, hence $\\alpha\\le2/3$. It is a design choice based on an asymptotic random-home insertion model. A specific table at that load can still have a long cluster and larger exact miss average; an adversarial key set can cause linear individual queries. Tombstones and deletions also change the applicable model. The bound is useful for planning expected performance while retaining the original assumptions, not certifying every operation.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q61",
+    "title": "A chained-query budget",
+    "stem": "A universal-family chained table holds 900 keys. You want at most three expected absent-query record comparisons. Give a sufficient capacity and bound present-query bucket size separately.",
+    "solution": "Universality gives absent-query expectation at most $900/m$, so $m\\ge300$ suffices. At capacity 300, a present fixed key's expected bucket size is at most $1+899/300=1199/300$, just below four. This is an upper bound on scanning the complete bucket, not necessarily the exact successful rank. Load three is valid for chaining and can satisfy this record-comparison budget despite exceeding one. Hash evaluation, equality costs and any dynamic rebuilding add separately. The key set and query must remain fixed independently of the sampled function for the standard universal-family calculation.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q62",
+    "title": "Why insertion-only estimates can mislead",
+    "stem": "A capacity-100 open-addressed table has ten live records and eighty deleted markers in one circular nonempty run. Compute exact uniform-home misses and compare a live-load-only linear-probing estimate.",
+    "solution": "Nonempty occupancy is ninety slots, so the run formula gives $1+90(91)/(2\\cdot100)=41.95$ probes. Substituting live load 0.1 into the insertion-only estimate gives about $\\frac12(1+1/0.9^2)=1.117$, which is grossly misleading for this specified table. Tombstones cannot stop a miss; the deleted history matters. The exact formula uses the actual nonempty run, while the asymptotic estimate presumes an insertion-only random construction without this marker configuration. A same-capacity rebuild removes markers but has a scan/reinsert cost that must be paid and amortized appropriately.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q63",
+    "title": "Hash codes retained during resizing",
+    "stem": "At capacity seven, keys 12, 19 and 26 share home five. Give their homes at capacity fourteen and fifteen. What can and cannot be inferred about collision reduction from doubling?",
+    "solution": "Modulo fourteen, the homes are twelve, five and twelve, so the original three-key bucket splits into lengths two and one. Modulo fifteen, homes are twelve, four and eleven, all different. The raw key or cached raw code can stay unchanged, but index reduction must be recomputed. Doubling may split a bucket yet does not guarantee eliminating all collisions, as 12 and 26 still collide at fourteen. Copying the old bucket at index five into the new table would misplace two keys. Every live record must be reinserted according to the new capacity and any new hash parameters.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "rebuild",
+    "visualQualification": "The compact companion changes capacity seven to eleven, rather than the fourteen-slot calculation in the prompt. It illustrates recomputing homes and preserving records."
+  },
+  {
+    "id": "a_hash_Q64",
+    "title": "Growth by one versus doubling",
+    "stem": "A rebuild scans the entire old capacity. Compare total scan work to grow from capacity one to at least 64 using increments of one versus doubling. Include the correct last old capacity.",
+    "solution": "Incremental growth scans old capacities one through 63, totaling $63\\cdot64/2=2016$. Doubling scans old capacities $1,2,4,8,16,32$, totaling 63. The final allocated capacity is 64 in both comparisons; it is not another old-capacity scan in this setup. Initialization of the new arrays also forms a geometric linear sum for doubling, while incremental growth remains quadratic. Collision and key-processing work must still be justified separately. This aggregate capacity arithmetic explains the resize policy's amortized benefit, without asserting that an individual triggering insertion takes constant time.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q65",
+    "title": "Hysteresis and oscillation",
+    "stem": "A table doubles when full and halves whenever live load falls to one-half. Construct an alternating-update sequence causing repeated linear rebuilds, and give a safer threshold separation.",
+    "solution": "Start with a full capacity-$m$ table. An insertion triggers growth to $2m$ and leaves $m+1$ entries. Deleting one returns to $m$ entries, exactly half load, triggering shrink to $m$. Repeating insertion and deletion causes a rebuild every operation, each scanning a linear number of records. Shrinking instead near one-quarter load creates a gap: after growth, many deletions are needed before shrink, and after shrink, many insertions are needed before growth. Precise thresholds depend on the collision strategy, but they must prevent immediate oscillation. Geometric capacity changes alone do not guarantee amortized constant updates with badly chosen shrink rules.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q66",
+    "title": "Duplicate updates and live count",
+    "stem": "A table grows only when inserting a new key would exceed its live-load threshold. It receives 1000 `put` operations all on the same key. How many records should exist, and why can checking size before distinguishing updates cause unnecessary growth?",
+    "solution": "The map has one live record after the first insertion. Each later operation replaces its value and leaves live count unchanged. A correct threshold policy should avoid treating those updates as additional entries. Checking a conservative threshold before search can be functionally correct but may rebuild unnecessarily if an existing key would not raise the count. The interface's semantics determine which count changes are legitimate. A frequency map follows the same rule: many occurrences update one entry rather than creating duplicate records. Expected update search still depends on the bucket or probe route; repeated key identity does not justify arbitrary counter increments.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q67",
+    "title": "One-level perfect-hashing probability",
+    "stem": "Twelve fixed keys use a universal family with capacity $12^2$. Bound the probability of any collision and expected independent trials until collision-free placement. Separate test work from dense-array initialization.",
+    "solution": "Expected collision pairs are at most $\\binom{12}{2}/144=11/24$. Markov gives collision-event probability at most $11/24$, so success probability is at least $13/24$. Expected independent trials are at most $24/13$, below two. Testing twelve placements can be linear in the key count using suitable sparse or timestamped machinery, but initializing all 144 slots costs that capacity. As $n$ grows, the one-level $n^2$ table uses quadratic space and potentially quadratic initialization work. The probability calculation alone does not establish an overall linear-space or dense-array linear-time construction.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q68",
+    "title": "A two-level allocation calculation",
+    "stem": "A first-level perfect-hashing attempt has six buckets with lengths $[3,0,1,2,0,0]$. Compute total second-level slots, collision pairs and the $4n$ acceptance test. Include empty buckets explicitly.",
+    "solution": "The live count is six. Squared lengths sum to $9+0+1+4=14$, so the second-level arrays require fourteen slots before constant metadata. Pair collisions in first-level buckets are three plus one, totaling four, and the identity $n+2P=6+8=14$ checks the result. Since $4n=24$, this attempt passes the stated first-level space test. Bucket zero's three records require their own nine-slot collision-free second level; skipping index zero would lose half the keys. Empty buckets need no second-level record array, but queries reaching them must return absence safely.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "perfect",
+    "visualQualification": "Exact deterministic companion for the stated inputs and declared operation. Read the saved state to distinguish intermediate repair from completed lookup invariants."
+  },
+  {
+    "id": "a_hash_Q69",
+    "title": "Two-level expected squared space",
+    "stem": "For $n$ fixed keys and a universal first-level hash into $n$ buckets, derive an upper bound on expected squared bucket lengths and the probability that this sum exceeds $4n$.",
+    "solution": "The squared sum equals $n+2P$ where $P$ is the unordered first-level collision-pair count. Universality gives $E[P]\\le\\binom n2/n=(n-1)/2$, hence expected squared sum at most $2n-1$. Markov gives probability of a sum exceeding $4n$ at most $(2n-1)/(4n)<1/2$. Therefore independent first-level retries have success probability above one-half under this acceptance policy. The expected value is a bound, not necessarily an equality, because universal families can have smaller pair probabilities. Accepted final second-level allocation is deterministically at most $4n$ for this test, while the number of construction trials remains randomized.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q70",
+    "title": "Perfect lookup still verifies the key",
+    "stem": "A static perfect table has no collisions among its stored keys. Explain why an absent query must compare the key in its computed candidate slot and why inserting a new key can invalidate the guarantee.",
+    "solution": "Perfectness concerns only the known stored set. An outside key can hash to the same two-level location as a stored record, so treating any occupied candidate as a match would return a false value. Compare the actual key after the two hash computations and report absence if unequal. A new key may collide with existing second-level placement; the original construction's acceptance tests did not include it. Supporting arbitrary dynamic insertion therefore requires rebuilding affected structure or a separately analyzed dynamic-perfect scheme. Worst-case constant slot lookup after successful static construction is a distinct claim from dynamic update costs or full-universe injectivity.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q71",
+    "title": "Geometric trial expectation",
+    "stem": "Every independent perfect-hashing trial succeeds with probability at least one-half. Bound expected trials and the probability more than six trials are needed. Explain how lack of fresh randomness changes the conclusion.",
+    "solution": "With success probability $p\\ge1/2$, the expected geometric trial count is $1/p\\le2$. Needing more than six trials means six consecutive failures, with probability at most $(1/2)^6=1/64$ under fresh independent choices, or under appropriately conditioned per-trial failure bounds. Reusing the same failed hash function gives the same placement, so repeated attempts are not independent trials and can fail forever. The expectation is not a deadline guarantee; rare long sequences remain possible. Recording the successful parameters makes final lookup deterministic even though construction used random retries.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q72",
+    "title": "Initialization included in perfect construction",
+    "stem": "An accepted two-level first stage has $\\sum_j\\ell_j^2\\le4n$. Each nonempty bucket needs at most two expected trials, each initializing and checking $\\ell_j^2$ slots. Derive total expected second-stage work including initialization.",
+    "solution": "For each bucket, expected work is at most a fixed constant times $2\\ell_j^2$, absorbing placement/checking of its $\\ell_j$ records because $\\ell_j\\le\\ell_j^2$ when nonempty. Sum over buckets to get at most a constant times $2(4n)=8n$. This is linear expected total work and includes dense second-level initialization, unlike an unqualified one-level $n^2$ construction claim. Empty buckets contribute only bounded first-level metadata work. The accepted first-level space condition is crucial; without it the squared sum could be quadratic. Random construction and deterministic post-construction lookup remain separately stated properties.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q73",
+    "title": "Bloom-filter false positives",
+    "stem": "A Bloom filter has 1000 bits, stores 100 keys and uses seven ideal independent bit hashes. Estimate false-positive probability and explain why this is not an exact dictionary membership result.",
+    "solution": "The continuous estimate of a zero bit is $e^{-700/1000}=e^{-0.7}$. Approximate occupied-bit fraction is $1-e^{-0.7}\\approx0.5034$, giving false-positive estimate $(1-e^{-0.7})^7\\approx0.0082$. Exact zero-bit probability under independent draws is $(999/1000)^{700}$, but treating queried bit events as independent is an additional approximation. A positive response only means all requested bits are set, not that the key was inserted. Under an insertion-only correct implementation, an inserted key has no false negative because its bits remain set. Clearing shared bits for deletion breaks that property.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "bloom",
+    "visualQualification": "The thirteen-bit mechanism demonstration uses explicitly declared deterministic bit functions. It is not a numerical visualization of the ideal 1000-bit probability calculation."
+  },
+  {
+    "id": "a_hash_Q74",
+    "title": "The Bloom-filter optimum",
+    "stem": "For bit budget $b$ and $n$ keys, state the approximate optimum number of hashes and compute it when $b/n=8$. Compare the two neighboring integers and explain the computational tradeoff.",
+    "solution": "The standard continuous false-positive approximation is minimized near $k=(b/n)\\ln2$. At ratio eight this is about 5.545, so test integer choices five and six under the chosen approximation. They give roughly $(1-e^{-5/8})^5\\approx0.0217$ and $(1-e^{-6/8})^6\\approx0.0216$, with six slightly better. Every additional hash also adds work, so a practical choice can trade a small probability difference for throughput. The optimum is not a universal exact theorem for correlated hash outputs or a fixed finite bit layout. It depends on the idealized model and the absence of deletion errors.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q75",
+    "title": "A cuckoo capacity obstruction",
+    "stem": "Four keys have candidate pairs drawn only from three slots: $(A,B),(B,C),(A,C),(A,B)$. Prove no one-key-per-slot placement exists. Does one cycle alone always imply failure?",
+    "solution": "The four distinct keys have only three available candidate slots in their connected component. Pigeonhole immediately rules out placement. In the candidate graph, this component has four edges and three vertices, so it contains more keys than positions. A component containing exactly one cycle can still place its keys by orienting that cycle consistently and attaching tree edges away from it. Therefore observing a displacement cycle can indicate failure of a particular insertion path or trigger a bounded rebuilding policy without proving that every possible placement is impossible. The four-on-three example is a genuine structural obstruction, not merely an animation loop.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "modelId": "cuckoo-failure",
+    "visualQualification": "The compact three-key example has candidate positions L0 and R0 for each key, so three records cannot fit in two positions. This illustrates the same candidate-set obstruction with different inputs."
+  },
+  {
+    "id": "a_hash_Q76",
+    "title": "Two-sum with duplicate values",
+    "stem": "Process $[4,1,4]$ for target eight using a prior-values hash set. Give the exact query/insert sequence and explain why inserting before querying can produce a wrong answer for input $[4]$.",
+    "solution": "Initially the set is empty. For the first four, query complement four and miss, then insert four. For one, query seven and miss, then insert one. For the final four, query four and succeed because the first position already supplied that value. Two distinct positions form the pair. If the current value were inserted before its own complement query, the one-element input four would falsely match itself. The set stores values rather than positions, but the operation order enforces distinctness. Expected linear total work follows only with the table's expected lookup/insertion assumptions and safe arithmetic for computing the complement.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q77",
+    "title": "Prefix-sum counting",
+    "stem": "Count zero-sum contiguous subarrays of $[2,-2,2,-2]$ using a frequency map of prior prefix sums. Give every update and total, including the initial empty prefix.",
+    "solution": "Start frequencies with zero occurring once. The prefix sums are two, zero, two and zero. At prefix two, add its prior frequency zero and set its count to one. At zero, add one and raise zero's count to two. At the next two, add one and raise two's count to two. At the final zero, add two and raise zero's count to three. Total is four. The empty-prefix initialization counts subarrays starting at the first element. Query before incrementing prevents counting a zero-length subarray at the current position. Map updates replace counts; they do not create duplicate key records.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q78",
+    "title": "Ordered queries versus equality queries",
+    "stem": "A service needs equality lookup, predecessor by key, key median and deletion of maximum priority, with priority unrelated to key order. Explain why one plain hash table is insufficient and outline a correct combined structure.",
+    "solution": "A hash table routes by equality-oriented codes and does not preserve key or priority order. Predecessor and median cannot be inferred from neighboring physical slots. Maintain a balanced tree ordered by key with subtree sizes for rank selection and an aggregate identifying the maximum-priority record under a specified tie policy. An identifier map can locate records quickly. Priority changes update winner aggregates along the affected path; deletion changes both size and priority metadata. All mutation paths must maintain consistency. With balanced height, the ordered operations and aggregate maintenance take logarithmic worst-case tree work; hash lookup contributes its separately qualified expected cost.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics",
+    "visualQualification": "The Robin Hood companion illustrates displacement exchange. The prompt asks for a multi-operation ordered dictionary design, whose proof is given in the written solution."
+  },
+  {
+    "id": "a_hash_Q79",
+    "title": "A deterministic alternative under hostile hashing",
+    "stem": "An application requires a worst-case logarithmic bound for arbitrary keys and ordered range queries. Should an expected constant-time chained table automatically be preferred? Give a justified selection.",
+    "solution": "The requirements favor a balanced comparison tree with an appropriate key comparison operation. It supports ordered range/rank navigation and has a logarithmic worst-case height guarantee. A chained table may have faster typical equality lookup but permits a linear bucket and does not supply ordered range navigation. Combining structures can support both, yet adds memory and consistency work. The choice depends on required operations and guarantees rather than comparing unqualified “one” versus “logarithm” costs. If key comparisons inspect long strings, the tree's character cost must also be stated; worst-case node visits and total key-processing work are distinct measures.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  },
+  {
+    "id": "a_hash_Q80",
+    "title": "A complete counter-and-correctness audit",
+    "stem": "Audit this claim: “At load below one-half, every hash-map insertion is constant worst-case time; any deleted slot can terminate search; resizing only copies slots; equal hashes identify equal keys.” Give a precise replacement for each clause.",
+    "solution": "Low load can support constant expected performance under a suitable random model but does not prevent concentrated chains or long linear-probing clusters. A deleted marker preserves reachability and must not terminate unsuccessful search; only a never-used/currently repaired empty slot provides that certificate. Resizing changes routes, so live records must be rehashed/reinserted and a triggering operation can be linear actual time. Equal hashes require an actual key-equality check; unequal keys can collide even with a good family. A valid map additionally handles duplicate updates without increasing live count and uses bounded routes. These corrections jointly restore both the contract and the cost qualifications rather than patching only one erroneous complexity label.",
+    "origin": "Original or independently reconstructed written-course exercise family; numerical data and complete reasoning authored for this chapter.",
+    "difficulty": "Medium to hard, with foundational diagnostics"
+  }
+]

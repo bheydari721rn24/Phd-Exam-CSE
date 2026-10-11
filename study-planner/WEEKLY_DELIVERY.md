@@ -576,3 +576,8 @@ Completed a_balanced with 82 fully worked questions, 80 final rules, 26 speciali
 ## Heap and priority-queue review draft
 
 Completed a_heap: 82 fully worked questions, 80 final rules, five genuinely read universities, 21 specialized models / 359 checkpoints. Independent verification passed 2120 inputs / 24992 checkpoints; real Edge passed all checkpoint geometry, 1864 arrow endpoints, movement/pause/resume, editable boundaries, MathML, fonts, mobile and print. All 53 preceding pages remain unchanged. Library: 54 chapters / 3657 worked questions. Publication is tracked separately; no student approval is inferred. Authoring proceeds to a_hash under standing continuous authorization.
+
+
+## Hash-table review draft
+
+Completed a_hash: 82 worked questions, 80 final rules, four core written courses from four universities and two additional reviewed universities. Twenty-one specialized models / 551 checkpoints; independent checks passed 1167 inputs / 70392 checkpoints and 11967 dictionary contracts. Real Edge passed geometry, 69 attached connections, native mathematics, controls, editable boundaries, mobile and print. All 54 preceding pages remain unchanged. Library: 55 chapters / 3739 worked questions. Publication is tracked separately; no student approval is inferred. Continue with a_amortized under standing continuous authorization.
