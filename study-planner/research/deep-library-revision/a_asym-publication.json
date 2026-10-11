@@ -1,0 +1,16 @@
+{
+  "status": "upload_failed_no_saved_version",
+  "sourceCommit": "7980ac1f52ab9fdc95ba81d17bbaabb8c28f8cf0",
+  "githubMirrorCommit": "c97841a",
+  "archive": "C:/Users/bheydari/AppData/Local/Temp/deep-asym-immutable-20261011.tar.gz",
+  "archiveSha256": "a7f7ec6b52a1bf0be2b51614938dc02d4b2a93f6cad3f3b67c19abc901b91b4b",
+  "archiveEntries": 489,
+  "attempts": [
+    {"result": "connection_error", "stage": "backend-api/files/file_0000000052908210b8d88e9a2ec48050/uploaded"},
+    {"result": "connection_error", "stage": "backend-api/files"}
+  ],
+  "savedVersionId": null,
+  "deploymentId": null,
+  "latestConfirmedPublication": "research/deep-library-revision/a_model-publication.json",
+  "note": "All six reviewed chapters are saved in the source repository and GitHub mirror. The latest confirmed online deployment contains the earlier five reviews. A later combined immutable archive may supersede these failed upload attempts."
+}

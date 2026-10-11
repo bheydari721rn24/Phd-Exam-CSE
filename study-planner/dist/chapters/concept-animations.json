@@ -220012,6 +220012,1166 @@
           }
         }
       ]
+    },
+    "loop-question-parity": {
+      "id": "loop-question-parity",
+      "title": "Question 9: the exact filtered triangle",
+      "description": "Rows represent outer index i, columns represent inner index j. Green cells run the body; pink cells fail the parity filter. The diagonal is always kept, so the finite triangle does not split into equal halves.",
+      "descriptionHtml": "<p>Rows represent outer index i, columns represent inner index j. Green cells run the body; pink cells fail the parity filter. The diagonal is always kept, so the finite triangle does not split into equal halves.</p>",
+      "invariant": "Each displayed count equals the number of successful events in the explicitly stated finite region or array prefix.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "Exact question-specific integer grid or fixed-array state trace; not a generic growth picture."
+      },
+      "code": [
+        "Evaluate the exact stated predicate, then update its specified counter"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 1,
+            "rowCount": 1,
+            "total": 1
+          },
+          "caption": "Row i=1 tests 1 positions, keeps 1 same-parity positions, and brings the cumulative body count to 1. Earlier rows remain visible; later rows are not yet visited.",
+          "captionHtml": "<p>Row i=1 tests 1 positions, keeps 1 same-parity positions, and brings the cumulative body count to 1. Earlier rows remain visible; later rows are not yet visited.</p>",
+          "metrics": {},
+          "formula": "B(1)=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"B(1)=1\"><mrow><mi>B</mi><mrow><mo>(</mo><mn>1</mn><mo>)</mo></mrow><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Row i=1 tests 1 positions, keeps 1 same-parity positions, and brings the cumulative body count to 1. Earlier rows remain visible; later rows are not yet visited.",
+            "currentState": {
+              "n": 8,
+              "i": 1,
+              "rowCount": 1,
+              "total": 1
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 2,
+            "rowCount": 1,
+            "total": 2
+          },
+          "caption": "Row i=2 tests 2 positions, keeps 1 same-parity positions, and brings the cumulative body count to 2. Earlier rows remain visible; later rows are not yet visited.",
+          "captionHtml": "<p>Row i=2 tests 2 positions, keeps 1 same-parity positions, and brings the cumulative body count to 2. Earlier rows remain visible; later rows are not yet visited.</p>",
+          "metrics": {},
+          "formula": "B(2)=2",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"B(2)=2\"><mrow><mi>B</mi><mrow><mo>(</mo><mn>2</mn><mo>)</mo></mrow><mo>=</mo><mn>2</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Row i=2 tests 2 positions, keeps 1 same-parity positions, and brings the cumulative body count to 2. Earlier rows remain visible; later rows are not yet visited.",
+            "currentState": {
+              "n": 8,
+              "i": 2,
+              "rowCount": 1,
+              "total": 2
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 3,
+            "rowCount": 2,
+            "total": 4
+          },
+          "caption": "Row i=3 tests 3 positions, keeps 2 same-parity positions, and brings the cumulative body count to 4. Earlier rows remain visible; later rows are not yet visited.",
+          "captionHtml": "<p>Row i=3 tests 3 positions, keeps 2 same-parity positions, and brings the cumulative body count to 4. Earlier rows remain visible; later rows are not yet visited.</p>",
+          "metrics": {},
+          "formula": "B(3)=4",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"B(3)=4\"><mrow><mi>B</mi><mrow><mo>(</mo><mn>3</mn><mo>)</mo></mrow><mo>=</mo><mn>4</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Row i=3 tests 3 positions, keeps 2 same-parity positions, and brings the cumulative body count to 4. Earlier rows remain visible; later rows are not yet visited.",
+            "currentState": {
+              "n": 8,
+              "i": 3,
+              "rowCount": 2,
+              "total": 4
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 4,
+            "rowCount": 2,
+            "total": 6
+          },
+          "caption": "Row i=4 tests 4 positions, keeps 2 same-parity positions, and brings the cumulative body count to 6. Earlier rows remain visible; later rows are not yet visited.",
+          "captionHtml": "<p>Row i=4 tests 4 positions, keeps 2 same-parity positions, and brings the cumulative body count to 6. Earlier rows remain visible; later rows are not yet visited.</p>",
+          "metrics": {},
+          "formula": "B(4)=6",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"B(4)=6\"><mrow><mi>B</mi><mrow><mo>(</mo><mn>4</mn><mo>)</mo></mrow><mo>=</mo><mn>6</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Row i=4 tests 4 positions, keeps 2 same-parity positions, and brings the cumulative body count to 6. Earlier rows remain visible; later rows are not yet visited.",
+            "currentState": {
+              "n": 8,
+              "i": 4,
+              "rowCount": 2,
+              "total": 6
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 5,
+            "rowCount": 3,
+            "total": 9
+          },
+          "caption": "Row i=5 tests 5 positions, keeps 3 same-parity positions, and brings the cumulative body count to 9. Earlier rows remain visible; later rows are not yet visited.",
+          "captionHtml": "<p>Row i=5 tests 5 positions, keeps 3 same-parity positions, and brings the cumulative body count to 9. Earlier rows remain visible; later rows are not yet visited.</p>",
+          "metrics": {},
+          "formula": "B(5)=9",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"B(5)=9\"><mrow><mi>B</mi><mrow><mo>(</mo><mn>5</mn><mo>)</mo></mrow><mo>=</mo><mn>9</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Row i=5 tests 5 positions, keeps 3 same-parity positions, and brings the cumulative body count to 9. Earlier rows remain visible; later rows are not yet visited.",
+            "currentState": {
+              "n": 8,
+              "i": 5,
+              "rowCount": 3,
+              "total": 9
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 6,
+            "rowCount": 3,
+            "total": 12
+          },
+          "caption": "Row i=6 tests 6 positions, keeps 3 same-parity positions, and brings the cumulative body count to 12. Earlier rows remain visible; later rows are not yet visited.",
+          "captionHtml": "<p>Row i=6 tests 6 positions, keeps 3 same-parity positions, and brings the cumulative body count to 12. Earlier rows remain visible; later rows are not yet visited.</p>",
+          "metrics": {},
+          "formula": "B(6)=12",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"B(6)=12\"><mrow><mi>B</mi><mrow><mo>(</mo><mn>6</mn><mo>)</mo></mrow><mo>=</mo><mn>12</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Row i=6 tests 6 positions, keeps 3 same-parity positions, and brings the cumulative body count to 12. Earlier rows remain visible; later rows are not yet visited.",
+            "currentState": {
+              "n": 8,
+              "i": 6,
+              "rowCount": 3,
+              "total": 12
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 7,
+            "rowCount": 4,
+            "total": 16
+          },
+          "caption": "Row i=7 tests 7 positions, keeps 4 same-parity positions, and brings the cumulative body count to 16. Earlier rows remain visible; later rows are not yet visited.",
+          "captionHtml": "<p>Row i=7 tests 7 positions, keeps 4 same-parity positions, and brings the cumulative body count to 16. Earlier rows remain visible; later rows are not yet visited.</p>",
+          "metrics": {},
+          "formula": "B(7)=16",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"B(7)=16\"><mrow><mi>B</mi><mrow><mo>(</mo><mn>7</mn><mo>)</mo></mrow><mo>=</mo><mn>16</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Row i=7 tests 7 positions, keeps 4 same-parity positions, and brings the cumulative body count to 16. Earlier rows remain visible; later rows are not yet visited.",
+            "currentState": {
+              "n": 8,
+              "i": 7,
+              "rowCount": 4,
+              "total": 16
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 8,
+            "rowCount": 4,
+            "total": 20
+          },
+          "caption": "Row i=8 tests 8 positions, keeps 4 same-parity positions, and brings the cumulative body count to 20. Earlier rows remain visible; later rows are not yet visited.",
+          "captionHtml": "<p>Row i=8 tests 8 positions, keeps 4 same-parity positions, and brings the cumulative body count to 20. Earlier rows remain visible; later rows are not yet visited.</p>",
+          "metrics": {},
+          "formula": "B(8)=20",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"B(8)=20\"><mrow><mi>B</mi><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>20</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Row i=8 tests 8 positions, keeps 4 same-parity positions, and brings the cumulative body count to 20. Earlier rows remain visible; later rows are not yet visited.",
+            "currentState": {
+              "n": 8,
+              "i": 8,
+              "rowCount": 4,
+              "total": 20
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        }
+      ]
+    },
+    "loop-question-minimum": {
+      "id": "loop-question-minimum",
+      "title": "Question 11: fixed-array comparisons and updates",
+      "description": "Each checkpoint compares exactly one supplied array key with the current minimum. The comparison counter increments on every key; the assignment counter increments only on a new record.",
+      "descriptionHtml": "<p>Each checkpoint compares exactly one supplied array key with the current minimum. The comparison counter increments on every key; the assignment counter increments only on a new record.</p>",
+      "invariant": "Each displayed count equals the number of successful events in the explicitly stated finite region or array prefix.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "Exact question-specific integer grid or fixed-array state trace; not a generic growth picture."
+      },
+      "code": [
+        "Evaluate the exact stated predicate, then update its specified counter"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "values": [
+              8,
+              3,
+              7,
+              2,
+              6,
+              1,
+              5,
+              4
+            ],
+            "i": 1,
+            "key": 8,
+            "before": "positive infinity",
+            "after": 8,
+            "update": true,
+            "updates": 1,
+            "comparisons": 1
+          },
+          "caption": "Compare key 8 at position 1 against the previous minimum positive infinity. The test is true, so assign the new minimum. There have been 1 comparisons and 1 successful updates.",
+          "captionHtml": "<p>Compare key 8 at position 1 against the previous minimum positive infinity. The test is true, so assign the new minimum. There have been 1 comparisons and 1 successful updates.</p>",
+          "metrics": {},
+          "formula": "C=1,\\quad U=1,\\quad m=8",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=1,\\quad U=1,\\quad m=8\"><mrow><mi>C</mi><mo>=</mo><mn>1</mn><mo>,</mo><mspace width=\"1em\"/><mi>U</mi><mo>=</mo><mn>1</mn><mo>,</mo><mspace width=\"1em\"/><mi>m</mi><mo>=</mo><mn>8</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Compare key 8 at position 1 against the previous minimum positive infinity. The test is true, so assign the new minimum. There have been 1 comparisons and 1 successful updates.",
+            "currentState": {
+              "values": [
+                8,
+                3,
+                7,
+                2,
+                6,
+                1,
+                5,
+                4
+              ],
+              "i": 1,
+              "key": 8,
+              "before": "positive infinity",
+              "after": 8,
+              "update": true,
+              "updates": 1,
+              "comparisons": 1
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "values": [
+              8,
+              3,
+              7,
+              2,
+              6,
+              1,
+              5,
+              4
+            ],
+            "i": 2,
+            "key": 3,
+            "before": 8,
+            "after": 3,
+            "update": true,
+            "updates": 2,
+            "comparisons": 2
+          },
+          "caption": "Compare key 3 at position 2 against the previous minimum 8. The test is true, so assign the new minimum. There have been 2 comparisons and 2 successful updates.",
+          "captionHtml": "<p>Compare key 3 at position 2 against the previous minimum 8. The test is true, so assign the new minimum. There have been 2 comparisons and 2 successful updates.</p>",
+          "metrics": {},
+          "formula": "C=2,\\quad U=2,\\quad m=3",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=2,\\quad U=2,\\quad m=3\"><mrow><mi>C</mi><mo>=</mo><mn>2</mn><mo>,</mo><mspace width=\"1em\"/><mi>U</mi><mo>=</mo><mn>2</mn><mo>,</mo><mspace width=\"1em\"/><mi>m</mi><mo>=</mo><mn>3</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Compare key 3 at position 2 against the previous minimum 8. The test is true, so assign the new minimum. There have been 2 comparisons and 2 successful updates.",
+            "currentState": {
+              "values": [
+                8,
+                3,
+                7,
+                2,
+                6,
+                1,
+                5,
+                4
+              ],
+              "i": 2,
+              "key": 3,
+              "before": 8,
+              "after": 3,
+              "update": true,
+              "updates": 2,
+              "comparisons": 2
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "values": [
+              8,
+              3,
+              7,
+              2,
+              6,
+              1,
+              5,
+              4
+            ],
+            "i": 3,
+            "key": 7,
+            "before": 3,
+            "after": 3,
+            "update": false,
+            "updates": 2,
+            "comparisons": 3
+          },
+          "caption": "Compare key 7 at position 3 against the previous minimum 3. The test is false, so preserve the minimum. There have been 3 comparisons and 2 successful updates.",
+          "captionHtml": "<p>Compare key 7 at position 3 against the previous minimum 3. The test is false, so preserve the minimum. There have been 3 comparisons and 2 successful updates.</p>",
+          "metrics": {},
+          "formula": "C=3,\\quad U=2,\\quad m=3",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=3,\\quad U=2,\\quad m=3\"><mrow><mi>C</mi><mo>=</mo><mn>3</mn><mo>,</mo><mspace width=\"1em\"/><mi>U</mi><mo>=</mo><mn>2</mn><mo>,</mo><mspace width=\"1em\"/><mi>m</mi><mo>=</mo><mn>3</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Compare key 7 at position 3 against the previous minimum 3. The test is false, so preserve the minimum. There have been 3 comparisons and 2 successful updates.",
+            "currentState": {
+              "values": [
+                8,
+                3,
+                7,
+                2,
+                6,
+                1,
+                5,
+                4
+              ],
+              "i": 3,
+              "key": 7,
+              "before": 3,
+              "after": 3,
+              "update": false,
+              "updates": 2,
+              "comparisons": 3
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "values": [
+              8,
+              3,
+              7,
+              2,
+              6,
+              1,
+              5,
+              4
+            ],
+            "i": 4,
+            "key": 2,
+            "before": 3,
+            "after": 2,
+            "update": true,
+            "updates": 3,
+            "comparisons": 4
+          },
+          "caption": "Compare key 2 at position 4 against the previous minimum 3. The test is true, so assign the new minimum. There have been 4 comparisons and 3 successful updates.",
+          "captionHtml": "<p>Compare key 2 at position 4 against the previous minimum 3. The test is true, so assign the new minimum. There have been 4 comparisons and 3 successful updates.</p>",
+          "metrics": {},
+          "formula": "C=4,\\quad U=3,\\quad m=2",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=4,\\quad U=3,\\quad m=2\"><mrow><mi>C</mi><mo>=</mo><mn>4</mn><mo>,</mo><mspace width=\"1em\"/><mi>U</mi><mo>=</mo><mn>3</mn><mo>,</mo><mspace width=\"1em\"/><mi>m</mi><mo>=</mo><mn>2</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Compare key 2 at position 4 against the previous minimum 3. The test is true, so assign the new minimum. There have been 4 comparisons and 3 successful updates.",
+            "currentState": {
+              "values": [
+                8,
+                3,
+                7,
+                2,
+                6,
+                1,
+                5,
+                4
+              ],
+              "i": 4,
+              "key": 2,
+              "before": 3,
+              "after": 2,
+              "update": true,
+              "updates": 3,
+              "comparisons": 4
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "values": [
+              8,
+              3,
+              7,
+              2,
+              6,
+              1,
+              5,
+              4
+            ],
+            "i": 5,
+            "key": 6,
+            "before": 2,
+            "after": 2,
+            "update": false,
+            "updates": 3,
+            "comparisons": 5
+          },
+          "caption": "Compare key 6 at position 5 against the previous minimum 2. The test is false, so preserve the minimum. There have been 5 comparisons and 3 successful updates.",
+          "captionHtml": "<p>Compare key 6 at position 5 against the previous minimum 2. The test is false, so preserve the minimum. There have been 5 comparisons and 3 successful updates.</p>",
+          "metrics": {},
+          "formula": "C=5,\\quad U=3,\\quad m=2",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=5,\\quad U=3,\\quad m=2\"><mrow><mi>C</mi><mo>=</mo><mn>5</mn><mo>,</mo><mspace width=\"1em\"/><mi>U</mi><mo>=</mo><mn>3</mn><mo>,</mo><mspace width=\"1em\"/><mi>m</mi><mo>=</mo><mn>2</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Compare key 6 at position 5 against the previous minimum 2. The test is false, so preserve the minimum. There have been 5 comparisons and 3 successful updates.",
+            "currentState": {
+              "values": [
+                8,
+                3,
+                7,
+                2,
+                6,
+                1,
+                5,
+                4
+              ],
+              "i": 5,
+              "key": 6,
+              "before": 2,
+              "after": 2,
+              "update": false,
+              "updates": 3,
+              "comparisons": 5
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "values": [
+              8,
+              3,
+              7,
+              2,
+              6,
+              1,
+              5,
+              4
+            ],
+            "i": 6,
+            "key": 1,
+            "before": 2,
+            "after": 1,
+            "update": true,
+            "updates": 4,
+            "comparisons": 6
+          },
+          "caption": "Compare key 1 at position 6 against the previous minimum 2. The test is true, so assign the new minimum. There have been 6 comparisons and 4 successful updates.",
+          "captionHtml": "<p>Compare key 1 at position 6 against the previous minimum 2. The test is true, so assign the new minimum. There have been 6 comparisons and 4 successful updates.</p>",
+          "metrics": {},
+          "formula": "C=6,\\quad U=4,\\quad m=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=6,\\quad U=4,\\quad m=1\"><mrow><mi>C</mi><mo>=</mo><mn>6</mn><mo>,</mo><mspace width=\"1em\"/><mi>U</mi><mo>=</mo><mn>4</mn><mo>,</mo><mspace width=\"1em\"/><mi>m</mi><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Compare key 1 at position 6 against the previous minimum 2. The test is true, so assign the new minimum. There have been 6 comparisons and 4 successful updates.",
+            "currentState": {
+              "values": [
+                8,
+                3,
+                7,
+                2,
+                6,
+                1,
+                5,
+                4
+              ],
+              "i": 6,
+              "key": 1,
+              "before": 2,
+              "after": 1,
+              "update": true,
+              "updates": 4,
+              "comparisons": 6
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "values": [
+              8,
+              3,
+              7,
+              2,
+              6,
+              1,
+              5,
+              4
+            ],
+            "i": 7,
+            "key": 5,
+            "before": 1,
+            "after": 1,
+            "update": false,
+            "updates": 4,
+            "comparisons": 7
+          },
+          "caption": "Compare key 5 at position 7 against the previous minimum 1. The test is false, so preserve the minimum. There have been 7 comparisons and 4 successful updates.",
+          "captionHtml": "<p>Compare key 5 at position 7 against the previous minimum 1. The test is false, so preserve the minimum. There have been 7 comparisons and 4 successful updates.</p>",
+          "metrics": {},
+          "formula": "C=7,\\quad U=4,\\quad m=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=7,\\quad U=4,\\quad m=1\"><mrow><mi>C</mi><mo>=</mo><mn>7</mn><mo>,</mo><mspace width=\"1em\"/><mi>U</mi><mo>=</mo><mn>4</mn><mo>,</mo><mspace width=\"1em\"/><mi>m</mi><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Compare key 5 at position 7 against the previous minimum 1. The test is false, so preserve the minimum. There have been 7 comparisons and 4 successful updates.",
+            "currentState": {
+              "values": [
+                8,
+                3,
+                7,
+                2,
+                6,
+                1,
+                5,
+                4
+              ],
+              "i": 7,
+              "key": 5,
+              "before": 1,
+              "after": 1,
+              "update": false,
+              "updates": 4,
+              "comparisons": 7
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "values": [
+              8,
+              3,
+              7,
+              2,
+              6,
+              1,
+              5,
+              4
+            ],
+            "i": 8,
+            "key": 4,
+            "before": 1,
+            "after": 1,
+            "update": false,
+            "updates": 4,
+            "comparisons": 8
+          },
+          "caption": "Compare key 4 at position 8 against the previous minimum 1. The test is false, so preserve the minimum. There have been 8 comparisons and 4 successful updates.",
+          "captionHtml": "<p>Compare key 4 at position 8 against the previous minimum 1. The test is false, so preserve the minimum. There have been 8 comparisons and 4 successful updates.</p>",
+          "metrics": {},
+          "formula": "C=8,\\quad U=4,\\quad m=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"C=8,\\quad U=4,\\quad m=1\"><mrow><mi>C</mi><mo>=</mo><mn>8</mn><mo>,</mo><mspace width=\"1em\"/><mi>U</mi><mo>=</mo><mn>4</mn><mo>,</mo><mspace width=\"1em\"/><mi>m</mi><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Compare key 4 at position 8 against the previous minimum 1. The test is false, so preserve the minimum. There have been 8 comparisons and 4 successful updates.",
+            "currentState": {
+              "values": [
+                8,
+                3,
+                7,
+                2,
+                6,
+                1,
+                5,
+                4
+              ],
+              "i": 8,
+              "key": 4,
+              "before": 1,
+              "after": 1,
+              "update": false,
+              "updates": 4,
+              "comparisons": 8
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        }
+      ]
+    },
+    "loop-question-product": {
+      "id": "loop-question-product",
+      "title": "Question 45: product-constrained layers at n=8",
+      "description": "For each fixed positive first factor i, rows are j and columns are k. Each green cell is one unique positive triple with product at most eight. The displayed finite layers complement the proof for arbitrary n.",
+      "descriptionHtml": "<p>For each fixed positive first factor i, rows are j and columns are k. Each green cell is one unique positive triple with product at most eight. The displayed finite layers complement the proof for arbitrary n.</p>",
+      "invariant": "Each displayed count equals the number of successful events in the explicitly stated finite region or array prefix.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "Exact question-specific integer grid or fixed-array state trace; not a generic growth picture."
+      },
+      "code": [
+        "Evaluate the exact stated predicate, then update its specified counter"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 1,
+            "rowCounts": [
+              8,
+              4,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1
+            ],
+            "layerCount": 20,
+            "total": 20
+          },
+          "caption": "Fix first factor i=1. Exactly 20 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 20. The full grid tests feasibility; gray cells are not part of the counted region.",
+          "captionHtml": "<p>Fix first factor i=1. Exactly 20 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 20. The full grid tests feasibility; gray cells are not part of the counted region.</p>",
+          "metrics": {},
+          "formula": "A_{1}(8)=20,\\quad P_{1}(8)=20",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"A_{1}(8)=20,\\quad P_{1}(8)=20\"><mrow><msub><mi>A</mi><mrow><mn>1</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>20</mn><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mrow><mn>1</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>20</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Fix first factor i=1. Exactly 20 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 20. The full grid tests feasibility; gray cells are not part of the counted region.",
+            "currentState": {
+              "n": 8,
+              "i": 1,
+              "rowCounts": [
+                8,
+                4,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1
+              ],
+              "layerCount": 20,
+              "total": 20
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 2,
+            "rowCounts": [
+              4,
+              2,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            "layerCount": 8,
+            "total": 28
+          },
+          "caption": "Fix first factor i=2. Exactly 8 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 28. The full grid tests feasibility; gray cells are not part of the counted region.",
+          "captionHtml": "<p>Fix first factor i=2. Exactly 8 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 28. The full grid tests feasibility; gray cells are not part of the counted region.</p>",
+          "metrics": {},
+          "formula": "A_{2}(8)=8,\\quad P_{2}(8)=28",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"A_{2}(8)=8,\\quad P_{2}(8)=28\"><mrow><msub><mi>A</mi><mrow><mn>2</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>8</mn><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mrow><mn>2</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>28</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Fix first factor i=2. Exactly 8 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 28. The full grid tests feasibility; gray cells are not part of the counted region.",
+            "currentState": {
+              "n": 8,
+              "i": 2,
+              "rowCounts": [
+                4,
+                2,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "layerCount": 8,
+              "total": 28
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 3,
+            "rowCounts": [
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "layerCount": 3,
+            "total": 31
+          },
+          "caption": "Fix first factor i=3. Exactly 3 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 31. The full grid tests feasibility; gray cells are not part of the counted region.",
+          "captionHtml": "<p>Fix first factor i=3. Exactly 3 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 31. The full grid tests feasibility; gray cells are not part of the counted region.</p>",
+          "metrics": {},
+          "formula": "A_{3}(8)=3,\\quad P_{3}(8)=31",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"A_{3}(8)=3,\\quad P_{3}(8)=31\"><mrow><msub><mi>A</mi><mrow><mn>3</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>3</mn><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mrow><mn>3</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>31</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Fix first factor i=3. Exactly 3 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 31. The full grid tests feasibility; gray cells are not part of the counted region.",
+            "currentState": {
+              "n": 8,
+              "i": 3,
+              "rowCounts": [
+                2,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "layerCount": 3,
+              "total": 31
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 4,
+            "rowCounts": [
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "layerCount": 3,
+            "total": 34
+          },
+          "caption": "Fix first factor i=4. Exactly 3 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 34. The full grid tests feasibility; gray cells are not part of the counted region.",
+          "captionHtml": "<p>Fix first factor i=4. Exactly 3 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 34. The full grid tests feasibility; gray cells are not part of the counted region.</p>",
+          "metrics": {},
+          "formula": "A_{4}(8)=3,\\quad P_{4}(8)=34",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"A_{4}(8)=3,\\quad P_{4}(8)=34\"><mrow><msub><mi>A</mi><mrow><mn>4</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>3</mn><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mrow><mn>4</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>34</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Fix first factor i=4. Exactly 3 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 34. The full grid tests feasibility; gray cells are not part of the counted region.",
+            "currentState": {
+              "n": 8,
+              "i": 4,
+              "rowCounts": [
+                2,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "layerCount": 3,
+              "total": 34
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 5,
+            "rowCounts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "layerCount": 1,
+            "total": 35
+          },
+          "caption": "Fix first factor i=5. Exactly 1 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 35. The full grid tests feasibility; gray cells are not part of the counted region.",
+          "captionHtml": "<p>Fix first factor i=5. Exactly 1 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 35. The full grid tests feasibility; gray cells are not part of the counted region.</p>",
+          "metrics": {},
+          "formula": "A_{5}(8)=1,\\quad P_{5}(8)=35",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"A_{5}(8)=1,\\quad P_{5}(8)=35\"><mrow><msub><mi>A</mi><mrow><mn>5</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>1</mn><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mrow><mn>5</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>35</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Fix first factor i=5. Exactly 1 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 35. The full grid tests feasibility; gray cells are not part of the counted region.",
+            "currentState": {
+              "n": 8,
+              "i": 5,
+              "rowCounts": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "layerCount": 1,
+              "total": 35
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 6,
+            "rowCounts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "layerCount": 1,
+            "total": 36
+          },
+          "caption": "Fix first factor i=6. Exactly 1 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 36. The full grid tests feasibility; gray cells are not part of the counted region.",
+          "captionHtml": "<p>Fix first factor i=6. Exactly 1 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 36. The full grid tests feasibility; gray cells are not part of the counted region.</p>",
+          "metrics": {},
+          "formula": "A_{6}(8)=1,\\quad P_{6}(8)=36",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"A_{6}(8)=1,\\quad P_{6}(8)=36\"><mrow><msub><mi>A</mi><mrow><mn>6</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>1</mn><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mrow><mn>6</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>36</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Fix first factor i=6. Exactly 1 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 36. The full grid tests feasibility; gray cells are not part of the counted region.",
+            "currentState": {
+              "n": 8,
+              "i": 6,
+              "rowCounts": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "layerCount": 1,
+              "total": 36
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 7,
+            "rowCounts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "layerCount": 1,
+            "total": 37
+          },
+          "caption": "Fix first factor i=7. Exactly 1 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 37. The full grid tests feasibility; gray cells are not part of the counted region.",
+          "captionHtml": "<p>Fix first factor i=7. Exactly 1 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 37. The full grid tests feasibility; gray cells are not part of the counted region.</p>",
+          "metrics": {},
+          "formula": "A_{7}(8)=1,\\quad P_{7}(8)=37",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"A_{7}(8)=1,\\quad P_{7}(8)=37\"><mrow><msub><mi>A</mi><mrow><mn>7</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>1</mn><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mrow><mn>7</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>37</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Fix first factor i=7. Exactly 1 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 37. The full grid tests feasibility; gray cells are not part of the counted region.",
+            "currentState": {
+              "n": 8,
+              "i": 7,
+              "rowCounts": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "layerCount": 1,
+              "total": 37
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "n": 8,
+            "i": 8,
+            "rowCounts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "layerCount": 1,
+            "total": 38
+          },
+          "caption": "Fix first factor i=8. Exactly 1 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 38. The full grid tests feasibility; gray cells are not part of the counted region.",
+          "captionHtml": "<p>Fix first factor i=8. Exactly 1 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 38. The full grid tests feasibility; gray cells are not part of the counted region.</p>",
+          "metrics": {},
+          "formula": "A_{8}(8)=1,\\quad P_{8}(8)=38",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"A_{8}(8)=1,\\quad P_{8}(8)=38\"><mrow><msub><mi>A</mi><mrow><mn>8</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>1</mn><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mrow><mn>8</mn></mrow></msub><mrow><mo>(</mo><mn>8</mn><mo>)</mo></mrow><mo>=</mo><mn>38</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Inspect the actual predicate and exact operation ledger",
+            "why": "Fix first factor i=8. Exactly 1 positive pairs (j,k) in this layer satisfy i*j*k <= 8. Adding this layer gives cumulative count 38. The full grid tests feasibility; gray cells are not part of the counted region.",
+            "currentState": {
+              "n": 8,
+              "i": 8,
+              "rowCounts": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "layerCount": 1,
+              "total": 38
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the axis labels and saved integer state. The finite trace illustrates the exact predicate; the written identities and uniform bounds establish general claims."
+          }
+        }
+      ]
     }
   }
 }

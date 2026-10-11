@@ -82,7 +82,7 @@ function plot(p,g,f){if(p.scene.id.startsWith("asym-"))return asymPlot(p,g,f);co
 function tree(p,g,f,pos){if(p.scene.id==="recurrence-levels"){const n=+f.metrics.Nodes,depth=+f.metrics.Level;for(let d=0;d<=depth;d++){const count=2**d;for(let i=0;i<count;i++){const x=70+(i+.5)*620/count,y=45+70*d;if(d){const px=70+(Math.floor(i/2)+.5)*620/(count/2);path(g,`M${px} ${y-50}L${x} ${y-18}`,"#83a5b5");}dot(g,x,y,18,d===depth?C.amber:C.blue);text(g,x,y+6,8/count,18,"middle","white");}}text(g,380,340,`Level ${depth}: ${n} nodes × ${8/n} units = 8 units of work`,20);return;}
  graph(p,g,f,pos);
 }
-function gridEnumeration(p,g,f){const id=p.scene.id,s=f.snapshot||{};if(id==="loop-triangle"){for(let i=1;i<=5;i++)for(let j=1;j<=i;j++){rect(g,115+j*55,35+i*45,45,35,i===s.i&&j===s.j?"#ffe0a1":"#d1e8f1");text(g,137+j*55,59+i*45,`${i},${j}`,16);}text(g,565,150,`Body visits: ${s.count}`,24);return;}if(id==="powerset"){strip(g,170,115,[1,2,3],{cell:130,labels:false,title:"Independent inclusion decisions"});[1,2,3].forEach((v,i)=>text(g,235+i*130,225,s.subset.includes(v)?"include":"exclude",21,"middle",s.subset.includes(v)?C.green:C.red));text(g,380,310,`Mask ${s.mask.toString(2).padStart(3,"0")} → {${s.subset}}`,23);return;}if(id.startsWith("selection-")){const vs=s.outcomes;vs.forEach((v,i)=>{const x=90+(i%6)*112,y=100+Math.floor(i/6)*100;dot(g,x,y,32,String(v)===String(s.current)?C.amber:C.blue);text(g,x,y+7,`(${v})`,19,"middle","white");});text(g,380,330,`${vs.length} distinct admitted outcomes`,22);return;}if(id==="stars-bars"){f.nodes.forEach(n=>{if(n.label==="|")path(g,`M${n.x} 80V185`,C.amber,5);else dot(g,n.x,135,14,C.blue);});text(g,380,285,`Labeled group sizes: ${f.metrics["First group"]}, ${f.metrics["Second group"]}, ${f.metrics["Third group"]}`,24);return;}graph(p,g,f,new Map(f.nodes.map(n=>[n.id,n])));}
+function gridEnumeration(p,g,f){const id=p.scene.id,s=f.snapshot||{};if(id.startsWith("loop-question-"))return loopQuestion(p,g,f);if(id==="loop-triangle"){for(let i=1;i<=5;i++)for(let j=1;j<=i;j++){rect(g,115+j*55,35+i*45,45,35,i===s.i&&j===s.j?"#ffe0a1":"#d1e8f1");text(g,137+j*55,59+i*45,`${i},${j}`,16);}text(g,565,150,`Body visits: ${s.count}`,24);return;}if(id==="powerset"){strip(g,170,115,[1,2,3],{cell:130,labels:false,title:"Independent inclusion decisions"});[1,2,3].forEach((v,i)=>text(g,235+i*130,225,s.subset.includes(v)?"include":"exclude",21,"middle",s.subset.includes(v)?C.green:C.red));text(g,380,310,`Mask ${s.mask.toString(2).padStart(3,"0")} → {${s.subset}}`,23);return;}if(id.startsWith("selection-")){const vs=s.outcomes;vs.forEach((v,i)=>{const x=90+(i%6)*112,y=100+Math.floor(i/6)*100;dot(g,x,y,32,String(v)===String(s.current)?C.amber:C.blue);text(g,x,y+7,`(${v})`,19,"middle","white");});text(g,380,330,`${vs.length} distinct admitted outcomes`,22);return;}if(id==="stars-bars"){f.nodes.forEach(n=>{if(n.label==="|")path(g,`M${n.x} 80V185`,C.amber,5);else dot(g,n.x,135,14,C.blue);});text(g,380,285,`Labeled group sizes: ${f.metrics["First group"]}, ${f.metrics["Second group"]}, ${f.metrics["Third group"]}`,24);return;}graph(p,g,f,new Map(f.nodes.map(n=>[n.id,n])));}
 function kmap(p,g,f){const s=f.snapshot,id=p.scene.id;let n=s.n||4,on=s.on||[],dc=s.dc||[],cover=s.cover||[];if(id==="km-pos")on=s.zeroSet||[];if(s.rows)on=s.rows;if(id==="km-gray"){strip(g,170,140,["00","01","11","10"],{cell:100,active:s.step%4,labels:false,title:"Cyclic Gray order: one bit changes per neighbor"});return;}if(["km-chart","km-petrick","km-qm"].includes(id)){const patterns=s.patterns||Object.keys(s.owners||{});if(patterns.length){patterns.forEach((v,i)=>text(g,175+(i%4)*140,90+Math.floor(i/4)*65,v,25));text(g,380,320,`Exact tabulation stage: ${s.level??s.cost??s.candidate}`,21);return;}}
  const gray=[0,1,3,2],cells=n===3?2:4,x=200,y=85,size=50;text(g,300,37,n===3?"Rows: A; columns: BC":"Rows: AB; columns: CD",20);for(let i=0;i<cells;i++){text(g,x-28,y+i*size+32,n===3?i:gray[i].toString(2).padStart(2,"0"),18);for(let j=0;j<4;j++){if(!i)text(g,x+j*size+25,y-12,gray[j].toString(2).padStart(2,"0"),18);const v=(n===3?i:gray[i])*4+gray[j];rect(g,x+j*size,y+i*size,size,size,on.includes(v)?"#cce9dc":dc.includes(v)?"#ffe0a1":"#fff");text(g,x+j*size+25,y+i*size+20,v,13);text(g,x+j*size+25,y+i*size+42,on.includes(v)?1:dc.includes(v)?"X":0,22);}}
  const patterns=cover.map(v=>typeof v==="string"?v:v.pattern).filter(Boolean);patterns.forEach((pat,k)=>{for(let i=0;i<cells;i++)for(let j=0;j<4;j++){const v=(n===3?i:gray[i])*4+gray[j],bits=v.toString(2).padStart(n,"0");if([...pat].every((b,i)=>b==="-"||b===bits[i]))g.append(E("rect",{x:x+j*size+4+k*2,y:y+i*size+4+k*2,width:size-8-k*4,height:size-8-k*4,rx:9,fill:"none",stroke:[C.green,C.blue,C.amber,C.red][k%4],"stroke-width":3}));}});text(g,570,135,"Groups wrap across\nopposite edges.\nEach group represents\na Boolean cube.",18);text(g,380,335,patterns.length?`Selected cubes: ${patterns.join(", ")}`:s.pattern?`Cube under inspection: ${s.pattern}`:"Read decimal indices and Boolean obligations separately.",19);}
@@ -161,6 +161,32 @@ function arrayExact(p,g,f,pos){const s=f.snapshot||{},id=p.scene.id;
  if(id==="arr-prefix"){strip(g,60,85,s.input,{cell:90,title:"Input cells"});strip(g,60,225,s.prefix,{cell:90,active:s.index,title:"Prefix boundaries: one more than input length"});return;}
  arrayMemory(p,g,f,pos);
 }
+function loopQuestion(p,g,f){
+ const s=f.snapshot,id=p.scene.id;
+ if(id==="loop-question-minimum"){
+  text(g,380,34,"One comparison per key; assignments only on a true test",18);
+  s.values.forEach((v,j)=>{const x=100+j*72;rect(g,x,80,58,55,j+1===s.i?"#ffe1a2":j+1<s.i?"#cce6d7":"#eef3f6");text(g,x+29,115,v,24);text(g,x+29,159,j+1,17);});
+  text(g,380,197,`Position ${s.i}: compare ${s.key} with ${s.before}`,19);
+  text(g,380,238,s.update?"True: assign this key as the new minimum":"False: preserve the established minimum",20,"middle",s.update?C.green:C.red);
+  text(g,380,282,`Minimum now ${s.after}; comparisons ${s.comparisons}; updates ${s.updates}`,20);
+  text(g,380,335,"The initial minimum is positive infinity; no array entry is skipped.",17);return;
+ }
+ const parity=id==="loop-question-parity";
+ text(g,380,22,parity?"Rows: i; columns: j; keep i+j even inside j ≤ i":`Fixed i=${s.i}; rows: j; columns: k; keep i*j*k ≤ ${s.n}`,18);
+ for(let row=1;row<=8;row++){
+  text(g,130,79+(row-1)*28,row,17);
+  for(let col=1;col<=8;col++){
+   const valid=parity?col<=row: s.i*row*col<=s.n;
+   const visited=!parity||row<=s.i,keep=valid&&(!parity||(row+col)%2===0);
+   const x=165+(col-1)*52,y=60+(row-1)*28;
+   rect(g,x,y,43,26,visited&&keep?"#b5d9c3":visited&&valid?"#f1d6dd":"#f3f5f7",parity&&row===s.i?C.amber:"#bdcfd8");
+   if(visited&&valid&&!keep)text(g,x+21.5,y+19,"×",17,"middle",C.red);
+  }
+ }
+ for(let col=1;col<=8;col++)text(g,186.5+(col-1)*52,312,col,17);
+ text(g,380,338,parity?`Active row ${s.i}: ${s.rowCount} bodies; cumulative ${s.total}`:`Layer i=${s.i}: ${s.layerCount} triples; cumulative ${s.total}`,18);
+}
+
 function asymPlot(p,g,f){
  const id=p.scene.id,logarithmic=id==="asym-log-oscillation",floor=id==="asym-floor-ratio";
  const all=p.scene.frames.map(f=>f.snapshot),seen=all.slice(0,p.index+1),current=f.snapshot;
