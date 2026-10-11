@@ -611,3 +611,7 @@ Native private deployment appgdep_6acafb5db58081919ddd1ae869773944 succeeded fro
 ## Linear transformations review draft
 
 Completed l_linear:30 instructional sections,84 complete worked entries,84 final rules,four core read university courses plus CMU comparison,39 compact subject models/137 checkpoints/63 placements. Exact formulas and120 actual JavaScript calculator cases passed; Edge verified1252 mounted formulas, every model, motion/pause, comparison, print, phone containment and library routes. All58 prior chapter pages are unchanged. Library:59 chapters/4085 worked entries. The chapter remains a review draft, not student-approved; publication is recorded separately. Continue sequentially under the existing user authorization.
+
+## Confirmed private delivery: l_linear
+
+Native deployment succeeded for source 03f3c2006ebf7737e2468163a9e8763fd7c183ad. The library now has 59 chapters and 4,085 worked-entry placements. The new chapter remains a review draft, without invented student approval. Exact IDs and archive evidence: research/l_linear-publication.json. Continuous authoring proceeds to l_orthogonality.
