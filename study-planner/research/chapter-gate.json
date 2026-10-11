@@ -1,24 +1,24 @@
 {
-  "currentTopicId": "l_projection",
+  "currentTopicId": "d_sets",
   "state": "in_progress",
   "nextTopicRequiresExplicitApproval": false,
   "nextTopicId": null,
-  "sourceAuditPath": "research/l_projection-source-audit.md",
+  "sourceAuditPath": "research/deep-library-revision/REVIEW_PROTOCOL.md",
   "examAuditPath": "research/exam-calibration/archive-manifest.json",
   "lastCompletedReview": "l_orthogonality: 84 worked entries,84 final rules, four core reviewed university courses,31 models /134 checkpoints;120 actual JS oracle cases.",
-  "nextReview": "Verify the planner sequence and continue the next pending chapter.",
+  "nextReview": "Complete d_sets individual review, then d_proof, following the frozen library order.",
   "rule": "Author one chapter at a time, finish its source, mathematical, problem, visual and browser audits, deliver as a review draft, then continue under standing user authorization. Never label an unapproved draft student-approved.",
   "studyStartJalali": "1405/07/11",
-  "qualityAuditPath": "research/l_projection-quality-audit.md",
+  "qualityAuditPath": "research/deep-library-revision/d_logic-revision.json",
   "approvedTopicId": "p_recursion",
-  "activeWork": "l_projection authoring draft:20 substantive sections written;14 independently certified worked-example identities;full bank,final rules,models and browser review pending.",
+  "activeWork": "Full existing-library revision: logic rewritten and checked; sets is the next individual review.",
   "revisionTracker": "research/exam-calibration/manifest.json",
   "libraryReviewReportPath": "research/exam-calibration/DELIVERY.en.md",
-  "approvedLibraryReview": true,
+  "approvedLibraryReview": false,
   "proposedNextTopicId": null,
   "libraryRewritePath": "research/exam-calibration/manifest.json",
-  "libraryRewriteRequiresApproval": true,
-  "reviewScope": "Orthogonal projections and projection matrices",
+  "libraryRewriteRequiresApproval": false,
+  "reviewScope": "All 60 existing chapter editions, including questions, full solutions, instruction, final rules and visuals.",
   "examArchivePolicy": "Original Iranian MS and PhD archives may now be studied, classified and included; the latest user instruction supersedes final-month deferral.",
   "animationStandardPath": "research/ANIMATION_STANDARD.md",
   "animationInventoryPath": "research/library-animation-redesign/inventory.json",
@@ -32,7 +32,7 @@
     "research/l_projection-evidence/draft-mathematics.json"
   ],
   "libraryVisualQuestionReviewPath": "research/library-visual-question-review/manifest.json",
-  "publicationState": "published_private",
+  "publicationState": "revision_prepared_not_yet_deployed",
   "publicationRecordPath": "research/s_distributions-publication.json",
   "approvedVersion": 82,
   "publishedVersion": null,
@@ -271,5 +271,12 @@
     "note": "First upload timed out before saving a version. Retrying the same immutable archive succeeded; audience remains owner-private. No numeric version number is invented."
   },
   "currentChapterPublicationState": "in_authoring",
-  "currentDraftPath": "research/l_projection.en.md"
+  "currentDraftPath": "research/l_projection.en.md",
+  "preservedAuthoringDraft": {
+    "topicId": "l_projection",
+    "state": "in_progress",
+    "source": "research/l_projection.en.md",
+    "note": "Preserved while the latest request prioritizes full existing-library revision."
+  },
+  "libraryRevisionProgressPath": "research/deep-library-revision/progress.json"
 }

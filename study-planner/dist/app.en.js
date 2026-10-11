@@ -132,7 +132,7 @@ function renderLibrary() {
   const ready = lessons.flatMap(item => item.chapters || []).filter(chapter => chapter.status === "ready" && chapter.url);
   const drafted = lessons.flatMap(item => item.chapters || []).filter(chapter => chapter.status === "draft" && chapter.url);
   byId("library").innerHTML = `<section class="card">
-    <p class="eyebrow">Chapter library</p><h2>Review the revised chapters</h2>
+    <p class="eyebrow">Chapter library</p><h2>Review the revised chapters</h2><p><a href="deep-library-review.html">Follow the individual review of all 60 existing chapters →</a></p>
     <p>A chapter is labelled complete only after its source comparison, definitions, proofs, edge cases, worked problems, detailed summary, examination rules and presentation checks pass review, and you approve the chapter. At least four genuinely reviewed courses from four universities must be synthesized. More sources are used when they resolve a real gap. Original MSc and PhD examination questions are included in the revised chapter banks. <a href="sprint.html">Read the full completion standard →</a></p>
     <div class="library-grid">
       ${ready.map(chapter => `<article class="library-card"><span class="status">${escapeHtml(chapter.statusLabel || "Ready to study")}</span><h3>${escapeHtml(chapter.title)}</h3>${chapter.animationCount ? `<p>${chapter.animationCount} animated concept demonstrations · ${chapter.animationReviewState === "student_approved" ? "student-approved" : "visual additions awaiting review"}</p>` : ""}<a class="chapter-link primary" href="${escapeHtml(chapter.url)}">Open chapter →</a></article>`).join("")}

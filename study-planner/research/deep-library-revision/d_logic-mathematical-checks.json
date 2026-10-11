@@ -1,0 +1,1128 @@
+{
+  "status": "passed_with_stated_finite_bounds",
+  "checks": [
+    {
+      "name": "Q1 quantified witnesses",
+      "result": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "name": "Q1 order preservation",
+      "result": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "name": "Q2 assigned formula",
+      "result": [
+        true,
+        false
+      ],
+      "expected": [
+        true,
+        false
+      ],
+      "passed": true
+    },
+    {
+      "name": "Q3 semantic simplification",
+      "result": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "expected": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "passed": true
+    },
+    {
+      "name": "Q4 unique directed target",
+      "result": [
+        1,
+        1,
+        1
+      ],
+      "expected": [
+        1,
+        1,
+        1
+      ],
+      "passed": true
+    },
+    {
+      "name": "Q4 existential boy-to-girl",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "Q5 self exclusion distinguishes option3",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "Q6 threshold rows",
+      "result": [
+        3,
+        5,
+        6,
+        7
+      ],
+      "expected": [
+        3,
+        5,
+        6,
+        7
+      ],
+      "passed": true
+    },
+    {
+      "name": "Q7 true row indices",
+      "result": [
+        0,
+        1,
+        7
+      ],
+      "expected": [
+        0,
+        1,
+        7
+      ],
+      "passed": true
+    },
+    {
+      "name": "Q8 models",
+      "result": [
+        "0001",
+        "0010",
+        "1110"
+      ],
+      "expected": [
+        "0001",
+        "0010",
+        "1110"
+      ],
+      "passed": true
+    },
+    {
+      "name": "Q9 odd parity indices",
+      "result": [
+        1,
+        2,
+        4,
+        7
+      ],
+      "expected": [
+        1,
+        2,
+        4,
+        7
+      ],
+      "passed": true
+    },
+    {
+      "name": "Q10 cycle conditions",
+      "result": [
+        false,
+        false
+      ],
+      "expected": [
+        false,
+        false
+      ],
+      "passed": true
+    },
+    {
+      "name": "Q12 empty restriction",
+      "result": [
+        true,
+        false
+      ],
+      "expected": [
+        true,
+        false
+      ],
+      "passed": true
+    },
+    {
+      "name": "Q13 unique entailed option",
+      "result": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "expected": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "passed": true
+    },
+    {
+      "name": "Q14 cyclic exact-two count",
+      "result": 6,
+      "expected": 6,
+      "passed": true
+    },
+    {
+      "name": "Q16-19 triple extensions n=1",
+      "result": 3,
+      "expected": 3,
+      "passed": true
+    },
+    {
+      "name": "Q20-23 nonempty proper unary n=1",
+      "result": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "Q32-35 parity false rows n=1",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q36-39 converse countermodels n=1",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q40-43 disjoint-pair disjunction n=1",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q44-47 class selection n=1",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q24-27 row nonempty n=1",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q28-31 unique per row n=1",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q15 negate unique existence n=1",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "Q48-51 empty-row count n=1",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q50 independent inclusion-exclusion n=1",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q16-19 triple extensions n=2",
+      "result": 6,
+      "expected": 6,
+      "passed": true
+    },
+    {
+      "name": "Q20-23 nonempty proper unary n=2",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "Q32-35 parity false rows n=2",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "Q36-39 converse countermodels n=2",
+      "result": 5,
+      "expected": 5,
+      "passed": true
+    },
+    {
+      "name": "Q40-43 disjoint-pair disjunction n=2",
+      "result": 7,
+      "expected": 7,
+      "passed": true
+    },
+    {
+      "name": "Q44-47 class selection n=2",
+      "result": 3,
+      "expected": 3,
+      "passed": true
+    },
+    {
+      "name": "Q24-27 row nonempty n=2",
+      "result": 9,
+      "expected": 9,
+      "passed": true
+    },
+    {
+      "name": "Q28-31 unique per row n=2",
+      "result": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "Q15 negate unique existence n=2",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "Q48-51 empty-row count n=2",
+      "result": 7,
+      "expected": 7,
+      "passed": true
+    },
+    {
+      "name": "Q50 independent inclusion-exclusion n=2",
+      "result": 7,
+      "expected": 7,
+      "passed": true
+    },
+    {
+      "name": "Q16-19 triple extensions n=3",
+      "result": 12,
+      "expected": 12,
+      "passed": true
+    },
+    {
+      "name": "Q19 independent added equality n=3",
+      "result": 6,
+      "expected": 6,
+      "passed": true
+    },
+    {
+      "name": "Q20-23 nonempty proper unary n=3",
+      "result": 6,
+      "expected": 6,
+      "passed": true
+    },
+    {
+      "name": "Q32-35 parity false rows n=3",
+      "result": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "Q36-39 converse countermodels n=3",
+      "result": 19,
+      "expected": 19,
+      "passed": true
+    },
+    {
+      "name": "Q40-43 disjoint-pair disjunction n=3",
+      "result": 37,
+      "expected": 37,
+      "passed": true
+    },
+    {
+      "name": "Q44-47 class selection n=3",
+      "result": 7,
+      "expected": 7,
+      "passed": true
+    },
+    {
+      "name": "Q24-27 row nonempty n=3",
+      "result": 343,
+      "expected": 343,
+      "passed": true
+    },
+    {
+      "name": "Q28-31 unique per row n=3",
+      "result": 27,
+      "expected": 27,
+      "passed": true
+    },
+    {
+      "name": "Q15 negate unique existence n=3",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "Q48-51 empty-row count n=3",
+      "result": 169,
+      "expected": 169,
+      "passed": true
+    },
+    {
+      "name": "Q50 independent inclusion-exclusion n=3",
+      "result": 169,
+      "expected": 169,
+      "passed": true
+    },
+    {
+      "name": "Q16-19 triple extensions n=4",
+      "result": 24,
+      "expected": 24,
+      "passed": true
+    },
+    {
+      "name": "Q19 independent added equality n=4",
+      "result": 12,
+      "expected": 12,
+      "passed": true
+    },
+    {
+      "name": "Q20-23 nonempty proper unary n=4",
+      "result": 14,
+      "expected": 14,
+      "passed": true
+    },
+    {
+      "name": "Q32-35 parity false rows n=4",
+      "result": 8,
+      "expected": 8,
+      "passed": true
+    },
+    {
+      "name": "Q36-39 converse countermodels n=4",
+      "result": 65,
+      "expected": 65,
+      "passed": true
+    },
+    {
+      "name": "Q40-43 disjoint-pair disjunction n=4",
+      "result": 175,
+      "expected": 175,
+      "passed": true
+    },
+    {
+      "name": "Q44-47 class selection n=4",
+      "result": 15,
+      "expected": 15,
+      "passed": true
+    },
+    {
+      "name": "Q43 shared atom",
+      "result": [
+        3,
+        7
+      ],
+      "expected": [
+        3,
+        7
+      ],
+      "passed": true
+    },
+    {
+      "name": "Q47 exact3 true objects with class sizes1,2,3",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "Q52 all Boolean function output tables",
+      "result": 256,
+      "expected": 256,
+      "passed": true
+    },
+    {
+      "name": "Q53 all512 relations",
+      "result": 169,
+      "expected": 169,
+      "passed": true
+    },
+    {
+      "name": "Q53 full-column histogram",
+      "result": [
+        147,
+        21,
+        1
+      ],
+      "expected": [
+        147,
+        21,
+        1
+      ],
+      "passed": true
+    },
+    {
+      "name": "Q16 decimal count",
+      "result": 48,
+      "expected": 48,
+      "passed": true
+    },
+    {
+      "name": "Q17 decimal count",
+      "result": 384,
+      "expected": 384,
+      "passed": true
+    },
+    {
+      "name": "Q20 decimal count",
+      "result": 30,
+      "expected": 30,
+      "passed": true
+    },
+    {
+      "name": "Q21 decimal count",
+      "result": 254,
+      "expected": 254,
+      "passed": true
+    },
+    {
+      "name": "Q24 decimal count",
+      "result": 28629151,
+      "expected": 28629151,
+      "passed": true
+    },
+    {
+      "name": "Q25 decimal count",
+      "result": 17878103347812890625,
+      "expected": 17878103347812890625,
+      "passed": true
+    },
+    {
+      "name": "Q28 decimal count",
+      "result": 3125,
+      "expected": 3125,
+      "passed": true
+    },
+    {
+      "name": "Q29 decimal count",
+      "result": 16777216,
+      "expected": 16777216,
+      "passed": true
+    },
+    {
+      "name": "Q32 decimal count",
+      "result": 16,
+      "expected": 16,
+      "passed": true
+    },
+    {
+      "name": "Q33 decimal count",
+      "result": 128,
+      "expected": 128,
+      "passed": true
+    },
+    {
+      "name": "Q36 decimal count",
+      "result": 211,
+      "expected": 211,
+      "passed": true
+    },
+    {
+      "name": "Q37 decimal count",
+      "result": 6305,
+      "expected": 6305,
+      "passed": true
+    },
+    {
+      "name": "Q40 decimal count",
+      "result": 781,
+      "expected": 781,
+      "passed": true
+    },
+    {
+      "name": "Q41 decimal count",
+      "result": 58975,
+      "expected": 58975,
+      "passed": true
+    },
+    {
+      "name": "Q44 decimal count",
+      "result": 31,
+      "expected": 31,
+      "passed": true
+    },
+    {
+      "name": "Q45 decimal count",
+      "result": 255,
+      "expected": 255,
+      "passed": true
+    },
+    {
+      "name": "Q48 decimal count",
+      "result": 4925281,
+      "expected": 4925281,
+      "passed": true
+    },
+    {
+      "name": "Q49 decimal count",
+      "result": 568640725896660991,
+      "expected": 568640725896660991,
+      "passed": true
+    },
+    {
+      "name": "53 question identities retained",
+      "result": 53,
+      "expected": 53,
+      "passed": true
+    },
+    {
+      "name": "Q1 authentic source identity retained",
+      "result": "MS_CS_1405_Q95",
+      "expected": "MS_CS_1405_Q95",
+      "passed": true
+    },
+    {
+      "name": "Q1 authentic answer order retained",
+      "result": "4",
+      "expected": "4",
+      "passed": true
+    },
+    {
+      "name": "Q1 authentic options unchanged",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "Q2 authentic source identity retained",
+      "result": "MS_CS_1405_Q97",
+      "expected": "MS_CS_1405_Q97",
+      "passed": true
+    },
+    {
+      "name": "Q2 authentic answer order retained",
+      "result": "1",
+      "expected": "1",
+      "passed": true
+    },
+    {
+      "name": "Q2 authentic options unchanged",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "Q3 authentic source identity retained",
+      "result": "MS_CS_1405_Q99",
+      "expected": "MS_CS_1405_Q99",
+      "passed": true
+    },
+    {
+      "name": "Q3 authentic answer order retained",
+      "result": "3",
+      "expected": "3",
+      "passed": true
+    },
+    {
+      "name": "Q3 authentic options unchanged",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "Q4 authentic source identity retained",
+      "result": "Phd_CS_1405_Q13",
+      "expected": "Phd_CS_1405_Q13",
+      "passed": true
+    },
+    {
+      "name": "Q4 authentic answer order retained",
+      "result": "3",
+      "expected": "3",
+      "passed": true
+    },
+    {
+      "name": "Q4 authentic options unchanged",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "Q5 authentic source identity retained",
+      "result": "Phd_CS_1405_Q14",
+      "expected": "Phd_CS_1405_Q14",
+      "passed": true
+    },
+    {
+      "name": "Q5 authentic answer order retained",
+      "result": "4",
+      "expected": "4",
+      "passed": true
+    },
+    {
+      "name": "Q5 authentic options unchanged",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "Q6 authentic source identity retained",
+      "result": "Phd_CS_1405_Q15",
+      "expected": "Phd_CS_1405_Q15",
+      "passed": true
+    },
+    {
+      "name": "Q6 authentic answer order retained",
+      "result": "2",
+      "expected": "2",
+      "passed": true
+    },
+    {
+      "name": "Q7 authentic source identity retained",
+      "result": "Phd_CS_1405_Q22",
+      "expected": "Phd_CS_1405_Q22",
+      "passed": true
+    },
+    {
+      "name": "Q7 authentic answer order retained",
+      "result": "4",
+      "expected": "4",
+      "passed": true
+    },
+    {
+      "name": "Q7 authentic options unchanged",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "Every answer has disclosure control",
+      "result": 53,
+      "expected": 53,
+      "passed": true
+    },
+    {
+      "name": "Generic unrelated question animations removed",
+      "result": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "Question MathML parses",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter d_sets",
+      "result": "b1e501a2fc1c370a783fd3ee52bfb19b45f1c2e9a8c1ee6914a0315287449dcc",
+      "expected": "b1e501a2fc1c370a783fd3ee52bfb19b45f1c2e9a8c1ee6914a0315287449dcc",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter d_proof",
+      "result": "dda537a03ff04f3c2b42f5bd8523cf1f8ddc3ad4adf81b02e623989e81e2fa47",
+      "expected": "dda537a03ff04f3c2b42f5bd8523cf1f8ddc3ad4adf81b02e623989e81e2fa47",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter d_induction",
+      "result": "acbde789b15ad51fd0108b37e4a5f8c6a669dd414d168c0d8c0d52a8bbefb234",
+      "expected": "acbde789b15ad51fd0108b37e4a5f8c6a669dd414d168c0d8c0d52a8bbefb234",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter a_model",
+      "result": "9f6615995da7fd635f234c4143edd5a27483ba201fa304c8980b3bd2b040940e",
+      "expected": "9f6615995da7fd635f234c4143edd5a27483ba201fa304c8980b3bd2b040940e",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter a_asym",
+      "result": "1139e7af36dc48592786c850213d5a0b1b84978e406b6a8863f52da4ab3b80c9",
+      "expected": "1139e7af36dc48592786c850213d5a0b1b84978e406b6a8863f52da4ab3b80c9",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter a_loop",
+      "result": "4e3dd37aa7ca94d210e5b9fd81a1ac0e1c20ca4eab3eb8670b07d9c7d407471a",
+      "expected": "4e3dd37aa7ca94d210e5b9fd81a1ac0e1c20ca4eab3eb8670b07d9c7d407471a",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter s_axioms",
+      "result": "879ba1468124522a9a2bb9d6a5a8cc8ebc920afdb47b6141b94a92e1c93a8a29",
+      "expected": "879ba1468124522a9a2bb9d6a5a8cc8ebc920afdb47b6141b94a92e1c93a8a29",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter s_counting",
+      "result": "ca5c5816c17df0b792ceeedb409c8dbcc19e68321a9828115ca0da5f1448d353",
+      "expected": "ca5c5816c17df0b792ceeedb409c8dbcc19e68321a9828115ca0da5f1448d353",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter l_vectors",
+      "result": "5418f43095d74f8d02a040f8f58e5964ad3cfa2f66713680e5f26967b13928fc",
+      "expected": "5418f43095d74f8d02a040f8f58e5964ad3cfa2f66713680e5f26967b13928fc",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter l_matrices",
+      "result": "7c5800423a7f2658b5ba1d9f4b3dafc10ff79b4bf87545325debfab0c3b2d6b4",
+      "expected": "7c5800423a7f2658b5ba1d9f4b3dafc10ff79b4bf87545325debfab0c3b2d6b4",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter p_types",
+      "result": "055d4af802ed4d3fbf73a48293afd0943ab29ba873c73bdbf5d58dd1673a36a5",
+      "expected": "055d4af802ed4d3fbf73a48293afd0943ab29ba873c73bdbf5d58dd1673a36a5",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter p_flow",
+      "result": "fabf0e2c3677e90af57910011f497bd60efa89a818334899d5b67e6191962ff0",
+      "expected": "fabf0e2c3677e90af57910011f497bd60efa89a818334899d5b67e6191962ff0",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter g_number",
+      "result": "3413dddba66094d675fafef6ac18ac5ef1ec238db638a009bbeb791cd6ca5db1",
+      "expected": "3413dddba66094d675fafef6ac18ac5ef1ec238db638a009bbeb791cd6ca5db1",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter g_boolean",
+      "result": "a4eb51e5b51f49dabf6398707a87affc79bfd8656bed67d09bb0d391da32b1a3",
+      "expected": "a4eb51e5b51f49dabf6398707a87affc79bfd8656bed67d09bb0d391da32b1a3",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter g_gates",
+      "result": "0a539a3ad238a79c92e55127caf1a3d5e5faeef738488d1896f61df2ad7ced2d",
+      "expected": "0a539a3ad238a79c92e55127caf1a3d5e5faeef738488d1896f61df2ad7ced2d",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter d_relations",
+      "result": "f54dd5ff666c54a1ab6e9487da775e22fe5e13398d9ec1b7862e23105a29b161",
+      "expected": "f54dd5ff666c54a1ab6e9487da775e22fe5e13398d9ec1b7862e23105a29b161",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter d_functions",
+      "result": "7a52d7768799b1b6141cb0ed9cff23d3fdf49de8160523866f5caf186ed61edb",
+      "expected": "7a52d7768799b1b6141cb0ed9cff23d3fdf49de8160523866f5caf186ed61edb",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter d_invariants",
+      "result": "e0aee2aec3824af657f3c2abdc584bdcb3b4e7fecfd8a8ad56295c934ecc70db",
+      "expected": "e0aee2aec3824af657f3c2abdc584bdcb3b4e7fecfd8a8ad56295c934ecc70db",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter d_number",
+      "result": "4770e26de2fbceed9ab26cbc9c312abd9b19ab4a1af6bc56615e3a15b2c6ef3d",
+      "expected": "4770e26de2fbceed9ab26cbc9c312abd9b19ab4a1af6bc56615e3a15b2c6ef3d",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter a_recurrence",
+      "result": "3b7ac34423512f24035bb5aecd16f324f130a165416161aceb2f34f11e817225",
+      "expected": "3b7ac34423512f24035bb5aecd16f324f130a165416161aceb2f34f11e817225",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter a_divide",
+      "result": "8e4404b0297e3a5df1d99835836dbec125698f490eb6c909d0cd799d3ea84fbe",
+      "expected": "8e4404b0297e3a5df1d99835836dbec125698f490eb6c909d0cd799d3ea84fbe",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter a_correct",
+      "result": "7fa9bb7ad946ddbe678bacd3b98681bfe415cf55aaef8441c16e3029488ca8aa",
+      "expected": "7fa9bb7ad946ddbe678bacd3b98681bfe415cf55aaef8441c16e3029488ca8aa",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter s_conditional",
+      "result": "03a4750e5c37db3303fde4a771206747e43adb4a080a461022617478f2de4c6f",
+      "expected": "03a4750e5c37db3303fde4a771206747e43adb4a080a461022617478f2de4c6f",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter s_bayes",
+      "result": "9df7c2b1001d187938ff602f8cfa16e0d5f78cd56c7f8da056c923b65175bac0",
+      "expected": "9df7c2b1001d187938ff602f8cfa16e0d5f78cd56c7f8da056c923b65175bac0",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter l_gauss",
+      "result": "894c63898d6620daf05968e561aa250975f64d70ff42a4e4fb4a2b08274dc9f5",
+      "expected": "894c63898d6620daf05968e561aa250975f64d70ff42a4e4fb4a2b08274dc9f5",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter l_rank",
+      "result": "5499032e14c5b0f325a16aaab361d48a667194de3a87b89fe4cd168fdc55ec25",
+      "expected": "5499032e14c5b0f325a16aaab361d48a667194de3a87b89fe4cd168fdc55ec25",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter p_functions",
+      "result": "bd7834cc1f79b73e3d43087b14d4d02cc44342020ddf22306f34b9a5767647d4",
+      "expected": "bd7834cc1f79b73e3d43087b14d4d02cc44342020ddf22306f34b9a5767647d4",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter p_arrays",
+      "result": "69a5201ebc30a943fbdbf29225d04a29a685eedf91c10388635c7426ec83ad16",
+      "expected": "69a5201ebc30a943fbdbf29225d04a29a685eedf91c10388635c7426ec83ad16",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter g_kmap",
+      "result": "d4cda47a2aa4fb0bfef5f3b4f5ee540a75e1c9a9b33924a26c353751c89c1c24",
+      "expected": "d4cda47a2aa4fb0bfef5f3b4f5ee540a75e1c9a9b33924a26c353751c89c1c24",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter g_combin",
+      "result": "a9294d6b81dbd33a4f907dd11214f8b791cea127e8f0a9a82e5b9f69a9fccbe2",
+      "expected": "a9294d6b81dbd33a4f907dd11214f8b791cea127e8f0a9a82e5b9f69a9fccbe2",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter d_counting",
+      "result": "f253f0a711cd1d2ca41e9ba18cd691cd61c83311e5c097f81406d36ad8d28f93",
+      "expected": "f253f0a711cd1d2ca41e9ba18cd691cd61c83311e5c097f81406d36ad8d28f93",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter d_inclusion",
+      "result": "985872a544f8f0e317895c0fb5dfb4924e9bf4a6a041a6c10823ddd012d14c75",
+      "expected": "985872a544f8f0e317895c0fb5dfb4924e9bf4a6a041a6c10823ddd012d14c75",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter d_pigeonhole",
+      "result": "8feae960584dc943d587bc254b11c998fb4925c9a51197616d3d015a13d34f9e",
+      "expected": "8feae960584dc943d587bc254b11c998fb4925c9a51197616d3d015a13d34f9e",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter a_arrays",
+      "result": "0a069167ac6d87cf1f1524d3142eeb74811b90499df3c94b6a66001928b43c8d",
+      "expected": "0a069167ac6d87cf1f1524d3142eeb74811b90499df3c94b6a66001928b43c8d",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter a_stackqueue",
+      "result": "77b6e012326f33212293cccd4de65acb3d1eaa871e0f6f2b05a9951f0cde511f",
+      "expected": "77b6e012326f33212293cccd4de65acb3d1eaa871e0f6f2b05a9951f0cde511f",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter a_sort",
+      "result": "3a261c22baa4de036f118f592ab0228451695e79cf2b3eef72643ecc2c34e499",
+      "expected": "3a261c22baa4de036f118f592ab0228451695e79cf2b3eef72643ecc2c34e499",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter a_select",
+      "result": "37e01214104747c3d27e85860a15eba7e17bbddb4716786f970a77b5605d9c11",
+      "expected": "37e01214104747c3d27e85860a15eba7e17bbddb4716786f970a77b5605d9c11",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter s_descriptive",
+      "result": "b4802631b4bab1cd6707209112d8c016c956ff84869472c9516b57602758756a",
+      "expected": "b4802631b4bab1cd6707209112d8c016c956ff84869472c9516b57602758756a",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter s_discrete",
+      "result": "9f9e927cb1845706fc86fe4fa5601ab3e8a2335b8e7fa1cc923ffb5f132047b3",
+      "expected": "9f9e927cb1845706fc86fe4fa5601ab3e8a2335b8e7fa1cc923ffb5f132047b3",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter s_expectation",
+      "result": "93a300a4f7d81d6ed488bbe478e9283431888604f8de010433fe971f0afd5375",
+      "expected": "93a300a4f7d81d6ed488bbe478e9283431888604f8de010433fe971f0afd5375",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter l_det",
+      "result": "b70ddc5ef0dcdb72d868eb26b22dccf931f4c6599b26b63384677bdfa58af06c",
+      "expected": "b70ddc5ef0dcdb72d868eb26b22dccf931f4c6599b26b63384677bdfa58af06c",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter l_spaces",
+      "result": "3b8d8f59ee374fe7cdd6dcddca45471d7eb02ccc36f3fbf95d103895f29d3d7b",
+      "expected": "3b8d8f59ee374fe7cdd6dcddca45471d7eb02ccc36f3fbf95d103895f29d3d7b",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter i_agents",
+      "result": "2f8fd41a2e1b9f3745667907e795b0451831fc134846d111b5e45543e6108a79",
+      "expected": "2f8fd41a2e1b9f3745667907e795b0451831fc134846d111b5e45543e6108a79",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter i_uninformed",
+      "result": "684639efbc5c0ba6b49ec39022e1f91f0dd000487831fd74caadeffe85827282",
+      "expected": "684639efbc5c0ba6b49ec39022e1f91f0dd000487831fd74caadeffe85827282",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter p_strings",
+      "result": "7a9909aef5c211ca16fb7e9c976ba0072b970fa20225929638fc83c52ea272f1",
+      "expected": "7a9909aef5c211ca16fb7e9c976ba0072b970fa20225929638fc83c52ea272f1",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter p_recursion",
+      "result": "9912be50ddce7d9dcc4327f8e94bb900e3e170a9fab8a4f9893b6bbb7e87238b",
+      "expected": "9912be50ddce7d9dcc4327f8e94bb900e3e170a9fab8a4f9893b6bbb7e87238b",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter g_arithmetic",
+      "result": "a705a2b0279f28f1a0d2ae3f3eb1b896d77a2d9866040f675ca289c9f12c76f6",
+      "expected": "a705a2b0279f28f1a0d2ae3f3eb1b896d77a2d9866040f675ca289c9f12c76f6",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter g_mux",
+      "result": "ae143aeab1c7d93443761546c0f90bf62108e20d5cd30f5e27641a9689486c30",
+      "expected": "ae143aeab1c7d93443761546c0f90bf62108e20d5cd30f5e27641a9689486c30",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter d_recurrence",
+      "result": "d1c40e7c96fa22bf2157267a9e6c5117e89fa19f6a7747fbdccb37c19200547d",
+      "expected": "d1c40e7c96fa22bf2157267a9e6c5117e89fa19f6a7747fbdccb37c19200547d",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter d_generating",
+      "result": "2590aa250ff3729cb7de1dacfefe2c9ce89c8c11f66b386f9d076f0ad9aa56d9",
+      "expected": "2590aa250ff3729cb7de1dacfefe2c9ce89c8c11f66b386f9d076f0ad9aa56d9",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter a_bst",
+      "result": "50ae590c290bce85260cdd93e51439439387cb4b229c1a24c84fea473e4d1f60",
+      "expected": "50ae590c290bce85260cdd93e51439439387cb4b229c1a24c84fea473e4d1f60",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter a_balanced",
+      "result": "f4301e6d833cab33fa8f3872896ee65352ca84bb3ca0558ff1675578835d477f",
+      "expected": "f4301e6d833cab33fa8f3872896ee65352ca84bb3ca0558ff1675578835d477f",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter a_heap",
+      "result": "610534a497de3180fcb71675b124dfe17e959264e3089e5742df25a8de728df0",
+      "expected": "610534a497de3180fcb71675b124dfe17e959264e3089e5742df25a8de728df0",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter a_hash",
+      "result": "f95866063fcf2734c252c0901a8dc5f9e58c92a380dff99be579fef5869aeb75",
+      "expected": "f95866063fcf2734c252c0901a8dc5f9e58c92a380dff99be579fef5869aeb75",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter a_amortized",
+      "result": "045acb17ee6c3988573b4b5d201168b8fdde6c409fa63d90eda25eec10c0b3c8",
+      "expected": "045acb17ee6c3988573b4b5d201168b8fdde6c409fa63d90eda25eec10c0b3c8",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter s_variance",
+      "result": "4875d3b8cc670cdf75c5a840654d2d7ba9ee90b4c974825d90e03a57c91ca8e2",
+      "expected": "4875d3b8cc670cdf75c5a840654d2d7ba9ee90b4c974825d90e03a57c91ca8e2",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter s_distributions",
+      "result": "101d898e48f5708661a6faded0e9a6d78cc4d0e2bad66083ab3c9c3889ed3776",
+      "expected": "101d898e48f5708661a6faded0e9a6d78cc4d0e2bad66083ab3c9c3889ed3776",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter l_linear",
+      "result": "e5260faef7996f27cbe6c126bdda348fd03d5bac93e615edaf5df049869af500",
+      "expected": "e5260faef7996f27cbe6c126bdda348fd03d5bac93e615edaf5df049869af500",
+      "passed": true
+    },
+    {
+      "name": "Untouched chapter l_orthogonality",
+      "result": "eb6251995c5a3f0f26387abd3cffab06088abfc2c2e63f4b87177ecdb55670a0",
+      "expected": "eb6251995c5a3f0f26387abd3cffab06088abfc2c2e63f4b87177ecdb55670a0",
+      "passed": true
+    },
+    {
+      "name": "Source PDF hash Q257A-Arshad1405-[www.konkur.in].pdf",
+      "result": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+      "expected": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+      "passed": true
+    },
+    {
+      "name": "Source PDF hash Q693A-phd1405-[www.konkur.in].pdf",
+      "result": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+      "expected": "a1d82a81df56f660353ff05077755d4af44095ffeeb398c4d2afbee31162fcfa",
+      "passed": true
+    }
+  ],
+  "checkCount": 164,
+  "sourcePages": [
+    {
+      "pdf": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+      "page": 21,
+      "image": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-logic-source-pages\\ms-p21.png",
+      "questions": [
+        "MS_CS_1405_Q95",
+        "MS_CS_1405_Q97"
+      ],
+      "visualRecheck": "visually inspected original page on 2026-10-11; Q15 option transcription corrected"
+    },
+    {
+      "pdf": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+      "page": 22,
+      "image": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-logic-source-pages\\ms-p22.png",
+      "questions": [
+        "MS_CS_1405_Q99"
+      ],
+      "visualRecheck": "visually inspected original page on 2026-10-11; Q15 option transcription corrected"
+    },
+    {
+      "pdf": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+      "page": 7,
+      "image": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-logic-source-pages\\phd-p7.png",
+      "questions": [
+        "Phd_CS_1405_Q13",
+        "Phd_CS_1405_Q14",
+        "Phd_CS_1405_Q15"
+      ],
+      "visualRecheck": "visually inspected original page on 2026-10-11; Q15 option transcription corrected"
+    },
+    {
+      "pdf": "Exams/Phd/CS/1405/Q693A-phd1405-[www.konkur.in].pdf",
+      "page": 8,
+      "image": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-logic-source-pages\\phd-p8.png",
+      "questions": [
+        "Phd_CS_1405_Q22"
+      ],
+      "visualRecheck": "visually inspected original page on 2026-10-11; Q15 option transcription corrected"
+    }
+  ],
+  "limits": "Finite enumerations certify their stated bounds. General counts rely on the written bijections and complement proofs. The wider library remains pending."
+}

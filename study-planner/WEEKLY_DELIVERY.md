@@ -630,3 +630,7 @@ Native owner-private publication succeeded on2026-10-11 at15:04:49 UTC from exac
 ## Active projection draft
 
 Started l_projection with20 instructional sections,complete derivations and explicit worked examples. Fourteen independent draft-example certificates passed. Additional Stanford Lecture5 and MIT Session2.3 written sources were read and their conventions recorded. Full source selection,solved bank,final rules,mechanism-specific models and browser review remain pending. This authoring draft is not published or counted as a completed chapter.
+
+## Latest instruction: full existing-library revision, 11 October 2026
+
+The current user rejected abstract problem explanations and requested individual A-to-Z review of every existing chapter. This supersedes new-chapter authoring priority. The frozen baseline contains 60 chapters / 4,169 worked-entry placements. Logic now has 53 separately rewritten answers, 12 actual question tables, seven additional mathematical instruction sections and 17 rewritten final rules. Two PhD Q15 option transcription errors and the Q19 missing hypothesis were corrected. Recorded checks and browser/source-image review passed within their stated bounds. Remaining 59 chapters are not certified. Preserve l_projection; continue d_sets under standing authorization. Current evidence and status are research/deep-library-revision/progress.json and REVIEW_PROTOCOL.md. No repeated approval request or student quiz is required. Publication is recorded separately.

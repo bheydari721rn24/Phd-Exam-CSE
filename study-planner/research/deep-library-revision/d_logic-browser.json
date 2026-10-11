@@ -1,0 +1,97 @@
+{
+  "status": "passed",
+  "topicId": "d_logic",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-logic-browser",
+  "counts": {
+    "questions": 53,
+    "solutions": 53,
+    "questionTables": 12,
+    "math": 965,
+    "errors": []
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "prose": true
+  },
+  "delimiters": [],
+  "models": [
+    {
+      "id": "implication",
+      "frames": 8,
+      "issues": []
+    },
+    {
+      "id": "de-morgan",
+      "frames": 8,
+      "issues": []
+    },
+    {
+      "id": "quantifier-dependent",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "quantifier-fixed",
+      "frames": 3,
+      "issues": []
+    }
+  ],
+  "lab": [
+    {
+      "formula": "imp",
+      "verifiedRows": 8
+    },
+    {
+      "formula": "rewritten",
+      "verifiedRows": 8
+    },
+    {
+      "formula": "converse",
+      "verifiedRows": 8
+    },
+    {
+      "formula": "biconditional",
+      "verifiedRows": 8
+    },
+    {
+      "formula": "composite",
+      "verifiedRows": 8
+    }
+  ],
+  "responsive": [
+    {
+      "width": 1360,
+      "pageWidth": 1345,
+      "tableOverflow": [],
+      "underlined": 0
+    },
+    {
+      "width": 768,
+      "pageWidth": 753,
+      "tableOverflow": [],
+      "underlined": 0
+    },
+    {
+      "width": 390,
+      "pageWidth": 390,
+      "tableOverflow": [],
+      "underlined": 0
+    }
+  ],
+  "print": {
+    "solutions": 53,
+    "errors": []
+  },
+  "humanInspectedScreenshots": [
+    "question-2.png",
+    "question-6.png",
+    "question-52.png",
+    "question-5-mobile.png",
+    "final-rules.png",
+    "question-19.png",
+    "question-50.png",
+    "question-53.png",
+    "question-2-mobile.png"
+  ]
+}
