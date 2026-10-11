@@ -33,10 +33,10 @@
     "research/s_variance-evidence/browser.json"
   ],
   "libraryVisualQuestionReviewPath": "research/library-visual-question-review/manifest.json",
-  "publicationState": "publication_pending_service_transport",
-  "publicationRecordPath": "research/a_amortized-publication-pending.json",
+  "publicationState": "published_private",
+  "publicationRecordPath": "research/s_variance-publication.json",
   "approvedVersion": 82,
-  "publishedVersion": 85,
+  "publishedVersion": null,
   "mathematicalDelimiterRevision": "published",
   "mathematicalDelimiterPublicationPath": "research/delimiter-publication.json",
   "approvedLibraryAnimationRevision": true,
@@ -152,8 +152,8 @@
         "research/a_balanced-evidence/mathematics.json",
         "research/a_balanced-evidence/browser.json"
       ],
-      "publicationState": "publication_pending_service_transport",
-      "publicationRecord": "research/a_amortized-publication-pending.json"
+      "publicationState": "published_private",
+      "publicationRecord": "research/s_variance-publication.json"
     },
     {
       "topicId": "a_heap",
@@ -166,8 +166,8 @@
         "research/a_heap-evidence/mathematics.json",
         "research/a_heap-evidence/browser.json"
       ],
-      "publicationState": "publication_pending_service_transport",
-      "publicationRecord": "research/a_amortized-publication-pending.json"
+      "publicationState": "published_private",
+      "publicationRecord": "research/s_variance-publication.json"
     },
     {
       "topicId": "a_hash",
@@ -180,8 +180,8 @@
         "research/a_hash-evidence/mathematics.json",
         "research/a_hash-evidence/browser.json"
       ],
-      "publicationState": "publication_pending_service_transport",
-      "publicationRecord": "research/a_amortized-publication-pending.json"
+      "publicationState": "published_private",
+      "publicationRecord": "research/s_variance-publication.json"
     },
     {
       "topicId": "a_amortized",
@@ -194,8 +194,8 @@
         "research/a_amortized-evidence/mathematics.json",
         "research/a_amortized-evidence/browser.json"
       ],
-      "publicationState": "publication_pending_service_transport",
-      "publicationRecord": "research/a_amortized-publication-pending.json"
+      "publicationState": "published_private",
+      "publicationRecord": "research/s_variance-publication.json"
     },
     {
       "topicId": "s_variance",
@@ -208,28 +208,34 @@
         "research/s_variance-evidence/mathematics.json",
         "research/s_variance-evidence/browser.json"
       ],
-      "publicationState": "pending_upload"
+      "publicationState": "published_private",
+      "publicationRecord": "research/s_variance-publication.json"
     }
   ],
   "latestPublication": {
     "status": "published_private",
     "projectId": "appgprj_6ab5666f72b081918286c6b371c1eb1b",
-    "sourceCommit": "2aa5cfe5735c24f7716cee0ca378ca17f61a34ff",
-    "archiveSha256": "b1f3344311a81f2c4953c0e297e8d6e2e5ea8fc179d28d6836482adc6583973a",
-    "archiveEntries": 440,
-    "versionId": "appgprj_6ab5666f72b081918286c6b371c1eb1b~appgver_9cd1190223e48191889977e1bc922ef6",
-    "deploymentId": "appgdep_6aca943b37948191b5e7357e5b0bc55b",
+    "sourceCommit": "f05657ab1022545f83046d98d7f54af76df9e44e",
+    "archive": "C:/Users/bheydari/AppData/Local/Temp/s-variance-reviewed.tar.gz",
+    "archiveSha256": "165540d4dddd047508f0a29a5c6b20fa97cad6138a732df072558cfc8eea30d7",
+    "archiveEntries": 470,
+    "versionId": "appgprj_6ab5666f72b081918286c6b371c1eb1b~appgver_ad8fd5a30fb881919b7e5c1722ac8b48",
+    "deploymentId": "appgdep_6acaf3125c108191a0b77a0b47cd6126",
     "deploymentStatus": "succeeded",
-    "updatedAt": "2026-10-10T19:38:47.744053+00:00",
+    "updatedAt": "2026-10-11T02:23:45.849866+00:00",
     "url": "https://phd-cse-1406-plan.bheydari-as721rn.chatgpt.site",
     "githubBranch": "study-planner-1406",
-    "githubContentCommit": "84bec74",
+    "githubContentCommit": "27ff627",
     "chaptersAdded": [
-      "a_bst"
+      "a_balanced",
+      "a_heap",
+      "a_hash",
+      "a_amortized",
+      "s_variance"
     ],
-    "libraryChapters": 52,
-    "questions": 3493,
-    "sourcePushEvidence": "Bundled workflow verified pushed SHA and clean source tree before Windows packaging failed; independently byte-verified archive from that exact source supplied to native private save/deploy.",
-    "verificationLimit": "Native deployment returned succeeded; numeric site version is not invented."
+    "libraryChapters": 57,
+    "questions": 3913,
+    "sourcePushEvidence": "Bundled source workflow verified exact pushed SHA and clean tree before Windows package-path failure. Archive independently packaged and verified from exact Git blobs.",
+    "verificationLimit": "Native private deployment succeeded. No numeric version number is invented."
   }
 }

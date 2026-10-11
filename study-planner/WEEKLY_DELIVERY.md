@@ -591,3 +591,8 @@ Completed a_amortized: twenty deep teaching sections, 87 worked problem entries,
 ## Variance and covariance review draft
 
 Completed s_variance: eighteen deep teaching sections, 87 worked entries (84 original/reconstructed, three authentic, two explicitly revisited), 80 final rules, four core university courses plus two genuinely read university extensions. Twenty-three specialized models / 169 checkpoints / 47 placements. Independent review passed 414 enumeration cases, 162 editable calculator cases and 713 static MathML fence checks; real Edge passed every checkpoint, geometry, fonts, motion/pause/resume, mobile and print. All 56 previous chapter pages are unchanged. Library: 57 chapters / 3913 worked entries. No student approval is inferred; publication is tracked separately. Continue sequential authoring with s_distributions under standing authorization.
+
+
+## Five new drafts privately published
+
+Native private deployment appgdep_6acaf3125c108191a0b77a0b47cd6126 succeeded from exact pushed source f05657ab1022545f83046d98d7f54af76df9e44e and its byte-verified 470-entry archive. It publishes balanced trees, heaps, hashing, amortized analysis and variance/covariance. Library: 57 chapters / 3913 worked entries. GitHub content commit 27ff627. No student approval is inferred. Continue s_distributions under standing authorization. See research/s_variance-publication.json.
