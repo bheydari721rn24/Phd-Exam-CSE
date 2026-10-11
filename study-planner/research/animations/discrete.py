@@ -86,8 +86,8 @@ product()
 def induction(kind):
     frames=[]
     for n in range(0,7):
-        if kind=='triangular':coordinates=[(i,j) for i in range(1,n+1) for j in range(i)];formula=rf'1+\cdots+{n}=\frac{{{n}({n}+1)}}2' if n else r'T_0=0';total=n*(n+1)//2
-        else:coordinates=[(i,j) for i in range(n) for j in range(n)];formula=rf'1+3+\cdots+{2*n-1}={n}^2' if n else r'S_0=0';total=n*n
+        if kind=='triangular':coordinates=[(i,j) for i in range(1,n+1) for j in range(i)];formula='+'.join(map(str,range(1,n+1)))+rf'=\frac{{{n}({n}+1)}}2' if n else r'T_0=0';total=n*(n+1)//2
+        else:coordinates=[(i,j) for i in range(n) for j in range(n)];formula='+'.join(map(str,range(1,2*n,2)))+rf'={n}^2' if n else r'S_0=0';total=n*n
         check('induction '+kind+' exact shape count',len(coordinates)==total)
         nodes=[node('tile'+str(i)+'_'+str(j),'',160+j*55,45+i*43,w=36,h=32,tone='active' if i==(n if kind=='triangular' else n-1) or kind=='square' and j==n-1 else 'done') for i,j in coordinates]
         frames.append(frame(nodes,'Add the next '+('triangular row' if kind=='triangular' else 'odd-sized square border')+'. The new contribution transforms the established size into the next claimed size.',{'Parameter':n,'Total tiles':total,'Added tiles':n if kind=='triangular' else max(0,2*n-1)},formula=formula,snapshot={'n':n,'count':total}))

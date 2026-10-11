@@ -71519,14 +71519,14 @@
             "Total tiles": 1,
             "Added tiles": 1
           },
-          "formula": "1+\\cdots+1=\\frac{1(1+1)}2",
-          "line": 0,
+          "formula": "1=\\frac{1(1+1)}2",
+          "line": 1,
           "edges": [],
           "snapshot": {
             "n": 1,
             "count": 1
           },
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+\\cdots+1=\\frac{1(1+1)}2\"><mrow><mn>1</mn><mo>+</mo><mo>…</mo><mo>+</mo><mn>1</mn><mo>=</mo><mfrac><mrow><mn>1</mn><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mn>1</mn><mo>)</mo></mrow></mrow><mn>2</mn></mfrac></mrow></math></div>",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1=\\frac{1(1+1)}2\"><mrow><mn>1</mn><mo>=</mo><mfrac><mrow><mn>1</mn><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mn>1</mn><mo>)</mo></mrow></mrow><mn>2</mn></mfrac></mrow></math></div>",
           "captionHtml": "<p>Add the next triangular row. The new contribution transforms the established size into the next claimed size.</p>\n",
           "metricLabels": {
             "Parameter": "<p>Parameter</p>\n",
@@ -71534,7 +71534,7 @@
             "Added tiles": "<p>Added tiles</p>\n"
           },
           "teaching": {
-            "operation": "establish the base shape",
+            "operation": "add the next row or border",
             "why": "Add the next triangular row. The new contribution transforms the established size into the next claimed size.",
             "reading": "New tiles or coins show the added row, border or smaller established construction. The finite picture illustrates the induction step; it does not replace its proof.",
             "guide": [
@@ -71542,7 +71542,7 @@
               "add the next row or border",
               "identify the next closed-form total"
             ],
-            "activeLine": 0,
+            "activeLine": 1,
             "checks": [],
             "changes": [
               {
@@ -71625,14 +71625,14 @@
             "Total tiles": 3,
             "Added tiles": 2
           },
-          "formula": "1+\\cdots+2=\\frac{2(2+1)}2",
-          "line": 0,
+          "formula": "1+2=\\frac{2(2+1)}2",
+          "line": 1,
           "edges": [],
           "snapshot": {
             "n": 2,
             "count": 3
           },
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+\\cdots+2=\\frac{2(2+1)}2\"><mrow><mn>1</mn><mo>+</mo><mo>…</mo><mo>+</mo><mn>2</mn><mo>=</mo><mfrac><mrow><mn>2</mn><mrow><mo>(</mo><mn>2</mn><mo>+</mo><mn>1</mn><mo>)</mo></mrow></mrow><mn>2</mn></mfrac></mrow></math></div>",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+2=\\frac{2(2+1)}2\"><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mo>=</mo><mfrac><mrow><mn>2</mn><mrow><mo>(</mo><mn>2</mn><mo>+</mo><mn>1</mn><mo>)</mo></mrow></mrow><mn>2</mn></mfrac></mrow></math></div>",
           "captionHtml": "<p>Add the next triangular row. The new contribution transforms the established size into the next claimed size.</p>\n",
           "metricLabels": {
             "Parameter": "<p>Parameter</p>\n",
@@ -71640,7 +71640,7 @@
             "Added tiles": "<p>Added tiles</p>\n"
           },
           "teaching": {
-            "operation": "establish the base shape",
+            "operation": "add the next row or border",
             "why": "Add the next triangular row. The new contribution transforms the established size into the next claimed size.",
             "reading": "New tiles or coins show the added row, border or smaller established construction. The finite picture illustrates the induction step; it does not replace its proof.",
             "guide": [
@@ -71648,7 +71648,7 @@
               "add the next row or border",
               "identify the next closed-form total"
             ],
-            "activeLine": 0,
+            "activeLine": 1,
             "checks": [],
             "changes": [
               {
@@ -71761,14 +71761,14 @@
             "Total tiles": 6,
             "Added tiles": 3
           },
-          "formula": "1+\\cdots+3=\\frac{3(3+1)}2",
-          "line": 0,
+          "formula": "1+2+3=\\frac{3(3+1)}2",
+          "line": 1,
           "edges": [],
           "snapshot": {
             "n": 3,
             "count": 6
           },
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+\\cdots+3=\\frac{3(3+1)}2\"><mrow><mn>1</mn><mo>+</mo><mo>…</mo><mo>+</mo><mn>3</mn><mo>=</mo><mfrac><mrow><mn>3</mn><mrow><mo>(</mo><mn>3</mn><mo>+</mo><mn>1</mn><mo>)</mo></mrow></mrow><mn>2</mn></mfrac></mrow></math></div>",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+2+3=\\frac{3(3+1)}2\"><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>3</mn><mo>=</mo><mfrac><mrow><mn>3</mn><mrow><mo>(</mo><mn>3</mn><mo>+</mo><mn>1</mn><mo>)</mo></mrow></mrow><mn>2</mn></mfrac></mrow></math></div>",
           "captionHtml": "<p>Add the next triangular row. The new contribution transforms the established size into the next claimed size.</p>\n",
           "metricLabels": {
             "Parameter": "<p>Parameter</p>\n",
@@ -71776,7 +71776,7 @@
             "Added tiles": "<p>Added tiles</p>\n"
           },
           "teaching": {
-            "operation": "establish the base shape",
+            "operation": "add the next row or border",
             "why": "Add the next triangular row. The new contribution transforms the established size into the next claimed size.",
             "reading": "New tiles or coins show the added row, border or smaller established construction. The finite picture illustrates the induction step; it does not replace its proof.",
             "guide": [
@@ -71784,7 +71784,7 @@
               "add the next row or border",
               "identify the next closed-form total"
             ],
-            "activeLine": 0,
+            "activeLine": 1,
             "checks": [],
             "changes": [
               {
@@ -71937,14 +71937,14 @@
             "Total tiles": 10,
             "Added tiles": 4
           },
-          "formula": "1+\\cdots+4=\\frac{4(4+1)}2",
-          "line": 0,
+          "formula": "1+2+3+4=\\frac{4(4+1)}2",
+          "line": 1,
           "edges": [],
           "snapshot": {
             "n": 4,
             "count": 10
           },
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+\\cdots+4=\\frac{4(4+1)}2\"><mrow><mn>1</mn><mo>+</mo><mo>…</mo><mo>+</mo><mn>4</mn><mo>=</mo><mfrac><mrow><mn>4</mn><mrow><mo>(</mo><mn>4</mn><mo>+</mo><mn>1</mn><mo>)</mo></mrow></mrow><mn>2</mn></mfrac></mrow></math></div>",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+2+3+4=\\frac{4(4+1)}2\"><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>3</mn><mo>+</mo><mn>4</mn><mo>=</mo><mfrac><mrow><mn>4</mn><mrow><mo>(</mo><mn>4</mn><mo>+</mo><mn>1</mn><mo>)</mo></mrow></mrow><mn>2</mn></mfrac></mrow></math></div>",
           "captionHtml": "<p>Add the next triangular row. The new contribution transforms the established size into the next claimed size.</p>\n",
           "metricLabels": {
             "Parameter": "<p>Parameter</p>\n",
@@ -71952,7 +71952,7 @@
             "Added tiles": "<p>Added tiles</p>\n"
           },
           "teaching": {
-            "operation": "establish the base shape",
+            "operation": "add the next row or border",
             "why": "Add the next triangular row. The new contribution transforms the established size into the next claimed size.",
             "reading": "New tiles or coins show the added row, border or smaller established construction. The finite picture illustrates the induction step; it does not replace its proof.",
             "guide": [
@@ -71960,7 +71960,7 @@
               "add the next row or border",
               "identify the next closed-form total"
             ],
-            "activeLine": 0,
+            "activeLine": 1,
             "checks": [],
             "changes": [
               {
@@ -72163,14 +72163,14 @@
             "Total tiles": 15,
             "Added tiles": 5
           },
-          "formula": "1+\\cdots+5=\\frac{5(5+1)}2",
-          "line": 0,
+          "formula": "1+2+3+4+5=\\frac{5(5+1)}2",
+          "line": 1,
           "edges": [],
           "snapshot": {
             "n": 5,
             "count": 15
           },
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+\\cdots+5=\\frac{5(5+1)}2\"><mrow><mn>1</mn><mo>+</mo><mo>…</mo><mo>+</mo><mn>5</mn><mo>=</mo><mfrac><mrow><mn>5</mn><mrow><mo>(</mo><mn>5</mn><mo>+</mo><mn>1</mn><mo>)</mo></mrow></mrow><mn>2</mn></mfrac></mrow></math></div>",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+2+3+4+5=\\frac{5(5+1)}2\"><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>3</mn><mo>+</mo><mn>4</mn><mo>+</mo><mn>5</mn><mo>=</mo><mfrac><mrow><mn>5</mn><mrow><mo>(</mo><mn>5</mn><mo>+</mo><mn>1</mn><mo>)</mo></mrow></mrow><mn>2</mn></mfrac></mrow></math></div>",
           "captionHtml": "<p>Add the next triangular row. The new contribution transforms the established size into the next claimed size.</p>\n",
           "metricLabels": {
             "Parameter": "<p>Parameter</p>\n",
@@ -72178,7 +72178,7 @@
             "Added tiles": "<p>Added tiles</p>\n"
           },
           "teaching": {
-            "operation": "establish the base shape",
+            "operation": "add the next row or border",
             "why": "Add the next triangular row. The new contribution transforms the established size into the next claimed size.",
             "reading": "New tiles or coins show the added row, border or smaller established construction. The finite picture illustrates the induction step; it does not replace its proof.",
             "guide": [
@@ -72186,7 +72186,7 @@
               "add the next row or border",
               "identify the next closed-form total"
             ],
-            "activeLine": 0,
+            "activeLine": 1,
             "checks": [],
             "changes": [
               {
@@ -72449,14 +72449,14 @@
             "Total tiles": 21,
             "Added tiles": 6
           },
-          "formula": "1+\\cdots+6=\\frac{6(6+1)}2",
-          "line": 0,
+          "formula": "1+2+3+4+5+6=\\frac{6(6+1)}2",
+          "line": 1,
           "edges": [],
           "snapshot": {
             "n": 6,
             "count": 21
           },
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+\\cdots+6=\\frac{6(6+1)}2\"><mrow><mn>1</mn><mo>+</mo><mo>…</mo><mo>+</mo><mn>6</mn><mo>=</mo><mfrac><mrow><mn>6</mn><mrow><mo>(</mo><mn>6</mn><mo>+</mo><mn>1</mn><mo>)</mo></mrow></mrow><mn>2</mn></mfrac></mrow></math></div>",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+2+3+4+5+6=\\frac{6(6+1)}2\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>3</mn><mo>+</mo><mn>4</mn><mo>+</mo><mn>5</mn><mo>+</mo><mn>6</mn></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mfrac><mrow><mn>6</mn><mrow><mo>(</mo><mn>6</mn><mo>+</mo><mn>1</mn><mo>)</mo></mrow></mrow><mn>2</mn></mfrac></mrow></mtd></mtr></mtable></math></div>",
           "captionHtml": "<p>Add the next triangular row. The new contribution transforms the established size into the next claimed size.</p>\n",
           "metricLabels": {
             "Parameter": "<p>Parameter</p>\n",
@@ -72464,7 +72464,7 @@
             "Added tiles": "<p>Added tiles</p>\n"
           },
           "teaching": {
-            "operation": "establish the base shape",
+            "operation": "add the next row or border",
             "why": "Add the next triangular row. The new contribution transforms the established size into the next claimed size.",
             "reading": "New tiles or coins show the added row, border or smaller established construction. The finite picture illustrates the induction step; it does not replace its proof.",
             "guide": [
@@ -72472,7 +72472,7 @@
               "add the next row or border",
               "identify the next closed-form total"
             ],
-            "activeLine": 0,
+            "activeLine": 1,
             "checks": [],
             "changes": [
               {
@@ -72614,14 +72614,14 @@
             "Total tiles": 1,
             "Added tiles": 1
           },
-          "formula": "1+3+\\cdots+1=1^2",
-          "line": 0,
+          "formula": "1=1^2",
+          "line": 1,
           "edges": [],
           "snapshot": {
             "n": 1,
             "count": 1
           },
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+3+\\cdots+1=1^2\"><mrow><mn>1</mn><mo>+</mo><mn>3</mn><mo>+</mo><mo>…</mo><mo>+</mo><mn>1</mn><mo>=</mo><msup><mn>1</mn><mn>2</mn></msup></mrow></math></div>",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1=1^2\"><mrow><mn>1</mn><mo>=</mo><msup><mn>1</mn><mn>2</mn></msup></mrow></math></div>",
           "captionHtml": "<p>Add the next odd-sized square border. The new contribution transforms the established size into the next claimed size.</p>\n",
           "metricLabels": {
             "Parameter": "<p>Parameter</p>\n",
@@ -72629,7 +72629,7 @@
             "Added tiles": "<p>Added tiles</p>\n"
           },
           "teaching": {
-            "operation": "establish the base shape",
+            "operation": "add the next row or border",
             "why": "Add the next odd-sized square border. The new contribution transforms the established size into the next claimed size.",
             "reading": "New tiles or coins show the added row, border or smaller established construction. The finite picture illustrates the induction step; it does not replace its proof.",
             "guide": [
@@ -72637,7 +72637,7 @@
               "add the next row or border",
               "identify the next closed-form total"
             ],
-            "activeLine": 0,
+            "activeLine": 1,
             "checks": [],
             "changes": [
               {
@@ -72730,14 +72730,14 @@
             "Total tiles": 4,
             "Added tiles": 3
           },
-          "formula": "1+3+\\cdots+3=2^2",
-          "line": 0,
+          "formula": "1+3=2^2",
+          "line": 1,
           "edges": [],
           "snapshot": {
             "n": 2,
             "count": 4
           },
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+3+\\cdots+3=2^2\"><mrow><mn>1</mn><mo>+</mo><mn>3</mn><mo>+</mo><mo>…</mo><mo>+</mo><mn>3</mn><mo>=</mo><msup><mn>2</mn><mn>2</mn></msup></mrow></math></div>",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+3=2^2\"><mrow><mn>1</mn><mo>+</mo><mn>3</mn><mo>=</mo><msup><mn>2</mn><mn>2</mn></msup></mrow></math></div>",
           "captionHtml": "<p>Add the next odd-sized square border. The new contribution transforms the established size into the next claimed size.</p>\n",
           "metricLabels": {
             "Parameter": "<p>Parameter</p>\n",
@@ -72745,7 +72745,7 @@
             "Added tiles": "<p>Added tiles</p>\n"
           },
           "teaching": {
-            "operation": "establish the base shape",
+            "operation": "add the next row or border",
             "why": "Add the next odd-sized square border. The new contribution transforms the established size into the next claimed size.",
             "reading": "New tiles or coins show the added row, border or smaller established construction. The finite picture illustrates the induction step; it does not replace its proof.",
             "guide": [
@@ -72753,7 +72753,7 @@
               "add the next row or border",
               "identify the next closed-form total"
             ],
-            "activeLine": 0,
+            "activeLine": 1,
             "checks": [],
             "changes": [
               {
@@ -72896,14 +72896,14 @@
             "Total tiles": 9,
             "Added tiles": 5
           },
-          "formula": "1+3+\\cdots+5=3^2",
-          "line": 0,
+          "formula": "1+3+5=3^2",
+          "line": 1,
           "edges": [],
           "snapshot": {
             "n": 3,
             "count": 9
           },
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+3+\\cdots+5=3^2\"><mrow><mn>1</mn><mo>+</mo><mn>3</mn><mo>+</mo><mo>…</mo><mo>+</mo><mn>5</mn><mo>=</mo><msup><mn>3</mn><mn>2</mn></msup></mrow></math></div>",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+3+5=3^2\"><mrow><mn>1</mn><mo>+</mo><mn>3</mn><mo>+</mo><mn>5</mn><mo>=</mo><msup><mn>3</mn><mn>2</mn></msup></mrow></math></div>",
           "captionHtml": "<p>Add the next odd-sized square border. The new contribution transforms the established size into the next claimed size.</p>\n",
           "metricLabels": {
             "Parameter": "<p>Parameter</p>\n",
@@ -72911,7 +72911,7 @@
             "Added tiles": "<p>Added tiles</p>\n"
           },
           "teaching": {
-            "operation": "establish the base shape",
+            "operation": "add the next row or border",
             "why": "Add the next odd-sized square border. The new contribution transforms the established size into the next claimed size.",
             "reading": "New tiles or coins show the added row, border or smaller established construction. The finite picture illustrates the induction step; it does not replace its proof.",
             "guide": [
@@ -72919,7 +72919,7 @@
               "add the next row or border",
               "identify the next closed-form total"
             ],
-            "activeLine": 0,
+            "activeLine": 1,
             "checks": [],
             "changes": [
               {
@@ -73132,14 +73132,14 @@
             "Total tiles": 16,
             "Added tiles": 7
           },
-          "formula": "1+3+\\cdots+7=4^2",
-          "line": 0,
+          "formula": "1+3+5+7=4^2",
+          "line": 1,
           "edges": [],
           "snapshot": {
             "n": 4,
             "count": 16
           },
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+3+\\cdots+7=4^2\"><mrow><mn>1</mn><mo>+</mo><mn>3</mn><mo>+</mo><mo>…</mo><mo>+</mo><mn>7</mn><mo>=</mo><msup><mn>4</mn><mn>2</mn></msup></mrow></math></div>",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+3+5+7=4^2\"><mrow><mn>1</mn><mo>+</mo><mn>3</mn><mo>+</mo><mn>5</mn><mo>+</mo><mn>7</mn><mo>=</mo><msup><mn>4</mn><mn>2</mn></msup></mrow></math></div>",
           "captionHtml": "<p>Add the next odd-sized square border. The new contribution transforms the established size into the next claimed size.</p>\n",
           "metricLabels": {
             "Parameter": "<p>Parameter</p>\n",
@@ -73147,7 +73147,7 @@
             "Added tiles": "<p>Added tiles</p>\n"
           },
           "teaching": {
-            "operation": "establish the base shape",
+            "operation": "add the next row or border",
             "why": "Add the next odd-sized square border. The new contribution transforms the established size into the next claimed size.",
             "reading": "New tiles or coins show the added row, border or smaller established construction. The finite picture illustrates the induction step; it does not replace its proof.",
             "guide": [
@@ -73155,7 +73155,7 @@
               "add the next row or border",
               "identify the next closed-form total"
             ],
-            "activeLine": 0,
+            "activeLine": 1,
             "checks": [],
             "changes": [
               {
@@ -73458,14 +73458,14 @@
             "Total tiles": 25,
             "Added tiles": 9
           },
-          "formula": "1+3+\\cdots+9=5^2",
-          "line": 0,
+          "formula": "1+3+5+7+9=5^2",
+          "line": 1,
           "edges": [],
           "snapshot": {
             "n": 5,
             "count": 25
           },
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+3+\\cdots+9=5^2\"><mrow><mn>1</mn><mo>+</mo><mn>3</mn><mo>+</mo><mo>…</mo><mo>+</mo><mn>9</mn><mo>=</mo><msup><mn>5</mn><mn>2</mn></msup></mrow></math></div>",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+3+5+7+9=5^2\"><mrow><mn>1</mn><mo>+</mo><mn>3</mn><mo>+</mo><mn>5</mn><mo>+</mo><mn>7</mn><mo>+</mo><mn>9</mn><mo>=</mo><msup><mn>5</mn><mn>2</mn></msup></mrow></math></div>",
           "captionHtml": "<p>Add the next odd-sized square border. The new contribution transforms the established size into the next claimed size.</p>\n",
           "metricLabels": {
             "Parameter": "<p>Parameter</p>\n",
@@ -73473,7 +73473,7 @@
             "Added tiles": "<p>Added tiles</p>\n"
           },
           "teaching": {
-            "operation": "establish the base shape",
+            "operation": "add the next row or border",
             "why": "Add the next odd-sized square border. The new contribution transforms the established size into the next claimed size.",
             "reading": "New tiles or coins show the added row, border or smaller established construction. The finite picture illustrates the induction step; it does not replace its proof.",
             "guide": [
@@ -73481,7 +73481,7 @@
               "add the next row or border",
               "identify the next closed-form total"
             ],
-            "activeLine": 0,
+            "activeLine": 1,
             "checks": [],
             "changes": [
               {
@@ -73894,14 +73894,14 @@
             "Total tiles": 36,
             "Added tiles": 11
           },
-          "formula": "1+3+\\cdots+11=6^2",
-          "line": 0,
+          "formula": "1+3+5+7+9+11=6^2",
+          "line": 1,
           "edges": [],
           "snapshot": {
             "n": 6,
             "count": 36
           },
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+3+\\cdots+11=6^2\"><mrow><mn>1</mn><mo>+</mo><mn>3</mn><mo>+</mo><mo>…</mo><mo>+</mo><mn>11</mn><mo>=</mo><msup><mn>6</mn><mn>2</mn></msup></mrow></math></div>",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"1+3+5+7+9+11=6^2\"><mrow><mn>1</mn><mo>+</mo><mn>3</mn><mo>+</mo><mn>5</mn><mo>+</mo><mn>7</mn><mo>+</mo><mn>9</mn><mo>+</mo><mn>11</mn><mo>=</mo><msup><mn>6</mn><mn>2</mn></msup></mrow></math></div>",
           "captionHtml": "<p>Add the next odd-sized square border. The new contribution transforms the established size into the next claimed size.</p>\n",
           "metricLabels": {
             "Parameter": "<p>Parameter</p>\n",
@@ -73909,7 +73909,7 @@
             "Added tiles": "<p>Added tiles</p>\n"
           },
           "teaching": {
-            "operation": "establish the base shape",
+            "operation": "add the next row or border",
             "why": "Add the next odd-sized square border. The new contribution transforms the established size into the next claimed size.",
             "reading": "New tiles or coins show the added row, border or smaller established construction. The finite picture illustrates the induction step; it does not replace its proof.",
             "guide": [
@@ -73917,7 +73917,7 @@
               "add the next row or border",
               "identify the next closed-form total"
             ],
-            "activeLine": 0,
+            "activeLine": 1,
             "checks": [],
             "changes": [
               {
@@ -74210,7 +74210,7 @@
             "Uncovered odd indices": "1, 3, 5, 7"
           },
           "formula": "",
-          "line": 0,
+          "line": 1,
           "edges": [],
           "counterexample": true,
           "status": "This proof scheme leaves the odd-index chain unestablished.",
@@ -74221,14 +74221,14 @@
             "Uncovered odd indices": "<p>Uncovered odd indices</p>\n"
           },
           "teaching": {
-            "operation": "establish index zero",
+            "operation": "apply the two-step implication to an established index",
             "why": "A step of two from the zero base reaches only even indices. The odd chain needs its own base and cannot be silently assumed.",
             "reading": "Arrow direction expresses the declared relation or mapping. A new edge, witness or emitted vertex must satisfy its stated prerequisite.",
             "guide": [
               "establish index zero",
               "apply the two-step implication to an established index"
             ],
-            "activeLine": 0,
+            "activeLine": 1,
             "checks": [],
             "changes": [
               {
@@ -74346,7 +74346,7 @@
             "Uncovered odd indices": "1, 3, 5, 7"
           },
           "formula": "",
-          "line": 0,
+          "line": 1,
           "edges": [],
           "counterexample": true,
           "status": "This proof scheme leaves the odd-index chain unestablished.",
@@ -74357,14 +74357,14 @@
             "Uncovered odd indices": "<p>Uncovered odd indices</p>\n"
           },
           "teaching": {
-            "operation": "establish index zero",
+            "operation": "apply the two-step implication to an established index",
             "why": "A step of two from the zero base reaches only even indices. The odd chain needs its own base and cannot be silently assumed.",
             "reading": "Arrow direction expresses the declared relation or mapping. A new edge, witness or emitted vertex must satisfy its stated prerequisite.",
             "guide": [
               "establish index zero",
               "apply the two-step implication to an established index"
             ],
-            "activeLine": 0,
+            "activeLine": 1,
             "checks": [],
             "changes": [
               {
@@ -74482,7 +74482,7 @@
             "Uncovered odd indices": "1, 3, 5, 7"
           },
           "formula": "",
-          "line": 0,
+          "line": 1,
           "edges": [],
           "counterexample": true,
           "status": "This proof scheme leaves the odd-index chain unestablished.",
@@ -74493,14 +74493,14 @@
             "Uncovered odd indices": "<p>Uncovered odd indices</p>\n"
           },
           "teaching": {
-            "operation": "establish index zero",
+            "operation": "apply the two-step implication to an established index",
             "why": "A step of two from the zero base reaches only even indices. The odd chain needs its own base and cannot be silently assumed.",
             "reading": "Arrow direction expresses the declared relation or mapping. A new edge, witness or emitted vertex must satisfy its stated prerequisite.",
             "guide": [
               "establish index zero",
               "apply the two-step implication to an established index"
             ],
-            "activeLine": 0,
+            "activeLine": 1,
             "checks": [],
             "changes": [
               {

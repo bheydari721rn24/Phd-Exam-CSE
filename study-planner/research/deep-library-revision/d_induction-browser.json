@@ -1,0 +1,110 @@
+{
+  "status": "passed",
+  "topicId": "d_induction",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-induction-browser",
+  "counts": {
+    "questions": 46,
+    "solutions": 46,
+    "questionTables": 12,
+    "math": 1019,
+    "errors": []
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "prose": true
+  },
+  "delimiters": [],
+  "models": [
+    {
+      "id": "induction-triangular",
+      "frames": 7,
+      "issues": []
+    },
+    {
+      "id": "induction-square",
+      "frames": 7,
+      "issues": []
+    },
+    {
+      "id": "induction-gap",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "strong-coins",
+      "frames": 13,
+      "issues": []
+    },
+    {
+      "id": "euclid",
+      "frames": 5,
+      "issues": []
+    },
+    {
+      "id": "induction-gap",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "induction-gap",
+      "frames": 4,
+      "issues": []
+    }
+  ],
+  "staticDiagrams": [
+    {
+      "label": "A proved induction base reaches successive indices through a valid arbitrary-index implication",
+      "outside": []
+    },
+    {
+      "label": "A deficient square splits into four smaller deficient squares after one central L tile",
+      "outside": []
+    },
+    {
+      "label": "A unary root leaves half the mass unused; a full tree with leaf depths one, two and two has total mass one",
+      "outside": []
+    },
+    {
+      "label": "Two full binary trees with three internal nodes and seven total nodes: perfect height two and comb height three",
+      "outside": []
+    }
+  ],
+  "responsive": [
+    {
+      "width": 1360,
+      "pageWidth": 1345,
+      "tableOverflow": [],
+      "underlined": 0
+    },
+    {
+      "width": 768,
+      "pageWidth": 753,
+      "tableOverflow": [],
+      "underlined": 0
+    },
+    {
+      "width": 390,
+      "pageWidth": 390,
+      "tableOverflow": [],
+      "underlined": 0
+    }
+  ],
+  "print": {
+    "solutions": 46,
+    "errors": []
+  },
+  "humanInspectedScreenshots": [
+    "question-3-mass.png",
+    "question-28-shapes.png",
+    "question-3-mobile.png",
+    "question-6-mobile.png",
+    "question-36.png",
+    "final-rules.png",
+    "square-final.png",
+    "coins-final.png",
+    "euclid-final.png",
+    "question-46-final.png"
+  ],
+  "animationSemanticEvidence": "research/deep-library-revision/d_induction-scene-semantics.json"
+}

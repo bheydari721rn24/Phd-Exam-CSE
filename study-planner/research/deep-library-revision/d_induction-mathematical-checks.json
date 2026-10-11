@@ -1,0 +1,2678 @@
+{
+  "topicId": "d_induction",
+  "status": "passed_with_recorded_finite_bounds",
+  "checkCount": 339,
+  "scope": "Exact sums and marked identities n=1..12; full binary trees I=0..5 and full ternary I=0..4; all binary shapes N=1..7; original parity recurrence evaluated through 113; step-four reachability 3..50; symbolic successor identities. General proofs are independently written and are not universally certified by finite tests.",
+  "checks": [
+    {
+      "name": "weighted successor identity",
+      "result": "0",
+      "expected": "0",
+      "passed": true
+    },
+    {
+      "name": "square successor identity",
+      "result": "0",
+      "expected": "0",
+      "passed": true
+    },
+    {
+      "name": "telescoping successor identity",
+      "result": "0",
+      "expected": "0",
+      "passed": true
+    },
+    {
+      "name": "strengthened reciprocal-square slack",
+      "result": "1/(n*(n + 1)**2)",
+      "expected": "1/(n*(n + 1)**2)",
+      "passed": true
+    },
+    {
+      "name": "Hanoi transformed recurrence",
+      "result": "0",
+      "expected": "0",
+      "passed": true
+    },
+    {
+      "name": "square inequality minimal tail seed",
+      "result": [
+        true,
+        false,
+        false,
+        false,
+        true
+      ],
+      "expected": [
+        true,
+        false,
+        false,
+        false,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "exact weighted sum n=1",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "exact square sum n=1",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "exact telescope n=1",
+      "result": "1/2",
+      "expected": "1/2",
+      "passed": true
+    },
+    {
+      "name": "one-mark binomial sum n=1",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=1 r=0",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=1 r=1",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "exact weighted sum n=2",
+      "result": 5,
+      "expected": 5,
+      "passed": true
+    },
+    {
+      "name": "exact square sum n=2",
+      "result": 5,
+      "expected": 5,
+      "passed": true
+    },
+    {
+      "name": "exact telescope n=2",
+      "result": "2/3",
+      "expected": "2/3",
+      "passed": true
+    },
+    {
+      "name": "one-mark binomial sum n=2",
+      "result": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "square-mark binomial sum n=2",
+      "result": 6,
+      "expected": 6,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=2 r=0",
+      "result": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=2 r=1",
+      "result": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=2 r=2",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "exact weighted sum n=3",
+      "result": 17,
+      "expected": 17,
+      "passed": true
+    },
+    {
+      "name": "exact square sum n=3",
+      "result": 14,
+      "expected": 14,
+      "passed": true
+    },
+    {
+      "name": "exact telescope n=3",
+      "result": "3/4",
+      "expected": "3/4",
+      "passed": true
+    },
+    {
+      "name": "one-mark binomial sum n=3",
+      "result": 12,
+      "expected": 12,
+      "passed": true
+    },
+    {
+      "name": "square-mark binomial sum n=3",
+      "result": 24,
+      "expected": 24,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=3 r=0",
+      "result": 8,
+      "expected": 8,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=3 r=1",
+      "result": 12,
+      "expected": 12,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=3 r=2",
+      "result": 6,
+      "expected": 6,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=3 r=3",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "exact weighted sum n=4",
+      "result": 49,
+      "expected": 49,
+      "passed": true
+    },
+    {
+      "name": "exact square sum n=4",
+      "result": 30,
+      "expected": 30,
+      "passed": true
+    },
+    {
+      "name": "exact telescope n=4",
+      "result": "4/5",
+      "expected": "4/5",
+      "passed": true
+    },
+    {
+      "name": "one-mark binomial sum n=4",
+      "result": 32,
+      "expected": 32,
+      "passed": true
+    },
+    {
+      "name": "square-mark binomial sum n=4",
+      "result": 80,
+      "expected": 80,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=4 r=0",
+      "result": 16,
+      "expected": 16,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=4 r=1",
+      "result": 32,
+      "expected": 32,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=4 r=2",
+      "result": 24,
+      "expected": 24,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=4 r=3",
+      "result": 8,
+      "expected": 8,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=4 r=4",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "exact weighted sum n=5",
+      "result": 129,
+      "expected": 129,
+      "passed": true
+    },
+    {
+      "name": "exact square sum n=5",
+      "result": 55,
+      "expected": 55,
+      "passed": true
+    },
+    {
+      "name": "exact telescope n=5",
+      "result": "5/6",
+      "expected": "5/6",
+      "passed": true
+    },
+    {
+      "name": "one-mark binomial sum n=5",
+      "result": 80,
+      "expected": 80,
+      "passed": true
+    },
+    {
+      "name": "square-mark binomial sum n=5",
+      "result": 240,
+      "expected": 240,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=5 r=0",
+      "result": 32,
+      "expected": 32,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=5 r=1",
+      "result": 80,
+      "expected": 80,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=5 r=2",
+      "result": 80,
+      "expected": 80,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=5 r=3",
+      "result": 40,
+      "expected": 40,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=5 r=4",
+      "result": 10,
+      "expected": 10,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=5 r=5",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "exact weighted sum n=6",
+      "result": 321,
+      "expected": 321,
+      "passed": true
+    },
+    {
+      "name": "exact square sum n=6",
+      "result": 91,
+      "expected": 91,
+      "passed": true
+    },
+    {
+      "name": "exact telescope n=6",
+      "result": "6/7",
+      "expected": "6/7",
+      "passed": true
+    },
+    {
+      "name": "one-mark binomial sum n=6",
+      "result": 192,
+      "expected": 192,
+      "passed": true
+    },
+    {
+      "name": "square-mark binomial sum n=6",
+      "result": 672,
+      "expected": 672,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=6 r=0",
+      "result": 64,
+      "expected": 64,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=6 r=1",
+      "result": 192,
+      "expected": 192,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=6 r=2",
+      "result": 240,
+      "expected": 240,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=6 r=3",
+      "result": 160,
+      "expected": 160,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=6 r=4",
+      "result": 60,
+      "expected": 60,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=6 r=5",
+      "result": 12,
+      "expected": 12,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=6 r=6",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "exact weighted sum n=7",
+      "result": 769,
+      "expected": 769,
+      "passed": true
+    },
+    {
+      "name": "exact square sum n=7",
+      "result": 140,
+      "expected": 140,
+      "passed": true
+    },
+    {
+      "name": "exact telescope n=7",
+      "result": "7/8",
+      "expected": "7/8",
+      "passed": true
+    },
+    {
+      "name": "one-mark binomial sum n=7",
+      "result": 448,
+      "expected": 448,
+      "passed": true
+    },
+    {
+      "name": "square-mark binomial sum n=7",
+      "result": 1792,
+      "expected": 1792,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=7 r=0",
+      "result": 128,
+      "expected": 128,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=7 r=1",
+      "result": 448,
+      "expected": 448,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=7 r=2",
+      "result": 672,
+      "expected": 672,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=7 r=3",
+      "result": 560,
+      "expected": 560,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=7 r=4",
+      "result": 280,
+      "expected": 280,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=7 r=5",
+      "result": 84,
+      "expected": 84,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=7 r=6",
+      "result": 14,
+      "expected": 14,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=7 r=7",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "exact weighted sum n=8",
+      "result": 1793,
+      "expected": 1793,
+      "passed": true
+    },
+    {
+      "name": "exact square sum n=8",
+      "result": 204,
+      "expected": 204,
+      "passed": true
+    },
+    {
+      "name": "exact telescope n=8",
+      "result": "8/9",
+      "expected": "8/9",
+      "passed": true
+    },
+    {
+      "name": "one-mark binomial sum n=8",
+      "result": 1024,
+      "expected": 1024,
+      "passed": true
+    },
+    {
+      "name": "square-mark binomial sum n=8",
+      "result": 4608,
+      "expected": 4608,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=8 r=0",
+      "result": 256,
+      "expected": 256,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=8 r=1",
+      "result": 1024,
+      "expected": 1024,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=8 r=2",
+      "result": 1792,
+      "expected": 1792,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=8 r=3",
+      "result": 1792,
+      "expected": 1792,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=8 r=4",
+      "result": 1120,
+      "expected": 1120,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=8 r=5",
+      "result": 448,
+      "expected": 448,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=8 r=6",
+      "result": 112,
+      "expected": 112,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=8 r=7",
+      "result": 16,
+      "expected": 16,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=8 r=8",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "exact weighted sum n=9",
+      "result": 4097,
+      "expected": 4097,
+      "passed": true
+    },
+    {
+      "name": "exact square sum n=9",
+      "result": 285,
+      "expected": 285,
+      "passed": true
+    },
+    {
+      "name": "exact telescope n=9",
+      "result": "9/10",
+      "expected": "9/10",
+      "passed": true
+    },
+    {
+      "name": "one-mark binomial sum n=9",
+      "result": 2304,
+      "expected": 2304,
+      "passed": true
+    },
+    {
+      "name": "square-mark binomial sum n=9",
+      "result": 11520,
+      "expected": 11520,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=9 r=0",
+      "result": 512,
+      "expected": 512,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=9 r=1",
+      "result": 2304,
+      "expected": 2304,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=9 r=2",
+      "result": 4608,
+      "expected": 4608,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=9 r=3",
+      "result": 5376,
+      "expected": 5376,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=9 r=4",
+      "result": 4032,
+      "expected": 4032,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=9 r=5",
+      "result": 2016,
+      "expected": 2016,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=9 r=6",
+      "result": 672,
+      "expected": 672,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=9 r=7",
+      "result": 144,
+      "expected": 144,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=9 r=8",
+      "result": 18,
+      "expected": 18,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=9 r=9",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "exact weighted sum n=10",
+      "result": 9217,
+      "expected": 9217,
+      "passed": true
+    },
+    {
+      "name": "exact square sum n=10",
+      "result": 385,
+      "expected": 385,
+      "passed": true
+    },
+    {
+      "name": "exact telescope n=10",
+      "result": "10/11",
+      "expected": "10/11",
+      "passed": true
+    },
+    {
+      "name": "one-mark binomial sum n=10",
+      "result": 5120,
+      "expected": 5120,
+      "passed": true
+    },
+    {
+      "name": "square-mark binomial sum n=10",
+      "result": 28160,
+      "expected": 28160,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=10 r=0",
+      "result": 1024,
+      "expected": 1024,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=10 r=1",
+      "result": 5120,
+      "expected": 5120,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=10 r=2",
+      "result": 11520,
+      "expected": 11520,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=10 r=3",
+      "result": 15360,
+      "expected": 15360,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=10 r=4",
+      "result": 13440,
+      "expected": 13440,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=10 r=5",
+      "result": 8064,
+      "expected": 8064,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=10 r=6",
+      "result": 3360,
+      "expected": 3360,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=10 r=7",
+      "result": 960,
+      "expected": 960,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=10 r=8",
+      "result": 180,
+      "expected": 180,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=10 r=9",
+      "result": 20,
+      "expected": 20,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=10 r=10",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "exact weighted sum n=11",
+      "result": 20481,
+      "expected": 20481,
+      "passed": true
+    },
+    {
+      "name": "exact square sum n=11",
+      "result": 506,
+      "expected": 506,
+      "passed": true
+    },
+    {
+      "name": "exact telescope n=11",
+      "result": "11/12",
+      "expected": "11/12",
+      "passed": true
+    },
+    {
+      "name": "one-mark binomial sum n=11",
+      "result": 11264,
+      "expected": 11264,
+      "passed": true
+    },
+    {
+      "name": "square-mark binomial sum n=11",
+      "result": 67584,
+      "expected": 67584,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=11 r=0",
+      "result": 2048,
+      "expected": 2048,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=11 r=1",
+      "result": 11264,
+      "expected": 11264,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=11 r=2",
+      "result": 28160,
+      "expected": 28160,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=11 r=3",
+      "result": 42240,
+      "expected": 42240,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=11 r=4",
+      "result": 42240,
+      "expected": 42240,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=11 r=5",
+      "result": 29568,
+      "expected": 29568,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=11 r=6",
+      "result": 14784,
+      "expected": 14784,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=11 r=7",
+      "result": 5280,
+      "expected": 5280,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=11 r=8",
+      "result": 1320,
+      "expected": 1320,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=11 r=9",
+      "result": 220,
+      "expected": 220,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=11 r=10",
+      "result": 22,
+      "expected": 22,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=11 r=11",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "exact weighted sum n=12",
+      "result": 45057,
+      "expected": 45057,
+      "passed": true
+    },
+    {
+      "name": "exact square sum n=12",
+      "result": 650,
+      "expected": 650,
+      "passed": true
+    },
+    {
+      "name": "exact telescope n=12",
+      "result": "12/13",
+      "expected": "12/13",
+      "passed": true
+    },
+    {
+      "name": "one-mark binomial sum n=12",
+      "result": 24576,
+      "expected": 24576,
+      "passed": true
+    },
+    {
+      "name": "square-mark binomial sum n=12",
+      "result": 159744,
+      "expected": 159744,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=12 r=0",
+      "result": 4096,
+      "expected": 4096,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=12 r=1",
+      "result": 24576,
+      "expected": 24576,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=12 r=2",
+      "result": 67584,
+      "expected": 67584,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=12 r=3",
+      "result": 112640,
+      "expected": 112640,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=12 r=4",
+      "result": 126720,
+      "expected": 126720,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=12 r=5",
+      "result": 101376,
+      "expected": 101376,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=12 r=6",
+      "result": 59136,
+      "expected": 59136,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=12 r=7",
+      "result": 25344,
+      "expected": 25344,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=12 r=8",
+      "result": 7920,
+      "expected": 7920,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=12 r=9",
+      "result": 1760,
+      "expected": 1760,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=12 r=10",
+      "result": 264,
+      "expected": 264,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=12 r=11",
+      "result": 24,
+      "expected": 24,
+      "passed": true
+    },
+    {
+      "name": "marked-r identity N=12 r=12",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "authentic weighted interval result",
+      "result": "56",
+      "expected": "56",
+      "passed": true
+    },
+    {
+      "name": "prefix seed and domain b=0 c=1",
+      "result": [
+        1,
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048
+      ],
+      "expected": [
+        1,
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048
+      ],
+      "passed": true
+    },
+    {
+      "name": "formal coefficients b=0 c=1",
+      "result": [
+        1,
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "expected": [
+        1,
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "passed": true
+    },
+    {
+      "name": "prefix seed and domain b=0 c=2",
+      "result": [
+        2,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "expected": [
+        2,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096
+      ],
+      "passed": true
+    },
+    {
+      "name": "formal coefficients b=0 c=2",
+      "result": [
+        2,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "expected": [
+        2,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "passed": true
+    },
+    {
+      "name": "prefix seed and domain b=2 c=1",
+      "result": [
+        1,
+        3,
+        6,
+        12,
+        24,
+        48,
+        96,
+        192,
+        384,
+        768,
+        1536,
+        3072,
+        6144
+      ],
+      "expected": [
+        1,
+        3,
+        6,
+        12,
+        24,
+        48,
+        96,
+        192,
+        384,
+        768,
+        1536,
+        3072,
+        6144
+      ],
+      "passed": true
+    },
+    {
+      "name": "formal coefficients b=2 c=1",
+      "result": [
+        1,
+        3,
+        6,
+        12,
+        24,
+        48,
+        96,
+        192
+      ],
+      "expected": [
+        1,
+        3,
+        6,
+        12,
+        24,
+        48,
+        96,
+        192
+      ],
+      "passed": true
+    },
+    {
+      "name": "prefix seed and domain b=-1 c=2",
+      "result": [
+        2,
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048
+      ],
+      "expected": [
+        2,
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048
+      ],
+      "passed": true
+    },
+    {
+      "name": "formal coefficients b=-1 c=2",
+      "result": [
+        2,
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "expected": [
+        2,
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "passed": true
+    },
+    {
+      "name": "prefix seed and domain b=3 c=0",
+      "result": [
+        0,
+        3,
+        6,
+        12,
+        24,
+        48,
+        96,
+        192,
+        384,
+        768,
+        1536,
+        3072,
+        6144
+      ],
+      "expected": [
+        0,
+        3,
+        6,
+        12,
+        24,
+        48,
+        96,
+        192,
+        384,
+        768,
+        1536,
+        3072,
+        6144
+      ],
+      "passed": true
+    },
+    {
+      "name": "formal coefficients b=3 c=0",
+      "result": [
+        0,
+        3,
+        6,
+        12,
+        24,
+        48,
+        96,
+        192
+      ],
+      "expected": [
+        0,
+        3,
+        6,
+        12,
+        24,
+        48,
+        96,
+        192
+      ],
+      "passed": true
+    },
+    {
+      "name": "parity state cycle",
+      "result": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "name": "state return",
+      "result": [
+        1,
+        1
+      ],
+      "expected": [
+        1,
+        1
+      ],
+      "passed": true
+    },
+    {
+      "name": "authentic parity recurrence actual large integers",
+      "result": [
+        102,
+        105,
+        108,
+        111
+      ],
+      "expected": [
+        102,
+        105,
+        108,
+        111
+      ],
+      "passed": true
+    },
+    {
+      "name": "inclusive multiple count",
+      "result": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "divisibility claimed domain",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "divisibility false alternatives",
+      "result": [
+        4,
+        8,
+        2
+      ],
+      "expected": [
+        4,
+        8,
+        2
+      ],
+      "passed": true
+    },
+    {
+      "name": "induction discovery illustration Euler polynomial",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "Euler failure at 41",
+      "result": 1681,
+      "expected": 1681,
+      "passed": true
+    },
+    {
+      "name": "two-seed recurrence",
+      "result": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "expected": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "passed": true
+    },
+    {
+      "name": "step-four exact reachability bases=[3]",
+      "result": [
+        3,
+        7,
+        11,
+        15,
+        19,
+        23,
+        27,
+        31,
+        35,
+        39,
+        43,
+        47
+      ],
+      "expected": [
+        3,
+        7,
+        11,
+        15,
+        19,
+        23,
+        27,
+        31,
+        35,
+        39,
+        43,
+        47
+      ],
+      "passed": true
+    },
+    {
+      "name": "step-four exact reachability bases=[3, 4]",
+      "result": [
+        3,
+        4,
+        7,
+        8,
+        11,
+        12,
+        15,
+        16,
+        19,
+        20,
+        23,
+        24,
+        27,
+        28,
+        31,
+        32,
+        35,
+        36,
+        39,
+        40,
+        43,
+        44,
+        47,
+        48
+      ],
+      "expected": [
+        3,
+        4,
+        7,
+        8,
+        11,
+        12,
+        15,
+        16,
+        19,
+        20,
+        23,
+        24,
+        27,
+        28,
+        31,
+        32,
+        35,
+        36,
+        39,
+        40,
+        43,
+        44,
+        47,
+        48
+      ],
+      "passed": true
+    },
+    {
+      "name": "step-four exact reachability bases=[3, 4, 5]",
+      "result": [
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        19,
+        20,
+        21,
+        23,
+        24,
+        25,
+        27,
+        28,
+        29,
+        31,
+        32,
+        33,
+        35,
+        36,
+        37,
+        39,
+        40,
+        41,
+        43,
+        44,
+        45,
+        47,
+        48,
+        49
+      ],
+      "expected": [
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        19,
+        20,
+        21,
+        23,
+        24,
+        25,
+        27,
+        28,
+        29,
+        31,
+        32,
+        33,
+        35,
+        36,
+        37,
+        39,
+        40,
+        41,
+        43,
+        44,
+        45,
+        47,
+        48,
+        49
+      ],
+      "passed": true
+    },
+    {
+      "name": "step-four exact reachability bases=[3, 4, 5, 6]",
+      "result": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "expected": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "passed": true
+    },
+    {
+      "name": "step-two even reachability",
+      "result": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        22,
+        24,
+        26,
+        28,
+        30,
+        32,
+        34,
+        36,
+        38
+      ],
+      "expected": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        22,
+        24,
+        26,
+        28,
+        30,
+        32,
+        34,
+        36,
+        38
+      ],
+      "passed": true
+    },
+    {
+      "name": "all full 2-ary counts internal=0",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary full leaf masses internal=0",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all full 2-ary counts internal=1",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary full leaf masses internal=1",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary heights internal=1",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all full 2-ary counts internal=2",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary full leaf masses internal=2",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary heights internal=2",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all full 2-ary counts internal=3",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary full leaf masses internal=3",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary heights internal=3",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all full 2-ary counts internal=4",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary full leaf masses internal=4",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary heights internal=4",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all full 2-ary counts internal=5",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary full leaf masses internal=5",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary heights internal=5",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all full 3-ary counts internal=0",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all full 3-ary counts internal=1",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all full 3-ary counts internal=2",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all full 3-ary counts internal=3",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all full 3-ary counts internal=4",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "two shapes same size different heights",
+      "result": "{2, 3}",
+      "expected": "{2, 3}",
+      "passed": true
+    },
+    {
+      "name": "all binary shapes leaf bound nodes=1",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "finite equality iff full nodes=1",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary shapes leaf bound nodes=2",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "finite equality iff full nodes=2",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary shapes leaf bound nodes=3",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "finite equality iff full nodes=3",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary shapes leaf bound nodes=4",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "finite equality iff full nodes=4",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary shapes leaf bound nodes=5",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "finite equality iff full nodes=5",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary shapes leaf bound nodes=6",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "finite equality iff full nodes=6",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "all binary shapes leaf bound nodes=7",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "finite equality iff full nodes=7",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "46 retained question placements",
+      "result": 46,
+      "expected": 46,
+      "passed": true
+    },
+    {
+      "name": "Q1 independently derived option",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "authentic Q1 identity",
+      "result": "MS_CS_1405_Q121",
+      "expected": "MS_CS_1405_Q121",
+      "passed": true
+    },
+    {
+      "name": "authentic Q1 original options",
+      "result": "<div class=\"exam-options\"><div class=\"exam-option\"><b>1.</b><div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"[1,30]\"><mrow><mo>[</mo><mn>1</mn><mo>,</mo><mn>30</mn><mo>]</mo></mrow></math>\n</div></div><div class=\"exam-option\"><b>2.</b><div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(30,60]\"><mrow><mo>(</mo><mn>30</mn><mo>,</mo><mn>60</mn><mo>]</mo></mrow></math>\n</div></div><div class=\"exam-option\"><b>3.</b><div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(60,90]\"><mrow><mo>(</mo><mn>60</mn><mo>,</mo><mn>90</mn><mo>]</mo></mrow></math>\n</div></div><div class=\"exam-option\"><b>4.</b><div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(90,+\\infty)\"><mrow><mo>(</mo><mn>90</mn><mo>,</mo><mo>+</mo><mo>∞</mo><mo>)</mo></mrow></math>\n</div></div></div>",
+      "expected": "<div class=\"exam-options\"><div class=\"exam-option\"><b>1.</b><div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"[1,30]\"><mrow><mo>[</mo><mn>1</mn><mo>,</mo><mn>30</mn><mo>]</mo></mrow></math>\n</div></div><div class=\"exam-option\"><b>2.</b><div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(30,60]\"><mrow><mo>(</mo><mn>30</mn><mo>,</mo><mn>60</mn><mo>]</mo></mrow></math>\n</div></div><div class=\"exam-option\"><b>3.</b><div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(60,90]\"><mrow><mo>(</mo><mn>60</mn><mo>,</mo><mn>90</mn><mo>]</mo></mrow></math>\n</div></div><div class=\"exam-option\"><b>4.</b><div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(90,+\\infty)\"><mrow><mo>(</mo><mn>90</mn><mo>,</mo><mo>+</mo><mo>∞</mo><mo>)</mo></mrow></math>\n</div></div></div>",
+      "passed": true
+    },
+    {
+      "name": "Q2 independently derived option",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "authentic Q2 identity",
+      "result": "MS_CS_1405_Q130",
+      "expected": "MS_CS_1405_Q130",
+      "passed": true
+    },
+    {
+      "name": "authentic Q2 original options",
+      "result": "<div class=\"exam-options\"><div class=\"exam-option\"><b>1.</b><div><p>2</p>\n</div></div><div class=\"exam-option\"><b>2.</b><div><p>3</p>\n</div></div><div class=\"exam-option\"><b>3.</b><div><p>4</p>\n</div></div><div class=\"exam-option\"><b>4.</b><div><p>5</p>\n</div></div></div>",
+      "expected": "<div class=\"exam-options\"><div class=\"exam-option\"><b>1.</b><div><p>2</p>\n</div></div><div class=\"exam-option\"><b>2.</b><div><p>3</p>\n</div></div><div class=\"exam-option\"><b>3.</b><div><p>4</p>\n</div></div><div class=\"exam-option\"><b>4.</b><div><p>5</p>\n</div></div></div>",
+      "passed": true
+    },
+    {
+      "name": "Q3 independently derived option",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "authentic Q3 identity",
+      "result": "Phd_CE_1405_Q3",
+      "expected": "Phd_CE_1405_Q3",
+      "passed": true
+    },
+    {
+      "name": "authentic Q3 original options",
+      "result": "<div class=\"exam-options\"><div class=\"exam-option\"><b>1.</b><div><p><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\alpha=1\"><mrow><mi>α</mi><mo>=</mo><mn>1</mn></mrow></math>.</p>\n</div></div><div class=\"exam-option\"><b>2.</b><div><p><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\alpha\\le1\"><mrow><mi>α</mi><mo>≤</mo><mn>1</mn></mrow></math>.</p>\n</div></div><div class=\"exam-option\"><b>3.</b><div><p><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\alpha&gt;1\"><mrow><mi>α</mi><mo>&gt;</mo><mn>1</mn></mrow></math>.</p>\n</div></div><div class=\"exam-option\"><b>4.</b><div><p><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\alpha&lt;1\"><mrow><mi>α</mi><mo>&lt;</mo><mn>1</mn></mrow></math>.</p>\n</div></div></div>",
+      "expected": "<div class=\"exam-options\"><div class=\"exam-option\"><b>1.</b><div><p><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\alpha=1\"><mrow><mi>α</mi><mo>=</mo><mn>1</mn></mrow></math>.</p>\n</div></div><div class=\"exam-option\"><b>2.</b><div><p><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\alpha\\le1\"><mrow><mi>α</mi><mo>≤</mo><mn>1</mn></mrow></math>.</p>\n</div></div><div class=\"exam-option\"><b>3.</b><div><p><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\alpha&gt;1\"><mrow><mi>α</mi><mo>&gt;</mo><mn>1</mn></mrow></math>.</p>\n</div></div><div class=\"exam-option\"><b>4.</b><div><p><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"\\alpha&lt;1\"><mrow><mi>α</mi><mo>&lt;</mo><mn>1</mn></mrow></math>.</p>\n</div></div></div>",
+      "passed": true
+    },
+    {
+      "name": "Q4 independently derived option",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "authentic Q4 identity",
+      "result": "Phd_CS_1404_Q28",
+      "expected": "Phd_CS_1404_Q28",
+      "passed": true
+    },
+    {
+      "name": "authentic Q4 original options",
+      "result": "<div class=\"exam-options\"><div class=\"exam-option\"><b>1.</b><div><p>4</p>\n</div></div><div class=\"exam-option\"><b>2.</b><div><p>5</p>\n</div></div><div class=\"exam-option\"><b>3.</b><div><p>7</p>\n</div></div><div class=\"exam-option\"><b>4.</b><div><p>10</p>\n</div></div></div>",
+      "expected": "<div class=\"exam-options\"><div class=\"exam-option\"><b>1.</b><div><p>4</p>\n</div></div><div class=\"exam-option\"><b>2.</b><div><p>5</p>\n</div></div><div class=\"exam-option\"><b>3.</b><div><p>7</p>\n</div></div><div class=\"exam-option\"><b>4.</b><div><p>10</p>\n</div></div></div>",
+      "passed": true
+    },
+    {
+      "name": "Q5 independently derived option",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q6 independently derived option",
+      "result": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "Q7 independently derived option",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q8 independently derived option",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "Q9 independently derived option",
+      "result": 3,
+      "expected": 3,
+      "passed": true
+    },
+    {
+      "name": "Q10 independently derived option",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "Q11 independently derived option",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q12 independently derived option",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "Q13 independently derived option",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "Q14 independently derived option",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q15 independently derived option",
+      "result": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "Q16 independently derived option",
+      "result": 3,
+      "expected": 3,
+      "passed": true
+    },
+    {
+      "name": "Q17 independently derived option",
+      "result": 3,
+      "expected": 3,
+      "passed": true
+    },
+    {
+      "name": "Q18 independently derived option",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "Q19 independently derived option",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q20 independently derived option",
+      "result": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "Q21 independently derived option",
+      "result": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "Q22 independently derived option",
+      "result": 3,
+      "expected": 3,
+      "passed": true
+    },
+    {
+      "name": "Q23 independently derived option",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "Q24 independently derived option",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q25 independently derived option",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "Q26 independently derived option",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q27 independently derived option",
+      "result": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "Q28 independently derived option",
+      "result": 3,
+      "expected": 3,
+      "passed": true
+    },
+    {
+      "name": "Q29 independently derived option",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "Q30 independently derived option",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q31 independently derived option",
+      "result": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "Q32 independently derived option",
+      "result": 3,
+      "expected": 3,
+      "passed": true
+    },
+    {
+      "name": "Q33 independently derived option",
+      "result": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "Q34 independently derived option",
+      "result": 3,
+      "expected": 3,
+      "passed": true
+    },
+    {
+      "name": "Q35 independently derived option",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "Q36 independently derived option",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q37 independently derived option",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q38 independently derived option",
+      "result": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "Q39 independently derived option",
+      "result": 3,
+      "expected": 3,
+      "passed": true
+    },
+    {
+      "name": "Q40 independently derived option",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "Q41 independently derived option",
+      "result": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "Q42 independently derived option",
+      "result": 4,
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "name": "Q43 independently derived option",
+      "result": 3,
+      "expected": 3,
+      "passed": true
+    },
+    {
+      "name": "Q44 independently derived option",
+      "result": 2,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "name": "complete disclosures",
+      "result": 46,
+      "expected": 46,
+      "passed": true
+    },
+    {
+      "name": "46 individually authored answers",
+      "result": 46,
+      "expected": 46,
+      "passed": true
+    },
+    {
+      "name": "unrelated generic aids removed",
+      "result": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "exact question animation present",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "thirty final rules",
+      "result": 30,
+      "expected": 30,
+      "passed": true
+    },
+    {
+      "name": "all MathML XML parses",
+      "result": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter a_model",
+      "result": "9f6615995da7fd635f234c4143edd5a27483ba201fa304c8980b3bd2b040940e",
+      "expected": "9f6615995da7fd635f234c4143edd5a27483ba201fa304c8980b3bd2b040940e",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter a_asym",
+      "result": "1139e7af36dc48592786c850213d5a0b1b84978e406b6a8863f52da4ab3b80c9",
+      "expected": "1139e7af36dc48592786c850213d5a0b1b84978e406b6a8863f52da4ab3b80c9",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter a_loop",
+      "result": "4e3dd37aa7ca94d210e5b9fd81a1ac0e1c20ca4eab3eb8670b07d9c7d407471a",
+      "expected": "4e3dd37aa7ca94d210e5b9fd81a1ac0e1c20ca4eab3eb8670b07d9c7d407471a",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter s_axioms",
+      "result": "879ba1468124522a9a2bb9d6a5a8cc8ebc920afdb47b6141b94a92e1c93a8a29",
+      "expected": "879ba1468124522a9a2bb9d6a5a8cc8ebc920afdb47b6141b94a92e1c93a8a29",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter s_counting",
+      "result": "ca5c5816c17df0b792ceeedb409c8dbcc19e68321a9828115ca0da5f1448d353",
+      "expected": "ca5c5816c17df0b792ceeedb409c8dbcc19e68321a9828115ca0da5f1448d353",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter l_vectors",
+      "result": "5418f43095d74f8d02a040f8f58e5964ad3cfa2f66713680e5f26967b13928fc",
+      "expected": "5418f43095d74f8d02a040f8f58e5964ad3cfa2f66713680e5f26967b13928fc",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter l_matrices",
+      "result": "7c5800423a7f2658b5ba1d9f4b3dafc10ff79b4bf87545325debfab0c3b2d6b4",
+      "expected": "7c5800423a7f2658b5ba1d9f4b3dafc10ff79b4bf87545325debfab0c3b2d6b4",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter p_types",
+      "result": "055d4af802ed4d3fbf73a48293afd0943ab29ba873c73bdbf5d58dd1673a36a5",
+      "expected": "055d4af802ed4d3fbf73a48293afd0943ab29ba873c73bdbf5d58dd1673a36a5",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter p_flow",
+      "result": "fabf0e2c3677e90af57910011f497bd60efa89a818334899d5b67e6191962ff0",
+      "expected": "fabf0e2c3677e90af57910011f497bd60efa89a818334899d5b67e6191962ff0",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter g_number",
+      "result": "3413dddba66094d675fafef6ac18ac5ef1ec238db638a009bbeb791cd6ca5db1",
+      "expected": "3413dddba66094d675fafef6ac18ac5ef1ec238db638a009bbeb791cd6ca5db1",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter g_boolean",
+      "result": "a4eb51e5b51f49dabf6398707a87affc79bfd8656bed67d09bb0d391da32b1a3",
+      "expected": "a4eb51e5b51f49dabf6398707a87affc79bfd8656bed67d09bb0d391da32b1a3",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter g_gates",
+      "result": "0a539a3ad238a79c92e55127caf1a3d5e5faeef738488d1896f61df2ad7ced2d",
+      "expected": "0a539a3ad238a79c92e55127caf1a3d5e5faeef738488d1896f61df2ad7ced2d",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter d_relations",
+      "result": "f54dd5ff666c54a1ab6e9487da775e22fe5e13398d9ec1b7862e23105a29b161",
+      "expected": "f54dd5ff666c54a1ab6e9487da775e22fe5e13398d9ec1b7862e23105a29b161",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter d_invariants",
+      "result": "e0aee2aec3824af657f3c2abdc584bdcb3b4e7fecfd8a8ad56295c934ecc70db",
+      "expected": "e0aee2aec3824af657f3c2abdc584bdcb3b4e7fecfd8a8ad56295c934ecc70db",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter d_number",
+      "result": "4770e26de2fbceed9ab26cbc9c312abd9b19ab4a1af6bc56615e3a15b2c6ef3d",
+      "expected": "4770e26de2fbceed9ab26cbc9c312abd9b19ab4a1af6bc56615e3a15b2c6ef3d",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter a_recurrence",
+      "result": "3b7ac34423512f24035bb5aecd16f324f130a165416161aceb2f34f11e817225",
+      "expected": "3b7ac34423512f24035bb5aecd16f324f130a165416161aceb2f34f11e817225",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter a_divide",
+      "result": "8e4404b0297e3a5df1d99835836dbec125698f490eb6c909d0cd799d3ea84fbe",
+      "expected": "8e4404b0297e3a5df1d99835836dbec125698f490eb6c909d0cd799d3ea84fbe",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter a_correct",
+      "result": "7fa9bb7ad946ddbe678bacd3b98681bfe415cf55aaef8441c16e3029488ca8aa",
+      "expected": "7fa9bb7ad946ddbe678bacd3b98681bfe415cf55aaef8441c16e3029488ca8aa",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter s_conditional",
+      "result": "03a4750e5c37db3303fde4a771206747e43adb4a080a461022617478f2de4c6f",
+      "expected": "03a4750e5c37db3303fde4a771206747e43adb4a080a461022617478f2de4c6f",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter s_bayes",
+      "result": "9df7c2b1001d187938ff602f8cfa16e0d5f78cd56c7f8da056c923b65175bac0",
+      "expected": "9df7c2b1001d187938ff602f8cfa16e0d5f78cd56c7f8da056c923b65175bac0",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter l_gauss",
+      "result": "894c63898d6620daf05968e561aa250975f64d70ff42a4e4fb4a2b08274dc9f5",
+      "expected": "894c63898d6620daf05968e561aa250975f64d70ff42a4e4fb4a2b08274dc9f5",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter l_rank",
+      "result": "5499032e14c5b0f325a16aaab361d48a667194de3a87b89fe4cd168fdc55ec25",
+      "expected": "5499032e14c5b0f325a16aaab361d48a667194de3a87b89fe4cd168fdc55ec25",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter p_functions",
+      "result": "bd7834cc1f79b73e3d43087b14d4d02cc44342020ddf22306f34b9a5767647d4",
+      "expected": "bd7834cc1f79b73e3d43087b14d4d02cc44342020ddf22306f34b9a5767647d4",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter p_arrays",
+      "result": "69a5201ebc30a943fbdbf29225d04a29a685eedf91c10388635c7426ec83ad16",
+      "expected": "69a5201ebc30a943fbdbf29225d04a29a685eedf91c10388635c7426ec83ad16",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter g_kmap",
+      "result": "d4cda47a2aa4fb0bfef5f3b4f5ee540a75e1c9a9b33924a26c353751c89c1c24",
+      "expected": "d4cda47a2aa4fb0bfef5f3b4f5ee540a75e1c9a9b33924a26c353751c89c1c24",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter g_combin",
+      "result": "a9294d6b81dbd33a4f907dd11214f8b791cea127e8f0a9a82e5b9f69a9fccbe2",
+      "expected": "a9294d6b81dbd33a4f907dd11214f8b791cea127e8f0a9a82e5b9f69a9fccbe2",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter d_counting",
+      "result": "f253f0a711cd1d2ca41e9ba18cd691cd61c83311e5c097f81406d36ad8d28f93",
+      "expected": "f253f0a711cd1d2ca41e9ba18cd691cd61c83311e5c097f81406d36ad8d28f93",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter d_inclusion",
+      "result": "985872a544f8f0e317895c0fb5dfb4924e9bf4a6a041a6c10823ddd012d14c75",
+      "expected": "985872a544f8f0e317895c0fb5dfb4924e9bf4a6a041a6c10823ddd012d14c75",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter d_pigeonhole",
+      "result": "8feae960584dc943d587bc254b11c998fb4925c9a51197616d3d015a13d34f9e",
+      "expected": "8feae960584dc943d587bc254b11c998fb4925c9a51197616d3d015a13d34f9e",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter a_arrays",
+      "result": "0a069167ac6d87cf1f1524d3142eeb74811b90499df3c94b6a66001928b43c8d",
+      "expected": "0a069167ac6d87cf1f1524d3142eeb74811b90499df3c94b6a66001928b43c8d",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter a_stackqueue",
+      "result": "77b6e012326f33212293cccd4de65acb3d1eaa871e0f6f2b05a9951f0cde511f",
+      "expected": "77b6e012326f33212293cccd4de65acb3d1eaa871e0f6f2b05a9951f0cde511f",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter a_sort",
+      "result": "3a261c22baa4de036f118f592ab0228451695e79cf2b3eef72643ecc2c34e499",
+      "expected": "3a261c22baa4de036f118f592ab0228451695e79cf2b3eef72643ecc2c34e499",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter a_select",
+      "result": "37e01214104747c3d27e85860a15eba7e17bbddb4716786f970a77b5605d9c11",
+      "expected": "37e01214104747c3d27e85860a15eba7e17bbddb4716786f970a77b5605d9c11",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter s_descriptive",
+      "result": "b4802631b4bab1cd6707209112d8c016c956ff84869472c9516b57602758756a",
+      "expected": "b4802631b4bab1cd6707209112d8c016c956ff84869472c9516b57602758756a",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter s_discrete",
+      "result": "9f9e927cb1845706fc86fe4fa5601ab3e8a2335b8e7fa1cc923ffb5f132047b3",
+      "expected": "9f9e927cb1845706fc86fe4fa5601ab3e8a2335b8e7fa1cc923ffb5f132047b3",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter s_expectation",
+      "result": "93a300a4f7d81d6ed488bbe478e9283431888604f8de010433fe971f0afd5375",
+      "expected": "93a300a4f7d81d6ed488bbe478e9283431888604f8de010433fe971f0afd5375",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter l_det",
+      "result": "b70ddc5ef0dcdb72d868eb26b22dccf931f4c6599b26b63384677bdfa58af06c",
+      "expected": "b70ddc5ef0dcdb72d868eb26b22dccf931f4c6599b26b63384677bdfa58af06c",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter l_spaces",
+      "result": "3b8d8f59ee374fe7cdd6dcddca45471d7eb02ccc36f3fbf95d103895f29d3d7b",
+      "expected": "3b8d8f59ee374fe7cdd6dcddca45471d7eb02ccc36f3fbf95d103895f29d3d7b",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter i_agents",
+      "result": "2f8fd41a2e1b9f3745667907e795b0451831fc134846d111b5e45543e6108a79",
+      "expected": "2f8fd41a2e1b9f3745667907e795b0451831fc134846d111b5e45543e6108a79",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter i_uninformed",
+      "result": "684639efbc5c0ba6b49ec39022e1f91f0dd000487831fd74caadeffe85827282",
+      "expected": "684639efbc5c0ba6b49ec39022e1f91f0dd000487831fd74caadeffe85827282",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter p_strings",
+      "result": "7a9909aef5c211ca16fb7e9c976ba0072b970fa20225929638fc83c52ea272f1",
+      "expected": "7a9909aef5c211ca16fb7e9c976ba0072b970fa20225929638fc83c52ea272f1",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter p_recursion",
+      "result": "9912be50ddce7d9dcc4327f8e94bb900e3e170a9fab8a4f9893b6bbb7e87238b",
+      "expected": "9912be50ddce7d9dcc4327f8e94bb900e3e170a9fab8a4f9893b6bbb7e87238b",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter g_arithmetic",
+      "result": "a705a2b0279f28f1a0d2ae3f3eb1b896d77a2d9866040f675ca289c9f12c76f6",
+      "expected": "a705a2b0279f28f1a0d2ae3f3eb1b896d77a2d9866040f675ca289c9f12c76f6",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter g_mux",
+      "result": "ae143aeab1c7d93443761546c0f90bf62108e20d5cd30f5e27641a9689486c30",
+      "expected": "ae143aeab1c7d93443761546c0f90bf62108e20d5cd30f5e27641a9689486c30",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter d_recurrence",
+      "result": "d1c40e7c96fa22bf2157267a9e6c5117e89fa19f6a7747fbdccb37c19200547d",
+      "expected": "d1c40e7c96fa22bf2157267a9e6c5117e89fa19f6a7747fbdccb37c19200547d",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter d_generating",
+      "result": "2590aa250ff3729cb7de1dacfefe2c9ce89c8c11f66b386f9d076f0ad9aa56d9",
+      "expected": "2590aa250ff3729cb7de1dacfefe2c9ce89c8c11f66b386f9d076f0ad9aa56d9",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter a_bst",
+      "result": "50ae590c290bce85260cdd93e51439439387cb4b229c1a24c84fea473e4d1f60",
+      "expected": "50ae590c290bce85260cdd93e51439439387cb4b229c1a24c84fea473e4d1f60",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter a_balanced",
+      "result": "f4301e6d833cab33fa8f3872896ee65352ca84bb3ca0558ff1675578835d477f",
+      "expected": "f4301e6d833cab33fa8f3872896ee65352ca84bb3ca0558ff1675578835d477f",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter a_heap",
+      "result": "610534a497de3180fcb71675b124dfe17e959264e3089e5742df25a8de728df0",
+      "expected": "610534a497de3180fcb71675b124dfe17e959264e3089e5742df25a8de728df0",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter a_hash",
+      "result": "f95866063fcf2734c252c0901a8dc5f9e58c92a380dff99be579fef5869aeb75",
+      "expected": "f95866063fcf2734c252c0901a8dc5f9e58c92a380dff99be579fef5869aeb75",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter a_amortized",
+      "result": "045acb17ee6c3988573b4b5d201168b8fdde6c409fa63d90eda25eec10c0b3c8",
+      "expected": "045acb17ee6c3988573b4b5d201168b8fdde6c409fa63d90eda25eec10c0b3c8",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter s_variance",
+      "result": "4875d3b8cc670cdf75c5a840654d2d7ba9ee90b4c974825d90e03a57c91ca8e2",
+      "expected": "4875d3b8cc670cdf75c5a840654d2d7ba9ee90b4c974825d90e03a57c91ca8e2",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter s_distributions",
+      "result": "101d898e48f5708661a6faded0e9a6d78cc4d0e2bad66083ab3c9c3889ed3776",
+      "expected": "101d898e48f5708661a6faded0e9a6d78cc4d0e2bad66083ab3c9c3889ed3776",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter l_linear",
+      "result": "e5260faef7996f27cbe6c126bdda348fd03d5bac93e615edaf5df049869af500",
+      "expected": "e5260faef7996f27cbe6c126bdda348fd03d5bac93e615edaf5df049869af500",
+      "passed": true
+    },
+    {
+      "name": "unchanged pending chapter l_orthogonality",
+      "result": "eb6251995c5a3f0f26387abd3cffab06088abfc2c2e63f4b87177ecdb55670a0",
+      "expected": "eb6251995c5a3f0f26387abd3cffab06088abfc2c2e63f4b87177ecdb55670a0",
+      "passed": true
+    },
+    {
+      "name": "previous checked or source-corrected page preserved d_logic",
+      "result": "711ae429244d3ed2555f5a5bd28aac386fb318581ed5f803be2847073ce629c8",
+      "expected": "711ae429244d3ed2555f5a5bd28aac386fb318581ed5f803be2847073ce629c8",
+      "passed": true
+    },
+    {
+      "name": "previous checked or source-corrected page preserved d_sets",
+      "result": "0a63bb17783cc3fc218371be0827eaf2ab435990e658fef030d25303482671eb",
+      "expected": "0a63bb17783cc3fc218371be0827eaf2ab435990e658fef030d25303482671eb",
+      "passed": true
+    },
+    {
+      "name": "previous checked or source-corrected page preserved d_proof",
+      "result": "22ae3e17a554a6a22f3573a590d9bedda930046519a015cfadb117d918a32c4e",
+      "expected": "22ae3e17a554a6a22f3573a590d9bedda930046519a015cfadb117d918a32c4e",
+      "passed": true
+    },
+    {
+      "name": "previous checked or source-corrected page preserved d_functions",
+      "result": "5ada5799830b1e03529bb4a390d07112b52dd66a5f74cbcc4dc9d54221746321",
+      "expected": "5ada5799830b1e03529bb4a390d07112b52dd66a5f74cbcc4dc9d54221746321",
+      "passed": true
+    },
+    {
+      "name": "PDF hash MS_CS_1405_Q121",
+      "result": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+      "expected": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+      "passed": true
+    },
+    {
+      "name": "PDF hash MS_CS_1405_Q130",
+      "result": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+      "expected": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+      "passed": true
+    },
+    {
+      "name": "PDF hash Phd_CE_1405_Q3",
+      "result": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+      "expected": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+      "passed": true
+    },
+    {
+      "name": "PDF hash Phd_CS_1404_Q28",
+      "result": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+      "expected": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+      "passed": true
+    }
+  ],
+  "sourcePages": [
+    {
+      "id": "MS_CS_1405_Q121",
+      "pdfPage": 26,
+      "image": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-induction-source-pages\\MS_CS_1405_Q121.png",
+      "visualRecheck": "Original full PDF page visually inspected on 11 October 2026: stem, parameters, interval endpoints and option order agree."
+    },
+    {
+      "id": "MS_CS_1405_Q130",
+      "pdfPage": 28,
+      "image": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-induction-source-pages\\MS_CS_1405_Q130.png",
+      "visualRecheck": "Original full PDF page visually inspected on 11 October 2026: stem, parameters, interval endpoints and option order agree."
+    },
+    {
+      "id": "Phd_CE_1405_Q3",
+      "pdfPage": 2,
+      "image": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-induction-source-pages\\Phd_CE_1405_Q3.png",
+      "visualRecheck": "Original full PDF page visually inspected on 11 October 2026: stem, parameters, interval endpoints and option order agree."
+    },
+    {
+      "id": "Phd_CS_1404_Q28",
+      "pdfPage": 7,
+      "image": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-induction-source-pages\\Phd_CS_1404_Q28.png",
+      "visualRecheck": "Original full PDF page visually inspected on 11 October 2026: stem, parameters, interval endpoints and option order agree."
+    }
+  ]
+}
