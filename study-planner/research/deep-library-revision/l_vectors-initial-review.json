@@ -1,0 +1,96 @@
+{
+  "topicId": "l_vectors",
+  "state": "in_progress_not_a_completed_revision",
+  "questionCount": 46,
+  "questionPlacementsActuallyRead": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "newAnswerWorkingDrafts": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "fullLessonReadingSoFar": "Sections 1 through the beginning of 4.2, first 14000 characters of the SVG-stripped source; remaining instruction and tutorials still pending.",
+  "priorCourseReadingRecord": "research/l_vectors-source-audit.md",
+  "freshUniversityTextReadingsThisStage": 0,
+  "originalPdfImagesActuallyViewed": [
+    {
+      "sourceIds": [
+        "MS_CS_1405_Q41"
+      ],
+      "pdfPage": 9,
+      "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527"
+    },
+    {
+      "sourceIds": [
+        "Phd_CS_1404_Q30",
+        "Phd_CS_1404_Q31",
+        "Phd_CS_1404_Q32"
+      ],
+      "pdfPage": 8,
+      "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40"
+    }
+  ],
+  "initialFindings": [
+    "Original projection item permits full space: its reversed inequality is false as a general theorem, not for every allowed subspace. Preserve and explain the endpoint.",
+    "Inverse norm and eigenvalue magnitude argument must distinguish arbitrary real norm, Euclidean complex extension and positive-definite quadratic form."
+  ],
+  "boundedPreliminaryChecks": [
+    {
+      "symmetricTraceBasisSize": 1,
+      "dimension": 0,
+      "passed": true
+    },
+    {
+      "symmetricTraceBasisSize": 2,
+      "dimension": 2,
+      "passed": true
+    },
+    {
+      "symmetricTraceBasisSize": 3,
+      "dimension": 5,
+      "passed": true
+    },
+    {
+      "symmetricTraceBasisSize": 4,
+      "dimension": 9,
+      "passed": true
+    },
+    {
+      "symmetricTraceBasisSize": 5,
+      "dimension": 14,
+      "passed": true
+    },
+    {
+      "symmetricTraceBasisSize": 6,
+      "dimension": 20,
+      "passed": true
+    },
+    {
+      "projectionCounterexampleAndObliqueIdempotent": true
+    },
+    {
+      "quadraticFormDecomposition": true
+    }
+  ],
+  "remaining": "Read and individually rewrite the remaining bank and lesson; reconcile at least four genuinely reviewed course texts; build appropriate geometrical models; complete all mathematical and browser audits before publication.",
+  "publicationState": "working manuscript only; the published vector chapter remains the earlier edition"
+}
