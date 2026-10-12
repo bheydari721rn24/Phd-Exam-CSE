@@ -82,7 +82,7 @@ function plot(p,g,f){if(p.scene.id.startsWith("asym-"))return asymPlot(p,g,f);co
 function tree(p,g,f,pos){if(p.scene.id==="recurrence-levels"){const n=+f.metrics.Nodes,depth=+f.metrics.Level;for(let d=0;d<=depth;d++){const count=2**d;for(let i=0;i<count;i++){const x=70+(i+.5)*620/count,y=45+70*d;if(d){const px=70+(Math.floor(i/2)+.5)*620/(count/2);path(g,`M${px} ${y-50}L${x} ${y-18}`,"#83a5b5");}dot(g,x,y,18,d===depth?C.amber:C.blue);text(g,x,y+6,8/count,18,"middle","white");}}text(g,380,340,`Level ${depth}: ${n} nodes × ${8/n} units = 8 units of work`,20);return;}
  graph(p,g,f,pos);
 }
-function gridEnumeration(p,g,f){const id=p.scene.id,s=f.snapshot||{};if(id.startsWith("vectors-question-"))return vectorsQuestion(p,g,f);if(id.startsWith("counting-question-"))return countingQuestion(p,g,f);if(id.startsWith("axioms-question-"))return axiomsQuestion(p,g,f);if(id.startsWith("loop-question-"))return loopQuestion(p,g,f);if(id==="loop-triangle"){for(let i=1;i<=5;i++)for(let j=1;j<=i;j++){rect(g,115+j*55,35+i*45,45,35,i===s.i&&j===s.j?"#ffe0a1":"#d1e8f1");text(g,137+j*55,59+i*45,`${i},${j}`,16);}text(g,565,150,`Body visits: ${s.count}`,24);return;}if(id==="powerset"){strip(g,170,115,[1,2,3],{cell:130,labels:false,title:"Independent inclusion decisions"});[1,2,3].forEach((v,i)=>text(g,235+i*130,225,s.subset.includes(v)?"include":"exclude",21,"middle",s.subset.includes(v)?C.green:C.red));text(g,380,310,`Mask ${s.mask.toString(2).padStart(3,"0")} → {${s.subset}}`,23);return;}if(id.startsWith("selection-")){const vs=s.outcomes;vs.forEach((v,i)=>{const x=90+(i%6)*112,y=100+Math.floor(i/6)*100;dot(g,x,y,32,String(v)===String(s.current)?C.amber:C.blue);text(g,x,y+7,`(${v})`,19,"middle","white");});text(g,380,330,`${vs.length} distinct admitted outcomes`,22);return;}if(id==="stars-bars"){f.nodes.forEach(n=>{if(n.label==="|")path(g,`M${n.x} 80V185`,C.amber,5);else dot(g,n.x,135,14,C.blue);});text(g,380,285,`Labeled group sizes: ${f.metrics["First group"]}, ${f.metrics["Second group"]}, ${f.metrics["Third group"]}`,24);return;}graph(p,g,f,new Map(f.nodes.map(n=>[n.id,n])));}
+function gridEnumeration(p,g,f){const id=p.scene.id,s=f.snapshot||{};if(id.startsWith("matrices-question-"))return matricesQuestion(p,g,f);if(id.startsWith("vectors-question-"))return vectorsQuestion(p,g,f);if(id.startsWith("counting-question-"))return countingQuestion(p,g,f);if(id.startsWith("axioms-question-"))return axiomsQuestion(p,g,f);if(id.startsWith("loop-question-"))return loopQuestion(p,g,f);if(id==="loop-triangle"){for(let i=1;i<=5;i++)for(let j=1;j<=i;j++){rect(g,115+j*55,35+i*45,45,35,i===s.i&&j===s.j?"#ffe0a1":"#d1e8f1");text(g,137+j*55,59+i*45,`${i},${j}`,16);}text(g,565,150,`Body visits: ${s.count}`,24);return;}if(id==="powerset"){strip(g,170,115,[1,2,3],{cell:130,labels:false,title:"Independent inclusion decisions"});[1,2,3].forEach((v,i)=>text(g,235+i*130,225,s.subset.includes(v)?"include":"exclude",21,"middle",s.subset.includes(v)?C.green:C.red));text(g,380,310,`Mask ${s.mask.toString(2).padStart(3,"0")} → {${s.subset}}`,23);return;}if(id.startsWith("selection-")){const vs=s.outcomes;vs.forEach((v,i)=>{const x=90+(i%6)*112,y=100+Math.floor(i/6)*100;dot(g,x,y,32,String(v)===String(s.current)?C.amber:C.blue);text(g,x,y+7,`(${v})`,19,"middle","white");});text(g,380,330,`${vs.length} distinct admitted outcomes`,22);return;}if(id==="stars-bars"){f.nodes.forEach(n=>{if(n.label==="|")path(g,`M${n.x} 80V185`,C.amber,5);else dot(g,n.x,135,14,C.blue);});text(g,380,285,`Labeled group sizes: ${f.metrics["First group"]}, ${f.metrics["Second group"]}, ${f.metrics["Third group"]}`,24);return;}graph(p,g,f,new Map(f.nodes.map(n=>[n.id,n])));}
 function kmap(p,g,f){const s=f.snapshot,id=p.scene.id;let n=s.n||4,on=s.on||[],dc=s.dc||[],cover=s.cover||[];if(id==="km-pos")on=s.zeroSet||[];if(s.rows)on=s.rows;if(id==="km-gray"){strip(g,170,140,["00","01","11","10"],{cell:100,active:s.step%4,labels:false,title:"Cyclic Gray order: one bit changes per neighbor"});return;}if(["km-chart","km-petrick","km-qm"].includes(id)){const patterns=s.patterns||Object.keys(s.owners||{});if(patterns.length){patterns.forEach((v,i)=>text(g,175+(i%4)*140,90+Math.floor(i/4)*65,v,25));text(g,380,320,`Exact tabulation stage: ${s.level??s.cost??s.candidate}`,21);return;}}
  const gray=[0,1,3,2],cells=n===3?2:4,x=200,y=85,size=50;text(g,300,37,n===3?"Rows: A; columns: BC":"Rows: AB; columns: CD",20);for(let i=0;i<cells;i++){text(g,x-28,y+i*size+32,n===3?i:gray[i].toString(2).padStart(2,"0"),18);for(let j=0;j<4;j++){if(!i)text(g,x+j*size+25,y-12,gray[j].toString(2).padStart(2,"0"),18);const v=(n===3?i:gray[i])*4+gray[j];rect(g,x+j*size,y+i*size,size,size,on.includes(v)?"#cce9dc":dc.includes(v)?"#ffe0a1":"#fff");text(g,x+j*size+25,y+i*size+20,v,13);text(g,x+j*size+25,y+i*size+42,on.includes(v)?1:dc.includes(v)?"X":0,22);}}
  const patterns=cover.map(v=>typeof v==="string"?v:v.pattern).filter(Boolean);patterns.forEach((pat,k)=>{for(let i=0;i<cells;i++)for(let j=0;j<4;j++){const v=(n===3?i:gray[i])*4+gray[j],bits=v.toString(2).padStart(n,"0");if([...pat].every((b,i)=>b==="-"||b===bits[i]))g.append(E("rect",{x:x+j*size+4+k*2,y:y+i*size+4+k*2,width:size-8-k*4,height:size-8-k*4,rx:9,fill:"none",stroke:[C.green,C.blue,C.amber,C.red][k%4],"stroke-width":3}));}});text(g,570,135,"Groups wrap across\nopposite edges.\nEach group represents\na Boolean cube.",18);text(g,380,335,patterns.length?`Selected cubes: ${patterns.join(", ")}`:s.pattern?`Cube under inspection: ${s.pattern}`:"Read decimal indices and Boolean obligations separately.",19);}
@@ -161,6 +161,59 @@ function arrayExact(p,g,f,pos){const s=f.snapshot||{},id=p.scene.id;
  if(id==="arr-prefix"){strip(g,60,85,s.input,{cell:90,title:"Input cells"});strip(g,60,225,s.prefix,{cell:90,active:s.index,title:"Prefix boundaries: one more than input length"});return;}
  arrayMemory(p,g,f,pos);
 }
+function matricesQuestion(p,g,f){
+ const s=f.snapshot;
+ if(s.kind==='source')return vectorsQuestion(p,g,f);
+ if(s.kind==='positivity'){
+  text(g,380,30,`Dimension ${s.dimension}: strict positivity of both components`,20);path(g,'M95 195H665','#9eb4bf',1.5);
+  [s.parallel,s.perpendicular].forEach((v,i)=>{const x=180+i*310,y=v>0?195-v*30:195;if(v===0)path(g,`M${x} 195h130`,C.amber,3);else rect(g,x,y,130,Math.abs(v)*30,v>0?'#cfe8dd':'#eed5dc','none');text(g,x+65,65,['all-equal line','sum-zero subspace'][i],18);text(g,x+65,252,`coefficient = ${v}`,18);});vectorNative(g,f.formulaHtml,25,265,710,90);return;
+ }
+ if(s.kind==='allones'||s.kind==='fixed'){
+  text(g,380,30,s.kind==='allones'?'All-ones action, then the adapted-basis scales':'Permutation, weighted product, and fixed coordinates',20);
+  text(g,200,65,s.kind==='allones'?'J in standard coordinates':'P: actual permutation',18);text(g,570,65,s.kind==='allones'?'I + J in the adapted basis':'DP: weighted rows',18);
+  vectorNative(g,s.leftMath,45,80,310,165);vectorNative(g,s.rightMath,410,80,310,165);
+  text(g,380,268,s.kind==='allones'?'The complement is unchanged by J and kept by I.':s.row===5?'Changed hypothesis: all five coordinates are now fixed.':`Checked coordinate ${s.row+1}: weighted diagonal entry is zero.`,18);vectorNative(g,f.formulaHtml,20,285,720,68);return;
+ }
+ if(s.kind==='shear'){
+  text(g,380,30,'Forward shear and exact inverse on a common plane',20);const xy=v=>[90+40*v[0],220-40*v[1]];
+  path(g,'M50 220H385M90 250V70','#9eb4bf',1);for(let i=0;i<=6;i++)text(g,90+i*40,243,i,15);
+  const corners=s.stage===1?[[0,0],[1,0],[6,1],[5,1]]:[[0,0],[1,0],[1,1],[0,1]];path(g,'M'+corners.map(v=>xy(v).join(' ')).join('L')+'Z','#a7c8d5',1.5);
+  vectorEntityArrow(g,'shear-point',xy([0,0]),xy(s.point),C.blue);text(g,450,115,'Input: (1, 1)',18,'start');text(g,450,160,'Forward: (6, 1)',18,'start');text(g,450,205,'Restored: (1, 1)',18,'start');vectorNative(g,f.formulaHtml,25,265,710,90);return;
+ }
+ if(s.kind==='power'){
+  text(g,380,30,`Power ${s.k}: chronological two-step paths`,20);
+  const pos=[[90,110],[225,110],[360,110]];['e1','e2','e3'].forEach((v,i)=>{dot(g,...pos[i],4,C.blue);text(g,pos[i][0],80,v,18);});arrow(g,355,110,230,110,C.green);arrow(g,220,110,95,110,C.green);text(g,225,145,'N moves left; I holds a coordinate.',16);
+  vectorNative(g,s.matrixMath,65,160,320,105);
+  text(g,580,70,'Two distinct N slots: i < j',17);for(let j=2;j<=s.k;j++)for(let i=1;i<j;i++){const node=E('g',{'data-entity':`slot-pair-${i}-${j}`});dot(node,460+j*18,90+i*15,4,j===s.k?C.amber:C.blue);g.append(node);}text(g,580,260,`Exact pair count: ${s.value}`,18);vectorNative(g,f.formulaHtml,15,282,730,70);return;
+ }
+ if(s.kind==='rank'){
+  text(g,380,30,'Typed maps: onto intermediate space, then injective embedding',19);
+  [['R⁵',40],['R²',300],['R⁵',560]].forEach(([v,x])=>{rect(g,x,62,160,48,'#f4f8fa','#b5cbd3');text(g,x+80,93,v,20);});arrow(g,200,86,300,86,C.blue);arrow(g,460,86,560,86,C.green);text(g,250,65,'V',18);text(g,510,65,'U',18);
+  vectorNative(g,s.leftMath,25,126,220,135);vectorNative(g,s.rightMath,265,126,230,135);vectorNative(g,s.productMath,515,115,225,165);text(g,135,275,'U: embed axes 1 and 2',15);text(g,380,275,'V: read axes 3 and 4',15);text(g,628,295,'UV: rank 2',15);vectorNative(g,f.formulaHtml,15,300,730,55);return;
+ }
+ if(s.kind==='basis'){
+  text(g,380,30,'Actual basis image and the coefficient reconstruction',20);const xy=v=>[185+26*v[0],90-26*v[1]];path(g,'M65 90H350M185 55V260','#9eb4bf',1);
+  vectorEntityArrow(g,'basis-image',xy([0,0]),xy(s.point),C.blue);vectorEntityArrow(g,'original-basis-2',xy([0,0]),xy([1,-1]),'#b4c4ca');
+  text(g,425,110,'Standard image: (2, -5)',18,'start');text(g,425,158,'Basis coordinates: (-3/2, 7/2)',18,'start');text(g,425,208,'Convert output coordinates too.',18,'start');vectorNative(g,f.formulaHtml,25,265,710,90);return;
+ }
+ if(s.kind==='block'){
+  text(g,380,30,'Ordered block action and backward recovery',20);
+  const values=s.stage===0?['x = e1','y = e1']:s.stage===1?['u = 3e1',`v = ${s.lower}e1`]:['x = u - 2y = e1',`y = v / ${s.lower} = e1`];
+  [0,1].forEach(i=>{rect(g,90+i*370,88,230,105,'#f2f7fa','#aac3cc');text(g,205+i*370,117,'5-coordinate group '+(i+1),17);text(g,205+i*370,158,values[i],18);});
+  if(s.stage===1)arrow(g,460,140,320,140,C.amber);text(g,380,230,`Determinant: ${s.lower}⁵ = ${s.det}; coupling has no inverse requirement.`,17);vectorNative(g,f.formulaHtml,20,260,720,95);return;
+ }
+ if(s.kind==='gram'){
+  text(g,380,30,'Real kernel direction and squared output norm',20);vectorNative(g,s.leftMath,35,62,300,90);vectorNative(g,s.rightMath,425,62,300,90);text(g,185,55,'A',18);text(g,575,55,'AᵀA',18);
+  const xy=v=>[170+28*v[0],220-28*v[1]];path(g,'M75 220H275M170 165V275','#9eb4bf',1);vectorEntityArrow(g,'kernel-input',xy([0,0]),xy(s.x),C.blue);text(g,500,208,`Output: (${s.out})`,18);text(g,500,245,`Squared length: ${s.norm}`,18);vectorNative(g,f.formulaHtml,25,282,710,70);return;
+ }
+ if(s.kind==='trace'){
+  text(g,380,30,'Same six scalar terms, regrouped without loss',20);
+  for(let i=0;i<2;i++)for(let j=0;j<3;j++){const x=190+j*130,y=95+i*72;rect(g,x,y,105,54,s.stage===0?(i?'#e4f1ea':'#e5f0f7'):s.stage===1?['#e5f0f7','#e4f1ea','#f7eddc'][j]:'#f3f8fa','#bbced5');text(g,x+52,y+34,s.terms[i][j],22);}
+  text(g,380,265,s.stage===0?'Two row sums: 4 and -1.':s.stage===1?'Three column sums: 2, -2, 3.':'Both groupings total three.',18);vectorNative(g,f.formulaHtml,15,280,730,75);return;
+ }
+ throw Error('Unknown matrix question geometry: '+s.kind);
+}
+
 function vectorNative(g,html,x,y,w,h){countingFormula(g,{formulaHtml:html},x,y,w,h);const math=g.lastElementChild.querySelector('math');if(math)math.style.mathStyle='compact';}
 function vectorEntityArrow(g,id,a,b,color){const node=E('g',{'data-entity':id});if(Math.hypot(a[0]-b[0],a[1]-b[1])>.1)arrow(node,...a,...b,color);else dot(node,a[0],a[1],3,color);g.append(node);}
 function vectorsQuestion(p,g,f){

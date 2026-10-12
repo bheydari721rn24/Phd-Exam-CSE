@@ -1,0 +1,94 @@
+{
+  "chapter": "l_matrices",
+  "reviewDate": "2026-10-12",
+  "status": "completed_in_documented_scope",
+  "scope": "Oxford and Berkeley source research only. No dist, chapter gate or publication files changed.",
+  "priorAuditRead": ["research/l_matrices-source-audit.md", "research/l_matrices-reviewed-courses.json"],
+  "sources": [
+    {
+      "university": "Oxford",
+      "course": "M1 Linear Algebra I, Michaelmas 2022",
+      "lecturer": "Andrew Wathen; official course index checked again in this matrix review; PDF authorship is not separately identified",
+      "courseUrl": "https://courses.maths.ox.ac.uk/course/view.php?id=609",
+      "notesUrl": "https://courses.maths.ox.ac.uk/pluginfile.php/25471/mod_folder/content/0/lecture_notes22.pdf?forcedownload=1",
+      "sha256": "b7b49ddc40a68cd3d4376143178d259140a0fa01f5098c7df295d6ef85cf69ba",
+      "freshTextReading": {"printedPagesInclusive": [[8,13],[21,24]], "oneBasedPdfPagesInclusive": [[9,14],[22,25]], "pageCount": 10},
+      "freshVisualReading": {"oneBasedPdfPages": [13,22,23], "printedPages": [12,21,22], "purpose": "Verify the three requested prior erratum claims directly in actual typeset PDF."},
+      "topicsActuallyRead": ["matrix dimensions and entry notation", "equality and entrywise addition/scaling", "matrix product and composition order", "Kronecker delta and rectangular identities", "finite-sum proof of associativity", "noncommutativity and zero divisors", "powers and matrix polynomials", "absence or multiplicity of matrix square roots", "transpose rules", "symmetric/skew/strictly triangular definitions", "inverse algorithm context and proof", "standard arithmetic operation counts", "orthogonal matrices and dot-product preservation"],
+      "boundary": "Only the ten named pages were freshly read for this review. The inverse algorithm was examined for proof correctness, but Gaussian elimination remains a later chapter. No full-course reading claim.",
+      "selection": "Retain as core within the documented seven-offering pool: entrywise proofs and square-root counterexample complement computational primers; repair independently verified proof typos."
+    },
+    {
+      "university": "UC Berkeley",
+      "course": "Math 54, Spring 2018",
+      "lecturer": "Alexander Paulin; official index identifies course and lecturer",
+      "courseUrl": "https://math.berkeley.edu/~apaulin/54(Spring%202018%20Videos%20and%20Notes).html",
+      "notesUrl": "https://math.berkeley.edu/~apaulin/Matrix%20Algebra.pdf",
+      "sha256": "7b219781a86a03a4e25bb2ac8145feff26ca3bf3206b3c1e2e818c6536bc4789",
+      "freshVisualReading": {"oneBasedPdfPages": [1,2,3,4], "pageCount": 4, "method": "Downloaded original; rendered every handwritten page at 1.4x and actually viewed all four full-page images."},
+      "topicsActuallyRead": ["matrix/function correspondence", "addition and scaling of maps", "basis images as columns", "composition domain/codomain diagram", "row-column product rule", "rectangular numerical multiplication", "associativity and distributivity", "rectangular identity sizes", "failed cancellation and zero products", "transpose identities and reversed order"],
+      "independentSourceExampleCheck": "For A=[[1,2,3],[4,5,6]] and B=[[1,-1],[0,2],[1,1]], AB=[[4,6],[10,12]], agreeing with the handwritten page 3.",
+      "boundary": "Only Matrix Algebra's four pages were newly read. No inverse algorithm, full course or other Berkeley note is newly credited.",
+      "selection": "Retain as core: strongest direct conceptual mapping from composition and basis images to product columns, plus useful cancellation warning. It supplies little proof detail for advanced blocks or nilpotent powers, so these require independent expansion."
+    }
+  ],
+  "erratumVerification": [
+    {
+      "claim": "Oxford printed 21 defines strictly upper triangular with i>j",
+      "verdict": "incorrect_prior_audit_claim",
+      "actualSource": "Definition 51 explicitly states i>=j and entries on or below the diagonal zero; strictly lower triangular uses i<=j. Both are correct in the actual PDF.",
+      "requiredAction": "Remove the alleged strict-triangular source error from the audit and source-credit limitations. Keep the chapter's correct nilpotence proof as an original expansion, not an erratum."
+    },
+    {
+      "claim": "Wrong left identity size in Oxford printed 12 proof",
+      "verdict": "visually_confirmed_source_typo",
+      "actualSource": "Proposition 26(a)'s statement is correct, I_m A=A, but its proof line writes I_n A and sums n terms for a general m-by-n A.",
+      "correction": "Use (I_m A)_ij=sum_{k=1}^m delta_ik a_kj=a_ij, while (A I_n)_ij=sum_{k=1}^n a_ik delta_kj=a_ij. Specify that these are distinct identities when m!=n."
+    },
+    {
+      "claim": "Oxford printed 22 zero-row argument selects first row without ensuring it is zero",
+      "verdict": "visually_confirmed_proof_gap",
+      "actualSource": "Algorithm 53 observes an RRE square R!=I has at least one zero row, then immediately uses (1,0,...,0)PA=0. An RRE zero row need not be the first row.",
+      "correction": "If row r of R=PA is zero, write e_r^T PA=0. If A were invertible, postmultiply by A^{-1}P^{-1} to obtain e_r^T=0, a contradiction. The algorithm remains valid; repair the selector, not its conclusion."
+    }
+  ],
+  "usefulOriginalProblemDerivations": [
+    {
+      "type": "Rectangular one-sided inverse and oblique projection",
+      "data": "A=[[1,0,1],[0,1,1]] (2-by-3), B=[[1,0],[0,1],[0,0]] (3-by-2)",
+      "solution": "AB=I_2, but BA=[[1,0,1],[0,1,1],[0,0,0]] != I_3. Associativity gives (BA)^2=B(AB)A=BA. The image is span(e_1,e_2), while the kernel is span((-1,-1,1)). BA is not symmetric, so this is an oblique projection, not a Euclidean orthogonal projection. A left/right inverse must be dimension-qualified; square finite-dimensional equivalence cannot be imported into rectangular matrices."
+    },
+    {
+      "type": "Finite-series inverse and powers of a triangular perturbation",
+      "data": "N=[[0,a,b],[0,0,c],[0,0,0]]",
+      "solution": "N^2 has sole possibly nonzero entry (1,3)=ac, and N^3=0. Therefore (I+N)^{-1}=I-N+N^2=[[1,-a,ac-b],[0,1,-c],[0,0,1]]. Both left and right products telescope to I. For integer k>=0, (I+N)^k=I+kN+k(k-1)N^2/2, whose (1,3) entry is kb+k(k-1)ac/2; k=0 gives I. The same expression holds for negative integer k after independently deriving the inverse powers, not by pretending a scalar binomial identity holds for arbitrary noncommuting sums."
+    },
+    {
+      "type": "No square root of a nonzero 2-by-2 nilpotent",
+      "data": "J=[[0,1],[0,0]] over R or C",
+      "solution": "If C^2=J, then CJ=C C^2=C^2 C=JC. For C=[[a,b],[c,d]], comparing CJ and JC forces c=0 and d=a. Then C^2=[[a^2,2ab],[0,a^2]]. Equality to J requires a^2=0, hence a=0, which makes 2ab=0 instead of 1. Thus no square root exists over either field. This original centralizer derivation independently checks Oxford Example29 without copying its entrywise proof."
+    },
+    {
+      "type": "Noncommuting block shears",
+      "data": "U=[[I_p,X],[0,I_q]], V=[[I_p,0],[Y,I_q]], X p-by-q, Y q-by-p",
+      "solution": "UV=[[I_p+XY,X],[Y,I_q]] while VU=[[I_p,X],[Y,I_q+YX]]. Thus they commute exactly when XY=0 and YX=0, not merely when one product vanishes. With p=q=2, X=E_12 and Y=E_11, XY=0 but YX=E_12!=0. Equal traces of XY and YX do not make those matrices equal. Every block addition is dimension-compatible."
+    },
+    {
+      "type": "Real transpose versus complex adjoint positivity",
+      "data": "Real K=[[0,1],[-1,0]], complex row z=[1,i]",
+      "solution": "tr(K^T K)=2 is squared Frobenius norm, whereas tr(K^2)=-2. For z, zz^T=1+i^2=0 despite z!=0; zz*=1+|i|^2=2. Therefore ordinary transpose is insufficient for complex norm/Gram positivity. For any real A, tr(A^T A)=sum_ij a_ij^2, proved by diagonal entry sums; over C use tr(A* A)=sum_ij |a_ij|^2."
+    }
+  ],
+  "mathematicalBoundaries": [
+    "For strictly upper triangular n-by-n N, (N^k)_ij sums products over increasing index chains i=i_0<i_1<...<i_k=j; no chain of n edges exists, so N^n=0. Merely upper triangular matrices can have nonzero diagonal and need not be nilpotent.",
+    "AB and BA can both exist while having different square sizes. Noncommutativity examples comparing their entries require equal sizes; one-sided identity arguments require explicit sizes.",
+    "Left cancellation A X=A Y for every compatible X,Y holds exactly when A has trivial kernel; right cancellation X A=Y A for every compatible X,Y holds exactly when A has full row rank. Invertibility is a sufficient square case, not the only rectangular criterion.",
+    "A^0=I_n for every square n-by-n A, including A=0; negative powers require invertibility. Matrix polynomials include the constant coefficient times I_n.",
+    "The scalar-looking binomial expansion of (A+B)^2 has mixed terms AB+BA, which becomes 2AB only when AB=BA. Product inverse and transpose reverse order.",
+    "Entrywise square operations, matrix powers, matrix product and Hadamard product must be named distinctly. A matrix dimension check is part of every derivation.",
+    "Orthogonal matrices in the cited real source are square; Q^TQ=I for a tall rectangular Q is column orthonormality, not automatically QQ^T=I. Over complex fields use conjugate transpose and unitary terminology."
+  ],
+  "independentVerification": "Exact SymPy confirmed N^3=0, both finite-series inverse products, the rectangular AB/BA example and BA idempotence, and the XY=0/YX!=0 block counterexample. Conceptual proofs are separately provided above.",
+  "poolBoundary": "Seven identifiable offerings in prior audit: Stanford, Oxford, Berkeley, MIT, CMU, Harvard, Cambridge. Oxford and Berkeley remain core in this bounded matrix-algebra survey. Other five offerings' bodies were not newly read or reranked by this delegated source review; no exhaustive worldwide claim.",
+  "temporaryFiles": "C:/Users/bheydari/AppData/Local/Temp/vector-source-review-b; PDFs and source scans remain temporary reading aids, not redistributed assets."
+}

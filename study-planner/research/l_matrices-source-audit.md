@@ -1,6 +1,6 @@
 # Matrix chapter: source selection and reading evidence
 
-Reviewed on 2026-10-01. Topic: `l_matrices`. No archived Iranian examination paper was opened or classified.
+Initial selection: 1 October 2026. Full individual revision: 12 October 2026. Five authentic examination items were checked against their original PDF images under the later archive-analysis instruction.
 
 ## Search boundary and comparison rule
 
@@ -20,7 +20,7 @@ Four core courses from four universities were selected after comparison. CMU is 
 
 ## Independent corrections
 
-- Oxford printed p. 21 defines strictly upper triangular using `i > j`; strict triangularity must also zero the diagonal, hence `i >= j`. The chapter uses the corrected definition and proves nilpotence by increasing index chains.
+- The earlier accusation about Oxford strict triangularity is withdrawn. Fresh visual inspection confirms that Definition51 correctly states `i >= j` for strictly upper triangular and `i <= j` for strictly lower triangular matrices. The increasing-index-chain nilpotence proof is an instructional expansion, not an erratum.
 - Oxford printed p. 12 writes the left identity with the wrong dimension in one proof line. The correct identity for an m-by-n matrix is I_m A = A = A I_n.
 - Oxford printed p. 22's zero-row inverse argument uses the first coordinate selector without ensuring the zero row is first. The general inverse algorithm is deferred, and no such proof is imported.
 - MIT's upper-triangular inverse solution labels a row operation as R2 minus c R2 where R3 is needed, and labels the final inverse L rather than U. The chapter instead derives the inverse by the finite polynomial I − N + N², and verifies both products.
@@ -42,3 +42,7 @@ Four core courses from four universities were selected after comparison. CMU is 
 ## Question provenance and reproduction boundary
 
 The worked bank uses original questions and newly written solutions. MIT recitation's two in-scope mathematical problem types are identified individually and adapted; the triangular inverse is solved without the deferred Gaussian algorithm. Selected examples from the other courses are transformed into newly worded, independently solved problems. This is not a reproduction of all copyrighted exercises or every full course's problem bank. Exact source links and course/instructor identities accompany attribution. No source PDF or extracted full source text is redistributed in the repository.
+
+## Individual revision evidence, 12 October 2026
+
+Four core university courses were freshly rechecked in the exact bounds recorded in deep-library-revision/l_matrices-course-recheck.json. The Stanford primer does not identify its precise year on the title slide; no unsupported year is inferred from a neighboring archive. The MIT outer-product row endpoint is corrected from b_kn to b_kp, preserving the distinct shared and output dimensions. The original MScQ113 first option is 37; canonical metadata and the two stale placements in matrices and Gaussian elimination are corrected, while the counting chapters already had37. Q31 retains its literal ambiguity. Authored Q9 now states a triangular sufficient guarantee rather than a false necessity, and Q33 specifies the same ordered basis on both sides. All47 answers are individually rewritten; seven construction sections teach the bank prerequisite extensions, and33 visible review decisions replace an inaccurate stale50-rule label. Full original instruction and all36 tutorials remain.

@@ -1,0 +1,142 @@
+{
+  "chapter": "l_matrices",
+  "reviewed_on": "2026-10-12",
+  "status": "completed_fresh_written_source_recheck",
+  "scope": "Fresh reading of the Stanford and MIT selections in the documented seven-offering pool. The other five pool entries were compared through the existing audit, not falsely counted as freshly read in this report. No worldwide course census or entire-course reading is claimed.",
+  "inputs_inspected": [
+    "research/l_matrices-source-audit.md",
+    "research/l_matrices-reviewed-courses.json",
+    "research/l_matrices-review.en.md: Sections 13 and 14, including all selected-source links and reading bounds"
+  ],
+  "selection_reassessment": {
+    "stanford": "Retain core for concise, accurate entry definitions, compatible shapes, transpose/product/inverse order, and square-only power rules. Proof depth and difficult question development must be independently expanded.",
+    "mit": "Retain core for complementary product viewpoints, dimension-compatible block algebra, permutation/transpose geometry and two identifiable in-scope recitation problem types. Correct source labels and the outer-product endpoint before synthesis.",
+    "pool_comparison": "The prior seven-offering audit assigns Oxford to entrywise proofs, Berkeley to composition, CMU to additional applications, Harvard to a reserve with notation slips, and Cambridge to metadata-only access. This report freshly validates the two assigned backbone roles without inventing fresh readings or global rankings for the other entries."
+  },
+  "documents": [
+    {
+      "university": "Stanford University",
+      "course_identity": "EE263, archival Matrix Operations, Lecture 2; Stephen Boyd attributed through the existing official course context",
+      "title": "Matrix Operations",
+      "url": "https://ee263.stanford.edu/archive/matrix-primer-lect2.pdf",
+      "identity_limit": "This PDF title slide states Lecture 2 and Matrix Operations but does not name the instructor or year. The 2007-08 archive index is contextual and does not independently establish the year of this particular older primer.",
+      "pdf_pages_read": "1-15 inclusive; complete PDF",
+      "reading_method": "Complete official PDF text read through the web reader and locally extracted text. PDF page 13 rendered and visually read to resolve inverse matrix entries and the singular example.",
+      "local_path": "C:/Users/bheydari/AppData/Local/Temp/deep-matrices-sources/stanford-primer.pdf",
+      "sha256": "36e52f4585f3210272d07e29a6662c76f2a76dfcd2f2789df8dbf7ca11ea054b",
+      "reading_anchors": {
+        "2-5": "transpose, equal-shape addition, scalar operations",
+        "6-10": "product entry, noncommutation examples, associativity/distributivity, matrix-vector meaning and real inner product",
+        "11-15": "square powers, inverse and negative powers, singularity counterexample, reverse-order inverse and two-by-two inverse"
+      }
+    },
+    {
+      "university": "Massachusetts Institute of Technology",
+      "course_identity": "Gilbert Strang: 18.06SC Linear Algebra, Fall 2011",
+      "title": "Lecture 3: Multiplication and inverse matrices",
+      "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/1963da71c4d96e5d14e7939780f79bcc_MIT18_06SCF11_Ses1.3sum.pdf",
+      "pdf_pages_read": "1-4 inclusive",
+      "instructional_pages_read": "1-3 inclusive; page 4 is attribution",
+      "reading_method": "Complete official PDF text read. Initial download timed out; successful retry produced the hash below. Instructional pages 1 and 2 rendered and visually inspected for matrix grouping, subscripts, outer-product endpoint, inverse and block notation.",
+      "local_path": "C:/Users/bheydari/AppData/Local/Temp/deep-matrices-sources/mit-multiply.pdf",
+      "sha256": "c33d0b6e28e874947062997d4014bc4b5e03b7e6bdf54e80e4435f1fb919eca6",
+      "reading_anchors": {
+        "1": "four product views and outer products",
+        "2": "compatible blocks, square inverse, singularity and inverse as simultaneous systems",
+        "3": "elimination-matrix identity read as context; full Gaussian algorithm belongs to a later chapter"
+      }
+    },
+    {
+      "university": "Massachusetts Institute of Technology",
+      "course_identity": "Gilbert Strang: 18.06SC Linear Algebra, Fall 2011",
+      "title": "Transposes, permutations, spaces Rn",
+      "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/33b21afab62ea8df6c7bd241240df60d_MIT18_06SCF11_Ses1.5sum.pdf",
+      "pdf_pages_read": "1-3 inclusive",
+      "instructional_pages_read": "1-2 inclusive; page 3 is attribution",
+      "reading_method": "Complete official PDF text read through the web reader and locally extracted text. Page 1 rendered and visually inspected for transpose example, permutation inverse and Gram symmetry proof.",
+      "local_path": "C:/Users/bheydari/AppData/Local/Temp/deep-matrices-sources/mit-transpose.pdf",
+      "sha256": "663fc7f539a1e47514e213516a971c2361957ed1349752fcf6f1eeef390e28f6",
+      "reading_anchors": {
+        "1": "left permutation, P inverse equals transpose, transpose entry rule and symmetry of R transpose R",
+        "2": "closure, subspaces, column-space context; already-introduced vector foundations should be referenced rather than duplicated"
+      }
+    },
+    {
+      "university": "Massachusetts Institute of Technology",
+      "course_identity": "Gilbert Strang: 18.06SC Linear Algebra, Fall 2011",
+      "title": "Exercises on multiplication and inverse matrices",
+      "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/8e9ccbcc13300a9bda7f24a684bd16b6_MIT18_06SCF11_Ses1.3prob.pdf",
+      "pdf_pages_read": "1-2 inclusive",
+      "instructional_pages_read": "1; page 2 is attribution",
+      "reading_method": "Complete official PDF text read through the web reader and locally extracted text. Page 1 rendered and visually inspected, including both matrix layouts and problem identities.",
+      "local_path": "C:/Users/bheydari/AppData/Local/Temp/deep-matrices-sources/mit-problems.pdf",
+      "sha256": "a6526ecf4cefdb2c4c507adc4b08e2c66c8ce9a31e91d4c8992aafd3ff5e7d5f",
+      "problem_types": [
+        "Problem 3.1: verify matrix distributivity through separate product calculations and a combined calculation",
+        "Problem 3.2, attributed to Strang Section 2.5 Problem 24: inverse of a three-by-three unit upper-triangular matrix; source requests Gauss-Jordan, while an independently derived nilpotent-polynomial solution can respect this chapter boundary"
+      ],
+      "reproduction_limit": "These are provenance/type identifications, not redistribution of the complete exercise text or textbook problem bank."
+    },
+    {
+      "university": "Massachusetts Institute of Technology",
+      "course_identity": "Gilbert Strang: 18.06SC Linear Algebra, Fall 2011",
+      "title": "Exercises on multiplication and inverse matrices: solutions",
+      "url": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/d2dc903ca48f3d1ffa1528abde719c94_MIT18_06SCF11_Ses1.3sol.pdf",
+      "pdf_pages_read": "1-3 inclusive",
+      "instructional_pages_read": "1-2 inclusive; page 3 is attribution",
+      "reading_method": "Complete official PDF text read through the web reader and locally extracted text. Page 2 rendered and visually inspected to distinguish actual printed source slips from extraction errors.",
+      "local_path": "C:/Users/bheydari/AppData/Local/Temp/deep-matrices-sources/mit-solutions.pdf",
+      "sha256": "0a99ce006d3bc7fb02561c9ca9fa16978c22da4dcc89cd17a821af2a1457a758"
+    }
+  ],
+  "fresh_corrections_and_qualifications": [
+    {
+      "source": "MIT multiplication summary, PDF page 1, final outer-product formula",
+      "verification": "Visually confirmed in the original rendered PDF",
+      "finding": "The row factor ends with b_kn although the opening definition makes B n-by-p.",
+      "correction": "The endpoint is b_kp. Write AB=sum_{k=1}^n A[:,k] B[k,:], with each outer product m-by-p. Do not silently collapse the distinct shared and output dimensions."
+    },
+    {
+      "source": "MIT solutions, PDF page 2, first elimination arrow",
+      "verification": "Visually confirmed in the original rendered PDF",
+      "finding": "The second operation is labelled R2=R2-cR2 although the shown result requires the third row.",
+      "correction": "Use R2=R2-cR3. The actual displayed transformed matrix is consistent with the corrected operation."
+    },
+    {
+      "source": "MIT solutions, PDF page 2, final augmented matrix label",
+      "verification": "Visually confirmed in the original rendered PDF",
+      "finding": "The final right block is labelled L inverse, whereas the input matrix is U.",
+      "correction": "Label the block U inverse. The displayed entries themselves are correct; both ordered inverse products were independently verified symbolically."
+    },
+    {
+      "source": "Stanford primer pages 10-12 and MIT transpose summary page 1",
+      "verification": "Complete selected-page reading and independent domain analysis",
+      "finding": "Real dot-product and ordinary-transpose statements must not be silently promoted to complex positivity or unrestricted one-sided inverse equivalence.",
+      "correction": "For complex geometry use conjugate transpose. R^T R is complex symmetric, but positivity and Hermitian Gram geometry require R*R. A left inverse implies a right inverse only for square finite-dimensional matrices; rectangular embeddings are a counterexample. Negative matrix powers require invertibility."
+    }
+  ],
+  "independent_checks": [
+    "Recomputed both Stanford page-7 products and verified the printed noncommutation example exactly.",
+    "Verified symbolically both U V=I and V U=I for the unit-upper-triangular inverse. Derive V=I-N+N^2 from N^3=0 instead of copying erroneous row labels.",
+    "Checked an independent matrix-unit trace counterexample: tr(E12 E21 E11)=1 while tr(E12 E11 E21)=0. This distinguishes cyclic trace rotation from arbitrary factor permutation."
+  ],
+  "recommended_question_development": [
+    "Use a rectangular product with unequal m,n,p and calculate it by entry, column, row and outer-product views; attach intermediate shapes and independently reconcile every output entry.",
+    "Construct a linear map from images of basis vectors, then compose two maps; show why factor order reverses the spoken action order and why one agreement vector does not prove map equality.",
+    "Compare a nonzero zero-divisor with a rectangular left-inverse example; state which side can be cancelled and describe the kernel direction preventing cancellation.",
+    "Extend the unit-triangular inverse type to compatible block matrices. In the top-right inverse block retain AC-B in that order; verify both block products and do not commute matrix blocks.",
+    "Contrast a real symmetric product with noncommuting symmetric factors. Prove that AB is symmetric exactly when AB=BA under the stated symmetric-square hypotheses.",
+    "Include a complex transpose-versus-adjoint example; derive Gram positivity as x* A* A x=||Ax||^2 and separate positivity from entrywise signs.",
+    "Derive selector and matrix-unit identities by entries, then use them to form minimal counterexamples to cancellation, arbitrary trace permutation and unqualified scalar binomial expansion.",
+    "For nilpotent powers provide the increasing-index-chain proof for strictly upper-triangular matrices, then obtain a finite inverse polynomial; do not replace a finite identity with an unstated convergence assumption.",
+    "Treat finite arithmetic and computational cost as separate questions: preserve factor order when optimizing parenthesization, include exact dimensions and explain rounding qualifications.",
+    "Differentiate Frobenius and induced norms if both appear in a question. The selected sources do not teach their complete general theory, so any advanced norm extension needs an independent proof or another genuinely reviewed written source."
+  ],
+  "source_content_policy": "Only original explanations, independently derived solutions and precise type attributions should enter the chapter. Downloaded course PDFs and full extracted text remain temporary reading aids and are not redistributed in repository assets.",
+  "remaining_limits": [
+    "No evaluation of every course worldwide.",
+    "No reading of either complete course or the complete Strang textbook.",
+    "No fresh reading of the other five documented candidates in this two-source recheck.",
+    "Course selection and source reading do not certify literal 100 percent correctness, completeness or performance on unseen questions."
+  ]
+}

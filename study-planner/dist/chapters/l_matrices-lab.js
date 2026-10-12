@@ -20,19 +20,22 @@
   const corners=[[0,0],[1,0],[1,1],[0,1]];
   const polys=[corners,corners.map(v=>mv(RS,v)),corners.map(v=>mv(SR,v))];
   const extent=Math.max(2,...[...polys.flat(),x,a,b].flat().map(Math.abs))*1.2;
-  const scale=260/extent,point=v=>[320+scale*v[0],320-scale*v[1]];
+  const scale=140/extent,point=v=>[220+scale*v[0],180-scale*v[1]];
+  svg.setAttribute('viewBox','0 0 760 360');
   const pstr=v=>point(v).join(",");
-  let drawing="";
+  let drawing='<defs>'+['#899da9','#286c91','#ba7a2d'].map((c,i)=>`<marker id="matrix-lab-arrow-${i}" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L7 3L0 6Z" fill="${c}"/></marker>`).join('')+'</defs>';
   const step=extent>4?2:1;
   for(let k=-Math.floor(extent/step);k<=Math.floor(extent/step);k++){
    const coordinate=k*step,px=point([coordinate,0])[0],py=point([0,coordinate])[1];
-   drawing+=`<path d="M${px}35V605M35 ${py}H605" stroke="#e5edf2"/>`;
-   if(k!==0)drawing+=`<text x="${px}" y="341" text-anchor="middle">${coordinate}</text><text x="299" y="${py+6}" text-anchor="end">${coordinate}</text>`;
+   drawing+=`<path d="M${px}35V325M35 ${py}H405" stroke="#e5edf2"/>`;
+   if(k!==0)drawing+=`<text x="${px}" y="200" font-size="13" text-anchor="middle">${coordinate}</text><text x="203" y="${py+5}" font-size="13" text-anchor="end">${coordinate}</text>`;
   }
-  drawing+='<path d="M35 320H605M320 35V605" stroke="#768a98" stroke-width="1.7"/><text x="600" y="345">x</text><text x="336" y="45">y</text>';
+  drawing+='<path d="M35 180H405M220 35V325" stroke="#768a98" stroke-width="1.5"/><text x="398" y="205" font-size="15">x</text><text x="237" y="45" font-size="15">y</text>';
   const colors=["#899da9","#286c91","#ba7a2d"];
   polys.forEach((poly,i)=>drawing+=`<polygon points="${poly.map(pstr).join(" ")}" fill="${colors[i]}" fill-opacity="${i?'.1':'0'}" stroke="${colors[i]}" stroke-width="${i?3:2}" ${i?'':'stroke-dasharray="6 5"'}/>`);
-  [x,a,b].forEach((v,i)=>{const p=point(v);drawing+=`<path d="M320 320L${p[0]} ${p[1]}" stroke="${colors[i]}" stroke-width="3"/><circle cx="${p[0]}" cy="${p[1]}" r="6" fill="${colors[i]}"/>`;});
+  [x,a,b].forEach((v,i)=>{const p=point(v);drawing+=`<path d="M220 180L${p[0]} ${p[1]}" stroke="${colors[i]}" stroke-width="2.3" marker-end="url(#matrix-lab-arrow-${i})"/><circle cx="${p[0]}" cy="${p[1]}" r="3" fill="${colors[i]}"/>`;});
+  ['Grey: input and original square','Blue: shear, then rotation','Amber: rotation, then shear'].forEach((label,i)=>drawing+=`<text x="450" y="${100+i*55}" font-size="16" fill="${colors[i]}">${label}</text>`);
+  drawing+=`<text x="450" y="275" font-size="15">Equal axis scale: ${fmt(scale)} pixels per unit</text>`;
   svg.innerHTML=drawing;
   result.dataset.commute=String(commute);result.dataset.gap=String(gap);
   result.dataset.rs=JSON.stringify(RS);result.dataset.sr=JSON.stringify(SR);result.dataset.first=JSON.stringify(a);result.dataset.second=JSON.stringify(b);result.dataset.scale=String(scale);
