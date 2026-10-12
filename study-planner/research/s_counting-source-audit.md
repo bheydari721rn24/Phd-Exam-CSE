@@ -1,6 +1,6 @@
 # Counting probabilities and independence: source-selection audit
 
-Date: 2026-10-01. Active chapter: s_counting only. The student approved s_axioms before this work began. Archived Iranian entrance-exam papers remain deferred until the final month.
+Initial selection: 1 October 2026. Individual full revision: 12 October 2026. The subsequent explicit instruction authorizes authentic archived examination analysis and continuous individual library review. Fifteen authentic items are included with original-PDF evidence. The current reading record distinguishes fresh text reading from reused inspections.
 
 ## Search boundary and ranking criteria
 
@@ -32,8 +32,12 @@ Surveyed official written-course candidates at MIT, Stanford, UC Berkeley, Oxfor
 3. Include stars and bars with lower and upper bounds, labeled group partitions, uniform collision probabilities, occupancy, inclusion–exclusion, derangements, and binomial/multinomial patterns as derived applications.
 4. Prove complement preservation and the equivalence of intersection and full binary-pattern definitions of mutual independence. Explicitly distinguish pairwise checks, the full intersection alone, and the entire family.
 5. Derive conditioning examples from declared finite weights. Both selection-induced dependence and dependence from a hidden common parameter are explained; full Bayes and conditional-independence theory remain for later boundaries.
-6. All questions, solutions, figures, and laboratory code are independently authored. Source-derived instructional types are attributed; source exercise wording is not reproduced.
+6. The lesson, original problems, solution derivations and laboratory code are original work. Fifteen separately labeled authentic questions are translated from their recorded original PDFs; official keys are not invented. Source-derived university instructional types are attributed without reproducing entire exercise banks.
 
 ## Limits
 
 This is a counting/probability chapter, not all enumerative combinatorics or all graduate probability. General orbit counting, partitions into unrestricted unlabeled groups, Catalan theory, generating-function machinery, asymptotic expansions beyond a stated collision bound, infinite independence extensions, conditional-independence graphs, and distribution moments have separate prerequisites or chapters. The source pool is bounded, and perfect performance on every unseen question cannot be established from it.
+
+## Current revision corrections and evidence
+
+Oxford's seed enumeration uses the strict size bound n+1 <= 2^b < 2(n+1), correcting its asserted equality. Stanford nonnegative versus positive wording and ambiguous reused shift variables are resolved. Conditional factors require positive conditioning mass. A basic orbit-counting identity is independently proved in the new mathematical constructions section; advanced group-action theory remains outside the scope. All 77 answers are separately specified, with explicit numerical or symbolic derivations and option analysis. See deep-library-revision/s_counting-course-recheck.json for actual reading bounds and original-page evidence.

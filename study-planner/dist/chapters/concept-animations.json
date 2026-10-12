@@ -223464,6 +223464,3477 @@
           }
         }
       ]
+    },
+    "counting-question-stars": {
+      "id": "counting-question-stars",
+      "title": "Question 1: all 21 triple encodings",
+      "description": "Two movable separator positions enumerate every nonnegative triple totaling five exactly once. Slot numbers identify the encoding; bars are separators, not objects being distributed.",
+      "descriptionHtml": "<p>Two movable separator positions enumerate every nonnegative triple totaling five exactly once. Slot numbers identify the encoding; bars are separators, not objects being distributed.</p>",
+      "invariant": "The displayed construction preserves the stated object labels, constraints and outcome definition.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "Two movable separator positions enumerate every nonnegative triple totaling five exactly once. Slot numbers identify the encoding; bars are separators, not objects being distributed."
+      },
+      "code": [
+        "Build the declared outcome; apply its exact constraint; recover its unique encoding"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              0,
+              1
+            ],
+            "tokens": [
+              "|",
+              "|",
+              "*",
+              "*",
+              "*",
+              "*",
+              "*"
+            ],
+            "tuple": [
+              0,
+              0,
+              5
+            ],
+            "index": 1,
+            "total": 21
+          },
+          "caption": "Encoding 1 of 21. The two distinct separator slots are 0 and 1 (zero-based). Count stars in each named segment to recover [0, 0, 5]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 1 of 21. The two distinct separator slots are 0 and 1 (zero-based). Count stars in each named segment to recover [0, 0, 5]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(0,0,5),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(0,0,5),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>5</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 1 of 21. The two distinct separator slots are 0 and 1 (zero-based). Count stars in each named segment to recover [0, 0, 5]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                0,
+                1
+              ],
+              "tokens": [
+                "|",
+                "|",
+                "*",
+                "*",
+                "*",
+                "*",
+                "*"
+              ],
+              "tuple": [
+                0,
+                0,
+                5
+              ],
+              "index": 1,
+              "total": 21
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              0,
+              2
+            ],
+            "tokens": [
+              "|",
+              "*",
+              "|",
+              "*",
+              "*",
+              "*",
+              "*"
+            ],
+            "tuple": [
+              0,
+              1,
+              4
+            ],
+            "index": 2,
+            "total": 21
+          },
+          "caption": "Encoding 2 of 21. The two distinct separator slots are 0 and 2 (zero-based). Count stars in each named segment to recover [0, 1, 4]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 2 of 21. The two distinct separator slots are 0 and 2 (zero-based). Count stars in each named segment to recover [0, 1, 4]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(0,1,4),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(0,1,4),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>4</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 2 of 21. The two distinct separator slots are 0 and 2 (zero-based). Count stars in each named segment to recover [0, 1, 4]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                0,
+                2
+              ],
+              "tokens": [
+                "|",
+                "*",
+                "|",
+                "*",
+                "*",
+                "*",
+                "*"
+              ],
+              "tuple": [
+                0,
+                1,
+                4
+              ],
+              "index": 2,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              0,
+              3
+            ],
+            "tokens": [
+              "|",
+              "*",
+              "*",
+              "|",
+              "*",
+              "*",
+              "*"
+            ],
+            "tuple": [
+              0,
+              2,
+              3
+            ],
+            "index": 3,
+            "total": 21
+          },
+          "caption": "Encoding 3 of 21. The two distinct separator slots are 0 and 3 (zero-based). Count stars in each named segment to recover [0, 2, 3]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 3 of 21. The two distinct separator slots are 0 and 3 (zero-based). Count stars in each named segment to recover [0, 2, 3]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(0,2,3),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(0,2,3),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 3 of 21. The two distinct separator slots are 0 and 3 (zero-based). Count stars in each named segment to recover [0, 2, 3]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                0,
+                3
+              ],
+              "tokens": [
+                "|",
+                "*",
+                "*",
+                "|",
+                "*",
+                "*",
+                "*"
+              ],
+              "tuple": [
+                0,
+                2,
+                3
+              ],
+              "index": 3,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              0,
+              4
+            ],
+            "tokens": [
+              "|",
+              "*",
+              "*",
+              "*",
+              "|",
+              "*",
+              "*"
+            ],
+            "tuple": [
+              0,
+              3,
+              2
+            ],
+            "index": 4,
+            "total": 21
+          },
+          "caption": "Encoding 4 of 21. The two distinct separator slots are 0 and 4 (zero-based). Count stars in each named segment to recover [0, 3, 2]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 4 of 21. The two distinct separator slots are 0 and 4 (zero-based). Count stars in each named segment to recover [0, 3, 2]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(0,3,2),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(0,3,2),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>2</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 4 of 21. The two distinct separator slots are 0 and 4 (zero-based). Count stars in each named segment to recover [0, 3, 2]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                0,
+                4
+              ],
+              "tokens": [
+                "|",
+                "*",
+                "*",
+                "*",
+                "|",
+                "*",
+                "*"
+              ],
+              "tuple": [
+                0,
+                3,
+                2
+              ],
+              "index": 4,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              0,
+              5
+            ],
+            "tokens": [
+              "|",
+              "*",
+              "*",
+              "*",
+              "*",
+              "|",
+              "*"
+            ],
+            "tuple": [
+              0,
+              4,
+              1
+            ],
+            "index": 5,
+            "total": 21
+          },
+          "caption": "Encoding 5 of 21. The two distinct separator slots are 0 and 5 (zero-based). Count stars in each named segment to recover [0, 4, 1]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 5 of 21. The two distinct separator slots are 0 and 5 (zero-based). Count stars in each named segment to recover [0, 4, 1]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(0,4,1),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(0,4,1),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 5 of 21. The two distinct separator slots are 0 and 5 (zero-based). Count stars in each named segment to recover [0, 4, 1]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                0,
+                5
+              ],
+              "tokens": [
+                "|",
+                "*",
+                "*",
+                "*",
+                "*",
+                "|",
+                "*"
+              ],
+              "tuple": [
+                0,
+                4,
+                1
+              ],
+              "index": 5,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              0,
+              6
+            ],
+            "tokens": [
+              "|",
+              "*",
+              "*",
+              "*",
+              "*",
+              "*",
+              "|"
+            ],
+            "tuple": [
+              0,
+              5,
+              0
+            ],
+            "index": 6,
+            "total": 21
+          },
+          "caption": "Encoding 6 of 21. The two distinct separator slots are 0 and 6 (zero-based). Count stars in each named segment to recover [0, 5, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 6 of 21. The two distinct separator slots are 0 and 6 (zero-based). Count stars in each named segment to recover [0, 5, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(0,5,0),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(0,5,0),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 6 of 21. The two distinct separator slots are 0 and 6 (zero-based). Count stars in each named segment to recover [0, 5, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                0,
+                6
+              ],
+              "tokens": [
+                "|",
+                "*",
+                "*",
+                "*",
+                "*",
+                "*",
+                "|"
+              ],
+              "tuple": [
+                0,
+                5,
+                0
+              ],
+              "index": 6,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              1,
+              2
+            ],
+            "tokens": [
+              "*",
+              "|",
+              "|",
+              "*",
+              "*",
+              "*",
+              "*"
+            ],
+            "tuple": [
+              1,
+              0,
+              4
+            ],
+            "index": 7,
+            "total": 21
+          },
+          "caption": "Encoding 7 of 21. The two distinct separator slots are 1 and 2 (zero-based). Count stars in each named segment to recover [1, 0, 4]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 7 of 21. The two distinct separator slots are 1 and 2 (zero-based). Count stars in each named segment to recover [1, 0, 4]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(1,0,4),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(1,0,4),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>4</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 7 of 21. The two distinct separator slots are 1 and 2 (zero-based). Count stars in each named segment to recover [1, 0, 4]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                1,
+                2
+              ],
+              "tokens": [
+                "*",
+                "|",
+                "|",
+                "*",
+                "*",
+                "*",
+                "*"
+              ],
+              "tuple": [
+                1,
+                0,
+                4
+              ],
+              "index": 7,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              1,
+              3
+            ],
+            "tokens": [
+              "*",
+              "|",
+              "*",
+              "|",
+              "*",
+              "*",
+              "*"
+            ],
+            "tuple": [
+              1,
+              1,
+              3
+            ],
+            "index": 8,
+            "total": 21
+          },
+          "caption": "Encoding 8 of 21. The two distinct separator slots are 1 and 3 (zero-based). Count stars in each named segment to recover [1, 1, 3]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 8 of 21. The two distinct separator slots are 1 and 3 (zero-based). Count stars in each named segment to recover [1, 1, 3]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(1,1,3),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(1,1,3),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 8 of 21. The two distinct separator slots are 1 and 3 (zero-based). Count stars in each named segment to recover [1, 1, 3]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                1,
+                3
+              ],
+              "tokens": [
+                "*",
+                "|",
+                "*",
+                "|",
+                "*",
+                "*",
+                "*"
+              ],
+              "tuple": [
+                1,
+                1,
+                3
+              ],
+              "index": 8,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              1,
+              4
+            ],
+            "tokens": [
+              "*",
+              "|",
+              "*",
+              "*",
+              "|",
+              "*",
+              "*"
+            ],
+            "tuple": [
+              1,
+              2,
+              2
+            ],
+            "index": 9,
+            "total": 21
+          },
+          "caption": "Encoding 9 of 21. The two distinct separator slots are 1 and 4 (zero-based). Count stars in each named segment to recover [1, 2, 2]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 9 of 21. The two distinct separator slots are 1 and 4 (zero-based). Count stars in each named segment to recover [1, 2, 2]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(1,2,2),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(1,2,2),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>2</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 9 of 21. The two distinct separator slots are 1 and 4 (zero-based). Count stars in each named segment to recover [1, 2, 2]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                1,
+                4
+              ],
+              "tokens": [
+                "*",
+                "|",
+                "*",
+                "*",
+                "|",
+                "*",
+                "*"
+              ],
+              "tuple": [
+                1,
+                2,
+                2
+              ],
+              "index": 9,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              1,
+              5
+            ],
+            "tokens": [
+              "*",
+              "|",
+              "*",
+              "*",
+              "*",
+              "|",
+              "*"
+            ],
+            "tuple": [
+              1,
+              3,
+              1
+            ],
+            "index": 10,
+            "total": 21
+          },
+          "caption": "Encoding 10 of 21. The two distinct separator slots are 1 and 5 (zero-based). Count stars in each named segment to recover [1, 3, 1]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 10 of 21. The two distinct separator slots are 1 and 5 (zero-based). Count stars in each named segment to recover [1, 3, 1]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(1,3,1),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(1,3,1),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 10 of 21. The two distinct separator slots are 1 and 5 (zero-based). Count stars in each named segment to recover [1, 3, 1]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                1,
+                5
+              ],
+              "tokens": [
+                "*",
+                "|",
+                "*",
+                "*",
+                "*",
+                "|",
+                "*"
+              ],
+              "tuple": [
+                1,
+                3,
+                1
+              ],
+              "index": 10,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              1,
+              6
+            ],
+            "tokens": [
+              "*",
+              "|",
+              "*",
+              "*",
+              "*",
+              "*",
+              "|"
+            ],
+            "tuple": [
+              1,
+              4,
+              0
+            ],
+            "index": 11,
+            "total": 21
+          },
+          "caption": "Encoding 11 of 21. The two distinct separator slots are 1 and 6 (zero-based). Count stars in each named segment to recover [1, 4, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 11 of 21. The two distinct separator slots are 1 and 6 (zero-based). Count stars in each named segment to recover [1, 4, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(1,4,0),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(1,4,0),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 11 of 21. The two distinct separator slots are 1 and 6 (zero-based). Count stars in each named segment to recover [1, 4, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                1,
+                6
+              ],
+              "tokens": [
+                "*",
+                "|",
+                "*",
+                "*",
+                "*",
+                "*",
+                "|"
+              ],
+              "tuple": [
+                1,
+                4,
+                0
+              ],
+              "index": 11,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              2,
+              3
+            ],
+            "tokens": [
+              "*",
+              "*",
+              "|",
+              "|",
+              "*",
+              "*",
+              "*"
+            ],
+            "tuple": [
+              2,
+              0,
+              3
+            ],
+            "index": 12,
+            "total": 21
+          },
+          "caption": "Encoding 12 of 21. The two distinct separator slots are 2 and 3 (zero-based). Count stars in each named segment to recover [2, 0, 3]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 12 of 21. The two distinct separator slots are 2 and 3 (zero-based). Count stars in each named segment to recover [2, 0, 3]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(2,0,3),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(2,0,3),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>2</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 12 of 21. The two distinct separator slots are 2 and 3 (zero-based). Count stars in each named segment to recover [2, 0, 3]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                2,
+                3
+              ],
+              "tokens": [
+                "*",
+                "*",
+                "|",
+                "|",
+                "*",
+                "*",
+                "*"
+              ],
+              "tuple": [
+                2,
+                0,
+                3
+              ],
+              "index": 12,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              2,
+              4
+            ],
+            "tokens": [
+              "*",
+              "*",
+              "|",
+              "*",
+              "|",
+              "*",
+              "*"
+            ],
+            "tuple": [
+              2,
+              1,
+              2
+            ],
+            "index": 13,
+            "total": 21
+          },
+          "caption": "Encoding 13 of 21. The two distinct separator slots are 2 and 4 (zero-based). Count stars in each named segment to recover [2, 1, 2]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 13 of 21. The two distinct separator slots are 2 and 4 (zero-based). Count stars in each named segment to recover [2, 1, 2]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(2,1,2),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(2,1,2),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 13 of 21. The two distinct separator slots are 2 and 4 (zero-based). Count stars in each named segment to recover [2, 1, 2]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                2,
+                4
+              ],
+              "tokens": [
+                "*",
+                "*",
+                "|",
+                "*",
+                "|",
+                "*",
+                "*"
+              ],
+              "tuple": [
+                2,
+                1,
+                2
+              ],
+              "index": 13,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              2,
+              5
+            ],
+            "tokens": [
+              "*",
+              "*",
+              "|",
+              "*",
+              "*",
+              "|",
+              "*"
+            ],
+            "tuple": [
+              2,
+              2,
+              1
+            ],
+            "index": 14,
+            "total": 21
+          },
+          "caption": "Encoding 14 of 21. The two distinct separator slots are 2 and 5 (zero-based). Count stars in each named segment to recover [2, 2, 1]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 14 of 21. The two distinct separator slots are 2 and 5 (zero-based). Count stars in each named segment to recover [2, 2, 1]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(2,2,1),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(2,2,1),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>2</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 14 of 21. The two distinct separator slots are 2 and 5 (zero-based). Count stars in each named segment to recover [2, 2, 1]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                2,
+                5
+              ],
+              "tokens": [
+                "*",
+                "*",
+                "|",
+                "*",
+                "*",
+                "|",
+                "*"
+              ],
+              "tuple": [
+                2,
+                2,
+                1
+              ],
+              "index": 14,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              2,
+              6
+            ],
+            "tokens": [
+              "*",
+              "*",
+              "|",
+              "*",
+              "*",
+              "*",
+              "|"
+            ],
+            "tuple": [
+              2,
+              3,
+              0
+            ],
+            "index": 15,
+            "total": 21
+          },
+          "caption": "Encoding 15 of 21. The two distinct separator slots are 2 and 6 (zero-based). Count stars in each named segment to recover [2, 3, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 15 of 21. The two distinct separator slots are 2 and 6 (zero-based). Count stars in each named segment to recover [2, 3, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(2,3,0),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(2,3,0),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 15 of 21. The two distinct separator slots are 2 and 6 (zero-based). Count stars in each named segment to recover [2, 3, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                2,
+                6
+              ],
+              "tokens": [
+                "*",
+                "*",
+                "|",
+                "*",
+                "*",
+                "*",
+                "|"
+              ],
+              "tuple": [
+                2,
+                3,
+                0
+              ],
+              "index": 15,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              3,
+              4
+            ],
+            "tokens": [
+              "*",
+              "*",
+              "*",
+              "|",
+              "|",
+              "*",
+              "*"
+            ],
+            "tuple": [
+              3,
+              0,
+              2
+            ],
+            "index": 16,
+            "total": 21
+          },
+          "caption": "Encoding 16 of 21. The two distinct separator slots are 3 and 4 (zero-based). Count stars in each named segment to recover [3, 0, 2]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 16 of 21. The two distinct separator slots are 3 and 4 (zero-based). Count stars in each named segment to recover [3, 0, 2]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(3,0,2),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(3,0,2),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>3</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>2</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 16 of 21. The two distinct separator slots are 3 and 4 (zero-based). Count stars in each named segment to recover [3, 0, 2]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                3,
+                4
+              ],
+              "tokens": [
+                "*",
+                "*",
+                "*",
+                "|",
+                "|",
+                "*",
+                "*"
+              ],
+              "tuple": [
+                3,
+                0,
+                2
+              ],
+              "index": 16,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              3,
+              5
+            ],
+            "tokens": [
+              "*",
+              "*",
+              "*",
+              "|",
+              "*",
+              "|",
+              "*"
+            ],
+            "tuple": [
+              3,
+              1,
+              1
+            ],
+            "index": 17,
+            "total": 21
+          },
+          "caption": "Encoding 17 of 21. The two distinct separator slots are 3 and 5 (zero-based). Count stars in each named segment to recover [3, 1, 1]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 17 of 21. The two distinct separator slots are 3 and 5 (zero-based). Count stars in each named segment to recover [3, 1, 1]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(3,1,1),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(3,1,1),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>3</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 17 of 21. The two distinct separator slots are 3 and 5 (zero-based). Count stars in each named segment to recover [3, 1, 1]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                3,
+                5
+              ],
+              "tokens": [
+                "*",
+                "*",
+                "*",
+                "|",
+                "*",
+                "|",
+                "*"
+              ],
+              "tuple": [
+                3,
+                1,
+                1
+              ],
+              "index": 17,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              3,
+              6
+            ],
+            "tokens": [
+              "*",
+              "*",
+              "*",
+              "|",
+              "*",
+              "*",
+              "|"
+            ],
+            "tuple": [
+              3,
+              2,
+              0
+            ],
+            "index": 18,
+            "total": 21
+          },
+          "caption": "Encoding 18 of 21. The two distinct separator slots are 3 and 6 (zero-based). Count stars in each named segment to recover [3, 2, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 18 of 21. The two distinct separator slots are 3 and 6 (zero-based). Count stars in each named segment to recover [3, 2, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(3,2,0),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(3,2,0),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>3</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 18 of 21. The two distinct separator slots are 3 and 6 (zero-based). Count stars in each named segment to recover [3, 2, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                3,
+                6
+              ],
+              "tokens": [
+                "*",
+                "*",
+                "*",
+                "|",
+                "*",
+                "*",
+                "|"
+              ],
+              "tuple": [
+                3,
+                2,
+                0
+              ],
+              "index": 18,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              4,
+              5
+            ],
+            "tokens": [
+              "*",
+              "*",
+              "*",
+              "*",
+              "|",
+              "|",
+              "*"
+            ],
+            "tuple": [
+              4,
+              0,
+              1
+            ],
+            "index": 19,
+            "total": 21
+          },
+          "caption": "Encoding 19 of 21. The two distinct separator slots are 4 and 5 (zero-based). Count stars in each named segment to recover [4, 0, 1]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 19 of 21. The two distinct separator slots are 4 and 5 (zero-based). Count stars in each named segment to recover [4, 0, 1]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(4,0,1),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(4,0,1),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>4</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 19 of 21. The two distinct separator slots are 4 and 5 (zero-based). Count stars in each named segment to recover [4, 0, 1]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                4,
+                5
+              ],
+              "tokens": [
+                "*",
+                "*",
+                "*",
+                "*",
+                "|",
+                "|",
+                "*"
+              ],
+              "tuple": [
+                4,
+                0,
+                1
+              ],
+              "index": 19,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              4,
+              6
+            ],
+            "tokens": [
+              "*",
+              "*",
+              "*",
+              "*",
+              "|",
+              "*",
+              "|"
+            ],
+            "tuple": [
+              4,
+              1,
+              0
+            ],
+            "index": 20,
+            "total": 21
+          },
+          "caption": "Encoding 20 of 21. The two distinct separator slots are 4 and 6 (zero-based). Count stars in each named segment to recover [4, 1, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 20 of 21. The two distinct separator slots are 4 and 6 (zero-based). Count stars in each named segment to recover [4, 1, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(4,1,0),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(4,1,0),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>4</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 20 of 21. The two distinct separator slots are 4 and 6 (zero-based). Count stars in each named segment to recover [4, 1, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                4,
+                6
+              ],
+              "tokens": [
+                "*",
+                "*",
+                "*",
+                "*",
+                "|",
+                "*",
+                "|"
+              ],
+              "tuple": [
+                4,
+                1,
+                0
+              ],
+              "index": 20,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "stars",
+            "bars": [
+              5,
+              6
+            ],
+            "tokens": [
+              "*",
+              "*",
+              "*",
+              "*",
+              "*",
+              "|",
+              "|"
+            ],
+            "tuple": [
+              5,
+              0,
+              0
+            ],
+            "index": 21,
+            "total": 21
+          },
+          "caption": "Encoding 21 of 21. The two distinct separator slots are 5 and 6 (zero-based). Count stars in each named segment to recover [5, 0, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+          "captionHtml": "<p>Encoding 21 of 21. The two distinct separator slots are 5 and 6 (zero-based). Count stars in each named segment to recover [5, 0, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.</p>",
+          "metrics": {},
+          "formula": "(x_1,x_2,x_3)=(5,0,0),\\quad N=\\binom72=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"(x_1,x_2,x_3)=(5,0,0),\\quad N=\\binom72=21\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mn>5</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mi>N</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>7</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>=</mo><mn>21</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Encoding 21 of 21. The two distinct separator slots are 5 and 6 (zero-based). Count stars in each named segment to recover [5, 0, 0]. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.",
+            "currentState": {
+              "kind": "stars",
+              "bars": [
+                5,
+                6
+              ],
+              "tokens": [
+                "*",
+                "*",
+                "*",
+                "*",
+                "*",
+                "|",
+                "|"
+              ],
+              "tuple": [
+                5,
+                0,
+                0
+              ],
+              "index": 21,
+              "total": 21
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        }
+      ]
+    },
+    "counting-question-parity": {
+      "id": "counting-question-parity",
+      "title": "Question 9: parity and lower-bound ledger",
+      "description": "Each row fixes b, lists the even a values and determines c. The count changes at floor endpoints; all five rows together give the exact answer 46.",
+      "descriptionHtml": "<p>Each row fixes b, lists the even a values and determines c. The count changes at floor endpoints; all five rows together give the exact answer 46.</p>",
+      "invariant": "The displayed construction preserves the stated object labels, constraints and outcome definition.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "Each row fixes b, lists the even a values and determines c. The count changes at floor endpoints; all five rows together give the exact answer 46."
+      },
+      "code": [
+        "Build the declared outcome; apply its exact constraint; recover its unique encoding"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "parity",
+            "active": 0,
+            "counts": [
+              10,
+              10,
+              9,
+              9,
+              8
+            ],
+            "upper": [
+              9,
+              9,
+              8,
+              8,
+              7
+            ],
+            "prefix": 10,
+            "aValues": [
+              0,
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18
+            ]
+          },
+          "caption": "Fix b=0. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 9. Each of the 10 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
+          "captionHtml": "<p>Fix b=0. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 9. Each of the 10 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.</p>",
+          "metrics": {},
+          "formula": "b=0,\\quad 0\\le j\\le 9,\\quad c=20-2j,\\quad \\text{prefix}=10",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"b=0,\\quad 0\\le j\\le 9,\\quad c=20-2j,\\quad \\text{prefix}=10\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>b</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width=\"1em\" /><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>9</mn><mo>,</mo><mspace width=\"1em\" /><mi>c</mi><mo>=</mo><mn>20</mn><mo>-</mo><mn>2</mn><mi>j</mi><mo>,</mo><mspace width=\"1em\" /><mtext>prefix</mtext></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>10</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Fix b=0. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 9. Each of the 10 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
+            "currentState": {
+              "kind": "parity",
+              "active": 0,
+              "counts": [
+                10,
+                10,
+                9,
+                9,
+                8
+              ],
+              "upper": [
+                9,
+                9,
+                8,
+                8,
+                7
+              ],
+              "prefix": 10,
+              "aValues": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18
+              ]
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "parity",
+            "active": 1,
+            "counts": [
+              10,
+              10,
+              9,
+              9,
+              8
+            ],
+            "upper": [
+              9,
+              9,
+              8,
+              8,
+              7
+            ],
+            "prefix": 20,
+            "aValues": [
+              0,
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18
+            ]
+          },
+          "caption": "Fix b=1. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 9. Each of the 10 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
+          "captionHtml": "<p>Fix b=1. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 9. Each of the 10 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.</p>",
+          "metrics": {},
+          "formula": "b=1,\\quad 0\\le j\\le 9,\\quad c=19-2j,\\quad \\text{prefix}=20",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"b=1,\\quad 0\\le j\\le 9,\\quad c=19-2j,\\quad \\text{prefix}=20\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>b</mi><mo>=</mo><mn>1</mn><mo>,</mo><mspace width=\"1em\" /><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>9</mn><mo>,</mo><mspace width=\"1em\" /><mi>c</mi><mo>=</mo><mn>19</mn><mo>-</mo><mn>2</mn><mi>j</mi><mo>,</mo><mspace width=\"1em\" /><mtext>prefix</mtext></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>20</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Fix b=1. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 9. Each of the 10 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
+            "currentState": {
+              "kind": "parity",
+              "active": 1,
+              "counts": [
+                10,
+                10,
+                9,
+                9,
+                8
+              ],
+              "upper": [
+                9,
+                9,
+                8,
+                8,
+                7
+              ],
+              "prefix": 20,
+              "aValues": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "parity",
+            "active": 2,
+            "counts": [
+              10,
+              10,
+              9,
+              9,
+              8
+            ],
+            "upper": [
+              9,
+              9,
+              8,
+              8,
+              7
+            ],
+            "prefix": 29,
+            "aValues": [
+              0,
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16
+            ]
+          },
+          "caption": "Fix b=2. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 8. Each of the 9 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
+          "captionHtml": "<p>Fix b=2. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 8. Each of the 9 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.</p>",
+          "metrics": {},
+          "formula": "b=2,\\quad 0\\le j\\le 8,\\quad c=18-2j,\\quad \\text{prefix}=29",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"b=2,\\quad 0\\le j\\le 8,\\quad c=18-2j,\\quad \\text{prefix}=29\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>b</mi><mo>=</mo><mn>2</mn><mo>,</mo><mspace width=\"1em\" /><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>8</mn><mo>,</mo><mspace width=\"1em\" /><mi>c</mi><mo>=</mo><mn>18</mn><mo>-</mo><mn>2</mn><mi>j</mi><mo>,</mo><mspace width=\"1em\" /><mtext>prefix</mtext></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>29</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Fix b=2. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 8. Each of the 9 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
+            "currentState": {
+              "kind": "parity",
+              "active": 2,
+              "counts": [
+                10,
+                10,
+                9,
+                9,
+                8
+              ],
+              "upper": [
+                9,
+                9,
+                8,
+                8,
+                7
+              ],
+              "prefix": 29,
+              "aValues": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "parity",
+            "active": 3,
+            "counts": [
+              10,
+              10,
+              9,
+              9,
+              8
+            ],
+            "upper": [
+              9,
+              9,
+              8,
+              8,
+              7
+            ],
+            "prefix": 38,
+            "aValues": [
+              0,
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16
+            ]
+          },
+          "caption": "Fix b=3. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 8. Each of the 9 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
+          "captionHtml": "<p>Fix b=3. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 8. Each of the 9 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.</p>",
+          "metrics": {},
+          "formula": "b=3,\\quad 0\\le j\\le 8,\\quad c=17-2j,\\quad \\text{prefix}=38",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"b=3,\\quad 0\\le j\\le 8,\\quad c=17-2j,\\quad \\text{prefix}=38\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>b</mi><mo>=</mo><mn>3</mn><mo>,</mo><mspace width=\"1em\" /><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>8</mn><mo>,</mo><mspace width=\"1em\" /><mi>c</mi><mo>=</mo><mn>17</mn><mo>-</mo><mn>2</mn><mi>j</mi><mo>,</mo><mspace width=\"1em\" /><mtext>prefix</mtext></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>38</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Fix b=3. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 8. Each of the 9 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
+            "currentState": {
+              "kind": "parity",
+              "active": 3,
+              "counts": [
+                10,
+                10,
+                9,
+                9,
+                8
+              ],
+              "upper": [
+                9,
+                9,
+                8,
+                8,
+                7
+              ],
+              "prefix": 38,
+              "aValues": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "parity",
+            "active": 4,
+            "counts": [
+              10,
+              10,
+              9,
+              9,
+              8
+            ],
+            "upper": [
+              9,
+              9,
+              8,
+              8,
+              7
+            ],
+            "prefix": 46,
+            "aValues": [
+              0,
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14
+            ]
+          },
+          "caption": "Fix b=4. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 7. Each of the 8 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
+          "captionHtml": "<p>Fix b=4. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 7. Each of the 8 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.</p>",
+          "metrics": {},
+          "formula": "b=4,\\quad 0\\le j\\le 7,\\quad c=16-2j,\\quad \\text{prefix}=46",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"b=4,\\quad 0\\le j\\le 7,\\quad c=16-2j,\\quad \\text{prefix}=46\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>b</mi><mo>=</mo><mn>4</mn><mo>,</mo><mspace width=\"1em\" /><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>7</mn><mo>,</mo><mspace width=\"1em\" /><mi>c</mi><mo>=</mo><mn>16</mn><mo>-</mo><mn>2</mn><mi>j</mi><mo>,</mo><mspace width=\"1em\" /><mtext>prefix</mtext></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>46</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Fix b=4. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 7. Each of the 8 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
+            "currentState": {
+              "kind": "parity",
+              "active": 4,
+              "counts": [
+                10,
+                10,
+                9,
+                9,
+                8
+              ],
+              "upper": [
+                9,
+                9,
+                8,
+                8,
+                7
+              ],
+              "prefix": 46,
+              "aValues": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        }
+      ]
+    },
+    "counting-question-onto": {
+      "id": "counting-question-onto",
+      "title": "Question 7: every missing-target correction",
+      "description": "Signed contributions use the exact map counts for four named targets. The restored intersections explain why subtracting only singleton exclusions is inadequate.",
+      "descriptionHtml": "<p>Signed contributions use the exact map counts for four named targets. The restored intersections explain why subtracting only singleton exclusions is inadequate.</p>",
+      "invariant": "The displayed construction preserves the stated object labels, constraints and outcome definition.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "Signed contributions use the exact map counts for four named targets. The restored intersections explain why subtracting only singleton exclusions is inadequate."
+      },
+      "code": [
+        "Build the declared outcome; apply its exact constraint; recover its unique encoding"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "onto",
+            "stage": 0,
+            "terms": [
+              4096,
+              -2916,
+              384,
+              -4,
+              0
+            ],
+            "prefix": 4096,
+            "labels": [
+              "all maps",
+              "one missing",
+              "two missing",
+              "three missing",
+              "four missing"
+            ]
+          },
+          "caption": "Include missing-set size 0. Its signed contribution is 4096, counting all selected missing-target sets. The partial total is 4096. Intermediate totals are inclusion-exclusion approximations, not counts of a separately defined event. After all intersections the onto count is 1560.",
+          "captionHtml": "<p>Include missing-set size 0. Its signed contribution is 4096, counting all selected missing-target sets. The partial total is 4096. Intermediate totals are inclusion-exclusion approximations, not counts of a separately defined event. After all intersections the onto count is 1560.</p>",
+          "metrics": {},
+          "formula": "\\sum_{i=0}^{0}(-1)^i\\binom4i(4-i)^6=4096",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\sum_{i=0}^{0}(-1)^i\\binom4i(4-i)^6=4096\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mn>0</mn></mrow></munderover><msup><mrow><mo>(</mo><mo>-</mo><mn>1</mn><mo>)</mo></mrow><mi>i</mi></msup><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>4</mn><mi>i</mi></mfrac><mo>)</mo></mrow><msup><mrow><mo>(</mo><mn>4</mn><mo>-</mo><mi>i</mi><mo>)</mo></mrow><mn>6</mn></msup></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>4096</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Include missing-set size 0. Its signed contribution is 4096, counting all selected missing-target sets. The partial total is 4096. Intermediate totals are inclusion-exclusion approximations, not counts of a separately defined event. After all intersections the onto count is 1560.",
+            "currentState": {
+              "kind": "onto",
+              "stage": 0,
+              "terms": [
+                4096,
+                -2916,
+                384,
+                -4,
+                0
+              ],
+              "prefix": 4096,
+              "labels": [
+                "all maps",
+                "one missing",
+                "two missing",
+                "three missing",
+                "four missing"
+              ]
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "onto",
+            "stage": 1,
+            "terms": [
+              4096,
+              -2916,
+              384,
+              -4,
+              0
+            ],
+            "prefix": 1180,
+            "labels": [
+              "all maps",
+              "one missing",
+              "two missing",
+              "three missing",
+              "four missing"
+            ]
+          },
+          "caption": "Include missing-set size 1. Its signed contribution is -2916, counting all selected missing-target sets. The partial total is 1180. Intermediate totals are inclusion-exclusion approximations, not counts of a separately defined event. After all intersections the onto count is 1560.",
+          "captionHtml": "<p>Include missing-set size 1. Its signed contribution is -2916, counting all selected missing-target sets. The partial total is 1180. Intermediate totals are inclusion-exclusion approximations, not counts of a separately defined event. After all intersections the onto count is 1560.</p>",
+          "metrics": {},
+          "formula": "\\sum_{i=0}^{1}(-1)^i\\binom4i(4-i)^6=1180",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\sum_{i=0}^{1}(-1)^i\\binom4i(4-i)^6=1180\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mn>1</mn></mrow></munderover><msup><mrow><mo>(</mo><mo>-</mo><mn>1</mn><mo>)</mo></mrow><mi>i</mi></msup><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>4</mn><mi>i</mi></mfrac><mo>)</mo></mrow><msup><mrow><mo>(</mo><mn>4</mn><mo>-</mo><mi>i</mi><mo>)</mo></mrow><mn>6</mn></msup></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>1180</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Include missing-set size 1. Its signed contribution is -2916, counting all selected missing-target sets. The partial total is 1180. Intermediate totals are inclusion-exclusion approximations, not counts of a separately defined event. After all intersections the onto count is 1560.",
+            "currentState": {
+              "kind": "onto",
+              "stage": 1,
+              "terms": [
+                4096,
+                -2916,
+                384,
+                -4,
+                0
+              ],
+              "prefix": 1180,
+              "labels": [
+                "all maps",
+                "one missing",
+                "two missing",
+                "three missing",
+                "four missing"
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "onto",
+            "stage": 2,
+            "terms": [
+              4096,
+              -2916,
+              384,
+              -4,
+              0
+            ],
+            "prefix": 1564,
+            "labels": [
+              "all maps",
+              "one missing",
+              "two missing",
+              "three missing",
+              "four missing"
+            ]
+          },
+          "caption": "Include missing-set size 2. Its signed contribution is 384, counting all selected missing-target sets. The partial total is 1564. Intermediate totals are inclusion-exclusion approximations, not counts of a separately defined event. After all intersections the onto count is 1560.",
+          "captionHtml": "<p>Include missing-set size 2. Its signed contribution is 384, counting all selected missing-target sets. The partial total is 1564. Intermediate totals are inclusion-exclusion approximations, not counts of a separately defined event. After all intersections the onto count is 1560.</p>",
+          "metrics": {},
+          "formula": "\\sum_{i=0}^{2}(-1)^i\\binom4i(4-i)^6=1564",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\sum_{i=0}^{2}(-1)^i\\binom4i(4-i)^6=1564\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mn>2</mn></mrow></munderover><msup><mrow><mo>(</mo><mo>-</mo><mn>1</mn><mo>)</mo></mrow><mi>i</mi></msup><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>4</mn><mi>i</mi></mfrac><mo>)</mo></mrow><msup><mrow><mo>(</mo><mn>4</mn><mo>-</mo><mi>i</mi><mo>)</mo></mrow><mn>6</mn></msup></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>1564</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Include missing-set size 2. Its signed contribution is 384, counting all selected missing-target sets. The partial total is 1564. Intermediate totals are inclusion-exclusion approximations, not counts of a separately defined event. After all intersections the onto count is 1560.",
+            "currentState": {
+              "kind": "onto",
+              "stage": 2,
+              "terms": [
+                4096,
+                -2916,
+                384,
+                -4,
+                0
+              ],
+              "prefix": 1564,
+              "labels": [
+                "all maps",
+                "one missing",
+                "two missing",
+                "three missing",
+                "four missing"
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "onto",
+            "stage": 3,
+            "terms": [
+              4096,
+              -2916,
+              384,
+              -4,
+              0
+            ],
+            "prefix": 1560,
+            "labels": [
+              "all maps",
+              "one missing",
+              "two missing",
+              "three missing",
+              "four missing"
+            ]
+          },
+          "caption": "Include missing-set size 3. Its signed contribution is -4, counting all selected missing-target sets. The partial total is 1560. Intermediate totals are inclusion-exclusion approximations, not counts of a separately defined event. After all intersections the onto count is 1560.",
+          "captionHtml": "<p>Include missing-set size 3. Its signed contribution is -4, counting all selected missing-target sets. The partial total is 1560. Intermediate totals are inclusion-exclusion approximations, not counts of a separately defined event. After all intersections the onto count is 1560.</p>",
+          "metrics": {},
+          "formula": "\\sum_{i=0}^{3}(-1)^i\\binom4i(4-i)^6=1560",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\sum_{i=0}^{3}(-1)^i\\binom4i(4-i)^6=1560\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mn>3</mn></mrow></munderover><msup><mrow><mo>(</mo><mo>-</mo><mn>1</mn><mo>)</mo></mrow><mi>i</mi></msup><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>4</mn><mi>i</mi></mfrac><mo>)</mo></mrow><msup><mrow><mo>(</mo><mn>4</mn><mo>-</mo><mi>i</mi><mo>)</mo></mrow><mn>6</mn></msup></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>1560</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Include missing-set size 3. Its signed contribution is -4, counting all selected missing-target sets. The partial total is 1560. Intermediate totals are inclusion-exclusion approximations, not counts of a separately defined event. After all intersections the onto count is 1560.",
+            "currentState": {
+              "kind": "onto",
+              "stage": 3,
+              "terms": [
+                4096,
+                -2916,
+                384,
+                -4,
+                0
+              ],
+              "prefix": 1560,
+              "labels": [
+                "all maps",
+                "one missing",
+                "two missing",
+                "three missing",
+                "four missing"
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "onto",
+            "stage": 4,
+            "terms": [
+              4096,
+              -2916,
+              384,
+              -4,
+              0
+            ],
+            "prefix": 1560,
+            "labels": [
+              "all maps",
+              "one missing",
+              "two missing",
+              "three missing",
+              "four missing"
+            ]
+          },
+          "caption": "Include missing-set size 4. Its signed contribution is 0, counting all selected missing-target sets. The partial total is 1560. Intermediate totals are inclusion-exclusion approximations, not counts of a separately defined event. After all intersections the onto count is 1560.",
+          "captionHtml": "<p>Include missing-set size 4. Its signed contribution is 0, counting all selected missing-target sets. The partial total is 1560. Intermediate totals are inclusion-exclusion approximations, not counts of a separately defined event. After all intersections the onto count is 1560.</p>",
+          "metrics": {},
+          "formula": "\\sum_{i=0}^{4}(-1)^i\\binom4i(4-i)^6=1560",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\sum_{i=0}^{4}(-1)^i\\binom4i(4-i)^6=1560\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mn>4</mn></mrow></munderover><msup><mrow><mo>(</mo><mo>-</mo><mn>1</mn><mo>)</mo></mrow><mi>i</mi></msup><mrow><mo>(</mo><mfrac linethickness=\"0\"><mn>4</mn><mi>i</mi></mfrac><mo>)</mo></mrow><msup><mrow><mo>(</mo><mn>4</mn><mo>-</mo><mi>i</mi><mo>)</mo></mrow><mn>6</mn></msup></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>1560</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Include missing-set size 4. Its signed contribution is 0, counting all selected missing-target sets. The partial total is 1560. Intermediate totals are inclusion-exclusion approximations, not counts of a separately defined event. After all intersections the onto count is 1560.",
+            "currentState": {
+              "kind": "onto",
+              "stage": 4,
+              "terms": [
+                4096,
+                -2916,
+                384,
+                -4,
+                0
+              ],
+              "prefix": 1560,
+              "labels": [
+                "all maps",
+                "one missing",
+                "two missing",
+                "three missing",
+                "four missing"
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        }
+      ]
+    },
+    "counting-question-dp": {
+      "id": "counting-question-dp",
+      "title": "Question 40: prefix recurrence and explicit words",
+      "description": "The recurrence grows from its exact two seeds. All words are listed through length five; later checkpoints show computed recurrence counts with an explicitly labeled length-five reference.",
+      "descriptionHtml": "<p>The recurrence grows from its exact two seeds. All words are listed through length five; later checkpoints show computed recurrence counts with an explicitly labeled length-five reference.</p>",
+      "invariant": "The displayed construction preserves the stated object labels, constraints and outcome definition.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "The recurrence grows from its exact two seeds. All words are listed through length five; later checkpoints show computed recurrence counts with an explicitly labeled length-five reference."
+      },
+      "code": [
+        "Build the declared outcome; apply its exact constraint; recover its unique encoding"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "dp",
+            "n": 0,
+            "values": [
+              1,
+              2,
+              3,
+              5,
+              8,
+              13,
+              21,
+              34,
+              55
+            ],
+            "words": [
+              ""
+            ],
+            "examplesLength": 0
+          },
+          "caption": "Length 0 has 1 admissible words. The empty word has one construction. Every word at this length is listed below.",
+          "captionHtml": "<p>Length 0 has 1 admissible words. The empty word has one construction. Every word at this length is listed below.</p>",
+          "metrics": {},
+          "formula": "T_0=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"T_0=1\"><mrow><msub><mi>T</mi><mn>0</mn></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Length 0 has 1 admissible words. The empty word has one construction. Every word at this length is listed below.",
+            "currentState": {
+              "kind": "dp",
+              "n": 0,
+              "values": [
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55
+              ],
+              "words": [
+                ""
+              ],
+              "examplesLength": 0
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "dp",
+            "n": 1,
+            "values": [
+              1,
+              2,
+              3,
+              5,
+              8,
+              13,
+              21,
+              34,
+              55
+            ],
+            "words": [
+              "0",
+              "1"
+            ],
+            "examplesLength": 1
+          },
+          "caption": "Length 1 has 2 admissible words. At length one the direct words are 0 and 1. Every word at this length is listed below.",
+          "captionHtml": "<p>Length 1 has 2 admissible words. At length one the direct words are 0 and 1. Every word at this length is listed below.</p>",
+          "metrics": {},
+          "formula": "T_1=2",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"T_1=2\"><mrow><msub><mi>T</mi><mn>1</mn></msub><mo>=</mo><mn>2</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Length 1 has 2 admissible words. At length one the direct words are 0 and 1. Every word at this length is listed below.",
+            "currentState": {
+              "kind": "dp",
+              "n": 1,
+              "values": [
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55
+              ],
+              "words": [
+                "0",
+                "1"
+              ],
+              "examplesLength": 1
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "dp",
+            "n": 2,
+            "values": [
+              1,
+              2,
+              3,
+              5,
+              8,
+              13,
+              21,
+              34,
+              55
+            ],
+            "words": [
+              "00",
+              "01",
+              "10"
+            ],
+            "examplesLength": 2
+          },
+          "caption": "Length 2 has 3 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. Every word at this length is listed below.",
+          "captionHtml": "<p>Length 2 has 3 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. Every word at this length is listed below.</p>",
+          "metrics": {},
+          "formula": "T_2=T_{1}+T_{0}=2+1=3",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"T_2=T_{1}+T_{0}=2+1=3\"><mrow><msub><mi>T</mi><mn>2</mn></msub><mo>=</mo><msub><mi>T</mi><mrow><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>T</mi><mrow><mn>0</mn></mrow></msub><mo>=</mo><mn>2</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>3</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Length 2 has 3 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. Every word at this length is listed below.",
+            "currentState": {
+              "kind": "dp",
+              "n": 2,
+              "values": [
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55
+              ],
+              "words": [
+                "00",
+                "01",
+                "10"
+              ],
+              "examplesLength": 2
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "dp",
+            "n": 3,
+            "values": [
+              1,
+              2,
+              3,
+              5,
+              8,
+              13,
+              21,
+              34,
+              55
+            ],
+            "words": [
+              "000",
+              "001",
+              "010",
+              "100",
+              "101"
+            ],
+            "examplesLength": 3
+          },
+          "caption": "Length 3 has 5 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. Every word at this length is listed below.",
+          "captionHtml": "<p>Length 3 has 5 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. Every word at this length is listed below.</p>",
+          "metrics": {},
+          "formula": "T_3=T_{2}+T_{1}=3+2=5",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"T_3=T_{2}+T_{1}=3+2=5\"><mrow><msub><mi>T</mi><mn>3</mn></msub><mo>=</mo><msub><mi>T</mi><mrow><mn>2</mn></mrow></msub><mo>+</mo><msub><mi>T</mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><mn>3</mn><mo>+</mo><mn>2</mn><mo>=</mo><mn>5</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Length 3 has 5 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. Every word at this length is listed below.",
+            "currentState": {
+              "kind": "dp",
+              "n": 3,
+              "values": [
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55
+              ],
+              "words": [
+                "000",
+                "001",
+                "010",
+                "100",
+                "101"
+              ],
+              "examplesLength": 3
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "dp",
+            "n": 4,
+            "values": [
+              1,
+              2,
+              3,
+              5,
+              8,
+              13,
+              21,
+              34,
+              55
+            ],
+            "words": [
+              "0000",
+              "0001",
+              "0010",
+              "0100",
+              "0101",
+              "1000",
+              "1001",
+              "1010"
+            ],
+            "examplesLength": 4
+          },
+          "caption": "Length 4 has 8 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. Every word at this length is listed below.",
+          "captionHtml": "<p>Length 4 has 8 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. Every word at this length is listed below.</p>",
+          "metrics": {},
+          "formula": "T_4=T_{3}+T_{2}=5+3=8",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"T_4=T_{3}+T_{2}=5+3=8\"><mrow><msub><mi>T</mi><mn>4</mn></msub><mo>=</mo><msub><mi>T</mi><mrow><mn>3</mn></mrow></msub><mo>+</mo><msub><mi>T</mi><mrow><mn>2</mn></mrow></msub><mo>=</mo><mn>5</mn><mo>+</mo><mn>3</mn><mo>=</mo><mn>8</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Length 4 has 8 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. Every word at this length is listed below.",
+            "currentState": {
+              "kind": "dp",
+              "n": 4,
+              "values": [
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55
+              ],
+              "words": [
+                "0000",
+                "0001",
+                "0010",
+                "0100",
+                "0101",
+                "1000",
+                "1001",
+                "1010"
+              ],
+              "examplesLength": 4
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "dp",
+            "n": 5,
+            "values": [
+              1,
+              2,
+              3,
+              5,
+              8,
+              13,
+              21,
+              34,
+              55
+            ],
+            "words": [
+              "00000",
+              "00001",
+              "00010",
+              "00100",
+              "00101",
+              "01000",
+              "01001",
+              "01010",
+              "10000",
+              "10001",
+              "10010",
+              "10100",
+              "10101"
+            ],
+            "examplesLength": 5
+          },
+          "caption": "Length 5 has 13 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. Every word at this length is listed below.",
+          "captionHtml": "<p>Length 5 has 13 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. Every word at this length is listed below.</p>",
+          "metrics": {},
+          "formula": "T_5=T_{4}+T_{3}=8+5=13",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"T_5=T_{4}+T_{3}=8+5=13\"><mrow><msub><mi>T</mi><mn>5</mn></msub><mo>=</mo><msub><mi>T</mi><mrow><mn>4</mn></mrow></msub><mo>+</mo><msub><mi>T</mi><mrow><mn>3</mn></mrow></msub><mo>=</mo><mn>8</mn><mo>+</mo><mn>5</mn><mo>=</mo><mn>13</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Length 5 has 13 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. Every word at this length is listed below.",
+            "currentState": {
+              "kind": "dp",
+              "n": 5,
+              "values": [
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55
+              ],
+              "words": [
+                "00000",
+                "00001",
+                "00010",
+                "00100",
+                "00101",
+                "01000",
+                "01001",
+                "01010",
+                "10000",
+                "10001",
+                "10010",
+                "10100",
+                "10101"
+              ],
+              "examplesLength": 5
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "dp",
+            "n": 6,
+            "values": [
+              1,
+              2,
+              3,
+              5,
+              8,
+              13,
+              21,
+              34,
+              55
+            ],
+            "words": [
+              "00000",
+              "00001",
+              "00010",
+              "00100",
+              "00101",
+              "01000",
+              "01001",
+              "01010",
+              "10000",
+              "10001",
+              "10010",
+              "10100",
+              "10101"
+            ],
+            "examplesLength": 5
+          },
+          "caption": "Length 6 has 21 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. The word examples below are the complete length-five set, retained as a reference rather than claimed to enumerate this larger length.",
+          "captionHtml": "<p>Length 6 has 21 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. The word examples below are the complete length-five set, retained as a reference rather than claimed to enumerate this larger length.</p>",
+          "metrics": {},
+          "formula": "T_6=T_{5}+T_{4}=13+8=21",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"T_6=T_{5}+T_{4}=13+8=21\"><mrow><msub><mi>T</mi><mn>6</mn></msub><mo>=</mo><msub><mi>T</mi><mrow><mn>5</mn></mrow></msub><mo>+</mo><msub><mi>T</mi><mrow><mn>4</mn></mrow></msub><mo>=</mo><mn>13</mn><mo>+</mo><mn>8</mn><mo>=</mo><mn>21</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Length 6 has 21 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. The word examples below are the complete length-five set, retained as a reference rather than claimed to enumerate this larger length.",
+            "currentState": {
+              "kind": "dp",
+              "n": 6,
+              "values": [
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55
+              ],
+              "words": [
+                "00000",
+                "00001",
+                "00010",
+                "00100",
+                "00101",
+                "01000",
+                "01001",
+                "01010",
+                "10000",
+                "10001",
+                "10010",
+                "10100",
+                "10101"
+              ],
+              "examplesLength": 5
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "dp",
+            "n": 7,
+            "values": [
+              1,
+              2,
+              3,
+              5,
+              8,
+              13,
+              21,
+              34,
+              55
+            ],
+            "words": [
+              "00000",
+              "00001",
+              "00010",
+              "00100",
+              "00101",
+              "01000",
+              "01001",
+              "01010",
+              "10000",
+              "10001",
+              "10010",
+              "10100",
+              "10101"
+            ],
+            "examplesLength": 5
+          },
+          "caption": "Length 7 has 34 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. The word examples below are the complete length-five set, retained as a reference rather than claimed to enumerate this larger length.",
+          "captionHtml": "<p>Length 7 has 34 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. The word examples below are the complete length-five set, retained as a reference rather than claimed to enumerate this larger length.</p>",
+          "metrics": {},
+          "formula": "T_7=T_{6}+T_{5}=21+13=34",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"T_7=T_{6}+T_{5}=21+13=34\"><mrow><msub><mi>T</mi><mn>7</mn></msub><mo>=</mo><msub><mi>T</mi><mrow><mn>6</mn></mrow></msub><mo>+</mo><msub><mi>T</mi><mrow><mn>5</mn></mrow></msub><mo>=</mo><mn>21</mn><mo>+</mo><mn>13</mn><mo>=</mo><mn>34</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Length 7 has 34 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. The word examples below are the complete length-five set, retained as a reference rather than claimed to enumerate this larger length.",
+            "currentState": {
+              "kind": "dp",
+              "n": 7,
+              "values": [
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55
+              ],
+              "words": [
+                "00000",
+                "00001",
+                "00010",
+                "00100",
+                "00101",
+                "01000",
+                "01001",
+                "01010",
+                "10000",
+                "10001",
+                "10010",
+                "10100",
+                "10101"
+              ],
+              "examplesLength": 5
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "dp",
+            "n": 8,
+            "values": [
+              1,
+              2,
+              3,
+              5,
+              8,
+              13,
+              21,
+              34,
+              55
+            ],
+            "words": [
+              "00000",
+              "00001",
+              "00010",
+              "00100",
+              "00101",
+              "01000",
+              "01001",
+              "01010",
+              "10000",
+              "10001",
+              "10010",
+              "10100",
+              "10101"
+            ],
+            "examplesLength": 5
+          },
+          "caption": "Length 8 has 55 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. The word examples below are the complete length-five set, retained as a reference rather than claimed to enumerate this larger length.",
+          "captionHtml": "<p>Length 8 has 55 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. The word examples below are the complete length-five set, retained as a reference rather than claimed to enumerate this larger length.</p>",
+          "metrics": {},
+          "formula": "T_8=T_{7}+T_{6}=34+21=55",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"T_8=T_{7}+T_{6}=34+21=55\"><mrow><msub><mi>T</mi><mn>8</mn></msub><mo>=</mo><msub><mi>T</mi><mrow><mn>7</mn></mrow></msub><mo>+</mo><msub><mi>T</mi><mrow><mn>6</mn></mrow></msub><mo>=</mo><mn>34</mn><mo>+</mo><mn>21</mn><mo>=</mo><mn>55</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Length 8 has 55 admissible words. Deleting prefix 0 leaves length n-1; deleting forced prefix 10 leaves length n-2. These branches are disjoint. The word examples below are the complete length-five set, retained as a reference rather than claimed to enumerate this larger length.",
+            "currentState": {
+              "kind": "dp",
+              "n": 8,
+              "values": [
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55
+              ],
+              "words": [
+                "00000",
+                "00001",
+                "00010",
+                "00100",
+                "00101",
+                "01000",
+                "01001",
+                "01010",
+                "10000",
+                "10001",
+                "10010",
+                "10100",
+                "10101"
+              ],
+              "examplesLength": 5
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        }
+      ]
+    },
+    "counting-question-pairing": {
+      "id": "counting-question-pairing",
+      "title": "Question 71: pairs as actual edges",
+      "description": "Eight labeled vertices and four connecting edges represent one real pairing. Edges terminate at vertex boundaries. Crossing edges do not change pair membership; the collection has no order.",
+      "descriptionHtml": "<p>Eight labeled vertices and four connecting edges represent one real pairing. Edges terminate at vertex boundaries. Crossing edges do not change pair membership; the collection has no order.</p>",
+      "invariant": "The displayed construction preserves the stated object labels, constraints and outcome definition.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "Eight labeled vertices and four connecting edges represent one real pairing. Edges terminate at vertex boundaries. Crossing edges do not change pair membership; the collection has no order."
+      },
+      "code": [
+        "Build the declared outcome; apply its exact constraint; recover its unique encoding"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "pairing",
+            "pairs": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                5,
+                6
+              ],
+              [
+                7,
+                8
+              ]
+            ],
+            "index": 1,
+            "total": 105
+          },
+          "caption": "Exact pairing 1 of 105 in smallest-remaining-label enumeration: 1-2, 3-4, 5-6, 7-8. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.",
+          "captionHtml": "<p>Exact pairing 1 of 105 in smallest-remaining-label enumeration: 1-2, 3-4, 5-6, 7-8. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.</p>",
+          "metrics": {},
+          "formula": "M_4=7\\cdot5\\cdot3\\cdot1=105",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"M_4=7\\cdot5\\cdot3\\cdot1=105\"><mrow><msub><mi>M</mi><mn>4</mn></msub><mo>=</mo><mn>7</mn><mo>·</mo><mn>5</mn><mo>·</mo><mn>3</mn><mo>·</mo><mn>1</mn><mo>=</mo><mn>105</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Exact pairing 1 of 105 in smallest-remaining-label enumeration: 1-2, 3-4, 5-6, 7-8. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.",
+            "currentState": {
+              "kind": "pairing",
+              "pairs": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  3,
+                  4
+                ],
+                [
+                  5,
+                  6
+                ],
+                [
+                  7,
+                  8
+                ]
+              ],
+              "index": 1,
+              "total": 105
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "pairing",
+            "pairs": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                6,
+                8
+              ]
+            ],
+            "index": 2,
+            "total": 105
+          },
+          "caption": "Exact pairing 2 of 105 in smallest-remaining-label enumeration: 1-2, 3-4, 5-7, 6-8. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.",
+          "captionHtml": "<p>Exact pairing 2 of 105 in smallest-remaining-label enumeration: 1-2, 3-4, 5-7, 6-8. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.</p>",
+          "metrics": {},
+          "formula": "M_4=7\\cdot5\\cdot3\\cdot1=105",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"M_4=7\\cdot5\\cdot3\\cdot1=105\"><mrow><msub><mi>M</mi><mn>4</mn></msub><mo>=</mo><mn>7</mn><mo>·</mo><mn>5</mn><mo>·</mo><mn>3</mn><mo>·</mo><mn>1</mn><mo>=</mo><mn>105</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Exact pairing 2 of 105 in smallest-remaining-label enumeration: 1-2, 3-4, 5-7, 6-8. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.",
+            "currentState": {
+              "kind": "pairing",
+              "pairs": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  3,
+                  4
+                ],
+                [
+                  5,
+                  7
+                ],
+                [
+                  6,
+                  8
+                ]
+              ],
+              "index": 2,
+              "total": 105
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "pairing",
+            "pairs": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                5,
+                8
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "index": 3,
+            "total": 105
+          },
+          "caption": "Exact pairing 3 of 105 in smallest-remaining-label enumeration: 1-2, 3-4, 5-8, 6-7. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.",
+          "captionHtml": "<p>Exact pairing 3 of 105 in smallest-remaining-label enumeration: 1-2, 3-4, 5-8, 6-7. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.</p>",
+          "metrics": {},
+          "formula": "M_4=7\\cdot5\\cdot3\\cdot1=105",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"M_4=7\\cdot5\\cdot3\\cdot1=105\"><mrow><msub><mi>M</mi><mn>4</mn></msub><mo>=</mo><mn>7</mn><mo>·</mo><mn>5</mn><mo>·</mo><mn>3</mn><mo>·</mo><mn>1</mn><mo>=</mo><mn>105</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Exact pairing 3 of 105 in smallest-remaining-label enumeration: 1-2, 3-4, 5-8, 6-7. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.",
+            "currentState": {
+              "kind": "pairing",
+              "pairs": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  3,
+                  4
+                ],
+                [
+                  5,
+                  8
+                ],
+                [
+                  6,
+                  7
+                ]
+              ],
+              "index": 3,
+              "total": 105
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "pairing",
+            "pairs": [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                8
+              ],
+              [
+                4,
+                7
+              ],
+              [
+                5,
+                6
+              ]
+            ],
+            "index": 15,
+            "total": 105
+          },
+          "caption": "Exact pairing 15 of 105 in smallest-remaining-label enumeration: 1-2, 3-8, 4-7, 5-6. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.",
+          "captionHtml": "<p>Exact pairing 15 of 105 in smallest-remaining-label enumeration: 1-2, 3-8, 4-7, 5-6. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.</p>",
+          "metrics": {},
+          "formula": "M_4=7\\cdot5\\cdot3\\cdot1=105",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"M_4=7\\cdot5\\cdot3\\cdot1=105\"><mrow><msub><mi>M</mi><mn>4</mn></msub><mo>=</mo><mn>7</mn><mo>·</mo><mn>5</mn><mo>·</mo><mn>3</mn><mo>·</mo><mn>1</mn><mo>=</mo><mn>105</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Exact pairing 15 of 105 in smallest-remaining-label enumeration: 1-2, 3-8, 4-7, 5-6. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.",
+            "currentState": {
+              "kind": "pairing",
+              "pairs": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  3,
+                  8
+                ],
+                [
+                  4,
+                  7
+                ],
+                [
+                  5,
+                  6
+                ]
+              ],
+              "index": 15,
+              "total": 105
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "pairing",
+            "pairs": [
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                8
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                5,
+                6
+              ]
+            ],
+            "index": 45,
+            "total": 105
+          },
+          "caption": "Exact pairing 45 of 105 in smallest-remaining-label enumeration: 1-4, 2-8, 3-7, 5-6. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.",
+          "captionHtml": "<p>Exact pairing 45 of 105 in smallest-remaining-label enumeration: 1-4, 2-8, 3-7, 5-6. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.</p>",
+          "metrics": {},
+          "formula": "M_4=7\\cdot5\\cdot3\\cdot1=105",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"M_4=7\\cdot5\\cdot3\\cdot1=105\"><mrow><msub><mi>M</mi><mn>4</mn></msub><mo>=</mo><mn>7</mn><mo>·</mo><mn>5</mn><mo>·</mo><mn>3</mn><mo>·</mo><mn>1</mn><mo>=</mo><mn>105</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Exact pairing 45 of 105 in smallest-remaining-label enumeration: 1-4, 2-8, 3-7, 5-6. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.",
+            "currentState": {
+              "kind": "pairing",
+              "pairs": [
+                [
+                  1,
+                  4
+                ],
+                [
+                  2,
+                  8
+                ],
+                [
+                  3,
+                  7
+                ],
+                [
+                  5,
+                  6
+                ]
+              ],
+              "index": 45,
+              "total": 105
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "pairing",
+            "pairs": [
+              [
+                1,
+                6
+              ],
+              [
+                2,
+                8
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            "index": 75,
+            "total": 105
+          },
+          "caption": "Exact pairing 75 of 105 in smallest-remaining-label enumeration: 1-6, 2-8, 3-7, 4-5. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.",
+          "captionHtml": "<p>Exact pairing 75 of 105 in smallest-remaining-label enumeration: 1-6, 2-8, 3-7, 4-5. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.</p>",
+          "metrics": {},
+          "formula": "M_4=7\\cdot5\\cdot3\\cdot1=105",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"M_4=7\\cdot5\\cdot3\\cdot1=105\"><mrow><msub><mi>M</mi><mn>4</mn></msub><mo>=</mo><mn>7</mn><mo>·</mo><mn>5</mn><mo>·</mo><mn>3</mn><mo>·</mo><mn>1</mn><mo>=</mo><mn>105</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Exact pairing 75 of 105 in smallest-remaining-label enumeration: 1-6, 2-8, 3-7, 4-5. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.",
+            "currentState": {
+              "kind": "pairing",
+              "pairs": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  2,
+                  8
+                ],
+                [
+                  3,
+                  7
+                ],
+                [
+                  4,
+                  5
+                ]
+              ],
+              "index": 75,
+              "total": 105
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "pairing",
+            "pairs": [
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                7
+              ],
+              [
+                3,
+                6
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            "index": 105,
+            "total": 105
+          },
+          "caption": "Exact pairing 105 of 105 in smallest-remaining-label enumeration: 1-8, 2-7, 3-6, 4-5. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.",
+          "captionHtml": "<p>Exact pairing 105 of 105 in smallest-remaining-label enumeration: 1-8, 2-7, 3-6, 4-5. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.</p>",
+          "metrics": {},
+          "formula": "M_4=7\\cdot5\\cdot3\\cdot1=105",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"M_4=7\\cdot5\\cdot3\\cdot1=105\"><mrow><msub><mi>M</mi><mn>4</mn></msub><mo>=</mo><mn>7</mn><mo>·</mo><mn>5</mn><mo>·</mo><mn>3</mn><mo>·</mo><mn>1</mn><mo>=</mo><mn>105</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "Exact pairing 105 of 105 in smallest-remaining-label enumeration: 1-8, 2-7, 3-6, 4-5. At each stage the smallest unpaired label chooses one partner. The branch factors are 7,5,3,1. Seven selected checkpoints illustrate distinct outcomes; the independent verification enumerates all 105.",
+            "currentState": {
+              "kind": "pairing",
+              "pairs": [
+                [
+                  1,
+                  8
+                ],
+                [
+                  2,
+                  7
+                ],
+                [
+                  3,
+                  6
+                ],
+                [
+                  4,
+                  5
+                ]
+              ],
+              "index": 105,
+              "total": 105
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        }
+      ]
+    },
+    "counting-question-report": {
+      "id": "counting-question-report",
+      "title": "Question 77: all ordered preimages of a multiset",
+      "description": "The eight equiprobable words stay visible. Highlighting a count identifies the detailed outcomes merged into that report and its exact induced probability.",
+      "descriptionHtml": "<p>The eight equiprobable words stay visible. Highlighting a count identifies the detailed outcomes merged into that report and its exact induced probability.</p>",
+      "invariant": "The displayed construction preserves the stated object labels, constraints and outcome definition.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "The eight equiprobable words stay visible. Highlighting a count identifies the detailed outcomes merged into that report and its exact induced probability."
+      },
+      "code": [
+        "Build the declared outcome; apply its exact constraint; recover its unique encoding"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "report",
+            "k": 0,
+            "words": [
+              "000",
+              "001",
+              "010",
+              "011",
+              "100",
+              "101",
+              "110",
+              "111"
+            ],
+            "counts": [
+              1,
+              3,
+              3,
+              1
+            ]
+          },
+          "caption": "The highlighted words have exactly 0 ones. There are 1 preimages of this multiset report, each of mass 1/8. Summaries with counts 0,1,2,3 therefore have probabilities 1/8,3/8,3/8,1/8.",
+          "captionHtml": "<p>The highlighted words have exactly 0 ones. There are 1 preimages of this multiset report, each of mass 1/8. Summaries with counts 0,1,2,3 therefore have probabilities 1/8,3/8,3/8,1/8.</p>",
+          "metrics": {},
+          "formula": "P(K=0)=\\frac{1}8",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P(K=0)=\\frac{1}8\"><mrow><mi>P</mi><mrow><mo>(</mo><mi>K</mi><mo>=</mo><mn>0</mn><mo>)</mo></mrow><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mn>8</mn></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "The highlighted words have exactly 0 ones. There are 1 preimages of this multiset report, each of mass 1/8. Summaries with counts 0,1,2,3 therefore have probabilities 1/8,3/8,3/8,1/8.",
+            "currentState": {
+              "kind": "report",
+              "k": 0,
+              "words": [
+                "000",
+                "001",
+                "010",
+                "011",
+                "100",
+                "101",
+                "110",
+                "111"
+              ],
+              "counts": [
+                1,
+                3,
+                3,
+                1
+              ]
+            },
+            "initial": true,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "report",
+            "k": 1,
+            "words": [
+              "000",
+              "001",
+              "010",
+              "011",
+              "100",
+              "101",
+              "110",
+              "111"
+            ],
+            "counts": [
+              1,
+              3,
+              3,
+              1
+            ]
+          },
+          "caption": "The highlighted words have exactly 1 ones. There are 3 preimages of this multiset report, each of mass 1/8. Summaries with counts 0,1,2,3 therefore have probabilities 1/8,3/8,3/8,1/8.",
+          "captionHtml": "<p>The highlighted words have exactly 1 ones. There are 3 preimages of this multiset report, each of mass 1/8. Summaries with counts 0,1,2,3 therefore have probabilities 1/8,3/8,3/8,1/8.</p>",
+          "metrics": {},
+          "formula": "P(K=1)=\\frac{3}8",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P(K=1)=\\frac{3}8\"><mrow><mi>P</mi><mrow><mo>(</mo><mi>K</mi><mo>=</mo><mn>1</mn><mo>)</mo></mrow><mo>=</mo><mfrac><mrow><mn>3</mn></mrow><mn>8</mn></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "The highlighted words have exactly 1 ones. There are 3 preimages of this multiset report, each of mass 1/8. Summaries with counts 0,1,2,3 therefore have probabilities 1/8,3/8,3/8,1/8.",
+            "currentState": {
+              "kind": "report",
+              "k": 1,
+              "words": [
+                "000",
+                "001",
+                "010",
+                "011",
+                "100",
+                "101",
+                "110",
+                "111"
+              ],
+              "counts": [
+                1,
+                3,
+                3,
+                1
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "report",
+            "k": 2,
+            "words": [
+              "000",
+              "001",
+              "010",
+              "011",
+              "100",
+              "101",
+              "110",
+              "111"
+            ],
+            "counts": [
+              1,
+              3,
+              3,
+              1
+            ]
+          },
+          "caption": "The highlighted words have exactly 2 ones. There are 3 preimages of this multiset report, each of mass 1/8. Summaries with counts 0,1,2,3 therefore have probabilities 1/8,3/8,3/8,1/8.",
+          "captionHtml": "<p>The highlighted words have exactly 2 ones. There are 3 preimages of this multiset report, each of mass 1/8. Summaries with counts 0,1,2,3 therefore have probabilities 1/8,3/8,3/8,1/8.</p>",
+          "metrics": {},
+          "formula": "P(K=2)=\\frac{3}8",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P(K=2)=\\frac{3}8\"><mrow><mi>P</mi><mrow><mo>(</mo><mi>K</mi><mo>=</mo><mn>2</mn><mo>)</mo></mrow><mo>=</mo><mfrac><mrow><mn>3</mn></mrow><mn>8</mn></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "The highlighted words have exactly 2 ones. There are 3 preimages of this multiset report, each of mass 1/8. Summaries with counts 0,1,2,3 therefore have probabilities 1/8,3/8,3/8,1/8.",
+            "currentState": {
+              "kind": "report",
+              "k": 2,
+              "words": [
+                "000",
+                "001",
+                "010",
+                "011",
+                "100",
+                "101",
+                "110",
+                "111"
+              ],
+              "counts": [
+                1,
+                3,
+                3,
+                1
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "report",
+            "k": 3,
+            "words": [
+              "000",
+              "001",
+              "010",
+              "011",
+              "100",
+              "101",
+              "110",
+              "111"
+            ],
+            "counts": [
+              1,
+              3,
+              3,
+              1
+            ]
+          },
+          "caption": "The highlighted words have exactly 3 ones. There are 1 preimages of this multiset report, each of mass 1/8. Summaries with counts 0,1,2,3 therefore have probabilities 1/8,3/8,3/8,1/8.",
+          "captionHtml": "<p>The highlighted words have exactly 3 ones. There are 1 preimages of this multiset report, each of mass 1/8. Summaries with counts 0,1,2,3 therefore have probabilities 1/8,3/8,3/8,1/8.</p>",
+          "metrics": {},
+          "formula": "P(K=3)=\\frac{1}8",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P(K=3)=\\frac{1}8\"><mrow><mi>P</mi><mrow><mo>(</mo><mi>K</mi><mo>=</mo><mn>3</mn><mo>)</mo></mrow><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mn>8</mn></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Construct and check the displayed exact combinatorial state",
+            "why": "The highlighted words have exactly 3 ones. There are 1 preimages of this multiset report, each of mass 1/8. Summaries with counts 0,1,2,3 therefore have probabilities 1/8,3/8,3/8,1/8.",
+            "currentState": {
+              "kind": "report",
+              "k": 3,
+              "words": [
+                "000",
+                "001",
+                "010",
+                "011",
+                "100",
+                "101",
+                "110",
+                "111"
+              ],
+              "counts": [
+                1,
+                3,
+                3,
+                1
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "checks": [],
+            "changes": [],
+            "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        }
+      ]
     }
   }
 }
