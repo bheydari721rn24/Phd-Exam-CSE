@@ -1,6 +1,6 @@
 # Vectors: written-course selection and reading audit
 
-Reviewed 2026-10-01. Chapter: `l_vectors`. Archived Iranian exam papers were not accessed.
+Initial selection: 1 October 2026. Full individual revision: 12 October 2026. Four authentic Iranian examination items were checked against their original PDF images under the later explicit archive-analysis instruction.
 
 ## Search boundary and ranking
 
@@ -22,7 +22,7 @@ The bounded survey examined eight candidate course offerings associated with sev
 1. Oxford uses row-coordinate notation in parts of its notes and a complex inner product linear in the **first** argument. This chapter consistently uses column interpretation and a complex product conjugate-linear in the **first** argument. Consequently, the projection coefficient here is `<b,x>/<b,b>`. These are convention changes, not source errors.
 2. Stanford Review slide 30 includes a negative right angle while slide 29 defines an unsigned arccos angle. This chapter defines that angle in `[0, pi]`; orthogonal nonzero vectors have angle `pi/2`. Zero vectors remain orthogonal algebraically but have no angle or unit direction.
 3. Berkeley Inner Product Spaces p. 4 claims a nonzero integral for `x^3(x^2-1/3)` over `[-1,1]`. The integrand is odd; its integral is zero. Thus the projection of `x^3` onto `span(1,x^2)` is zero. The chapter explains and solves this independently. The source's orthogonalization `x^2-1/3` and squared norm `8/45` are correct.
-4. Oxford's positivity lines in Definitions 200/218 and norm Proposition 205 must be read with the nonzero-vector qualification. The chapter explicitly states strict positivity only for nonzero vectors. Example 108's printed basis contains a coordinate inconsistency: `(0,2,-1)` does not satisfy `x+2y+z=0`; the independently derived correct second vector is `(0,1,-2)`. Neither slip is imported.
+4. Fresh inspection confirms that Oxford Definitions 200/218 and Proposition 205 correctly state nonnegativity with equality only at the zero vector. The earlier audit's suggested positivity slip was incorrect and is withdrawn. Example 108 does contain a coordinate inconsistency: `(0,2,-1)` does not satisfy `x+2y+z=0`; the independently derived correct second vector is `(0,1,-2)`. The chapter uses the corrected basis.
 5. Oxford Example 208 requires care with negative frequencies: `cos(-mx)=cos(mx)`, so distinct signed integers alone do not ensure orthogonality. The chapter's finite trigonometric example uses distinct **positive** frequencies and handles the constant separately. Infinite Fourier convergence is outside scope.
 6. MIT's determinant-shaped cross-product mnemonic is not a determinant with scalar entries. The chapter defines the coordinate formula first and derives perpendicularity, the Lagrange identity, and area before using the mnemonic.
 
@@ -59,3 +59,7 @@ The bounded survey examined eight candidate course offerings associated with sev
 - ETH-hosted index: https://people.math.ethz.ch/~halorenz/4students/LinAlg.html
 
 Only course sections actually reviewed are credited. Downloaded PDFs and rendered source scans are temporary reading aids, not redistributed site assets. Chapter explanations, proofs, diagrams, and worked problem statements are independently written. Course-derived problem *types* are attributed; source exercise banks are not copied wholesale.
+
+## Individual revision evidence, 12 October 2026
+
+Four selected university offerings were freshly rechecked within exact recorded bounds; see deep-library-revision/l_vectors-course-recheck.json. The prior Oxford positivity accusation is withdrawn. The authentic Q31 source says orthogonal without unit lengths and omits squared-norm denominators: its literal interpretation has no asserted unique answer, and the normalized interpretation handles the full-space exception explicitly. This correction is propagated only to that shared source item in four pending chapters; their full review remains pending. All 46 answers are independently specified, and Question 12's authored dimension distractor is made unambiguous by stating independence from relative subspace position. Six explicit construction sections supply kernel-basis extension, attainable dimensions, induced-norm conventions, source-hypothesis reasoning, coupled Gram equations and affine optimality. All 34 original tutorials remain.

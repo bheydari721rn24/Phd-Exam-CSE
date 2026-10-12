@@ -1,0 +1,316 @@
+{
+  "topicId": "l_vectors",
+  "reviewDate": "2026-10-12",
+  "state": "completed_bounded_source_review",
+  "selectedUniversityCount": 4,
+  "selectedUniversities": [
+    "Stanford",
+    "Oxford",
+    "UC Berkeley",
+    "MIT"
+  ],
+  "documentedCandidateOfferings": 8,
+  "documentedUniversityCount": 7,
+  "candidateRanking": "research/l_vectors-source-audit.md",
+  "sources": [
+    {
+      "university": "MIT",
+      "course": "Denis Auroux: 18.02SC Multivariable Calculus, Fall 2010",
+      "title": "Dot Product",
+      "url": "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/6082f2744b609da87e23f3d8feed0565_MIT18_02SC_notes_1.pdf",
+      "pdf_pages_read": [
+        1,
+        2,
+        3
+      ],
+      "instructional_pages_read": [
+        1,
+        2
+      ],
+      "reading_method": "Official PDF text supplied by the web reader; complete body and attribution page read. Direct local download failed with TLS/read timeouts; no local hash or visual diagram audit is claimed.",
+      "content_used": "Coordinate dot product; law-of-cosines connection to geometry; real orthogonality test and squared norm. Nonzero qualifications for angle and zero-vector cases must be supplied."
+    },
+    {
+      "university": "MIT",
+      "course": "Denis Auroux: 18.02SC Multivariable Calculus, Fall 2010",
+      "title": "Components and Projection",
+      "url": "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/f1b2876cbb4207c972b90eb04ebc861d_MIT18_02SC_notes_2.pdf",
+      "pdf_pages_read": [
+        1,
+        2
+      ],
+      "instructional_pages_read": [
+        1
+      ],
+      "reading_method": "Official PDF text supplied by the web reader; complete body and attribution page read. Direct local download failed with TLS/read timeouts; no local hash or visual diagram audit is claimed.",
+      "content_used": "Signed scalar component onto a unit direction and normalization of a nonunit direction. Independently distinguish that scalar from the projection vector; negative components are valid, whereas lengths are nonnegative."
+    },
+    {
+      "university": "MIT",
+      "course": "Denis Auroux: 18.02SC Multivariable Calculus, Fall 2010",
+      "title": "Cross Product",
+      "url": "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/38b6892f5294ed562cf3dedaf5b99ba4_MIT18_02SC_notes_3.pdf",
+      "pdf_pages_read": [
+        1,
+        2,
+        3
+      ],
+      "instructional_pages_read": [
+        1,
+        2
+      ],
+      "reading_method": "Official PDF text supplied by the web reader; complete body and attribution page read. Direct local download failed with TLS/read timeouts; no local hash or visual diagram audit is claimed.",
+      "content_used": "Coordinate definition, sign and order, distributivity and nonassociativity, area and right-hand orientation. The source explicitly identifies the vector-entry determinant as a mnemonic and omits the Lagrange-identity proof; the chapter must independently supply the proof."
+    },
+    {
+      "university": "Stanford",
+      "course": "Stephen Boyd: EE263, Autumn 2007-08",
+      "title": "Lecture 3: Linear algebra review",
+      "url": "https://web.stanford.edu/class/archive/ee/ee263/ee263.1082/lectures/lin-alg.pdf",
+      "pdf_pages_read": "1-31 inclusive",
+      "relevant_pages": "2-8, 17, 23-24, 26-31",
+      "local_path": "C:/Users/bheydari/AppData/Local/Temp/deep-vector-sources/stanford-review.pdf",
+      "sha256": "a38713dbed8b74cd3f50491b9e476072a586727a5d0c7e8f6e991231b1f66e3f",
+      "reading_method": "Complete official PDF body read through overlapping web text ranges; local PDF text cross-checked. Page 30 additionally rendered and visually inspected to verify the negative-right-angle anomaly.",
+      "content_used": "Finite-dimensional vector spaces, span, independence, basis uniqueness, coordinate extraction, real Euclidean norm, RMS, inner product, Cauchy-Schwarz and unsigned angle. General rank/inverse/similarity content was read as context and is not a reason to expand this chapter without bounds."
+    },
+    {
+      "university": "Stanford",
+      "course": "Stephen Boyd: EE263, Autumn 2007-08",
+      "title": "Lecture 4: Orthonormal sets of vectors and QR factorization",
+      "url": "https://web.stanford.edu/class/archive/ee/ee263/ee263.1082/lectures/qr.pdf",
+      "pdf_pages_read": "1-23 inclusive",
+      "relevant_pages": "2-7, 12-19, 21-23",
+      "local_path": "C:/Users/bheydari/AppData/Local/Temp/deep-vector-sources/stanford-qr.pdf",
+      "sha256": "d115f334d1dfdf998554ce6825aced6c1b51fcc031eb4f3bfd8d98e421d036ec",
+      "reading_method": "Complete official PDF body read through overlapping web text ranges; local PDF text cross-checked. Page 16 additionally rendered and visually inspected to verify the zero-residual skip branch.",
+      "content_used": "Orthonormality, rectangular versus square orthogonal matrices, preserved geometry, coefficients, prefix-span Gram-Schmidt invariant, dependent-input skip branch, orthogonal complements and unique decomposition. Detailed QR factorization is later-chapter context."
+    },
+    {
+      "university": "Oxford",
+      "course": "M1 Linear Algebra I, Michaelmas 2022",
+      "lecturer": "Andrew Wathen, confirmed on official course index; PDF author not identified",
+      "courseUrl": "https://courses.maths.ox.ac.uk/course/view.php?id=609",
+      "notesUrl": "https://courses.maths.ox.ac.uk/pluginfile.php/25471/mod_folder/content/0/lecture_notes22.pdf?forcedownload=1",
+      "sha256": "b7b49ddc40a68cd3d4376143178d259140a0fa01f5098c7df295d6ef85cf69ba",
+      "totalPdfPages": 78,
+      "freshCompleteTextReading": {
+        "printedPagesInclusive": [
+          [
+            25,
+            43
+          ],
+          [
+            69,
+            77
+          ]
+        ],
+        "oneBasedPdfPagesInclusive": [
+          [
+            26,
+            44
+          ],
+          [
+            70,
+            78
+          ]
+        ],
+        "pagesRead": 28
+      },
+      "freshVisualReading": {
+        "oneBasedPdfPages": [
+          39,
+          71,
+          72,
+          74,
+          78
+        ],
+        "reason": "Resolve actual basis typo, positivity qualifications, signed-frequency exception, and conjugation bars omitted by PDF text extraction."
+      },
+      "concepts": [
+        "vector-space axioms and zero space",
+        "subspace test and closure",
+        "span and finite linear combinations",
+        "independence and basis uniqueness",
+        "coordinates depend on basis and field",
+        "row-space preservation and finite dimension bounds",
+        "Gram matrix and basis congruence",
+        "real inner products and positivity",
+        "Cauchy-Schwarz including zero cases",
+        "triangle inequality",
+        "real unsigned angle only for nonzero vectors",
+        "orthonormal independence",
+        "orthogonal square maps",
+        "complex convention linear in first argument"
+      ],
+      "readingLimits": [
+        "Printed 44-68, including full dimension/exchange proofs at 46-51, were not newly read.",
+        "Fourier material was read only as context; interchange/convergence hypotheses are outside this chapter and no full Fourier analysis is claimed.",
+        "No full-course or global-course reading claim."
+      ]
+    },
+    {
+      "university": "UC Berkeley",
+      "course": "Math 54, Spring 2018",
+      "lecturer": "Alexander Paulin",
+      "courseUrl": "https://math.berkeley.edu/~apaulin/54(Spring%202018%20Videos%20and%20Notes).html",
+      "freshCompleteVisualReading": "All four pages of each of the following four handwritten notes were rendered at 1.35x and actually viewed. Empty scan text was not used as evidence of reading.",
+      "notes": [
+        {
+          "title": "Vectors in Rn",
+          "url": "https://math.berkeley.edu/~apaulin/Vectors%20in%20Rn.pdf",
+          "sha256": "75968d5c2e917e84517f13265844295712e8a71832c2a0b9ea1063799b785c9f",
+          "pagesRead": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "title": "Inner Products, Length and Orthogonality",
+          "url": "https://math.berkeley.edu/~apaulin/Inner%20Products,%20Length%20and%20Orthogonality.pdf",
+          "sha256": "008d6cb1707a59e1a331e5f14764dd9f5caa3722035f477377f212ca1837b730",
+          "pagesRead": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "title": "Orthogonal Projections",
+          "url": "https://math.berkeley.edu/~apaulin/Orthogonal%20Projections.pdf",
+          "sha256": "f1cc283e2bda0c489f020735c7eb5095a60b99cb42a53250e7cf3380ccd66d83",
+          "pagesRead": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "title": "Inner Product Spaces",
+          "url": "https://math.berkeley.edu/~apaulin/Inner%20Product%20Spaces.pdf",
+          "sha256": "d3f905e9f30c1258a50b739216e15d842589536019752bf9c0c0323b2bdaaf06",
+          "pagesRead": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "concepts": [
+        "column-vector convention",
+        "linear combinations and spans with redundant directions",
+        "dot product, norm and unit vector",
+        "orthogonality and complements",
+        "column/null-space orthogonal identities",
+        "nonunit orthogonal projection coefficients",
+        "uniqueness and best approximation",
+        "orthonormal projection QQ^T",
+        "general real inner products",
+        "n+1 distinct sampling nodes for polynomials of degree at most n",
+        "positive-definite metric matrix",
+        "polynomial integration and Gram-Schmidt"
+      ],
+      "readingLimits": [
+        "Gram-Schmidt Process and Least-Squares Problems are additional course PDFs, not newly read in this delegated review.",
+        "The four documents focus on real vector spaces; complex results are reconciled against Oxford, not attributed to these scans."
+      ]
+    }
+  ],
+  "reconciliation": [
+    {
+      "kind": "visually_verified_source_anomaly",
+      "source": "Stanford Review PDF page 30 (slide 3-30), contrasted with page 29",
+      "finding": "Page 29 defines an unsigned arccos angle; page 30 also lists -pi/2 for orthogonality.",
+      "chapter_rule": "For nonzero real vectors define theta in [0,pi]; orthogonality gives theta=pi/2. The zero vector is algebraically orthogonal to every vector but has no direction or angle."
+    },
+    {
+      "kind": "notation_and_scope",
+      "source": "MIT Components PDF page 1",
+      "finding": "The word component denotes a signed scalar, not a vector.",
+      "chapter_rule": "For b nonzero, signed component is (x dot b)/norm(b); projection vector is ((x dot b)/(b dot b))b; projection length is abs(x dot b)/norm(b). If b is unit, the formulas simplify but the scalar/vector distinction remains. Reversing b changes the signed component, not the projection onto span(b)."
+    },
+    {
+      "kind": "verified_algorithm_precondition",
+      "source": "Stanford QR PDF pages 12-17",
+      "finding": "Basic Gram-Schmidt assumes independent input. Generalized Gram-Schmidt explicitly skips a zero residual instead of normalizing it.",
+      "chapter_rule": "Maintain span of accepted vectors equal to the span of processed inputs. Normalize only a nonzero residual. A zero residual means the current vector lies in the previous span, including a zero first input. In finite precision, exact zero and a chosen numerical tolerance are different decisions."
+    },
+    {
+      "kind": "real_to_complex_convention_translation",
+      "source": "Stanford Review PDF pages 26-31 and Stanford QR PDF pages 2-7",
+      "finding": "These selected Stanford pages treat real vectors and transpose, not complex Hermitian geometry.",
+      "chapter_rule": "Use x* y for the chapter's complex convention, conjugate-linear in the first slot. Euclidean norm is sqrt(sum abs(x_i)^2). Orthogonal projection onto span(b) is b(b* x)/(b* b). Do not use x^T x as a complex squared norm; x=(1,i) has x^T x=0 and x* x=2. This complex extension is independently derived and reconciled with Oxford, not falsely attributed to these real-only pages."
+    },
+    {
+      "kind": "coverage_gap_requiring_explicit_independent_extension",
+      "source": "Both reviewed offerings",
+      "finding": "The selected pages do not define general induced matrix norms. Stanford Review page 26 gives the Euclidean vector norm and its axioms.",
+      "chapter_rule": "If a question uses ||A||_2, explicitly define the induced/operator norm sup_{x!=0} ||Ax||_2/||x||_2, rather than silently confusing it with Frobenius norm. Supply an independent proof or a separately reviewed written source for any advanced operator-norm result. Do not credit a matrix-norm theory to these selected notes."
+    },
+    {
+      "kind": "source_wording_qualification",
+      "source": "Stanford Review PDF page 8",
+      "finding": "The source's dimension-infinity parenthesis says no basis, in a finite-dimensional review context.",
+      "chapter_rule": "Keep this chapter finite-dimensional, or say no finite basis when discussing infinite dimension. The zero space has the empty basis and dimension zero. Do not claim that every infinite-dimensional space lacks a basis."
+    },
+    {
+      "kind": "correction_to_prior_audit_not_source_erratum",
+      "source": "Oxford Definitions 200 and 218, Proposition 205",
+      "finding": "The fresh PDF text and visually inspected pages explicitly use nonnegativity with equality if and only if the vector is zero. Those source statements are correct. Remove the prior audit's claim of positivity slips; strict positivity for nonzero vectors is an equivalent instructional restatement."
+    },
+    {
+      "kind": "visually_confirmed_source_error",
+      "source": "Oxford Example 108, printed 38 / PDF 39",
+      "finding": "For x+2y+z=0, the stated second basis vector (0,2,-1) is outside the plane. Use (0,1,-2); (x,y,-x-2y)=x(1,0,-1)+y(0,1,-2)."
+    },
+    {
+      "kind": "visually_confirmed_source_boundary_error",
+      "source": "Oxford Example 208, printed 73 / PDF 74",
+      "finding": "The stated assumption m!=n for arbitrary signed integers does not rule out m=-n. Cosine frequencies m and -m define the same function, so orthogonality requires distinct absolute frequencies; handle zero separately. For nonzero frequency, squared norm is pi; constant 1 has squared norm 2pi. The sine/cosine odd-integrand identity remains valid for all integer frequencies."
+    },
+    {
+      "kind": "convention_translation_not_error",
+      "source": "Oxford printed 77 / PDF 78",
+      "finding": "Oxford uses sum z_i conjugate(w_i), linear in first argument. The chapter convention sum conjugate(z_i) w_i is conjugate-linear in first and linear in second. Thus p_b(x)=b <b,x>/<b,b>; the Oxford-convention equivalent uses <x,b>/<b,b>. Do not transpose these numerators blindly."
+    },
+    {
+      "kind": "visually_confirmed_source_error",
+      "source": "Berkeley Inner Product Spaces page 4",
+      "finding": "The source gives integral x^3(x^2-1/3) from -1 to 1 as 2/7 and a nonzero projection. The integrand x^5-x^3/3 is odd, so the integral and projection of x^3 onto span(1,x^2) are zero. The orthogonal polynomial x^2-1/3 and squared norm 8/45 are correct. Residual squared norm is integral x^6=2/7."
+    }
+  ],
+  "retainedContentRead": "Full original lesson and all 34 derivation tutorials, all 46 bank placements, six new construction sections and 32 final rules were actually read. All 46 answer derivations are individually specified.",
+  "sourcePoolLimits": "Four core courses were freshly rechecked within the exact recorded written bounds. CMU sample/index review and Cambridge/Harvard/ETH access or identity limits are retained prior evidence, not newly read course bodies. No worldwide census or full-course reading is claimed.",
+  "authenticQuestionCount": 4,
+  "originalPdfPageImages": [
+    {
+      "path": "MS_CS_1405_Q41.png",
+      "pdfPage": 9,
+      "items": [
+        "MS_CS_1405_Q41"
+      ],
+      "sha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527"
+    },
+    {
+      "path": "Phd_CS_1404_Q30.png",
+      "pdfPage": 8,
+      "items": [
+        "Phd_CS_1404_Q30",
+        "Phd_CS_1404_Q31",
+        "Phd_CS_1404_Q32"
+      ],
+      "sha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40"
+    }
+  ],
+  "authenticInspection": "Both original page images were actually viewed in this revision by the independent mathematical reviewer; all four source PDF hashes were checked. Q31 says orthogonal without explicit unit lengths; no unique literal key is fabricated.",
+  "independentMathReview": "research/deep-library-revision/l_vectors-independent-math.md",
+  "courseEvidence": [
+    "research/deep-library-revision/l_vectors-sources-mit-stanford.json",
+    "research/deep-library-revision/l_vectors-sources-oxford-berkeley.json"
+  ]
+}

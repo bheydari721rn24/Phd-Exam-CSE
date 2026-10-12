@@ -1,0 +1,118 @@
+{
+  "chapter": "l_vectors",
+  "reviewed_on": "2026-10-12",
+  "status": "completed_bounded_source_recheck",
+  "scope": "Re-evaluation of the MIT and Stanford entries in the previously documented eight-offering, seven-university pool. This is not a census of all courses worldwide, nor full-course reading.",
+  "selection": {
+    "Stanford": "Retain selected core. The reviewed lecture gives rigorous finite-dimensional definitions, coordinate uniqueness, norm axioms and Gram-Schmidt including dependent input. Its real-vector convention needs explicit translation for complex problems.",
+    "MIT": "Retain selected core. The three short notes provide the strongest signed-component and 3D geometry bridge. They require independently written proof expansions, boundary conditions and advanced exercises; they are not by themselves a comprehensive vectors chapter."
+  },
+  "documents": [
+    {
+      "university": "MIT",
+      "course": "Denis Auroux: 18.02SC Multivariable Calculus, Fall 2010",
+      "title": "Dot Product",
+      "url": "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/6082f2744b609da87e23f3d8feed0565_MIT18_02SC_notes_1.pdf",
+      "pdf_pages_read": [1, 2, 3],
+      "instructional_pages_read": [1, 2],
+      "reading_method": "Official PDF text supplied by the web reader; complete body and attribution page read. Direct local download failed with TLS/read timeouts; no local hash or visual diagram audit is claimed.",
+      "content_used": "Coordinate dot product; law-of-cosines connection to geometry; real orthogonality test and squared norm. Nonzero qualifications for angle and zero-vector cases must be supplied."
+    },
+    {
+      "university": "MIT",
+      "course": "Denis Auroux: 18.02SC Multivariable Calculus, Fall 2010",
+      "title": "Components and Projection",
+      "url": "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/f1b2876cbb4207c972b90eb04ebc861d_MIT18_02SC_notes_2.pdf",
+      "pdf_pages_read": [1, 2],
+      "instructional_pages_read": [1],
+      "reading_method": "Official PDF text supplied by the web reader; complete body and attribution page read. Direct local download failed with TLS/read timeouts; no local hash or visual diagram audit is claimed.",
+      "content_used": "Signed scalar component onto a unit direction and normalization of a nonunit direction. Independently distinguish that scalar from the projection vector; negative components are valid, whereas lengths are nonnegative."
+    },
+    {
+      "university": "MIT",
+      "course": "Denis Auroux: 18.02SC Multivariable Calculus, Fall 2010",
+      "title": "Cross Product",
+      "url": "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/38b6892f5294ed562cf3dedaf5b99ba4_MIT18_02SC_notes_3.pdf",
+      "pdf_pages_read": [1, 2, 3],
+      "instructional_pages_read": [1, 2],
+      "reading_method": "Official PDF text supplied by the web reader; complete body and attribution page read. Direct local download failed with TLS/read timeouts; no local hash or visual diagram audit is claimed.",
+      "content_used": "Coordinate definition, sign and order, distributivity and nonassociativity, area and right-hand orientation. The source explicitly identifies the vector-entry determinant as a mnemonic and omits the Lagrange-identity proof; the chapter must independently supply the proof."
+    },
+    {
+      "university": "Stanford",
+      "course": "Stephen Boyd: EE263, Autumn 2007-08",
+      "title": "Lecture 3: Linear algebra review",
+      "url": "https://web.stanford.edu/class/archive/ee/ee263/ee263.1082/lectures/lin-alg.pdf",
+      "pdf_pages_read": "1-31 inclusive",
+      "relevant_pages": "2-8, 17, 23-24, 26-31",
+      "local_path": "C:/Users/bheydari/AppData/Local/Temp/deep-vector-sources/stanford-review.pdf",
+      "sha256": "a38713dbed8b74cd3f50491b9e476072a586727a5d0c7e8f6e991231b1f66e3f",
+      "reading_method": "Complete official PDF body read through overlapping web text ranges; local PDF text cross-checked. Page 30 additionally rendered and visually inspected to verify the negative-right-angle anomaly.",
+      "content_used": "Finite-dimensional vector spaces, span, independence, basis uniqueness, coordinate extraction, real Euclidean norm, RMS, inner product, Cauchy-Schwarz and unsigned angle. General rank/inverse/similarity content was read as context and is not a reason to expand this chapter without bounds."
+    },
+    {
+      "university": "Stanford",
+      "course": "Stephen Boyd: EE263, Autumn 2007-08",
+      "title": "Lecture 4: Orthonormal sets of vectors and QR factorization",
+      "url": "https://web.stanford.edu/class/archive/ee/ee263/ee263.1082/lectures/qr.pdf",
+      "pdf_pages_read": "1-23 inclusive",
+      "relevant_pages": "2-7, 12-19, 21-23",
+      "local_path": "C:/Users/bheydari/AppData/Local/Temp/deep-vector-sources/stanford-qr.pdf",
+      "sha256": "d115f334d1dfdf998554ce6825aced6c1b51fcc031eb4f3bfd8d98e421d036ec",
+      "reading_method": "Complete official PDF body read through overlapping web text ranges; local PDF text cross-checked. Page 16 additionally rendered and visually inspected to verify the zero-residual skip branch.",
+      "content_used": "Orthonormality, rectangular versus square orthogonal matrices, preserved geometry, coefficients, prefix-span Gram-Schmidt invariant, dependent-input skip branch, orthogonal complements and unique decomposition. Detailed QR factorization is later-chapter context."
+    }
+  ],
+  "reconciliation": [
+    {
+      "kind": "visually_verified_source_anomaly",
+      "source": "Stanford Review PDF page 30 (slide 3-30), contrasted with page 29",
+      "finding": "Page 29 defines an unsigned arccos angle; page 30 also lists -pi/2 for orthogonality.",
+      "chapter_rule": "For nonzero real vectors define theta in [0,pi]; orthogonality gives theta=pi/2. The zero vector is algebraically orthogonal to every vector but has no direction or angle."
+    },
+    {
+      "kind": "notation_and_scope",
+      "source": "MIT Components PDF page 1",
+      "finding": "The word component denotes a signed scalar, not a vector.",
+      "chapter_rule": "For b nonzero, signed component is (x dot b)/norm(b); projection vector is ((x dot b)/(b dot b))b; projection length is abs(x dot b)/norm(b). If b is unit, the formulas simplify but the scalar/vector distinction remains. Reversing b changes the signed component, not the projection onto span(b)."
+    },
+    {
+      "kind": "verified_algorithm_precondition",
+      "source": "Stanford QR PDF pages 12-17",
+      "finding": "Basic Gram-Schmidt assumes independent input. Generalized Gram-Schmidt explicitly skips a zero residual instead of normalizing it.",
+      "chapter_rule": "Maintain span of accepted vectors equal to the span of processed inputs. Normalize only a nonzero residual. A zero residual means the current vector lies in the previous span, including a zero first input. In finite precision, exact zero and a chosen numerical tolerance are different decisions."
+    },
+    {
+      "kind": "real_to_complex_convention_translation",
+      "source": "Stanford Review PDF pages 26-31 and Stanford QR PDF pages 2-7",
+      "finding": "These selected Stanford pages treat real vectors and transpose, not complex Hermitian geometry.",
+      "chapter_rule": "Use x* y for the chapter's complex convention, conjugate-linear in the first slot. Euclidean norm is sqrt(sum abs(x_i)^2). Orthogonal projection onto span(b) is b(b* x)/(b* b). Do not use x^T x as a complex squared norm; x=(1,i) has x^T x=0 and x* x=2. This complex extension is independently derived and reconciled with Oxford, not falsely attributed to these real-only pages."
+    },
+    {
+      "kind": "coverage_gap_requiring_explicit_independent_extension",
+      "source": "Both reviewed offerings",
+      "finding": "The selected pages do not define general induced matrix norms. Stanford Review page 26 gives the Euclidean vector norm and its axioms.",
+      "chapter_rule": "If a question uses ||A||_2, explicitly define the induced/operator norm sup_{x!=0} ||Ax||_2/||x||_2, rather than silently confusing it with Frobenius norm. Supply an independent proof or a separately reviewed written source for any advanced operator-norm result. Do not credit a matrix-norm theory to these selected notes."
+    },
+    {
+      "kind": "source_wording_qualification",
+      "source": "Stanford Review PDF page 8",
+      "finding": "The source's dimension-infinity parenthesis says no basis, in a finite-dimensional review context.",
+      "chapter_rule": "Keep this chapter finite-dimensional, or say no finite basis when discussing infinite dimension. The zero space has the empty basis and dimension zero. Do not claim that every infinite-dimensional space lacks a basis."
+    }
+  ],
+  "recommended_question_checks": [
+    "Test projection direction reversal and nonunit rescaling using a concrete vector pair; distinguish invariant projection from sign-changing scalar component.",
+    "For weighted inner product x*G y, change both numerator and denominator. Example G=diag(4,1), x=(2,0), b=(1,1): projection is (8/5,8/5), residual=(2/5,-8/5), and b*G residual=0. Euclidean projection (1,1) is not the weighted projection.",
+    "Show a Gram-Schmidt trace with a zero or dependent middle input followed by a genuinely new direction. Do not halt the whole procedure or divide by zero.",
+    "Distinguish U*U=I for an orthonormal column family from UU*=I, which additionally requires a square complete basis. For a proper subspace UU* is its projector.",
+    "For Cauchy-Schwarz and triangle equality, separate arbitrary complex dependence from nonnegative real alignment. For triangle equality of nonzero vectors, dependence alone is insufficient.",
+    "Validate 3D cross-product sign by dotting the result with both operands and checking squared magnitude through the Lagrange identity; the right-hand rule is meaningful only when the cross product is nonzero."
+  ],
+  "no_claims": [
+    "No evaluation of every course worldwide.",
+    "No full-course or video review.",
+    "No fresh visual audit of MIT diagrams: direct local downloads timed out.",
+    "No claim that four course names alone prove complete coverage or error-free work."
+  ]
+}

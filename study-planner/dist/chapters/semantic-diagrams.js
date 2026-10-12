@@ -82,7 +82,7 @@ function plot(p,g,f){if(p.scene.id.startsWith("asym-"))return asymPlot(p,g,f);co
 function tree(p,g,f,pos){if(p.scene.id==="recurrence-levels"){const n=+f.metrics.Nodes,depth=+f.metrics.Level;for(let d=0;d<=depth;d++){const count=2**d;for(let i=0;i<count;i++){const x=70+(i+.5)*620/count,y=45+70*d;if(d){const px=70+(Math.floor(i/2)+.5)*620/(count/2);path(g,`M${px} ${y-50}L${x} ${y-18}`,"#83a5b5");}dot(g,x,y,18,d===depth?C.amber:C.blue);text(g,x,y+6,8/count,18,"middle","white");}}text(g,380,340,`Level ${depth}: ${n} nodes × ${8/n} units = 8 units of work`,20);return;}
  graph(p,g,f,pos);
 }
-function gridEnumeration(p,g,f){const id=p.scene.id,s=f.snapshot||{};if(id.startsWith("counting-question-"))return countingQuestion(p,g,f);if(id.startsWith("axioms-question-"))return axiomsQuestion(p,g,f);if(id.startsWith("loop-question-"))return loopQuestion(p,g,f);if(id==="loop-triangle"){for(let i=1;i<=5;i++)for(let j=1;j<=i;j++){rect(g,115+j*55,35+i*45,45,35,i===s.i&&j===s.j?"#ffe0a1":"#d1e8f1");text(g,137+j*55,59+i*45,`${i},${j}`,16);}text(g,565,150,`Body visits: ${s.count}`,24);return;}if(id==="powerset"){strip(g,170,115,[1,2,3],{cell:130,labels:false,title:"Independent inclusion decisions"});[1,2,3].forEach((v,i)=>text(g,235+i*130,225,s.subset.includes(v)?"include":"exclude",21,"middle",s.subset.includes(v)?C.green:C.red));text(g,380,310,`Mask ${s.mask.toString(2).padStart(3,"0")} → {${s.subset}}`,23);return;}if(id.startsWith("selection-")){const vs=s.outcomes;vs.forEach((v,i)=>{const x=90+(i%6)*112,y=100+Math.floor(i/6)*100;dot(g,x,y,32,String(v)===String(s.current)?C.amber:C.blue);text(g,x,y+7,`(${v})`,19,"middle","white");});text(g,380,330,`${vs.length} distinct admitted outcomes`,22);return;}if(id==="stars-bars"){f.nodes.forEach(n=>{if(n.label==="|")path(g,`M${n.x} 80V185`,C.amber,5);else dot(g,n.x,135,14,C.blue);});text(g,380,285,`Labeled group sizes: ${f.metrics["First group"]}, ${f.metrics["Second group"]}, ${f.metrics["Third group"]}`,24);return;}graph(p,g,f,new Map(f.nodes.map(n=>[n.id,n])));}
+function gridEnumeration(p,g,f){const id=p.scene.id,s=f.snapshot||{};if(id.startsWith("vectors-question-"))return vectorsQuestion(p,g,f);if(id.startsWith("counting-question-"))return countingQuestion(p,g,f);if(id.startsWith("axioms-question-"))return axiomsQuestion(p,g,f);if(id.startsWith("loop-question-"))return loopQuestion(p,g,f);if(id==="loop-triangle"){for(let i=1;i<=5;i++)for(let j=1;j<=i;j++){rect(g,115+j*55,35+i*45,45,35,i===s.i&&j===s.j?"#ffe0a1":"#d1e8f1");text(g,137+j*55,59+i*45,`${i},${j}`,16);}text(g,565,150,`Body visits: ${s.count}`,24);return;}if(id==="powerset"){strip(g,170,115,[1,2,3],{cell:130,labels:false,title:"Independent inclusion decisions"});[1,2,3].forEach((v,i)=>text(g,235+i*130,225,s.subset.includes(v)?"include":"exclude",21,"middle",s.subset.includes(v)?C.green:C.red));text(g,380,310,`Mask ${s.mask.toString(2).padStart(3,"0")} → {${s.subset}}`,23);return;}if(id.startsWith("selection-")){const vs=s.outcomes;vs.forEach((v,i)=>{const x=90+(i%6)*112,y=100+Math.floor(i/6)*100;dot(g,x,y,32,String(v)===String(s.current)?C.amber:C.blue);text(g,x,y+7,`(${v})`,19,"middle","white");});text(g,380,330,`${vs.length} distinct admitted outcomes`,22);return;}if(id==="stars-bars"){f.nodes.forEach(n=>{if(n.label==="|")path(g,`M${n.x} 80V185`,C.amber,5);else dot(g,n.x,135,14,C.blue);});text(g,380,285,`Labeled group sizes: ${f.metrics["First group"]}, ${f.metrics["Second group"]}, ${f.metrics["Third group"]}`,24);return;}graph(p,g,f,new Map(f.nodes.map(n=>[n.id,n])));}
 function kmap(p,g,f){const s=f.snapshot,id=p.scene.id;let n=s.n||4,on=s.on||[],dc=s.dc||[],cover=s.cover||[];if(id==="km-pos")on=s.zeroSet||[];if(s.rows)on=s.rows;if(id==="km-gray"){strip(g,170,140,["00","01","11","10"],{cell:100,active:s.step%4,labels:false,title:"Cyclic Gray order: one bit changes per neighbor"});return;}if(["km-chart","km-petrick","km-qm"].includes(id)){const patterns=s.patterns||Object.keys(s.owners||{});if(patterns.length){patterns.forEach((v,i)=>text(g,175+(i%4)*140,90+Math.floor(i/4)*65,v,25));text(g,380,320,`Exact tabulation stage: ${s.level??s.cost??s.candidate}`,21);return;}}
  const gray=[0,1,3,2],cells=n===3?2:4,x=200,y=85,size=50;text(g,300,37,n===3?"Rows: A; columns: BC":"Rows: AB; columns: CD",20);for(let i=0;i<cells;i++){text(g,x-28,y+i*size+32,n===3?i:gray[i].toString(2).padStart(2,"0"),18);for(let j=0;j<4;j++){if(!i)text(g,x+j*size+25,y-12,gray[j].toString(2).padStart(2,"0"),18);const v=(n===3?i:gray[i])*4+gray[j];rect(g,x+j*size,y+i*size,size,size,on.includes(v)?"#cce9dc":dc.includes(v)?"#ffe0a1":"#fff");text(g,x+j*size+25,y+i*size+20,v,13);text(g,x+j*size+25,y+i*size+42,on.includes(v)?1:dc.includes(v)?"X":0,22);}}
  const patterns=cover.map(v=>typeof v==="string"?v:v.pattern).filter(Boolean);patterns.forEach((pat,k)=>{for(let i=0;i<cells;i++)for(let j=0;j<4;j++){const v=(n===3?i:gray[i])*4+gray[j],bits=v.toString(2).padStart(n,"0");if([...pat].every((b,i)=>b==="-"||b===bits[i]))g.append(E("rect",{x:x+j*size+4+k*2,y:y+i*size+4+k*2,width:size-8-k*4,height:size-8-k*4,rx:9,fill:"none",stroke:[C.green,C.blue,C.amber,C.red][k%4],"stroke-width":3}));}});text(g,570,135,"Groups wrap across\nopposite edges.\nEach group represents\na Boolean cube.",18);text(g,380,335,patterns.length?`Selected cubes: ${patterns.join(", ")}`:s.pattern?`Cube under inspection: ${s.pattern}`:"Read decimal indices and Boolean obligations separately.",19);}
@@ -161,6 +161,62 @@ function arrayExact(p,g,f,pos){const s=f.snapshot||{},id=p.scene.id;
  if(id==="arr-prefix"){strip(g,60,85,s.input,{cell:90,title:"Input cells"});strip(g,60,225,s.prefix,{cell:90,active:s.index,title:"Prefix boundaries: one more than input length"});return;}
  arrayMemory(p,g,f,pos);
 }
+function vectorNative(g,html,x,y,w,h){countingFormula(g,{formulaHtml:html},x,y,w,h);const math=g.lastElementChild.querySelector('math');if(math)math.style.mathStyle='compact';}
+function vectorEntityArrow(g,id,a,b,color){const node=E('g',{'data-entity':id});if(Math.hypot(a[0]-b[0],a[1]-b[1])>.1)arrow(node,...a,...b,color);else dot(node,a[0],a[1],3,color);g.append(node);}
+function vectorsQuestion(p,g,f){
+ const s=f.snapshot;
+ if(s.kind==='orthogonalize'){
+  text(g,380,30,'Exact Gram–Schmidt: subtract, skip, or normalize',20);
+  const xy=v=>[120+48*v[0],205-48*v[1]];path(g,'M65 205H350M120 260V65','#9eb4bf',1);
+  vectorEntityArrow(g,'gs-input-'+s.inputIndex,xy([0,0]),xy(s.input),C.blue);
+  s.basis.forEach((q,i)=>vectorEntityArrow(g,'gs-unit-'+i,xy([0,0]),xy(q),i?C.green:'#9566a7'));
+  text(g,420,95,`Current input ${s.inputIndex+1}: (${s.input})`,18,'start');text(g,420,145,`Residual: (${s.residual})`,18,'start');text(g,420,195,`Retained unit directions: ${s.basis.length}`,18,'start');text(g,420,240,'Zero residual is skipped.',18,'start');
+  vectorNative(g,f.formulaHtml,35,273,690,80);return;
+ }
+ if(s.kind==='source'){
+  text(g,380,30,'Literal source map and the correctly normalized foot',20);
+  const xy=v=>[85+55*v[0],230-55*v[1]];
+  path(g,'M55 230H365M85 255V95','#9eb4bf',1);
+  [0,1,2,3,4,5].forEach(i=>{path(g,`M${85+i*55} 225V235`,'#9eb4bf',1);text(g,85+i*55,250,i,15);});
+  vectorEntityArrow(g,'correct-foot-vector',xy([0,0]),xy(s.foot),C.green);vectorEntityArrow(g,'given-vector',xy([0,0]),xy(s.x),C.blue);
+  const sourceMark=E('g',{'data-entity':'source-output'}),sourcePoint=xy(s.source);sourceMark.append(E('circle',{cx:sourcePoint[0],cy:sourcePoint[1],r:6,fill:'none',stroke:'#9566a7','stroke-width':2}));g.append(sourceMark);
+  text(g,455,105,'Blue: given input x',18,'start');text(g,455,145,'Purple ring: source output',18,'start');text(g,455,185,'Green: actual foot',18,'start');text(g,455,225,`Basis length: ${s.scale}`,18,'start');
+  vectorNative(g,f.formulaHtml,25,250,710,105);return;
+ }
+ if(s.kind==='positivity'){
+  text(g,380,30,'Two orthogonal components test strict positivity',21);
+  path(g,'M95 200H665','#9eb4bf',1.5);
+  [s.parallel,s.perpendicular].forEach((v,i)=>{const x=180+i*310,y=v>0?200-v*32:200,h=Math.abs(v)*32;if(v===0)path(g,`M${x} 200h130`,C.amber,3);else rect(g,x,y,130,h,v>0?'#cfe8dd':'#eed5dc','none');text(g,x+65,80,['all-equal line','sum-zero plane'][i],18);text(g,x+65,255,`coefficient = ${v}`,18);});
+  vectorNative(g,f.formulaHtml,35,265,690,90);return;
+ }
+ if(s.kind==='gram'){
+  text(g,380,30,`Question ${s.question}: exact inputs and coupled equations`,20);
+  ['u','v','target w'].forEach((v,i)=>{text(g,130+i*250,75,v,18);vectorNative(g,s.inputMath[i],25+i*250,90,210,50);});
+  vectorNative(g,s.systemMath,100,150,560,95);
+  text(g,380,267,'Current justified deduction',18);
+  vectorNative(g,f.formulaHtml,35,278,690,75);return;
+ }
+ if(s.kind==='coordinates'){
+  text(g,380,30,'The same vector has basis coordinates and physical length',20);
+  const xy=v=>[110+48*v[0],215-48*v[1]],mid=[s.c[0],s.c[0]];
+  path(g,'M60 215H355M110 268V55','#9eb4bf',1);
+  vectorEntityArrow(g,'basis-component-1',xy([0,0]),xy(mid),C.blue);vectorEntityArrow(g,'basis-component-2',xy(mid),xy(s.partial),C.green);
+  const target=xy(s.target);dot(g,...target,5,C.amber);
+  text(g,425,100,'Blue: first basis component',18,'start');text(g,425,145,'Green: second, head to tail',18,'start');text(g,425,190,'Amber: fixed target (3, 1)',18,'start');text(g,425,235,`Coordinates so far: (${s.c})`,18,'start');
+  vectorNative(g,f.formulaHtml,35,283,690,70);return;
+ }
+ if(s.kind==='minimum'){
+  text(g,380,30,'Objective on the feasible line: F(y) = squared norm',20);
+  const xy=(t,v)=>[95+400*t,220-70*v];path(g,'M95 55V220H690','#9eb4bf',1.5);
+  [0,1,2].forEach(v=>{path(g,`M90 ${220-70*v}h10`,'#9eb4bf',1);text(g,72,226-70*v,v,16);});
+  const curve=Array.from({length:81},(_,i)=>{const y=i/60;return xy(y,3*(y-2/3)**2+2/3);});path(g,'M'+curve.map(v=>v.join(' ')).join('L'),C.blue,2.2);
+  [0,1/3,2/3,1,4/3].forEach(t=>{const x=95+400*t;path(g,`M${x} 216V224`,'#9eb4bf',1);text(g,x,250,['0','1/3','2/3','1','4/3'][Math.round(t*3)],16);});
+  const mark=E('g',{'data-entity':'feasible-candidate'}),point=xy(s.y,s.value);dot(mark,...point,6,s.minimum?C.green:C.amber);g.append(mark);
+  vectorNative(g,f.formulaHtml,25,255,710,100);return;
+ }
+ throw Error('Unknown vector question contract: '+s.kind);
+}
+
 function countingFormula(g,f,x,y,w,h){
  nativeFormula(g,f,x,y,w,h);
  const body=g.lastElementChild.firstElementChild,math=body.querySelector('math');

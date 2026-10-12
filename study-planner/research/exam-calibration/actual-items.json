@@ -1124,22 +1124,24 @@
       "l_matrices"
     ],
     "title": "Orthogonal projection and a reversed inequality",
-    "stem": "An orthonormal basis $u_1,\\ldots,u_n$ spans $U\\subseteq\\mathbb R^m$, with $n\\le m$. Let $Px=\\sum_{k=1}^n\\langle x,u_k\\rangle u_k$. Which statement is false?",
+    "stem": "An orthogonal basis $u_1,\\ldots,u_n$ spans $U\\subseteq\\mathbb R^m$, with $n\\le m$. Let $Px=\\sum_{k=1}^n\\langle x,u_k\\rangle u_k$. Which statement is false?",
     "options": [
       "$P$ is idempotent.",
       "If $x\\in U$ then $Px\\in U$.",
       "For every $x$, $\\Vert x\\Vert_2\\le\\Vert Px\\Vert_2$.",
       "$P$ is a linear operator from $\\mathbb R^m$ to $U$."
     ],
-    "answer": 3,
-    "solution": "1. Every $Px$ is a linear combination of the basis vectors, and the coefficient functionals are linear. Hence the operator is linear with image in $U$.\n2. If $x\\in U$, the orthonormal expansion recovers $x$, so $Px=x$; applying this to $Px$ gives $P^2x=Px$.\n3. Orthogonal decomposition gives $\\Vert x\\Vert_2^2=\\Vert Px\\Vert_2^2+\\Vert x-Px\\Vert_2^2$. Therefore the universal inequality is $\\Vert Px\\Vert_2\\le\\Vert x\\Vert_2$, the reverse of option 3.\n4. For a proper subspace, a nonzero perpendicular vector gives a strict counterexample: $Px=0$. If $U$ equals the whole space, equality happens, but that special case does not make the proposed claim a general projection theorem.\n\n**Transfer rule.** Decompose into orthogonal components and compare squared norms before trusting the inequality direction.",
+    "answer": null,
+    "solution": "**Source ambiguity; intended normalized interpretation: option 3.**\n\n### Read the source hypothesis literally\n\nThe original Persian page says “orthogonal basis” and does not explicitly state unit lengths. Orthogonal and orthonormal are different hypotheses. For a nonunit orthogonal basis, the correct orthogonal projection formula is\n\n$$P_Ux=\\sum_{k=1}^{n}\\frac{\\langle u_k,x\\rangle}{\\langle u_k,u_k\\rangle}u_k.$$\n\nThe source omits these denominators. To see why this matters, take $U=\\operatorname{span}(2,0)$ in $\\mathbb R^2$. Its displayed operator is $P_s=\\operatorname{diag}(4,0)$, whereas the actual orthogonal projection is $\\operatorname{diag}(1,0)$. Applying $P_s$ twice gives $\\operatorname{diag}(16,0)$, so option 1's idempotence assertion fails. For $x=(0,1)$, $P_sx=0$ and option 3's inequality is also false. Thus the literal hypothesis does not supply one uniquely false general assertion. No official answer key is asserted here.\n\nIf “orthogonal” was intended to include normalization in the source convention, the extra orthonormal hypothesis gives the usual educational answer, option 3. The following proof states that interpretation explicitly rather than silently changing the authentic wording.\n\n### Under the orthonormal interpretation\n\nLet $p=Px$ and $r=x-p$. For each basis vector $u_j$, orthonormality gives\n\n$$\\langle r,u_j\\rangle=\\langle x,u_j\\rangle-\\sum_{k=1}^{n}\\langle x,u_k\\rangle\\langle u_k,u_j\\rangle=0.$$\n\nThus $p\\in U$ and $r\\perp U$. Pythagoras proves $\\Vert x\\Vert_2^2=\\Vert Px\\Vert_2^2+\\Vert x-Px\\Vert_2^2$. The universally valid direction is $\\Vert Px\\Vert_2\\le\\Vert x\\Vert_2$, with equality precisely when $x\\in U$. The reverse inequality fails on a proper subspace: for $U=\\operatorname{span}(1,0)$ and $x=(0,1)$, it reads $1\\le0$.\n\nLinearity of the coefficient functionals gives option 4, and outputs lie in $U$ by construction. For $x\\in U$, the orthonormal expansion recovers $x$, proving option 2 and the stronger $Px=x$. Applying this fact to $Px\\in U$ proves $P^2=P$, option 1.\n\n**Full-space boundary.** The source allows $n=m$. With an orthonormal basis of the entire space, $P=I$, so option 3 holds with equality and all four assertions hold for that particular configuration. It is false as a general projection theorem, not false for every possible subspace or vector.\n\nFinally, idempotence alone does not imply contraction: $Q=\\begin{pmatrix}1&2\\\\0&0\\end{pmatrix}$ has $Q^2=Q$ but sends $(0,1)$ to $(2,0)$. Orthogonality supplies the norm decomposition; a projection must be identified by its actual geometry and formula.\n\n\n### Exact verification ledger\n\n\n| Hypothesis | Displayed sum idempotent? | Reverse norm inequality |\n|---|---|---|\n| Literal nonunit orthogonal basis | Not generally; $u=(2,0)$ disproves it. | Not generally; a perpendicular input disproves it. |\n| Orthonormal basis of a proper subspace | Yes | Fails on a nonzero perpendicular vector. |\n| Orthonormal basis of the full space | Yes; $P=I$ | Equality for every vector. |",
     "pattern": "projection decomposition and special-case trap",
     "difficulty": "Medium",
     "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
     "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
     "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
-    "translationStatus": "checked against rendered source page",
-    "answerProvenance": "independently derived; not represented as an official key"
+    "translationStatus": "literal orthogonal wording rechecked against original page image, 12 October 2026",
+    "answerProvenance": "No unique literal answer asserted; option 3 is an independently derived intended normalized interpretation, not an official key.",
+    "intendedAnswer": 3,
+    "sourceAmbiguity": "The Persian page states orthogonal without explicitly requiring unit lengths, but its formula omits nonunit denominators. Literal hypotheses can invalidate both options 1 and 3. With an added orthonormal interpretation, option 3 fails as a general theorem; the allowed full-space case has equality."
   },
   {
     "id": "Phd_CS_1404_Q32",

@@ -1,0 +1,90 @@
+{
+  "chapter": "l_vectors",
+  "reviewDate": "2026-10-12",
+  "status": "completed_in_documented_scope",
+  "reviewerScope": "Oxford and UC Berkeley only; no chapter, dist, gate, source-sync or publication files changed.",
+  "priorEvidence": ["research/l_vectors-source-audit.md", "research/l_vectors-reviewed-courses.json"],
+  "freshReading": [
+    {
+      "university": "Oxford",
+      "course": "M1 Linear Algebra I, Michaelmas 2022",
+      "lecturer": "Andrew Wathen, confirmed on official course index; PDF author not identified",
+      "courseUrl": "https://courses.maths.ox.ac.uk/course/view.php?id=609",
+      "notesUrl": "https://courses.maths.ox.ac.uk/pluginfile.php/25471/mod_folder/content/0/lecture_notes22.pdf?forcedownload=1",
+      "sha256": "b7b49ddc40a68cd3d4376143178d259140a0fa01f5098c7df295d6ef85cf69ba",
+      "totalPdfPages": 78,
+      "freshCompleteTextReading": {"printedPagesInclusive": [[25,43],[69,77]], "oneBasedPdfPagesInclusive": [[26,44],[70,78]], "pagesRead": 28},
+      "freshVisualReading": {"oneBasedPdfPages": [39,71,72,74,78], "reason": "Resolve actual basis typo, positivity qualifications, signed-frequency exception, and conjugation bars omitted by PDF text extraction."},
+      "concepts": ["vector-space axioms and zero space", "subspace test and closure", "span and finite linear combinations", "independence and basis uniqueness", "coordinates depend on basis and field", "row-space preservation and finite dimension bounds", "Gram matrix and basis congruence", "real inner products and positivity", "Cauchy-Schwarz including zero cases", "triangle inequality", "real unsigned angle only for nonzero vectors", "orthonormal independence", "orthogonal square maps", "complex convention linear in first argument"],
+      "readingLimits": ["Printed 44-68, including full dimension/exchange proofs at 46-51, were not newly read.", "Fourier material was read only as context; interchange/convergence hypotheses are outside this chapter and no full Fourier analysis is claimed.", "No full-course or global-course reading claim."]
+    },
+    {
+      "university": "UC Berkeley",
+      "course": "Math 54, Spring 2018",
+      "lecturer": "Alexander Paulin",
+      "courseUrl": "https://math.berkeley.edu/~apaulin/54(Spring%202018%20Videos%20and%20Notes).html",
+      "freshCompleteVisualReading": "All four pages of each of the following four handwritten notes were rendered at 1.35x and actually viewed. Empty scan text was not used as evidence of reading.",
+      "notes": [
+        {"title": "Vectors in Rn", "url": "https://math.berkeley.edu/~apaulin/Vectors%20in%20Rn.pdf", "sha256": "75968d5c2e917e84517f13265844295712e8a71832c2a0b9ea1063799b785c9f", "pagesRead": [1,2,3,4]},
+        {"title": "Inner Products, Length and Orthogonality", "url": "https://math.berkeley.edu/~apaulin/Inner%20Products,%20Length%20and%20Orthogonality.pdf", "sha256": "008d6cb1707a59e1a331e5f14764dd9f5caa3722035f477377f212ca1837b730", "pagesRead": [1,2,3,4]},
+        {"title": "Orthogonal Projections", "url": "https://math.berkeley.edu/~apaulin/Orthogonal%20Projections.pdf", "sha256": "f1cc283e2bda0c489f020735c7eb5095a60b99cb42a53250e7cf3380ccd66d83", "pagesRead": [1,2,3,4]},
+        {"title": "Inner Product Spaces", "url": "https://math.berkeley.edu/~apaulin/Inner%20Product%20Spaces.pdf", "sha256": "d3f905e9f30c1258a50b739216e15d842589536019752bf9c0c0323b2bdaaf06", "pagesRead": [1,2,3,4]}
+      ],
+      "concepts": ["column-vector convention", "linear combinations and spans with redundant directions", "dot product, norm and unit vector", "orthogonality and complements", "column/null-space orthogonal identities", "nonunit orthogonal projection coefficients", "uniqueness and best approximation", "orthonormal projection QQ^T", "general real inner products", "n+1 distinct sampling nodes for polynomials of degree at most n", "positive-definite metric matrix", "polynomial integration and Gram-Schmidt"],
+      "readingLimits": ["Gram-Schmidt Process and Least-Squares Problems are additional course PDFs, not newly read in this delegated review.", "The four documents focus on real vector spaces; complex results are reconciled against Oxford, not attributed to these scans."]
+    }
+  ],
+  "reconciliation": [
+    {
+      "kind": "correction_to_prior_audit_not_source_erratum",
+      "source": "Oxford Definitions 200 and 218, Proposition 205",
+      "finding": "The fresh PDF text and visually inspected pages explicitly use nonnegativity with equality if and only if the vector is zero. Those source statements are correct. Remove the prior audit's claim of positivity slips; strict positivity for nonzero vectors is an equivalent instructional restatement."
+    },
+    {
+      "kind": "visually_confirmed_source_error",
+      "source": "Oxford Example 108, printed 38 / PDF 39",
+      "finding": "For x+2y+z=0, the stated second basis vector (0,2,-1) is outside the plane. Use (0,1,-2); (x,y,-x-2y)=x(1,0,-1)+y(0,1,-2)."
+    },
+    {
+      "kind": "visually_confirmed_source_boundary_error",
+      "source": "Oxford Example 208, printed 73 / PDF 74",
+      "finding": "The stated assumption m!=n for arbitrary signed integers does not rule out m=-n. Cosine frequencies m and -m define the same function, so orthogonality requires distinct absolute frequencies; handle zero separately. For nonzero frequency, squared norm is pi; constant 1 has squared norm 2pi. The sine/cosine odd-integrand identity remains valid for all integer frequencies."
+    },
+    {
+      "kind": "convention_translation_not_error",
+      "source": "Oxford printed 77 / PDF 78",
+      "finding": "Oxford uses sum z_i conjugate(w_i), linear in first argument. The chapter convention sum conjugate(z_i) w_i is conjugate-linear in first and linear in second. Thus p_b(x)=b <b,x>/<b,b>; the Oxford-convention equivalent uses <x,b>/<b,b>. Do not transpose these numerators blindly."
+    },
+    {
+      "kind": "visually_confirmed_source_error",
+      "source": "Berkeley Inner Product Spaces page 4",
+      "finding": "The source gives integral x^3(x^2-1/3) from -1 to 1 as 2/7 and a nonzero projection. The integrand x^5-x^3/3 is odd, so the integral and projection of x^3 onto span(1,x^2) are zero. The orthogonal polynomial x^2-1/3 and squared norm 8/45 are correct. Residual squared norm is integral x^6=2/7."
+    }
+  ],
+  "independentChecks": {
+    "method": "Exact SymPy rational integration and matrix arithmetic; these checks supplement source reading, not replace conceptual proof.",
+    "polynomialOddIntegral": "0",
+    "polynomialOrthogonalNormSquared": "8/45",
+    "nonunitProjectionExample": {"basisColumns": [[1,-1,1],[-1,0,1]], "target": [1,2,3], "Gram": [[3,0],[0,2]], "rhs": [2,2], "coefficients": ["2/3","1"], "projection": ["-1/3","-2/3","5/3"], "residualSquaredNorm": "32/3"},
+    "complexConventionExample": "Under chapter convention b=(1,i), x=(1,1): <b,x>=1-i, <b,b>=2, coefficient=(1-i)/2. Under Oxford convention <x,b>=1-i gives the same projection."
+  },
+  "authoringRequirements": [
+    "For a nonorthogonal basis B, solve Gc=h with G_ij=<b_i,b_j> and h_i=<b_i,x>; do not sum individual projections. Under the conjugate-first convention, c*Gc is positive for nonzero c exactly when columns are independent.",
+    "For weighted metric H, G=B*HB and h=B*Hx. H must be Hermitian positive definite; mere symmetric/Hermitian or semidefinite is insufficient for a genuine inner product on the full space.",
+    "For dependent generators, the projected vector remains unique while coefficient representations need not be unique. Never take an inverse of singular Gram matrix.",
+    "Projection onto the zero subspace is zero; no zero-vector normalization or division by its norm is allowed.",
+    "Cauchy-Schwarz equality includes either vector zero and otherwise complex linear dependence. Triangle equality for nonzero vectors additionally requires the scalar relating their directions to be nonnegative real; arbitrary complex phase is insufficient.",
+    "Sampling geometry on polynomials requires enough distinct nodes: n+1 distinct points guarantee positivity on degree <=n; fewer may give a nonzero polynomial of zero sampled norm.",
+    "Angles from arccos(inner/(norm products)) are real-inner-product geometry. Complex inner products generally require a separately defined convention and cannot be inserted unchanged into real arccos.",
+    "Dimension and independence are relative to a specified scalar field: C is dimension 1 over C and dimension 2 over R. Include the zero space with its empty basis.",
+    "Use connected vector arrows and actual perpendicular residual geometry. In function geometry, show odd/even parity or function curves, not only generic vector-colored boxes."
+  ],
+  "poolEvaluation": {
+    "boundary": "The existing documented pool has eight offerings associated with seven universities. This delegated review does not establish an exhaustive worldwide catalogue.",
+    "Oxford": "Retain as selected core: explicit axioms, basis uniqueness, real inequalities, and a visually recoverable complex convention. Identified example errors are locally repaired rather than copied.",
+    "Berkeley": "Retain as selected core: directly readable geometry, nonunit projection, and polynomial inner products. The parity mistake makes independent example verification essential.",
+    "otherCandidates": "Stanford and MIT source review belongs to the other delegated scope. Existing CMU rejection and Cambridge/Harvard/ETH metadata limits were read from prior audit, not re-evaluated as newly read course bodies."
+  },
+  "temporaryReadingDirectory": "C:/Users/bheydari/AppData/Local/Temp/vector-source-review-b",
+  "redistribution": "Downloaded PDFs and rendered scans are temporary reading aids, not chapter assets. Write original explanations and solutions with precise source references."
+}

@@ -8,7 +8,8 @@
   const fixed = [3, 2];
   const clean = n => Math.abs(n) < 1e-10 ? 0 : n;
   const fmt = n => clean(n).toFixed(3);
-  const point = v => [120+v[0]*48, 300-v[1]*48];
+  let camera={scale:48,ox:120,oy:300};
+  const point = v => [camera.ox+v[0]*camera.scale,camera.oy-v[1]*camera.scale];
   const arrow = (a,b,color,dashed=false) => {
     const [ax,ay]=point(a), [bx,by]=point(b);
     return `<path d="M${ax} ${ay} L${bx} ${by}" fill="none" stroke="${color}" stroke-width="3" ${dashed?'stroke-dasharray="5 4"':''} marker-end="url(#l_vectors-figure-3-lab-arrow)"/>`;
@@ -34,9 +35,21 @@
     document.getElementById("angle-label").textContent=`${degrees}°`;
     document.getElementById("length-label").textContent=size.toFixed(2);
     document.getElementById("candidate-label").textContent=t.toFixed(2);
-    let axes='<path d="M24 300 H536 M120 390 V25" stroke="#d1e0e7" fill="none"/><text x="106" y="322">0</text>';
-    if(valid) axes+=arrow(unit.map(v=>-2*v),unit.map(v=>8*v),"#b4c9d5",true);
-    drawing.innerHTML=axes+arrow([0,0],fixed,"#286c91")+arrow([0,0],projection,"#487962")+arrow(projection,fixed,"#a0612e")+arrow([0,0],trial,"#805da0",true)+`<circle cx="${point(trial)[0]}" cy="${point(trial)[1]}" r="4" fill="#805da0"/><text x="${point(fixed)[0]+9}" y="${point(fixed)[1]-9}">x = (3, 2)</text>`;
+    const pts=[[0,0],fixed,projection,trial,b],xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);
+    const loX=Math.min(-1,...xs),hiX=Math.max(4,...xs),loY=Math.min(-1,...ys),hiY=Math.max(3,...ys);
+    camera.scale=Math.min(430/(hiX-loX),280/(hiY-loY));
+    camera.ox=55-loX*camera.scale;camera.oy=350+loY*camera.scale;
+    const origin=point([0,0]);
+    let axes=`<path d="M30 ${origin[1]}H525M${origin[0]} 370V25" stroke="#d1e0e7" fill="none"/><text x="${origin[0]-14}" y="${origin[1]+22}">0</text>`;
+    if(valid){
+      const bounds=[(30-camera.ox)/camera.scale,(525-camera.ox)/camera.scale,(camera.oy-370)/camera.scale,(camera.oy-25)/camera.scale],cuts=[];
+      if(Math.abs(unit[0])>1e-12)for(const x of bounds.slice(0,2)){const k=x/unit[0],y=k*unit[1];if(y>=bounds[2]-1e-9&&y<=bounds[3]+1e-9)cuts.push(k);}
+      if(Math.abs(unit[1])>1e-12)for(const y of bounds.slice(2)){const k=y/unit[1],x=k*unit[0];if(x>=bounds[0]-1e-9&&x<=bounds[1]+1e-9)cuts.push(k);}
+      if(cuts.length>=2){const a=point(unit.map(v=>v*Math.min(...cuts))),z=point(unit.map(v=>v*Math.max(...cuts)));axes+=`<path d="M${a}L${z}" fill="none" stroke="#b4c9d5" stroke-dasharray="5 4"/>`;}
+    }
+    const target=point(fixed),trialPoint=point(trial);
+    drawing.innerHTML=axes+arrow([0,0],fixed,"#286c91")+arrow([0,0],projection,"#487962")+arrow(projection,fixed,"#a0612e")+arrow([0,0],trial,"#805da0",true)+`<circle data-candidate-point cx="${trialPoint[0]}" cy="${trialPoint[1]}" r="4" fill="#805da0"/><text x="${Math.min(410,target[0]+9)}" y="${Math.max(25,target[1]-12)}">x = (3, 2)</text><text x="280" y="407" text-anchor="middle" font-size="13">Equal axis scale · 1 unit = ${camera.scale.toFixed(1)} diagram pixels</text>`;
+    result.dataset.candidateVisible=String(trialPoint[0]>=30&&trialPoint[0]<=525&&trialPoint[1]>=25&&trialPoint[1]<=370);
     const line = (name,value) => `<p>${name}: <span class="lab-math">${value}</span></p>`;
     result.innerHTML=(valid
       ? line("Projection coefficient",fmt(coefficient))+line("Signed scalar component",fmt(scalar))

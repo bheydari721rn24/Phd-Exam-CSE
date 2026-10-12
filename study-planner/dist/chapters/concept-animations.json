@@ -96923,8 +96923,8 @@
           "caption": "Display the original vectors using one fixed Euclidean coordinate system. Subtracting the projection isolates a residual whose dot product with the projection direction is exactly zero.",
           "metrics": {
             "Coefficient": "4/5",
-            "Projection": "(Fraction(4, 5), Fraction(8, 5))",
-            "Residual": "(Fraction(6, 5), Fraction(-3, 5))",
+            "Projection": "(4/5, 8/5)",
+            "Residual": "(6/5, -3/5)",
             "Residual dot b": 0
           },
           "formula": "p=\\frac{a\\cdot b}{b\\cdot b}b=\\frac45(1,2)",
@@ -96968,8 +96968,8 @@
               "b": "b = (1,2)",
               "counters": {
                 "Coefficient": "4/5",
-                "Projection": "(Fraction(4, 5), Fraction(8, 5))",
-                "Residual": "(Fraction(6, 5), Fraction(-3, 5))",
+                "Projection": "(4/5, 8/5)",
+                "Residual": "(6/5, -3/5)",
                 "Residual dot b": 0
               }
             },
@@ -97033,8 +97033,8 @@
           "caption": "Display the projected point using one fixed Euclidean coordinate system. Subtracting the projection isolates a residual whose dot product with the projection direction is exactly zero.",
           "metrics": {
             "Coefficient": "4/5",
-            "Projection": "(Fraction(4, 5), Fraction(8, 5))",
-            "Residual": "(Fraction(6, 5), Fraction(-3, 5))",
+            "Projection": "(4/5, 8/5)",
+            "Residual": "(6/5, -3/5)",
             "Residual dot b": 0
           },
           "formula": "p=\\frac{a\\cdot b}{b\\cdot b}b=\\frac45(1,2)",
@@ -97090,8 +97090,8 @@
               "p": "p = (4/5,8/5)",
               "counters": {
                 "Coefficient": "4/5",
-                "Projection": "(Fraction(4, 5), Fraction(8, 5))",
-                "Residual": "(Fraction(6, 5), Fraction(-3, 5))",
+                "Projection": "(4/5, 8/5)",
+                "Residual": "(6/5, -3/5)",
                 "Residual dot b": 0
               }
             },
@@ -97155,8 +97155,8 @@
           "caption": "Display the orthogonal residual using one fixed Euclidean coordinate system. Subtracting the projection isolates a residual whose dot product with the projection direction is exactly zero.",
           "metrics": {
             "Coefficient": "4/5",
-            "Projection": "(Fraction(4, 5), Fraction(8, 5))",
-            "Residual": "(Fraction(6, 5), Fraction(-3, 5))",
+            "Projection": "(4/5, 8/5)",
+            "Residual": "(6/5, -3/5)",
             "Residual dot b": 0
           },
           "formula": "p=\\frac{a\\cdot b}{b\\cdot b}b=\\frac45(1,2)",
@@ -97212,8 +97212,8 @@
               "p": "p = (4/5,8/5)",
               "counters": {
                 "Coefficient": "4/5",
-                "Projection": "(Fraction(4, 5), Fraction(8, 5))",
-                "Residual": "(Fraction(6, 5), Fraction(-3, 5))",
+                "Projection": "(4/5, 8/5)",
+                "Residual": "(6/5, -3/5)",
                 "Residual dot b": 0
               }
             },
@@ -226932,6 +226932,2471 @@
             "checks": [],
             "changes": [],
             "reading": "Read the exact objects, reversible encoding and running count. These are exhaustive or explicitly selected exact checkpoints, not sampled experimental evidence."
+          }
+        }
+      ]
+    },
+    "vectors-question-source": {
+      "id": "vectors-question-source",
+      "title": "Question 3: literal source sum versus normalized projection",
+      "description": "The target subspace is the x-axis. Four exact cases distinguish a unit basis, a nonunit basis and a perpendicular input. Green uses the denominator required for true projection; purple uses the literal source formula.",
+      "descriptionHtml": "<p>The target subspace is the x-axis. Four exact cases distinguish a unit basis, a nonunit basis and a perpendicular input. Green uses the denominator required for true projection; purple uses the literal source formula.</p>",
+      "invariant": "Every checkpoint uses the displayed source hypothesis, exact arithmetic and named geometry. A literal source ambiguity is distinguished from an added normalized interpretation.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "The target subspace is the x-axis. Four exact cases distinguish a unit basis, a nonunit basis and a perpendicular input. Green uses the denominator required for true projection; purple uses the literal source formula."
+      },
+      "code": [
+        "State the geometry; construct the candidate; verify the exact defining conditions"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "source",
+            "scale": 1.0,
+            "x": [
+              1,
+              1
+            ],
+            "source": [
+              1.0,
+              0.0
+            ],
+            "foot": [
+              1.0,
+              0.0
+            ],
+            "idempotent": true
+          },
+          "caption": "Use generator u=(1,0), so the source sum multiplies the first coordinate by 1. Input x=(1, 1). The purple ring marks source output (1, 0), whereas dividing by the squared generator norm gives actual foot (1, 0). Unit normalization makes the two maps agree and gives idempotence.",
+          "captionHtml": "<p>Use generator u=(1,0), so the source sum multiplies the first coordinate by 1. Input x=(1, 1). The purple ring marks source output (1, 0), whereas dividing by the squared generator norm gives actual foot (1, 0). Unit normalization makes the two maps agree and gives idempotence.</p>",
+          "metrics": {},
+          "formula": "P_s=\\operatorname{diag}(1,0),\\quad P_sx=(1,0),\\quad P_Ux=(1,0)",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P_s=\\operatorname{diag}(1,0),\\quad P_sx=(1,0),\\quad P_Ux=(1,0)\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><msub><mi>P</mi><mi>s</mi></msub><mo>=</mo><mi>diag</mi><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mi>s</mi></msub><mi>x</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mi>U</mi></msub><mi>x</mi><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Use generator u=(1,0), so the source sum multiplies the first coordinate by 1. Input x=(1, 1). The purple ring marks source output (1, 0), whereas dividing by the squared generator norm gives actual foot (1, 0). Unit normalization makes the two maps agree and gives idempotence.",
+            "currentState": {
+              "kind": "source",
+              "scale": 1.0,
+              "x": [
+                1,
+                1
+              ],
+              "source": [
+                1.0,
+                0.0
+              ],
+              "foot": [
+                1.0,
+                0.0
+              ],
+              "idempotent": true
+            },
+            "initial": true,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "source",
+            "scale": 2.0,
+            "x": [
+              1,
+              1
+            ],
+            "source": [
+              4.0,
+              0.0
+            ],
+            "foot": [
+              1.0,
+              0.0
+            ],
+            "idempotent": false
+          },
+          "caption": "Use generator u=(2,0), so the source sum multiplies the first coordinate by 4. Input x=(1, 1). The purple ring marks source output (4, 0), whereas dividing by the squared generator norm gives actual foot (1, 0). The nonunit source map is not idempotent. The displayed operator is not silently called an orthogonal projection.",
+          "captionHtml": "<p>Use generator u=(2,0), so the source sum multiplies the first coordinate by 4. Input x=(1, 1). The purple ring marks source output (4, 0), whereas dividing by the squared generator norm gives actual foot (1, 0). The nonunit source map is not idempotent. The displayed operator is not silently called an orthogonal projection.</p>",
+          "metrics": {},
+          "formula": "P_s=\\operatorname{diag}(4,0),\\quad P_sx=(4,0),\\quad P_Ux=(1,0)",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P_s=\\operatorname{diag}(4,0),\\quad P_sx=(4,0),\\quad P_Ux=(1,0)\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><msub><mi>P</mi><mi>s</mi></msub><mo>=</mo><mi>diag</mi><mrow><mo>(</mo><mn>4</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mi>s</mi></msub><mi>x</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mn>4</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mi>U</mi></msub><mi>x</mi><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Use generator u=(2,0), so the source sum multiplies the first coordinate by 4. Input x=(1, 1). The purple ring marks source output (4, 0), whereas dividing by the squared generator norm gives actual foot (1, 0). The nonunit source map is not idempotent. The displayed operator is not silently called an orthogonal projection.",
+            "currentState": {
+              "kind": "source",
+              "scale": 2.0,
+              "x": [
+                1,
+                1
+              ],
+              "source": [
+                4.0,
+                0.0
+              ],
+              "foot": [
+                1.0,
+                0.0
+              ],
+              "idempotent": false
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "source",
+            "scale": 2.0,
+            "x": [
+              0,
+              1
+            ],
+            "source": [
+              0.0,
+              0.0
+            ],
+            "foot": [
+              0.0,
+              0.0
+            ],
+            "idempotent": false
+          },
+          "caption": "Use generator u=(2,0), so the source sum multiplies the first coordinate by 4. Input x=(0, 1). The purple ring marks source output (0, 0), whereas dividing by the squared generator norm gives actual foot (0, 0). The nonunit source map is not idempotent. The displayed operator is not silently called an orthogonal projection.",
+          "captionHtml": "<p>Use generator u=(2,0), so the source sum multiplies the first coordinate by 4. Input x=(0, 1). The purple ring marks source output (0, 0), whereas dividing by the squared generator norm gives actual foot (0, 0). The nonunit source map is not idempotent. The displayed operator is not silently called an orthogonal projection.</p>",
+          "metrics": {},
+          "formula": "P_s=\\operatorname{diag}(4,0),\\quad P_sx=(0,0),\\quad P_Ux=(0,0)",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P_s=\\operatorname{diag}(4,0),\\quad P_sx=(0,0),\\quad P_Ux=(0,0)\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><msub><mi>P</mi><mi>s</mi></msub><mo>=</mo><mi>diag</mi><mrow><mo>(</mo><mn>4</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mi>s</mi></msub><mi>x</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mi>U</mi></msub><mi>x</mi><mo>=</mo><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Use generator u=(2,0), so the source sum multiplies the first coordinate by 4. Input x=(0, 1). The purple ring marks source output (0, 0), whereas dividing by the squared generator norm gives actual foot (0, 0). The nonunit source map is not idempotent. The displayed operator is not silently called an orthogonal projection.",
+            "currentState": {
+              "kind": "source",
+              "scale": 2.0,
+              "x": [
+                0,
+                1
+              ],
+              "source": [
+                0.0,
+                0.0
+              ],
+              "foot": [
+                0.0,
+                0.0
+              ],
+              "idempotent": false
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "source",
+            "scale": 0.5,
+            "x": [
+              1,
+              1
+            ],
+            "source": [
+              0.25,
+              0.0
+            ],
+            "foot": [
+              1.0,
+              0.0
+            ],
+            "idempotent": false
+          },
+          "caption": "Use generator u=(1/2,0), so the source sum multiplies the first coordinate by 1/4. Input x=(1, 1). The purple ring marks source output (1/4, 0), whereas dividing by the squared generator norm gives actual foot (1, 0). The nonunit source map is not idempotent. The displayed operator is not silently called an orthogonal projection.",
+          "captionHtml": "<p>Use generator u=(1/2,0), so the source sum multiplies the first coordinate by 1/4. Input x=(1, 1). The purple ring marks source output (1/4, 0), whereas dividing by the squared generator norm gives actual foot (1, 0). The nonunit source map is not idempotent. The displayed operator is not silently called an orthogonal projection.</p>",
+          "metrics": {},
+          "formula": "P_s=\\operatorname{diag}(\\frac{1}{4},0),\\quad P_sx=(\\frac{1}{4},0),\\quad P_Ux=(1,0)",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"P_s=\\operatorname{diag}(\\frac{1}{4},0),\\quad P_sx=(\\frac{1}{4},0),\\quad P_Ux=(1,0)\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><msub><mi>P</mi><mi>s</mi></msub><mo>=</mo><mi>diag</mi><mrow><mo>(</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>4</mn></mrow></mfrac><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mi>s</mi></msub><mi>x</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>4</mn></mrow></mfrac><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><msub><mi>P</mi><mi>U</mi></msub><mi>x</mi><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Use generator u=(1/2,0), so the source sum multiplies the first coordinate by 1/4. Input x=(1, 1). The purple ring marks source output (1/4, 0), whereas dividing by the squared generator norm gives actual foot (1, 0). The nonunit source map is not idempotent. The displayed operator is not silently called an orthogonal projection.",
+            "currentState": {
+              "kind": "source",
+              "scale": 0.5,
+              "x": [
+                1,
+                1
+              ],
+              "source": [
+                0.25,
+                0.0
+              ],
+              "foot": [
+                1.0,
+                0.0
+              ],
+              "idempotent": false
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        }
+      ]
+    },
+    "vectors-question-positivity": {
+      "id": "vectors-question-positivity",
+      "title": "Question 4: exact positivity boundaries",
+      "description": "Bar heights share the same signed coefficient scale. A horizontal zero marker denotes a zero coefficient. The all-equal component is normalized; its coefficient is 1+2a, while the sum-zero plane coefficient is 1-a.",
+      "descriptionHtml": "<p>Bar heights share the same signed coefficient scale. A horizontal zero marker denotes a zero coefficient. The all-equal component is normalized; its coefficient is 1+2a, while the sum-zero plane coefficient is 1-a.</p>",
+      "invariant": "Every checkpoint uses the displayed source hypothesis, exact arithmetic and named geometry. A literal source ambiguity is distinguished from an added normalized interpretation.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "Bar heights share the same signed coefficient scale. A horizontal zero marker denotes a zero coefficient. The all-equal component is normalized; its coefficient is 1+2a, while the sum-zero plane coefficient is 1-a."
+      },
+      "code": [
+        "State the geometry; construct the candidate; verify the exact defining conditions"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "positivity",
+            "a": "-3/4",
+            "parallel": -0.5,
+            "perpendicular": 1.75,
+            "valid": false
+          },
+          "caption": "Parameter a=-3/4. Unit all-equal coefficient -1/2; sum-zero coefficient 7/4. A negative coefficient supplies a direction disproving positive definiteness.",
+          "captionHtml": "<p>Parameter a=-3/4. Unit all-equal coefficient -1/2; sum-zero coefficient 7/4. A negative coefficient supplies a direction disproving positive definiteness.</p>",
+          "metrics": {},
+          "formula": "a=-\\frac{3}{4},\\quad\\lambda_{\\text{line}}=-\\frac{1}{2},\\quad\\lambda_{\\text{plane}}=\\frac{7}{4}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"a=-\\frac{3}{4},\\quad\\lambda_{\\text{line}}=-\\frac{1}{2},\\quad\\lambda_{\\text{plane}}=\\frac{7}{4}\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>a</mi><mo>=</mo><mo>-</mo><mfrac><mrow><mn>3</mn></mrow><mrow><mn>4</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><msub><mi>λ</mi><mrow><mtext>line</mtext></mrow></msub><mo>=</mo><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><msub><mi>λ</mi><mrow><mtext>plane</mtext></mrow></msub></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mfrac><mrow><mn>7</mn></mrow><mrow><mn>4</mn></mrow></mfrac></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Parameter a=-3/4. Unit all-equal coefficient -1/2; sum-zero coefficient 7/4. A negative coefficient supplies a direction disproving positive definiteness.",
+            "currentState": {
+              "kind": "positivity",
+              "a": "-3/4",
+              "parallel": -0.5,
+              "perpendicular": 1.75,
+              "valid": false
+            },
+            "initial": true,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "positivity",
+            "a": "-1/2",
+            "parallel": 0.0,
+            "perpendicular": 1.5,
+            "valid": false
+          },
+          "caption": "Parameter a=-1/2. Unit all-equal coefficient 0; sum-zero coefficient 3/2. A zero coefficient gives a nonzero null direction: semidefinite boundary, not strict positivity.",
+          "captionHtml": "<p>Parameter a=-1/2. Unit all-equal coefficient 0; sum-zero coefficient 3/2. A zero coefficient gives a nonzero null direction: semidefinite boundary, not strict positivity.</p>",
+          "metrics": {},
+          "formula": "a=-\\frac{1}{2},\\quad\\lambda_{\\text{line}}=0,\\quad\\lambda_{\\text{plane}}=\\frac{3}{2}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"a=-\\frac{1}{2},\\quad\\lambda_{\\text{line}}=0,\\quad\\lambda_{\\text{plane}}=\\frac{3}{2}\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>a</mi><mo>=</mo><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><msub><mi>λ</mi><mrow><mtext>line</mtext></mrow></msub><mo>=</mo><mn>0</mn><mo>,</mo><mspace width=\"1em\" /><msub><mi>λ</mi><mrow><mtext>plane</mtext></mrow></msub></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mfrac><mrow><mn>3</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Parameter a=-1/2. Unit all-equal coefficient 0; sum-zero coefficient 3/2. A zero coefficient gives a nonzero null direction: semidefinite boundary, not strict positivity.",
+            "currentState": {
+              "kind": "positivity",
+              "a": "-1/2",
+              "parallel": 0.0,
+              "perpendicular": 1.5,
+              "valid": false
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "positivity",
+            "a": "-1/4",
+            "parallel": 0.5,
+            "perpendicular": 1.25,
+            "valid": true
+          },
+          "caption": "Parameter a=-1/4. Unit all-equal coefficient 1/2; sum-zero coefficient 5/4. Both positive: strict positive definiteness.",
+          "captionHtml": "<p>Parameter a=-1/4. Unit all-equal coefficient 1/2; sum-zero coefficient 5/4. Both positive: strict positive definiteness.</p>",
+          "metrics": {},
+          "formula": "a=-\\frac{1}{4},\\quad\\lambda_{\\text{line}}=\\frac{1}{2},\\quad\\lambda_{\\text{plane}}=\\frac{5}{4}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"a=-\\frac{1}{4},\\quad\\lambda_{\\text{line}}=\\frac{1}{2},\\quad\\lambda_{\\text{plane}}=\\frac{5}{4}\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>a</mi><mo>=</mo><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>4</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><msub><mi>λ</mi><mrow><mtext>line</mtext></mrow></msub><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><msub><mi>λ</mi><mrow><mtext>plane</mtext></mrow></msub></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mfrac><mrow><mn>5</mn></mrow><mrow><mn>4</mn></mrow></mfrac></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Parameter a=-1/4. Unit all-equal coefficient 1/2; sum-zero coefficient 5/4. Both positive: strict positive definiteness.",
+            "currentState": {
+              "kind": "positivity",
+              "a": "-1/4",
+              "parallel": 0.5,
+              "perpendicular": 1.25,
+              "valid": true
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "positivity",
+            "a": "0",
+            "parallel": 1.0,
+            "perpendicular": 1.0,
+            "valid": true
+          },
+          "caption": "Parameter a=0. Unit all-equal coefficient 1; sum-zero coefficient 1. Both positive: strict positive definiteness.",
+          "captionHtml": "<p>Parameter a=0. Unit all-equal coefficient 1; sum-zero coefficient 1. Both positive: strict positive definiteness.</p>",
+          "metrics": {},
+          "formula": "a=0,\\quad\\lambda_{\\text{line}}=1,\\quad\\lambda_{\\text{plane}}=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"a=0,\\quad\\lambda_{\\text{line}}=1,\\quad\\lambda_{\\text{plane}}=1\"><mrow><mi>a</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width=\"1em\"/><msub><mi>λ</mi><mrow><mtext>line</mtext></mrow></msub><mo>=</mo><mn>1</mn><mo>,</mo><mspace width=\"1em\"/><msub><mi>λ</mi><mrow><mtext>plane</mtext></mrow></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Parameter a=0. Unit all-equal coefficient 1; sum-zero coefficient 1. Both positive: strict positive definiteness.",
+            "currentState": {
+              "kind": "positivity",
+              "a": "0",
+              "parallel": 1.0,
+              "perpendicular": 1.0,
+              "valid": true
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "positivity",
+            "a": "3/4",
+            "parallel": 2.5,
+            "perpendicular": 0.25,
+            "valid": true
+          },
+          "caption": "Parameter a=3/4. Unit all-equal coefficient 5/2; sum-zero coefficient 1/4. Both positive: strict positive definiteness.",
+          "captionHtml": "<p>Parameter a=3/4. Unit all-equal coefficient 5/2; sum-zero coefficient 1/4. Both positive: strict positive definiteness.</p>",
+          "metrics": {},
+          "formula": "a=\\frac{3}{4},\\quad\\lambda_{\\text{line}}=\\frac{5}{2},\\quad\\lambda_{\\text{plane}}=\\frac{1}{4}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"a=\\frac{3}{4},\\quad\\lambda_{\\text{line}}=\\frac{5}{2},\\quad\\lambda_{\\text{plane}}=\\frac{1}{4}\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>a</mi><mo>=</mo><mfrac><mrow><mn>3</mn></mrow><mrow><mn>4</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><msub><mi>λ</mi><mrow><mtext>line</mtext></mrow></msub><mo>=</mo><mfrac><mrow><mn>5</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><msub><mi>λ</mi><mrow><mtext>plane</mtext></mrow></msub></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>4</mn></mrow></mfrac></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Parameter a=3/4. Unit all-equal coefficient 5/2; sum-zero coefficient 1/4. Both positive: strict positive definiteness.",
+            "currentState": {
+              "kind": "positivity",
+              "a": "3/4",
+              "parallel": 2.5,
+              "perpendicular": 0.25,
+              "valid": true
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "positivity",
+            "a": "1",
+            "parallel": 3.0,
+            "perpendicular": 0.0,
+            "valid": false
+          },
+          "caption": "Parameter a=1. Unit all-equal coefficient 3; sum-zero coefficient 0. A zero coefficient gives a nonzero null direction: semidefinite boundary, not strict positivity.",
+          "captionHtml": "<p>Parameter a=1. Unit all-equal coefficient 3; sum-zero coefficient 0. A zero coefficient gives a nonzero null direction: semidefinite boundary, not strict positivity.</p>",
+          "metrics": {},
+          "formula": "a=1,\\quad\\lambda_{\\text{line}}=3,\\quad\\lambda_{\\text{plane}}=0",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"a=1,\\quad\\lambda_{\\text{line}}=3,\\quad\\lambda_{\\text{plane}}=0\"><mrow><mi>a</mi><mo>=</mo><mn>1</mn><mo>,</mo><mspace width=\"1em\"/><msub><mi>λ</mi><mrow><mtext>line</mtext></mrow></msub><mo>=</mo><mn>3</mn><mo>,</mo><mspace width=\"1em\"/><msub><mi>λ</mi><mrow><mtext>plane</mtext></mrow></msub><mo>=</mo><mn>0</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Parameter a=1. Unit all-equal coefficient 3; sum-zero coefficient 0. A zero coefficient gives a nonzero null direction: semidefinite boundary, not strict positivity.",
+            "currentState": {
+              "kind": "positivity",
+              "a": "1",
+              "parallel": 3.0,
+              "perpendicular": 0.0,
+              "valid": false
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "positivity",
+            "a": "5/4",
+            "parallel": 3.5,
+            "perpendicular": -0.25,
+            "valid": false
+          },
+          "caption": "Parameter a=5/4. Unit all-equal coefficient 7/2; sum-zero coefficient -1/4. A negative coefficient supplies a direction disproving positive definiteness.",
+          "captionHtml": "<p>Parameter a=5/4. Unit all-equal coefficient 7/2; sum-zero coefficient -1/4. A negative coefficient supplies a direction disproving positive definiteness.</p>",
+          "metrics": {},
+          "formula": "a=\\frac{5}{4},\\quad\\lambda_{\\text{line}}=\\frac{7}{2},\\quad\\lambda_{\\text{plane}}=-\\frac{1}{4}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"a=\\frac{5}{4},\\quad\\lambda_{\\text{line}}=\\frac{7}{2},\\quad\\lambda_{\\text{plane}}=-\\frac{1}{4}\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>a</mi><mo>=</mo><mfrac><mrow><mn>5</mn></mrow><mrow><mn>4</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><msub><mi>λ</mi><mrow><mtext>line</mtext></mrow></msub><mo>=</mo><mfrac><mrow><mn>7</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><msub><mi>λ</mi><mrow><mtext>plane</mtext></mrow></msub></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>4</mn></mrow></mfrac></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Parameter a=5/4. Unit all-equal coefficient 7/2; sum-zero coefficient -1/4. A negative coefficient supplies a direction disproving positive definiteness.",
+            "currentState": {
+              "kind": "positivity",
+              "a": "5/4",
+              "parallel": 3.5,
+              "perpendicular": -0.25,
+              "valid": false
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        }
+      ]
+    },
+    "vectors-question-gram37": {
+      "id": "vectors-question-gram37",
+      "title": "Question 37: coupled Gram construction",
+      "description": "An algebraic board shows the exact three-dimensional input vectors and coupled two-coefficient system. It is not a two-dimensional spatial projection of 3D coordinates; the final vector and residual are verified algebraically.",
+      "descriptionHtml": "<p>An algebraic board shows the exact three-dimensional input vectors and coupled two-coefficient system. It is not a two-dimensional spatial projection of 3D coordinates; the final vector and residual are verified algebraically.</p>",
+      "invariant": "Every checkpoint uses the displayed source hypothesis, exact arithmetic and named geometry. A literal source ambiguity is distinguished from an added normalized interpretation.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "An algebraic board shows the exact three-dimensional input vectors and coupled two-coefficient system. It is not a two-dimensional spatial projection of 3D coordinates; the final vector and residual are verified algebraically."
+      },
+      "code": [
+        "State the geometry; construct the candidate; verify the exact defining conditions"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "gram",
+            "stage": 0,
+            "question": 37,
+            "inputMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,2,3)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow></math>"
+            ],
+            "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}4\\\\3\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>4</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>3</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+            "coefficients": [
+              "5/3",
+              "2/3"
+            ],
+            "foot": [
+              "7/3",
+              "2/3",
+              "5/3"
+            ],
+            "residual": [
+              "-4/3",
+              "4/3",
+              "4/3"
+            ],
+            "rhs": [
+              4,
+              3
+            ]
+          },
+          "caption": "Compute every generator dot product; the off-diagonal one couples the coefficients.",
+          "captionHtml": "<p>Compute every generator dot product; the off-diagonal one couples the coefficients.</p>",
+          "metrics": {},
+          "formula": "G=B^TB,\\quad B^Tw=(4,3)",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"G=B^TB,\\quad B^Tw=(4,3)\"><mrow><mi>G</mi><mo>=</mo><msup><mi>B</mi><mi>T</mi></msup><mi>B</mi><mo>,</mo><mspace width=\"1em\" /><msup><mi>B</mi><mi>T</mi></msup><mi>w</mi><mo>=</mo><mrow><mo>(</mo><mn>4</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Compute every generator dot product; the off-diagonal one couples the coefficients.",
+            "currentState": {
+              "kind": "gram",
+              "stage": 0,
+              "question": 37,
+              "inputMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,2,3)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow></math>"
+              ],
+              "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}4\\\\3\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>4</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>3</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+              "coefficients": [
+                "5/3",
+                "2/3"
+              ],
+              "foot": [
+                "7/3",
+                "2/3",
+                "5/3"
+              ],
+              "residual": [
+                "-4/3",
+                "4/3",
+                "4/3"
+              ],
+              "rhs": [
+                4,
+                3
+              ]
+            },
+            "initial": true,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "gram",
+            "stage": 1,
+            "question": 37,
+            "inputMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,2,3)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow></math>"
+            ],
+            "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}4\\\\3\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>4</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>3</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+            "coefficients": [
+              "5/3",
+              "2/3"
+            ],
+            "foot": [
+              "7/3",
+              "2/3",
+              "5/3"
+            ],
+            "residual": [
+              "-4/3",
+              "4/3",
+              "4/3"
+            ],
+            "rhs": [
+              4,
+              3
+            ]
+          },
+          "caption": "Twice the first equation minus the second eliminates c2.",
+          "captionHtml": "<p>Twice the first equation minus the second eliminates c2.</p>",
+          "metrics": {},
+          "formula": "3c_1=5",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"3c_1=5\"><mrow><mn>3</mn><msub><mi>c</mi><mn>1</mn></msub><mo>=</mo><mn>5</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Twice the first equation minus the second eliminates c2.",
+            "currentState": {
+              "kind": "gram",
+              "stage": 1,
+              "question": 37,
+              "inputMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,2,3)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow></math>"
+              ],
+              "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}4\\\\3\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>4</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>3</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+              "coefficients": [
+                "5/3",
+                "2/3"
+              ],
+              "foot": [
+                "7/3",
+                "2/3",
+                "5/3"
+              ],
+              "residual": [
+                "-4/3",
+                "4/3",
+                "4/3"
+              ],
+              "rhs": [
+                4,
+                3
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "gram",
+            "stage": 2,
+            "question": 37,
+            "inputMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,2,3)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow></math>"
+            ],
+            "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}4\\\\3\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>4</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>3</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+            "coefficients": [
+              "5/3",
+              "2/3"
+            ],
+            "foot": [
+              "7/3",
+              "2/3",
+              "5/3"
+            ],
+            "residual": [
+              "-4/3",
+              "4/3",
+              "4/3"
+            ],
+            "rhs": [
+              4,
+              3
+            ]
+          },
+          "caption": "Solve the remaining scalar equation and substitute into the second equation.",
+          "captionHtml": "<p>Solve the remaining scalar equation and substitute into the second equation.</p>",
+          "metrics": {},
+          "formula": "c_1=\\frac{5}{3},\\quad c_2=\\frac{2}{3}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"c_1=\\frac{5}{3},\\quad c_2=\\frac{2}{3}\"><mrow><msub><mi>c</mi><mn>1</mn></msub><mo>=</mo><mfrac><mrow><mn>5</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\"/><msub><mi>c</mi><mn>2</mn></msub><mo>=</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>3</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Solve the remaining scalar equation and substitute into the second equation.",
+            "currentState": {
+              "kind": "gram",
+              "stage": 2,
+              "question": 37,
+              "inputMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,2,3)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow></math>"
+              ],
+              "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}4\\\\3\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>4</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>3</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+              "coefficients": [
+                "5/3",
+                "2/3"
+              ],
+              "foot": [
+                "7/3",
+                "2/3",
+                "5/3"
+              ],
+              "residual": [
+                "-4/3",
+                "4/3",
+                "4/3"
+              ],
+              "rhs": [
+                4,
+                3
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "gram",
+            "stage": 3,
+            "question": 37,
+            "inputMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,2,3)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow></math>"
+            ],
+            "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}4\\\\3\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>4</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>3</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+            "coefficients": [
+              "5/3",
+              "2/3"
+            ],
+            "foot": [
+              "7/3",
+              "2/3",
+              "5/3"
+            ],
+            "residual": [
+              "-4/3",
+              "4/3",
+              "4/3"
+            ],
+            "rhs": [
+              4,
+              3
+            ]
+          },
+          "caption": "Reconstruct the actual vector from both generators.",
+          "captionHtml": "<p>Reconstruct the actual vector from both generators.</p>",
+          "metrics": {},
+          "formula": "p=c_1u+c_2v=(\\frac{7}{3},\\frac{2}{3},\\frac{5}{3})",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"p=c_1u+c_2v=(\\frac{7}{3},\\frac{2}{3},\\frac{5}{3})\"><mrow><mi>p</mi><mo>=</mo><msub><mi>c</mi><mn>1</mn></msub><mi>u</mi><mo>+</mo><msub><mi>c</mi><mn>2</mn></msub><mi>v</mi><mo>=</mo><mrow><mo>(</mo><mfrac><mrow><mn>7</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>5</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>)</mo></mrow></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Reconstruct the actual vector from both generators.",
+            "currentState": {
+              "kind": "gram",
+              "stage": 3,
+              "question": 37,
+              "inputMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,2,3)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow></math>"
+              ],
+              "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}4\\\\3\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>4</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>3</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+              "coefficients": [
+                "5/3",
+                "2/3"
+              ],
+              "foot": [
+                "7/3",
+                "2/3",
+                "5/3"
+              ],
+              "residual": [
+                "-4/3",
+                "4/3",
+                "4/3"
+              ],
+              "rhs": [
+                4,
+                3
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "gram",
+            "stage": 4,
+            "question": 37,
+            "inputMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,2,3)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow></math>"
+            ],
+            "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}4\\\\3\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>4</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>3</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+            "coefficients": [
+              "5/3",
+              "2/3"
+            ],
+            "foot": [
+              "7/3",
+              "2/3",
+              "5/3"
+            ],
+            "residual": [
+              "-4/3",
+              "4/3",
+              "4/3"
+            ],
+            "rhs": [
+              4,
+              3
+            ]
+          },
+          "caption": "Subtract from the original target to obtain the full residual.",
+          "captionHtml": "<p>Subtract from the original target to obtain the full residual.</p>",
+          "metrics": {},
+          "formula": "r=w-p=(-\\frac{4}{3},\\frac{4}{3},\\frac{4}{3})",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"r=w-p=(-\\frac{4}{3},\\frac{4}{3},\\frac{4}{3})\"><mrow><mi>r</mi><mo>=</mo><mi>w</mi><mo>-</mo><mi>p</mi><mo>=</mo><mrow><mo>(</mo><mo>-</mo><mfrac><mrow><mn>4</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>4</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>4</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>)</mo></mrow></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Subtract from the original target to obtain the full residual.",
+            "currentState": {
+              "kind": "gram",
+              "stage": 4,
+              "question": 37,
+              "inputMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,2,3)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow></math>"
+              ],
+              "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}4\\\\3\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>4</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>3</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+              "coefficients": [
+                "5/3",
+                "2/3"
+              ],
+              "foot": [
+                "7/3",
+                "2/3",
+                "5/3"
+              ],
+              "residual": [
+                "-4/3",
+                "4/3",
+                "4/3"
+              ],
+              "rhs": [
+                4,
+                3
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "gram",
+            "stage": 5,
+            "question": 37,
+            "inputMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,2,3)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow></math>"
+            ],
+            "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}4\\\\3\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>4</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>3</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+            "coefficients": [
+              "5/3",
+              "2/3"
+            ],
+            "foot": [
+              "7/3",
+              "2/3",
+              "5/3"
+            ],
+            "residual": [
+              "-4/3",
+              "4/3",
+              "4/3"
+            ],
+            "rhs": [
+              4,
+              3
+            ]
+          },
+          "caption": "Verify both residual inner products are zero and the foot belongs to the span; these certify the unique nearest point.",
+          "captionHtml": "<p>Verify both residual inner products are zero and the foot belongs to the span; these certify the unique nearest point.</p>",
+          "metrics": {},
+          "formula": "u^Tr=v^Tr=0",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"u^Tr=v^Tr=0\"><mrow><msup><mi>u</mi><mi>T</mi></msup><mi>r</mi><mo>=</mo><msup><mi>v</mi><mi>T</mi></msup><mi>r</mi><mo>=</mo><mn>0</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Verify both residual inner products are zero and the foot belongs to the span; these certify the unique nearest point.",
+            "currentState": {
+              "kind": "gram",
+              "stage": 5,
+              "question": 37,
+              "inputMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,2,3)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></mrow></math>"
+              ],
+              "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}4\\\\3\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>4</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>3</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+              "coefficients": [
+                "5/3",
+                "2/3"
+              ],
+              "foot": [
+                "7/3",
+                "2/3",
+                "5/3"
+              ],
+              "residual": [
+                "-4/3",
+                "4/3",
+                "4/3"
+              ],
+              "rhs": [
+                4,
+                3
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        }
+      ]
+    },
+    "vectors-question-gram45": {
+      "id": "vectors-question-gram45",
+      "title": "Question 45: coupled Gram construction",
+      "description": "An algebraic board shows the exact three-dimensional input vectors and coupled two-coefficient system. It is not a two-dimensional spatial projection of 3D coordinates; the final vector and residual are verified algebraically.",
+      "descriptionHtml": "<p>An algebraic board shows the exact three-dimensional input vectors and coupled two-coefficient system. It is not a two-dimensional spatial projection of 3D coordinates; the final vector and residual are verified algebraically.</p>",
+      "invariant": "Every checkpoint uses the displayed source hypothesis, exact arithmetic and named geometry. A literal source ambiguity is distinguished from an added normalized interpretation.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "An algebraic board shows the exact three-dimensional input vectors and coupled two-coefficient system. It is not a two-dimensional spatial projection of 3D coordinates; the final vector and residual are verified algebraically."
+      },
+      "code": [
+        "State the geometry; construct the candidate; verify the exact defining conditions"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "gram",
+            "stage": 0,
+            "question": 45,
+            "inputMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(0,1,1)\"><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>"
+            ],
+            "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}1\\\\1\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+            "coefficients": [
+              "1/3",
+              "1/3"
+            ],
+            "foot": [
+              "2/3",
+              "1/3",
+              "1/3"
+            ],
+            "residual": [
+              "-2/3",
+              "2/3",
+              "2/3"
+            ],
+            "rhs": [
+              1,
+              1
+            ]
+          },
+          "caption": "Compute every generator dot product; the off-diagonal one couples the coefficients.",
+          "captionHtml": "<p>Compute every generator dot product; the off-diagonal one couples the coefficients.</p>",
+          "metrics": {},
+          "formula": "G=B^TB,\\quad B^Tw=(1,1)",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"G=B^TB,\\quad B^Tw=(1,1)\"><mrow><mi>G</mi><mo>=</mo><msup><mi>B</mi><mi>T</mi></msup><mi>B</mi><mo>,</mo><mspace width=\"1em\" /><msup><mi>B</mi><mi>T</mi></msup><mi>w</mi><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Compute every generator dot product; the off-diagonal one couples the coefficients.",
+            "currentState": {
+              "kind": "gram",
+              "stage": 0,
+              "question": 45,
+              "inputMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(0,1,1)\"><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>"
+              ],
+              "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}1\\\\1\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+              "coefficients": [
+                "1/3",
+                "1/3"
+              ],
+              "foot": [
+                "2/3",
+                "1/3",
+                "1/3"
+              ],
+              "residual": [
+                "-2/3",
+                "2/3",
+                "2/3"
+              ],
+              "rhs": [
+                1,
+                1
+              ]
+            },
+            "initial": true,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "gram",
+            "stage": 1,
+            "question": 45,
+            "inputMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(0,1,1)\"><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>"
+            ],
+            "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}1\\\\1\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+            "coefficients": [
+              "1/3",
+              "1/3"
+            ],
+            "foot": [
+              "2/3",
+              "1/3",
+              "1/3"
+            ],
+            "residual": [
+              "-2/3",
+              "2/3",
+              "2/3"
+            ],
+            "rhs": [
+              1,
+              1
+            ]
+          },
+          "caption": "Twice the first equation minus the second eliminates c2.",
+          "captionHtml": "<p>Twice the first equation minus the second eliminates c2.</p>",
+          "metrics": {},
+          "formula": "3c_1=1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"3c_1=1\"><mrow><mn>3</mn><msub><mi>c</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Twice the first equation minus the second eliminates c2.",
+            "currentState": {
+              "kind": "gram",
+              "stage": 1,
+              "question": 45,
+              "inputMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(0,1,1)\"><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>"
+              ],
+              "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}1\\\\1\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+              "coefficients": [
+                "1/3",
+                "1/3"
+              ],
+              "foot": [
+                "2/3",
+                "1/3",
+                "1/3"
+              ],
+              "residual": [
+                "-2/3",
+                "2/3",
+                "2/3"
+              ],
+              "rhs": [
+                1,
+                1
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "gram",
+            "stage": 2,
+            "question": 45,
+            "inputMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(0,1,1)\"><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>"
+            ],
+            "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}1\\\\1\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+            "coefficients": [
+              "1/3",
+              "1/3"
+            ],
+            "foot": [
+              "2/3",
+              "1/3",
+              "1/3"
+            ],
+            "residual": [
+              "-2/3",
+              "2/3",
+              "2/3"
+            ],
+            "rhs": [
+              1,
+              1
+            ]
+          },
+          "caption": "Solve the remaining scalar equation and substitute into the second equation.",
+          "captionHtml": "<p>Solve the remaining scalar equation and substitute into the second equation.</p>",
+          "metrics": {},
+          "formula": "c_1=\\frac{1}{3},\\quad c_2=\\frac{1}{3}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"c_1=\\frac{1}{3},\\quad c_2=\\frac{1}{3}\"><mrow><msub><mi>c</mi><mn>1</mn></msub><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\"/><msub><mi>c</mi><mn>2</mn></msub><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>3</mn></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Solve the remaining scalar equation and substitute into the second equation.",
+            "currentState": {
+              "kind": "gram",
+              "stage": 2,
+              "question": 45,
+              "inputMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(0,1,1)\"><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>"
+              ],
+              "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}1\\\\1\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+              "coefficients": [
+                "1/3",
+                "1/3"
+              ],
+              "foot": [
+                "2/3",
+                "1/3",
+                "1/3"
+              ],
+              "residual": [
+                "-2/3",
+                "2/3",
+                "2/3"
+              ],
+              "rhs": [
+                1,
+                1
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "gram",
+            "stage": 3,
+            "question": 45,
+            "inputMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(0,1,1)\"><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>"
+            ],
+            "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}1\\\\1\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+            "coefficients": [
+              "1/3",
+              "1/3"
+            ],
+            "foot": [
+              "2/3",
+              "1/3",
+              "1/3"
+            ],
+            "residual": [
+              "-2/3",
+              "2/3",
+              "2/3"
+            ],
+            "rhs": [
+              1,
+              1
+            ]
+          },
+          "caption": "Reconstruct the actual vector from both generators.",
+          "captionHtml": "<p>Reconstruct the actual vector from both generators.</p>",
+          "metrics": {},
+          "formula": "p=c_1u+c_2v=(\\frac{2}{3},\\frac{1}{3},\\frac{1}{3})",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"p=c_1u+c_2v=(\\frac{2}{3},\\frac{1}{3},\\frac{1}{3})\"><mrow><mi>p</mi><mo>=</mo><msub><mi>c</mi><mn>1</mn></msub><mi>u</mi><mo>+</mo><msub><mi>c</mi><mn>2</mn></msub><mi>v</mi><mo>=</mo><mrow><mo>(</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>)</mo></mrow></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Reconstruct the actual vector from both generators.",
+            "currentState": {
+              "kind": "gram",
+              "stage": 3,
+              "question": 45,
+              "inputMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(0,1,1)\"><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>"
+              ],
+              "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}1\\\\1\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+              "coefficients": [
+                "1/3",
+                "1/3"
+              ],
+              "foot": [
+                "2/3",
+                "1/3",
+                "1/3"
+              ],
+              "residual": [
+                "-2/3",
+                "2/3",
+                "2/3"
+              ],
+              "rhs": [
+                1,
+                1
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "gram",
+            "stage": 4,
+            "question": 45,
+            "inputMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(0,1,1)\"><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>"
+            ],
+            "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}1\\\\1\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+            "coefficients": [
+              "1/3",
+              "1/3"
+            ],
+            "foot": [
+              "2/3",
+              "1/3",
+              "1/3"
+            ],
+            "residual": [
+              "-2/3",
+              "2/3",
+              "2/3"
+            ],
+            "rhs": [
+              1,
+              1
+            ]
+          },
+          "caption": "Subtract from the original target to obtain the full residual.",
+          "captionHtml": "<p>Subtract from the original target to obtain the full residual.</p>",
+          "metrics": {},
+          "formula": "r=w-p=(-\\frac{2}{3},\\frac{2}{3},\\frac{2}{3})",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"r=w-p=(-\\frac{2}{3},\\frac{2}{3},\\frac{2}{3})\"><mrow><mi>r</mi><mo>=</mo><mi>w</mi><mo>-</mo><mi>p</mi><mo>=</mo><mrow><mo>(</mo><mo>-</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>)</mo></mrow></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Subtract from the original target to obtain the full residual.",
+            "currentState": {
+              "kind": "gram",
+              "stage": 4,
+              "question": 45,
+              "inputMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(0,1,1)\"><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>"
+              ],
+              "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}1\\\\1\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+              "coefficients": [
+                "1/3",
+                "1/3"
+              ],
+              "foot": [
+                "2/3",
+                "1/3",
+                "1/3"
+              ],
+              "residual": [
+                "-2/3",
+                "2/3",
+                "2/3"
+              ],
+              "rhs": [
+                1,
+                1
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "gram",
+            "stage": 5,
+            "question": 45,
+            "inputMath": [
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+              "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(0,1,1)\"><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>"
+            ],
+            "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}1\\\\1\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+            "coefficients": [
+              "1/3",
+              "1/3"
+            ],
+            "foot": [
+              "2/3",
+              "1/3",
+              "1/3"
+            ],
+            "residual": [
+              "-2/3",
+              "2/3",
+              "2/3"
+            ],
+            "rhs": [
+              1,
+              1
+            ]
+          },
+          "caption": "Verify both residual inner products are zero and the foot belongs to the span; these certify the unique nearest point.",
+          "captionHtml": "<p>Verify both residual inner products are zero and the foot belongs to the span; these certify the unique nearest point.</p>",
+          "metrics": {},
+          "formula": "u^Tr=v^Tr=0",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"u^Tr=v^Tr=0\"><mrow><msup><mi>u</mi><mi>T</mi></msup><mi>r</mi><mo>=</mo><msup><mi>v</mi><mi>T</mi></msup><mi>r</mi><mo>=</mo><mn>0</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Verify both residual inner products are zero and the foot belongs to the span; these certify the unique nearest point.",
+            "currentState": {
+              "kind": "gram",
+              "stage": 5,
+              "question": 45,
+              "inputMath": [
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,1,0)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(1,0,1)\"><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>",
+                "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\" aria-label=\"(0,1,1)\"><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></math>"
+              ],
+              "systemMath": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\begin{pmatrix}2&amp;1\\\\1&amp;2\\end{pmatrix}\\begin{pmatrix}c_1\\\\c_2\\end{pmatrix}=\\begin{pmatrix}1\\\\1\\end{pmatrix}\"><mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>2</mn></mrow></mtd><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mn>2</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><msub><mi>c</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>c</mi><mn>2</mn></msub></mrow></mtd></mtr></mtable><mo>)</mo></mrow><mo>=</mo><mrow><mo>(</mo><mtable columnspacing=\".6em\" rowspacing=\".3em\"><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn></mrow></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math>",
+              "coefficients": [
+                "1/3",
+                "1/3"
+              ],
+              "foot": [
+                "2/3",
+                "1/3",
+                "1/3"
+              ],
+              "residual": [
+                "-2/3",
+                "2/3",
+                "2/3"
+              ],
+              "rhs": [
+                1,
+                1
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        }
+      ]
+    },
+    "vectors-question-coordinates": {
+      "id": "vectors-question-coordinates",
+      "title": "Question 41: coordinates and physical geometry",
+      "description": "Both plot axes use one common unit scale. The second component begins at the first component endpoint. The amber fixed target is reached only at the final coefficient pair; coordinate-square sum differs from physical squared norm.",
+      "descriptionHtml": "<p>Both plot axes use one common unit scale. The second component begins at the first component endpoint. The amber fixed target is reached only at the final coefficient pair; coordinate-square sum differs from physical squared norm.</p>",
+      "invariant": "Every checkpoint uses the displayed source hypothesis, exact arithmetic and named geometry. A literal source ambiguity is distinguished from an added normalized interpretation.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "Both plot axes use one common unit scale. The second component begins at the first component endpoint. The amber fixed target is reached only at the final coefficient pair; coordinate-square sum differs from physical squared norm."
+      },
+      "code": [
+        "State the geometry; construct the candidate; verify the exact defining conditions"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "coordinates",
+            "c": [
+              0,
+              0
+            ],
+            "partial": [
+              0,
+              0
+            ],
+            "target": [
+              3,
+              1
+            ]
+          },
+          "caption": "Current basis coefficients are [0, 0]. Add 0 copies of b1=(1,1), then 0 copies of b2=(1,-1), head to tail. The partial vector is [0, 0]; the fixed target is (3,1). The final coordinates (2,1) have physical squared norm ten because the basis Gram matrix is 2I.",
+          "captionHtml": "<p>Current basis coefficients are [0, 0]. Add 0 copies of b1=(1,1), then 0 copies of b2=(1,-1), head to tail. The partial vector is [0, 0]; the fixed target is (3,1). The final coordinates (2,1) have physical squared norm ten because the basis Gram matrix is 2I.</p>",
+          "metrics": {},
+          "formula": "q=0b_1+0b_2=(0,0),\\quad\\Vert q\\Vert^2=0",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"q=0b_1+0b_2=(0,0),\\quad\\Vert q\\Vert^2=0\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>q</mi><mo>=</mo><mn>0</mn><msub><mi>b</mi><mn>1</mn></msub><mo>+</mo><mn>0</mn><msub><mi>b</mi><mn>2</mn></msub><mo>=</mo><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mo>‖</mo><mi>q</mi><msup><mo>‖</mo><mn>2</mn></msup></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>0</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Current basis coefficients are [0, 0]. Add 0 copies of b1=(1,1), then 0 copies of b2=(1,-1), head to tail. The partial vector is [0, 0]; the fixed target is (3,1). The final coordinates (2,1) have physical squared norm ten because the basis Gram matrix is 2I.",
+            "currentState": {
+              "kind": "coordinates",
+              "c": [
+                0,
+                0
+              ],
+              "partial": [
+                0,
+                0
+              ],
+              "target": [
+                3,
+                1
+              ]
+            },
+            "initial": true,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "coordinates",
+            "c": [
+              1,
+              0
+            ],
+            "partial": [
+              1,
+              1
+            ],
+            "target": [
+              3,
+              1
+            ]
+          },
+          "caption": "Current basis coefficients are [1, 0]. Add 1 copies of b1=(1,1), then 0 copies of b2=(1,-1), head to tail. The partial vector is [1, 1]; the fixed target is (3,1). The final coordinates (2,1) have physical squared norm ten because the basis Gram matrix is 2I.",
+          "captionHtml": "<p>Current basis coefficients are [1, 0]. Add 1 copies of b1=(1,1), then 0 copies of b2=(1,-1), head to tail. The partial vector is [1, 1]; the fixed target is (3,1). The final coordinates (2,1) have physical squared norm ten because the basis Gram matrix is 2I.</p>",
+          "metrics": {},
+          "formula": "q=1b_1+0b_2=(1,1),\\quad\\Vert q\\Vert^2=2",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"q=1b_1+0b_2=(1,1),\\quad\\Vert q\\Vert^2=2\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>q</mi><mo>=</mo><mn>1</mn><msub><mi>b</mi><mn>1</mn></msub><mo>+</mo><mn>0</mn><msub><mi>b</mi><mn>2</mn></msub><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mo>‖</mo><mi>q</mi><msup><mo>‖</mo><mn>2</mn></msup></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>2</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Current basis coefficients are [1, 0]. Add 1 copies of b1=(1,1), then 0 copies of b2=(1,-1), head to tail. The partial vector is [1, 1]; the fixed target is (3,1). The final coordinates (2,1) have physical squared norm ten because the basis Gram matrix is 2I.",
+            "currentState": {
+              "kind": "coordinates",
+              "c": [
+                1,
+                0
+              ],
+              "partial": [
+                1,
+                1
+              ],
+              "target": [
+                3,
+                1
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "coordinates",
+            "c": [
+              2,
+              0
+            ],
+            "partial": [
+              2,
+              2
+            ],
+            "target": [
+              3,
+              1
+            ]
+          },
+          "caption": "Current basis coefficients are [2, 0]. Add 2 copies of b1=(1,1), then 0 copies of b2=(1,-1), head to tail. The partial vector is [2, 2]; the fixed target is (3,1). The final coordinates (2,1) have physical squared norm ten because the basis Gram matrix is 2I.",
+          "captionHtml": "<p>Current basis coefficients are [2, 0]. Add 2 copies of b1=(1,1), then 0 copies of b2=(1,-1), head to tail. The partial vector is [2, 2]; the fixed target is (3,1). The final coordinates (2,1) have physical squared norm ten because the basis Gram matrix is 2I.</p>",
+          "metrics": {},
+          "formula": "q=2b_1+0b_2=(2,2),\\quad\\Vert q\\Vert^2=8",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"q=2b_1+0b_2=(2,2),\\quad\\Vert q\\Vert^2=8\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>q</mi><mo>=</mo><mn>2</mn><msub><mi>b</mi><mn>1</mn></msub><mo>+</mo><mn>0</mn><msub><mi>b</mi><mn>2</mn></msub><mo>=</mo><mrow><mo>(</mo><mn>2</mn><mo>,</mo><mn>2</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mo>‖</mo><mi>q</mi><msup><mo>‖</mo><mn>2</mn></msup></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>8</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Current basis coefficients are [2, 0]. Add 2 copies of b1=(1,1), then 0 copies of b2=(1,-1), head to tail. The partial vector is [2, 2]; the fixed target is (3,1). The final coordinates (2,1) have physical squared norm ten because the basis Gram matrix is 2I.",
+            "currentState": {
+              "kind": "coordinates",
+              "c": [
+                2,
+                0
+              ],
+              "partial": [
+                2,
+                2
+              ],
+              "target": [
+                3,
+                1
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "coordinates",
+            "c": [
+              2,
+              1
+            ],
+            "partial": [
+              3,
+              1
+            ],
+            "target": [
+              3,
+              1
+            ]
+          },
+          "caption": "Current basis coefficients are [2, 1]. Add 2 copies of b1=(1,1), then 1 copies of b2=(1,-1), head to tail. The partial vector is [3, 1]; the fixed target is (3,1). The final coordinates (2,1) have physical squared norm ten because the basis Gram matrix is 2I.",
+          "captionHtml": "<p>Current basis coefficients are [2, 1]. Add 2 copies of b1=(1,1), then 1 copies of b2=(1,-1), head to tail. The partial vector is [3, 1]; the fixed target is (3,1). The final coordinates (2,1) have physical squared norm ten because the basis Gram matrix is 2I.</p>",
+          "metrics": {},
+          "formula": "q=2b_1+1b_2=(3,1),\\quad\\Vert q\\Vert^2=10",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"q=2b_1+1b_2=(3,1),\\quad\\Vert q\\Vert^2=10\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>q</mi><mo>=</mo><mn>2</mn><msub><mi>b</mi><mn>1</mn></msub><mo>+</mo><mn>1</mn><msub><mi>b</mi><mn>2</mn></msub><mo>=</mo><mrow><mo>(</mo><mn>3</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\" /><mo>‖</mo><mi>q</mi><msup><mo>‖</mo><mn>2</mn></msup></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>10</mn></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Current basis coefficients are [2, 1]. Add 2 copies of b1=(1,1), then 1 copies of b2=(1,-1), head to tail. The partial vector is [3, 1]; the fixed target is (3,1). The final coordinates (2,1) have physical squared norm ten because the basis Gram matrix is 2I.",
+            "currentState": {
+              "kind": "coordinates",
+              "c": [
+                2,
+                1
+              ],
+              "partial": [
+                3,
+                1
+              ],
+              "target": [
+                3,
+                1
+              ]
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        }
+      ]
+    },
+    "vectors-question-minimum": {
+      "id": "vectors-question-minimum",
+      "title": "Question 46: a feasible line and its exact objective",
+      "description": "The horizontal axis is the scalar parameter y; the vertical axis is squared norm F(y). A stable candidate point moves along the verified parabola. Every checkpoint also names the corresponding feasible 3D vector.",
+      "descriptionHtml": "<p>The horizontal axis is the scalar parameter y; the vertical axis is squared norm F(y). A stable candidate point moves along the verified parabola. Every checkpoint also names the corresponding feasible 3D vector.</p>",
+      "invariant": "Every checkpoint uses the displayed source hypothesis, exact arithmetic and named geometry. A literal source ambiguity is distinguished from an added normalized interpretation.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "The horizontal axis is the scalar parameter y; the vertical axis is squared norm F(y). A stable candidate point moves along the verified parabola. Every checkpoint also names the corresponding feasible 3D vector."
+      },
+      "code": [
+        "State the geometry; construct the candidate; verify the exact defining conditions"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "minimum",
+            "y": 0.0,
+            "value": 2.0,
+            "vector": [
+              "1",
+              "0",
+              "1"
+            ],
+            "minimum": false
+          },
+          "caption": "Feasible candidate (1-y,y,1-y) at y=0. Its exact squared norm is 2. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.",
+          "captionHtml": "<p>Feasible candidate (1-y,y,1-y) at y=0. Its exact squared norm is 2. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.</p>",
+          "metrics": {},
+          "formula": "y=0,\\quad F(y)=2,\\quad x=(1,0,1)",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"y=0,\\quad F(y)=2,\\quad x=(1,0,1)\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>y</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width=\"1em\" /><mi>F</mi><mrow><mo>(</mo><mi>y</mi><mo>)</mo></mrow><mo>=</mo><mn>2</mn><mo>,</mo><mspace width=\"1em\" /><mi>x</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Feasible candidate (1-y,y,1-y) at y=0. Its exact squared norm is 2. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.",
+            "currentState": {
+              "kind": "minimum",
+              "y": 0.0,
+              "value": 2.0,
+              "vector": [
+                "1",
+                "0",
+                "1"
+              ],
+              "minimum": false
+            },
+            "initial": true,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "minimum",
+            "y": 0.16666666666666666,
+            "value": 1.4166666666666667,
+            "vector": [
+              "5/6",
+              "1/6",
+              "5/6"
+            ],
+            "minimum": false
+          },
+          "caption": "Feasible candidate (1-y,y,1-y) at y=1/6. Its exact squared norm is 17/12. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.",
+          "captionHtml": "<p>Feasible candidate (1-y,y,1-y) at y=1/6. Its exact squared norm is 17/12. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.</p>",
+          "metrics": {},
+          "formula": "y=\\frac{1}{6},\\quad F(y)=\\frac{17}{12},\\quad x=(\\frac{5}{6},\\frac{1}{6},\\frac{5}{6})",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"y=\\frac{1}{6},\\quad F(y)=\\frac{17}{12},\\quad x=(\\frac{5}{6},\\frac{1}{6},\\frac{5}{6})\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>y</mi><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>6</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><mi>F</mi><mrow><mo>(</mo><mi>y</mi><mo>)</mo></mrow><mo>=</mo><mfrac><mrow><mn>17</mn></mrow><mrow><mn>12</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><mi>x</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac><mrow><mn>5</mn></mrow><mrow><mn>6</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>6</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>5</mn></mrow><mrow><mn>6</mn></mrow></mfrac><mo>)</mo></mrow></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Feasible candidate (1-y,y,1-y) at y=1/6. Its exact squared norm is 17/12. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.",
+            "currentState": {
+              "kind": "minimum",
+              "y": 0.16666666666666666,
+              "value": 1.4166666666666667,
+              "vector": [
+                "5/6",
+                "1/6",
+                "5/6"
+              ],
+              "minimum": false
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "minimum",
+            "y": 0.3333333333333333,
+            "value": 1.0,
+            "vector": [
+              "2/3",
+              "1/3",
+              "2/3"
+            ],
+            "minimum": false
+          },
+          "caption": "Feasible candidate (1-y,y,1-y) at y=1/3. Its exact squared norm is 1. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.",
+          "captionHtml": "<p>Feasible candidate (1-y,y,1-y) at y=1/3. Its exact squared norm is 1. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.</p>",
+          "metrics": {},
+          "formula": "y=\\frac{1}{3},\\quad F(y)=1,\\quad x=(\\frac{2}{3},\\frac{1}{3},\\frac{2}{3})",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"y=\\frac{1}{3},\\quad F(y)=1,\\quad x=(\\frac{2}{3},\\frac{1}{3},\\frac{2}{3})\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>y</mi><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><mi>F</mi><mrow><mo>(</mo><mi>y</mi><mo>)</mo></mrow><mo>=</mo><mn>1</mn><mo>,</mo><mspace width=\"1em\" /><mi>x</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>)</mo></mrow></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Feasible candidate (1-y,y,1-y) at y=1/3. Its exact squared norm is 1. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.",
+            "currentState": {
+              "kind": "minimum",
+              "y": 0.3333333333333333,
+              "value": 1.0,
+              "vector": [
+                "2/3",
+                "1/3",
+                "2/3"
+              ],
+              "minimum": false
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "minimum",
+            "y": 0.5,
+            "value": 0.75,
+            "vector": [
+              "1/2",
+              "1/2",
+              "1/2"
+            ],
+            "minimum": false
+          },
+          "caption": "Feasible candidate (1-y,y,1-y) at y=1/2. Its exact squared norm is 3/4. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.",
+          "captionHtml": "<p>Feasible candidate (1-y,y,1-y) at y=1/2. Its exact squared norm is 3/4. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.</p>",
+          "metrics": {},
+          "formula": "y=\\frac{1}{2},\\quad F(y)=\\frac{3}{4},\\quad x=(\\frac{1}{2},\\frac{1}{2},\\frac{1}{2})",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"y=\\frac{1}{2},\\quad F(y)=\\frac{3}{4},\\quad x=(\\frac{1}{2},\\frac{1}{2},\\frac{1}{2})\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>y</mi><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><mi>F</mi><mrow><mo>(</mo><mi>y</mi><mo>)</mo></mrow><mo>=</mo><mfrac><mrow><mn>3</mn></mrow><mrow><mn>4</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><mi>x</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo>)</mo></mrow></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Feasible candidate (1-y,y,1-y) at y=1/2. Its exact squared norm is 3/4. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.",
+            "currentState": {
+              "kind": "minimum",
+              "y": 0.5,
+              "value": 0.75,
+              "vector": [
+                "1/2",
+                "1/2",
+                "1/2"
+              ],
+              "minimum": false
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "minimum",
+            "y": 0.6666666666666666,
+            "value": 0.6666666666666666,
+            "vector": [
+              "1/3",
+              "2/3",
+              "1/3"
+            ],
+            "minimum": true
+          },
+          "caption": "Feasible candidate (1-y,y,1-y) at y=2/3. Its exact squared norm is 2/3. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The square vanishes and the unique minimum 2/3 is attained.",
+          "captionHtml": "<p>Feasible candidate (1-y,y,1-y) at y=2/3. Its exact squared norm is 2/3. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The square vanishes and the unique minimum 2/3 is attained.</p>",
+          "metrics": {},
+          "formula": "y=\\frac{2}{3},\\quad F(y)=\\frac{2}{3},\\quad x=(\\frac{1}{3},\\frac{2}{3},\\frac{1}{3})",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"y=\\frac{2}{3},\\quad F(y)=\\frac{2}{3},\\quad x=(\\frac{1}{3},\\frac{2}{3},\\frac{1}{3})\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>y</mi><mo>=</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><mi>F</mi><mrow><mo>(</mo><mi>y</mi><mo>)</mo></mrow><mo>=</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><mi>x</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>2</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>)</mo></mrow></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Feasible candidate (1-y,y,1-y) at y=2/3. Its exact squared norm is 2/3. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The square vanishes and the unique minimum 2/3 is attained.",
+            "currentState": {
+              "kind": "minimum",
+              "y": 0.6666666666666666,
+              "value": 0.6666666666666666,
+              "vector": [
+                "1/3",
+                "2/3",
+                "1/3"
+              ],
+              "minimum": true
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "minimum",
+            "y": 0.8333333333333334,
+            "value": 0.75,
+            "vector": [
+              "1/6",
+              "5/6",
+              "1/6"
+            ],
+            "minimum": false
+          },
+          "caption": "Feasible candidate (1-y,y,1-y) at y=5/6. Its exact squared norm is 3/4. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.",
+          "captionHtml": "<p>Feasible candidate (1-y,y,1-y) at y=5/6. Its exact squared norm is 3/4. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.</p>",
+          "metrics": {},
+          "formula": "y=\\frac{5}{6},\\quad F(y)=\\frac{3}{4},\\quad x=(\\frac{1}{6},\\frac{5}{6},\\frac{1}{6})",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"y=\\frac{5}{6},\\quad F(y)=\\frac{3}{4},\\quad x=(\\frac{1}{6},\\frac{5}{6},\\frac{1}{6})\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>y</mi><mo>=</mo><mfrac><mrow><mn>5</mn></mrow><mrow><mn>6</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><mi>F</mi><mrow><mo>(</mo><mi>y</mi><mo>)</mo></mrow><mo>=</mo><mfrac><mrow><mn>3</mn></mrow><mrow><mn>4</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><mi>x</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>6</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>5</mn></mrow><mrow><mn>6</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>6</mn></mrow></mfrac><mo>)</mo></mrow></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Feasible candidate (1-y,y,1-y) at y=5/6. Its exact squared norm is 3/4. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.",
+            "currentState": {
+              "kind": "minimum",
+              "y": 0.8333333333333334,
+              "value": 0.75,
+              "vector": [
+                "1/6",
+                "5/6",
+                "1/6"
+              ],
+              "minimum": false
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "minimum",
+            "y": 1.0,
+            "value": 1.0,
+            "vector": [
+              "0",
+              "1",
+              "0"
+            ],
+            "minimum": false
+          },
+          "caption": "Feasible candidate (1-y,y,1-y) at y=1. Its exact squared norm is 1. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.",
+          "captionHtml": "<p>Feasible candidate (1-y,y,1-y) at y=1. Its exact squared norm is 1. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.</p>",
+          "metrics": {},
+          "formula": "y=1,\\quad F(y)=1,\\quad x=(0,1,0)",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"y=1,\\quad F(y)=1,\\quad x=(0,1,0)\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>y</mi><mo>=</mo><mn>1</mn><mo>,</mo><mspace width=\"1em\" /><mi>F</mi><mrow><mo>(</mo><mi>y</mi><mo>)</mo></mrow><mo>=</mo><mn>1</mn><mo>,</mo><mspace width=\"1em\" /><mi>x</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>)</mo></mrow></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Feasible candidate (1-y,y,1-y) at y=1. Its exact squared norm is 1. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.",
+            "currentState": {
+              "kind": "minimum",
+              "y": 1.0,
+              "value": 1.0,
+              "vector": [
+                "0",
+                "1",
+                "0"
+              ],
+              "minimum": false
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "minimum",
+            "y": 1.3333333333333333,
+            "value": 2.0,
+            "vector": [
+              "-1/3",
+              "4/3",
+              "-1/3"
+            ],
+            "minimum": false
+          },
+          "caption": "Feasible candidate (1-y,y,1-y) at y=4/3. Its exact squared norm is 2. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.",
+          "captionHtml": "<p>Feasible candidate (1-y,y,1-y) at y=4/3. Its exact squared norm is 2. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.</p>",
+          "metrics": {},
+          "formula": "y=\\frac{4}{3},\\quad F(y)=2,\\quad x=(-\\frac{1}{3},\\frac{4}{3},-\\frac{1}{3})",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"y=\\frac{4}{3},\\quad F(y)=2,\\quad x=(-\\frac{1}{3},\\frac{4}{3},-\\frac{1}{3})\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>y</mi><mo>=</mo><mfrac><mrow><mn>4</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mspace width=\"1em\" /><mi>F</mi><mrow><mo>(</mo><mi>y</mi><mo>)</mo></mrow><mo>=</mo><mn>2</mn><mo>,</mo><mspace width=\"1em\" /><mi>x</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mrow><mo>(</mo><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mfrac><mrow><mn>4</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>,</mo><mo>-</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo>)</mo></mrow></mrow></mtd></mtr></mtable></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Feasible candidate (1-y,y,1-y) at y=4/3. Its exact squared norm is 2. The curve is F(y)=3(y-2/3)^2+2/3, and the moving point is this objective value, not a spatial drawing of the 3D vector. The nonnegative extra square explains its excess above the exact minimum.",
+            "currentState": {
+              "kind": "minimum",
+              "y": 1.3333333333333333,
+              "value": 2.0,
+              "vector": [
+                "-1/3",
+                "4/3",
+                "-1/3"
+              ],
+              "minimum": false
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        }
+      ]
+    },
+    "vectors-question-gram-schmidt": {
+      "id": "vectors-question-gram-schmidt",
+      "title": "Tutorial 22: Gram–Schmidt with dependent and zero inputs",
+      "description": "Four real planar inputs are processed in order. Each checkpoint shows the current input, residual and retained unit directions. A zero residual is skipped; later independent input still adds a direction.",
+      "descriptionHtml": "<p>Four real planar inputs are processed in order. Each checkpoint shows the current input, residual and retained unit directions. A zero residual is skipped; later independent input still adds a direction.</p>",
+      "invariant": "Every checkpoint uses the displayed source hypothesis, exact arithmetic and named geometry. A literal source ambiguity is distinguished from an added normalized interpretation.",
+      "visual": {
+        "type": "enumeration",
+        "claim": "Four real planar inputs are processed in order. Each checkpoint shows the current input, residual and retained unit directions. A zero residual is skipped; later independent input still adds a direction."
+      },
+      "code": [
+        "State the geometry; construct the candidate; verify the exact defining conditions"
+      ],
+      "frames": [
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "orthogonalize",
+            "stage": 0,
+            "input": [
+              1,
+              1
+            ],
+            "residual": [
+              1,
+              1
+            ],
+            "basis": [],
+            "inputIndex": 0
+          },
+          "caption": "Read the first input; there is no retained basis yet.",
+          "captionHtml": "<p>Read the first input; there is no retained basis yet.</p>",
+          "metrics": {},
+          "formula": "w_1=v_1=(1,1)",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"w_1=v_1=(1,1)\"><mrow><msub><mi>w</mi><mn>1</mn></msub><mo>=</mo><msub><mi>v</mi><mn>1</mn></msub><mo>=</mo><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Read the first input; there is no retained basis yet.",
+            "currentState": {
+              "kind": "orthogonalize",
+              "stage": 0,
+              "input": [
+                1,
+                1
+              ],
+              "residual": [
+                1,
+                1
+              ],
+              "basis": [],
+              "inputIndex": 0
+            },
+            "initial": true,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "orthogonalize",
+            "stage": 1,
+            "input": [
+              1,
+              1
+            ],
+            "residual": [
+              1,
+              1
+            ],
+            "basis": [
+              [
+                0.7071067811865476,
+                0.7071067811865476
+              ]
+            ],
+            "inputIndex": 0
+          },
+          "caption": "Normalize the nonzero residual and retain the first unit direction.",
+          "captionHtml": "<p>Normalize the nonzero residual and retain the first unit direction.</p>",
+          "metrics": {},
+          "formula": "q_1=\\frac{(1,1)}{\\sqrt2}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"q_1=\\frac{(1,1)}{\\sqrt2}\"><mrow><msub><mi>q</mi><mn>1</mn></msub><mo>=</mo><mfrac><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></mrow><mrow><msqrt><mn>2</mn></msqrt></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Normalize the nonzero residual and retain the first unit direction.",
+            "currentState": {
+              "kind": "orthogonalize",
+              "stage": 1,
+              "input": [
+                1,
+                1
+              ],
+              "residual": [
+                1,
+                1
+              ],
+              "basis": [
+                [
+                  0.7071067811865476,
+                  0.7071067811865476
+                ]
+              ],
+              "inputIndex": 0
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "orthogonalize",
+            "stage": 2,
+            "input": [
+              2,
+              2
+            ],
+            "residual": [
+              2,
+              2
+            ],
+            "basis": [
+              [
+                0.7071067811865476,
+                0.7071067811865476
+              ]
+            ],
+            "inputIndex": 1
+          },
+          "caption": "Read the second input; it already belongs to the retained span.",
+          "captionHtml": "<p>Read the second input; it already belongs to the retained span.</p>",
+          "metrics": {},
+          "formula": "v_2=2v_1",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"v_2=2v_1\"><mrow><msub><mi>v</mi><mn>2</mn></msub><mo>=</mo><mn>2</mn><msub><mi>v</mi><mn>1</mn></msub></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Read the second input; it already belongs to the retained span.",
+            "currentState": {
+              "kind": "orthogonalize",
+              "stage": 2,
+              "input": [
+                2,
+                2
+              ],
+              "residual": [
+                2,
+                2
+              ],
+              "basis": [
+                [
+                  0.7071067811865476,
+                  0.7071067811865476
+                ]
+              ],
+              "inputIndex": 1
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "orthogonalize",
+            "stage": 3,
+            "input": [
+              2,
+              2
+            ],
+            "residual": [
+              0,
+              0
+            ],
+            "basis": [
+              [
+                0.7071067811865476,
+                0.7071067811865476
+              ]
+            ],
+            "inputIndex": 1
+          },
+          "caption": "Subtract its complete projection. Skip the zero residual instead of dividing by zero.",
+          "captionHtml": "<p>Subtract its complete projection. Skip the zero residual instead of dividing by zero.</p>",
+          "metrics": {},
+          "formula": "w_2=v_2-\\langle q_1,v_2\\rangle q_1=0",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"w_2=v_2-\\langle q_1,v_2\\rangle q_1=0\"><mrow><msub><mi>w</mi><mn>2</mn></msub><mo>=</mo><msub><mi>v</mi><mn>2</mn></msub><mo>-</mo><mrow><mo>⟨</mo><msub><mi>q</mi><mn>1</mn></msub><mo>,</mo><msub><mi>v</mi><mn>2</mn></msub><mo>⟩</mo></mrow><msub><mi>q</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Subtract its complete projection. Skip the zero residual instead of dividing by zero.",
+            "currentState": {
+              "kind": "orthogonalize",
+              "stage": 3,
+              "input": [
+                2,
+                2
+              ],
+              "residual": [
+                0,
+                0
+              ],
+              "basis": [
+                [
+                  0.7071067811865476,
+                  0.7071067811865476
+                ]
+              ],
+              "inputIndex": 1
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "orthogonalize",
+            "stage": 4,
+            "input": [
+              0,
+              0
+            ],
+            "residual": [
+              0,
+              0
+            ],
+            "basis": [
+              [
+                0.7071067811865476,
+                0.7071067811865476
+              ]
+            ],
+            "inputIndex": 2
+          },
+          "caption": "The explicit zero input is also skipped. Skipping does not terminate the algorithm.",
+          "captionHtml": "<p>The explicit zero input is also skipped. Skipping does not terminate the algorithm.</p>",
+          "metrics": {},
+          "formula": "w_3=0",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"w_3=0\"><mrow><msub><mi>w</mi><mn>3</mn></msub><mo>=</mo><mn>0</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "The explicit zero input is also skipped. Skipping does not terminate the algorithm.",
+            "currentState": {
+              "kind": "orthogonalize",
+              "stage": 4,
+              "input": [
+                0,
+                0
+              ],
+              "residual": [
+                0,
+                0
+              ],
+              "basis": [
+                [
+                  0.7071067811865476,
+                  0.7071067811865476
+                ]
+              ],
+              "inputIndex": 2
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "orthogonalize",
+            "stage": 5,
+            "input": [
+              1,
+              -1
+            ],
+            "residual": [
+              1,
+              -1
+            ],
+            "basis": [
+              [
+                0.7071067811865476,
+                0.7071067811865476
+              ]
+            ],
+            "inputIndex": 3
+          },
+          "caption": "The fourth input is perpendicular to the retained direction and remains nonzero.",
+          "captionHtml": "<p>The fourth input is perpendicular to the retained direction and remains nonzero.</p>",
+          "metrics": {},
+          "formula": "\\langle q_1,v_4\\rangle=0",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"\\langle q_1,v_4\\rangle=0\"><mrow><mrow><mo>⟨</mo><msub><mi>q</mi><mn>1</mn></msub><mo>,</mo><msub><mi>v</mi><mn>4</mn></msub><mo>⟩</mo></mrow><mo>=</mo><mn>0</mn></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "The fourth input is perpendicular to the retained direction and remains nonzero.",
+            "currentState": {
+              "kind": "orthogonalize",
+              "stage": 5,
+              "input": [
+                1,
+                -1
+              ],
+              "residual": [
+                1,
+                -1
+              ],
+              "basis": [
+                [
+                  0.7071067811865476,
+                  0.7071067811865476
+                ]
+              ],
+              "inputIndex": 3
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "orthogonalize",
+            "stage": 6,
+            "input": [
+              1,
+              -1
+            ],
+            "residual": [
+              1,
+              -1
+            ],
+            "basis": [
+              [
+                0.7071067811865476,
+                0.7071067811865476
+              ],
+              [
+                0.7071067811865476,
+                -0.7071067811865476
+              ]
+            ],
+            "inputIndex": 3
+          },
+          "caption": "Normalize and retain the second direction; both have unit norm and zero cross product.",
+          "captionHtml": "<p>Normalize and retain the second direction; both have unit norm and zero cross product.</p>",
+          "metrics": {},
+          "formula": "q_2=\\frac{(1,-1)}{\\sqrt2}",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"q_2=\\frac{(1,-1)}{\\sqrt2}\"><mrow><msub><mi>q</mi><mn>2</mn></msub><mo>=</mo><mfrac><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mo>-</mo><mn>1</mn><mo>)</mo></mrow><mrow><msqrt><mn>2</mn></msqrt></mrow></mfrac></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "Normalize and retain the second direction; both have unit norm and zero cross product.",
+            "currentState": {
+              "kind": "orthogonalize",
+              "stage": 6,
+              "input": [
+                1,
+                -1
+              ],
+              "residual": [
+                1,
+                -1
+              ],
+              "basis": [
+                [
+                  0.7071067811865476,
+                  0.7071067811865476
+                ],
+                [
+                  0.7071067811865476,
+                  -0.7071067811865476
+                ]
+              ],
+              "inputIndex": 3
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
+          }
+        },
+        {
+          "nodes": [],
+          "edges": [],
+          "snapshot": {
+            "kind": "orthogonalize",
+            "stage": 7,
+            "input": [
+              1,
+              -1
+            ],
+            "residual": [
+              1,
+              -1
+            ],
+            "basis": [
+              [
+                0.7071067811865476,
+                0.7071067811865476
+              ],
+              [
+                0.7071067811865476,
+                -0.7071067811865476
+              ]
+            ],
+            "inputIndex": 3
+          },
+          "caption": "The final two vectors are an orthonormal basis for all four inputs. Two redundant inputs were skipped.",
+          "captionHtml": "<p>The final two vectors are an orthonormal basis for all four inputs. Two redundant inputs were skipped.</p>",
+          "metrics": {},
+          "formula": "Q^TQ=I_2",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"Q^TQ=I_2\"><mrow><msup><mi>Q</mi><mi>T</mi></msup><mi>Q</mi><mo>=</mo><msub><mi>I</mi><mn>2</mn></msub></mrow></math></div>",
+          "line": 0,
+          "teaching": {
+            "operation": "Follow the declared exact geometric or algebraic operation",
+            "why": "The final two vectors are an orthonormal basis for all four inputs. Two redundant inputs were skipped.",
+            "currentState": {
+              "kind": "orthogonalize",
+              "stage": 7,
+              "input": [
+                1,
+                -1
+              ],
+              "residual": [
+                1,
+                -1
+              ],
+              "basis": [
+                [
+                  0.7071067811865476,
+                  0.7071067811865476
+                ],
+                [
+                  0.7071067811865476,
+                  -0.7071067811865476
+                ]
+              ],
+              "inputIndex": 3
+            },
+            "initial": false,
+            "activeLine": 0,
+            "changes": [],
+            "checks": [],
+            "reading": "Blue is the given input; green is the verified construction. The source-formula comparison uses purple. Geometry uses equal coordinate scales where a spatial plane is shown. An algebraic board or objective plot is explicitly labeled as such. Transit is between exact checkpoints, not a new exact theorem."
           }
         }
       ]
