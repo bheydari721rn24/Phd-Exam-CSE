@@ -802,4 +802,3 @@ At the minimizing point, the dot product with the line direction is $(1/3)(-1)+(
 | $0$ | $(1,0,1)$ | $2$ |
 | $2/3$ | $(1/3,2/3,1/3)$ | $2/3$ |
 | $1$ | $(0,1,0)$ | $1$ |
-

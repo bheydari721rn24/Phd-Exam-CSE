@@ -1,0 +1,132 @@
+{
+  "chapter": "p_types",
+  "reviewed_on": "2026-10-12",
+  "status": "completed_harvard_and_mit_fresh_reading_stanford_renewal_unavailable",
+  "scope": "Harvard and Stanford roles were reassessed within the existing seven-offering/six-university pool. Parent explicitly added MIT written-source renewal after Stanford access failed. This report freshly reads Harvard and MIT; Stanford's old full-slide evidence is historical only. No global course census, arbitrary four-course optimum, or complete-course reading is claimed.",
+  "inputs_read": ["research/p_types-source-audit.md", "research/p_types-reviewed-courses.json"],
+  "fresh_documents": [
+    {
+      "university": "Harvard University",
+      "course": "David J. Malan: CS50x 2025, Lecture 1 written notes",
+      "url": "https://cs50.harvard.edu/x/2025/notes/1/",
+      "course_url": "https://cs50.harvard.edu/x/2025/weeks/1/",
+      "local_path": "C:/Users/bheydari/AppData/Local/Temp/deep-types-sources/harvard.html",
+      "sha256": "474b80b131768e19cc3736d452108edd6b70c45f3de47328eb602651726f2789",
+      "hash_comparison": "Fresh download matches the previous recorded HTML hash exactly.",
+      "sections_read": [
+        {"heading": "Types", "web_text_lines": "286-309", "reading": "Complete section"},
+        {"heading": "Conditionals", "web_text_lines": "310-365", "reading": "Complete section as relevant comparison context"},
+        {"heading": "Operators", "web_text_lines": "366-375", "reading": "Complete section"},
+        {"heading": "Variables", "web_text_lines": "376-408", "reading": "Complete section"},
+        {"heading": "compare.c and agree.c", "web_text_lines": "409-551", "reading": "Complete comparison/character/logical example bodies"},
+        {"heading": "More About Operators", "web_text_lines": "936-1025", "reading": "Complete section"},
+        {"heading": "Truncation", "web_text_lines": "1026-1071", "reading": "Complete section"}
+      ],
+      "reading_method": "Actual official written HTML body was freshly read through the web reader and downloaded. Loops, Mario, functions and their entire exercise banks were not counted as part of the chapter reading.",
+      "role": "Retain foundational C examples; expand mathematical semantics independently rather than adopting every informal limit statement."
+    },
+    {
+      "university": "Massachusetts Institute of Technology",
+      "course": "6.0001 Introduction to Computer Science and Programming in Python, Fall 2016; Ana Bell, Eric Grimson and John Guttag; Lecture 1 by Ana Bell",
+      "course_url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/",
+      "url": "https://live.ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/e921a690079369751bcce3e34da6c6ee_MIT6_0001F16_Lec1.pdf",
+      "official_resource_index": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/pages/lecture-slides-code/",
+      "pdf_pages_read": "23-34 inclusive, one-based PDF page numbers",
+      "web_text_lines_read": "187-291 inclusive, plus course identity and Python 3.5 declaration",
+      "reading_method": "Genuine reading of the actual official PDF text returned by the web reader. Local downloads from ocw.mit.edu and live.ocw.mit.edu failed with timeout/connection errors. No downloaded-PDF hash, local visual audit or entire-course reading is claimed.",
+      "subsections": ["Python programs", "Objects and scalar objects", "Type conversions", "Printing versus expression evaluation", "Expressions and numeric operators", "Precedence", "Bindings", "Expression names", "Programming versus algebra", "Changing bindings"],
+      "language_contract": "The official course explicitly uses Python 3.5. Its value/binding pedagogy is used as a labelled comparison; its arithmetic rules are not imported into C17.",
+      "role": "Freshly reviewed conceptual source for values, types, conversions and assignment snapshots; advanced C conversion/overflow/sequence rules require separate normative evidence."
+    },
+    {
+      "university": "Massachusetts Institute of Technology",
+      "course": "6.0001 Fall 2016, Lecture 1 written in-class questions",
+      "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/pages/in-class-questions-and-video-solutions/lecture-1/",
+      "web_text_lines_read": "139-215 inclusive: all three written questions, code fragments and answer options",
+      "reading_method": "Actual official question bodies and published answer markers read. No video was watched or needed. Local HTML download timed out, so no fresh local hash is claimed.",
+      "question_types_read": [
+        "Shell vs. Editor: evaluating an expression in a script does not by itself print the expression value; distinguish it from an explicit print call.",
+        "Python vs. Math: an assignment target must be valid Python syntax; a multi-letter identifier is one name, not implicit multiplication.",
+        "Bindings: computing a total stores the current result; rebinding a contributing scalar does not retroactively recalculate that total."
+      ],
+      "use_limit": "Describe these provenance types and write independently parameterized questions and explanatory solutions. Do not reproduce the complete question bank or copy protected explanatory prose."
+    }
+  ],
+  "stanford_renewal": {
+    "course": "Stanford CS107 Winter 2020; instructors Jerry Cain and Lisa Yan",
+    "course_url": "https://web.stanford.edu/class/archive/cs/cs107/cs107.1204/",
+    "pdf_url": "https://web.stanford.edu/class/archive/cs/cs107/cs107.1204/lectures/2/Lecture2.pdf",
+    "requested_bounds": "Slides 78-101 and 109-115, plus representation context",
+    "freshly_read_bounds": "No requested complete PDF-slide range freshly read in this run. Course index freshly read and instructor/term identity verified. A search-index excerpt of slide 115 is insufficient to claim reading the slide range.",
+    "historical_evidence": "The previous source audit records reading the requested slides and a PDF hash aaafdc1e460ceea56d09f0de3961b0bf380ec87a37b72806e23e67e0fb249946. This report explicitly does not treat that historical hash as proof of a fresh read.",
+    "access_outcomes": ["Web PDF fetch timed out", "Local requests connection failed", "curl could not resolve web.stanford.edu", "Previously named temporary source cache was empty", "Parent's bounded cache search found no matching CS107 PDF"],
+    "decision": "Retain as a historically reviewed, representation-oriented reference whose renewal remains unavailable. Do not advertise a freshly confirmed Stanford body or a fresh visual errata check. Further repeated retries were stopped after parent direction."
+  },
+  "source_claim_verification": [
+    {
+      "source": "Harvard, More About Operators, current line 989",
+      "previous_claim": "The notes give 4294967295 as the signed int maximum and imply stored incorrect values after overflow.",
+      "fresh_result": "The number and stored-value explanation genuinely remain in the original current HTML. In the declared 32-bit signed model, 2147483647 is the maximum; 4294967295 is the 32-bit unsigned maximum. C17 signed arithmetic overflow has no portable numeric output.",
+      "classification": "Verified error for the chapter's explicitly declared 32-bit signed contract; do not describe every hypothetical C implementation as necessarily 32-bit."
+    },
+    {
+      "source": "Harvard, More About Operators, lines 992-1024",
+      "previous_claim": "Using long allows larger values.",
+      "fresh_result": "This is a machine/course assumption, not a universally guaranteed strict size increase. Retain the environmental explanation but qualify it using the chapter's model.",
+      "classification": "Platform-specific shorthand requiring an explicit assumption, not an unconditional course error."
+    },
+    {
+      "source": "Harvard, Types and Hello You context",
+      "previous_claim": "string is listed with C types.",
+      "fresh_result": "The written context introduces cs50.h before its string examples. Explain the CS50 library alias, rather than falsely accuse the source of introducing a standard C keyword.",
+      "classification": "Library-supported teaching notation requiring clarification."
+    },
+    {
+      "source": "Harvard, Truncation",
+      "fresh_result": "Its integer-division explanation is useful for valid inputs, but difficult problems must additionally check divisor zero and unrepresentable quotient. Switching to float changes arithmetic and introduces precision limits; it is not a general exactness remedy.",
+      "classification": "Incomplete beginner example requiring safety and numerical-depth expansion."
+    },
+    {
+      "source": "Stanford prior cast, mixed-rank, narrowing, printf and sizeof allegations",
+      "fresh_result": "The exact original slide wording/images could not be renewed. Do not claim these as freshly verified source errata. Separate previously recorded machine-oriented simplifications from the independently verified portable rules.",
+      "classification": "Historical allegations with fresh direct confirmation pending."
+    },
+    {
+      "source": "MIT Lecture 1 numeric-operator slide",
+      "fresh_result": "The text extraction loses some visual grouping. No new source-error allegation is made from this ambiguity. Teach Python operator precedence and result types with explicit assumptions and labelled language semantics.",
+      "classification": "Extraction limitation, not proof of a source error."
+    }
+  ],
+  "fresh_normative_check": {
+    "identity": "WG14 N1570, public C11 committee draft dated April 12, 2011; relevant stable rules are cross-checks for the declared C17 chapter, not a claim to possess the published C17 standard",
+    "url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf",
+    "reading_method": "Fresh actual official PDF text read for the named clauses; not the whole standard.",
+    "clauses_and_bounds": [
+      "6.3.1.1-6.3.1.4 relevant bodies: web lines 2341-2383; one-based PDF pages 69-70",
+      "6.5 paragraphs 1-5 and relevant footnotes: lines 3225-3261; PDF page 94",
+      "6.5.3.4 paragraphs 1-5 and VLA example: lines 3745-3785; PDF pages 108-109",
+      "6.5.4 paragraphs 1-6 and 6.5.5 paragraphs 1-6: lines 3795-3840; PDF pages 109-110"
+    ],
+    "confirmed_rules": "Distinguish value-preserving conversions, unsigned modular conversion and out-of-range signed conversion. Casts convert values. Signed overflow and invalid division are undefined. Integer division truncates toward zero when valid. sizeof yields size_t and has a VLA exception. Unsequenced conflicting accesses are undefined."
+  },
+  "coverage_assessment": {
+    "four_fresh_course_route": "If the companion Berkeley and Princeton reports confirm their promised fresh body readings, Harvard, Berkeley, Princeton and MIT provide four genuinely reviewed university course bodies within the already documented pool. They are complementary selections, not an asserted global optimum.",
+    "strengths": "Harvard and Berkeley supply a C entry route; Princeton supplies labelled Java expression/value patterns; MIT supplies labelled Python binding/conversion patterns. Cross-language comparison can sharpen distinctions rather than blur them.",
+    "gap": "These four selected teaching sections alone do not establish all advanced C17 promotions, usual arithmetic conversions, sequencing, shifts, format contracts and floating semantics. The chapter must preserve explicit normative checks, original proofs and assumption-specific problem audits. Harvard plus MIT alone cannot honestly be labelled complete C17 coverage.",
+    "stanford_role": "Stanford's prior reading remains useful historical context but must be described separately from the four freshly reviewed bodies until direct renewal succeeds."
+  },
+  "recommended_original_problem_types": [
+    "Annotate each expression with operand values, declared types, promoted types, common type and intermediate value; distinguish mathematical integers from bounded machine operations.",
+    "Contrast casting before integer division with casting its already-truncated result. Include negative operands, a divisor-zero guard and the minimum-signed-value divided by minus-one exception without executing invalid code.",
+    "Prove unsigned residue conversion algebraically, then show why signed narrowing and signed arithmetic overflow are different semantic categories.",
+    "Derive an overflow-safe positive doubling guard before multiplication, rather than predict outputs from a signed-overflow execution.",
+    "Use short-circuit conditions to protect a valid division and show exactly which operand is evaluated; separate logical truth from bitwise operations.",
+    "Compare C assignment snapshots, Python scalar bindings and Java assignments through separately labelled, independently worded state ledgers.",
+    "Distinguish expression evaluation in a Python file from an explicit print call; do not equate interactive-shell display with language assignment semantics.",
+    "Use full mathematical quotient/remainder equations for negative valid C division, then explicitly contrast Python floor-division semantics when that independently verified language rule is introduced.",
+    "Derive representability of binary rational fractions and explain why a floating cast or more printed digits cannot reconstruct information lost earlier.",
+    "Classify each unsafe fragment before any numeric tracing: constraint violation, implementation-defined result, unspecified order, undefined behavior or a fully defined expression under declared assumptions."
+  ],
+  "execution_policy": "No undefined-behavior C fragment was executed to infer a portable output. No full lecture/solution transcript or source asset was redistributed. Only this research report was written.",
+  "remaining_limits": ["Stanford requested PDF ranges were not freshly accessible", "No local MIT PDF or question-page hash is fabricated", "No whole-course or global-course reading is claimed", "Coverage and correctness require mathematical/content audits rather than an unsupported literal 100 percent guarantee"]
+}

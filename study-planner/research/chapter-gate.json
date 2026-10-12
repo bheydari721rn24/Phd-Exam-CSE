@@ -1,17 +1,17 @@
 {
-  "currentTopicId": "p_types",
+  "currentTopicId": "p_flow",
   "state": "in_progress",
   "nextTopicRequiresExplicitApproval": false,
   "nextTopicId": null,
   "sourceAuditPath": "research/deep-library-revision/REVIEW_PROTOCOL.md",
   "examAuditPath": "research/exam-calibration/archive-manifest.json",
-  "lastCompletedReview": "l_matrices:47 complete answer rewrites,33 final decisions,seven construction sections,two rebuilt figures and dedicated models.",
-  "nextReview": "Review p_types individually, then continue the frozen existing-library order.",
+  "lastCompletedReview": "p_types:45 complete answer rewrites,40 final decisions,ten solved transfer challenges,two rebuilt figures and21 distinct models.",
+  "nextReview": "Review control flow individually, then continue frozen existing-library order.",
   "rule": "Author one chapter at a time, finish its source, mathematical, problem, visual and browser audits, deliver as a review draft, then continue under standing user authorization. Never label an unapproved draft student-approved.",
   "studyStartJalali": "1405/07/11",
-  "qualityAuditPath": "research/deep-library-revision/l_matrices-revision.json",
+  "qualityAuditPath": "research/deep-library-revision/p_types-revision.json",
   "approvedTopicId": "p_recursion",
-  "activeWork": "Continue individual whole-library review: eleven checked review drafts,49 remaining. Preserve unfinished projection authoring.",
+  "activeWork": "Continue individual whole-library review: twelve checked review drafts,48 remaining. Preserve unfinished projection authoring.",
   "revisionTracker": "research/exam-calibration/manifest.json",
   "libraryReviewReportPath": "research/exam-calibration/DELIVERY.en.md",
   "approvedLibraryReview": false,
@@ -32,7 +32,7 @@
     "research/l_projection-evidence/draft-mathematics.json"
   ],
   "libraryVisualQuestionReviewPath": "research/library-visual-question-review/manifest.json",
-  "publicationState": "nine_reviewed_chapters_confirmed_online_two_more_checked_locally",
+  "publicationState": "eleven_confirmed_online_one_additional_checked_locally",
   "publicationRecordPath": "research/s_distributions-publication.json",
   "approvedVersion": 82,
   "publishedVersion": null,
@@ -280,16 +280,16 @@
   },
   "libraryRevisionProgressPath": "research/deep-library-revision/progress.json",
   "latestLibraryRevisionPublication": {
-    "sourceCommit": "cac0ef58f67a154295bc10f557b00dd6a3989a1e",
-    "githubMirrorCommit": "4a96fb9",
-    "deploymentId": "appgdep_6acc0c3c7a048191bd517ab26e3b8172",
-    "versionId": "appgprj_6ab5666f72b081918286c6b371c1eb1b~appgver_4f67f3d3c5788191bde73d9ac3ff868d",
+    "sourceCommit": "44c760435cb24a1f7eaafac9bfb15905c818e305",
+    "githubMirrorCommit": "3b9fbef",
+    "deploymentId": "appgdep_6acca8ae73d48191b878b8859e0cad71",
+    "versionId": "appgprj_6ab5666f72b081918286c6b371c1eb1b~appgver_40f750ae9914819182597958fa263163",
     "status": "succeeded",
     "audience": "owner-private",
     "url": "https://phd-cse-1406-plan.bheydari-as721rn.chatgpt.site",
-    "updatedAt": "2026-10-11T22:23:14.252646+00:00",
-    "archive": "C:/Users/bheydari/AppData/Local/Temp/deep-axioms-immutable-20261012.tar.gz",
-    "archiveSha256": "89a56713899d5e13b1c82af4c7ec7d0e96e2aae2c34e8491fa17064ca9f790b1",
+    "updatedAt": "2026-10-12T09:30:47.371678+00:00",
+    "archive": "C:/Users/bheydari/AppData/Local/Temp/deep-matrices-immutable-20261012.tar.gz",
+    "archiveSha256": "d5c55a618a968ece3a0f0c2e8ac454c9a5cbf61162b8265de66ae0a19e7872cd",
     "archiveEntries": 489,
     "includedRevisions": [
       "d_logic",
@@ -299,10 +299,13 @@
       "a_model",
       "a_asym",
       "a_loop",
-      "s_axioms"
+      "s_axioms",
+      "s_counting",
+      "l_vectors",
+      "l_matrices"
     ],
     "studentApproved": false,
-    "note": "The exact committed and pushed archive was byte-verified before the private save-and-deploy operation returned succeeded. This supersedes the failed asymptotic and loop upload attempts. The remaining 52 chapters retain their older editions and are not represented as individually revised."
+    "note": "The exact pushed static source archive was byte-verified and privately deployed successfully. This combined publication supersedes the three unsuccessful vector-only archive uploads. Eleven of sixty existing chapters are individually revised; the remaining forty-nine retain earlier editions. The next programming chapter has not been rewritten or published as a completed review."
   },
-  "latestConfirmedSiteContentCommit": "e544fec55d6eff60d6599616a6988ac7a6f025a4"
+  "latestConfirmedSiteContentCommit": "44c760435cb24a1f7eaafac9bfb15905c818e305"
 }

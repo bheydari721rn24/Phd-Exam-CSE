@@ -23,7 +23,7 @@ $$21\cdot16=336.$$
 
 ### Why matrix rank does not answer this question
 
-Over the reals, the coefficient rows are independent and the affine solution set has dimension $5-2=3$. That describes continuous degrees of freedom; it is not the cardinality of its nonnegative integer points. The nonnegative boundaries make a finite lattice problem. For totals $r$ and $t$, the same decomposition gives $\binom{r+2}{2}(t-r+1)$ when $0\le r\le t$ are integers, and zero if $t<r$. These domain tests must precede the counting formula. No official answer key is invented: option 4 is independently derived from the original statement.''' 
+Over the reals, the coefficient rows are independent and the affine solution set has dimension $5-2=3$. That describes continuous degrees of freedom; it is not the cardinality of its nonnegative integer points. The nonnegative boundaries make a finite lattice problem. For totals $r$ and $t$, the same decomposition gives $\binom{r+2}{2}(t-r+1)$ when $0\le r\le t$ are integers, and zero if $t<r$. These domain tests must precede the counting formula. No official answer key is invented: option 4 is independently derived from the original statement.'''
 families=[]
 families.append((6,[4,3,2,1],r'''Let $q=(1,\ldots,1)^T$ and $J=qq^T$. For every vector $x$,
 $$Jx=\left(\sum_{i=1}^n x_i\right)q,\qquad Jq=nq.$$
@@ -131,7 +131,7 @@ An explicit basis certifies the count:
 $$\{E_{ii}-E_{55}:1\le i\le4\}\ \cup\ \{E_{ij}+E_{ji}:1\le i<j\le5,\ (i,j)\ne(1,2)\}.$$
 There are four diagonal-difference vectors and nine off-diagonal pair vectors. Inspecting the first four diagonal entries and each permitted upper entry proves their independence. Any allowed matrix is reconstructed with those entries as coefficients, proving spanning. Therefore $4+9=13$.
 
-Fifteen ignores both constraints. Fourteen removes only one. Twelve wrongly counts the mirrored requirements $a_{12}=a_{21}=0$ as two separate restrictions after symmetry has already identified their parameter. More generally, on symmetric $n\times n$ matrices with $n\ge2$, trace zero and one specified off-diagonal zero give dimension $n(n+1)/2-2$. The off-diagonal condition has no meaning at $n=1$, so this formula must not be used there.''' 
+Fifteen ignores both constraints. Fourteen removes only one. Twelve wrongly counts the mirrored requirements $a_{12}=a_{21}=0$ as two separate restrictions after symmetry has already identified their parameter. More generally, on symmetric $n\times n$ matrices with $n\ge2$, trace zero and one specified off-diagonal zero give dimension $n(n+1)/2-2$. The off-diagonal condition has no meaning at $n=1$, so this formula must not be used there.'''
 A[39]=r'''**Correct option: 4.** The columns are $(2,1)^T$ and $(1,0)^T$ in the stated ordered basis.
 
 The standard-coordinate images are $T(b_1)=(3,1)^T$ and $T(b_2)=(1,1)^T$. New matrix columns must contain their **basis coordinates**, not their standard coordinates. With $b_1=(1,1)^T$ and $b_2=(1,-1)^T$, the coordinate equation is
@@ -142,7 +142,7 @@ Reconstruction verifies both columns: $2b_1+b_2=(3,1)^T$ and $b_1=(1,1)^T$. This
 
 Option 2 copies the unconverted standard images into columns. Option 1's second column $(0,1)$ reconstructs $b_2=(1,-1)$, the wrong second image. Option 3's first column $(2,0)$ reconstructs $(2,2)$ rather than $(3,1)$. These exact reconstructions diagnose each alternative.
 
-For an additional verification, the old standard matrix is also $\begin{pmatrix}2&1\\1&0\end{pmatrix}$, since the two images and invertible basis matrix determine it. Conjugating with $B=\begin{pmatrix}1&1\\1&-1\end{pmatrix}$ gives this same array in the new basis. That equality is a specific coincidence, not a theorem that basis changes preserve entries. A map is basis-independent as an abstract transformation, while its array generally depends on the selected ordered basis.''' 
+For an additional verification, the old standard matrix is also $\begin{pmatrix}2&1\\1&0\end{pmatrix}$, since the two images and invertible basis matrix determine it. Conjugating with $B=\begin{pmatrix}1&1\\1&-1\end{pmatrix}$ gives this same array in the new basis. That equality is a specific coincidence, not a theorem that basis changes preserve entries. A map is basis-independent as an abstract transformation, while its array generally depends on the selected ordered basis.'''
 for n,k,value,key in [(40,7,21,3),(46,10,45,3)]:
  A[n]=f'**Correct option: {key}.** The upper-right entry is ${value}$.\n\n'+families[4][2]+f'\n\nFor the requested exponent ${k}$, two distinct chronological slots can be chosen in ${k}({k}-1)/2={value}$ ways. This supplies the second-superdiagonal coefficient, not the one-step coefficient ${k}$ or the unrestricted ordered-pair count ${k*k}$.\n\n'+(r'''The candidates seven, fourteen and forty-nine count one move, twice one move, or two independent unrestricted slots. None respects two ordered distinct slots. The exact recurrence ledger is
 
@@ -169,7 +169,7 @@ Every listed candidate has the same diagonal entries in this example, so the upp
 | 3 | $-5/6$ | $-4/3$ |
 | 4 | $5/6$ | $2$ |
 
-The last column uses $2X_{12}+1/3$. Only option 1 gives an identity product. Wrong symbolic expressions may coincide when factors commute or when one factor is identity; such accidental agreement does not prove a rule for arbitrary invertible matrices. Conceptually, conjugation changes the coordinates of a map, and the inverse is the same coordinate conversion around the inverse action $B^{-1}$.''' 
+The last column uses $2X_{12}+1/3$. Only option 1 gives an identity product. Wrong symbolic expressions may coincide when factors commute or when one factor is identity; such accidental agreement does not prove a rule for arbitrary invertible matrices. Conceptually, conjugation changes the coordinates of a map, and the inverse is the same coordinate conversion around the inverse action $B^{-1}$.'''
 A[42]=r'''**Correct option: 1.** For a real $m\times n$ matrix,
 $$\ker(A^TA)=\ker A.$$
 First, $Ax=0$ immediately gives $A^TAx=0$. Conversely, if $A^TAx=0$, premultiply by $x^T$:
@@ -180,7 +180,7 @@ Both kernels are subspaces of the same $n$-dimensional domain, so rank–nullity
 $$A^TA=\begin{pmatrix}1&1\\1&1\end{pmatrix},\qquad AA^T=\begin{pmatrix}2&0\\0&0\end{pmatrix},$$
 refuting equality of the two Gram matrices even when their shapes agree. With a rectangular $A$, their shapes differ as well.
 
-The real hypothesis matters. For the complex column $A=(1,i)^T$, ordinary transpose gives $A^TA=1+i^2=0$, although $A$ has trivial one-dimensional kernel. Over the complex field use the adjoint $A^*$, giving $A^*A=2$ and recovering the kernel theorem through squared absolute values. The same argument works for a positive-definite weight $H$ in $A^*HA$; a merely semidefinite weight can kill a nonzero output, so the reverse implication may fail.''' 
+The real hypothesis matters. For the complex column $A=(1,i)^T$, ordinary transpose gives $A^TA=1+i^2=0$, although $A$ has trivial one-dimensional kernel. Over the complex field use the adjoint $A^*$, giving $A^*A=2$ and recovering the kernel theorem through squared absolute values. The same argument works for a positive-definite weight $H$ in $A^*HA$; a merely semidefinite weight can kill a nonzero output, so the reverse implication may fail.'''
 A[43]=r'''**Correct option: 2.** The interval is $-1/3<a<1$.
 
 Write the four-dimensional symmetric matrix as $M=(1-a)I_4+aJ_4$. For $q=(1,1,1,1)^T$, decompose every real vector uniquely as $x=sq+z$ with $\sum z_i=0$. The two components are perpendicular. As $Jq=4q$ and $Jz=0$,
@@ -196,7 +196,7 @@ At $a=-1/3$, the all-equal vector is nonzero and has quadratic value zero. At $a
 | $(0,1)$ | $a=-1/4$ | Excludes a valid positive-definite matrix. |
 | $(-1/4,1/4)$ | $a=1/2$ | Excludes another valid matrix. |
 
-In dimension $d\ge2$ the same proof gives $-1/(d-1)<a<1$. At $d=1$ the off-diagonal parameter does not occur. This geometric decomposition is stronger than checking a few test vectors: it exhausts the entire space and proves sufficiency.''' 
+In dimension $d\ge2$ the same proof gives $-1/(d-1)<a<1$. At $d=1$ the off-diagonal parameter does not occur. This geometric decomposition is stronger than checking a few test vectors: it exhausts the entire space and proves sufficiency.'''
 A[44]=r'''**Correct option: 2.** The traces agree although the two products have different sizes.
 
 For $A\in\mathbb R^{2\times3}$ and $B\in\mathbb R^{3\times2}$, $AB$ is two-by-two and $BA$ three-by-three. Expand only their diagonal entries:
@@ -207,7 +207,7 @@ Use the embedding/reader pair
 $$A=\begin{pmatrix}1&0&0\\0&1&0\end{pmatrix},\quad B=\begin{pmatrix}1&0\\0&1\\0&0\end{pmatrix}.$$
 Then $AB=I_2$ and $BA=\operatorname{diag}(1,1,0)$. Their traces are both two, but their determinants are one and zero. This rejects determinant equality, and their two distinct shapes reject both matrix equality and identical-dimension assertions. The larger product kills $e_3$ while fixing $e_1,e_2$, explaining its zero determinant geometrically.
 
-The general trace theorem allows $m\times n$ and $n\times m$ factors of any compatible positive sizes. For longer cyclic products, rotate the entire sequence only when every resulting multiplication is defined. Cyclic equality is not arbitrary permutation: for two-dimensional matrix units, $\operatorname{tr}(E_{12}E_{21}E_{11})=1$ whereas $\operatorname{tr}(E_{12}E_{11}E_{21})=0$. Thus a single scalar invariant neither erases action order nor makes differently sized transformations equal.''' 
+The general trace theorem allows $m\times n$ and $n\times m$ factors of any compatible positive sizes. For longer cyclic products, rotate the entire sequence only when every resulting multiplication is defined. Cyclic equality is not arbitrary permutation: for two-dimensional matrix units, $\operatorname{tr}(E_{12}E_{21}E_{11})=1$ whereas $\operatorname{tr}(E_{12}E_{11}E_{21})=0$. Thus a single scalar invariant neither erases action order nor makes differently sized transformations equal.'''
 for n in [45,47]:
  symbol='C' if n==45 else 'B'
  A[n]=rf'''**Correct option: 2.** The upper-right inverse block is $-{symbol}$.

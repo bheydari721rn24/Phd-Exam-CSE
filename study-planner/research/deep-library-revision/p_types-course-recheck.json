@@ -1,0 +1,166 @@
+{
+  "topicId": "p_types",
+  "reviewDate": "2026-10-12",
+  "state": "completed_bounded_source_review",
+  "selectedUniversities": [
+    "Harvard",
+    "UC Berkeley",
+    "Princeton",
+    "MIT"
+  ],
+  "freshUniversityCount": 4,
+  "documentedCandidateOfferings": 7,
+  "sourceRanking": "research/p_types-source-audit.md",
+  "freshSources": [
+    {
+      "university": "Harvard University",
+      "course": "David J. Malan: CS50x 2025, Lecture 1 written notes",
+      "url": "https://cs50.harvard.edu/x/2025/notes/1/",
+      "course_url": "https://cs50.harvard.edu/x/2025/weeks/1/",
+      "local_path": "C:/Users/bheydari/AppData/Local/Temp/deep-types-sources/harvard.html",
+      "sha256": "474b80b131768e19cc3736d452108edd6b70c45f3de47328eb602651726f2789",
+      "hash_comparison": "Fresh download matches the previous recorded HTML hash exactly.",
+      "sections_read": [
+        {
+          "heading": "Types",
+          "web_text_lines": "286-309",
+          "reading": "Complete section"
+        },
+        {
+          "heading": "Conditionals",
+          "web_text_lines": "310-365",
+          "reading": "Complete section as relevant comparison context"
+        },
+        {
+          "heading": "Operators",
+          "web_text_lines": "366-375",
+          "reading": "Complete section"
+        },
+        {
+          "heading": "Variables",
+          "web_text_lines": "376-408",
+          "reading": "Complete section"
+        },
+        {
+          "heading": "compare.c and agree.c",
+          "web_text_lines": "409-551",
+          "reading": "Complete comparison/character/logical example bodies"
+        },
+        {
+          "heading": "More About Operators",
+          "web_text_lines": "936-1025",
+          "reading": "Complete section"
+        },
+        {
+          "heading": "Truncation",
+          "web_text_lines": "1026-1071",
+          "reading": "Complete section"
+        }
+      ],
+      "reading_method": "Actual official written HTML body was freshly read through the web reader and downloaded. Loops, Mario, functions and their entire exercise banks were not counted as part of the chapter reading.",
+      "role": "Retain foundational C examples; expand mathematical semantics independently rather than adopting every informal limit statement."
+    },
+    {
+      "university": "Massachusetts Institute of Technology",
+      "course": "6.0001 Introduction to Computer Science and Programming in Python, Fall 2016; Ana Bell, Eric Grimson and John Guttag; Lecture 1 by Ana Bell",
+      "course_url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/",
+      "url": "https://live.ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/e921a690079369751bcce3e34da6c6ee_MIT6_0001F16_Lec1.pdf",
+      "official_resource_index": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/pages/lecture-slides-code/",
+      "pdf_pages_read": "23-34 inclusive, one-based PDF page numbers",
+      "web_text_lines_read": "187-291 inclusive, plus course identity and Python 3.5 declaration",
+      "reading_method": "Genuine reading of the actual official PDF text returned by the web reader. Local downloads from ocw.mit.edu and live.ocw.mit.edu failed with timeout/connection errors. No downloaded-PDF hash, local visual audit or entire-course reading is claimed.",
+      "subsections": [
+        "Python programs",
+        "Objects and scalar objects",
+        "Type conversions",
+        "Printing versus expression evaluation",
+        "Expressions and numeric operators",
+        "Precedence",
+        "Bindings",
+        "Expression names",
+        "Programming versus algebra",
+        "Changing bindings"
+      ],
+      "language_contract": "The official course explicitly uses Python 3.5. Its value/binding pedagogy is used as a labelled comparison; its arithmetic rules are not imported into C17.",
+      "role": "Freshly reviewed conceptual source for values, types, conversions and assignment snapshots; advanced C conversion/overflow/sequence rules require separate normative evidence."
+    },
+    {
+      "university": "Massachusetts Institute of Technology",
+      "course": "6.0001 Fall 2016, Lecture 1 written in-class questions",
+      "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/pages/in-class-questions-and-video-solutions/lecture-1/",
+      "web_text_lines_read": "139-215 inclusive: all three written questions, code fragments and answer options",
+      "reading_method": "Actual official question bodies and published answer markers read. No video was watched or needed. Local HTML download timed out, so no fresh local hash is claimed.",
+      "question_types_read": [
+        "Shell vs. Editor: evaluating an expression in a script does not by itself print the expression value; distinguish it from an explicit print call.",
+        "Python vs. Math: an assignment target must be valid Python syntax; a multi-letter identifier is one name, not implicit multiplication.",
+        "Bindings: computing a total stores the current result; rebinding a contributing scalar does not retroactively recalculate that total."
+      ],
+      "use_limit": "Describe these provenance types and write independently parameterized questions and explanatory solutions. Do not reproduce the complete question bank or copy protected explanatory prose."
+    },
+    {
+      "university": "UC Berkeley",
+      "courseIdentity": "CS61C course teaching-team notes; no sole note author or immutable semester inferred. Embedded FA20 video link was not watched and does not date all current written content.",
+      "decision": "Retain as selected core within the documented pool, with version-specific statements corrected independently.",
+      "writtenReading": [
+        {
+          "url": "https://notes.cs61c.org/content/c-basics/c-variables/",
+          "title": "C Variables",
+          "freshlyRead": "Entire instructional body, learning outcomes, all four sections, both displayed quick checks and answers, initialization fragment, and footnotes. Web reader lines 52-227; excludes navigation.",
+          "webReaderCrawl": "today"
+        },
+        {
+          "url": "https://notes.cs61c.org/content/c-basics/c-syntax/",
+          "title": "C Syntax",
+          "freshlyRead": "Learning outcomes/context; section1.1 typedef; section1.3 preprocessor/macros and min expansion; section1.4 constants/enums. Web reader lines55-76 and121-162. Struct/control-flow/function/header sections were visible but are outside credited scalar reading.",
+          "webReaderCrawl": "today"
+        }
+      ],
+      "strengths": "Type/width distinction, initialization, aliases, and macro expansion support original trace problems.",
+      "limitations": "The published portability and truth explanations contain misleading claims; this note is not normative C authority.",
+      "freshRawHtmlSha256": null,
+      "rawAccess": "requests failed ConnectionError; verified-certificate urllib retry returned HTTP403 for both pages. Official web-reader bodies were actually read. Certificate verification was not disabled.",
+      "historicalHashesNotRevalidated": {
+        "auditDate": "2026-10-02",
+        "variables": "3faba95d88adfc93a51ff93b1d65e4e42cc4f0df649aee4b24fac6a2f445391e",
+        "syntax": "69f0990496745a688b433910cd6d6165e72c8c260a894bbc48d499d974d59211"
+      }
+    },
+    {
+      "university": "Princeton",
+      "courseIdentity": "COS126 resource family: the official Fall2017 lecture index assigns section1.2 to Introduction to Java. Robert Sedgewick and Kevin Wayne are credited authors of the booksite; no additional named Fall2017 lecturer invented.",
+      "courseIndex": "https://www.cs.princeton.edu/courses/archive/fall17/cos126/lectures.html",
+      "canonicalSection": "https://introcs.cs.princeton.edu/java/12types/",
+      "accessibleSection": "https://introcs.cs.princeton.edu/java/12types/index.php",
+      "freshlyRead": "Complete accessible scalar teaching text: terminology, character/string contrast, integer/double/Boolean operations, comparisons, API context and conversions; complete displayed exercise inventory. Web reader lines82-343.",
+      "exerciseInventory": {
+        "ordinary": "1-11 (11 displayed items)",
+        "creative": "24-29 (6 displayed items; earlier numbers are not displayed and not invented)",
+        "web": "1-31 (31 displayed items)",
+        "totalDisplayedItems": 48,
+        "reproduction": "Inventory was read for reasoning-pattern coverage, not copied into chapter. Unprovided solutions were not claimed to have been read."
+      },
+      "supplementalCompleteTextRead": [
+        "https://introcs.cs.princeton.edu/java/12types/IntOps.java.html",
+        "https://introcs.cs.princeton.edu/java/12types/DoubleOps.java.html"
+      ],
+      "imageLimits": "Six linked image tables were attempted. Five returned403. Built-in table URL returned only an image reference through this tool and was not visually inspected; no image-reading claim. Textual IntOps/DoubleOps supplements do not turn unavailable tables into reviewed images.",
+      "freshRawHtmlSha256": null,
+      "rawAccess": "Canonical section403 in web reader; index.php accessible cached official text. Local requests ConnectionError and urllib DNS failure; no raw HTML hash fabricated.",
+      "cacheFreshness": "index.php reader reports crawl 1.2years ago and last-modified March9,2020. Material was freshly read now, but not asserted to be a live-current server body. Official Fall2017 index was also inspected now.",
+      "historicalHashNotRevalidated": {
+        "auditDate": "2026-10-02",
+        "sha256": "045d2874c12dcdfbecb7e5c5805a2f5b2face149f80a0aefd7b4cab2803e65cd"
+      },
+      "decision": "Retain as a Java-labelled core pedagogy source, complementing rather than defining C17 semantics. Formula grouping and intermediate-type reasoning are transferable; language outcomes require separate derivation.",
+      "limitations": "Unavailable embedded tables and cache age are explicit. String programs, random games, recursion, astronomy and loan projects are pattern inventory, not fully worked chapter imports."
+    }
+  ],
+  "historicalStanford": "The prior documented Stanford CS107 reading is retained as historical evidence; fresh renewal failed. It is not counted among the four fresh university bodies.",
+  "normativeEvidence": "WG14 N1570 C11 committee draft clauses actually reread for the scalar rules retained in C17, with language version explicitly stated. All ten authored transfer challenges were independently reviewed.",
+  "retainedContentRead": "Full lesson, all36 retained tutorials and all45 bank placements were individually read. Seven construction sections and ten new complete transfer challenges supplement them; forty final decisions include fifteen retained and twenty-five new rules.",
+  "authenticEvidence": "Three original source PDF pages freshly rendered and viewed by the independent reviewer; hashes and numeric transcriptions checked. The Q24–27 authored minimum-layout premise is repaired, without claiming it was in an authentic source.",
+  "independentMathReview": "research/deep-library-revision/p_types-independent-math.md",
+  "answerRecheck": "research/deep-library-revision/p_types-answer-recheck.md",
+  "transferRecheck": "research/deep-library-revision/p_types-transfer-recheck.md",
+  "limits": "The written-course pool and readings have precise bounds. Princeton image-only tables and inaccessible course bodies are not claimed read; advanced C semantics are separately checked. This is not a worldwide course census or a universal-performance guarantee."
+}

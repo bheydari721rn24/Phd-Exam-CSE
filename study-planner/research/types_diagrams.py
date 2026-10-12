@@ -1,0 +1,11 @@
+def figure(kind):
+ head='<figure class="type-diagram"><svg viewBox="0 0 760 280" role="img" aria-label="'+('Typed computation before destination conversion' if kind=='pipeline' else 'Actual expression trees and grouping')+'"><defs><marker id="types-static-arrow-'+kind+'" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L8 4L0 8Z" fill="#36728b"/></marker></defs>'
+ if kind=='pipeline':
+  boxes=[(25,35,'1. Obtain values and types','Destination does not select arithmetic'),(410,35,'2. Apply this operator\'s conversions','Promotions, rank, range and signedness'),(410,165,'3. Establish sequencing and domain','Compute only if evaluation is defined'),(25,165,'4. Convert for destination storage','A later cast cannot repair prior overflow')]
+  shapes=''.join(f'<rect x="{x}" y="{y}" width="325" height="80" rx="8" fill="#edf5f8" stroke="#a8c1cc"/><text x="{x+162.5}" y="{y+31}" text-anchor="middle" font-size="18">{title}</text><text x="{x+162.5}" y="{y+58}" text-anchor="middle" font-size="16">{note}</text>' for x,y,title,note in boxes)
+  paths=['M350 75H410','M572.5 115V165','M410 205H350'];caption='The pipeline includes evaluation order and operator-specific domain checks before storage conversion. Shifts and logical operators have their own rules rather than one universal common-type step.'
+ else:
+  nodes=[(155,55,'+'),(70,135,'a'),(240,135,'×'),(195,220,'b'),(285,220,'c'),(530,55,'×'),(445,135,'+'),(615,135,'c'),(400,220,'a'),(490,220,'b')]
+  shapes=''.join(f'<circle cx="{x}" cy="{y}" r="23" fill="#edf5f8" stroke="#a8c1cc"/><text x="{x}" y="{y+8}" text-anchor="middle" font-size="23" style="font-family:STIX Two Math">{label}</text>' for x,y,label in nodes)
+  paths=['M138 71L87 119','M172 71L223 119','M229 155L206 200','M251 155L274 200','M513 71L462 119','M547 71L598 119','M434 155L411 200','M456 155L479 200'];caption='The left tree groups a+(b×c), while the right groups (a+b)×c. Every child connection ends at a node boundary. Grouping does not impose an order on unrelated side effects.'
+ return head+'<g fill="#28495b" style="font-family:Source Sans 3">'+''.join('<path d="'+d+'" fill="none" stroke="#36728b" stroke-width="1.8" marker-end="url(#types-static-arrow-'+kind+')"/>' for d in paths)+shapes+'</g></svg><figcaption>'+caption+'</figcaption></figure>'

@@ -1,0 +1,100 @@
+{
+  "chapter": "p_types",
+  "reviewDate": "2026-10-12",
+  "status": "completed_accessible_written_bounds_with_explicit_image_limits",
+  "scope": "Berkeley and Princeton only. No dist, gate, synced project source or publication files modified.",
+  "priorRecordsRead": ["research/p_types-source-audit.md", "research/p_types-reviewed-courses.json"],
+  "sources": [
+    {
+      "university": "UC Berkeley",
+      "courseIdentity": "CS61C course teaching-team notes; no sole note author or immutable semester inferred. Embedded FA20 video link was not watched and does not date all current written content.",
+      "decision": "Retain as selected core within the documented pool, with version-specific statements corrected independently.",
+      "writtenReading": [
+        {"url": "https://notes.cs61c.org/content/c-basics/c-variables/", "title": "C Variables", "freshlyRead": "Entire instructional body, learning outcomes, all four sections, both displayed quick checks and answers, initialization fragment, and footnotes. Web reader lines 52-227; excludes navigation.", "webReaderCrawl": "today"},
+        {"url": "https://notes.cs61c.org/content/c-basics/c-syntax/", "title": "C Syntax", "freshlyRead": "Learning outcomes/context; section1.1 typedef; section1.3 preprocessor/macros and min expansion; section1.4 constants/enums. Web reader lines55-76 and121-162. Struct/control-flow/function/header sections were visible but are outside credited scalar reading.", "webReaderCrawl": "today"}
+      ],
+      "strengths": "Type/width distinction, initialization, aliases, and macro expansion support original trace problems.",
+      "limitations": "The published portability and truth explanations contain misleading claims; this note is not normative C authority.",
+      "freshRawHtmlSha256": null,
+      "rawAccess": "requests failed ConnectionError; verified-certificate urllib retry returned HTTP403 for both pages. Official web-reader bodies were actually read. Certificate verification was not disabled.",
+      "historicalHashesNotRevalidated": {"auditDate": "2026-10-02", "variables": "3faba95d88adfc93a51ff93b1d65e4e42cc4f0df649aee4b24fac6a2f445391e", "syntax": "69f0990496745a688b433910cd6d6165e72c8c260a894bbc48d499d974d59211"}
+    },
+    {
+      "university": "Princeton",
+      "courseIdentity": "COS126 resource family: the official Fall2017 lecture index assigns section1.2 to Introduction to Java. Robert Sedgewick and Kevin Wayne are credited authors of the booksite; no additional named Fall2017 lecturer invented.",
+      "courseIndex": "https://www.cs.princeton.edu/courses/archive/fall17/cos126/lectures.html",
+      "canonicalSection": "https://introcs.cs.princeton.edu/java/12types/",
+      "accessibleSection": "https://introcs.cs.princeton.edu/java/12types/index.php",
+      "freshlyRead": "Complete accessible scalar teaching text: terminology, character/string contrast, integer/double/Boolean operations, comparisons, API context and conversions; complete displayed exercise inventory. Web reader lines82-343.",
+      "exerciseInventory": {"ordinary": "1-11 (11 displayed items)", "creative": "24-29 (6 displayed items; earlier numbers are not displayed and not invented)", "web": "1-31 (31 displayed items)", "totalDisplayedItems": 48, "reproduction": "Inventory was read for reasoning-pattern coverage, not copied into chapter. Unprovided solutions were not claimed to have been read."},
+      "supplementalCompleteTextRead": ["https://introcs.cs.princeton.edu/java/12types/IntOps.java.html", "https://introcs.cs.princeton.edu/java/12types/DoubleOps.java.html"],
+      "imageLimits": "Six linked image tables were attempted. Five returned403. Built-in table URL returned only an image reference through this tool and was not visually inspected; no image-reading claim. Textual IntOps/DoubleOps supplements do not turn unavailable tables into reviewed images.",
+      "freshRawHtmlSha256": null,
+      "rawAccess": "Canonical section403 in web reader; index.php accessible cached official text. Local requests ConnectionError and urllib DNS failure; no raw HTML hash fabricated.",
+      "cacheFreshness": "index.php reader reports crawl 1.2years ago and last-modified March9,2020. Material was freshly read now, but not asserted to be a live-current server body. Official Fall2017 index was also inspected now.",
+      "historicalHashNotRevalidated": {"auditDate": "2026-10-02", "sha256": "045d2874c12dcdfbecb7e5c5805a2f5b2face149f80a0aefd7b4cab2803e65cd"},
+      "decision": "Retain as a Java-labelled core pedagogy source, complementing rather than defining C17 semantics. Formula grouping and intermediate-type reasoning are transferable; language outcomes require separate derivation.",
+      "limitations": "Unavailable embedded tables and cache age are explicit. String programs, random games, recursion, astronomy and loan projects are pattern inventory, not fully worked chapter imports."
+    }
+  ],
+  "verifiedSourceCorrections": [
+    {"source": "Berkeley Variables section2.3 quick-check answer", "finding": "Universal two's-complement and eight-bit-int claims persist. In the C17 contract, optionB's minimum signed range is the portable guarantee; sizeof(int) is not fixed. Exact intN_t, when provided, does promise its stated width and two's-complement representation."},
+    {"source": "Berkeley Variables section2.2", "finding": "Always compile-time sizeof is too broad: distinguish VLA operands and non-VLA unevaluated operands; result type size_t."},
+    {"source": "Berkeley Variables initialization", "finding": "Automatic indeterminate int32_t must not be assigned an invented garbage output. Static-duration arithmetic objects receive zero initialization. Java local definite-assignment rules do not mean all Java declarations get default values."},
+    {"source": "Berkeley Variables section4", "finding": "Truth is a scalar value comparison against zero, not a bit-pattern test. IEEE negative zero is false despite its sign bit; NaN converts to true. Aggregates are not arbitrary scalar conditions. Null pointer representations need not be all-zero bits."},
+    {"source": "Berkeley Syntax min explanation", "finding": "Side-effect repetition is branch-dependent. The argument occurs once in the comparison and again only if its corresponding arm is selected. Distinguish repeat evaluation from unsequenced modification conflicts."},
+    {"source": "Berkeley Syntax aliases/constants", "finding": "typedef is an alias, not a new distinct scalar type. const qualification does not make a C17 object an integer constant expression. Macro replacement is token-based, not unrestricted substring replacement."},
+    {"source": "Princeton division, overflow and Boolean exercises", "finding": "The outcomes are Java-specific comparisons, not C17 authority. The current text's own local-uninitialized exercise correctly rejects an uninitialized local read; retain that distinction."},
+    {"source": "Princeton creative calendar example26", "finding": "Displayed arithmetic has transcription slips: for February14,2000, y0=2000-1=1999, not2000-0; d0 uses14, not13. Final2528mod7=1 is consistent with corrected substitutions. This application is outside core scalar lesson; do not import its erroneous intermediate text."}
+  ],
+  "normativeCrossCheck": {
+    "url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf",
+    "identity": "Public C11 draft N1570, not the published C17 document. Consulted only for stable named rules relevant to the declared C17 chapter contract; not a fifth university course.",
+    "freshReadingBounds": ["5.2.4.2.1 minimum range excerpt, PDF zero-based44", "6.3.1.1-6.3.1.4 conversion clauses, PDF zero-based67-69", "6.5.3.3 logical-negation excerpt and6.5.3.4 sizeof, PDF zero-based106-108", "6.5.13-6.5.15 logic and conditional operators, PDF zero-based116-117", "6.7.9p10 initialization excerpt, PDF zero-based157", "7.20.1.1 exact-width types, PDF zero-based307"],
+    "limits": "Only specified clause text and excerpts read; no complete standard read or fresh raw PDF hash claimed."
+  },
+  "originalReasoningProblemsForAuthoring": [
+    {
+      "pattern": "Promotion versus final narrowing",
+      "contract": "CHAR_BIT=8, unsigned char maximum255, int represents0..255",
+      "example": "unsigned char b=255; compare b+1>b and (unsigned char)(b+1)>b",
+      "derivation": "First, b promotes to int255, so b+1 is int256 and comparison is true. In the second expression, the explicit unsigned-char conversion reduces256 modulo256 to0; comparison0>255 is false. For b+=2, addition produces int257 and assignment converts to unsigned char1. Separate operation type from stored type."
+    },
+    {
+      "pattern": "Branch-dependent macro trace",
+      "example": "MIN(A,B)=((A)<(B)?(A):(B)); independent traces start i=4",
+      "derivation": "MIN(3,i++) first compares3<4, increments i to5, selects constant3, and yields3 with i=5. MIN(5,i++) compares5<4, increments i to5, selects the second arm, then yields its old value5 and increments i to6. MIN(i++,i++) has conflicting unsequenced modifications during the condition and has no valid numerical trace."
+    },
+    {
+      "pattern": "Overflow-safe ceiling division",
+      "contract": "Unsigned32-bit n, positive unsigned divisor d",
+      "derivation": "Write n=qd+r with0<=r<d. Then ceil(n/d)=q+(r!=0), implemented n/d+(n%d!=0). If d=1 then remainder0 prevents an increment of maximum quotient. For n=4294967295,d=2, correct result2147483648; (n+d-1)/d wraps its numerator to0 and returns0. Explain mathematical ceiling before machine evaluation."
+    },
+    {
+      "pattern": "Common type versus selected operand",
+      "contract": "32-bit unsigned int",
+      "example": "int s=-1; unsigned int u=1; inspect 1?s:u",
+      "derivation": "The conditional arithmetic result has unsigned-int type even though only s is selected. Its selected value converts to4294967295. Branch selection cannot bypass the common-type conversion. Compare (long)-1<1U under explicitly declared LP64 and LLP64: true when64-bit long represents every unsigned32 value; false when32-bit long cannot, because both operands convert to unsigned long."
+    },
+    {
+      "pattern": "Cast timing and formula translation",
+      "example": "For integer n=7,d=4 compare (double)(n/d), (double)n/d; for positive physical radius r inspect G*m1*m2/r*r",
+      "derivation": "The first division occurs in int, giving1 before conversion to1.0; the second converts an operand before division and gives1.75. Left-associative division/multiplication parses the physical expression as (((G*m1)*m2)/r)*r, cancelling r mathematically instead of dividing by r squared. Use /(r*r), and independently audit the declared types/ranges of the denominator multiplication."
+    },
+    {
+      "pattern": "State trace and arithmetic domain",
+      "example": "Original assignments a=7,b=11; t=a; b=t; a=b",
+      "derivation": "Trace(7,11,7) then(7,7,7) then(7,7,7): this is not a swap. The correct temporary swap copies old b into a before assigning t into b. Compare C expression90<=grade<=100: relational operators return int0/1, so its parsed left comparison is always<=100; Java instead rejects comparison of Boolean with integer. Never turn Java diagnostics into C output."
+    }
+  ],
+  "questionDesignAdvice": [
+    "Every trace should state language/version, integer model and initial state, then annotate parse tree, promotions, common type, mathematical value, storage conversion and sequencing. Classify undefined behavior before simulating.",
+    "Medium/hard questions should change the decisive assumption, not only numeric constants: LP64/LLP64, cast before/after arithmetic, non-VLA/VLA sizeof, automatic/static storage, integer modulo/real conversion, conditional arm type and macro branch.",
+    "For binary rational termination, reduce numerator/denominator; termination in base2 requires denominator a power of2. Exact representability additionally requires significand precision and exponent-range bounds; termination alone is insufficient.",
+    "Guard mathematical formulas against undefined or invalid domains and intermediate range overflow. A wider destination type does not retroactively widen an already-evaluated narrower operation.",
+    "C17 enum identifiers, const objects and macros need distinct constant-expression questions; all answers should explain both successful and rejected forms.",
+    "Do not execute UB examples and treat a compiler run as a scientific answer. For defined examples, execution can corroborate a derivation only under the matching declared model."
+  ],
+  "poolBoundary": "Prior documented pool: seven offerings from six universities. Four core offerings are Stanford, Harvard, Berkeley, Princeton; MIT supplementary. CMU15-122 and15-213 remain prior unread/reserve entries, not newly evaluated bodies. This review supplies two genuinely read course bodies within explicit bounds, not a metadata-only fourth-course claim or a worldwide census.",
+  "redistribution": "Only this original bounded review JSON is saved. Source pages, full exercises and lecture text are not republished."
+}
