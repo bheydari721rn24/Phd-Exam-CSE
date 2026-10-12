@@ -1,0 +1,162 @@
+{
+  "topicId": "p_flow",
+  "reviewDate": "2026-10-12",
+  "state": "completed_bounded_source_review",
+  "selectedUniversities": [
+    "Harvard",
+    "MIT",
+    "Princeton",
+    "Cornell"
+  ],
+  "freshUniversityCount": 4,
+  "supplementaryUniversities": [
+    "Cambridge"
+  ],
+  "sourceRanking": "research/p_flow-source-audit.md",
+  "freshSources": [
+    {
+      "university": "Harvard University",
+      "course": "David J. Malan: CS50x 2025, Lecture 1 written notes",
+      "url": "https://cs50.harvard.edu/x/2025/notes/1/",
+      "local_path": "C:/Users/bheydari/AppData/Local/Temp/deep-flow-sources/harvard.html",
+      "sha256": "474b80b131768e19cc3736d452108edd6b70c45f3de47328eb602651726f2789",
+      "fresh_hash_matches_prior": true,
+      "sections_fully_read": [
+        {
+          "heading": "Conditionals",
+          "web_text_lines": "310-365"
+        },
+        {
+          "heading": "compare.c",
+          "web_text_lines": "409-466"
+        },
+        {
+          "heading": "agree.c",
+          "web_text_lines": "467-551"
+        },
+        {
+          "heading": "Loops and meow.c",
+          "web_text_lines": "552-656"
+        },
+        {
+          "heading": "Functions: supporting loop/input-validation context",
+          "web_text_lines": "657-782"
+        },
+        {
+          "heading": "Mario",
+          "web_text_lines": "789-902"
+        }
+      ],
+      "reading_method": "Actual official written body read through the web reader and freshly downloaded HTML. The truncated web-output interval around lines 636-735 was explicitly reread from the original downloaded HTML, preserving code indentation. Functions were read only as supporting context; no complete function chapter or entire course is claimed.",
+      "role": "Retain core foundational C branching, pretest repetition, three-clause loops, nested output patterns and posttest input-validation examples. Independently add formal state checkpoints, safety and termination assumptions."
+    },
+    {
+      "university": "Massachusetts Institute of Technology",
+      "course": "6.0001 Introduction to Computer Science and Programming in Python, Fall 2016; Ana Bell, Eric Grimson and John Guttag; Lecture 2 Branching, Iteration",
+      "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/ba2947b25b1580e4a84df0ec5dbe5cdd_MIT6_0001F16_Lec2.pdf",
+      "successful_download_url": "https://live.ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/ba2947b25b1580e4a84df0ec5dbe5cdd_MIT6_0001F16_Lec2.pdf",
+      "official_resource": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/resources/mit6_0001f16_lec2/",
+      "local_path": "C:/Users/bheydari/AppData/Local/Temp/deep-flow-sources/mit-lecture2.pdf",
+      "sha256": "c65fb02d7a68f9bdbd9f715ff9f1a8eec61235510bb931ca5c2f039b2ea3adf9",
+      "fresh_hash_matches_prior": true,
+      "pdf_page_count": 24,
+      "pdf_pages_fully_read": "7-23 inclusive, one-based page numbers",
+      "web_text_lines": "42-278 inclusive",
+      "visually_inspected_pdf_pages": [
+        12,
+        20,
+        22,
+        23
+      ],
+      "reading_method": "Complete requested scoped official PDF text freshly read. The initial ocw.mit.edu download timed out; the official live.ocw.mit.edu download succeeded. Four original pages rendered and visually inspected for indentation, range endpoint wording, unreachable post-break statement and for/while comparison claims.",
+      "role": "Retain core labelled Python comparison source. Its range iterator and indentation clarify contrasts with C17; the selected slides do not themselves teach every C switch, jump or invariant rule."
+    },
+    {
+      "university": "Massachusetts Institute of Technology",
+      "course": "6.0001 Fall 2016, Lecture 2 official written in-class questions",
+      "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/pages/in-class-questions-and-video-solutions/lecture-2/",
+      "web_text_lines_fully_read": "139-258 inclusive; all five written question bodies and answer alternatives",
+      "reading_method": "Actual official written exercises and published answer markers read; no videos used. Local HTML download timed out, so no local page hash is invented.",
+      "in_scope_types": [
+        "Boolean comparison",
+        "Nested branching with indentation",
+        "Case-sensitive input and zero-entry while",
+        "Range accumulation with early break"
+      ],
+      "out_of_scope_type_screened": "String concatenation/repetition exercise was read as part of the complete written inventory, but belongs to the later strings boundary rather than expanding p_flow.",
+      "reproduction_policy": "Record provenance and reasoning types; write independently phrased and parameterized questions with complete solutions rather than reproducing the full exercise text or videos."
+    },
+    {
+      "university": "Princeton",
+      "identity": "COS126 resource family, section1.3 Conditionals and Loops; Robert Sedgewick and Kevin Wayne are booksite authors, not automatically sole lecturers for an inferred semester.",
+      "url": "https://introcs.cs.princeton.edu/java/13flow/index.php",
+      "freshWrittenBounds": "All accessible instructional text, web-reader lines81-155; ordinary exercise inventory1-10; creative34-39; web1-21 through line331. Initial reader reported649 total lines, but subsequent continuation/alternate-path requests returned internal errors or403.",
+      "freshInventoryCounts": {
+        "ordinary": 10,
+        "creative": 6,
+        "web": 21,
+        "totalActuallyRead": 37
+      },
+      "notFreshlyRead": "Remaining web exercise inventory after21 and page tail were not newly accessed. Earlier audit records a complete inventory read on2026-10-02; retain as prior evidence only, not a fresh completeness claim.",
+      "supplementaryCompleteRead": [
+        "https://introcs.cs.princeton.edu/java/13flow/Sqrt.java.html",
+        "https://introcs.cs.princeton.edu/java/13flow/PowersOfTwo.java.html"
+      ],
+      "visualLimits": "Embedded anatomy/example image tables and animations were not visually read in this delegated review. The surrounding text and two linked complete code listings were actually read.",
+      "freshRawSha256": null,
+      "historicalRawHashNotRevalidated": "65bbd77d8e5de8ad4d5f4ef641d09b59a18b814cdad724cb0e71219dd06a8d95",
+      "rawAccess": "Local verified-certificate urllib failed DNS; official web reader supplied the named bounds. No fresh raw-body hash fabricated.",
+      "decision": "Retain core for branching, nested traces and numerical-loop reasoning, with explicit Java language and numeric contracts.",
+      "limits": "Not a C17 semantic authority, full-course review or newly complete exercise-bank review."
+    },
+    {
+      "university": "Cornell",
+      "identity": "CS2110 Spring2026, Lecture4 Loop Invariants; course teaching staff. Sole author not identified; attempted staff URL inaccessible.",
+      "url": "https://courses.cis.cornell.edu/courses/cs2110/2026sp/lectures/lec04/",
+      "freshWrittenBounds": "Complete written lecture body from introduction through prerequisites, range/diagram explanations, full staged frequency invariant construction and recap, argmin, parity partition, takeaways, and exercise4.1-4.12 text. Web reader lines24-2312 were read in overlapping bounded slices. Duplicate code views were recognized as staged/duplicated representations.",
+      "visualLimits": "Array diagram images/SVG and actual animation interactions were not visually inspected or tested. Their surrounding written interpretations and code states were read; no visual-review claim.",
+      "exerciseBoundary": "Exercise families read for placement: anatomy/ranges, frequency, first-match, accumulators, argmin/tie specification, parity partition, Dutch flag, record maxima, duplicate detection, defragmentation, merge. Full array algorithms remain later-chapter material.",
+      "freshRawSha256": null,
+      "historicalRawHashNotRevalidated": "cfcfc128fda39188817f1be612de2be86ccf2237c889dfc73de2f3f45343ce68",
+      "rawAccess": "Local urllib failed DNS; freshly read substantive official web body. No fresh raw hash invented.",
+      "decision": "Retain core for invariants and construction: explicit initialization, checkpoint, preservation and exit reasoning complement introductory syntax.",
+      "limits": "Java-specific examples need separate C17 translation. Guard-exit claims exclude break/return paths; machine numeric boundaries require added assumptions."
+    },
+    {
+      "university": "Cambridge",
+      "identity": "Programming in C2017-18; principal lecturer Neel Krishnaswami, freshly confirmed on official course page.",
+      "courseUrl": "https://www.cl.cam.ac.uk/teaching/1718/ProgC/",
+      "pdfUrl": "https://www.cl.cam.ac.uk/teaching/1718/ProgC/lectures/lecture1.pdf",
+      "freshRawSha256": "3ad0d1d0704a38ad8a3cf3571ad9696e03684edcfe30cf63da2c54afa6e0538f",
+      "pdfBytes": 206013,
+      "pdfTotalPages": 23,
+      "freshCompleteTextPagesOneBased": [
+        [
+          14,
+          18
+        ],
+        [
+          20,
+          23
+        ]
+      ],
+      "freshVisualPagesOneBased": [
+        18,
+        20,
+        21,
+        22,
+        23
+      ],
+      "method": "Downloaded original with verified certificate, extracted named nine pages, rendered five pertinent pages at1.8x and actually viewed complete images.",
+      "decision": "Retain selected supplement for comma/control grammar, scope and structured use of goto to leave nested loops.",
+      "limits": "Implicit-int example is historical, not valid C17. Bubble-sort exercises deferred. General file linkage/lifetime is not fully covered in this chapter."
+    }
+  ],
+  "retainedContentRead": "Full lesson, all36 retained tutorials, the original60-rule source manuscript and all45 bank entries individually read. Seven construction sections and eight fully solved extensions supplement the original teaching;35 visible final decisions comprise15 retained and20 new decisions.",
+  "authenticEvidence": "Three original PDF pages freshly rendered, viewed and checked by the independent reviewer. The fourth alternative of MSc CS1393 Q167 uses source decrement two; corrected across six other existing placements without claiming their whole-chapter review complete.",
+  "independentMathReview": "research/deep-library-revision/p_flow-independent-math.md",
+  "answerRecheck": "research/deep-library-revision/p_flow-answer-recheck.md",
+  "transferRecheck": "research/deep-library-revision/p_flow-transfer-recheck.md",
+  "modelRecheck": "research/deep-library-revision/p_flow-model-recheck.md",
+  "limits": "Named chapter-relevant written bounds are recorded. Princeton37 accessible exercises were freshly read; its previously complete inventory is historical and the inaccessible remainder is not claimed freshly read. Cambridge provides additional C syntax. This is a bounded course pool, not a census of every world course or a guarantee on unseen examination performance."
+}

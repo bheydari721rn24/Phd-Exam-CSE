@@ -61,3 +61,7 @@ The standards draft is additional normative evidence, not a sixth university cou
 ## Remaining limits
 
 The pool is bounded and not globally exhaustive. Selected course bodies were read in chapter scope, not every lecture of every semester. This chapter deliberately excludes array partition/sort/merge implementations, full numerical solvers, pointer lifetime, complete I/O parsing and concurrent control. Course-exercise families are represented rather than universally reproduced. No archived Iranian paper used. Model checks do not prove all future exam answers, and a literal 100% perfection guarantee is not claimed.
+
+## Individual revision, 12 October 2026
+
+Harvard, MIT, Princeton and Cornell were freshly read within explicit chapter boundaries; Cambridge supplies a fifth complementary body. The original candidate pool is retained, not replaced by random sources. Princeton37 accessible exercises were freshly read; the prior full-inventory reading remains historical. The original full lesson and36 tutorials remain. All45 answers were individually rewritten, independently checked and integrated, with seven method constructions, eight complete transfer solutions and35 final decisions. Twenty-one mechanism-specific models distinguish actual paths, event counters, recursion, copying, nested control and modular orbits. Three authentic PDF pages were inspected; Q167 option4 was repaired. Exact language, numeric, capacity and termination assumptions accompany the proofs.

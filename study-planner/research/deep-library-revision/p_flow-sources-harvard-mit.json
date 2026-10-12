@@ -1,0 +1,151 @@
+{
+  "chapter": "p_flow",
+  "reviewed_on": "2026-10-12",
+  "status": "completed_fresh_scoped_written_reading",
+  "scope": "Fresh Harvard and MIT reading and role reassessment within the existing eight-offering, eight-university pool. The other six candidates are compared through the existing documented audit, not counted as freshly read here. No worldwide course census or full-course reading is claimed.",
+  "project_inputs_read": [
+    "research/p_flow-source-audit.md",
+    "research/p_flow-reviewed-courses.json",
+    "research/p_flow.en.md: complete instructional body; original inline SVG markup omitted from the second text pass and no fresh visual audit of chapter diagrams is claimed"
+  ],
+  "fresh_documents": [
+    {
+      "university": "Harvard University",
+      "course": "David J. Malan: CS50x 2025, Lecture 1 written notes",
+      "url": "https://cs50.harvard.edu/x/2025/notes/1/",
+      "local_path": "C:/Users/bheydari/AppData/Local/Temp/deep-flow-sources/harvard.html",
+      "sha256": "474b80b131768e19cc3736d452108edd6b70c45f3de47328eb602651726f2789",
+      "fresh_hash_matches_prior": true,
+      "sections_fully_read": [
+        {"heading": "Conditionals", "web_text_lines": "310-365"},
+        {"heading": "compare.c", "web_text_lines": "409-466"},
+        {"heading": "agree.c", "web_text_lines": "467-551"},
+        {"heading": "Loops and meow.c", "web_text_lines": "552-656"},
+        {"heading": "Functions: supporting loop/input-validation context", "web_text_lines": "657-782"},
+        {"heading": "Mario", "web_text_lines": "789-902"}
+      ],
+      "reading_method": "Actual official written body read through the web reader and freshly downloaded HTML. The truncated web-output interval around lines 636-735 was explicitly reread from the original downloaded HTML, preserving code indentation. Functions were read only as supporting context; no complete function chapter or entire course is claimed.",
+      "role": "Retain core foundational C branching, pretest repetition, three-clause loops, nested output patterns and posttest input-validation examples. Independently add formal state checkpoints, safety and termination assumptions."
+    },
+    {
+      "university": "Massachusetts Institute of Technology",
+      "course": "6.0001 Introduction to Computer Science and Programming in Python, Fall 2016; Ana Bell, Eric Grimson and John Guttag; Lecture 2 Branching, Iteration",
+      "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/ba2947b25b1580e4a84df0ec5dbe5cdd_MIT6_0001F16_Lec2.pdf",
+      "successful_download_url": "https://live.ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/ba2947b25b1580e4a84df0ec5dbe5cdd_MIT6_0001F16_Lec2.pdf",
+      "official_resource": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/resources/mit6_0001f16_lec2/",
+      "local_path": "C:/Users/bheydari/AppData/Local/Temp/deep-flow-sources/mit-lecture2.pdf",
+      "sha256": "c65fb02d7a68f9bdbd9f715ff9f1a8eec61235510bb931ca5c2f039b2ea3adf9",
+      "fresh_hash_matches_prior": true,
+      "pdf_page_count": 24,
+      "pdf_pages_fully_read": "7-23 inclusive, one-based page numbers",
+      "web_text_lines": "42-278 inclusive",
+      "visually_inspected_pdf_pages": [12, 20, 22, 23],
+      "reading_method": "Complete requested scoped official PDF text freshly read. The initial ocw.mit.edu download timed out; the official live.ocw.mit.edu download succeeded. Four original pages rendered and visually inspected for indentation, range endpoint wording, unreachable post-break statement and for/while comparison claims.",
+      "role": "Retain core labelled Python comparison source. Its range iterator and indentation clarify contrasts with C17; the selected slides do not themselves teach every C switch, jump or invariant rule."
+    },
+    {
+      "university": "Massachusetts Institute of Technology",
+      "course": "6.0001 Fall 2016, Lecture 2 official written in-class questions",
+      "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/pages/in-class-questions-and-video-solutions/lecture-2/",
+      "web_text_lines_fully_read": "139-258 inclusive; all five written question bodies and answer alternatives",
+      "reading_method": "Actual official written exercises and published answer markers read; no videos used. Local HTML download timed out, so no local page hash is invented.",
+      "in_scope_types": ["Boolean comparison", "Nested branching with indentation", "Case-sensitive input and zero-entry while", "Range accumulation with early break"],
+      "out_of_scope_type_screened": "String concatenation/repetition exercise was read as part of the complete written inventory, but belongs to the later strings boundary rather than expanding p_flow.",
+      "reproduction_policy": "Record provenance and reasoning types; write independently phrased and parameterized questions with complete solutions rather than reproducing the full exercise text or videos."
+    }
+  ],
+  "pool_role_reassessment": {
+    "harvard": "The direct C examples remain the best foundational entry role among the documented complementary choices; they need exact mathematical traces and explicit safety assumptions.",
+    "mit": "The Python range-versus-while and indentation role remains complementary. Source shorthand must be qualified rather than silently translated into C17.",
+    "other_core_roles_from_prior_audit": "Princeton supplies trace/numerical patterns and Cornell supplies checkpoint invariants. Neither is freshly reread by this report; companion evidence must establish their fresh scope.",
+    "supplement_role_from_prior_audit": "Cambridge supplies C scope/comma/goto details absent from these two beginner sources; normative C clauses remain necessary.",
+    "reserve_roles_from_prior_audit": "Stanford robot-control pedagogy and the short Berkeley reference add limited new depth for this boundary; inaccessible CMU linked body remains unreviewed, not scientifically rejected as inferior.",
+    "coverage_limit": "Harvard and MIT are not by themselves complete advanced C17 control-flow coverage. The selected complementary four-course synthesis plus Cambridge and normative checks must substantiate dispatch, converted cases, continue targets, goto restrictions, full termination and safety reasoning."
+  },
+  "fresh_source_reconciliation": [
+    {
+      "source": "MIT PDF page 20: range(start,stop,step)",
+      "verified_original": "The printed stop-minus-one wording and the general-step example were visually inspected.",
+      "classification": "Overgeneralized step-one shorthand",
+      "chapter_rule": "Stop is excluded. For nonempty positive-step ranges, the last value is start+(T-1)step, not necessarily stop-1. The example range(5,11,2) visits 5,7,9, so its last value is not 10. Define descending and empty ranges separately and reject step zero."
+    },
+    {
+      "source": "MIT PDF page 22 and written exercise 5",
+      "verified_original": "The extra accumulator increment is indented at the same level as break inside the same if suite in the original PDF. The extraction's code layout was not trusted without the image.",
+      "classification": "Intentional unreachable statement; not a source arithmetic error",
+      "chapter_rule": "The statement after break in that suite is unreachable: on a true guard break exits first; on a false guard the entire suite is skipped. Do not accidentally move that increment outside the if while adapting or explaining the question. The original first-entry break gives the published accumulator result."
+    },
+    {
+      "source": "MIT PDF page 12: indentation and nested division guard",
+      "verified_original": "The outer elif aligns with the outer if, while the divisor check belongs inside the equality branch. Final thanks output is outside the chain.",
+      "classification": "Extraction ambiguity resolved by original image",
+      "chapter_rule": "Draw the exact branch tree before tracing. Require an appropriate finite ordered input domain when interpreting the residual else as one value being smaller; unordered floating NaNs do not satisfy trichotomy. Keep a zero-divisor guard at the point of actual division."
+    },
+    {
+      "source": "MIT PDF page 23: for versus while",
+      "verified_original": "The counter/bounded-for/unbounded-while and rewrite claims were visually inspected.",
+      "classification": "Introductory comparison within finite range examples, not a universal language theorem",
+      "chapter_rule": "A Python range is finite but a general iterable may not be; a while loop can also have a proven finite bound. C17 for and while have different header structure but neither construct alone proves termination. Rewriting must preserve continue destinations, scope and evaluated effects."
+    },
+    {
+      "source": "Harvard Loops and meow.c",
+      "verified_original": "The original written code and explanation describe three for arguments.",
+      "classification": "Informal terminology",
+      "chapter_rule": "Use initialization, controlling expression and update clauses. They are not function-call arguments, and an omitted C for guard has a defined nonzero-constant meaning."
+    },
+    {
+      "source": "Harvard input-validation do-while examples",
+      "verified_original": "The input action precedes the positive-input test in the actual code.",
+      "classification": "Correct beginner control example with unstated environmental assumptions",
+      "chapter_rule": "Ordinary entry executes an input request before testing. Repetition terminates only under suitable future-input and input-function behavior. Distinguish the loop guard logic from parsing/EOF handling and from a guarantee of a cooperative user."
+    }
+  ],
+  "exact_trace_teaching_targets": [
+    {
+      "target": "State plus program location",
+      "required_explanation": "Each solution needs a labelled checkpoint table containing the program location, current variables, evaluated guard result, chosen successor and output-so-far. A final number without the transition derivation is inadequate."
+    },
+    {
+      "target": "Counts belong to specific events",
+      "required_explanation": "For an ordinary terminating pretest loop with T entries and no early exit, derive T+1 guard evaluations and T normal updates. With a break on the T-th entry, derive T guards and T-1 updates under the stated path assumptions. For posttest normal exit use T tests; a break can skip the final trailing test."
+    },
+    {
+      "target": "Rectangle output pattern",
+      "independent_example": "For the source's safe three-by-three nested-loop pattern: 9 cell writes, 3 row-newline writes, 4 outer guards, 12 inner guards, 3 inner initializations, 3 outer updates and 9 inner updates. Distinguish primitive output calls from body entries and count each loop level independently.",
+      "extension": "Generalize to r rows and c columns, including zero dimensions, before introducing triangular or skipped-cell patterns."
+    },
+    {
+      "target": "Range count as an inequality proof",
+      "required_derivation": "For step s>0, visited values are a+ks with k>=0 and a+ks<b; hence T=max(0,ceil((b-a)/s)). For step s<0 derive T=max(0,ceil((a-b)/(-s))). Last visited value, exit state and iteration-variable mutation must be separately explained.",
+      "independent_finite_check": "726 combinations of a,b in [-5,5] and step in {-3,-2,-1,1,2,3} matched Python range length. This supports the boundary implementation check, not a universal proof."
+    },
+    {
+      "target": "Branches partition a declared domain",
+      "required_explanation": "Convert threshold chains into mathematical intervals, state first-match priority, and classify every equality boundary. For sequential independent if statements, recompute later guards from the updated state."
+    },
+    {
+      "target": "Short-circuit and side effects",
+      "required_explanation": "Show the value and state produced by the first logical operand, whether the second is evaluated, and why an unsafe division or unsequenced conflict is avoided or remains. Do not infer evaluation order merely from operator precedence."
+    },
+    {
+      "target": "Transfers and proof edges",
+      "required_explanation": "Use a nesting tree and distinct break/continue/return destinations. A C continue in for reaches update, whereas an appended update inside a naively rewritten while can be skipped. State separate preservation and postcondition obligations for each exit edge."
+    },
+    {
+      "target": "Partial versus total correctness",
+      "required_explanation": "Name the invariant checkpoint, prove initialization and preservation, derive the exit postcondition, and supply a well-founded variant plus body termination. Incorporate stateful final guards and abrupt exits instead of quoting a generic invariant sentence."
+    },
+    {
+      "target": "Finite machine contract",
+      "required_explanation": "Prove arithmetic is defined before counting. Separate unsigned modular reachability, signed overflow classification, floating stagnation, optimized nonobservable loops and environment-dependent exits. Never execute undefined C to invent an answer."
+    }
+  ],
+  "content_read_observations": "The existing complete instructional body already explains most of these distinctions correctly. The rewrite should preserve its valid depth while making individual question answers demonstrate the actual equations, boundary cases and concrete trace graphs; source-body reading is not a reason to replace the lesson with a short summary.",
+  "remaining_limits": [
+    "Only Harvard and MIT are freshly source-read by this report; other pool entries retain explicit prior/companion status.",
+    "MIT written question-page local download failed; its actual official web body was read but no local hash is fabricated.",
+    "No course videos, complete copyrighted exercise banks or source diagrams were copied.",
+    "No fresh visual audit of the chapter's existing SVGs or simulations was performed in this research-only subtask.",
+    "No literal global optimum, complete future-question coverage or 100 percent correctness guarantee follows from selecting courses."
+  ]
+}

@@ -1,0 +1,2694 @@
+{
+  "status": "passed",
+  "topicId": "p_flow",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-flow-browser",
+  "loadFailures": [],
+  "counts": {
+    "questions": 45,
+    "solutions": 45,
+    "questionTables": 12,
+    "math": 1119,
+    "errors": []
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "prose": true
+  },
+  "delimiters": [],
+  "models": [
+    {
+      "id": "flow-question-swap",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "flow-question-dangling",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frames": 8,
+      "issues": []
+    },
+    {
+      "id": "flow-question-switch",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "flow-question-nested",
+      "frames": 10,
+      "issues": []
+    },
+    {
+      "id": "flow-question-priorities",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frames": 7,
+      "issues": []
+    },
+    {
+      "id": "flow-question-ranking",
+      "frames": 7,
+      "issues": []
+    },
+    {
+      "id": "flow-question-posttest",
+      "frames": 7,
+      "issues": []
+    },
+    {
+      "id": "flow-question-triples",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "flow-question-split",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frames": 9,
+      "issues": []
+    },
+    {
+      "id": "flow-question-dangling",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frames": 8,
+      "issues": []
+    },
+    {
+      "id": "flow-question-switch",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frames": 7,
+      "issues": []
+    },
+    {
+      "id": "flow-question-copy10",
+      "frames": 8,
+      "issues": []
+    },
+    {
+      "id": "flow-question-postfix",
+      "frames": 5,
+      "issues": []
+    },
+    {
+      "id": "flow-question-ranking",
+      "frames": 7,
+      "issues": []
+    },
+    {
+      "id": "flow-question-nested",
+      "frames": 10,
+      "issues": []
+    },
+    {
+      "id": "flow-question-sum-before",
+      "frames": 7,
+      "issues": []
+    },
+    {
+      "id": "flow-question-stateful",
+      "frames": 12,
+      "issues": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frames": 17,
+      "issues": []
+    },
+    {
+      "id": "flow-question-threshold",
+      "frames": 6,
+      "issues": []
+    },
+    {
+      "id": "flow-question-binary-tree",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "flow-question-toll",
+      "frames": 5,
+      "issues": []
+    },
+    {
+      "id": "flow-question-swap",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "flow-question-posttest",
+      "frames": 7,
+      "issues": []
+    },
+    {
+      "id": "flow-question-priorities",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "frames": 7,
+      "issues": []
+    }
+  ],
+  "labelFormulaSeparation": [
+    {
+      "id": "flow-question-swap",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-swap",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-swap",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-swap",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-dangling",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-dangling",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-dangling",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 7,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-triples",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-triples",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-triples",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-triples",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-split",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-split",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-split",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-split",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 7,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 8,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-dangling",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-dangling",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-dangling",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 7,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-switch",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-switch",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-switch",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-switch",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 7,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-postfix",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-postfix",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-postfix",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-postfix",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-postfix",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-ranking",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-ranking",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-ranking",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-ranking",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-ranking",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-ranking",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-ranking",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 7,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 8,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 9,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-sum-before",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-sum-before",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-sum-before",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-sum-before",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-sum-before",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-sum-before",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-sum-before",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 7,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 8,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 9,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 10,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 11,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 7,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 8,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 9,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 10,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 11,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 12,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 13,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 14,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 15,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 16,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-threshold",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-threshold",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-threshold",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-threshold",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-threshold",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-threshold",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-binary-tree",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-binary-tree",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-binary-tree",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-binary-tree",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-toll",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-toll",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-toll",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-toll",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-toll",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-swap",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-swap",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-swap",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-swap",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-posttest",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-posttest",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-posttest",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-posttest",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-posttest",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-posttest",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-posttest",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-priorities",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-priorities",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-priorities",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-priorities",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    }
+  ],
+  "formulaContainment": [
+    {
+      "id": "flow-question-swap",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 16,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-swap",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 16,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-swap",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 16,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-swap",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 16,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-dangling",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 16,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-dangling",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 16,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-dangling",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 16,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 7,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 13,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 13,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 13,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 13,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 13,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 13,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 13,
+      "boxHeight": 70
+    },
+    {
+      "id": "flow-question-triples",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 16.7421875,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-triples",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 29.3046875,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-triples",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-triples",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 12.8046875,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-split",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 31.3984375,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-split",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 31.3984375,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-split",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 31.3984375,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-split",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 31.3984375,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 15.53125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 15.53125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 15.53125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 15.53125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 15.53125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 15.53125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 7,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-copy-source",
+      "frame": 8,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-dangling",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-dangling",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-dangling",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "frame": 7,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-switch",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 11.8203125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-switch",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 11.8203125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-switch",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 11.8203125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-switch",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 11.8203125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 12.8046875,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 12.8046875,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 12.8046875,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 12.8046875,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 12.8046875,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 12.8046875,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 12.8046875,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-copy10",
+      "frame": 7,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-postfix",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-postfix",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-postfix",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-postfix",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-postfix",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-ranking",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-ranking",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-ranking",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-ranking",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-ranking",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-ranking",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-ranking",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 11.8203125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 7,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 8,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-nested",
+      "frame": 9,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-sum-before",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-sum-before",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-sum-before",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-sum-before",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-sum-before",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-sum-before",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-sum-before",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 7,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 8,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 9,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 10,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-stateful",
+      "frame": 11,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 7,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 8,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 9,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 10,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 11,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 12,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 13,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 14,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 15,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-filter-third",
+      "frame": 16,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-threshold",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-threshold",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-threshold",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-threshold",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-threshold",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-threshold",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-binary-tree",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-binary-tree",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-binary-tree",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-binary-tree",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-toll",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-toll",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-toll",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-toll",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-toll",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 15.5234375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "flow-question-swap",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 15.765625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-swap",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 15.765625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-swap",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 15.765625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-swap",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 15.765625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-posttest",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 14.78125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-posttest",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 14.78125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-posttest",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 14.78125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-posttest",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 14.78125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-posttest",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 14.78125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-posttest",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 14.78125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-posttest",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 14.78125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-priorities",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 14.78125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-priorities",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 14.78125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-priorities",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 14.78125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-priorities",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 14.78125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 12.8125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 12.8125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 12.8125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 12.8125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 12.8125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 12.8125,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 12.8125,
+      "boxHeight": 68.953125
+    }
+  ],
+  "controlChecks": [
+    {
+      "id": "flow-question-triples",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-split",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-copy-source",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-copy10",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-dangling",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-filter-odd",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-filter-third",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-sum-before",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-switch",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-orbit-unreachable",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-orbit-target",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-postfix",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-stateful",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-ranking",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-nested",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-threshold",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-binary-tree",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-toll",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-swap",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-posttest",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "flow-question-priorities",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  ],
+  "staticDiagrams": [
+    {
+      "label": null,
+      "outside": []
+    },
+    {
+      "label": null,
+      "outside": []
+    }
+  ],
+  "flowLaboratory": [
+    {
+      "mode": "for",
+      "limit": 5,
+      "start": 0,
+      "status": "normal",
+      "i": 5,
+      "sum": 4,
+      "tests": 6,
+      "entries": 5,
+      "updates": 5
+    },
+    {
+      "mode": "while",
+      "limit": 5,
+      "start": 0,
+      "status": "normal",
+      "i": 5,
+      "sum": 10,
+      "tests": 6,
+      "entries": 5,
+      "updates": 5
+    },
+    {
+      "mode": "do",
+      "limit": 0,
+      "start": 0,
+      "status": "normal",
+      "i": 1,
+      "sum": 0,
+      "tests": 1,
+      "entries": 1,
+      "updates": 1
+    },
+    {
+      "mode": "bug",
+      "limit": 5,
+      "start": 0,
+      "status": "cycle",
+      "i": 0,
+      "sum": 0,
+      "tests": 1,
+      "entries": 1,
+      "updates": 0
+    },
+    {
+      "mode": "break",
+      "limit": 5,
+      "start": 0,
+      "status": "break",
+      "i": 3,
+      "sum": 3,
+      "tests": 4,
+      "entries": 4,
+      "updates": 3
+    },
+    {
+      "mode": "for",
+      "limit": 0,
+      "start": 0,
+      "status": "normal",
+      "i": 0,
+      "sum": 0,
+      "tests": 1,
+      "entries": 0,
+      "updates": 0
+    },
+    {
+      "mode": "do",
+      "limit": 5,
+      "start": 12,
+      "status": "normal",
+      "i": 13,
+      "sum": 12,
+      "tests": 1,
+      "entries": 1,
+      "updates": 1
+    },
+    {
+      "mode": "while",
+      "limit": 5,
+      "start": 12,
+      "status": "normal",
+      "i": 12,
+      "sum": 0,
+      "tests": 1,
+      "entries": 0,
+      "updates": 0
+    },
+    {
+      "mode": "bug",
+      "limit": 5,
+      "start": 1,
+      "status": "cycle",
+      "i": 2,
+      "sum": 1,
+      "tests": 2,
+      "entries": 2,
+      "updates": 1
+    }
+  ],
+  "responsive": [
+    {
+      "width": 1360,
+      "pageWidth": 1345,
+      "tableOverflow": [],
+      "underlined": 0
+    },
+    {
+      "width": 768,
+      "pageWidth": 753,
+      "tableOverflow": [],
+      "underlined": 0
+    },
+    {
+      "width": 390,
+      "pageWidth": 390,
+      "tableOverflow": [],
+      "underlined": 0
+    }
+  ],
+  "print": {
+    "solutions": 45,
+    "errors": []
+  },
+  "humanInspectedScreenshots": [
+    "flow-question-triples-3.png",
+    "flow-question-copy-source-8.png",
+    "flow-question-stateful-11.png",
+    "flow-question-binary-tree-3.png",
+    "flow-question-priorities-3.png",
+    "flow-question-filter-third-16.png",
+    "flow-question-split-3.png",
+    "flow-question-orbit-target-6.png",
+    "flow-question-toll-4.png",
+    "flow-question-nested-0.png",
+    "for-control-static.png",
+    "question-3-mobile.png",
+    "flow-question-mobile.png",
+    "final-rules.png"
+  ],
+  "playbackEvidence": "p_flow-playback-checks.json: all25 mounted players advanced and remained paused; fifty actual assertions. Final layout recheck retained the same control implementation.",
+  "responsiveBoundary": "Narrow screens retain an internally scrollable readable canvas. ForeignObject tables must fit their own boxes and the scrolling stage must fit the viewport; ordinary solution tables must fit the viewport. Page width stays contained.",
+  "repairedVisualDefects": "Native table rows replace obscured SVG trace labels. The earliest pending state does not invent uninitialized indices. The full-cycle extension is explicitly counterfactual after target termination. Partial operation tolls use A_t rather than the whole-call W(k)."
+}
