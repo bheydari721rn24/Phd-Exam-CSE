@@ -1,0 +1,132 @@
+{
+  "topicId": "a_recurrence",
+  "date": "2026-10-13",
+  "state": "fresh_scoped_reading_complete_problem_rewrite_pending",
+  "universityCountActuallyReadInThisRevision": 5,
+  "principalUniversities": [
+    "MIT",
+    "Stanford",
+    "Carnegie Mellon",
+    "Princeton"
+  ],
+  "additionalUniversity": "Cornell",
+  "candidatePool": "The documented eight-university candidate comparison was reassessed. Five independent written scopes are actually read; Berkeley, Oxford and ETH remain screened candidates. No universal best-course ranking or exhaustive global course discovery is claimed.",
+  "sources": [
+    {
+      "university": "MIT",
+      "course": "6.006 Introduction to Algorithms, Spring 2020, Recitation 3",
+      "authors": "Erik Demaine, Jason Ku, Justin Solomon",
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/1869dbf640ded6b31f1bd369d2001ef5_MIT6_006S20_r03.pdf",
+      "sha256": "2e767e65d662c880020f5df083b79c845d539f443b9724b3e3f7fd24cc304341",
+      "scope": "All seven pages, official browser lines 0-296, were freshly read, including all nine recurrence exercises and the preceding explicit sorting implementations.",
+      "qualifications": "The exercises state upper bounds when their toll is O rather than Theta. The source merge tie rule is unstable and its comments say decrement where counters actually increment; recurrence instruction is independent of those comments. Negative logarithmic-power thresholds are derived independently, not attributed to the stated nonnegative-k master case.",
+      "additionalReading": {
+        "url": "https://courses.csail.mit.edu/6.046/spring04/handouts/akrabazzi.pdf",
+        "sha256": "64d8ba94e6f8272d3fc65e6332b763d3b04a48f573f80b1ec64af2835b30185f",
+        "author": "Tom Leighton, 9 October 1996",
+        "scope": "All nine pages were freshly read in overlapping browser ranges 0-258 and 149-544. Original physical pages two and three were rendered and actually visually read.",
+        "qualifications": "The second worked example on original page two incorrectly prints x^2 divided by log log x; its integrand is 1/(u log u), giving x^2 times log log x. The final lower-constant line on page three uses c2 where c1 is required. A polynomial derivative bound alone does not imply the stated multiplicative comparability. The theorem application retained in this lesson is unperturbed; the later perturbation proof is not treated as permission for arbitrary child-size maps."
+      }
+    },
+    {
+      "university": "Stanford",
+      "course": "CS161 Lecture 3; actual retrieved header Winter 2026",
+      "authors": "Moses Charikar, Ellen Vitercik; adapted from Virginia Williams with credited contributors",
+      "url": "https://stanford-cs161.github.io/winter2025/assets/files/lecture3-notes.pdf",
+      "sha256": "642f483beec841521da9f99c8163765b1c3646f614879a8ce60622d3f8e9ecd8",
+      "scope": "All six pages, official browser lines 0-509, were freshly read in overlapping outputs. The URL year is 2025, but the actual document header identifies 2026.",
+      "qualifications": "The polynomial-toll theorem is an upper-bound formulation. Exact or tight answers need separate compulsory lower work. Rounding is asserted without proof in the source; the lesson verifies concrete integer maps independently.",
+      "conceptChecks": "All 111 available browser lines of the one-page recurrence concept sheet were freshly read, including exact level counts, the fourth-root critical case and the mixed-child quadratic induction constant six."
+    },
+    {
+      "university": "Carnegie Mellon",
+      "course": "15-451, Fall 2011, Lecture 2 and selected Lecture 4",
+      "authors": "Avrim Blum notes; Avrim and Manuel Blum instructors in historical course attribution",
+      "url": "https://www.cs.cmu.edu/afs/cs/academic/class/15451-f11/www/lectures/lects1-10.pdf",
+      "scope": "Full physical pages 10-15, browser lines 280-605, and the selection/expectation passages of physical pages 24-26, lines 947-1039, were freshly read. Neighboring introductory text also appeared; it is not claimed as the complete 61-page collection.",
+      "acquisition": "Fresh direct local fetch was refused; the official PDF was readable through the browser, so no new local byte hash is asserted.",
+      "qualifications": "The shrinking-mass theorem is printed with a Theta conclusion after only an upper inequality; compulsory positive linear work is supplied separately for tightness. Expected-size intuition is replaced by conditioning and a valid induction envelope. Rounding, terminal costs and simultaneous worst-case realization are explicit."
+    },
+    {
+      "university": "Princeton",
+      "course": "Analysis of Algorithms, Chapter 2: Recurrence Relations",
+      "authors": "Robert Sedgewick, Philippe Flajolet",
+      "url": "https://aofa.cs.princeton.edu/20recurrence/",
+      "sha256": "e3d345cec93e74df99744258cee2c3d213b36461d5ba5356d27e3cbc3de1c0d6",
+      "scope": "All 9285 extracted characters from the freshly downloaded official Chapter 2 webpage were read, including every available selected exercise and review question. Sections with only headings are not represented as complete underlying book sections.",
+      "acquisition": "Browser-tool opening failed, but a fresh direct HTTPS retrieval succeeded; actual text, not merely a search snippet, was read.",
+      "qualifications": "The webpage calls its size-toll recurrence a merge comparison count; actual ordinary worst-case merge comparisons have toll size minus one. The two exact answers are kept distinct. Nonconstant multiplier normalizations require nonzero factors or explicit restart after a zero multiplier."
+    },
+    {
+      "university": "Cornell",
+      "course": "CS3110, Spring 2009 Lecture 20 and Spring 2011 Recitation 19",
+      "authors": "Individual authors are not identified on these pages; none is invented",
+      "url": "https://www.cs.cornell.edu/courses/cs3110/2009sp/lectures/lec20.html",
+      "additionalUrl": "https://www.cs.cornell.edu/courses/cs3110/2011sp/Recitations/rec19.htm",
+      "sha256": "5797bfb93ba5c0642342ed26af919a08d22072956f4393edc586b5dcc0cff309",
+      "additionalSha256": "d433f60171ec83ab6253f42ac79f9645e8162a313987e4abc7c5ce79deaaa71b",
+      "scope": "Complete available Lecture 20 text, browser lines 0-99, and complete Recitation 19 text, lines 0-64, were freshly read.",
+      "qualifications": "An intended one-third/two-thirds tree is printed with a different equal-child equation. The reciprocal-log upper-envelope display incorrectly retains T children; a self-recursing comparison envelope is supplied. A complete counted tree is a proof when its stopping and sum are justified, unlike an unexplained diagram with ellipses."
+    }
+  ],
+  "chapterReading": "The entire lesson, all forty tutorials, all eighty historical review rules and all fifty-three canonical bank stems/options were actually read.",
+  "remainingWork": "Recorded mathematical, model, control, print and responsive checks passed. Private publication is pending.",
+  "originalExaminationPagesActuallyViewed": [
+    {
+      "id": "MS_CS_1405_Q130",
+      "sha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+      "physicalPage": 28,
+      "image": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-algorithm-recurrence-recheck\\MS_CS_1405_Q130-original.png",
+      "state": "original_image_actually_visually_read_and_stem_reconciled",
+      "optionNote": "All listed stem parameters and options reconciled."
+    },
+    {
+      "id": "Phd_CE_1405_Q1",
+      "sha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+      "physicalPage": 2,
+      "image": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-algorithm-recurrence-recheck\\Phd_CE_1405_Q1-original.png",
+      "state": "original_image_actually_visually_read_and_stem_reconciled",
+      "optionNote": "All listed stem parameters and options reconciled."
+    },
+    {
+      "id": "Phd_CE_1405_Q2",
+      "sha256": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
+      "physicalPage": 2,
+      "image": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-algorithm-recurrence-recheck\\Phd_CE_1405_Q2-original.png",
+      "state": "original_image_actually_visually_read_and_stem_reconciled",
+      "optionNote": "All listed stem parameters and options reconciled."
+    },
+    {
+      "id": "MS_CE_1405_Q58",
+      "sha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+      "physicalPage": 13,
+      "image": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-algorithm-recurrence-recheck\\MS_CE_1405_Q58-original.png",
+      "state": "original_image_actually_visually_read_and_stem_reconciled",
+      "optionNote": "Three canonical options corrected from enlarged original image; the literal O wording admits three bounds."
+    },
+    {
+      "id": "MS_CE_1405_Q59",
+      "sha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
+      "physicalPage": 13,
+      "image": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-algorithm-recurrence-recheck\\MS_CE_1405_Q59-original.png",
+      "state": "original_image_actually_visually_read_and_stem_reconciled",
+      "optionNote": "All listed stem parameters and options reconciled."
+    },
+    {
+      "id": "Phd_CS_1404_Q71",
+      "sha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+      "physicalPage": 16,
+      "image": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-algorithm-recurrence-recheck\\Phd_CS_1404_Q71-original.png",
+      "state": "original_image_actually_visually_read_and_stem_reconciled",
+      "optionNote": "All listed stem parameters and options reconciled."
+    },
+    {
+      "id": "Phd_CS_1404_Q28",
+      "sha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+      "physicalPage": 7,
+      "image": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-algorithm-recurrence-recheck\\Phd_CS_1404_Q28-original.png",
+      "state": "original_image_actually_visually_read_and_stem_reconciled",
+      "optionNote": "All listed stem parameters and options reconciled."
+    }
+  ]
+}

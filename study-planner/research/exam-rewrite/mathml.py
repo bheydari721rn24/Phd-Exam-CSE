@@ -18,6 +18,7 @@ SYMBOLS.update(Longleftrightarrow='⟺')
 SYMBOLS.update(bigoplus='⨁')
 SYMBOLS.update(downarrow='↓',uparrow='↑',ell='ℓ')
 SYMBOLS.update(Gamma='Γ',prec='≺')
+SYMBOLS.update(psi='ψ')
 def tag(t,s):return '<'+t+'>'+s+'</'+t+'>'
 def atom(t,s):return tag(t,html.escape(s))
 class Parser:
@@ -42,7 +43,7 @@ class Parser:
     c=self.s[self.i];self.i+=1;return atom('mo',c) if c not in ',; ' else '<mspace width=".2em"/>'
    name=m.group();self.i+=len(name)
    if name in ('quad','qquad'):return '<mspace width="'+('1em' if name=='quad' else '2em')+'"/>'
-   if name in ('left','right'):return self.base()
+   if name in ('left','right','bigl','bigr','Bigl','Bigr'):return self.base()
    if name=='begin':
     self.skip();m=re.match(r'\{(bmatrix|pmatrix|matrix)\}',self.s[self.i:])
     if not m:raise ValueError('Unsupported matrix environment in '+self.s)
@@ -69,7 +70,7 @@ class Parser:
     if self.s[self.i]=='{':
      start=self.i+1;end=self.s.index('}',start);s=self.s[start:end];self.i=end+1
     else:s=self.s[self.i];self.i+=1
-    if name=='mathbb':s={'R':'ℝ','N':'ℕ','Z':'ℤ','C':'ℂ','Q':'ℚ'}.get(s,s)
+    if name=='mathbb':s={'R':'ℝ','N':'ℕ','Z':'ℤ','C':'ℂ','Q':'ℚ','E':'𝔼'}.get(s,s)
     return ('<mi mathvariant="script">'+html.escape(s)+'</mi>') if name=='mathcal' else atom('mtext' if name=='text' else 'mi',s)
    if name in ('log','ln','min','max','gcd','lcm','sin','cos','exp','det','rank','tr','ker','lim','dim'):return '<mi mathvariant="normal">'+name+'</mi>'
    if name in ('mod','bmod'):return atom('mo','mod')
@@ -87,7 +88,7 @@ class Parser:
   while self.i<len(self.s):
    self.skip()
    if self.i>=len(self.s) or (end and self.s[self.i]==end):break
-   v=self.base();sub=sup=None
+   v=self.base();function_token=bool(re.fullmatch(r'<mi mathvariant="normal">(?:log|ln|sin|cos|exp|min|max|gcd|lcm|lim|det|rank|tr|ker|dim)</mi>',v));sub=sup=None
    while True:
     self.skip()
     if self.i>=len(self.s) or self.s[self.i] not in '_^':break
@@ -99,6 +100,7 @@ class Parser:
    elif sub is not None:v=tag('munder' if large else 'msub',v+sub)
    elif sup is not None:v=tag('mover' if large else 'msup',v+sup)
    out.append(v)
+   if function_token:out.append('<mspace width=".14em"/>')
   return tag('mrow',''.join(out))
 def render(s,display=False):
  p=Parser(s);value=p.seq();assert p.i==len(s),(p.i,s)

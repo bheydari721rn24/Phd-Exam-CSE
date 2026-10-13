@@ -964,18 +964,18 @@
     "stem": "Which listed bound describes $T(n)=2T(\\lfloor\\sqrt n\\rfloor)+\\log n$ with bounded base cost?",
     "options": [
       "$O(\\log n\\log\\log n)$",
+      "$O(n\\log n\\log\\log n)$",
       "$O(n\\log\\log n)$",
-      "$O(\\log\\log n)$",
-      "$O(\\log n)$"
+      "$O(\\log\\log n)$"
     ],
     "answer": 1,
-    "solution": "1. Let $m=\\log_2 n$ and first ignore the harmless floor to see the structure. The recurrence becomes $S(m)=2S(m/2)+m$.\n2. Each of its $\\Theta(\\log m)$ significant levels costs $\\Theta(m)$, so $S(m)=\\Theta(m\\log m)$.\n3. Substitute back to obtain $\\Theta(\\log n\\log\\log n)$. A base region above one prevents the square-root recursion from sticking at one.\n4. Option 2 is also a loose upper bound. As is conventional in this source question, option 1 is the smallest asymptotic bound among the listed choices. Options 3 and 4 are too small. The booklet uses $O$ rather than $\\Theta$, so the literal wording does not make all true upper bounds mutually exclusive.\n\n**Source wording note.** The tight answer is unambiguous; selecting a unique $O$ answer requires the usual smallest-bound convention.",
+    "solution": "1. Let $m=\\log_2 n$ and first ignore the harmless floor to see the structure. The recurrence becomes $S(m)=2S(m/2)+m$.\n2. Each of its $\\Theta(\\log m)$ significant levels costs $\\Theta(m)$, so $S(m)=\\Theta(m\\log m)$.\n3. Substitute back to obtain $\\Theta(\\log n\\log\\log n)$. A base region above one prevents the square-root recursion from sticking at one.\n4. Options 2 and 3 are also loose upper bounds. As is conventional in this source question, option 1 is the smallest asymptotic bound among the listed choices. Only option 4 is too small. The original options are, in order, O(log n log log n), O(n log n log log n), O(n log log n) and O(log log n). The booklet uses $O$ rather than $\\Theta$, so the literal wording does not make all true upper bounds mutually exclusive.\n\n**Source wording note.** The tight answer is unambiguous; selecting a unique $O$ answer requires the usual smallest-bound convention.",
     "pattern": "change of variable and loose-bound wording",
     "difficulty": "Hard",
     "repoPath": "Exams/MS/CE/1405/Q135A-Arshad1405-[www.konkur.in].pdf",
     "sourceSha256": "e59f06c321cc0b1630f90b6dda4e2b9f61cf163c63c71c83b5deb4082495b42b",
     "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
-    "translationStatus": "checked against rendered source page",
+    "translationStatus": "All four options rechecked against the enlarged original physical page 13 on 13 October 2026; options 2, 3 and 4 corrected.",
     "answerProvenance": "independently derived; not represented as an official key"
   },
   {

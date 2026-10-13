@@ -28,7 +28,7 @@ Option 2 counts only the largest toll, omitting the many other large tolls. Opti
 
 ## Q3
 
-**Correct option: 1 under the smallest-listed-upper-bound convention.** The tight order is $\Theta(\ln n\,\ln\ln n)$. The original options use $O$, so option 2 is a valid looser upper bound as well. Preserve that wording ambiguity when using this authentic question; the derivation identifies the tight order without treating two true upper bounds as logically exclusive.
+**Correct option: 1 under the smallest-listed-upper-bound convention.** The tight order is $\Theta(\ln n\,\ln\ln n)$. The original options use $O$, so options 2 and 3 are valid looser upper bounds as well. Preserve that wording ambiguity when using this authentic question; the derivation identifies the tight order without treating three true upper bounds as logically exclusive.
 
 Let $m=\log_2 n$. Ignoring rounding momentarily, taking a square root halves $m$, so $S(m)=T(2^m)$ satisfies $S(m)=2S(m/2)+m$. At depth $j$, there are $2^j$ nodes, each with toll $m/2^j$. Total toll is exactly $m$ per nonbase level. There are $\Theta(\log m)$ levels, and the leaves contribute $O(m)$ bounded base work. Hence $S(m)\in\Theta(m\log m)$.
 
@@ -38,7 +38,7 @@ $$m/2-1\le\log_2\lfloor\sqrt x\rfloor\le m/2.$$
 
 Repeated reduction bounds a level-$j$ logarithmic argument between $m/2^j-2$ and $m/2^j$. Therefore a level's toll is at most $m$, and, while $2^j\le m/4$, at least $m-2^{j+1}\ge m/2$. There are $\Theta(\log m)$ significant levels and only $O(m)$ leaves, giving matching upper and lower bounds despite rounding. Small endpoint levels alter constants only. Stopping solely below one would fail to terminate at one because its square root remains one.
 
-Substitution returns $m\log m=\Theta(\log n\log\log n)$. Option 3 omits the $\log n$ factor; option 4 omits the $\log\log n$ factor. Option 2 grows much faster, so it is true as an upper bound but not tight. On $n=2^{2^h}$, all square roots are exact until the base, providing the independent check $S(2^h)/2^h=S(1)+h$ under a unit base-two logarithmic toll.
+Substitution returns $m\log m=\Theta(\log n\log\log n)$. Option 2 adds a factor $n$ to the tight upper bound. Option 3 replaces the leading $\log n$ by $n$; its ratio to the tight bound is $n/\log n\to\infty$. Both are valid loose upper bounds. Option 4 omits the required $\log n$ factor and is too small. On $n=2^{2^h}$, all square roots are exact until the base, providing the independent check $S(2^h)/2^h=S(1)+h$ under a unit base-two logarithmic toll.
 
 ## Q4
 
