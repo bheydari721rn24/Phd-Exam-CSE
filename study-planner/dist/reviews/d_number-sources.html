@@ -1,66 +1,16 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Number theory source audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/d_number.html">← Number theory chapter</a></p><article class="lesson"><h1>Divisibility and number theory: source selection and reading audit</h1>
-<p>Review date: 2026-10-02. Chapter: <span class="math-inline">d</span>_number, Discrete Mathematics Chapter 8, Week 2. This is a documented bounded comparison of eight university-course candidates. Selection is based on this chapter's mathematical coverage, proof clarity, explicit assumptions, algorithm derivations, and usable written materials. It does not assert that all worldwide courses were discovered or that this ranking is globally optimal.</p>
+<p>Review date: 2026-10-02. Chapter: d_number, Discrete Mathematics Chapter 8, Week 2. This is a documented bounded comparison of eight university-course candidates. Selection is based on this chapter's mathematical coverage, proof clarity, explicit assumptions, algorithm derivations, and usable written materials. It does not assert that all worldwide courses were discovered or that this ranking is globally optimal.</p>
 <h2>Candidate-by-candidate comparison</h2>
-<table>
-<thead>
-<tr>
-<th>Candidate and instructor</th>
-<th>Actual review level</th>
-<th>Chapter-specific strengths and limitations</th>
-<th>Decision</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MIT 6.042J, Mathematics for Computer Science, Spring 2015; Lehman, Leighton, Meyer textbook</td>
-<td>Genuinely read PDF pages 253–260 and 272–282 of the official 2015 text: divisibility, signed remainders, jug invariant, gcd, extended-Euclid setup, congruence, remainder arithmetic, inverse and cancellation proofs</td>
-<td>Clear exact certificates and proof dependencies. Historical narrative and historical computational assertions are outside the synthesis. Gcd zero-pair convention requires an explicit extension.</td>
-<td>Principal course: mathematical and algorithmic spine.</td>
-</tr>
-<tr>
-<td>UC Berkeley CS 70, Spring 2022; Satish Rao, Koushik Sen</td>
-<td>Genuinely read Note 6 pages 1–11, including every algorithm and exercise statement; Note 7 pages 2 and 4 specifically for RSA's algebra and CRT proof</td>
-<td>Strong extended-Euclid derivation, modular-power correctness exercise, and CRT coordinate interpretation. Note 6's bare exponent-zero return is normalized for modulus one. Security and implementation recommendations are not adopted.</td>
-<td>Principal course: algorithms and coordinate reasoning.</td>
-</tr>
-<tr>
-<td>CMU MFCS 15-151, Fall 2022; Klaus Sutner</td>
-<td>Genuinely read all 72 modular-arithmetic slides, with the extracted middle pages read again to avoid truncation; original cancellation page visually inspected</td>
-<td>Broadest compact coverage: valuations, divisor lattice, exact fiber counts, Wilson, additive rotations, and generalized CRT. Slides sometimes state results or leave proofs as exercises; the new chapter supplies its own proofs.</td>
-<td>Principal course: advanced boundaries and applications.</td>
-</tr>
-<tr>
-<td>Cambridge Part IA Discrete Mathematics, 2022–23; Marcelo Fiore</td>
-<td>Genuinely read PDF pages 123–143 and 151–182, including modular tables, inverse/linear-combination equivalence, common-divisor characterization, Euclid, and coefficient tracing</td>
-<td>Most explicit domain and algebraic-structure distinctions. Some proof slides are intentionally blank for classroom completion. The new chapter fills these with independent proofs and handles signed/zero inputs beyond positive-input code.</td>
-<td>Principal course: domains, structures, proof completeness.</td>
-</tr>
-<tr>
-<td>Oxford Discrete Mathematics; Andrew <span class="math-inline">D</span>. Ker notes and 2024–25 course syllabus</td>
-<td>Syllabus and official note availability screened; the new chapter's number-theory passages were not fully read from this course</td>
-<td>Very strong curricular fit: gcd, CRT, Fermat/Euler, arithmetic functions. It remains a viable future supplementary source. Previously cached notes are not counted as a fresh complete number-theory review.</td>
-<td>Unselected candidate; not counted toward four.</td>
-</tr>
-<tr>
-<td>Cornell CS 2800, Spring <span class="math-inline">2017 / Fa</span>ll 2015</td>
-<td>Official lecture descriptions and accessible modular-number explanations screened, including quotient versus congruence and well-defined operations</td>
-<td>Useful conceptual perspective, but a full chain through generalized CRT and prime-power boundaries was not established in this screening. Course pages use MIT MCS readings, so they are not treated as independent full textbook coverage.</td>
-<td>Unselected candidate; not counted toward four.</td>
-</tr>
-<tr>
-<td>Stanford CS 103, Spring 2017</td>
-<td>Official problem-set modular-arithmetic entry and course description screened</td>
-<td>Strong foundational proof course; a standalone full written number-theory progression was not verified in this comparison. No lecture-completeness claim is made.</td>
-<td>Unselected candidate; not counted toward four.</td>
-</tr>
-<tr>
-<td>ETH Zurich Number Theory <span class="math-inline">I</span>, Fall 2024; Emmanuel Kowalski</td>
-<td>Official lecture-note introduction and stated course scope screened</td>
-<td>Rich algebraic and analytic course, broader and more advanced than the bounded discrete-mathematics chapter. The complete notes were not read.</td>
-<td>Unselected candidate; not counted toward four.</td>
-</tr>
-</tbody>
-</table>
+<p>| Candidate and instructor | Actual review level | Chapter-specific strengths and limitations | Decision |
+| --- | --- | --- | --- |
+| MIT 6.042J, Mathematics for Computer Science, Spring 2015; Lehman, Leighton, Meyer textbook | Genuinely read PDF pages 253–260 and 272–282 of the official 2015 text: divisibility, signed remainders, jug invariant, gcd, extended-Euclid setup, congruence, remainder arithmetic, inverse and cancellation proofs | Clear exact certificates and proof dependencies. Historical narrative and historical computational assertions are outside the synthesis. Gcd zero-pair convention requires an explicit extension. | Principal course: mathematical and algorithmic spine. |
+| UC Berkeley CS 70, Spring 2022; Satish Rao, Koushik Sen | Genuinely read Note 6 pages 1–11, including every algorithm and exercise statement; Note 7 pages 2 and 4 specifically for RSA's algebra and CRT proof | Strong extended-Euclid derivation, modular-power correctness exercise, and CRT coordinate interpretation. Note 6's bare exponent-zero return is normalized for modulus one. Security and implementation recommendations are not adopted. | Principal course: algorithms and coordinate reasoning. |
+| CMU MFCS 15-151, Fall 2022; Klaus Sutner | Genuinely read all 72 modular-arithmetic slides, with the extracted middle pages read again to avoid truncation; original cancellation page visually inspected | Broadest compact coverage: valuations, divisor lattice, exact fiber counts, Wilson, additive rotations, and generalized CRT. Slides sometimes state results or leave proofs as exercises; the new chapter supplies its own proofs. | Principal course: advanced boundaries and applications. |
+| Cambridge Part IA Discrete Mathematics, 2022–23; Marcelo Fiore | Genuinely read PDF pages 123–143 and 151–182, including modular tables, inverse/linear-combination equivalence, common-divisor characterization, Euclid, and coefficient tracing | Most explicit domain and algebraic-structure distinctions. Some proof slides are intentionally blank for classroom completion. The new chapter fills these with independent proofs and handles signed/zero inputs beyond positive-input code. | Principal course: domains, structures, proof completeness. |
+| Oxford Discrete Mathematics; Andrew D. Ker notes and 2024–25 course syllabus | Syllabus and official note availability screened; the new chapter's number-theory passages were not fully read from this course | Very strong curricular fit: gcd, CRT, Fermat/Euler, arithmetic functions. It remains a viable future supplementary source. Previously cached notes are not counted as a fresh complete number-theory review. | Unselected candidate; not counted toward four. |
+| Cornell CS 2800, Spring 2017 / Fall 2015 | Official lecture descriptions and accessible modular-number explanations screened, including quotient versus congruence and well-defined operations | Useful conceptual perspective, but a full chain through generalized CRT and prime-power boundaries was not established in this screening. Course pages use MIT MCS readings, so they are not treated as independent full textbook coverage. | Unselected candidate; not counted toward four. |
+| Stanford CS 103, Spring 2017 | Official problem-set modular-arithmetic entry and course description screened | Strong foundational proof course; a standalone full written number-theory progression was not verified in this comparison. No lecture-completeness claim is made. | Unselected candidate; not counted toward four. |
+| ETH Zurich Number Theory I, Fall 2024; Emmanuel Kowalski | Official lecture-note introduction and stated course scope screened | Rich algebraic and analytic course, broader and more advanced than the bounded discrete-mathematics chapter. The complete notes were not read. | Unselected candidate; not counted toward four. |</p>
 <p>The four principal courses cover complementary requirements. Four is the minimum, not a ceiling. Additional primary courses should be reviewed if a documented gap or future student question requires them. A candidate page is not promoted to “read” merely because a PDF download exists.</p>
 <h2>Reconciliation and independent additions</h2>
 <ol>
@@ -75,62 +25,17 @@
 <li>The coin threshold, divisor count/sum derivations, factorial valuations, and additional quadratic boundary problems are original elementary extensions supported by the established divisibility/CRT machinery; they are not described as quotations from the reviewed course passages.</li>
 </ol>
 <h2>Selected course exercise ledger</h2>
-<table>
-<thead>
-<tr>
-<th>Actual read source</th>
-<th>New worked problem</th>
-<th>Adaptation and full solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Berkeley Note 6 <span class="math-inline">p</span>. 8: inverse exercise for twelve modulo thirty-five</td>
-<td>Problem 4</td>
-<td>Independently worded problem and explicit quotient/substitution certificate.</td>
-</tr>
-<tr>
-<td>Berkeley Note 6 <span class="math-inline">p</span>. 3: prove modular exponentiation</td>
-<td>Problem 27</td>
-<td>Iterative invariant proof, exact exponent-thirteen counts, and corrected modulus-one boundary.</td>
-</tr>
-<tr>
-<td>CMU valuation and divisor-lattice exercises, slides 15–19</td>
-<td>Problem 9</td>
-<td>Different numeric inputs, complete factor-coordinate reasoning and common-divisor list.</td>
-</tr>
-<tr>
-<td>CMU cancellation exercise, slide 38</td>
-<td>Problem 11</td>
-<td>Explicit many-solution example; complete reduced-modulus derivation.</td>
-</tr>
-<tr>
-<td>CMU generalized CRT, slide 69</td>
-<td>Problem 16</td>
-<td>New overlapping moduli; constructive compatibility proof and correct lcm period.</td>
-</tr>
-<tr>
-<td>CMU polynomial parity demonstration, slides 21–24</td>
-<td>Problem 34</td>
-<td>Generalized to any finite integer-coefficient degree; counterexample over rationals.</td>
-</tr>
-<tr>
-<td>CMU Wilson theorem, slide 48</td>
-<td>Problem 36</td>
-<td>Independent proof completion and converse comparison.</td>
-</tr>
-<tr>
-<td>CMU rotation exercise, slides 56–59</td>
-<td>Problem 37</td>
-<td>New step/modulus pair, all cycles enumerated and completeness proved.</td>
-</tr>
-<tr>
-<td>Berkeley Note 7 <span class="math-inline">p</span>. 4: CRT proof of RSA recovery</td>
-<td>Problem 38</td>
-<td>Original nonunit message showing why a direct Euler proof is insufficient.</td>
-</tr>
-</tbody>
-</table>
+<p>| Actual read source | New worked problem | Adaptation and full solution |
+| --- | --- | --- |
+| Berkeley Note 6 p. 8: inverse exercise for twelve modulo thirty-five | Problem 4 | Independently worded problem and explicit quotient/substitution certificate. |
+| Berkeley Note 6 p. 3: prove modular exponentiation | Problem 27 | Iterative invariant proof, exact exponent-thirteen counts, and corrected modulus-one boundary. |
+| CMU valuation and divisor-lattice exercises, slides 15–19 | Problem 9 | Different numeric inputs, complete factor-coordinate reasoning and common-divisor list. |
+| CMU cancellation exercise, slide 38 | Problem 11 | Explicit many-solution example; complete reduced-modulus derivation. |
+| CMU generalized CRT, slide 69 | Problem 16 | New overlapping moduli; constructive compatibility proof and correct lcm period. |
+| CMU polynomial parity demonstration, slides 21–24 | Problem 34 | Generalized to any finite integer-coefficient degree; counterexample over rationals. |
+| CMU Wilson theorem, slide 48 | Problem 36 | Independent proof completion and converse comparison. |
+| CMU rotation exercise, slides 56–59 | Problem 37 | New step/modulus pair, all cycles enumerated and completeness proved. |
+| Berkeley Note 7 p. 4: CRT proof of RSA recovery | Problem 38 | Original nonunit message showing why a direct Euler proof is insufficient. |</p>
 <p>The remaining worked questions are labeled original and synthesize the chapter's methods. The bank is deliberately broad but does not reproduce every problem in any course's entire exercise collection. MIT and Cambridge contribute the actual lesson derivations and domain checks even when a question is an original application.</p>
 <h2>Primary links</h2>
 <ul>
@@ -144,4 +49,10 @@
 <li><a href="https://people.math.ethz.ch/~kowalski/number-theory.pdf">ETH Number Theory I notes</a>.</li>
 </ul>
 <p>Reference PDFs remain in temporary reference storage. Their downloaded metadata and hashes are recorded separately; the published lesson is newly authored prose and original figures. No archived Iranian examination PDF was opened, mined, classified, or solved. Literal zero-error guarantees and exhaustive worldwide coverage cannot be certified; identified mathematical and presentation errors are corrected before delivery and the residual boundaries remain explicit.</p>
+<h2>Individual revision, 13 October 2026</h2>
+<p>The preceding audit is historical. Four independent written courses were freshly reread within the exact scopes in deep-library-revision/d_number-course-recheck.json: MIT printed pages 243–252, all 72 CMU slides, Cambridge physical pages 123–143 and 151–182, and all eight Berkeley Fall 2026 Note 6 pages plus all four Note 7 pages. The eight-candidate comparison was reassessed for chapter fit, complementary proofs and accessible written instruction. Unselected overview/syllabus entries are not counted as full text reading, and no worldwide census or universal best-course ranking is claimed. The inaccessible Berkeley Spring 2022 archive is not misrepresented as a new retrieval. Its earlier exercise attribution remains historical; the new principal course is the accessible Fall 2026 edition, with individual authorship unverified.</p>
+<p>Five authentic source items were visually reread on their original pages and checked against unchanged original PDF hashes. Enlarged MS CS 1405 Q125/Q129 crops correct the outer exponent to fifteen and the total to forty. Q129 consequently has ninety-six solutions, ratio six and correct option four. Previous finite checks validated the wrong transcription and do not establish source faithfulness. The correction is recorded independently and also applied to the counting chapters and source producers. The noncoprime-period question explicitly requests the smallest positive period.</p>
+<p>The full lesson and all forty tutorials remain. Forty-seven answers now contain full calculations, completeness or maximality arguments, domain qualifications and individual distractor diagnoses. Eight deeper constructions, ten solved transfer challenges and thirty-six detailed final decisions cover exact fibers, generalized CRT sufficiency, nonunit thresholds, prime-power roots, valuations, coefficient obstructions, smallest-representative proofs and algorithm contracts. A source proof using an unreduced value as a smaller residue is explicitly reconciled. Forty-seven fully numeric end-equalities were evaluated separately; a modular residue previously written as an ordinary equality was corrected before delivery.</p>
+<p>Forty-one dedicated models contain 216 unique checkpoints and are mounted with the retained exact Euclid and modular-power demonstrations in sixty-one players and seventy-two scenario placements, totaling 356 rendered checkpoints. Small row windows and even-exponent coordinate compression are explicitly labeled, preserve access to the complete recorded data, and retain the target reconstruction. Color fills and mathematical labels teach the actual arithmetic mechanism instead of unrelated magnitude bars. Static diagrams retain five semantic figures, with seven attached Hasse connections and four directed transient-cycle connections. Source/target endpoints, markers, margins, one-line native mathematics and distinct prose/code/math fonts are checked.</p>
+<p>Independent checks include 91,880 linear-congruence input triples, 18,496 two-modulus target systems, 46,656 three-modulus target systems, 1,500 zero-root systems, signed Euclid certificates, unit orders and nonunit tail thresholds. These finite oracles complement the written general proofs; they do not certify arbitrary unseen questions. Actual browser checks include 366 control operations, 122 play/pause assertions, scenario selection, eight laboratory records, invalid modulus and missing coefficient input, three viewport widths and print. This edition remains a checked review draft; earlier approval is not inferred for this rewrite. Continue a_recurrence in the frozen library order and preserve unfinished l_projection.</p>
 </article></main></body></html>

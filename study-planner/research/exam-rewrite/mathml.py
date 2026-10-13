@@ -4,6 +4,7 @@ from math_fences import normalize_fences,closing_script_bases,delimiter_issues
 SYMBOLS=dict(zip('Rightarrow Leftrightarrow forall exists land lor neg oplus equiv cdot in le ge ne Theta Omega alpha beta delta epsilon phi pi sigma omega cup cap subseteq subset times varnothing mid pm to mapsto iff notin wedge vee sum prod bigwedge bigvee'.split(),'⇒ ⇔ ∀ ∃ ∧ ∨ ¬ ⊕ ≡ · ∈ ≤ ≥ ≠ Θ Ω α β δ ε φ π σ ω ∪ ∩ ⊆ ⊂ × ∅ ∣ ± → ↦ ⇔ ∉ ∧ ∨ ∑ ∏ ⋀ ⋁'.split()))
 SYMBOLS.update(setminus='∖',nmid='∤',omega='ω',infty='∞',limsup='lim sup',liminf='lim inf',lceil='⌈',rceil='⌉',lfloor='⌊',rfloor='⌋',leq='≤',geq='≥',neq='≠')
 SYMBOLS.update(bigcup='⋃',bigcap='⋂',perp='⊥',langle='⟨',rangle='⟩',Vert='‖',vert='|',emptyset='∅',approx='≈',sim='∼',otimes='⊗',partial='∂')
+SYMBOLS.update(gets='←',leftarrow='←')
 SYMBOLS.update({'theta':'θ','lambda':'λ','mu':'μ','rho':'ρ','tau':'τ','varepsilon':'ε'})
 SYMBOLS['int']='∫'
 SYMBOLS['circ']='∘'
@@ -59,7 +60,7 @@ class Parser:
    if name=='sqrt':return tag('msqrt',self.group())
    if name=='not':
     value=self.base()
-    for old,new in (('⊆','⊈'),('∈','∉'),('=','≠'),('∣','∤')):
+    for old,new in (('⊆','⊈'),('∈','∉'),('=','≠'),('≡','≢'),('∣','∤')):
      if old in value:return value.replace(old,new)
     raise ValueError('Unsupported negated operator in '+self.s)
    if name=='binom':return tag('mrow',atom('mo','(')+'<mfrac linethickness="0">'+self.group()+self.group()+'</mfrac>'+atom('mo',')'))

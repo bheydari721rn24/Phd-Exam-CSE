@@ -748,3 +748,11 @@ Source 003e5b6f618c8b1f3b580d15937fc01a38ec813b was privately deployed as appgde
 ## Original-source transcription corrections, 13 October 2026
 
 Enlarged original images establish exponent fifteen in MS CS 1405 Q125 and total forty in Q129. The latter has ninety-six solutions, ratio six and correct option four; the former still has coefficient zero. Canonical data, producers, the counting manuscript, all five actual occurrences across three pages and the exact parity simulation are corrected. Independent convolution/enumeration and current desktop, 768/390-width and play/pause checks passed. Earlier checks of transcribed inputs do not establish source fidelity. Nineteen full revisions remain complete; d_number is still under individual review, with forty-seven new answer drafts written but not yet integrated or fully audited.
+
+## Source errata private publication confirmed, 13 October 2026
+
+Source 77f4b6dd3bbabb32ac75667b0a2f83f6f8518306 was privately deployed as appgdep_6ace65ce90988191a466cccd2a6f4f9f. The checked 489-entry immutable archive has SHA256 3e998dd1415049721180bf16572f66291fc26c4f97d7069256401d16dd0b26fb. GitHub branch study-planner-1406 commit fa7239a mirrors 36 exact changed files. Nineteen full revisions and the authentic-source corrections are confirmed online. The complete new d_number revision remains under review.
+
+## Number theory individual revision, 13 October 2026
+
+All forty tutorials and the full lesson remain. Forty-seven full answers, eight constructions, ten solved challenges and thirty-six complete decisions are added. Four source scopes and five authentic items were actually reread; enlarged scans corrected two earlier transcriptions. Independent arithmetic, forty-seven numeric equalities, forty-one models, sixty-one players, 356 rendered checkpoints, 366 controls, 122 play/pause assertions, scenario selection, five static figures, laboratory, three widths and print passed within recorded bounds. Twenty individual full reviews are complete and forty remain. Continue a_recurrence and preserve unfinished l_projection. Nineteen reviews plus source errata remain the confirmed online state until this private publication succeeds.
