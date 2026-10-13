@@ -1,0 +1,2515 @@
+{
+  "status": "passed",
+  "topicId": "g_number",
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\deep-number-browser",
+  "loadFailures": [],
+  "counts": {
+    "questions": 45,
+    "solutions": 45,
+    "questionTables": 6,
+    "math": 1176,
+    "errors": []
+  },
+  "fonts": {
+    "math": "\"STIX Two Math\", serif",
+    "stix": true,
+    "prose": true
+  },
+  "delimiters": [],
+  "models": [
+    {
+      "id": "number-question-division",
+      "frames": 7,
+      "issues": []
+    },
+    {
+      "id": "number-question-fraction-conversion",
+      "frames": 5,
+      "issues": []
+    },
+    {
+      "id": "number-question-multi-decode",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "number-question-extension",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "number-question-zero",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "number-question-carry",
+      "frames": 9,
+      "issues": []
+    },
+    {
+      "id": "number-question-bcd",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "number-question-gray",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "number-question-hamming",
+      "frames": 5,
+      "issues": []
+    },
+    {
+      "id": "number-question-secded",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frames": 20,
+      "issues": []
+    },
+    {
+      "id": "number-question-chop",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "number-question-associativity",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "number-question-carry",
+      "frames": 9,
+      "issues": []
+    },
+    {
+      "id": "number-question-product",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "number-question-normal",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "number-question-binary-tie",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "number-question-extension",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "number-question-decimal",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "number-question-termination",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "number-question-bytes",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "number-question-bias",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "number-question-scale",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "number-question-negative",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "number-question-max-sum",
+      "frames": 6,
+      "issues": []
+    },
+    {
+      "id": "number-question-zero",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "number-question-finite",
+      "frames": 6,
+      "issues": []
+    },
+    {
+      "id": "number-question-spacing",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "number-question-hex",
+      "frames": 3,
+      "issues": []
+    },
+    {
+      "id": "number-question-signed-product",
+      "frames": 4,
+      "issues": []
+    },
+    {
+      "id": "number-question-nearest",
+      "frames": 4,
+      "issues": []
+    }
+  ],
+  "labelFormulaSeparation": [
+    {
+      "id": "number-question-division",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-division",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-division",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-division",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-division",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-division",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-division",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-fraction-conversion",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-fraction-conversion",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-fraction-conversion",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-fraction-conversion",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-fraction-conversion",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-multi-decode",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-multi-decode",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-multi-decode",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 7,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 8,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-bcd",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-bcd",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-bcd",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-bcd",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-gray",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-gray",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-gray",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-gray",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-hamming",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-hamming",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-hamming",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-hamming",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-hamming",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 7,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 8,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 9,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 10,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 11,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 12,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 13,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 14,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 15,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 16,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 17,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 18,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 19,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-chop",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-chop",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-chop",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-chop",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-associativity",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-associativity",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-associativity",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-associativity",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 6,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 7,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 8,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-product",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-product",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-product",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-product",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-normal",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-normal",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-normal",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-normal",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-binary-tie",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-binary-tie",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-binary-tie",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-binary-tie",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-extension",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-extension",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-extension",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-decimal",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-decimal",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-decimal",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-decimal",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-termination",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-termination",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-termination",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-bytes",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-bytes",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-bytes",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-bytes",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-bias",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-bias",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-bias",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-scale",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-scale",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-scale",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-negative",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-negative",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-negative",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-max-sum",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-max-sum",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-max-sum",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-max-sum",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-max-sum",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-max-sum",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-zero",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-zero",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-zero",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-finite",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-finite",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-finite",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-finite",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-finite",
+      "frame": 4,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-finite",
+      "frame": 5,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-spacing",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-spacing",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-spacing",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-hex",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-hex",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-hex",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-signed-product",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-signed-product",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-signed-product",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-signed-product",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-nearest",
+      "frame": 0,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-nearest",
+      "frame": 1,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-nearest",
+      "frame": 2,
+      "height": 360,
+      "overlaps": []
+    },
+    {
+      "id": "number-question-nearest",
+      "frame": 3,
+      "height": 360,
+      "overlaps": []
+    }
+  ],
+  "playPauseChecks": [
+    {
+      "id": "number-question-division",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-fraction-conversion",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-multi-decode",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-carry",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-bcd",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-gray",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-hamming",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-original-overflow",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-chop",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-associativity",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-carry",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-product",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-normal",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-binary-tie",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-extension",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-decimal",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-termination",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-bytes",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-bias",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-scale",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-negative",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-max-sum",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-zero",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-finite",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-spacing",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-hex",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-signed-product",
+      "advanced": true,
+      "paused": true
+    },
+    {
+      "id": "number-question-nearest",
+      "advanced": true,
+      "paused": true
+    }
+  ],
+  "playbackEvidenceReused": "Prior full run actually advanced and paused all28 players; later prose/native-option edits did not change their control implementation.",
+  "formulaContainment": [
+    {
+      "id": "number-question-division",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 29.75,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-division",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 29.75,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-division",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 29.75,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-division",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 29.75,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-division",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 29.75,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-division",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 29.75,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-division",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 29.75,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-fraction-conversion",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-fraction-conversion",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-fraction-conversion",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-fraction-conversion",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-fraction-conversion",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-multi-decode",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-multi-decode",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-multi-decode",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 15,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 18,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 18,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 18,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 18,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 18,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 18,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 18,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 7,
+      "cut": false,
+      "mathHeight": 18,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 8,
+      "cut": false,
+      "mathHeight": 18,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-bcd",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 13,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-bcd",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 13,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-bcd",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 13,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-bcd",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 13,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-gray",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 18,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-gray",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 18,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-gray",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 18,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-gray",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 18,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-hamming",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 12,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-hamming",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 15.765625,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-hamming",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 15.765625,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-hamming",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 15.765625,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-hamming",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 15.765625,
+      "boxHeight": 70
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 7,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 8,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 9,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 10,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 11,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 12,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 13,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 14,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 15,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 16,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 17,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 18,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-original-overflow",
+      "frame": 19,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-chop",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-chop",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-chop",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-chop",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-associativity",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 11.8203125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-associativity",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 11.8203125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-associativity",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 11.8203125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-associativity",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 11.8203125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 6,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 7,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-carry",
+      "frame": 8,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-product",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-product",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-product",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-product",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-normal",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 20.9140625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-normal",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 20.9140625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-normal",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 20.9140625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-normal",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 20.9140625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-binary-tie",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-binary-tie",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-binary-tie",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-binary-tie",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-extension",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 11.8203125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-extension",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 11.8203125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-extension",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 11.8203125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-decimal",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-decimal",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-decimal",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-decimal",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 15.7578125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-termination",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 21.5546875,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-termination",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 21.5546875,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-termination",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 21.5546875,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-bytes",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 17.6015625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-bytes",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 17.6015625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-bytes",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 17.6015625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-bytes",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 17.6015625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-bias",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 11.8203125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-bias",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 11.8203125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-bias",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 11.8203125,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-scale",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-scale",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-scale",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-negative",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-negative",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-negative",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 14.7734375,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-max-sum",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-max-sum",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-max-sum",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-max-sum",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-max-sum",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-max-sum",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 17.7265625,
+      "boxHeight": 68.9453125
+    },
+    {
+      "id": "number-question-zero",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 17.734375,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-zero",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 17.734375,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-zero",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 17.734375,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-finite",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 16.515625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-finite",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 16.515625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-finite",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 16.515625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-finite",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 16.515625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-finite",
+      "frame": 4,
+      "cut": false,
+      "mathHeight": 16.515625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-finite",
+      "frame": 5,
+      "cut": false,
+      "mathHeight": 16.515625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-spacing",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 16.625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-spacing",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 16.625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-spacing",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 16.625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-hex",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 16.625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-hex",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 16.625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-hex",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 16.625,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-signed-product",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 17.734375,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-signed-product",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 17.734375,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-signed-product",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 17.734375,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-signed-product",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 17.734375,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-nearest",
+      "frame": 0,
+      "cut": false,
+      "mathHeight": 17.734375,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-nearest",
+      "frame": 1,
+      "cut": false,
+      "mathHeight": 17.734375,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-nearest",
+      "frame": 2,
+      "cut": false,
+      "mathHeight": 17.734375,
+      "boxHeight": 68.953125
+    },
+    {
+      "id": "number-question-nearest",
+      "frame": 3,
+      "cut": false,
+      "mathHeight": 17.734375,
+      "boxHeight": 68.953125
+    }
+  ],
+  "controlChecks": [
+    {
+      "id": "number-question-original-overflow",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-chop",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-associativity",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-carry",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-product",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-normal",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-binary-tie",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-extension",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-decimal",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-termination",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-bytes",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-bias",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-scale",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-negative",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-max-sum",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-zero",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-finite",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-spacing",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-hex",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-signed-product",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "number-question-nearest",
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  ],
+  "staticDiagrams": [
+    {
+      "label": null,
+      "outside": []
+    },
+    {
+      "label": null,
+      "outside": []
+    }
+  ],
+  "numberLaboratory": [
+    {
+      "valid": "true",
+      "word": "8",
+      "signed": "-8",
+      "carry": "0",
+      "borrow": "",
+      "overflow": "true",
+      "gray": "0100"
+    },
+    {
+      "valid": "true",
+      "word": "0",
+      "signed": "0",
+      "carry": "1",
+      "borrow": "",
+      "overflow": "false",
+      "gray": "1000"
+    },
+    {
+      "valid": "true",
+      "word": "8",
+      "signed": "-8",
+      "carry": "0",
+      "borrow": "1",
+      "overflow": "true",
+      "gray": "0100"
+    },
+    {
+      "valid": "true",
+      "word": "0",
+      "signed": "0",
+      "carry": "1",
+      "borrow": "",
+      "overflow": "true",
+      "gray": "1100"
+    },
+    {
+      "valid": "true",
+      "word": "254",
+      "signed": "-2",
+      "carry": "1",
+      "borrow": "0",
+      "overflow": "false",
+      "gray": "10000000"
+    },
+    {
+      "valid": "true",
+      "word": "0",
+      "signed": "0",
+      "carry": "1",
+      "borrow": "",
+      "overflow": "false",
+      "gray": "1000000000000000"
+    }
+  ],
+  "invalidNumberLaboratory": [
+    {
+      "valid": "false",
+      "word": "",
+      "trace": 0
+    },
+    {
+      "valid": "false",
+      "word": "",
+      "trace": 0
+    },
+    {
+      "valid": "false",
+      "word": "",
+      "trace": 0
+    },
+    {
+      "valid": "false",
+      "word": "",
+      "trace": 0
+    },
+    {
+      "valid": "false",
+      "word": "",
+      "trace": 0
+    },
+    {
+      "valid": "false",
+      "word": "",
+      "trace": 0
+    }
+  ],
+  "sceneChoiceChecks": [
+    {
+      "id": "number-question-multi-decode",
+      "valid": true
+    },
+    {
+      "id": "number-question-extension",
+      "valid": true
+    },
+    {
+      "id": "number-question-zero",
+      "valid": true
+    },
+    {
+      "id": "number-question-hamming",
+      "valid": true
+    },
+    {
+      "id": "number-question-secded",
+      "valid": true
+    }
+  ],
+  "responsive": [
+    {
+      "width": 1360,
+      "pageWidth": 1345,
+      "tableOverflow": [],
+      "underlined": 0
+    },
+    {
+      "width": 768,
+      "pageWidth": 753,
+      "tableOverflow": [],
+      "underlined": 0
+    },
+    {
+      "width": 390,
+      "pageWidth": 390,
+      "tableOverflow": [],
+      "underlined": 0
+    }
+  ],
+  "print": {
+    "solutions": 45,
+    "errors": []
+  },
+  "humanInspectedScreenshots": [
+    "number-question-carry-8.png",
+    "number-question-associativity-3.png",
+    "number-question-extension-2.png",
+    "number-question-product-3.png",
+    "number-question-bytes-3.png",
+    "number-question-bcd-final.png",
+    "number-question-hamming-final.png",
+    "number-question-secded-final.png",
+    "number-question-gray-final.png",
+    "word-decoders-static.png",
+    "gray-cycle-static.png",
+    "question-3-mobile.png",
+    "counting-bridge.png",
+    "final-rules.png",
+    "question-2.png",
+    "question-44.png"
+  ],
+  "reviewer": "root",
+  "repairs": "Ripple A wires route around B cells, carry edges attach to adder blocks and pending positions use a dot legend. Final metadata is separated from the circuit rows. Hamming checks return to zero after correction. The invalid counterfactual SECDED correction reports its actual syndrome and parity, and the scenario selector is tested through its real change event. Prose spacing and numeric option typography were repaired without rewriting code or native mathematics.",
+  "limits": "Default mounted formula boxes cover138 checkpoints; the full scenario layout audit separately covers148 frames. Narrow screens use a contained readable scrollable canvas. These observations and prior actual playback checks do not establish every possible browser environment."
+}

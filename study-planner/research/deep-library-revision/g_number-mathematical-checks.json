@@ -1,0 +1,17 @@
+{
+  "topicId": "g_number",
+  "status": "passed_with_recorded_finite_bounds",
+  "reviewer": "root",
+  "checkCount": 28181,
+  "pageSha256": "33f963dd33937dd456dd4c13fba21956c83770e9df343b19ec83a7b3dd6bed38",
+  "scopes": [
+    "All signed/unsigned adder input pairs through7 bits",
+    "All narrower signed targets through7 bits",
+    "All BCD input digit/carry triples",
+    "Every reflected Gray index through10 bits",
+    "All Hamming data/single errors and SECDED double-error pairs",
+    "Exact canonical decimal and fixed-point calculations",
+    "Every question key/complete solution/native math and named model arithmetic"
+  ],
+  "limits": "These finite checks complement the written general derivations. The interrupted independent research tasks are not claimed completed peer audits. Rendered inspection remains a separate gate."
+}

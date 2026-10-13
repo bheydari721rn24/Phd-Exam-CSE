@@ -1,0 +1,58 @@
+{
+  "topicId": "g_number",
+  "reviewDate": "2026-10-13",
+  "state": "completed_root_scoped_written_source_reading",
+  "reviewer": "root",
+  "candidatePool": "Eight named offerings in research/g_number-source-audit.md; retain the documented comparison, not a worldwide census.",
+  "selectedUniversities": ["MIT", "UC Berkeley", "Stanford", "Cornell"],
+  "universityCountActuallyReadInThisRevision": 4,
+  "sources": [
+    {
+      "university": "MIT",
+      "course": "6.004 Computation Structures, Spring 2017",
+      "instructor": "Chris Terman",
+      "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c1/c1s1/",
+      "sha256": "bd9c60e7dcb16eba6b68b0072ed7ac935a87fbc623027e4637d9153a9a974d97",
+      "rootRead": "Complete extracted annotated written body,40162 characters including navigation; overlapping slices0–18000,17500–30200,29500–40200. Relevant fixed-length/unsigned/hex/signed/complement and distance/parity/correction sections individually reconciled.",
+      "role": "Capacity and separation of coding properties; introductory signed residues and distance thresholds.",
+      "qualification": "Finite-width complement arithmetic needs exact-range checks. Parity conclusions need an error-weight bound. Entropy/Huffman text was read but is outside the numerical chapter's teaching scope. Image-only exercise data were not read; no complete exercise-collection claim."
+    },
+    {
+      "university": "UC Berkeley",
+      "course": "CS61C living course notes",
+      "instructor": "Course teaching team; no sole author or semester inferred",
+      "urls": ["https://notes.cs61c.org/content/number-rep/binary-decimal-hex/", "https://notes.cs61c.org/content/number-rep/integer-representations/"],
+      "sha256": ["c632f8d94b66f65853421574a0d1ad0d7d1008ee894d883945a7430dafc28923", "593091cd0f81be00f5d98d1317cf92a076657a144097021eeea7de9110c3ea07"],
+      "rootRead": "Both complete extracted teaching bodies and displayed quick checks:17065 and15341 characters, respectively. Cached originals were downloaded and hash-reconciled by the bounded research task before its later interruption; root independently read the bodies.",
+      "role": "Radix value preservation and explicit comparison of signed decoders.",
+      "qualification": "Largest fitting weight uses≤, with remaining low positions zero-filled. The octal-labeled C example actually passes a hexadecimal literal. Ones'-complement addition needs end-around carry and its sign test excludes signed zero. The living notes explicitly name C23; the chapter's C17 discussion is version-scoped rather than treating the source label as wrong. Source diagrams were not all visually inspected; original chapter models are independently constructed."
+    },
+    {
+      "university": "Stanford",
+      "course": "CS107, Winter 2020, Lecture2",
+      "instructor": "Jerry Cain and Lisa Yan",
+      "url": "https://web.stanford.edu/class/archive/cs/cs107/cs107.1204/lectures/2/Lecture2.pdf",
+      "sha256": "aaafdc1e460ceea56d09f0de3961b0bf380ec87a37b72806e23e67e0fb249946",
+      "rootRead": "Complete text on PDFpages8–50,53–84,109–114;17409 extracted characters read in overlapping slices. Root visually viewed originalpages76,81,84 for word wheels and boundaries. The independently fetched original has115 pages.",
+      "role": "Progressive conversions, negative residues, numerical ranges and width changes.",
+      "qualification": "A sign-magnitude format loses one distinct value to duplicate zero, not half its pattern count. Negation of the signed minimum is exceptional. Machine size/range tables are examples. Signed narrowing and mixed-type comparison shortcuts are not universal C17 rules. Visual reading of three specified pages is not a claim to have viewed all115 pages."
+    },
+    {
+      "university": "Cornell",
+      "course": "CS3410, Fall2024, written course notes",
+      "instructor": "Adrian Sampson and Giulia Guidi; teaching team",
+      "urls": ["https://www.cs.cornell.edu/courses/cs3410/2024fa/notes/numbers.html", "https://www.cs.cornell.edu/courses/cs3410/2024fa/notes/float.html"],
+      "rootRead": "Official web text:complete Switches and Numbers body(lines63–182), and Floating Point body(lines64–216). The first-number-body truncation was explicitly reread, including lines91–104. Fixed-point checks, normal fields, conversion example and special-case boundaries were actually read.",
+      "sha256": null,
+      "role": "Place-weight conversion, scale metadata and a specifically bounded normal-format bridge needed by retained questions.",
+      "qualification": "Largest fitting weight uses≤ and positional zeros must survive. The integer low-bit adder gives exact signed arithmetic only in range. Normal floating decoding excludes reserved fields. Universal hardware/language float equivalence, unconditional C float-to-bit assumptions and performance slogans are not adopted. The web reading is substantive; no successful raw download or hash is invented."
+    }
+  ],
+  "supplements": [
+    {"university":"Princeton","course":"Algorithms, Combinatorial Search","instructors":"Robert Sedgewick and Kevin Wayne","url":"https://algs4.cs.princeton.edu/lectures/keynote/67CombinatorialSearch.pdf","rootRead":"OriginalPDFpages35–37 visually viewed:reflection, no-cleanup enumeration and encoder/Hanoi/ring applications. Three pages only; no full Algorithms-course review.","sha256":"db03fc3171aeae361d048f6bee050af936dbf274b407d38fdbab147f87bc301d"},
+    {"university":"Carnegie Mellon","course":"15-213/14-513/15-513 Spring2025","url":"https://www.cs.cmu.edu/afs/cs/academic/class/15213-s25/www/lectures/02-bits-bytes-ints.pdf","rootRead":"Prior recorded scoped reading retained as historical evidence. Delegated renewal was interrupted; unconfirmed new visual discrepancies are not presented as verified source errors. Not counted among four fresh root readings."}
+  ],
+  "authenticReading": "Root visually viewed the original rendered pages for Phd_CE_1405_Q31, MS_CS_1393_Q165 and MS_CS_1404_Q51 on13October. Their independently derived canonical solutions were reread; they are not mislabeled official answer keys.",
+  "reviewInterruptions": "The three bounded research tasks hit the account usage limit before their final reports. Partial messages were retained as leads, not counted as completed independent audits. Root continued the actual source reading and derivations. Independent answer/model review remains pending unless separately completed.",
+  "limits": "The written sources are selected for complementary in-scope coverage. References identify actual readings. No literal100percent scientific certainty, world-course census, all-copyrighted-exercise reproduction or unseen-exam-performance guarantee is claimed."
+}
