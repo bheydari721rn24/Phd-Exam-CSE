@@ -1,0 +1,31 @@
+{
+  "downloads": [
+    {
+      "id": "cambridge",
+      "url": "https://www.cl.cam.ac.uk/teaching/2223/DiscMath/DiscMathProofsNumbersSetsNotes.pdf",
+      "sha256": "493f3cf4f39a7805e921b09675b1e8d32a8b07f680664f4c58ef97e2cd25b557",
+      "physicalPages": [
+        [
+          123,
+          143
+        ],
+        [
+          151,
+          182
+        ]
+      ],
+      "pages": 322,
+      "characters": 14345,
+      "state": "downloaded_pending_actual_root_reading"
+    }
+  ],
+  "failures": [
+    "HTTPSConnectionPool(host='www.cs.cmu.edu', port=443): Max retries exceeded with url: /~sutner/pdf/60-modari.pdf (Caused by NewConnectionError(\"HTTPSConnection(host='www.cs.cmu.edu', port=443): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it\"))",
+    "HTTPSConnectionPool(host='www.sp22.eecs70.org', port=443): Max retries exceeded with url: /assets/pdf/notes/n7.pdf (Caused by NameResolutionError(\"HTTPSConnection(host='www.sp22.eecs70.org', port=443): Failed to resolve 'www.sp22.eecs70.org' ([Errno 11001] getaddrinfo failed)\"))",
+    "HTTPSConnectionPool(host='www.sp22.eecs70.org', port=443): Max retries exceeded with url: /assets/pdf/notes/n6.pdf (Caused by NameResolutionError(\"HTTPSConnection(host='www.sp22.eecs70.org', port=443): Failed to resolve 'www.sp22.eecs70.org' ([Errno 11001] getaddrinfo failed)\"))",
+    "HTTPSConnectionPool(host='ocw.mit.edu', port=443): Read timed out. (read timeout=45)",
+    "HTTPSConnectionPool(host='www.eecs70.org', port=443): Max retries exceeded with url: /assets/pdf/notes/n7.pdf (Caused by NameResolutionError(\"HTTPSConnection(host='www.eecs70.org', port=443): Failed to resolve 'www.eecs70.org' ([Errno 11001] getaddrinfo failed)\"))",
+    "HTTPSConnectionPool(host='www.eecs70.org', port=443): Max retries exceeded with url: /assets/pdf/notes/n6.pdf (Caused by NameResolutionError(\"HTTPSConnection(host='www.eecs70.org', port=443): Failed to resolve 'www.eecs70.org' ([Errno 11001] getaddrinfo failed)\"))"
+  ],
+  "state": "acquired_scopes_are_not_completed_reading"
+}

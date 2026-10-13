@@ -97,33 +97,34 @@ The terms are $4096-2916+384-4+0=1560$. Therefore $A/30=52$, option 4. Subtracti
 
 ## Q8
 
+
 **Correct option: 4.**
 
-### Solve the exponent equation before evaluating a coefficient
-Choose $j$ of the fourteen factors to contribute $x^2$ and the remaining $14-j$ to contribute $x^{-1}$. The resulting exponent is
+**Use the exponent printed in the original booklet: fifteen.** The expression is the Laurent polynomial $(x^2+x^{-1})^{15}$, and the requested coefficient is that of $x^{14}$. Choose $j$ of its fifteen factors to supply $x^2$; the remaining $15-j$ supply $x^{-1}$. Every such choice has exponent
+$$2j-(15-j)=3j-15,\qquad 0\le j\le15.$$
+For exponent fourteen, the necessary equation is $3j-15=14$, or $j=29/3$. This is not an integer, so no selection of factors contributes. Consequently $A=0$, $A/5=0$, and option 4, the interval $[0,3)$, is correct. Options 1, 2 and 3 each exclude zero.
 
-$$2j-(14-j)=3j-14.$$
-
-For an $x^{14}$ term, $3j-14=14$, so $j=28/3$, not an integer. No choice of factors produces that exponent. The coefficient $A$ is therefore zero and $A/5=0$, option 4. A binomial coefficient with a rounded index would create a nonexistent term.
-
-More generally, the possible exponents are $-14,-11,-8,\ldots,28$. The coefficient of $x^m$ is $\binom{14}{(m+14)/3}$ if $(m+14)/3$ is an integer between 0 and 14, and is zero otherwise. The expansion is a Laurent polynomial; negative powers are legitimate. At $m=13$, for example, $j=9$ and the coefficient is $\binom{14}9$. An exponent range check alone is insufficient: the congruence condition is equally necessary.
+The obstruction can be checked before any coefficient arithmetic: all possible exponents are multiples of three, while fourteen has remainder two. Their full range is $-15,-12,\ldots,30$. In general the coefficient of $x^m$ here equals $\binom{15}{(m+15)/3}$ only when the selection index is an integer between zero and fifteen; otherwise it is zero. For instance, $m=12$ gives $j=9$ and coefficient $\binom{15}{9}=5005$. Negative exponents are legitimate in a Laurent polynomial and do not invalidate the expansion. A rounded index, a generalized binomial value at a fractional index, or a range test without the divisibility test would answer a different question. The earlier exponent-fourteen transcription is corrected; the final option happens to remain the same.
 
 ## Q9
 
-**Correct option: 2.**
 
-### Keep parity after shifting the lower bound
-Write $a=2j$ and $c=1+c'$ with $j,c'\ge0$. Then $2j+b+c'=19$ with $b\in\{0,1,2,3,4\}$. Fixing $b$ determines $c'=19-b-2j$. It is nonnegative exactly when $0\le j\le\lfloor(19-b)/2\rfloor$.
+**Correct option: 4.**
 
-| $b$ | Admissible $j$ values | Number |
+**Preserve the original total forty, the even variable and the strict lower bound.** Write $a=2u$ and $c=1+v$, where $u,v$ are nonnegative integers. The equation becomes $2u+b+v=39$ with $b\in\{0,1,2,3,4\}$. For fixed $b$, every admissible $u$ determines exactly one $v=39-b-2u$. Therefore the inclusive range and count are
+$$0\le u\le\left\lfloor\frac{39-b}{2}\right\rfloor,\qquad N_b=\left\lfloor\frac{39-b}{2}\right\rfloor+1.$$
+
+| Fixed $b$ | Allowed $u$ | Number of triples |
 |---|---|---|
-| 0 | 0 through 9 | 10 |
-| 1 | 0 through 9 | 10 |
-| 2 | 0 through 8 | 9 |
-| 3 | 0 through 8 | 9 |
-| 4 | 0 through 7 | 8 |
+| 0 | 0 through 19 | 20 |
+| 1 | 0 through 19 | 20 |
+| 2 | 0 through 18 | 19 |
+| 3 | 0 through 18 | 19 |
+| 4 | 0 through 17 | 18 |
 
-Each table entry determines exactly one triple. The rows are disjoint, so $A=10+10+9+9+8=46$. Hence $A/16=23/8$, option 2. Replacing the evenness condition by a factor of one half loses the alternating endpoint effect. Counting $c\ge0$ instead of $c\ge1$ changes the residual total and the row lengths. The floor and its inclusive endpoint are part of the derivation, not a numerical afterthought.
+The rows are disjoint because they assign different values to $b$, and together cover every permitted value. Thus $A=20+20+19+19+18=96$ and $A/16=6$. Option 4 contains six, whereas option 3 is $[4,6)$ and excludes its upper endpoint. Options 1 and 2 also exclude six. This endpoint distinction is essential even after the enumeration is correct.
+
+For a separate verification, the unrestricted nonnegative solutions of $2u+b+v=39$ number $\sum_{u=0}^{19}(40-2u)=420$. Violating $b\le4$ means writing $b=5+w$, giving $2u+w+v=34$ and $\sum_{u=0}^{17}(35-2u)=324$ violations. Subtraction gives $420-324=96$. Halving an unrestricted stars-and-bars count ignores the alternating floor endpoints. Imposing evenness on $b$, allowing $c=0$, or replacing forty by twenty changes the stated problem. The original scanned page was reread at enlarged resolution; ninety-six replaces the earlier erroneous count forty-six.
 
 ## Q10
 

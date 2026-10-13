@@ -1,0 +1,42 @@
+{
+  "status": "corrected_and_independently_checked_pending_publication",
+  "date": "2026-10-13",
+  "originalSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+  "corrections": [
+    {
+      "id": "MS_CS_1405_Q125",
+      "oldExponent": 14,
+      "correctExponent": 15,
+      "coefficient": 0,
+      "correctOption": 4
+    },
+    {
+      "id": "MS_CS_1405_Q129",
+      "oldTotal": 20,
+      "correctTotal": 40,
+      "oldCount": 46,
+      "correctCount": 96,
+      "oldOption": 2,
+      "correctOption": 4
+    }
+  ],
+  "changedPages": [
+    {
+      "path": "dist\\chapters\\d_counting.html",
+      "items": 1
+    },
+    {
+      "path": "dist\\chapters\\d_number.html",
+      "items": 2
+    },
+    {
+      "path": "dist\\chapters\\s_counting.html",
+      "items": 2
+    }
+  ],
+  "historicalEvidence": "Previous finite checks validated incorrectly transcribed inputs and do not establish source fidelity. Historical browser/check reports are preserved, superseded for these two items by this new correction record.",
+  "mathematicalEvidence": "research/deep-library-revision/number-source-errata-math.json",
+  "browserEvidence": "research/deep-library-revision/number-source-errata-browser.json",
+  "visualReading": "Original full pages and enlarged exponent/total crops were actually inspected; corrected desktop parity model and mobile source question were visually inspected.",
+  "libraryProgress": "Nineteen individual full revisions remain complete. These source corrections do not mark d_number or d_counting as fully revised."
+}

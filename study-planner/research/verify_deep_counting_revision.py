@@ -33,7 +33,7 @@ for n in range(3,9):
  check(f'red-majority swap {n}',count==C(2*n,5)//2)
 check('authentic coupled totals',C(7,2)*16==336)
 check('authentic eight-subset categories',sum(sum(x<5 for x in ss)>=4 for ss in itertools.combinations(range(10),8))==35)
-check('authentic parity lower-bound cap',sum(a%2==0 and b<=4 and 20-a-b>=1 for a in range(21) for b in range(21-a))==46)
+check('authentic parity lower-bound cap',sum(a%2==0 and b<=4 and 40-a-b>=1 for a in range(41) for b in range(41-a))==96)
 check('integrated parity cap',sum(a%2==0 and b<=3 and 18-a-b>=2 for a in range(19) for b in range(19-a))==32)
 check('six-to-four surjection',sum(len(set(w))==4 for w in itertools.product(range(4),repeat=6))==1560)
 check('restricted first onto fiber',sum(len(set(w))==3 and w.count(0)>=2 for w in itertools.product(range(3),repeat=5))==80)
@@ -71,7 +71,7 @@ page=(R/'dist/chapters/s_counting.html').read_text();old=subprocess.check_output
 check('preserve 77 placements',len(qs)==len(oq)==77)
 for i,(row,(_,_,a,q),(_,_,oa,o)) in enumerate(zip(rev['records'],qs,oq),1):
  oldkey=int(oa['data-answer']) if oa.get('data-answer') else int(re.search(r'Correct option:\s*(\d+)',ns['plain'](o))[1])
- check(f'answer preserved {i}',row['answer']==int(a['data-answer'])==oldkey)
+ check(f'answer preserved {i}',row['answer']==int(a['data-answer'])==(4 if a.get('data-source-id')=='MS_CS_1405_Q129' else oldkey))
  check(f'complete mathematical response {i}',row['words']>=100 and '<math' in q[q.index('<details'):])
  if i<=15:check(f'authentic option order and content {i}',re.search(r'<div class="exam-options">[\s\S]*?</div></div></div>',q)[0]==re.search(r'<div class="exam-options">[\s\S]*?</div></div></div>',o)[0])
 for m in re.findall(r'<math\b[\s\S]*?</math>',page):

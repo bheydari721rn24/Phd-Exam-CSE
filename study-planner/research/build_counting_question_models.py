@@ -12,11 +12,11 @@ for i,(a,b) in enumerate(itertools.combinations(range(7),2)):
  state=dict(kind='stars',bars=[a,b],tokens=tokens,tuple=tuple_,index=i+1,total=21)
  frames.append(frame(state,rf'(x_1,x_2,x_3)=({tuple_[0]},{tuple_[1]},{tuple_[2]}),\quad N=\binom72=21',f'Encoding {i+1} of 21. The two distinct separator slots are {a} and {b} (zero-based). Count stars in each named segment to recover {tuple_}. Five stars remain in every row; adjacent bars mean an empty coordinate. The separate pair totaling 15 always has 16 choices.'))
 models['stars']=scene('stars','Question 1: all 21 triple encodings','Two movable separator positions enumerate every nonnegative triple totaling five exactly once. Slot numbers identify the encoding; bars are separators, not objects being distributed.',frames)
-frames=[];counts=[10,10,9,9,8]
+frames=[];counts=[20,20,19,19,18]
 for b in range(5):
- upper=(19-b)//2;state=dict(kind='parity',active=b,counts=counts,upper=[9,9,8,8,7],prefix=sum(counts[:b+1]),aValues=list(range(0,2*upper+1,2)))
- frames.append(frame(state,rf'b={b},\quad 0\le j\le {upper},\quad c={20-b}-2j,\quad \text{{prefix}}={sum(counts[:b+1])}',f'Fix b={b}. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through {upper}. Each of the {counts[b]} even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.'))
-models['parity']=scene('parity','Question 9: parity and lower-bound ledger','Each row fixes b, lists the even a values and determines c. The count changes at floor endpoints; all five rows together give the exact answer 46.',frames)
+ upper=(39-b)//2;state=dict(kind='parity',active=b,counts=counts,upper=[19,19,18,18,17],prefix=sum(counts[:b+1]),aValues=list(range(0,2*upper+1,2)))
+ frames.append(frame(state,rf'b={b},\quad 0\le j\le {upper},\quad c={40-b}-2j,\quad \text{{prefix}}={sum(counts[:b+1])}',f'Fix b={b}. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through {upper}. Each of the {counts[b]} even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.'))
+models['parity']=scene('parity','Question 9: parity and lower-bound ledger','Each row fixes b, lists the even a values and determines c. The count changes at floor endpoints; all five rows together give the exact answer 96.',frames)
 frames=[];terms=[4096,-2916,384,-4,0]
 for j in range(5):
  state=dict(kind='onto',stage=j,terms=terms,prefix=sum(terms[:j+1]),labels=['all maps','one missing','two missing','three missing','four missing'])

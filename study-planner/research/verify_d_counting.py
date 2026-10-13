@@ -167,10 +167,10 @@ auth_values={
     'MS_CS_1405_Q121':sum(comb(i,3)*comb(7,i) for i in range(3,8))/10,
     'MS_CS_1405_Q122':count(product(range(5),repeat=5),lambda t:all(a<=b for a,b in zip(t,t[1:]))),
     'MS_CS_1405_Q123':count(product(range(4),repeat=4),lambda t:t.count(0)%2==0),
-    'MS_CS_1405_Q129':count(compose(20,3),lambda t:t[0]%2==0 and t[1]<=4 and t[2]>=1),
+    'MS_CS_1405_Q129':count(compose(40,3),lambda t:t[0]%2==0 and t[1]<=4 and t[2]>=1),
     'Phd_CS_1405_Q20':10+count(product(range(1,16),repeat=3),lambda t:t[0]<=t[1]<=t[2])
 }
-expected_auth={'MS_CS_1405_Q113':336,'MS_CS_1405_Q115':35,'MS_CS_1405_Q121':56,'MS_CS_1405_Q122':126,'MS_CS_1405_Q123':136,'MS_CS_1405_Q129':46,'Phd_CS_1405_Q20':690}
+expected_auth={'MS_CS_1405_Q113':336,'MS_CS_1405_Q115':35,'MS_CS_1405_Q121':56,'MS_CS_1405_Q122':126,'MS_CS_1405_Q123':136,'MS_CS_1405_Q129':96,'Phd_CS_1405_Q20':690}
 for id,value in auth_values.items():check(id+' independent archive result',value==expected_auth[id])
 for n in range(1,5):check('MS_CS_1405_Q120 nonempty symmetry n='+str(n),parts(3*n,3,[n,n,n])==factorial(3*n)//(factorial(3)*factorial(n)**3))
 courses=json.loads((BASE/'d_counting-reviewed-courses.json').read_text());check('four actually reviewed distinct universities',len(courses)==4 and len({c['university'] for c in courses})==4 and all(c['reviewed'] for c in courses))

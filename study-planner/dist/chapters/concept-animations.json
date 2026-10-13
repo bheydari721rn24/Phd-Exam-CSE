@@ -224849,12 +224849,12 @@
     "counting-question-parity": {
       "id": "counting-question-parity",
       "title": "Question 9: parity and lower-bound ledger",
-      "description": "Each row fixes b, lists the even a values and determines c. The count changes at floor endpoints; all five rows together give the exact answer 46.",
-      "descriptionHtml": "<p>Each row fixes b, lists the even a values and determines c. The count changes at floor endpoints; all five rows together give the exact answer 46.</p>",
+      "description": "Each row fixes b, lists the even a values and determines c. The count changes at floor endpoints; all five rows together give the exact answer 96.",
+      "descriptionHtml": "<p>Each row fixes b, lists the even a values and determines c. The count changes at floor endpoints; all five rows together give the exact answer 96.</p>",
       "invariant": "The displayed construction preserves the stated object labels, constraints and outcome definition.",
       "visual": {
         "type": "enumeration",
-        "claim": "Each row fixes b, lists the even a values and determines c. The count changes at floor endpoints; all five rows together give the exact answer 46."
+        "claim": "Each row fixes b, lists the even a values and determines c. The count changes at floor endpoints; all five rows together give the exact answer 96."
       },
       "code": [
         "Build the declared outcome; apply its exact constraint; recover its unique encoding"
@@ -224867,20 +224867,20 @@
             "kind": "parity",
             "active": 0,
             "counts": [
-              10,
-              10,
-              9,
-              9,
-              8
+              20,
+              20,
+              19,
+              19,
+              18
             ],
             "upper": [
-              9,
-              9,
-              8,
-              8,
-              7
+              19,
+              19,
+              18,
+              18,
+              17
             ],
-            "prefix": 10,
+            "prefix": 20,
             "aValues": [
               0,
               2,
@@ -224891,36 +224891,46 @@
               12,
               14,
               16,
-              18
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              38
             ]
           },
-          "caption": "Fix b=0. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 9. Each of the 10 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
-          "captionHtml": "<p>Fix b=0. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 9. Each of the 10 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.</p>",
+          "caption": "Fix b=0. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through 19. Each of the 20 even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.",
+          "captionHtml": "<p>Fix b=0. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through 19. Each of the 20 even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.</p>",
           "metrics": {},
-          "formula": "b=0,\\quad 0\\le j\\le 9,\\quad c=20-2j,\\quad \\text{prefix}=10",
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"b=0,\\quad 0\\le j\\le 9,\\quad c=20-2j,\\quad \\text{prefix}=10\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>b</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width=\"1em\" /><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>9</mn><mo>,</mo><mspace width=\"1em\" /><mi>c</mi><mo>=</mo><mn>20</mn><mo>-</mo><mn>2</mn><mi>j</mi><mo>,</mo><mspace width=\"1em\" /><mtext>prefix</mtext></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>10</mn></mrow></mtd></mtr></mtable></math></div>",
+          "formula": "b=0,\\quad 0\\le j\\le 19,\\quad c=40-2j,\\quad \\text{prefix}=20",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"b=0,\\quad 0\\le j\\le 19,\\quad c=40-2j,\\quad \\text{prefix}=20\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>b</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width=\"1em\" /><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>19</mn><mo>,</mo><mspace width=\"1em\" /><mi>c</mi><mo>=</mo><mn>40</mn></mrow></mtd></mtr><mtr><mtd><mrow><mo>-</mo><mn>2</mn><mi>j</mi><mo>,</mo><mspace width=\"1em\" /><mtext>prefix</mtext><mo>=</mo><mn>20</mn></mrow></mtd></mtr></mtable></math></div>",
           "line": 0,
           "teaching": {
             "operation": "Construct and check the displayed exact combinatorial state",
-            "why": "Fix b=0. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 9. Each of the 10 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
+            "why": "Fix b=0. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through 19. Each of the 20 even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.",
             "currentState": {
               "kind": "parity",
               "active": 0,
               "counts": [
-                10,
-                10,
-                9,
-                9,
-                8
+                20,
+                20,
+                19,
+                19,
+                18
               ],
               "upper": [
-                9,
-                9,
-                8,
-                8,
-                7
+                19,
+                19,
+                18,
+                18,
+                17
               ],
-              "prefix": 10,
+              "prefix": 20,
               "aValues": [
                 0,
                 2,
@@ -224931,7 +224941,17 @@
                 12,
                 14,
                 16,
-                18
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38
               ]
             },
             "initial": true,
@@ -224948,20 +224968,20 @@
             "kind": "parity",
             "active": 1,
             "counts": [
-              10,
-              10,
-              9,
-              9,
-              8
+              20,
+              20,
+              19,
+              19,
+              18
             ],
             "upper": [
-              9,
-              9,
-              8,
-              8,
-              7
+              19,
+              19,
+              18,
+              18,
+              17
             ],
-            "prefix": 20,
+            "prefix": 40,
             "aValues": [
               0,
               2,
@@ -224972,36 +224992,46 @@
               12,
               14,
               16,
-              18
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              38
             ]
           },
-          "caption": "Fix b=1. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 9. Each of the 10 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
-          "captionHtml": "<p>Fix b=1. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 9. Each of the 10 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.</p>",
+          "caption": "Fix b=1. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through 19. Each of the 20 even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.",
+          "captionHtml": "<p>Fix b=1. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through 19. Each of the 20 even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.</p>",
           "metrics": {},
-          "formula": "b=1,\\quad 0\\le j\\le 9,\\quad c=19-2j,\\quad \\text{prefix}=20",
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"b=1,\\quad 0\\le j\\le 9,\\quad c=19-2j,\\quad \\text{prefix}=20\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>b</mi><mo>=</mo><mn>1</mn><mo>,</mo><mspace width=\"1em\" /><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>9</mn><mo>,</mo><mspace width=\"1em\" /><mi>c</mi><mo>=</mo><mn>19</mn><mo>-</mo><mn>2</mn><mi>j</mi><mo>,</mo><mspace width=\"1em\" /><mtext>prefix</mtext></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>20</mn></mrow></mtd></mtr></mtable></math></div>",
+          "formula": "b=1,\\quad 0\\le j\\le 19,\\quad c=39-2j,\\quad \\text{prefix}=40",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"b=1,\\quad 0\\le j\\le 19,\\quad c=39-2j,\\quad \\text{prefix}=40\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>b</mi><mo>=</mo><mn>1</mn><mo>,</mo><mspace width=\"1em\" /><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>19</mn><mo>,</mo><mspace width=\"1em\" /><mi>c</mi><mo>=</mo><mn>39</mn></mrow></mtd></mtr><mtr><mtd><mrow><mo>-</mo><mn>2</mn><mi>j</mi><mo>,</mo><mspace width=\"1em\" /><mtext>prefix</mtext><mo>=</mo><mn>40</mn></mrow></mtd></mtr></mtable></math></div>",
           "line": 0,
           "teaching": {
             "operation": "Construct and check the displayed exact combinatorial state",
-            "why": "Fix b=1. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 9. Each of the 10 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
+            "why": "Fix b=1. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through 19. Each of the 20 even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.",
             "currentState": {
               "kind": "parity",
               "active": 1,
               "counts": [
-                10,
-                10,
-                9,
-                9,
-                8
+                20,
+                20,
+                19,
+                19,
+                18
               ],
               "upper": [
-                9,
-                9,
-                8,
-                8,
-                7
+                19,
+                19,
+                18,
+                18,
+                17
               ],
-              "prefix": 20,
+              "prefix": 40,
               "aValues": [
                 0,
                 2,
@@ -225012,7 +225042,17 @@
                 12,
                 14,
                 16,
-                18
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38
               ]
             },
             "initial": false,
@@ -225029,20 +225069,20 @@
             "kind": "parity",
             "active": 2,
             "counts": [
-              10,
-              10,
-              9,
-              9,
-              8
+              20,
+              20,
+              19,
+              19,
+              18
             ],
             "upper": [
-              9,
-              9,
-              8,
-              8,
-              7
+              19,
+              19,
+              18,
+              18,
+              17
             ],
-            "prefix": 29,
+            "prefix": 59,
             "aValues": [
               0,
               2,
@@ -225052,36 +225092,46 @@
               10,
               12,
               14,
-              16
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36
             ]
           },
-          "caption": "Fix b=2. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 8. Each of the 9 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
-          "captionHtml": "<p>Fix b=2. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 8. Each of the 9 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.</p>",
+          "caption": "Fix b=2. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through 18. Each of the 19 even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.",
+          "captionHtml": "<p>Fix b=2. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through 18. Each of the 19 even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.</p>",
           "metrics": {},
-          "formula": "b=2,\\quad 0\\le j\\le 8,\\quad c=18-2j,\\quad \\text{prefix}=29",
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"b=2,\\quad 0\\le j\\le 8,\\quad c=18-2j,\\quad \\text{prefix}=29\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>b</mi><mo>=</mo><mn>2</mn><mo>,</mo><mspace width=\"1em\" /><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>8</mn><mo>,</mo><mspace width=\"1em\" /><mi>c</mi><mo>=</mo><mn>18</mn><mo>-</mo><mn>2</mn><mi>j</mi><mo>,</mo><mspace width=\"1em\" /><mtext>prefix</mtext></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>29</mn></mrow></mtd></mtr></mtable></math></div>",
+          "formula": "b=2,\\quad 0\\le j\\le 18,\\quad c=38-2j,\\quad \\text{prefix}=59",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"b=2,\\quad 0\\le j\\le 18,\\quad c=38-2j,\\quad \\text{prefix}=59\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>b</mi><mo>=</mo><mn>2</mn><mo>,</mo><mspace width=\"1em\" /><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>18</mn><mo>,</mo><mspace width=\"1em\" /><mi>c</mi><mo>=</mo><mn>38</mn></mrow></mtd></mtr><mtr><mtd><mrow><mo>-</mo><mn>2</mn><mi>j</mi><mo>,</mo><mspace width=\"1em\" /><mtext>prefix</mtext><mo>=</mo><mn>59</mn></mrow></mtd></mtr></mtable></math></div>",
           "line": 0,
           "teaching": {
             "operation": "Construct and check the displayed exact combinatorial state",
-            "why": "Fix b=2. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 8. Each of the 9 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
+            "why": "Fix b=2. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through 18. Each of the 19 even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.",
             "currentState": {
               "kind": "parity",
               "active": 2,
               "counts": [
-                10,
-                10,
-                9,
-                9,
-                8
+                20,
+                20,
+                19,
+                19,
+                18
               ],
               "upper": [
-                9,
-                9,
-                8,
-                8,
-                7
+                19,
+                19,
+                18,
+                18,
+                17
               ],
-              "prefix": 29,
+              "prefix": 59,
               "aValues": [
                 0,
                 2,
@@ -225091,7 +225141,17 @@
                 10,
                 12,
                 14,
-                16
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36
               ]
             },
             "initial": false,
@@ -225108,20 +225168,20 @@
             "kind": "parity",
             "active": 3,
             "counts": [
-              10,
-              10,
-              9,
-              9,
-              8
+              20,
+              20,
+              19,
+              19,
+              18
             ],
             "upper": [
-              9,
-              9,
-              8,
-              8,
-              7
+              19,
+              19,
+              18,
+              18,
+              17
             ],
-            "prefix": 38,
+            "prefix": 78,
             "aValues": [
               0,
               2,
@@ -225131,36 +225191,46 @@
               10,
               12,
               14,
-              16
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36
             ]
           },
-          "caption": "Fix b=3. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 8. Each of the 9 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
-          "captionHtml": "<p>Fix b=3. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 8. Each of the 9 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.</p>",
+          "caption": "Fix b=3. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through 18. Each of the 19 even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.",
+          "captionHtml": "<p>Fix b=3. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through 18. Each of the 19 even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.</p>",
           "metrics": {},
-          "formula": "b=3,\\quad 0\\le j\\le 8,\\quad c=17-2j,\\quad \\text{prefix}=38",
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"b=3,\\quad 0\\le j\\le 8,\\quad c=17-2j,\\quad \\text{prefix}=38\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>b</mi><mo>=</mo><mn>3</mn><mo>,</mo><mspace width=\"1em\" /><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>8</mn><mo>,</mo><mspace width=\"1em\" /><mi>c</mi><mo>=</mo><mn>17</mn><mo>-</mo><mn>2</mn><mi>j</mi><mo>,</mo><mspace width=\"1em\" /><mtext>prefix</mtext></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>38</mn></mrow></mtd></mtr></mtable></math></div>",
+          "formula": "b=3,\\quad 0\\le j\\le 18,\\quad c=37-2j,\\quad \\text{prefix}=78",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"b=3,\\quad 0\\le j\\le 18,\\quad c=37-2j,\\quad \\text{prefix}=78\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>b</mi><mo>=</mo><mn>3</mn><mo>,</mo><mspace width=\"1em\" /><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>18</mn><mo>,</mo><mspace width=\"1em\" /><mi>c</mi><mo>=</mo><mn>37</mn></mrow></mtd></mtr><mtr><mtd><mrow><mo>-</mo><mn>2</mn><mi>j</mi><mo>,</mo><mspace width=\"1em\" /><mtext>prefix</mtext><mo>=</mo><mn>78</mn></mrow></mtd></mtr></mtable></math></div>",
           "line": 0,
           "teaching": {
             "operation": "Construct and check the displayed exact combinatorial state",
-            "why": "Fix b=3. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 8. Each of the 9 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
+            "why": "Fix b=3. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through 18. Each of the 19 even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.",
             "currentState": {
               "kind": "parity",
               "active": 3,
               "counts": [
-                10,
-                10,
-                9,
-                9,
-                8
+                20,
+                20,
+                19,
+                19,
+                18
               ],
               "upper": [
-                9,
-                9,
-                8,
-                8,
-                7
+                19,
+                19,
+                18,
+                18,
+                17
               ],
-              "prefix": 38,
+              "prefix": 78,
               "aValues": [
                 0,
                 2,
@@ -225170,7 +225240,17 @@
                 10,
                 12,
                 14,
-                16
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36
               ]
             },
             "initial": false,
@@ -225187,20 +225267,20 @@
             "kind": "parity",
             "active": 4,
             "counts": [
-              10,
-              10,
-              9,
-              9,
-              8
+              20,
+              20,
+              19,
+              19,
+              18
             ],
             "upper": [
-              9,
-              9,
-              8,
-              8,
-              7
+              19,
+              19,
+              18,
+              18,
+              17
             ],
-            "prefix": 46,
+            "prefix": 96,
             "aValues": [
               0,
               2,
@@ -225209,36 +225289,46 @@
               8,
               10,
               12,
-              14
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34
             ]
           },
-          "caption": "Fix b=4. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 7. Each of the 8 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
-          "captionHtml": "<p>Fix b=4. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 7. Each of the 8 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.</p>",
+          "caption": "Fix b=4. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through 17. Each of the 18 even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.",
+          "captionHtml": "<p>Fix b=4. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through 17. Each of the 18 even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.</p>",
           "metrics": {},
-          "formula": "b=4,\\quad 0\\le j\\le 7,\\quad c=16-2j,\\quad \\text{prefix}=46",
-          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"b=4,\\quad 0\\le j\\le 7,\\quad c=16-2j,\\quad \\text{prefix}=46\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>b</mi><mo>=</mo><mn>4</mn><mo>,</mo><mspace width=\"1em\" /><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>7</mn><mo>,</mo><mspace width=\"1em\" /><mi>c</mi><mo>=</mo><mn>16</mn><mo>-</mo><mn>2</mn><mi>j</mi><mo>,</mo><mspace width=\"1em\" /><mtext>prefix</mtext></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mn>46</mn></mrow></mtd></mtr></mtable></math></div>",
+          "formula": "b=4,\\quad 0\\le j\\le 17,\\quad c=36-2j,\\quad \\text{prefix}=96",
+          "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"b=4,\\quad 0\\le j\\le 17,\\quad c=36-2j,\\quad \\text{prefix}=96\"><mtable displaystyle=\"true\" columnalign=\"left\" rowspacing=\".55em\"><mtr><mtd><mrow><mi>b</mi><mo>=</mo><mn>4</mn><mo>,</mo><mspace width=\"1em\" /><mn>0</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>17</mn><mo>,</mo><mspace width=\"1em\" /><mi>c</mi><mo>=</mo><mn>36</mn></mrow></mtd></mtr><mtr><mtd><mrow><mo>-</mo><mn>2</mn><mi>j</mi><mo>,</mo><mspace width=\"1em\" /><mtext>prefix</mtext><mo>=</mo><mn>96</mn></mrow></mtd></mtr></mtable></math></div>",
           "line": 0,
           "teaching": {
             "operation": "Construct and check the displayed exact combinatorial state",
-            "why": "Fix b=4. The original lower bound c>=1 gives 2j+c=20-b, so j runs inclusively from zero through 7. Each of the 8 even a values produces exactly one c. Accumulating these disjoint b rows reaches 46.",
+            "why": "Fix b=4. The original lower bound c>=1 gives 2j+c=40-b, so j runs inclusively from zero through 17. Each of the 18 even a values produces exactly one c. Accumulating these disjoint b rows reaches 96.",
             "currentState": {
               "kind": "parity",
               "active": 4,
               "counts": [
-                10,
-                10,
-                9,
-                9,
-                8
+                20,
+                20,
+                19,
+                19,
+                18
               ],
               "upper": [
-                9,
-                9,
-                8,
-                8,
-                7
+                19,
+                19,
+                18,
+                18,
+                17
               ],
-              "prefix": 46,
+              "prefix": 96,
               "aValues": [
                 0,
                 2,
@@ -225247,7 +225337,17 @@
                 8,
                 10,
                 12,
-                14
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34
               ]
             },
             "initial": false,

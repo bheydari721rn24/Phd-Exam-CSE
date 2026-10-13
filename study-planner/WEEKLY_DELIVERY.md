@@ -740,3 +740,11 @@ Source 01015cc80d725c367957cace974050c90f96b64b was privately deployed as appgde
 ## Invariants individual revision, 13 October 2026
 
 The full lesson and all forty-nine tutorials remain; forty-six answers, eight deeper constructions, ten solved challenges and thirty-four detailed final decisions were written. Five scoped university readings and four original examination pages were actually checked. Mathematical and numeric oracles, forty-one models, forty-five players, 419 checkpoints, 270 control checks, ninety primary and four supplemental play/pause assertions, sixteen selector events, eight laboratory records, invalid negative-rank input, four static diagrams with twenty-one attached straight arrows and a reset curve, three viewport widths and print passed within recorded bounds. Nineteen individual reviews are complete; forty-one remain. Continue d_number and preserve unfinished l_projection. Eighteen remain the confirmed private online count until this publication succeeds.
+
+## Nineteen-review private publication confirmed, 13 October 2026
+
+Source 003e5b6f618c8b1f3b580d15937fc01a38ec813b was privately deployed as appgdep_6ace433cd434819192c5519d55eb4470. The immutable 489-entry archive has SHA256 baccf49eb4dfbd8fb23a152befa8b229187cc8bb1ce0c1e1e7d6acd2a953ff7b. GitHub branch study-planner-1406 commit 117bc3c mirrors 47 exact changed files. Nineteen checked reviews are confirmed online; forty-one remain. Continue d_number and preserve unfinished projection authoring.
+
+## Original-source transcription corrections, 13 October 2026
+
+Enlarged original images establish exponent fifteen in MS CS 1405 Q125 and total forty in Q129. The latter has ninety-six solutions, ratio six and correct option four; the former still has coefficient zero. Canonical data, producers, the counting manuscript, all five actual occurrences across three pages and the exact parity simulation are corrected. Independent convolution/enumeration and current desktop, 768/390-width and play/pause checks passed. Earlier checks of transcribed inputs do not establish source fidelity. Nineteen full revisions remain complete; d_number is still under individual review, with forty-seven new answer drafts written but not yet integrated or fully audited.

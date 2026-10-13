@@ -1,0 +1,9 @@
+from pathlib import Path
+import json
+B=Path(__file__).parent;E=B/'deep-library-revision'
+p=E/'number-source-errata.json';d=json.loads(p.read_text());d.update(status='corrected_and_independently_checked_pending_publication',mathematicalEvidence='research/deep-library-revision/number-source-errata-math.json',browserEvidence='research/deep-library-revision/number-source-errata-browser.json',visualReading='Original full pages and enlarged exponent/total crops were actually inspected; corrected desktop parity model and mobile source question were visually inspected.',libraryProgress='Nineteen individual full revisions remain complete. These source corrections do not mark d_number or d_counting as fully revised.');p.write_text(json.dumps(d,indent=2)+'\n',encoding='utf-8')
+p=E/'d_number-original-recheck.json';d=json.loads(p.read_text())
+for q in d:q['state']='actually_visually_read_original_page';q['correctionEvidence']='research/deep-library-revision/number-source-errata.json'
+p.write_text(json.dumps(d,indent=2)+'\n',encoding='utf-8')
+p=B.parent/'WEEKLY_DELIVERY.md';s=p.read_text();s+='\n## Original-source transcription corrections, 13 October 2026\n\nEnlarged original images establish exponent fifteen in MS CS 1405 Q125 and total forty in Q129. The latter has ninety-six solutions, ratio six and correct option four; the former still has coefficient zero. Canonical data, producers, the counting manuscript, all five actual occurrences across three pages and the exact parity simulation are corrected. Independent convolution/enumeration and current desktop, 768/390-width and play/pause checks passed. Earlier checks of transcribed inputs do not establish source fidelity. Nineteen full revisions remain complete; d_number is still under individual review, with forty-seven new answer drafts written but not yet integrated or fully audited.\n';p.write_text(s,encoding='utf-8')
+print({'sourceErrata':'checked','fullReviews':19,'currentReview':'d_number'})

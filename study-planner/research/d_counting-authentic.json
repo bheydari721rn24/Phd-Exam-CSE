@@ -169,21 +169,21 @@
       "d_number"
     ],
     "title": "Parity with upper and lower bounds",
-    "stem": "Let $A$ count nonnegative integer solutions of $a+b+c=20$, where $a$ is even, $b\\le4$, and $c\\ge1$. Which interval contains $A/16$?",
+    "stem": "Let $A$ count nonnegative integer solutions of $a+b+c=40$, where $a$ is even, $b\\le4$, and $c\\ge1$. Which interval contains $A/16$?",
     "options": [
       "$[1,2)$",
       "$[2,4)$",
       "$[4,6)$",
       "$[6,+\\infty)$"
     ],
-    "answer": 2,
-    "solution": "1. Write $a=2j$ and $c=c'+1$, with $j,c'\\ge0$. Then $2j+b+c'=19$.\n2. For each $b=0,1,2,3,4$, the number of permitted $j$ values is $\\lfloor(19-b)/2\\rfloor+1$.\n3. These counts are 10, 10, 9, 9, and 8, totaling 46. Hence $A/16=23/8=2.875$, in option 2.\n4. Standard three-variable stars and bars would ignore both parity and the upper bound. The source constrains $a$ to be even, not $b$, and sets $b\\le4$, not a larger value.\n\n**Transfer rule.** Translate lower bounds first, encode divisibility, then sum over a short bounded variable.",
+    "answer": 4,
+    "solution": "**Preserve the original total forty, the even variable and the strict lower bound.** Write $a=2u$ and $c=1+v$, where $u,v$ are nonnegative integers. The equation becomes $2u+b+v=39$ with $b\\in\\{0,1,2,3,4\\}$. For fixed $b$, every admissible $u$ determines exactly one $v=39-b-2u$. Therefore the inclusive range and count are\n$$0\\le u\\le\\left\\lfloor\\frac{39-b}{2}\\right\\rfloor,\\qquad N_b=\\left\\lfloor\\frac{39-b}{2}\\right\\rfloor+1.$$\n\n| Fixed $b$ | Allowed $u$ | Number of triples |\n|---|---|---|\n| 0 | 0 through 19 | 20 |\n| 1 | 0 through 19 | 20 |\n| 2 | 0 through 18 | 19 |\n| 3 | 0 through 18 | 19 |\n| 4 | 0 through 17 | 18 |\n\nThe rows are disjoint because they assign different values to $b$, and together cover every permitted value. Thus $A=20+20+19+19+18=96$ and $A/16=6$. Option 4 contains six, whereas option 3 is $[4,6)$ and excludes its upper endpoint. Options 1 and 2 also exclude six. This endpoint distinction is essential even after the enumeration is correct.\n\nFor a separate verification, the unrestricted nonnegative solutions of $2u+b+v=39$ number $\\sum_{u=0}^{19}(40-2u)=420$. Violating $b\\le4$ means writing $b=5+w$, giving $2u+w+v=34$ and $\\sum_{u=0}^{17}(35-2u)=324$ violations. Subtraction gives $420-324=96$. Halving an unrestricted stars-and-bars count ignores the alternating floor endpoints. Imposing evenness on $b$, allowing $c=0$, or replacing forty by twenty changes the stated problem. The original scanned page was reread at enlarged resolution; ninety-six replaces the earlier erroneous count forty-six.",
     "pattern": "mixed parity and bounded integer solutions",
     "difficulty": "Hard",
     "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
     "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
     "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
-    "translationStatus": "checked against rendered source page",
+    "translationStatus": "Corrected against enlarged original PDF crop, 13 October 2026; previous transcription superseded",
     "answerProvenance": "independently derived; not represented as an official key"
   },
   {
