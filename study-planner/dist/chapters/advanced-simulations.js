@@ -287,7 +287,7 @@
  }
  function fit(svg){
   if(svg.tagName.toLowerCase()!=='svg')return;
-  window.DiagramLayout?.finish(svg,{arrows:false,labels:true});
+  window.DiagramLayout?.finish(svg,{arrows:false,labels:svg.dataset.explicitLabelPlacement!=='true'});
   // Pack multiple labels in a card only when real glyph bounds reveal a collision
   // or insufficient padding. Shapes and scientific coordinates are unchanged.
   for(const shape of svg.querySelectorAll('rect[data-layout-box],circle[data-layout-box]')){

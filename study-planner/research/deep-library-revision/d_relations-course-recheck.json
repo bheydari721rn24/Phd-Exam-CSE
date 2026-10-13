@@ -1,0 +1,60 @@
+{
+  "topicId": "d_relations",
+  "reviewDate": "2026-10-13",
+  "state": "completed_root_scoped_written_source_reading",
+  "universityCountActuallyReadInThisRevision": 4,
+  "selectedFreshUniversities": ["MIT", "Stanford", "Cambridge", "Cornell"],
+  "candidatePool": "The documented nine-university pool was reassessed. Four genuinely reread written university scopes are selected for fresh synthesis. Oxford remains a substantial historical scoped source; its fresh local request timed out and is not counted as a fresh fifth reading. CMU, Princeton, Berkeley and ETH retain the screened or limited states recorded in the original audit. No worldwide course census or unsupported best-in-world ranking is claimed.",
+  "sources": [
+    {
+      "university": "MIT",
+      "course": "6.042J / 18.062J Mathematics for Computer Science, Fall 2010",
+      "instructors": "Tom Leighton and Marten van Dijk",
+      "url": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/efac321fdc8d0b27586ca35b04aab808_MIT6_042JF10_chap07.pdf",
+      "sha256": "2242c3f97d3c85d99f44fb5383c3784a6b387823a6b89e08ea54fb6220fc1422",
+      "scope": "All 39767 extracted characters for physical PDF pages 1–24, overlapping slices 0–20500 and 19500–end, actually read by root. The final page is an attribution notice, not represented as additional teaching.",
+      "role": "Principal typed relation, finite order, linear extension, height/width and scheduling source.",
+      "qualifications": "Function is right-unique with totality separate. The minimum-element statement needs a nonempty finite carrier. The scheduling theorem statement omits the distinctness condition that its proof supplies; the rewritten chapter uses strict predecessors. Its height/width lemma is not substituted for the stronger chain-partition theorem. Hasse orientation is explicitly reconciled."
+    },
+    {
+      "university": "Stanford",
+      "course": "CS103 Mathematical Foundations of Computing, Spring 2017",
+      "instructor": "Keith Schwarz",
+      "urls": ["https://web.stanford.edu/class/archive/cs/cs103/cs103.1176/lectures/06/Small06.pdf", "https://web.stanford.edu/class/archive/cs/cs103/cs103.1176/lectures/07/Small07.pdf", "https://web.stanford.edu/class/archive/cs/cs103/cs103.1176/handouts/150%20Problem%20Set%203.pdf"],
+      "scope": "All three scoped extracted bodies actually read: Relations I 11469 characters; Relations II 14453 characters; Problem Set 3 physical pages 2–4, 6509 characters. The exact page lists and original-byte hashes are in d_relations-source-recheck-downloads.json. Physical Relations II page 69 was rendered and inspected to restore missing negation strokes.",
+      "role": "Principal definition-based equivalence and strict-order proofs, Euclidean alternative axioms, partial equivalence, fraction cosets and covers.",
+      "qualifications": "Repeated animation text is not additional source breadth. Extraction erases negation strokes; the original page and formal predicate decide the statement. The whole 57/87-page lecture sequences are not claimed read."
+    },
+    {
+      "university": "Cambridge",
+      "course": "Discrete Mathematics, Michaelmas 2003 / Lent 2004",
+      "instructor": "Peter Robinson",
+      "url": "https://www.cl.cam.ac.uk/teaching/2003/DiscMaths/DiscMaths.pdf",
+      "sha256": "2b4f4e1a5e90056ef7cfb8be9497a2e2b659ba423c96572d2b8ab6d1c0f5d4a0",
+      "scope": "All 22159 scoped extracted characters for physical pages 37–45, overlapping 0–15000 and 14000–end, actually read. Original physical pages 40 and 42 were rendered and inspected for the matrix and well-founded claims.",
+      "role": "Principal relation composition, closure/leastness, Warshall invariant, order and well-founded induction source; all eleven exercises on page 45 read.",
+      "qualifications": "Composition notation uses the opposite symbol order. Finite irreflexivity alone does not imply well-foundedness. Zero-denominator fractions invalidate the equivalence construction. The eventual-constant descending-sequence proof needs the appropriate order hypotheses; the minimal-subset definition is primary. Its chain-completeness terminology is distinguished from complete lattices. Graph circuits and multigraph modeling are outside the adopted relation boundary."
+    },
+    {
+      "university": "Cornell",
+      "course": "CS2800 Discrete Structures, Spring 2017",
+      "instructor": "Michael George",
+      "urls": ["https://www.cs.cornell.edu/courses/cs2800/2017sp/lectures/lec06-relations.html", "https://www.cs.cornell.edu/courses/cs2800/2017sp/lectures/lec07-equivalence.html"],
+      "scope": "Lecture 6 relation section, primary browser body lines 65–100; entire Lecture 7 body lines 0–102 actually read by root. No locally downloaded-body hash is invented.",
+      "role": "Fourth freshly read university course; independent class/partition/representative cross-check. Its linked MIT text is not counted as Cornell authorship.",
+      "qualifications": "Empty relation nonreflexivity needs a nonempty carrier. General closure existence needs intersection and admissible-extension conditions. Rearranged sequences with repetition give multisets, not fixed-size subsets. Directed one-way reachability is not an equivalence. An oldest-living-relative map also needs existence and a uniquely determined selected output; representative independence alone does not supply those assumptions."
+    },
+    {
+      "university": "Oxford",
+      "course": "Discrete Mathematics, Michaelmas 2010",
+      "instructor": "Andrew D. Ker",
+      "url": "https://www.cs.ox.ac.uk/andrew.ker/docs/discretemaths-lecture-notes-mt2010.pdf",
+      "scope": "The original audited reading covers physical pages 55–66 and 107–120. Fresh local retrieval timed out; the primary browser index was opened, but the full scope was not freshly reread and is not counted as a fifth fresh reading.",
+      "role": "Retained historical formal counting/order/bounds source within its documented bounds.",
+      "state": "historical_scoped_source_not_counted_as_fresh"
+    }
+  ],
+  "authenticSourceReview": "All three original bank page images actually rendered and inspected in this revision: MSc CS 1405 Q38 physical page 9, PhD CS 1405 Q13 physical page 7, and Q23 physical page 8. Their file hashes match the canonical source records; meanings and option order were reconciled.",
+  "manuscriptReading": "Complete 54421-character lesson, all 46 retained tutorials, complete 72-rule review and all 45 bank stems/options actually read.",
+  "limits": "Declared chapter boundary and exact source scopes; no complete world course/exercise corpus or guarantee about unseen questions. The rewritten answers and visual/mathematical checks remain unfinished."
+}

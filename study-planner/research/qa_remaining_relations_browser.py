@@ -1,0 +1,65 @@
+"""Inspect the actual rendered chapter, mathematics, solution tables and retained players."""
+from pathlib import Path
+import base64,json,os,subprocess,tempfile,time
+import requests,websocket
+R=Path(__file__).resolve().parents[1];OUT=Path(tempfile.gettempdir())/'deep-relations-browser';OUT.mkdir(exist_ok=True)
+profile=OUT/f'edge-{os.getpid()}'
+proc=subprocess.Popen([r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe','--headless=new','--disable-gpu','--no-first-run','--remote-allow-origins=*','--remote-debugging-port=0',f'--user-data-dir={profile}','about:blank'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+seq=0;report={'status':'in_progress','topicId':'d_relations','screenshots':str(OUT)}
+try:
+ for _ in range(100):
+  if(profile/'DevToolsActivePort').exists():
+   try:
+    port_text=(profile/'DevToolsActivePort').read_text();assert port_text.strip();break
+   except (OSError,AssertionError):pass
+  time.sleep(.1)
+ port=int(port_text.splitlines()[0]);page=next(p for p in requests.get(f'http://127.0.0.1:{port}/json').json()if p['type']=='page');ws=websocket.create_connection(page['webSocketDebuggerUrl'],timeout=60)
+ def cdp(method,params=None):
+  global seq
+  seq+=1;ws.send(json.dumps(dict(id=seq,method=method,params=params or{})))
+  while True:
+   r=json.loads(ws.recv())
+   if r.get('id')==seq:assert 'error'not in r,r;return r.get('result',{})
+ def js(code):
+  r=cdp('Runtime.evaluate',dict(expression=code,returnByValue=True,awaitPromise=True));assert 'exceptionDetails'not in r,r;return r.get('result',{}).get('value')
+ def capture(sel,name):
+  js('document.querySelector('+json.dumps(sel)+').scrollIntoView({block:"start",behavior:"instant"})');js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');(OUT/name).write_bytes(base64.b64decode(cdp('Page.captureScreenshot',{'format':'png'})['data']))
+ cdp('Page.enable');cdp('Page.addScriptToEvaluateOnNewDocument',{'source':"window.__errors=[];addEventListener('error',e=>__errors.push(e.message));addEventListener('unhandledrejection',e=>__errors.push(String(e.reason)));"})
+ cdp('Emulation.setDeviceMetricsOverride',dict(width=1360,height=1050,deviceScaleFactor=1,mobile=False));cdp('Page.navigate',dict(url='http://127.0.0.1:8771/chapters/d_relations.html'))
+ for _ in range(100):
+  if js('!!window.ConceptAnimations'):break
+  time.sleep(.1)
+ assert js('!!window.ConceptAnimations'), 'Chapter or renderer did not load'
+ js('document.fonts.ready');js('document.querySelectorAll(".exam-solution").forEach(x=>x.open=true)')
+ js('Promise.all([...document.querySelectorAll(".concept-animation")].map(h=>ConceptAnimations.ready(h)))')
+ report['loadFailures']=js("[...document.querySelectorAll('.concept-animation')].filter(h=>h.dataset.loaded!=='true').map(h=>({scenes:h.dataset.scenes,state:h.dataset.loaded,text:h.textContent}))");assert not report['loadFailures'],report['loadFailures']
+
+ report=json.loads((R/'research/deep-library-revision/d_relations-browser-segment-handoff.json').read_text())
+ import hashlib
+ assert all(hashlib.sha256((R/path).read_bytes()).hexdigest()==sha for path,sha in report['assetHashesAtSegmentHandoff'].items())
+ report['playbackEvidenceReused']='The preceding segment actually advanced and paused all 44 players and checked all 235 scenario frames. A QA-only selector quoting error occurred afterward. The immutable raw control-pass report is retained; chapter, model and renderer hashes are unchanged. This run completes the remaining lab, screenshots, responsive and print checks.'
+ report['relationLab']=[]
+ for name,counts in [('chain',[6,10,16]),('cycle',[9,10,10]),('empty',[0,4,4])]:
+  js('document.getElementById("lab-'+name+'").click()')
+  row=js('({input:[...document.querySelectorAll("#lab-input button")].filter(b=>b.getAttribute("aria-pressed")==="true").length,closures:[...document.querySelectorAll("#lab-closures table")].map(t=>[...t.querySelectorAll("td span")].reduce((sum,v)=>sum+Number(v.textContent),0)),stage:document.getElementById("lab-stage").textContent})');assert row['closures']==counts and row['stage'].startswith('Stage 0'),row;report['relationLab'].append(dict(inputCase=name,**row))
+  for k in range(4):js('document.getElementById("lab-next").click()')
+  row=js('({stage:document.getElementById("lab-stage").textContent,disabled:document.getElementById("lab-next").disabled,count:[...document.querySelectorAll("#lab-stage-matrix td span")].reduce((sum,v)=>sum+Number(v.textContent),0)})');assert row['stage'].startswith('Stage 4')and row['disabled']and row['count']==counts[0],row;report['relationLab'].append(row)
+ row=js('document.querySelectorAll("#lab-input button")[0].click();({stage:document.getElementById("lab-stage").textContent,disabled:document.getElementById("lab-next").disabled,count:[...document.querySelectorAll("#lab-closures table")][0].querySelectorAll("td span").length})');assert row['stage'].startswith('Stage 0')and not row['disabled']and row['count']==16,row;report['relationLab'].append(row)
+ js('document.getElementById("lab-chain").click()')
+ for i in range(len(report['staticDiagrams'])):
+  js('[...document.querySelectorAll("figure svg")]['+str(i)+'].closest("figure").setAttribute("data-relations-static-index","'+str(i)+'")');capture('[data-relations-static-index="'+str(i)+'"]',f'static-{i+1}.png')
+ for n in[4,6,7,8,9,10]:
+  sel='h3';js('(()=>{const title=[...document.querySelectorAll("h3")].find(h=>h.textContent.startsWith("Challenge '+str(n)+'.")),h=title.nextElementSibling,c=ConceptAnimations.players.find(c=>h.contains(c.api.host));c.api.show(c.api.model.frames.length-1);h.setAttribute("data-capture-challenge","'+str(n)+'");})()');capture('[data-capture-challenge="'+str(n)+'"]',f'challenge-{n}-final.png')
+ report['responsive']=[]
+ for width in[1360,768,390]:
+  cdp('Emulation.setDeviceMetricsOverride',dict(width=width,height=1050,deviceScaleFactor=1,mobile=width<500));js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')
+  row=js("""(()=>{const b=document.documentElement;return{width:innerWidth,pageWidth:b.scrollWidth,tableOverflow:[...document.querySelectorAll('.exam-solution table')].flatMap(t=>{const a=t.getBoundingClientRect(),fo=t.closest('foreignObject');if(fo){const f=fo.getBoundingClientRect(),stage=t.closest('.sim-stage'),s=stage?.getBoundingClientRect();const clipped=stage&&['auto','scroll','hidden'].includes(getComputedStyle(stage).overflowX)&&s.left>=0&&s.right<=innerWidth+2;return a.left<f.left-1||a.right>f.right+1||a.top<f.top-1||a.bottom>f.bottom+1||!clipped?[{reason:'foreignObject/stage containment'}]:[];}return a.left<0||a.right>innerWidth+2?[{left:a.left,right:a.right}]:[];}),underlined:[...document.querySelectorAll('a')].filter(a=>getComputedStyle(a).textDecorationLine.includes('underline')).length};})()""")
+  report['responsive'].append(row);assert row['pageWidth']<=width+2 and not row['tableOverflow'] and not row['underlined'],row
+  if width==390:capture('.exam-question[data-deep-index="4"]','question-4-mobile.png');capture('.exam-question[data-deep-index="6"]','question-6-mobile.png')
+ cdp('Emulation.setEmulatedMedia',dict(media='print'));js('dispatchEvent(new Event("beforeprint"))')
+ report['print']=js('({solutions:[...document.querySelectorAll(".exam-solution")].filter(x=>getComputedStyle(x).display!=="none").length,errors:__errors})');assert report['print']['solutions']==45 and not report['print']['errors']
+ report['status']='passed_pending_screenshot_inspection'
+finally:
+ (R/'research/deep-library-revision/d_relations-browser.json').write_text(json.dumps(report,indent=2)+'\n')
+ proc.terminate()
+print(report['status'])

@@ -716,3 +716,11 @@ Source 6dc081117f8724d4eb940e959073eb30e3577727 was privately deployed as appgde
 ## Logic gates individual revision, 13 October 2026
 
 All 46 bank answers are individually rewritten, with the full lesson and 36 tutorials retained. Seven constructions, ten solved synthesis challenges and twenty further detailed decisions are added. Four university scopes were actually reread; authentic source pages, independent topology/Boolean/RC/timing checks, 32 dedicated model definitions, 36 players, 311 scenario checkpoints, 216 controls, 72 actual play/pause assertions, 11 selector events, laboratory cases, ten static diagrams, three viewport widths and print were checked within recorded bounds. Sixteen of sixty individual reviews are complete and forty-four remain. Continue d_relations and preserve unfinished l_projection. Fifteen reviews are the last confirmed private online state until the sixteen-review publication succeeds.
+
+## Sixteen-review private publication confirmed, 13 October 2026
+
+Source 9628d13bd1f5417e4144c95b1be84e18782294bc was privately deployed as appgdep_6acddd63a61c81919849701a4e465f2d. The immutable 489-entry archive has SHA256 d3c86bb10331a3e7335b240ea3ef2b6b6bcfa259da17f3a8b03d975a5fd34492. GitHub branch study-planner-1406 commit 8f9ea48 mirrors 37 exact changed files. Sixteen checked reviews are confirmed online; forty-four remain. Continue the individual d_relations review and preserve unfinished projection authoring.
+
+## Relations individual revision, 13 October 2026
+
+The complete lesson and 46 tutorials remain. All 45 bank answers were rewritten, with seven additional constructions, ten solved synthesis challenges and 37 detailed decisions. Four university scopes were actually reread; three authentic original examination pages and source qualifications were reconciled. Mathematical checks, all 65,536 four-vertex laboratory relations, 40 exact models, 44 players, 235 mounted checkpoints, 264 control checks, 88 actual play/pause assertions, nine selector events, seven laboratory records, five static diagrams, three viewport widths and print passed within recorded bounds. Seventeen of sixty individual reviews are checked; forty-three remain. Continue d_functions and preserve unfinished l_projection. Sixteen reviews remain the last confirmed private online state until the seventeen-review publication succeeds.
