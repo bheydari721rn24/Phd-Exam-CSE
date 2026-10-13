@@ -82,7 +82,7 @@ function plot(p,g,f){if(p.scene.id.startsWith("asym-"))return asymPlot(p,g,f);co
 function tree(p,g,f,pos){if(p.scene.id==="recurrence-levels"){const n=+f.metrics.Nodes,depth=+f.metrics.Level;for(let d=0;d<=depth;d++){const count=2**d;for(let i=0;i<count;i++){const x=70+(i+.5)*620/count,y=45+70*d;if(d){const px=70+(Math.floor(i/2)+.5)*620/(count/2);path(g,`M${px} ${y-50}L${x} ${y-18}`,"#83a5b5");}dot(g,x,y,18,d===depth?C.amber:C.blue);text(g,x,y+6,8/count,18,"middle","white");}}text(g,380,340,`Level ${depth}: ${n} nodes × ${8/n} units = 8 units of work`,20);return;}
  graph(p,g,f,pos);
 }
-function gridEnumeration(p,g,f){const id=p.scene.id,s=f.snapshot||{};if(id.startsWith("number-question-"))return numberQuestion(p,g,f);if(id.startsWith("flow-question-"))return flowQuestion(p,g,f);if(id.startsWith("types-question-"))return typesQuestion(p,g,f);if(id.startsWith("matrices-question-"))return matricesQuestion(p,g,f);if(id.startsWith("vectors-question-"))return vectorsQuestion(p,g,f);if(id.startsWith("counting-question-"))return countingQuestion(p,g,f);if(id.startsWith("axioms-question-"))return axiomsQuestion(p,g,f);if(id.startsWith("loop-question-"))return loopQuestion(p,g,f);if(id==="loop-triangle"){for(let i=1;i<=5;i++)for(let j=1;j<=i;j++){rect(g,115+j*55,35+i*45,45,35,i===s.i&&j===s.j?"#ffe0a1":"#d1e8f1");text(g,137+j*55,59+i*45,`${i},${j}`,16);}text(g,565,150,`Body visits: ${s.count}`,24);return;}if(id==="powerset"){strip(g,170,115,[1,2,3],{cell:130,labels:false,title:"Independent inclusion decisions"});[1,2,3].forEach((v,i)=>text(g,235+i*130,225,s.subset.includes(v)?"include":"exclude",21,"middle",s.subset.includes(v)?C.green:C.red));text(g,380,310,`Mask ${s.mask.toString(2).padStart(3,"0")} → {${s.subset}}`,23);return;}if(id.startsWith("selection-")){const vs=s.outcomes;vs.forEach((v,i)=>{const x=90+(i%6)*112,y=100+Math.floor(i/6)*100;dot(g,x,y,32,String(v)===String(s.current)?C.amber:C.blue);text(g,x,y+7,`(${v})`,19,"middle","white");});text(g,380,330,`${vs.length} distinct admitted outcomes`,22);return;}if(id==="stars-bars"){f.nodes.forEach(n=>{if(n.label==="|")path(g,`M${n.x} 80V185`,C.amber,5);else dot(g,n.x,135,14,C.blue);});text(g,380,285,`Labeled group sizes: ${f.metrics["First group"]}, ${f.metrics["Second group"]}, ${f.metrics["Third group"]}`,24);return;}graph(p,g,f,new Map(f.nodes.map(n=>[n.id,n])));}
+function gridEnumeration(p,g,f){const id=p.scene.id,s=f.snapshot||{};if(id.startsWith("boolean-question-"))return booleanQuestion(p,g,f);if(id.startsWith("number-question-"))return numberQuestion(p,g,f);if(id.startsWith("flow-question-"))return flowQuestion(p,g,f);if(id.startsWith("types-question-"))return typesQuestion(p,g,f);if(id.startsWith("matrices-question-"))return matricesQuestion(p,g,f);if(id.startsWith("vectors-question-"))return vectorsQuestion(p,g,f);if(id.startsWith("counting-question-"))return countingQuestion(p,g,f);if(id.startsWith("axioms-question-"))return axiomsQuestion(p,g,f);if(id.startsWith("loop-question-"))return loopQuestion(p,g,f);if(id==="loop-triangle"){for(let i=1;i<=5;i++)for(let j=1;j<=i;j++){rect(g,115+j*55,35+i*45,45,35,i===s.i&&j===s.j?"#ffe0a1":"#d1e8f1");text(g,137+j*55,59+i*45,`${i},${j}`,16);}text(g,565,150,`Body visits: ${s.count}`,24);return;}if(id==="powerset"){strip(g,170,115,[1,2,3],{cell:130,labels:false,title:"Independent inclusion decisions"});[1,2,3].forEach((v,i)=>text(g,235+i*130,225,s.subset.includes(v)?"include":"exclude",21,"middle",s.subset.includes(v)?C.green:C.red));text(g,380,310,`Mask ${s.mask.toString(2).padStart(3,"0")} → {${s.subset}}`,23);return;}if(id.startsWith("selection-")){const vs=s.outcomes;vs.forEach((v,i)=>{const x=90+(i%6)*112,y=100+Math.floor(i/6)*100;dot(g,x,y,32,String(v)===String(s.current)?C.amber:C.blue);text(g,x,y+7,`(${v})`,19,"middle","white");});text(g,380,330,`${vs.length} distinct admitted outcomes`,22);return;}if(id==="stars-bars"){f.nodes.forEach(n=>{if(n.label==="|")path(g,`M${n.x} 80V185`,C.amber,5);else dot(g,n.x,135,14,C.blue);});text(g,380,285,`Labeled group sizes: ${f.metrics["First group"]}, ${f.metrics["Second group"]}, ${f.metrics["Third group"]}`,24);return;}graph(p,g,f,new Map(f.nodes.map(n=>[n.id,n])));}
 function kmap(p,g,f){const s=f.snapshot,id=p.scene.id;let n=s.n||4,on=s.on||[],dc=s.dc||[],cover=s.cover||[];if(id==="km-pos")on=s.zeroSet||[];if(s.rows)on=s.rows;if(id==="km-gray"){strip(g,170,140,["00","01","11","10"],{cell:100,active:s.step%4,labels:false,title:"Cyclic Gray order: one bit changes per neighbor"});return;}if(["km-chart","km-petrick","km-qm"].includes(id)){const patterns=s.patterns||Object.keys(s.owners||{});if(patterns.length){patterns.forEach((v,i)=>text(g,175+(i%4)*140,90+Math.floor(i/4)*65,v,25));text(g,380,320,`Exact tabulation stage: ${s.level??s.cost??s.candidate}`,21);return;}}
  const gray=[0,1,3,2],cells=n===3?2:4,x=200,y=85,size=50;text(g,300,37,n===3?"Rows: A; columns: BC":"Rows: AB; columns: CD",20);for(let i=0;i<cells;i++){text(g,x-28,y+i*size+32,n===3?i:gray[i].toString(2).padStart(2,"0"),18);for(let j=0;j<4;j++){if(!i)text(g,x+j*size+25,y-12,gray[j].toString(2).padStart(2,"0"),18);const v=(n===3?i:gray[i])*4+gray[j];rect(g,x+j*size,y+i*size,size,size,on.includes(v)?"#cce9dc":dc.includes(v)?"#ffe0a1":"#fff");text(g,x+j*size+25,y+i*size+20,v,13);text(g,x+j*size+25,y+i*size+42,on.includes(v)?1:dc.includes(v)?"X":0,22);}}
  const patterns=cover.map(v=>typeof v==="string"?v:v.pattern).filter(Boolean);patterns.forEach((pat,k)=>{for(let i=0;i<cells;i++)for(let j=0;j<4;j++){const v=(n===3?i:gray[i])*4+gray[j],bits=v.toString(2).padStart(n,"0");if([...pat].every((b,i)=>b==="-"||b===bits[i]))g.append(E("rect",{x:x+j*size+4+k*2,y:y+i*size+4+k*2,width:size-8-k*4,height:size-8-k*4,rx:9,fill:"none",stroke:[C.green,C.blue,C.amber,C.red][k%4],"stroke-width":3}));}});text(g,570,135,"Groups wrap across\nopposite edges.\nEach group represents\na Boolean cube.",18);text(g,380,335,patterns.length?`Selected cubes: ${patterns.join(", ")}`:s.pattern?`Cube under inspection: ${s.pattern}`:"Read decimal indices and Boolean obligations separately.",19);}
@@ -169,6 +169,56 @@ function arrayExact(p,g,f,pos){const s=f.snapshot||{},id=p.scene.id;
 
 
 
+
+
+
+/* BOOLEAN QUESTION RENDERER */
+function booleanQuestion(p,g,f){
+ const s=f.snapshot,box=(x,y,w,h,v,fill='#eef5f8')=>{rect(g,x,y,w,h,fill,'#abc4cf');text(g,x+w/2,y+h/2+6,v,17);};
+ const head=v=>text(g,380,30,v,19),formula=()=>vectorNative(g,f.formulaHtml,25,298,710,55);
+ if(s.kind==='table'){
+  head(p.scene.title);const rows=s.stage===0?[]:s.rowsHtml;booleanTable(g,rows,s.headings,35,69,690,185,s.stage===2?-1:0);
+  if(s.stage===0)text(g,380,167,'Inputs and column meanings are established; derived rows follow.',17);
+  text(g,380,282,s.stage===2?'All rows or classes shown are checked against the named domain.':'Advance to derive the complete table or the displayed representatives.',15);formula();return;
+ }
+ if(s.kind==='nand'){
+  head(`Original input x=${s.x}, y=${s.y}: difference and borrow`);
+  const gate=(x,y,label,value,known)=>{path(g,`M${x} ${y}h24a24 24 0 0 1 0 48h-24Z`,C.ink,1.5);g.append(E('circle',{cx:x+53,cy:y+24,r:5,fill:'white',stroke:C.ink,'stroke-width':1.5}));text(g,x+24,y+29,label,16);text(g,x+85,y+58,known?value:'·',18);};
+  gate(140,146,'t',s.t,s.stage>=1);gate(345,90,'u',s.u,s.stage>=2);gate(345,205,'v',s.v,s.stage>=2);gate(562,102,'F1',s.f1,s.stage>=3);gate(562,216,'F2',s.f2,s.stage>=3);
+  text(g,50,82,'x = '+s.x,17);text(g,50,268,'y = '+s.y,17);
+  // Separate primary rails and named fan-out junctions; wire endpoints attach to gate ports.
+  path(g,'M55 92H98V158H140M98 92H320V102H345M55 248H113V181H140M113 248H320V238H345',C.blue,1.5);
+  dot(g,98,92,3);dot(g,113,248,3);
+  path(g,'M198 170H285V125H345M285 170V220H345',s.stage>=1?C.green:C.blue,1.5);dot(g,285,170,3);
+  path(g,'M403 114H495V114H562M403 229H472V137H562M472 229H533V228H562M533 228V251H562',s.stage>=2?C.green:C.blue,1.5);dot(g,472,229,3);dot(g,533,228,3);
+  path(g,'M620 126H720M620 240H720',s.stage>=3?C.green:C.blue,1.5);
+  text(g,680,105,'difference',15);text(g,680,220,'borrow',15);formula();return;
+ }
+ if(s.kind==='mux'){
+  head(`Original select pins a=${s.a}, b=${s.b}`);
+  const mux=(x,y)=>{path(g,`M${x} ${y}L${x+75} ${y+22}V${y+107}L${x} ${y+130}Z`,C.ink,1.5);text(g,x+20,y+35,'0',17);text(g,x+20,y+105,'1',17);};
+  mux(190,73);mux(470,112);text(g,105,108,'data 1',17);text(g,105,178,'data 0',17);text(g,385,217,'data 0',17);
+  path(g,'M145 104H190M145 174H190M265 138H400V143H470M420 213H470M545 177H700',C.blue,1.6);
+  text(g,330,119,s.stage>=1?'t = '+s.t:'t pending',17);text(g,648,160,s.stage>=2?'F = '+s.out:'F pending',17);
+  path(g,'M230 259V192M510 271V231',C.blue,1.6);text(g,230,280,'select b = '+s.b,16);text(g,510,286,'select a = '+s.a,16);formula();return;
+ }
+ if(s.kind==='hazard'){
+  head('Single-input timing contract; time units are illustrative');
+  const names=['a','ab','not-a · c','original Y','bridged Y'],xs=[150,220,320,370,420,470,570],times=s.times;
+  text(g,680,70,'time',15);xs.forEach((x,i)=>text(g,x,68,times[i],14));
+  names.forEach((name,j)=>{const y=100+j*34;text(g,115,y+4,name,15,'end');if(j>0&&s.stage===0)return;if(j===3&&s.stage<2)return;if(j===4&&s.stage<3)return;let d=`M${xs[0]} ${y+(s.signals[j][0]?0:17)}`;for(let i=1;i<xs.length;i++)d+=`H${xs[i]}V${y+(s.signals[j][i]?0:17)}`;path(g,d,j===4?C.green:j===3?C.red:C.blue,2);});
+  text(g,380,280,'b=c=1 stay stable; original output is low from time 4 to 6.',15);formula();return;
+ }
+ throw Error('Unknown Boolean mechanism '+s.kind);
+}
+function booleanTable(g,rows,headings,x,y,w,h,activeIndex){
+ const node=E('foreignObject',{x,y,width:w,height:h}),div=document.createElementNS('http://www.w3.org/1999/xhtml','div');div.style.cssText="font:14px 'Source Sans 3',sans-serif;width:100%;height:100%;overflow:auto";
+ const table=document.createElement('table');table.style.cssText='display:table;width:100%;table-layout:fixed;border-collapse:collapse;margin:0;font-size:14px;line-height:1';
+ const tr=document.createElement('tr');headings.forEach(v=>{const c=document.createElement('th');c.textContent=v;c.style.cssText='padding:3px 7px;text-align:left;font-size:14px;line-height:1.15;background:#edf4f8';tr.append(c);});table.append(tr);
+ rows.forEach((r,i)=>{const tr=document.createElement('tr');r.forEach(v=>{const c=document.createElement('td');c.innerHTML=v;c.querySelectorAll('math').forEach(m=>m.style.cssText="font-size:14px;font-family:'STIX Two Math';margin:0");c.style.cssText='padding:0 7px;text-align:left;font-size:14px;line-height:1;border-bottom:1px solid white;background:'+(i===activeIndex?'#e0eee7':'#f5f8fa');tr.append(c);});table.append(tr);});div.append(table);node.append(div);g.append(node);
+}
+
+/* END BOOLEAN QUESTION RENDERER */
 /* NUMBER QUESTION RENDERER */
 function numberQuestion(p,g,f){
  const s=f.snapshot,head=v=>text(g,380,30,v,20),formula=()=>vectorNative(g,f.formulaHtml,25,283,710,70);

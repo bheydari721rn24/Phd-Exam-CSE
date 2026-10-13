@@ -14,6 +14,7 @@ SYMBOLS['triangle']='△'
 SYMBOLS.update(Delta='Δ',kappa='κ')
 SYMBOLS.update(prime='′',longrightarrow='⟶',longmapsto='⟼')
 SYMBOLS.update(Longleftrightarrow='⟺')
+SYMBOLS.update(bigoplus='⨁')
 def tag(t,s):return '<'+t+'>'+s+'</'+t+'>'
 def atom(t,s):return tag(t,html.escape(s))
 class Parser:
@@ -90,7 +91,7 @@ class Parser:
     which=self.s[self.i];self.i+=1;g=self.group()
     if which=='_':sub=g
     else:sup=g
-   large=any(x in v for x in ('∑','∏','⋀','⋁'))
+   large=any(x in v for x in ('∑','∏','⋀','⋁','⨁'))
    if sub is not None and sup is not None:v=tag('munderover' if large else 'msubsup',v+sub+sup)
    elif sub is not None:v=tag('munder' if large else 'msub',v+sub)
    elif sup is not None:v=tag('mover' if large else 'msup',v+sup)

@@ -1,0 +1,87 @@
+{
+  "topicId": "g_boolean",
+  "reviewDate": "2026-10-13",
+  "state": "completed_root_scoped_written_source_reading",
+  "reviewer": "root",
+  "candidatePool": "The previously documented eight-university pool was reassessed by content and actual access. UCSD remains incomplete; ETH identity remains unverified. No worldwide course census is claimed.",
+  "selectedUniversities": [
+    "MIT",
+    "Cambridge",
+    "Stanford",
+    "Carnegie Mellon"
+  ],
+  "universityCountActuallyReadInThisRevision": 6,
+  "sources": [
+    {
+      "university": "MIT",
+      "course": "6.004 Computation Structures, Spring 2017",
+      "instructor": "Chris Terman",
+      "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/c4s1/",
+      "role": "Core specification-to-expression narrative and hazard/cost qualifications",
+      "actualReading": "Complete annotated teaching body in browser extraction, lines 507-759; images linked, not all manually inspected",
+      "retrieval": "Fresh standalone HTML request timed out; browser body was actually read. Do not assert a fresh downloaded-body hash."
+    },
+    {
+      "university": "Cambridge",
+      "course": "Digital Electronics, 2020-21",
+      "instructor": "Ian Wassell",
+      "url": "https://www.cl.cam.ac.uk/teaching/2021/DigElec/slides/comb_log_bool_20.pdf",
+      "sha256": "5d02a0f1913128d0a5dc1f42936911a1ade29607f5ae124789bbb2587f5d1ba7",
+      "actualReading": "All14 physical PDF pages in primary browser extraction. Page9 visual recheck confirms complement scopes; examples pages1-2 text and voter specification read. Some scanned example formulas need separate image checks before claiming literal exercise coverage.",
+      "role": "Core law system and nested complement interpretation"
+    },
+    {
+      "university": "Stanford",
+      "course": "EE108A Digital Systems I, Winter 2008",
+      "instructor": "William J. Dally and Philip Levis",
+      "url": "https://web.stanford.edu/class/archive/ee/ee108a/ee108a.1082/lectures/01-introduction-w08.pdf",
+      "sha256": "733b67f7ea8e4cd1141ce91a6e1cf8f93f6fe793819886d0ce7eded389bf82a4",
+      "actualReading": "Fresh local original physical pages8-16, complete extracted body. Page14 original rendered and inspected.",
+      "role": "Core acyclic memoryless function contract, majority derivation and verification"
+    },
+    {
+      "university": "Carnegie Mellon",
+      "course": "18-760 VLSI CAD, Fall 2001",
+      "instructor": "Rob A. Rutenbar",
+      "url": "https://course.ece.cmu.edu/~ee760/760docs/lec01.pdf",
+      "sha256": "94c68567fa248cbbc2497a66f2c4efa6e5c0f7d8ec18ad5492d7a2a2094380ab",
+      "actualReading": "Fresh original physical pages4-24 and30-39 complete extracted text; homework1 items1-5 pages1-3. Rendered lecture pages6,10,33 and homeworkpage1 inspected. Several legacy lecture formulas render blank locally; text scope and independent derivations are explicit, no legible-visual-formula claim.",
+      "role": "Core cofactors, difference, quantification, unateness and recursive verification"
+    },
+    {
+      "university": "UC Berkeley",
+      "course": "CS61C living written course notes",
+      "instructor": "John Wawrzynek, with edits by Lisa Yan",
+      "urls": [
+        "https://notes.cs61c.org/content/sds-combinational-logic/boolean-algebra/",
+        "https://notes.cs61c.org/content/sds-combinational-logic/cl-design/"
+      ],
+      "sha256": [
+        "b6ffcab50e57c387da46c7f8a6ad662defd69ea05afecd90068b4a23ffc266da",
+        "834ee2af6dce67dc87e3a93afa5c2a192638fc92e4a9e3de56e877ff530a82ac"
+      ],
+      "actualReading": "Both complete extracted written teaching bodies,8903 and12068 characters including navigation. TeX annotation duplicate text was reconciled with formula source.",
+      "role": "Additional full construction and algebra cross-check"
+    },
+    {
+      "university": "Cornell",
+      "course": "CS3410 Computer System Organization and Programming, Fall 2024",
+      "instructor": "Adrian Sampson and Giulia Guidi; teaching team",
+      "url": "https://www.cs.cornell.edu/courses/cs3410/2024fa/notes/logic.html",
+      "actualReading": "Complete primary browser Gates & Logic written body, lines64-195. Foundation/notation/universal construction/selector scope used; later arithmetic material is a boundary check.",
+      "retrieval": "Fresh local HTML request timed out. No fresh downloaded-body hash asserted.",
+      "role": "Additional truth-table and mux-contract cross-check"
+    }
+  ],
+  "corrections": [
+    "Stanford page14 mislabels domination and neutral-element laws; classifications follow definitions.",
+    "CMU page6 zero-x branch repeats positive-x indices; four-way reconstruction retains the correct restrictions.",
+    "CMU unary derivative-one statement requires nonconstant dependence; constants have derivative zero.",
+    "CMU opposite polarities in a cover do not prove semantic binateness; the example absorbs to y OR not-z.",
+    "CMU simplified product-difference rules require the multiplied factor to be independent of the differentiated input; derive from cofactors.",
+    "Berkeley expression/circuit representability is not uniqueness of circuit topology, and fewer literals do not guarantee physical speed.",
+    "MIT hazard/cost claims need the stated gate and transition models; no unrestricted hardware guarantee.",
+    "Original PhD CS1405Q15 options3/4 corrected using the primary page and the canonical record."
+  ],
+  "limits": "No complete collection of copyrighted course exercises is copied or claimed reviewed. Accessible named scopes plus independently authored proofs, examples and models are the basis for coverage."
+}
