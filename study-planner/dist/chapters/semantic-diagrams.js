@@ -82,7 +82,7 @@ function plot(p,g,f){if(p.scene.id.startsWith("asym-"))return asymPlot(p,g,f);co
 function tree(p,g,f,pos){if(p.scene.id==="recurrence-levels"){const n=+f.metrics.Nodes,depth=+f.metrics.Level;for(let d=0;d<=depth;d++){const count=2**d;for(let i=0;i<count;i++){const x=70+(i+.5)*620/count,y=45+70*d;if(d){const px=70+(Math.floor(i/2)+.5)*620/(count/2);path(g,`M${px} ${y-50}L${x} ${y-18}`,"#83a5b5");}dot(g,x,y,18,d===depth?C.amber:C.blue);text(g,x,y+6,8/count,18,"middle","white");}}text(g,380,340,`Level ${depth}: ${n} nodes × ${8/n} units = 8 units of work`,20);return;}
  graph(p,g,f,pos);
 }
-function gridEnumeration(p,g,f){const id=p.scene.id,s=f.snapshot||{};if(id.startsWith("relations-question-"))return relationsQuestion(p,g,f);if(id.startsWith("gates-question-"))return gatesQuestion(p,g,f);if(id.startsWith("boolean-question-"))return booleanQuestion(p,g,f);if(id.startsWith("number-question-"))return numberQuestion(p,g,f);if(id.startsWith("flow-question-"))return flowQuestion(p,g,f);if(id.startsWith("types-question-"))return typesQuestion(p,g,f);if(id.startsWith("matrices-question-"))return matricesQuestion(p,g,f);if(id.startsWith("vectors-question-"))return vectorsQuestion(p,g,f);if(id.startsWith("counting-question-"))return countingQuestion(p,g,f);if(id.startsWith("axioms-question-"))return axiomsQuestion(p,g,f);if(id.startsWith("loop-question-"))return loopQuestion(p,g,f);if(id==="loop-triangle"){for(let i=1;i<=5;i++)for(let j=1;j<=i;j++){rect(g,115+j*55,35+i*45,45,35,i===s.i&&j===s.j?"#ffe0a1":"#d1e8f1");text(g,137+j*55,59+i*45,`${i},${j}`,16);}text(g,565,150,`Body visits: ${s.count}`,24);return;}if(id==="powerset"){strip(g,170,115,[1,2,3],{cell:130,labels:false,title:"Independent inclusion decisions"});[1,2,3].forEach((v,i)=>text(g,235+i*130,225,s.subset.includes(v)?"include":"exclude",21,"middle",s.subset.includes(v)?C.green:C.red));text(g,380,310,`Mask ${s.mask.toString(2).padStart(3,"0")} → {${s.subset}}`,23);return;}if(id.startsWith("selection-")){const vs=s.outcomes;vs.forEach((v,i)=>{const x=90+(i%6)*112,y=100+Math.floor(i/6)*100;dot(g,x,y,32,String(v)===String(s.current)?C.amber:C.blue);text(g,x,y+7,`(${v})`,19,"middle","white");});text(g,380,330,`${vs.length} distinct admitted outcomes`,22);return;}if(id==="stars-bars"){f.nodes.forEach(n=>{if(n.label==="|")path(g,`M${n.x} 80V185`,C.amber,5);else dot(g,n.x,135,14,C.blue);});text(g,380,285,`Labeled group sizes: ${f.metrics["First group"]}, ${f.metrics["Second group"]}, ${f.metrics["Third group"]}`,24);return;}graph(p,g,f,new Map(f.nodes.map(n=>[n.id,n])));}
+function gridEnumeration(p,g,f){const id=p.scene.id,s=f.snapshot||{};if(id.startsWith("functions-question-"))return functionsQuestion(p,g,f);if(id.startsWith("relations-question-"))return relationsQuestion(p,g,f);if(id.startsWith("gates-question-"))return gatesQuestion(p,g,f);if(id.startsWith("boolean-question-"))return booleanQuestion(p,g,f);if(id.startsWith("number-question-"))return numberQuestion(p,g,f);if(id.startsWith("flow-question-"))return flowQuestion(p,g,f);if(id.startsWith("types-question-"))return typesQuestion(p,g,f);if(id.startsWith("matrices-question-"))return matricesQuestion(p,g,f);if(id.startsWith("vectors-question-"))return vectorsQuestion(p,g,f);if(id.startsWith("counting-question-"))return countingQuestion(p,g,f);if(id.startsWith("axioms-question-"))return axiomsQuestion(p,g,f);if(id.startsWith("loop-question-"))return loopQuestion(p,g,f);if(id==="loop-triangle"){for(let i=1;i<=5;i++)for(let j=1;j<=i;j++){rect(g,115+j*55,35+i*45,45,35,i===s.i&&j===s.j?"#ffe0a1":"#d1e8f1");text(g,137+j*55,59+i*45,`${i},${j}`,16);}text(g,565,150,`Body visits: ${s.count}`,24);return;}if(id==="powerset"){strip(g,170,115,[1,2,3],{cell:130,labels:false,title:"Independent inclusion decisions"});[1,2,3].forEach((v,i)=>text(g,235+i*130,225,s.subset.includes(v)?"include":"exclude",21,"middle",s.subset.includes(v)?C.green:C.red));text(g,380,310,`Mask ${s.mask.toString(2).padStart(3,"0")} → {${s.subset}}`,23);return;}if(id.startsWith("selection-")){const vs=s.outcomes;vs.forEach((v,i)=>{const x=90+(i%6)*112,y=100+Math.floor(i/6)*100;dot(g,x,y,32,String(v)===String(s.current)?C.amber:C.blue);text(g,x,y+7,`(${v})`,19,"middle","white");});text(g,380,330,`${vs.length} distinct admitted outcomes`,22);return;}if(id==="stars-bars"){f.nodes.forEach(n=>{if(n.label==="|")path(g,`M${n.x} 80V185`,C.amber,5);else dot(g,n.x,135,14,C.blue);});text(g,380,285,`Labeled group sizes: ${f.metrics["First group"]}, ${f.metrics["Second group"]}, ${f.metrics["Third group"]}`,24);return;}graph(p,g,f,new Map(f.nodes.map(n=>[n.id,n])));}
 function kmap(p,g,f){const s=f.snapshot,id=p.scene.id;let n=s.n||4,on=s.on||[],dc=s.dc||[],cover=s.cover||[];if(id==="km-pos")on=s.zeroSet||[];if(s.rows)on=s.rows;if(id==="km-gray"){strip(g,170,140,["00","01","11","10"],{cell:100,active:s.step%4,labels:false,title:"Cyclic Gray order: one bit changes per neighbor"});return;}if(["km-chart","km-petrick","km-qm"].includes(id)){const patterns=s.patterns||Object.keys(s.owners||{});if(patterns.length){patterns.forEach((v,i)=>text(g,175+(i%4)*140,90+Math.floor(i/4)*65,v,25));text(g,380,320,`Exact tabulation stage: ${s.level??s.cost??s.candidate}`,21);return;}}
  const gray=[0,1,3,2],cells=n===3?2:4,x=200,y=85,size=50;text(g,300,37,n===3?"Rows: A; columns: BC":"Rows: AB; columns: CD",20);for(let i=0;i<cells;i++){text(g,x-28,y+i*size+32,n===3?i:gray[i].toString(2).padStart(2,"0"),18);for(let j=0;j<4;j++){if(!i)text(g,x+j*size+25,y-12,gray[j].toString(2).padStart(2,"0"),18);const v=(n===3?i:gray[i])*4+gray[j];rect(g,x+j*size,y+i*size,size,size,on.includes(v)?"#cce9dc":dc.includes(v)?"#ffe0a1":"#fff");text(g,x+j*size+25,y+i*size+20,v,13);text(g,x+j*size+25,y+i*size+42,on.includes(v)?1:dc.includes(v)?"X":0,22);}}
  const patterns=cover.map(v=>typeof v==="string"?v:v.pattern).filter(Boolean);patterns.forEach((pat,k)=>{for(let i=0;i<cells;i++)for(let j=0;j<4;j++){const v=(n===3?i:gray[i])*4+gray[j],bits=v.toString(2).padStart(n,"0");if([...pat].every((b,i)=>b==="-"||b===bits[i]))g.append(E("rect",{x:x+j*size+4+k*2,y:y+i*size+4+k*2,width:size-8-k*4,height:size-8-k*4,rx:9,fill:"none",stroke:[C.green,C.blue,C.amber,C.red][k%4],"stroke-width":3}));}});text(g,570,135,"Groups wrap across\nopposite edges.\nEach group represents\na Boolean cube.",18);text(g,380,335,patterns.length?`Selected cubes: ${patterns.join(", ")}`:s.pattern?`Cube under inspection: ${s.pattern}`:"Read decimal indices and Boolean obligations separately.",19);}
@@ -178,6 +178,77 @@ function arrayExact(p,g,f,pos){const s=f.snapshot||{},id=p.scene.id;
 
 
 
+
+
+
+
+
+
+/* FUNCTIONS QUESTION RENDERER */
+function functionsQuestion(p,g,f){
+ const tx=(...args)=>{const t=text(...args);t.style.setProperty('font-size',String(args[4]??17)+'px','important');t.style.setProperty('font-family','"Source Sans 3"','important');return t;};
+ const s=f.snapshot,mt=(x,y,v,size=17)=>{const t=tx(g,x,y,v,size);t.style.setProperty('font-family','STIX Two Math','important');return t;};
+ const formula=()=>vectorNative(g,f.formulaHtml,25,298,710,55),head=()=>tx(g,380,22,p.scene.title,18);
+ const tip='functions-arrow-'+p.scene.id+'-'+p.index;
+ function definitions(){const d=E('defs'),m=E('marker',{id:tip,markerWidth:7,markerHeight:6,refX:7,refY:3,orient:'auto',markerUnits:'userSpaceOnUse'});m.append(E('path',{d:'M0 0L7 3L0 6Z',fill:C.blue}));d.append(m);g.append(d);}
+ function dotAt(A,label,fill='white',r=16){g.append(E('circle',{cx:A[0],cy:A[1],r,fill,stroke:C.ink,'stroke-width':1.4}));mt(A[0],A[1]+5,label,17);}
+ function wire(A,B,r=16,bend=0,color=C.blue,targetRadius=r){
+  let d,start,end;
+  if(A===B||A[0]===B[0]&&A[1]===B[1]){const h=r/Math.sqrt(2);start=[A[0]-h,A[1]-h];end=[A[0]+h,A[1]-h];d=`M${start}C${A[0]-37} ${A[1]-49} ${A[0]+37} ${A[1]-49} ${end}`;}
+  else{const c=[(A[0]+B[0])/2,(A[1]+B[1])/2+bend],u=Math.hypot(c[0]-A[0],c[1]-A[1]),v=Math.hypot(B[0]-c[0],B[1]-c[1]);start=[A[0]+r*(c[0]-A[0])/u,A[1]+r*(c[1]-A[1])/u];end=[B[0]-targetRadius*(B[0]-c[0])/v,B[1]-targetRadius*(B[1]-c[1])/v];d=`M${start}Q${c} ${end}`;}
+  const q=path(g,d,color,1.5);q.setAttribute('marker-end','url(#'+tip+')');q.dataset.functionStart=start.join(',');q.dataset.functionEnd=end.join(',');
+ }
+ const column=(n,x)=>Array.from({length:n},(_,i)=>[x,n===1?170:(n>5?75:90)+i*(n>5?175:155)/(n-1)]);
+ if(s.kind==='table'){
+  head();booleanTable(g,s.rowsHtml,s.headings,35,68,690,203,s.active);tx(g,380,284,p.scene.id==='functions-question-quantified-cycle'?'One means true, zero means false. Check all three rows for each fixed input.':'Each row counts the specified object; labels and constraints remain fixed.',14);formula();return;
+ }
+ if(s.kind==='sequence'){
+  head();const n=s.values.length,w=Math.min(90,680/n),start=380-n*w/2;
+  s.values.forEach((v,i)=>{rect(g,start+i*w,97,w-6,58,s.endpointFixed&&(i===0||i===n-1)?'#d7eadf':'#edf5f8','#91aeba');mt(start+i*w+(w-6)/2,134,v,23);mt(start+i*w+(w-6)/2,180,i+1,15);});
+  tx(g,380,75,'Function values in increasing input order',16);tx(g,380,203,'Input positions are shown below; repeated outputs are permitted.',14);
+  const html='<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>c</mi><mo>=</mo><mo>(</mo>'+s.counts.map((n,i)=>(i?'<mo>,</mo>':'')+'<mn>'+n+'</mn>').join('')+'<mo>)</mo></mrow></math>';vectorNative(g,html,55,227,650,46);formula();return;
+ }
+ if(s.kind==='map'||s.kind==='subsets'){
+  head();definitions();const A=column(s.source.length,170),n=s.target.length,B=n<=7?column(n,585):Array.from({length:n},(_,i)=>[475+83*(i%3),91+52*Math.floor(i/3)]);
+  const ra=s.source.length>5?12:16,rb=n>5&&n<=7?12:16;tx(g,170,50,'Domain',16);tx(g,585,50,'Codomain',16);
+  s.values.forEach((j,i)=>{if(s.kind==='subsets'||i<s.stage)wire(A[i],B[j],ra,0,s.selected?.includes(i)?C.green:C.blue,rb);});
+  A.forEach((a,i)=>dotAt(a,s.source[i],s.selected?.includes(i)?'#d7eadf':'white',ra));B.forEach((b,j)=>dotAt(b,s.target[j],s.targetSelected?.includes(j)?'#d7eadf':'white',rb));
+  tx(g,380,287,s.kind==='subsets'?'Green marks the selected input or target subset.':'One arrow per processed input; unprocessed inputs have not yet been assigned.',14);formula();return;
+ }
+ if(s.kind==='endofunction'){
+  head();definitions();const n=s.values.length;let points;
+  if(s.cycleGroups){points=[];s.cycleGroups.forEach((group,j)=>group.forEach((i,k)=>points[i]=[230+305*j+77*Math.cos(2*Math.PI*k/group.length-Math.PI/2),170+77*Math.sin(2*Math.PI*k/group.length-Math.PI/2)]));}
+  else if(s.cyclic)points=Array.from({length:n},(_,i)=>[380+145*Math.cos(2*Math.PI*i/n-Math.PI/2),170+88*Math.sin(2*Math.PI*i/n-Math.PI/2)]);
+  else points=Array.from({length:n},(_,i)=>[110+180*(i%4),n<=4?170:100+130*Math.floor(i/4)]);
+  s.values.forEach((j,i)=>wire(points[i],points[j],16,i!==j&&points[i][1]===points[j][1]?-65:0));points.forEach((a,i)=>dotAt(a,i,s.fixed?.includes(i)?'#d7eadf':'white'));
+  tx(g,380,285,s.cyclic?'Every arrow is an actual successor; rotations retain the same values.':'Each vertex has exactly one outgoing assignment. Green marks fixed points when specified.',14);formula();return;
+ }
+ if(s.kind==='sections'){
+  head();definitions();const A=[[90,85],[90,160],[90,235]];
+  s.fibers.forEach((fiber,i)=>{const y=A[i][1],w=Math.min(58,440/fiber.length),x=276;
+   rect(g,249,y-28,461,57,'#f3f7fa','#bed0d8');dotAt(A[i],String.fromCharCode(97+i));
+   fiber.forEach((v,j)=>{const X=x+j*w;rect(g,X,y-19,w-7,38,s.selected[i]===v?'#d7eadf':'white','#bed0d8');mt(X+(w-7)/2,y+6,v,17);});
+   const index=fiber.indexOf(s.selected[i]),xEnd=x+index*w+(w-7)/2;const q=path(g,`M${A[i][0]} ${y-16}V${y-35}H${xEnd}V${y-19}`,C.blue,1.5);q.setAttribute('marker-end','url(#'+tip+')');
+  });tx(g,380,285,'Each reverse arrow chooses one member of its own displayed fiber.',14);formula();return;
+ }
+ if(s.kind==='composition'){
+  head();definitions();const A=column(s.source.length,112),B=column(s.middle.length,380),D=column(s.target.length,649),rb=s.middle.length>5?12:16;mt(112,50,'A',16);mt(380,50,'B',16);tx(g,649,50,'Target',16);tx(g,246,70,'inner map',14);tx(g,514,70,'outer map',14);
+  s.inner.forEach((j,i)=>wire(A[i],B[j],16,0,C.blue,rb));s.outer.forEach((j,i)=>wire(B[i],D[j],rb,0,C.blue,16));A.forEach((a,i)=>dotAt(a,s.source[i]));B.forEach((a,i)=>dotAt(a,s.middle[i],s.inner.includes(i)?'#d7eadf':'white',rb));D.forEach((a,i)=>dotAt(a,s.target[i]));
+  tx(g,380,285,'Follow the inner arrow first, then the outer arrow at its actual middle value.',14);formula();return;
+ }
+ if(s.kind==='parabola'){
+  head();definitions();const x=v=>100+90*(v+1),y=v=>260-20*(v-3);
+  path(g,'M85 66V260M100 270H672',C.ink,1.2);mt(75,55,'y',16);mt(690,276,'x',16);
+  [3,7,12].forEach(v=>{path(g,`M80 ${y(v)}H90`,C.ink,1);mt(65,y(v)+5,v,15);});[-1,0,2,4,5].forEach(v=>{path(g,`M${x(v)} 266V274`,C.ink,1);mt(x(v),292,v,15);});
+  path(g,`M${x(-1)} ${y(12)}Q${x(.5)} ${y(3)} ${x(2)} ${y(3)}`,C.blue,2);path(g,`M${x(2)} ${y(3)}Q${x(3.5)} ${y(3)} ${x(5)} ${y(12)}`,s.stage?'#a9bac3':C.blue,2);
+  if(s.stage===0){path(g,`M${x(0)} ${y(7)}H${x(4)}`,'#b58132',1.3);dotAt([x(0),y(7)],'', '#fff0ce',5);dotAt([x(4),y(7)],'','#fff0ce',5);tx(g,380,65,'Inputs 0 and 4 both produce output 7.',15);}
+  else tx(g,380,65,'Blue retains the left branch; vertical values range from three to twelve.',15);
+  formula();return;
+ }
+ throw Error('Unknown exact function drawing '+s.kind);
+}
+
+/* END FUNCTIONS QUESTION RENDERER */
 /* RELATIONS QUESTION RENDERER */
 function relationsQuestion(p,g,f){
  const s=f.snapshot,head=v=>text(g,380,30,v,19),formula=()=>vectorNative(g,f.formulaHtml,25,298,710,55);
@@ -814,7 +885,7 @@ function numericExact(p,g,f,pos){const s=f.snapshot||{},id=p.scene.id;
  if(id==="float-rounding"){const exact=+f.metrics["Exact integer"],rounded=+f.metrics["Binary32 result"],x=n=>110+120*(n-16777216);path(g,"M90 175H690");for(const n of [16777216,16777218,16777220]){path(g,`M${x(n)} 160V190`);text(g,x(n),220,n,20);}dot(g,x(exact),135,6,C.amber);arrow(g,x(exact),145,x(rounded),175,C.green);text(g,380,300,`Exact ${exact} → binary32 ${rounded}; ties choose an even significand.`,18);return;}
  if(["euclid","division","power","modular-power","gray-code","hamming-code"].includes(id))numeric(p,g,f,pos);else derivationExact(p,g,f);
 }
-function draw(p,nodes,edges,positions){let type=p.scene.visual?.type;if(!type){type=p.scene.id.startsWith("functions-custom-")?"memory":p.scene.id.startsWith("arrays-custom-")?"array":p.scene.id.startsWith("kmap-custom-")?"kmap":p.scene.id.startsWith("combin-custom-")?"circuit":null;if(type)p.scene.visual={type,claim:"Exact state of the chapter's adjustable subject-specific model."};}if(!type)throw Error(`No reviewed visual contract for ${p.scene.id}`);p.grid.replaceChildren();p.links.replaceChildren();p.nodeLayer.replaceChildren();p.nodes.clear();const g=p.nodeLayer;delete g.dataset.netValues;legend(p,type);const f=p.scene.frames[p.index];g.dataset.visualType=type;const functions={bars:mergeExact,search,venn,truth,graph:graphExact,geometry:geometryExact,matrices,tiles,array:arrayExact,memory:memoryExact,derivation:derivationExact,numeric:numericExact,probability:probabilityExact,plot,tree,enumeration:gridEnumeration,kmap:kmapExact,waveform,circuit:circuitExact,cmos};if(!functions[type])throw Error(`Unknown visual type ${type}`);functions[type](p,g,f,positions);p.canvas.dataset.visualType=type;p.canvas.dataset.visualContract=p.scene.visual.claim;p.canvas.dataset.explicitLabelPlacement=String(p.scene.id.startsWith("relations-question-"));window.DiagramLayout?.finish(p.canvas,{labels:!p.scene.id.startsWith("relations-question-")});}
+function draw(p,nodes,edges,positions){let type=p.scene.visual?.type;if(!type){type=p.scene.id.startsWith("functions-custom-")?"memory":p.scene.id.startsWith("arrays-custom-")?"array":p.scene.id.startsWith("kmap-custom-")?"kmap":p.scene.id.startsWith("combin-custom-")?"circuit":null;if(type)p.scene.visual={type,claim:"Exact state of the chapter's adjustable subject-specific model."};}if(!type)throw Error(`No reviewed visual contract for ${p.scene.id}`);p.grid.replaceChildren();p.links.replaceChildren();p.nodeLayer.replaceChildren();p.nodes.clear();const g=p.nodeLayer;delete g.dataset.netValues;legend(p,type);const f=p.scene.frames[p.index];g.dataset.visualType=type;const functions={bars:mergeExact,search,venn,truth,graph:graphExact,geometry:geometryExact,matrices,tiles,array:arrayExact,memory:memoryExact,derivation:derivationExact,numeric:numericExact,probability:probabilityExact,plot,tree,enumeration:gridEnumeration,kmap:kmapExact,waveform,circuit:circuitExact,cmos};if(!functions[type])throw Error(`Unknown visual type ${type}`);functions[type](p,g,f,positions);p.canvas.dataset.visualType=type;p.canvas.dataset.visualContract=p.scene.visual.claim;p.canvas.dataset.explicitLabelPlacement=String(p.scene.id.startsWith("relations-question-")||p.scene.id.startsWith("functions-question-"));window.DiagramLayout?.finish(p.canvas,{labels:p.canvas.dataset.explicitLabelPlacement!=="true"});}
 function memoryExact(p,g,f,pos){const id=p.scene.id,s=f.snapshot||{};if(id==="fn-sharing"){arrayExact(p,g,f,pos);return;}if(id.startsWith("functions-custom-")){memory(p,g,{...f,snapshot:{...s,caller:`a = ${s.caller}`,callee:s.callee===null?"Invocation not active":String(s.callee),shared:s.shared===null?"No shared object":`Shared target = ${s.shared}`}},pos);return;}
  if(id.startsWith("branch-")){const input=f.metrics.Input,active=p.index;path(g,"M100 60H240V100");text(g,170,42,`Input x = ${input}`,22);const diamond=(x,y,label)=>{path(g,`M${x} ${y-30}L${x+90} ${y}L${x} ${y+30}L${x-90} ${y}Z`,C.ink,2,{fill:active===0?"#ffe0a1":"#f5fafc"});text(g,x,y+6,label,22);};diamond(240,130,"x < 0");diamond(240,250,"x = 0");path(g,"M240 160V220");text(g,268,196,"no",17);arrow(g,330,130,510,130,input<0?C.green:C.ink);text(g,600,136,"negative",22);arrow(g,330,250,510,250,input===0?C.green:C.ink);text(g,600,256,"zero",22);arrow(g,240,280,240,320,input>0?C.green:C.ink);text(g,240,348,"positive",22);return;}
  if(id==="short-circuit"){const x=+f.metrics.x;rect(g,60,100,250,75,"#eef7fb");text(g,185,145,`Guard x ≠ 0: ${!!x}`,23);arrow(g,310,140,450,140,x?C.green:C.red);rect(g,450,100,260,75,x?"#d3e9dc":"#f3e1e7");text(g,580,145,x?"Evaluate 10/x > 1":"Do not evaluate division",20);text(g,380,270,x?"True left operand permits evaluation of the right operand.":"False left operand bypasses the partial operation.",20);return;}
