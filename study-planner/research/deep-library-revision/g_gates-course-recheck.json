@@ -1,0 +1,83 @@
+{
+  "topicId": "g_gates",
+  "reviewDate": "2026-10-13",
+  "state": "completed_root_scoped_written_source_reading",
+  "reviewer": "root",
+  "universityCountActuallyReadInThisRevision": 4,
+  "selectedFreshUniversities": [
+    "MIT",
+    "Cambridge",
+    "Stanford",
+    "UC Berkeley"
+  ],
+  "candidatePool": "The historical eight-university pool was reassessed by scope and actual access. UCSD fresh access fails DNS; CMU remains an introductory screen, Cornell not freshly read for this gates chapter, ETH access remains unverified. No worldwide course census or unsupported best-in-world ranking is claimed.",
+  "sources": [
+    {
+      "university": "MIT",
+      "course": "6.004 Computation Structures, Spring 2017",
+      "instructor": "Chris Terman",
+      "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c3/c3s1/",
+      "sha256": "15b6c9761879d0c8e57a2b10f9f964bc5d257f51d50c8a6fc39010f4b7a3b278",
+      "scope": "Complete47835-character extracted annotated written body, overlapping0-18000,17000-34500,33500-end; final slice reread after aggregate output truncation.",
+      "role": "Core switch predicates, static/valid-level contracts, propagation/contamination and lenience.",
+      "limits": "Device microphysics, process dimensions and historical manufacturing costs were read but are outside this chapter's adopted model. The informal saturation threshold/tunneling wording is not adopted; no current hardware specification is inferred."
+    },
+    {
+      "university": "Cambridge",
+      "course": "Digital Electronics, 2020-21",
+      "instructor": "Ian J. Wassell",
+      "urls": [
+        "https://www.cl.cam.ac.uk/teaching/2021/DigElec/slides/comb_haz_20.pdf",
+        "https://www.cl.cam.ac.uk/teaching/2021/DigElec/slides/dev_trans_20.pdf"
+      ],
+      "sha256": [
+        "4dcae670f2b0bada07bd7e3fb02050fd5df9d4b5b8aedabd47716ebc512daf77",
+        "7139be2d22a413d3729c6e49f22a7d3e398ab692bef2fa9646176a766b680be1"
+      ],
+      "scope": "All9 hazard pages plus device pages10-17 freshly read in complete extracted text. Original hazard pages8-9 actually rendered and visually inspected. The source select complement and bridging term were reconciled with the circuit.",
+      "role": "Core multilevel cost tradeoffs, static/dynamic definitions, physical noise margins and ideal-device qualifications.",
+      "limits": "The zero static-power claim is an idealization, not a real leakage guarantee. Historical family speed figures are not current product specifications."
+    },
+    {
+      "university": "Stanford",
+      "course": "EE108A Digital Systems I, Winter 2008 reader",
+      "instructor": "William J. Dally; distributed with Philip Levis",
+      "url": "https://web.stanford.edu/class/archive/ee/ee108a/ee108a.1082/reader/ch1to12.pdf",
+      "sha256": "e1be9e7e4780d5fd8baa4ce7afa7a959e1d50c60d80d6c0fc2f551afd0d617b6",
+      "scope": "Fresh physical PDF pages39-42,45,58-65,66,67-76,79,83-85,100-101. Complete50588-character scoped extraction read in0-19500,18500-36500,35500-end; initial slice reread after output truncation. Original pages65,76,100,101 actually viewed.",
+      "role": "Core schematic/bubble scope, restoring CMOS, capacitance/load models, DAG proof and hazard caveats.",
+      "corrections": [
+        "Page39 reverses conventional CNF/DNF names.",
+        "Page65 prose reverses weak pass-level direction relative to its correct caption.",
+        "Page76 Table5.3 prints6.68 for4×1.57; the product is6.28, giving0.25+6.28=6.53 and total14.53.",
+        "Page101 unrestricted hazard-free claim must be limited to its two-level single-input stable-context model.",
+        "Midpoint/RC estimates are not the MIT valid-level upper/lower contract."
+      ],
+      "limits": "Some unfinished exercise placeholders are not claimed complete questions. The whole232-page reader was not represented as read."
+    },
+    {
+      "university": "UC Berkeley",
+      "course": "CS61C living course notes",
+      "instructor": "CS61C teaching staff",
+      "url": "https://notes.cs61c.org/content/sds-combinational-logic/",
+      "sha256": "ff76390feb8f4909bc86182282fd9a52df507c3d0939f7361e11ba1c7b0e617c",
+      "scope": "Entire5513-character Logic Gates written body including navigation and quick-check definitions freshly read.",
+      "role": "Fourth accessible fresh university reading: independent primitive truth tables, universality and multi-input parity.",
+      "limits": "Basic abstraction cross-check; not a substitute for the core physical/timing sources. The broad repeated-composition phrasing is explicitly qualified for NAND/NOR nonassociativity."
+    },
+    {
+      "university": "UC San Diego",
+      "course": "CSE140, Spring2022",
+      "instructor": "C. K. Cheng",
+      "urls": [
+        "https://cseweb.ucsd.edu/classes/sp22/cse140-a/slides/lec6UniversalSet.pdf",
+        "https://cseweb.ucsd.edu/classes/sp22/cse140-a/slides/lec1Introduction.pdf"
+      ],
+      "scope": "Historical scoped reading remains in the original course audit. Both fresh requests failed DNS; no fresh content reading is claimed.",
+      "role": "Historical restricted-library/completeness supplement, with constant-one qualification.",
+      "state": "not_counted_as_fresh"
+    }
+  ],
+  "authenticSourceReview": "All four original bank items were reconciled: NAND and mux source pages also read during the immediately preceding Boolean revision; the ring question is on that same visually inspected physical page19; Elmore question91 on physical page22 was freshly rendered and inspected.",
+  "limits": "Exact course scopes, independent mathematical derivations and specific visual/finite checks define the review. No copied complete course exercise corpus or universal unseen-examination guarantee."
+}

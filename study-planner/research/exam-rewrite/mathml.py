@@ -15,6 +15,7 @@ SYMBOLS.update(Delta='Δ',kappa='κ')
 SYMBOLS.update(prime='′',longrightarrow='⟶',longmapsto='⟼')
 SYMBOLS.update(Longleftrightarrow='⟺')
 SYMBOLS.update(bigoplus='⨁')
+SYMBOLS.update(downarrow='↓',uparrow='↑',ell='ℓ')
 def tag(t,s):return '<'+t+'>'+s+'</'+t+'>'
 def atom(t,s):return tag(t,html.escape(s))
 class Parser:
