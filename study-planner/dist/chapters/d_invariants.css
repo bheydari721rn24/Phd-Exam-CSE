@@ -1,4 +1,4 @@
-.lesson .math-inline{white-space:normal}
+.lesson .math-inline{white-space:nowrap;display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle;overflow-wrap:normal}
 .lab-actions{display:flex;gap:8px;flex-wrap:wrap}
 .lab button{font:inherit;padding:8px 12px;border:1px solid #90b2c4;border-radius:7px;background:white;color:#23485e;cursor:pointer}
 .lab button:focus-visible,.lab input:focus-visible{outline:3px solid #467e9e;outline-offset:2px}

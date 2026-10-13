@@ -1,0 +1,76 @@
+{
+  "topicId": "d_invariants",
+  "reviewDate": "2026-10-13",
+  "state": "completed_root_scoped_written_source_reading",
+  "universityCountActuallyReadInThisRevision": 5,
+  "candidatePool": "The documented eight-university comparison was reassessed for exact chapter fit, constructor precision, transition proofs, implementation qualifications and readable written instruction. Five independently authored scopes were freshly read. Berkeley and Princeton retain the historical supplemental scopes; Oxford's overview is not lecture reading. No worldwide course census or universal best-course ranking is claimed.",
+  "selectedFreshUniversities": [
+    "MIT",
+    "Stanford",
+    "Carnegie Mellon",
+    "Cambridge"
+  ],
+  "additionalReviewedUniversity": "Cornell",
+  "sources": [
+    {
+      "university": "MIT",
+      "course": "6.042J Mathematics for Computer Science, Spring 2015",
+      "authors": "Eric Lehman, F. Thomson Leighton and Albert R. Meyer",
+      "url": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/mit6_042js15_textbook.pdf",
+      "scope": "The full state-machine treatment, printed pages 130-144, browser text lines 4029-4422, and the structural definition, ambiguity and initial natural-recursion treatment, lines 5264-5507, were freshly read. Browser contexts also showed selected population and triple-rotation exercises. The remaining historically cited textbook exercise scopes are not claimed as newly reread in this revision.",
+      "role": "Principal independent preservation, partial correctness, well-founded progress and constructor cross-check.",
+      "acquisition": "The fresh local PDF request timed out; the official full PDF was readable through the browser tool. No new local byte hash is asserted.",
+      "qualifications": "The fast-exponentiation ceiling expression is an upper bound, not an exact halving-iteration count. The southeast robot's original east reset is at least its old x; the lesson's more general arbitrary nonnegative reset is separately proved. Preserved predicates and reachable-state properties are explicitly distinguished. Mathematical Python lists are not presumed to implement linked cons primitives."
+    },
+    {
+      "university": "Stanford",
+      "course": "CS161 Design and Analysis of Algorithms, Spring 2017",
+      "instructor": "Mary Wootters",
+      "sectionAuthor": "Jessica Su",
+      "url": "https://web.stanford.edu/class/archive/cs/cs161/cs161.1176/Sections/161-section-1.pdf",
+      "sha256": "d88cfe3aa5e22177a5584161155d16d8b57ad780edba1f91a1bb8b4fc614bae4",
+      "scope": "All five original section pages, browser lines 0-166, were freshly read. The local download contains 9743 extracted characters.",
+      "role": "Principal guarded merge, invariant checkpoint and recursive-power proof comparison.",
+      "qualifications": "Sentinel pseudocode is replaced by independently written short-circuit exhaustion guards. The final item called Termination in the recursive exposition identifies the returned top-level value; actual termination requires the separate smaller-natural call argument. Empty arrays, duplicate occurrences and exact comparison counts are explicit."
+    },
+    {
+      "university": "Carnegie Mellon",
+      "course": "15-150 Principles of Functional Programming, Spring 2026 PDF notes",
+      "author": "Michael Erdmann; structural notes modified from a Frank Pfenning draft",
+      "url": "https://www.cs.cmu.edu/~15150/resources/lectures/04/structural.pdf",
+      "additionalUrl": "https://www.cs.cmu.edu/~15150/resources/lectures/04/rev.pdf",
+      "scope": "All seven structural-induction pages, browser lines 0-276, and all two reversal pages, lines 0-69, were freshly read, including both subtree hypotheses, totality qualifications and the two reversal thought questions.",
+      "acquisition": "Direct local connections were refused; both official PDFs were readable through the browser tool. Historical local hashes are not presented as fresh bytes.",
+      "role": "Principal generalized accumulator, pure value equivalence, constructor and allocation cross-check.",
+      "qualifications": "Evaluation reduction has a direction while returned-value equality is symmetric. Helper hypotheses quantify arbitrary accumulators. The model is strict finite linked-list evaluation; tail-call and slicing costs are not transferred automatically to Python. The stronger effects discussion depends on sequential evaluation order."
+    },
+    {
+      "university": "Cambridge",
+      "course": "Foundations of Computer Science, 2013",
+      "author": "Lawrence C. Paulson",
+      "url": "https://www.cl.cam.ac.uk/teaching/1314/FoundsCS/fcs-notes.pdf",
+      "sha256": "1ea98e5550dab5a0e50d9ab88eeed6aae3fcaf2e5a303df3dd540e3a69d2aa32",
+      "scope": "All 39911 extracted characters from physical pages 16-37 and 58-67 were read in overlapping slices 0-14500, 13500-27500 and 26500-end. Physical page 67 was rendered and visually inspected.",
+      "role": "Principal exact linked-list allocation, accumulator, datatype and empty-tree convention comparison.",
+      "qualifications": "Allocation over the whole execution differs from peak live storage. External empty leaves differ from nonempty data leaves. Big-O examples remain asymptotic, not exact source count or modern hardware recommendations. Constant auxiliary stack space requires actual tail-call elimination. Exercises 3.1-3.3 retain both empty and singleton boundaries where needed."
+    },
+    {
+      "university": "Cornell",
+      "course": "CS2800 Discrete Structures, Spring 2017",
+      "instructor": "Michael George",
+      "url": "https://www.cs.cornell.edu/courses/cs2800/2017sp/lectures/lec21-structural.html",
+      "scope": "Entire independent lecture body, browser lines 0-57, with all three review questions, constructors and pair-induction discussion, was freshly read.",
+      "role": "Additional independently authored comparison of single-argument and product structural induction.",
+      "qualifications": "The displayed concatenation equation contains an undefined t; independently defined constructor equations are used instead. The linked MIT textbook is not counted as independent Cornell authorship. Pair hypotheses require justified smaller components rather than arbitrary swapped arguments."
+    }
+  ],
+  "originalExaminationPagesActuallyViewed": [
+    "Phd_CE_1405_Q3",
+    "Phd_CE_1405_Q9",
+    "MS_CS_1393_Q167",
+    "Phd_CS_1404_Q28"
+  ],
+  "originalPageEvidence": "Canonical hashes and rendered pages recorded by render_invariants_originals_recheck.py; Q167 option four has source stride two and destination offset one/stride two.",
+  "independentReviewStatus": "Actual scoped source reading by root and planned independent finite mathematical oracles; no outside peer audit or universal perfection claim.",
+  "remainingWork": "The recorded mathematical, model, actual control, representative visual, laboratory and print checks are complete. Private publication is pending."
+}
