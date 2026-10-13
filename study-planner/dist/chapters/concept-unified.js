@@ -2,7 +2,7 @@
 "use strict";
 (() => {
  const NS='http://www.w3.org/2000/svg',players=[],pending=new WeakMap();let dataPromise;
- const data=()=>dataPromise??(dataPromise=fetch('concept-animations.json').then(r=>{if(!r.ok)throw Error('Animation data unavailable');return r.json();}));
+ const data=()=>dataPromise??(dataPromise=fetch('concept-animations.json?v=deep-library-14-20261013',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Animation data unavailable');return r.json();}));
  const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
  const svg=(tag,attrs={})=>{const n=document.createElementNS(NS,tag);for(const [k,v]of Object.entries(attrs))n.setAttribute(k,v);return n;};
  const plain=markup=>{const n=el('div');n.innerHTML=markup??'';return n.textContent.trim();};

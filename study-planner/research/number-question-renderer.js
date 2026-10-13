@@ -30,7 +30,7 @@ function numberQuestion(p,g,f){
   else text(g,380,220,'New sign positions have not been introduced.',18);formula();return;
  }
  if(s.kind==='denominator'){
-  head('Reduced denominator determines exact binary termination');numberTable(g,s.rows.slice(0,s.stage===0?0:4),['fraction','factorization','decision'],50,85,660,180);if(s.stage===0)text(g,380,179,'All four reduced fractions are inputs; factorization follows.',18);formula();return;
+  head('Reduced denominator determines exact binary termination');numberTable(g,s.rows.slice(0,s.stage===0?0:4),['fraction','factorization','decision'],50,85,660,180,s.stage===2?2:-1);if(s.stage===0)text(g,380,179,'All four reduced fractions are inputs; factorization follows.',18);formula();return;
  }
  if(s.kind==='bytes'){
   head('Increasing byte addresses run left to right');text(g,380,63,'Hex values 12,34,56,78 keep their internal bit order.',17);const row=(values,y,label)=>{text(g,105,y+29,label,17);values.forEach((v,i)=>{const x=225+i*105,active=s.stage===3||s.stage===1&&label==='little'&&i===0||s.stage===2&&label==='big'&&i===0;box(x,y,75,47,v,active?'#dceee4':'#edf5f8');text(g,x+37,y-10,'addr+'+i,15);});};row(s.le,106,'little');row(s.be,207,'big');formula();return;
@@ -61,7 +61,7 @@ function numberQuestion(p,g,f){
   head(s.kind==='division'?'Quotient decreases; remainders need reversal':'Residual fraction advances; digits keep extraction order');numberTable(g,s.rows,s.kind==='division'?['old quotient','new quotient','remainder']:['twice residual','emitted digit','new residual'],50,77,660,173);text(g,380,268,(s.kind==='division'?'low-to-high extracted digits: ':'fraction digits: ')+(s.bits||'none yet'),17);formula();return;
  }
  if(s.kind==='multi-decode'){
-  head('The decoder supplies signedness and scale');bits(g,s.word,175,61,48,8,'unchanged word11101001');numberTable(g,s.stage?s.rows:[],['declared decoder','exact value'],150,140,460,132);formula();return;
+  head('The decoder supplies signedness and scale');bits(g,s.word,175,61,48,8,'unchanged word 11101001');numberTable(g,s.stage?s.rows.slice(0,s.stage===2?5:4):[],['declared decoder','exact value'],150,140,460,132);formula();return;
  }
  if(s.kind==='bcd'){
   head('Digit subtotals use decimal carry from the previous digit');numberTable(g,s.rows.slice(0,Math.max(0,s.stage)),['place','a','b','cin','sum','+6','digit','cout'],25,90,710,120);if(s.stage===3){box(175,230,410,40,'0001 0111 0101 → decimal 175','#dceee4');}formula();return;
@@ -79,9 +79,9 @@ function numberQuestion(p,g,f){
  throw Error('Unknown number representation mechanism: '+s.kind);
  function bits(g,word,x,y,dx,n,label){text(g,x+dx*n/2,y-14,label,16);[...word].forEach((b,i)=>box(x+i*dx,y,dx-4,45,b,'#eef5f8',19));}
 }
-function numberTable(g,rows,headings,x,y,w,h){
+function numberTable(g,rows,headings,x,y,w,h,activeIndex=rows.length-1){
  const node=E('foreignObject',{x,y,width:w,height:h}),div=document.createElementNS('http://www.w3.org/1999/xhtml','div');div.style.cssText="font:14px 'Source Sans 3',sans-serif;width:100%;height:100%;overflow:auto";
  const table=document.createElement('table');table.style.cssText='display:table;width:100%;table-layout:fixed;border-collapse:collapse;margin:0;font-size:14px;line-height:1.25';
  const tr=document.createElement('tr');headings.forEach(v=>{const c=document.createElement('th');c.textContent=v;c.style.cssText='padding:3px 7px;text-align:left;font-size:14px;line-height:1.25;background:#edf4f8';tr.append(c);});table.append(tr);
- rows.forEach((r,i)=>{const tr=document.createElement('tr');r.forEach(v=>{const c=document.createElement('td');c.textContent=v;c.style.cssText='padding:1px 7px;text-align:left;font-size:14px;line-height:1.25;border-bottom:2px solid white;background:'+(i===rows.length-1?'#e0eee7':'#f5f8fa');tr.append(c);});table.append(tr);});div.append(table);node.append(div);g.append(node);
+ rows.forEach((r,i)=>{const tr=document.createElement('tr');r.forEach(v=>{const c=document.createElement('td');c.textContent=v;c.style.cssText='padding:1px 7px;text-align:left;font-size:14px;line-height:1.25;border-bottom:2px solid white;background:'+(i===activeIndex?'#e0eee7':'#f5f8fa');tr.append(c);});table.append(tr);});div.append(table);node.append(div);g.append(node);
 }
