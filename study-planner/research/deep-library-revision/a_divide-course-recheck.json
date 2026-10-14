@@ -1,7 +1,7 @@
 {
   "topicId": "a_divide",
   "date": "2026-10-13",
-  "state": "four_written_scopes_actually_read_full_answer_manuscript_written_chapter_audits_in_progress",
+  "state": "four_written_scopes_actually_reviewed_checked_revision",
   "selectedUniversities": [
     "MIT",
     "UC Berkeley",
@@ -29,7 +29,8 @@
       "reading": "All available extracted text of all thirty-six pages, official browser lines 0-1913, was actually read through overlapping outputs. This includes the full exercise list, with selection and recurrence-only parts explicitly assigned to their own scopes.",
       "role": "Algebraic integer and block multiplication, polynomial representation, Fourier algorithms, inversion and relevant exercise mechanisms.",
       "qualifications": "Odd-width shifts require the actual low-part width; the sum product can carry an extra bit. The unnormalized Fourier matrix is not a norm-preserving rotation. Primitive roots are required, although an early input box states merely nth root. Majority reduction does not give the stated unrestricted equivalence. Exercise 2.13(c) has an extracted exponent that requires original visual reconciliation before an alleged error is adopted.",
-      "visualState": "Text read; diagrams with encoded extraction still require actual visual inspection. The screenshot call did not emit readable images into the root context, so it is not counted as visual inspection."
+      "visualState": "Actually viewed original physical pages 1,2,14,15,17,18,19,31. Exercise 2.13(c) really prints Omega(2^n); under the standard ordered full-tree Catalan interpretation this is false, and even n have zero full trees. This out-of-scope exercise is not imported as a theorem.",
+      "sha256": "e173aec5b19ff7341c501e070b6b69dcb641728d1c9dcde275bfb03df186cc99"
     },
     {
       "university": "Carnegie Mellon",
@@ -39,7 +40,7 @@
       "reading": "All available browser text lines 0-141 were actually read. The deterministic proof on physical pages 1-3 is selected; randomized pages 4-5 were read as additional context and the image-only code on page 6 was not read.",
       "role": "Coordinate orders, recursive memberships, geometric strip proof and preservation of linear combination cost.",
       "qualifications": "Separation is guaranteed within each recursive half. An uncolored one-point-per-cell claim needs the half-specific ownership argument; points on the divider and tied coordinates require explicit rank membership.",
-      "visualState": "The original third-page diagram still needs a newly readable visual capture in this revision; a non-emitted screenshot is not counted."
+      "visualState": "Fresh official text actually read. Direct PDF retrieval failed with connection refusal, and a screenshot call did not emit an image into root. The original diagram is not claimed freshly inspected; the independently authored geometry has its own proofs and finite/browser checks."
     },
     {
       "university": "ETH Zurich",
@@ -48,10 +49,12 @@
       "url": "https://lec.inf.ethz.ch/DA/2018/slides/daLecture2.en.handout.2x2.pdf",
       "reading": "All available text across thirteen pages, browser lines 0-661, was actually read in overlapping outputs. Physical pages 7-13, slides 97-121, supply the selected maximum-subarray scope.",
       "role": "Nonempty/empty policy, cubic and quadratic baselines, crossing decomposition, linear scan and input-reading lower bound.",
-      "qualifications": "The initial interval specification suggests nonempty output while zero-initialized algorithms admit emptiness. The current chapter specifies nonempty intervals and initializes from actual data or negative infinity. Printed indexing/dimension displays require reconciliation before transcription."
+      "qualifications": "The initial interval specification suggests nonempty output while zero-initialized algorithms admit emptiness. The current chapter specifies nonempty intervals and initializes from actual data or negative infinity. Printed indexing/dimension displays require reconciliation before transcription.",
+      "sha256": "e7fd60e6aac49f1981614121f974f032c00007d3a52e5a093d3ab622166097c1",
+      "visualState": "Actually viewed physical pages 8 and 10. The divide slide ends its right interval with a_1 rather than a_n, a confirmed printed index error. The algorithms admit empty intervals whereas the stated initial interval is nonempty; the chapter keeps the explicit nonempty contract."
     }
   ],
   "chapterReading": "The full a_divide.en.md lesson, all 48 independently authored source tutorials, all 88 historical rules, the six-step examination procedure, and all 46 canonical bank stems/options were actually read.",
-  "remainingWork": "Render and actually inspect university diagrams where extraction is inadequate. Reconcile the selected original source images, prepare deeper synthesis and final detailed decisions, implement subject-specific compact mathematical animations and complete browser/print audits before marking the chapter checked.",
+  "remainingWork": "Individual chapter checks completed. Site source synchronization failed with connection reset; publication is not confirmed.",
   "studentApproval": false
 }

@@ -19,6 +19,7 @@ SYMBOLS.update(bigoplus='⨁')
 SYMBOLS.update(downarrow='↓',uparrow='↑',ell='ℓ')
 SYMBOLS.update(Gamma='Γ',prec='≺')
 SYMBOLS.update(psi='ψ')
+SYMBOLS.update(star='⋆')
 def tag(t,s):return '<'+t+'>'+s+'</'+t+'>'
 def atom(t,s):return tag(t,html.escape(s))
 class Parser:
