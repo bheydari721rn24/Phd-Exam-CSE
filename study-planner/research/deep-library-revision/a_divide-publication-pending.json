@@ -1,10 +1,13 @@
 {
   "topicId": "a_divide",
-  "state": "checked_revision_site_source_opening_failed",
+  "state": "checked_revision_pushed_to_github_site_source_connection_reset",
   "date": "2026-10-14",
   "failure": "Recv failure: Connection was reset from git.chatgpt-team.site during official source workflow opening.",
   "nativeSaveOrDeployStarted": false,
-  "sourceCommit": null,
+  "sourceCommit": "41d08cfb3a0dab754f1370278c1c96e0ed40a07c",
   "confirmedOnline": "Nineteen individual revisions plus separately published number-source errata.",
-  "recovery": "Successfully synchronize exact current source HEAD, package immutable matching source archive, then owner-private save/deploy. Never submit an unverified source SHA/archive."
+  "recovery": "Successfully synchronize exact current source HEAD, package immutable matching source archive, then owner-private save/deploy. Never submit an unverified source SHA/archive.",
+  "githubCommit": "b682694",
+  "githubBranch": "study-planner-1406",
+  "exactMirroredChangedFiles": 51
 }
