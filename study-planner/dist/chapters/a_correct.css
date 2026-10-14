@@ -1,7 +1,9 @@
 .lesson .correctness-diagram{overflow:visible;text-align:center}
 .lesson .correctness-diagram svg{width:100%;min-width:0;max-width:700px;height:auto;margin:auto}
 .correctness-diagram svg text{font-family:"STIX Two Math",serif;font-weight:400}
-.lesson .formula-block{white-space:normal;max-width:100%}
+.lesson .formula-block{white-space:nowrap;max-width:100%}
+.lesson .math-inline,.lesson math[display="inline"]{display:inline-block;max-width:100%;overflow-x:auto;white-space:nowrap;vertical-align:middle}
+.lesson .math-inline>math[display="inline"]{display:inline;max-width:none;overflow:visible}
 .lesson :not(pre)>code{overflow-wrap:anywhere;white-space:normal}
 .lab form{display:grid;gap:1rem}
 .lab label{display:block;font-weight:500}

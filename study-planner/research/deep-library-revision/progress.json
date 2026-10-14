@@ -4,9 +4,9 @@
   "baselineCommit": "f890223f3111d27958eb483056556fded2d59ff3",
   "chapterCount": 60,
   "workedEntryPlacements": 4169,
-  "revisedChapters": 22,
-  "pendingChapters": 38,
-  "currentTopicId": "a_correct",
+  "revisedChapters": 23,
+  "pendingChapters": 37,
+  "currentTopicId": "l_projection",
   "chapters": [
     {
       "topicId": "d_logic",
@@ -167,7 +167,7 @@
       "title": "Invariants, Correctness Certificates, and Method Comparison",
       "url": "chapters/a_correct.html",
       "questions": 54,
-      "state": "in_progress"
+      "state": "revised_checked_review_draft"
     },
     {
       "topicId": "s_conditional",
@@ -428,5 +428,14 @@
       "questions": 84,
       "state": "pending_individual_semantic_review"
     }
-  ]
+  ],
+  "nextIndividualReview": "s_conditional",
+  "newTechnicalDrafts": {
+    "l_projection": {
+      "state": "in_progress",
+      "solvedProblemsWritten": 10,
+      "countedAsCompleted": false
+    }
+  },
+  "ieltsTeachingLessonsWritten": 1
 }

@@ -140,7 +140,7 @@ function renderLibrary() {
       ${!ready.length && !drafted.length ? '<p>The first chapter is undergoing its English quality review. Its link will appear here when the review is complete.</p>' : ""}
     </div>
   </section>
-  <section class="card"><h2>What the status means</h2><p>The library currently contains ${ready.length + drafted.length} chapter notes: ${ready.length} approved chapters available for study and ${drafted.length} ${drafted.length === 1 ? "draft awaiting" : "drafts awaiting"} your review. Each new chapter remains a draft until you approve it; only then does work begin on the next chapter.</p><a href="library-visual-question-review.html">Read the earlier visual revision and open its examples →</a></section>`;
+  <section class="card"><h2>What the status means</h2><p>The library currently contains ${ready.length + drafted.length} chapter notes: ${ready.length} approved chapters available for study and ${drafted.length} ${drafted.length === 1 ? "draft awaiting" : "drafts awaiting"} your review. Completed new or revised editions remain review drafts until you approve them. Writing continues sequentially under your standing authorization; your approval promotes an edition without blocking work on later chapters.</p><a href="library-visual-question-review.html">Read the earlier visual revision and open its examples →</a></section>`;
 }
 function renderIelts() {
   const path = plan.ielts;
@@ -148,6 +148,7 @@ function renderIelts() {
     <p>${escapeHtml(path.module)}. The timetable reserves at least ${path.weeklyMinimumHours} hours per week. Each of the four sessions below is planned for 60 minutes before the session begins.</p>
     <p><b>Mastery gate.</b> ${escapeHtml(path.progressionRule)}</p>
     <p class="muted">${escapeHtml(path.scopeNote)}</p></section>
+    <section class="card"><h2>Available teaching lessons</h2><p>These pages contain actual instruction, worked explanations and listening audio. Reading a page does not automatically confirm mastery.</p><div class="unit-grid">${(path.lessons || []).map(lesson => `<article class="card"><p class="eyebrow">Stage ${lesson.stage} · Session ${lesson.session} · ${lesson.minutes} minutes</p><h3>${escapeHtml(lesson.title)}</h3><p>${escapeHtml(lesson.scope)}</p><p>Teaching draft · ${lesson.audioClips} original audio clips · mastery not yet checked</p><a href="${escapeHtml(lesson.url)}">Open the complete teaching lesson →</a></article>`).join("") || "<p>No teaching lesson has been delivered yet.</p>"}</div></section>
     <div class="unit-grid">${path.stages.map((stage, index) => `<section class="card"><p class="eyebrow">Stage ${index + 1} · provisional week ${index + 1}</p><h2>${escapeHtml(stage[0])}</h2>
       <ol class="ielts-sessions"><li><b>Grammar foundation · 60 min.</b> ${escapeHtml(stage[1])}. Read the explanation and guided examples.</li>
       <li><b>Reading · 60 min.</b> ${escapeHtml(stage[2])}. Locate textual evidence before answering.</li>

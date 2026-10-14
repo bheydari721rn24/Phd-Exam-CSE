@@ -32,3 +32,7 @@ Four prospective core courses are MIT, Stanford, Oxford and Berkeley, with ETH's
 ## Pending work
 
 Complete the coverage matrix, reconstruct the selected exercises, derive the advanced projector identities and dependent/weighted/affine cases, author the full solved bank and final rules, build mechanism-specific models, and perform independent mathematical and actual-browser review. This record supplies no completed chapter count.
+
+## Continuation on 14 October 2026
+
+All three MIT Session2.3 teaching pages were freshly read from the official PDF text. All four cached original Berkeley Orthogonal Projections pages were actually viewed; the vector/subspace equality on page one is translated as membership. Existing Stanford and Oxford reading scopes remain documented historical evidence, not newly re-read claims. Ten original medium-to-hard mathematical and conceptual problems were written with complete derivations; exact projection, weighted, affine, complex, commuting, diagonal and oblique calculations passed. Final chapter selection, further bank coverage, figures, models, final rules and rendered review remain pending.

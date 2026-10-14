@@ -20,6 +20,7 @@ SYMBOLS.update(downarrow='↓',uparrow='↑',ell='ℓ')
 SYMBOLS.update(Gamma='Γ',prec='≺')
 SYMBOLS.update(psi='ψ')
 SYMBOLS.update(star='⋆')
+SYMBOLS.update(uplus='⊎')
 def tag(t,s):return '<'+t+'>'+s+'</'+t+'>'
 def atom(t,s):return tag(t,html.escape(s))
 class Parser:
@@ -62,7 +63,7 @@ class Parser:
    if name=='sqrt':return tag('msqrt',self.group())
    if name=='not':
     value=self.base()
-    for old,new in (('⊆','⊈'),('∈','∉'),('=','≠'),('≡','≢'),('∣','∤')):
+    for old,new in (('⊆','⊈'),('∈','∉'),('=','≠'),('≡','≢'),('∣','∤'),('⇒','⇏')):
      if old in value:return value.replace(old,new)
     raise ValueError('Unsupported negated operator in '+self.s)
    if name=='binom':return tag('mrow',atom('mo','(')+'<mfrac linethickness="0">'+self.group()+self.group()+'</mfrac>'+atom('mo',')'))

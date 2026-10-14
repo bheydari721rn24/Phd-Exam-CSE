@@ -1,0 +1,31 @@
+### Solution 1
+
+**Correct option: 4. Prove the recursive contract and the joining order.** Assume distinct input values in a total order. The base inputs of size at most one are already descending. For a larger input, the pivot m separates a greater-value block R and a smaller-value block L. Strong induction gives descending outputs from both smaller recursive calls. Every value returned from R exceeds m, and every value returned from L is below m. Consequently, joining R's output, then m, then L's output establishes descending order both inside the blocks and across their boundaries.
+
+With values {1,2,3,4,5} and pivot 3, the greater block returns [5,4] and the smaller block returns [2,1]. The joining operation produces [5,4,3,2,1]. The alternative claiming an ascending suffix changes one recursive contract without any corresponding change in the code. The random-order alternative ignores both comparisons. An ascending output would require joining the smaller block before the pivot before the greater block.
+
+For the stronger claim that the output is a permutation, use a median that is an actual input order statistic, choosing an input middle value for even lengths. Strict partitioning then retains every nonpivot value exactly once and the singleton pivot retains the remaining value. An arithmetic-average median for an even input can insert a new value and violate conservation, even though joining order remains descending. Equal input keys would likewise require an explicit equality block to retain all copies. The source asks about distinct-key order; state extra premises when proving a stronger contract. Input sizes strictly decrease above the base region, proving recursive termination.
+
+### Solution 2
+
+**Correct option: 1. Relate each recursive call to a copied prefix.** At the kth active call, let k start at zero. The intended parameter relation is $n=N-1-2k$ and i=k. The previously copied output prefix then satisfies $b[t]=a[N-1-2t]$ for $0\le t<k$. If n≥0, writing b[i]=a[n] adds exactly the next required source entry at the next contiguous destination position. Calling store(n−2,i+1) restores the same relation with k increased by one.
+
+For N=6, the write pairs are (source,destination)=(5,0),(3,1),(1,2). The next call has n=−1 and returns before reading. This constructs [a[5],a[3],a[1]], exactly every other element from the end in reverse stride. For N=5, the sources are 4,2,0; for N=0, the initial n=−1 immediately returns. The destination must have room for $\lceil N/2\rceil$ elements, and the arrays' intended separation must avoid overwriting unread source data.
+
+Option 2 writes to b[i+1], leaving index zero unwritten and shifting the compact result. Option 3 advances i by two, leaving gaps. Option 4 combines both defects. The negative source guard must precede the read because −1 or −2 can occur in the base call, depending on parity. A natural measure counting remaining stride positions decreases at each active call, so exactly ceiling(N/2) writes occur and one additional base call terminates the recursion. A proof of output order must track both source and destination; decreasing only the source index does not establish compact storage.
+
+### Solution 3
+
+**Correct option: 2. Distribute a unit of mass and allow missing children.** Give the root mass 1. At each possible child edge, transfer half the parent's mass. A leaf at depth d then receives exactly $2^{-d}$. When both children exist, their two budgets sum to the parent's budget. When only one exists, half the budget is left unused. Leaves terminate their own budget without duplication. Therefore the total leaf mass cannot exceed the root's mass 1.
+
+A structural induction makes the inequality precise for finite trees. A root leaf has mass 1. With two subtrees, each subtree's relative leaf mass is at most 1 by induction; scaling each by 1/2 gives a total at most 1. With one subtree, scaling its mass by 1/2 gives at most 1/2. This proves the bound, including all finite shapes, and does not assume that the tree is balanced or complete by levels.
+
+Equality holds in a finite full binary tree, where every internal node has two children, including the single root leaf. A root with one leaf child has total mass 1/2. These witnesses refute both the always-equal and always-strict alternatives. A total greater than 1 contradicts the proved allocation bound. In a finite tree, a missing child at any internal node produces a positive deficit, so equality characterizes fullness. The simple conservation proof supplies a useful upper bound even when the actual leaf depths and tree balance are unknown; extra structural claims must follow from the equality premises rather than from intuition about tree size.
+
+### Solution 4
+
+**Correct option: 2. Count dependent iterations and then add initialization.** One increment occurs for each weakly ordered triple $1\le i\le j\le k\le15$. The map $(i,j,k)\mapsto(i,j+1,k+2)$ is a bijection to strictly increasing triples chosen from {1,…,17}. Its inverse subtracts one from the second coordinate and two from the third. Thus the number of increments is $\binom{17}{3}=17\cdot16\cdot15/6=680$. Cod starts at 10, so it ends at 690.
+
+An independent count fixes j. There are j choices for i and 16−j choices for k. Summing gives $\sum_{j=1}^{15}j(16-j)=16\sum_{j=1}^{15}j-\sum_{j=1}^{15}j^2=16\cdot120-1240=680$. Both derivations preserve the equality cases in the loop bounds. The triple (1,1,1), for example, is a genuine execution and would be lost by counting only strictly increasing original indices.
+
+The other numerical alternatives disagree with both exact counts. Counting 15³ ignores the dependent bounds; choosing three distinct numbers from 15 omits repetitions; returning only 680 omits initialization. An accumulator invariant can say that Cod equals 10 plus the number of completed innermost visits at the current checkpoint, making conservation of the count explicit. The granted wide-type premise must cover loop-index increments as well as Cod. A narrow implementation can overflow on a terminating update after the last useful body visit even when all useful indices were representable; the mathematical loop count does not by itself certify its machine translation.

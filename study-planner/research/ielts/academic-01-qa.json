@@ -1,0 +1,719 @@
+{
+  "lesson": "academic-01-sentences",
+  "status": "passed_technical_and_rendered_checks",
+  "humanAudioClarity": "Not certified; original synthetic audio requires learner playback feedback.",
+  "audio": [
+    {
+      "file": "be-demonstration-guided.wav",
+      "seconds": 23.64,
+      "rms": 2561.69,
+      "voice": "Microsoft David Desktop",
+      "sha256": "1e8da0c3d95640646a6e936dbbb48aebf38ca13375f50f042a5f7dd36a5938b5",
+      "transcript": "I am a student. You are my teacher. Emma is a student. Alex is a teacher. We are in room fourteen. They are not late. Is Emma a teacher? No, she is not. Are you a student? Yes, I am."
+    },
+    {
+      "file": "be-demonstration-natural-rate.wav",
+      "seconds": 19.3,
+      "rms": 2539.34,
+      "voice": "Microsoft David Desktop",
+      "sha256": "42a16bee48c67337c0b5396286e696b2b18c7f882ca97a6e6739c13d8130fb85",
+      "transcript": "I am a student. You are my teacher. Emma is a student. Alex is a teacher. We are in room fourteen. They are not late. Is Emma a teacher? No, she is not. Are you a student? Yes, I am."
+    },
+    {
+      "file": "name-and-room-guided.wav",
+      "seconds": 21.61,
+      "rms": 2503.15,
+      "voice": "Microsoft David Desktop",
+      "sha256": "eed34a67b380f7f4d4605084635fcc70dd50322d5f08fb2021b09807791b0596",
+      "transcript": "Hello. My name is Emma. Emma. E. M. M. A. I am a student. My class is in room fourteen. Fourteen. One. Four. Alex is the teacher. We are ready."
+    },
+    {
+      "file": "name-and-room-natural-rate.wav",
+      "seconds": 17.61,
+      "rms": 2462.71,
+      "voice": "Microsoft David Desktop",
+      "sha256": "7207b5994f284f435567e68051c6618429b7e6ee21eeeb276642c5e2fd06049a",
+      "transcript": "Hello. My name is Emma. Emma. E. M. M. A. I am a student. My class is in room fourteen. Fourteen. One. Four. Alex is the teacher. We are ready."
+    },
+    {
+      "file": "corrected-number-guided.wav",
+      "seconds": 21.74,
+      "rms": 2332.59,
+      "voice": "Microsoft David Desktop",
+      "sha256": "932843d2b12df89dcb3a072696e6d1fa90083882323c76beaf00c6878ceb2858",
+      "transcript": "Is your room thirteen? No. My room is thirty. Thirty. Three. Zero. Is your teacher Emma? No. My teacher is Alex. A. L. E. X. The class is ready."
+    },
+    {
+      "file": "corrected-number-natural-rate.wav",
+      "seconds": 17.71,
+      "rms": 2290.86,
+      "voice": "Microsoft David Desktop",
+      "sha256": "3e140d340e95c96ff9f87d136a6f8515ce0870b1bd47b7cafc8fcf188487d007",
+      "transcript": "Is your room thirteen? No. My room is thirty. Thirty. Three. Zero. Is your teacher Emma? No. My teacher is Alex. A. L. E. X. The class is ready."
+    }
+  ],
+  "fonts": {
+    "body": "\"Math Glyphs\", \"Source Sans 3\", sans-serif",
+    "heading": "Newsreader, \"STIX Two Math\", serif",
+    "bodyLoaded": true,
+    "headingLoaded": true
+  },
+  "sentenceCases": [
+    {
+      "subject": "I",
+      "meaning": "ready",
+      "form": "affirmative",
+      "sentence": "I am ready.",
+      "roles": [
+        "subject",
+        "verb",
+        "complement"
+      ],
+      "explanation": "I takes am. The subject comes first, the matching verb follows, and the complement completes this description."
+    },
+    {
+      "subject": "I",
+      "meaning": "ready",
+      "form": "negative",
+      "sentence": "I am not ready.",
+      "roles": [
+        "subject",
+        "verb",
+        "negative",
+        "complement"
+      ],
+      "explanation": "I takes am. Not follows the verb and denies this description. It does not identify a different condition or location."
+    },
+    {
+      "subject": "I",
+      "meaning": "ready",
+      "form": "question",
+      "sentence": "Am I ready?",
+      "roles": [
+        "verb",
+        "subject",
+        "complement"
+      ],
+      "explanation": "I takes am. The verb moves before the subject. The complement still describes the subject; no do or does is added."
+    },
+    {
+      "subject": "I",
+      "meaning": "late",
+      "form": "affirmative",
+      "sentence": "I am late.",
+      "roles": [
+        "subject",
+        "verb",
+        "complement"
+      ],
+      "explanation": "I takes am. The subject comes first, the matching verb follows, and the complement completes this description."
+    },
+    {
+      "subject": "I",
+      "meaning": "late",
+      "form": "negative",
+      "sentence": "I am not late.",
+      "roles": [
+        "subject",
+        "verb",
+        "negative",
+        "complement"
+      ],
+      "explanation": "I takes am. Not follows the verb and denies this description. It does not identify a different condition or location."
+    },
+    {
+      "subject": "I",
+      "meaning": "late",
+      "form": "question",
+      "sentence": "Am I late?",
+      "roles": [
+        "verb",
+        "subject",
+        "complement"
+      ],
+      "explanation": "I takes am. The verb moves before the subject. The complement still describes the subject; no do or does is added."
+    },
+    {
+      "subject": "I",
+      "meaning": "in room fourteen",
+      "form": "affirmative",
+      "sentence": "I am in room fourteen.",
+      "roles": [
+        "subject",
+        "verb",
+        "complement"
+      ],
+      "explanation": "I takes am. The subject comes first, the matching verb follows, and the complement completes this description."
+    },
+    {
+      "subject": "I",
+      "meaning": "in room fourteen",
+      "form": "negative",
+      "sentence": "I am not in room fourteen.",
+      "roles": [
+        "subject",
+        "verb",
+        "negative",
+        "complement"
+      ],
+      "explanation": "I takes am. Not follows the verb and denies this description. It does not identify a different condition or location."
+    },
+    {
+      "subject": "I",
+      "meaning": "in room fourteen",
+      "form": "question",
+      "sentence": "Am I in room fourteen?",
+      "roles": [
+        "verb",
+        "subject",
+        "complement"
+      ],
+      "explanation": "I takes am. The verb moves before the subject. The complement still describes the subject; no do or does is added."
+    },
+    {
+      "subject": "You",
+      "meaning": "ready",
+      "form": "affirmative",
+      "sentence": "You are ready.",
+      "roles": [
+        "subject",
+        "verb",
+        "complement"
+      ],
+      "explanation": "You takes are even for one listener. The subject comes first, the matching verb follows, and the complement completes this description."
+    },
+    {
+      "subject": "You",
+      "meaning": "ready",
+      "form": "negative",
+      "sentence": "You are not ready.",
+      "roles": [
+        "subject",
+        "verb",
+        "negative",
+        "complement"
+      ],
+      "explanation": "You takes are even for one listener. Not follows the verb and denies this description. It does not identify a different condition or location."
+    },
+    {
+      "subject": "You",
+      "meaning": "ready",
+      "form": "question",
+      "sentence": "Are you ready?",
+      "roles": [
+        "verb",
+        "subject",
+        "complement"
+      ],
+      "explanation": "You takes are even for one listener. The verb moves before the subject. The complement still describes the subject; no do or does is added."
+    },
+    {
+      "subject": "You",
+      "meaning": "late",
+      "form": "affirmative",
+      "sentence": "You are late.",
+      "roles": [
+        "subject",
+        "verb",
+        "complement"
+      ],
+      "explanation": "You takes are even for one listener. The subject comes first, the matching verb follows, and the complement completes this description."
+    },
+    {
+      "subject": "You",
+      "meaning": "late",
+      "form": "negative",
+      "sentence": "You are not late.",
+      "roles": [
+        "subject",
+        "verb",
+        "negative",
+        "complement"
+      ],
+      "explanation": "You takes are even for one listener. Not follows the verb and denies this description. It does not identify a different condition or location."
+    },
+    {
+      "subject": "You",
+      "meaning": "late",
+      "form": "question",
+      "sentence": "Are you late?",
+      "roles": [
+        "verb",
+        "subject",
+        "complement"
+      ],
+      "explanation": "You takes are even for one listener. The verb moves before the subject. The complement still describes the subject; no do or does is added."
+    },
+    {
+      "subject": "You",
+      "meaning": "in room fourteen",
+      "form": "affirmative",
+      "sentence": "You are in room fourteen.",
+      "roles": [
+        "subject",
+        "verb",
+        "complement"
+      ],
+      "explanation": "You takes are even for one listener. The subject comes first, the matching verb follows, and the complement completes this description."
+    },
+    {
+      "subject": "You",
+      "meaning": "in room fourteen",
+      "form": "negative",
+      "sentence": "You are not in room fourteen.",
+      "roles": [
+        "subject",
+        "verb",
+        "negative",
+        "complement"
+      ],
+      "explanation": "You takes are even for one listener. Not follows the verb and denies this description. It does not identify a different condition or location."
+    },
+    {
+      "subject": "You",
+      "meaning": "in room fourteen",
+      "form": "question",
+      "sentence": "Are you in room fourteen?",
+      "roles": [
+        "verb",
+        "subject",
+        "complement"
+      ],
+      "explanation": "You takes are even for one listener. The verb moves before the subject. The complement still describes the subject; no do or does is added."
+    },
+    {
+      "subject": "Emma",
+      "meaning": "ready",
+      "form": "affirmative",
+      "sentence": "Emma is ready.",
+      "roles": [
+        "subject",
+        "verb",
+        "complement"
+      ],
+      "explanation": "Emma identifies one person and takes is. The subject comes first, the matching verb follows, and the complement completes this description."
+    },
+    {
+      "subject": "Emma",
+      "meaning": "ready",
+      "form": "negative",
+      "sentence": "Emma is not ready.",
+      "roles": [
+        "subject",
+        "verb",
+        "negative",
+        "complement"
+      ],
+      "explanation": "Emma identifies one person and takes is. Not follows the verb and denies this description. It does not identify a different condition or location."
+    },
+    {
+      "subject": "Emma",
+      "meaning": "ready",
+      "form": "question",
+      "sentence": "Is Emma ready?",
+      "roles": [
+        "verb",
+        "subject",
+        "complement"
+      ],
+      "explanation": "Emma identifies one person and takes is. The verb moves before the subject. The complement still describes the subject; no do or does is added."
+    },
+    {
+      "subject": "Emma",
+      "meaning": "late",
+      "form": "affirmative",
+      "sentence": "Emma is late.",
+      "roles": [
+        "subject",
+        "verb",
+        "complement"
+      ],
+      "explanation": "Emma identifies one person and takes is. The subject comes first, the matching verb follows, and the complement completes this description."
+    },
+    {
+      "subject": "Emma",
+      "meaning": "late",
+      "form": "negative",
+      "sentence": "Emma is not late.",
+      "roles": [
+        "subject",
+        "verb",
+        "negative",
+        "complement"
+      ],
+      "explanation": "Emma identifies one person and takes is. Not follows the verb and denies this description. It does not identify a different condition or location."
+    },
+    {
+      "subject": "Emma",
+      "meaning": "late",
+      "form": "question",
+      "sentence": "Is Emma late?",
+      "roles": [
+        "verb",
+        "subject",
+        "complement"
+      ],
+      "explanation": "Emma identifies one person and takes is. The verb moves before the subject. The complement still describes the subject; no do or does is added."
+    },
+    {
+      "subject": "Emma",
+      "meaning": "in room fourteen",
+      "form": "affirmative",
+      "sentence": "Emma is in room fourteen.",
+      "roles": [
+        "subject",
+        "verb",
+        "complement"
+      ],
+      "explanation": "Emma identifies one person and takes is. The subject comes first, the matching verb follows, and the complement completes this description."
+    },
+    {
+      "subject": "Emma",
+      "meaning": "in room fourteen",
+      "form": "negative",
+      "sentence": "Emma is not in room fourteen.",
+      "roles": [
+        "subject",
+        "verb",
+        "negative",
+        "complement"
+      ],
+      "explanation": "Emma identifies one person and takes is. Not follows the verb and denies this description. It does not identify a different condition or location."
+    },
+    {
+      "subject": "Emma",
+      "meaning": "in room fourteen",
+      "form": "question",
+      "sentence": "Is Emma in room fourteen?",
+      "roles": [
+        "verb",
+        "subject",
+        "complement"
+      ],
+      "explanation": "Emma identifies one person and takes is. The verb moves before the subject. The complement still describes the subject; no do or does is added."
+    },
+    {
+      "subject": "We",
+      "meaning": "ready",
+      "form": "affirmative",
+      "sentence": "We are ready.",
+      "roles": [
+        "subject",
+        "verb",
+        "complement"
+      ],
+      "explanation": "We takes are. The subject comes first, the matching verb follows, and the complement completes this description."
+    },
+    {
+      "subject": "We",
+      "meaning": "ready",
+      "form": "negative",
+      "sentence": "We are not ready.",
+      "roles": [
+        "subject",
+        "verb",
+        "negative",
+        "complement"
+      ],
+      "explanation": "We takes are. Not follows the verb and denies this description. It does not identify a different condition or location."
+    },
+    {
+      "subject": "We",
+      "meaning": "ready",
+      "form": "question",
+      "sentence": "Are we ready?",
+      "roles": [
+        "verb",
+        "subject",
+        "complement"
+      ],
+      "explanation": "We takes are. The verb moves before the subject. The complement still describes the subject; no do or does is added."
+    },
+    {
+      "subject": "We",
+      "meaning": "late",
+      "form": "affirmative",
+      "sentence": "We are late.",
+      "roles": [
+        "subject",
+        "verb",
+        "complement"
+      ],
+      "explanation": "We takes are. The subject comes first, the matching verb follows, and the complement completes this description."
+    },
+    {
+      "subject": "We",
+      "meaning": "late",
+      "form": "negative",
+      "sentence": "We are not late.",
+      "roles": [
+        "subject",
+        "verb",
+        "negative",
+        "complement"
+      ],
+      "explanation": "We takes are. Not follows the verb and denies this description. It does not identify a different condition or location."
+    },
+    {
+      "subject": "We",
+      "meaning": "late",
+      "form": "question",
+      "sentence": "Are we late?",
+      "roles": [
+        "verb",
+        "subject",
+        "complement"
+      ],
+      "explanation": "We takes are. The verb moves before the subject. The complement still describes the subject; no do or does is added."
+    },
+    {
+      "subject": "We",
+      "meaning": "in room fourteen",
+      "form": "affirmative",
+      "sentence": "We are in room fourteen.",
+      "roles": [
+        "subject",
+        "verb",
+        "complement"
+      ],
+      "explanation": "We takes are. The subject comes first, the matching verb follows, and the complement completes this description."
+    },
+    {
+      "subject": "We",
+      "meaning": "in room fourteen",
+      "form": "negative",
+      "sentence": "We are not in room fourteen.",
+      "roles": [
+        "subject",
+        "verb",
+        "negative",
+        "complement"
+      ],
+      "explanation": "We takes are. Not follows the verb and denies this description. It does not identify a different condition or location."
+    },
+    {
+      "subject": "We",
+      "meaning": "in room fourteen",
+      "form": "question",
+      "sentence": "Are we in room fourteen?",
+      "roles": [
+        "verb",
+        "subject",
+        "complement"
+      ],
+      "explanation": "We takes are. The verb moves before the subject. The complement still describes the subject; no do or does is added."
+    },
+    {
+      "subject": "They",
+      "meaning": "ready",
+      "form": "affirmative",
+      "sentence": "They are ready.",
+      "roles": [
+        "subject",
+        "verb",
+        "complement"
+      ],
+      "explanation": "They takes are. The subject comes first, the matching verb follows, and the complement completes this description."
+    },
+    {
+      "subject": "They",
+      "meaning": "ready",
+      "form": "negative",
+      "sentence": "They are not ready.",
+      "roles": [
+        "subject",
+        "verb",
+        "negative",
+        "complement"
+      ],
+      "explanation": "They takes are. Not follows the verb and denies this description. It does not identify a different condition or location."
+    },
+    {
+      "subject": "They",
+      "meaning": "ready",
+      "form": "question",
+      "sentence": "Are they ready?",
+      "roles": [
+        "verb",
+        "subject",
+        "complement"
+      ],
+      "explanation": "They takes are. The verb moves before the subject. The complement still describes the subject; no do or does is added."
+    },
+    {
+      "subject": "They",
+      "meaning": "late",
+      "form": "affirmative",
+      "sentence": "They are late.",
+      "roles": [
+        "subject",
+        "verb",
+        "complement"
+      ],
+      "explanation": "They takes are. The subject comes first, the matching verb follows, and the complement completes this description."
+    },
+    {
+      "subject": "They",
+      "meaning": "late",
+      "form": "negative",
+      "sentence": "They are not late.",
+      "roles": [
+        "subject",
+        "verb",
+        "negative",
+        "complement"
+      ],
+      "explanation": "They takes are. Not follows the verb and denies this description. It does not identify a different condition or location."
+    },
+    {
+      "subject": "They",
+      "meaning": "late",
+      "form": "question",
+      "sentence": "Are they late?",
+      "roles": [
+        "verb",
+        "subject",
+        "complement"
+      ],
+      "explanation": "They takes are. The verb moves before the subject. The complement still describes the subject; no do or does is added."
+    },
+    {
+      "subject": "They",
+      "meaning": "in room fourteen",
+      "form": "affirmative",
+      "sentence": "They are in room fourteen.",
+      "roles": [
+        "subject",
+        "verb",
+        "complement"
+      ],
+      "explanation": "They takes are. The subject comes first, the matching verb follows, and the complement completes this description."
+    },
+    {
+      "subject": "They",
+      "meaning": "in room fourteen",
+      "form": "negative",
+      "sentence": "They are not in room fourteen.",
+      "roles": [
+        "subject",
+        "verb",
+        "negative",
+        "complement"
+      ],
+      "explanation": "They takes are. Not follows the verb and denies this description. It does not identify a different condition or location."
+    },
+    {
+      "subject": "They",
+      "meaning": "in room fourteen",
+      "form": "question",
+      "sentence": "Are they in room fourteen?",
+      "roles": [
+        "verb",
+        "subject",
+        "complement"
+      ],
+      "explanation": "They takes are. The verb moves before the subject. The complement still describes the subject; no do or does is added."
+    }
+  ],
+  "audioElements": [
+    {
+      "src": "audio/be-demonstration-guided.wav",
+      "duration": 23.637551,
+      "readyState": 1,
+      "error": null
+    },
+    {
+      "src": "audio/be-demonstration-natural-rate.wav",
+      "duration": 19.29737,
+      "readyState": 1,
+      "error": null
+    },
+    {
+      "src": "audio/name-and-room-guided.wav",
+      "duration": 21.607891,
+      "readyState": 1,
+      "error": null
+    },
+    {
+      "src": "audio/name-and-room-natural-rate.wav",
+      "duration": 17.607846,
+      "readyState": 1,
+      "error": null
+    },
+    {
+      "src": "audio/corrected-number-guided.wav",
+      "duration": 21.737823,
+      "readyState": 1,
+      "error": null
+    },
+    {
+      "src": "audio/corrected-number-natural-rate.wav",
+      "duration": 17.708073,
+      "readyState": 1,
+      "error": null
+    }
+  ],
+  "references": [
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/present-simple-be?page=0",
+      "text": "Teaching page"
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/contractions",
+      "text": "Grammar reference"
+    },
+    {
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/questions-yes-no-questions-are-you-feeling-cold",
+      "text": "Grammar reference"
+    },
+    {
+      "url": "https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-reading",
+      "text": "Official description"
+    },
+    {
+      "url": "https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-listening",
+      "text": "Official description"
+    }
+  ],
+  "responsive": [
+    {
+      "width": 1360,
+      "pageWidth": 1345,
+      "underlines": 0,
+      "clippedTokens": 0,
+      "errors": []
+    },
+    {
+      "width": 768,
+      "pageWidth": 753,
+      "underlines": 0,
+      "clippedTokens": 0,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "pageWidth": 390,
+      "underlines": 0,
+      "clippedTokens": 0,
+      "errors": []
+    }
+  ],
+  "print": {
+    "allAnswersVisible": true,
+    "underlined": false
+  },
+  "appEntry": {
+    "link": true,
+    "viewVisible": true,
+    "errors": []
+  },
+  "screenshots": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\ielts-first-lesson-qa",
+  "actuallyInspectedScreenshots": [
+    "hero-1360.png",
+    "lab-390.png",
+    "listening-1360.png"
+  ],
+  "reviewer": "root",
+  "masteryConfirmed": false,
+  "studentApproved": false
+}
