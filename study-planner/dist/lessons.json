@@ -449,8 +449,8 @@
         "topicId": "s_conditional",
         "title": "Conditional Probability, Multiplication, and Independence",
         "status": "draft",
-        "statusLabel": "Previous edition · individual deep review pending",
-        "revisionState": "deep_revision_pending",
+        "statusLabel": "Revised and checked · review draft",
+        "revisionState": "deep_revision_checked_draft",
         "url": "chapters/s_conditional.html",
         "questionCount": 60,
         "authenticQuestionCount": 4,
@@ -463,7 +463,10 @@
         "approvedVersion": 59,
         "visualRevisionState": "student_approved",
         "libraryDecisionRevisionState": "student_approved",
-        "historicalApprovedVersion": 59
+        "historicalApprovedVersion": 59,
+        "qualityAuditUrl": "reviews/s_conditional-current-review.html",
+        "problemsCount": 60,
+        "problemFigureCount": 23
       },
       {
         "topicId": "s_bayes",
@@ -1191,5 +1194,28 @@
     ],
     "title": "Week 4 chapter library",
     "description": "Source-reviewed chapters are added sequentially under your standing authorization. Completed drafts remain available for student review."
+  },
+  {
+    "week": 5,
+    "chapters": [
+      {
+        "topicId": "l_projection",
+        "title": "Orthogonal Projections and Projection Matrices",
+        "status": "draft",
+        "statusLabel": "New chapter: author review complete",
+        "revisionState": "new_chapter_draft",
+        "url": "chapters/l_projection.html",
+        "questionCount": 52,
+        "authenticQuestionCount": 2,
+        "originalQuestionCount": 50,
+        "examNotesCount": 50,
+        "animationCount": 13,
+        "animationWalkthroughCount": 13,
+        "animationReviewState": "reviewed_draft",
+        "sourceAuditUrl": "reviews/l_projection-sources.html",
+        "qualityAuditUrl": "reviews/l_projection-quality.html",
+        "studentApproved": false
+      }
+    ]
   }
 ]

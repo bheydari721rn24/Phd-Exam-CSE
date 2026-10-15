@@ -790,3 +790,16 @@ The first actual IELTS Academic teaching lesson is `dist/ielts/academic-01-sente
 The active new technical manuscript is `l_projection`. Twenty existing teaching sections are preserved, and ten new fully derived problems are in `research/l_projection-worked-bank.en.md`, with exact mathematical checks. Fresh MIT Session2.3 text and all four cached original Berkeley projection pages were read. Oxford and Stanford remain historically documented scopes; final chapter-specific selection and figures/models must still be completed. It is not counted among the sixty finished notes, so fifty-nine new technical chapters remain. After this new chapter, resume the frozen individual review order at conditional probability. No approval between drafting tasks is required under standing authorization; no unapproved edition is promoted as student-approved.
 
 Site source synchronization again failed with a connection reset before verified source push. Do not claim the current correctness revision or new IELTS lesson is online. Preserve the owner-private audience. Important source, manuscripts, audio and evidence are mirrored to the GitHub branch `study-planner-1406`; publication requires official source synchronization and a matching verified archive.
+
+
+## Continuation: 15October2026
+
+- Completed orthogonal-projection author review draft:25 teaching sections,50 worked original/course reconstructions,two identified archive revisits,50 final decisions,13 geometric placements and73 finite checkpoints. Native formulas, symbolic examples, controls, rendering and static figures checked. Student approval is pending.
+- Prepared IELTS Academic Session2:60minutes,present-simple grammar,fully explained reading and six original synthetic listening clips. Session1 prerequisite and both learner mastery states remain unconfirmed; no teaching progression was recorded.
+- Current library61of119technical chapters;58newremain. Existing60-chapter review baseline remains23checked and37pending. Next individual review:s_conditional.
+- Official private Site opening failed with a source-transport connection reset. Actual offline copies and GitHub synchronization are tracked separately; no successful new Site deployment is claimed.
+
+
+## Conditional probability review completed: 15October2026
+
+All60answers individually reviewed,56expanded derivations,80final rules retained,23newexact question figures,and all retained scene options checked. Repaired the false triple-only independence example in both lesson and SC33and the generator.24of60baseline reviews are now checked;36remain.61technical notes are available;58newtechnical chapters remain. IELTS has two actual prepared teaching lessons,with learner mastery unconfirmed. Next existing review:s_bayes;next technical authoring:l_leastsquares. Site transport is still pending;offline copies and GitHub are tracked separately.

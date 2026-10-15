@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Projection chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"></head><body><main class="chapter"><p><a href="../chapters/l_projection.html">Projection chapter</a></p><article class="lesson"><h1>Orthogonal projections: active source evaluation</h1>
+<p>Status: source comparison complete for the15October2026 author review draft. Publication and student approval are tracked separately.</p>
+<h2>Bounded comparison and actual reading</h2>
+<p>The previous orthogonality review supplies documented reading from Oxford, MIT, Berkeley, ETH Zurich, Stanford, CMU and Harvard. Those exact ranges remain references, not a claim that their worldwide catalogs have been exhausted. For this chapter, the following additional official written material was actually read:</p>
+<ul>
+<li>Stanford EE263 Autumn2007–08, Stephen Boyd, Lecture5, Least-squares: all23 teaching pages were returned and read through the official PDF research browser. Pages1–10 supply the projection matrix, orthogonality principle, rectangular/full QR and complementary-space representations. Later estimation examples are contextual reading; detailed regression/statistical estimation is reserved for the scheduled least-squares chapter.</li>
+<li>MIT18.06SC Fall2011, Gilbert Strang, Session2.3 summary: all three teaching pages read; page4 is the license. The worked fitting example and Gram-invertibility proof were checked conceptually.</li>
+<li>MIT Session2.3 solutions: both teaching pages were read, covering exercises16.1–16.6; page3 is the license. Their short answers require independent derivations before chapter use.</li>
+</ul>
+<p>The four selected core courses are MIT, Stanford, Oxford and Berkeley, with ETH's precise QR proof as an additional historically read reference. Oxford supplies metric and adjoint foundations rather than an independent full projection lecture. The comparison below states the selection reasons and coverage limits. A local cached download is not required for official-PDF reading, but no hash is invented for an unavailable cache.</p>
+<h2>Conventions and qualifications found</h2>
+<ol>
+<li>Stanford uses the residual Ax minus y; MIT uses data minus fitted values. This chapter will consistently use r=b-Pb. Both residuals are perpendicular, but their signs must not be mixed in formulas or diagrams.</li>
+<li>The inverse of A transpose A requires independent columns. Dependent-generator examples must retain a column basis or use a correctly derived Moore–Penrose inverse; the physical projection remains unique even when its generator coefficients do not.</li>
+<li>MIT's line-fitting text first refers to distance to a line and then explicitly describes vertical residuals. Vertical least squares in the data plot differs from shortest perpendicular distance to that plotted line. The column-space residual is perpendicular in the observation-vector space.</li>
+<li>MIT exercise16.5 places the solution coefficients in the row space under its full-column-rank hypothesis. This statement must not be extended to every solution of a rank-deficient normal equation; only the minimum-norm coefficient solution has that property generally.</li>
+<li>Stanford's introductory definition of unbiasedness is a deterministic left-inverse condition. Statistical BLUE statements additionally need explicit noise assumptions. They are outside the core projection chapter and will be qualified in the next scheduled least-squares chapter.</li>
+</ol>
+<h2>Written references</h2>
+<ul>
+<li><a href="https://web.stanford.edu/class/archive/ee/ee263/ee263.1082/lectures/ls.pdf">Stanford EE263 Lecture5, Stephen Boyd</a>.</li>
+<li><a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/198bde3a6536b62989b6cc09495575c1_MIT18_06SCF11_Ses2.3sum.pdf">MIT Session2.3 summary, Gilbert Strang</a>.</li>
+<li><a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/815ad23f78e11c1a7d282022fc2db3a9_MIT18_06SCF11_Ses2.3sol.pdf">MIT Session2.3 exercise solutions</a>.</li>
+<li><a href="https://courses.maths.ox.ac.uk/pluginfile.php/25471/mod_folder/content/0/lecture_notes22.pdf?forcedownload=1">Oxford M1 Linear Algebra I, Andrew Wathen, native pages69–77; PDF pages70–78</a>.</li>
+<li><a href="https://math.berkeley.edu/~apaulin/Orthogonal%20Projections.pdf">Berkeley Math54, Alexander Paulin, Orthogonal Projections</a>.</li>
+<li><a href="https://ti.inf.ethz.ch/ew/courses/LA25/notes_part_II.pdf">ETH Zurich Linear Algebra PartII, section6.3, Bandeira and Weismantel</a>.</li>
+</ul>
+<h2>Initial pending work: historical checkpoint</h2>
+<p>Complete the coverage matrix, reconstruct the selected exercises, derive the advanced projector identities and dependent/weighted/affine cases, author the full solved bank and final rules, build mechanism-specific models, and perform independent mathematical and actual-browser review. This record supplies no completed chapter count.</p>
+<h2>Continuation on 14 October 2026</h2>
+<p>All three MIT Session2.3 teaching pages were freshly read from the official PDF text. All four cached original Berkeley Orthogonal Projections pages were actually viewed; the vector/subspace equality on page one is translated as membership. Existing Stanford and Oxford reading scopes remain documented historical evidence, not newly re-read claims. Ten original medium-to-hard mathematical and conceptual problems were written with complete derivations; exact projection, weighted, affine, complex, commuting, diagonal and oblique calculations passed. Final chapter selection, further bank coverage, figures, models, final rules and rendered review remain pending.</p>
+<h2>Chapter-specific comparison completed on 15 October 2026</h2>
+<p>This is a bounded comparison of seven previously studied written courses. It does not assert that all courses in the world were evaluated, or assign a fabricated global quality ranking. The selection maximizes complementary chapter coverage, explicit hypotheses, readable derivations and exercise value. Course age is not a measure of correctness for these stable linear algebra results.</p>
+<table>
+<thead>
+<tr>
+<th>Course and instructor</th>
+<th>Evaluated chapter contribution</th>
+<th>Selection and qualification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIT18.06SC Fall2011, Gilbert Strang</td>
+<td>Complementary projections, Gram invertibility, observation-space fitting, exercises16.1–16.6</td>
+<td>Core: combines concrete calculations with the range/left-nullspace decomposition. Detailed independent explanations reconstruct the exercise family in Problems29–32.</td>
+</tr>
+<tr>
+<td>Stanford EE263 Autumn2007–08, Stephen Boyd</td>
+<td>Orthogonality principle, projection matrix, thin/full QR, coefficient versus observation dimensions</td>
+<td>Core: complements MIT with factorization and computational structure. Later statistical estimation slides are contextual, not a substitute for explicit statistical assumptions.</td>
+</tr>
+<tr>
+<td>Berkeley Math54 Spring2018, Alexander Paulin</td>
+<td>Four-page projection development with native geometric figures, perpendicular decomposition, normalized and unnormalized examples</td>
+<td>Core: supplies a geometric explanation and checkable examples. Its page-one vector/subspace equality is corrected to membership.</td>
+</tr>
+<tr>
+<td>Oxford M1 Linear Algebra I2022–23, Andrew Wathen</td>
+<td>Native pages69–77: Gram representation, positivity, norms, orthogonal maps, complex convention</td>
+<td>Core foundations: prevents metric and adjoint mistakes when extending real projections to weighted, coordinate and complex cases. This text does not itself supply every advanced projector result in this chapter.</td>
+</tr>
+<tr>
+<td>ETH Zurich Linear Algebra PartII, Afonso S. Bandeira and Robert Weismantel</td>
+<td>Previously read section6.3, native pages19–23, precise orthonormalization/QR structure</td>
+<td>Additional support: useful verification of the factorization route, overlapping with the preceding orthogonality chapter. No fresh download or new reading is claimed on this date.</td>
+</tr>
+<tr>
+<td>CMU21-2412014, William Gunther</td>
+<td>Previously read inner products, orthogonal sets and complements</td>
+<td>Evaluated supporting candidate: overlaps introductory geometry more than it adds to this chapter's advanced operator synthesis; retained in the historical audit rather than advertised as a fifth freshly read core course.</td>
+</tr>
+<tr>
+<td>Harvard Math55a, Curtis McMullen</td>
+<td>Previously read concise inner-product/orthogonality discussion</td>
+<td>Evaluated supporting candidate: mathematically useful but less scaffolded for prerequisite-to-examination instruction than the selected combination. Not represented as comprehensive chapter coverage.</td>
+</tr>
+</tbody>
+</table>
+<h3>Fresh reading and original-image inspection</h3>
+<p>Stanford Lecture5 was freshly read through the official PDF text, including all23 pages and the projection/QR derivations on teaching pages1–10. MIT's three teaching summary pages and two teaching solution pages were freshly read. Oxford's cached original PDF pages70–78 were freshly read in full; the native numbering is69–77. The original complex-convention image was viewed and confirms linearity in the first argument with a conjugate on the second. The chapter consistently translates to conjugate-linearity in the first argument. All four Berkeley original projection-page images were freshly viewed; its numerical examples and handwritten signs were checked against independent arithmetic. Cached original Oxford and Berkeley file provenance is retained in the preceding chapter's acquisition record; reading is distinguished from acquisition.</p>
+<h3>Coverage and independent extension map</h3>
+<p>MIT and Berkeley support membership/perpendicularity, complementary operators, line/plane examples and closest-point reasoning. Stanford supplies the rectangular/full QR bridge and normal-system derivation. Oxford supplies the declared metric, positivity, coordinate Gram structure and complex convention. The weighted affine formula, general oblique metric construction, diagonal constraints, trace-overlap bounds, finite-dimensional alternating-projection proof and projector-polynomial exercises are independently derived extensions. They are not attributed verbatim to a source that does not present them. ETH remains additional historical support for QR. The written lesson gives the intermediate proofs needed for these extensions.</p>
+<h3>Examination reading</h3>
+<p>The original MSc CS1405 question41 on PDF page9 and PhD CS1404 question31 on PDF page8 were rendered and visually inspected again. Their complete file SHA256 values match the earlier verified archive items. Both are explicitly labeled revisits already present in the orthogonality chapter. The PhD item directly tests orthogonal projection; the MSc dimension item is followed by an independently derived Frobenius-projection extension. No new distinct examination-item count is inflated by these repeated placements. Original archive pages are evidence, not instructions or an official answer key.</p>
+</article></main></body></html>

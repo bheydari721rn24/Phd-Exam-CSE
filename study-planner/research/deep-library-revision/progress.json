@@ -4,9 +4,9 @@
   "baselineCommit": "f890223f3111d27958eb483056556fded2d59ff3",
   "chapterCount": 60,
   "workedEntryPlacements": 4169,
-  "revisedChapters": 23,
-  "pendingChapters": 37,
-  "currentTopicId": "l_projection",
+  "revisedChapters": 24,
+  "pendingChapters": 36,
+  "currentTopicId": "s_bayes",
   "chapters": [
     {
       "topicId": "d_logic",
@@ -174,7 +174,8 @@
       "title": "Conditional Probability, Multiplication, and Independence",
       "url": "chapters/s_conditional.html",
       "questions": 60,
-      "state": "pending_individual_semantic_review"
+      "state": "revised_checked_review_draft",
+      "revisionEvidence": "research/deep-library-revision/s_conditional-current-review.md"
     },
     {
       "topicId": "s_bayes",
@@ -429,13 +430,23 @@
       "state": "pending_individual_semantic_review"
     }
   ],
-  "nextIndividualReview": "s_conditional",
+  "nextIndividualReview": "s_bayes",
   "newTechnicalDrafts": {
     "l_projection": {
-      "state": "in_progress",
-      "solvedProblemsWritten": 10,
-      "countedAsCompleted": false
+      "state": "completed_author_review_draft",
+      "countedAsCompleted": true,
+      "studentApproved": false
     }
   },
-  "ieltsTeachingLessonsWritten": 1
+  "ieltsTeachingLessonsWritten": 2,
+  "newChaptersCompletedSinceBaseline": [
+    {
+      "topicId": "l_projection",
+      "status": "author_review_complete_student_approval_pending",
+      "questions": 52
+    }
+  ],
+  "currentLibraryChapterCount": 61,
+  "newTechnicalChaptersRemaining": 58,
+  "nextNewTechnicalTopic": "l_leastsquares"
 }

@@ -205,7 +205,7 @@ For $n$ events, mutual independence requires product factorization for *every* n
 
 **Worked XOR model.** Two independent fair bits determine $A=\{X=1\}$, $B=\{Y=1\}$, and $C=\{X\ne Y\}$. Each has probability $1/2$. Every pair intersection has probability $1/4$, so the events are pairwise independent. Their triple intersection is empty because two ones cannot differ. Its mass zero differs from $(1/2)^3$. Given $A\cap B$, $C$ is impossible although its marginal is $1/2$.
 
-To see the reverse logical failure, use four equally weighted outcomes with $A=B=\{1,2\}$ and $C=\{1,3\}$. The triple intersection has mass $1/4$, but the product is $1/8$, so this particular example does *not* give triple-only factorization. A correct triple-only example uses eight equally weighted outcomes: let $A=B=\{1,2,3,4\}$ and $C=\{1,5\}$. Then the triple mass is $1/8$, equal to $(1/2)(1/2)(1/4)$, while $P(A\cap B)=1/2\ne1/4$. Explicit cell verification prevents a plausible but false counterexample from entering an exam proof.
+The full-family equation alone does not establish mutual independence. On eight equally weighted outcomes, take $A=B=\{1,2,3,4\}$ and $C=\{1,5,6,7\}$. All three marginals are $1/2$, and the triple intersection is the singleton $\{1\}$ with mass $1/8=(1/2)^3$. But $P(A\cap B)=1/2\ne1/4$. Thus the triple equation holds while a required pair equation fails. Checking both properties of a counterexample is essential.
 
 ### Independent coordinate blocks
 

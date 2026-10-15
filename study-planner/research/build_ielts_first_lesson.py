@@ -13,7 +13,7 @@ page='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="v
 out=R/'dist/ielts';out.mkdir(exist_ok=True)
 (out/'academic-01-sentences.html').write_text(page,encoding='utf8')
 schedule=R/'dist/schedule.en.json';plan=json.loads(schedule.read_text(encoding='utf8'))
-plan['ielts']['lessons']=[{'id':'academic-01-sentences','stage':1,'session':1,'title':'Build a sentence, find evidence, and hear a correction','minutes':60,'url':'ielts/academic-01-sentences.html','state':'teaching_draft','masteryConfirmed':False,'audioClips':6,'scope':'Present be, evidence-based beginner reading, names and corrected numbers.'}]
+plan['ielts']['lessons']=[l for l in plan['ielts'].get('lessons',[]) if l['id']!='academic-01-sentences']+[{'id':'academic-01-sentences','stage':1,'session':1,'title':'Build a sentence, find evidence, and hear a correction','minutes':60,'url':'ielts/academic-01-sentences.html','state':'teaching_draft','masteryConfirmed':False,'audioClips':6,'scope':'Present be, evidence-based beginner reading, names and corrected numbers.'}]
 schedule.write_text(json.dumps(plan,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 app=R/'dist/app.en.js';js=app.read_text(encoding='utf8')
 marker='    <div class="unit-grid">${path.stages.map'

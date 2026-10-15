@@ -1,0 +1,67 @@
+{
+  "status": "generated_media_false_positive_resolved_without_credential",
+  "reason": "GitHub classified two random base64 sequences in generated synthetic WAV data as cloud IDs. Both were independently decoded and matched the original local TTS WAV files. Standard URL percent-encoding preserves identical decoded audio bytes. No credential was present; no protection exception was requested.",
+  "matchingOriginalClips": [
+    {
+      "file": "IELTS Academic Session 1.html",
+      "audioSource": "be-demonstration-guided.wav",
+      "decodedByteSha256": "1e8da0c3d95640646a6e936dbbb48aebf38ca13375f50f042a5f7dd36a5938b5"
+    },
+    {
+      "file": "IELTS Academic Session 1.html",
+      "audioSource": "be-demonstration-natural-rate.wav",
+      "decodedByteSha256": "42a16bee48c67337c0b5396286e696b2b18c7f882ca97a6e6739c13d8130fb85"
+    },
+    {
+      "file": "IELTS Academic Session 1.html",
+      "audioSource": "name-and-room-guided.wav",
+      "decodedByteSha256": "eed34a67b380f7f4d4605084635fcc70dd50322d5f08fb2021b09807791b0596"
+    },
+    {
+      "file": "IELTS Academic Session 1.html",
+      "audioSource": "name-and-room-natural-rate.wav",
+      "decodedByteSha256": "7207b5994f284f435567e68051c6618429b7e6ee21eeeb276642c5e2fd06049a"
+    },
+    {
+      "file": "IELTS Academic Session 1.html",
+      "audioSource": "corrected-number-guided.wav",
+      "decodedByteSha256": "932843d2b12df89dcb3a072696e6d1fa90083882323c76beaf00c6878ceb2858"
+    },
+    {
+      "file": "IELTS Academic Session 1.html",
+      "audioSource": "corrected-number-natural-rate.wav",
+      "decodedByteSha256": "3e140d340e95c96ff9f87d136a6f8515ce0870b1bd47b7cafc8fcf188487d007"
+    },
+    {
+      "file": "IELTS Academic Session 2.html",
+      "audioSource": "routines-guided.wav",
+      "decodedByteSha256": "b1d5d63f6b003518ce1c0549ef10d450407850b0496936013a35e1faba17d81c"
+    },
+    {
+      "file": "IELTS Academic Session 2.html",
+      "audioSource": "routines-ordinary.wav",
+      "decodedByteSha256": "7da115726b1e20e6b056d0ede6d04ec37326fc6a3acbf7ee6af8c789dcd730db"
+    },
+    {
+      "file": "IELTS Academic Session 2.html",
+      "audioSource": "tour-time-guided.wav",
+      "decodedByteSha256": "92e104fe0af056f88691f391bc0f92a034e86ac233f179df604a8b2d6eec7560"
+    },
+    {
+      "file": "IELTS Academic Session 2.html",
+      "audioSource": "tour-time-ordinary.wav",
+      "decodedByteSha256": "41a6740407745ab0e4d0b1f4ada63dc81c0b73bac16f4270a2a1b1e00be5e52e"
+    },
+    {
+      "file": "IELTS Academic Session 2.html",
+      "audioSource": "booking-day-guided.wav",
+      "decodedByteSha256": "e89c8c44a0e0122d65e317cdeac982a7b66ef8ca5ce47afc2f3b107acedee8c7"
+    },
+    {
+      "file": "IELTS Academic Session 2.html",
+      "audioSource": "booking-day-ordinary.wav",
+      "decodedByteSha256": "99eb7da8a5ca5784fdad5de94bb1552bd172328227920ad4bd244a9d0abafeda"
+    }
+  ],
+  "historyRepair": "Only the own unpublished rejected mirror commit is amended; remote history is not rewritten."
+}

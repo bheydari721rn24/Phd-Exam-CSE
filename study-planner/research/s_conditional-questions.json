@@ -334,8 +334,8 @@
   {
     "id": "SC33",
     "title": "Triple factorization is not sufficient",
-    "stem": "On eight equal atoms, let $A=B=\\{1,2,3,4\\}$ and $C=\\{1,5\\}$. Check the full triple product and a failed pair condition.",
-    "solution": "The marginal probabilities are $1/2,1/2,1/4$. The triple intersection is just atom one and has mass $1/8$, equal to the product of all three marginals. Yet AB has mass $1/2$, while the product of its marginals is $1/4$. Therefore the events are not mutually independent. A definition checking only the full family loses the subfamily requirements. All three marginals are positive, so the counterexample is not a trick based on a null event.",
+    "stem": "On eight equal atoms, let $A=B=\\{1,2,3,4\\}$ and $C=\\{1,5,6,7\\}$. Check the full triple product and a failed pair condition.",
+    "solution": "**Check the subfamilies instead of only the largest intersection.** In eight equal atoms, take $A=B=\\{1,2,3,4\\}$ and $C=\\{1,5,6,7\\}$. All three marginal probabilities are one half. Their full intersection is only atom1and has probability one eighth, agreeing with $(1/2)^3$.\n\nNevertheless $A\\cap B=A$ has probability one half instead of the product one quarter. Hence full-family factorization holds while the pair condition fails. Mutual independence requires both the triple equation and all the pair equations; the full intersection alone is insufficient. The three positive marginals and complete explicit sets ensure that this is a genuine finite model rather than a boundary trick. Checking both equalities numerically is essential when proposing a counterexample: a plausible description that fails its own advertised equality proves nothing about the intended implication.",
     "origin": "Constructed counterexample for CMU Chapter 2, Exercise 2.15",
     "difficulty": "Hard",
     "result": [
@@ -514,7 +514,7 @@
     "title": "Bridge reliability by conditioning",
     "stem": "Use the five-edge bridge network described in the lesson, with all edge states independent and working probability p. Derive its reliability and evaluate at p one half.",
     "solution": "Condition on the bridge. With it failed, the two disjoint series paths give $2p^2-p^4$. With it working, the network needs at least one of two source edges and at least one of two destination edges; their disjoint coordinate blocks give $(2p-p^2)^2$. Total probability weights these by $1-p$ and p. At one half the case reliabilities are $7/16,9/16$ and the average is $1/2$. This reduction avoids treating overlapping full-network paths as independent and passes both zero and one endpoint checks.",
-    "origin": "Original explicit network instance motivated by Berkeley STAT 134 Lecture 3, PDF pages 5\u20137; board-only derivations not used",
+    "origin": "Original explicit network instance motivated by Berkeley STAT 134 Lecture 3, PDF pages 5–7; board-only derivations not used",
     "difficulty": "Hard",
     "result": "1/2"
   },

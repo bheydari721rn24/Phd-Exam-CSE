@@ -1,0 +1,352 @@
+[
+  {
+    "id": "projection-1",
+    "title": "Build one plane projector by two independent routes",
+    "stem": "Let S be spanned by (1,0,1) and (0,1,1). Find its orthogonal projection matrix, the projection of b=(2,1,0), and the squared distance from b to S. Explain why the closest point is unique.\n\n",
+    "solution": "Put the generators into the columns of\n\n$$A=\\begin{bmatrix}1&0\\\\0&1\\\\1&1\\end{bmatrix},\\qquad A^TA=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}.$$\n\nThe determinant of the Gram matrix is three, so the independent-column formula applies. Its inverse is one third of the matrix with diagonal two and off-diagonal negative one. Multiplication gives\n\n$$P=A(A^TA)^{-1}A^T=\\frac13\\begin{bmatrix}2&-1&1\\\\-1&2&1\\\\1&1&2\\end{bmatrix}.$$\n\nA normal to S is n=(−1,−1,1), since its dot product with either generator is zero. Its squared length is three, so the complementary route gives $P=I-nn^T/3$, reproducing every entry above. This agreement checks both the subspace and the dimensions of the construction.\n\nThe projected point is p=(1,0,1), and the residual is r=b−p=(1,1,−1)=−n. The point p belongs to S; its coefficients in the displayed basis are (1,0). The residual is perpendicular to both generators. Thus $\\Vert r\\Vert^2=3$ is the squared distance. For any other s in S, the decomposition b−s=r+(p−s) has perpendicular terms, so its squared norm is three plus $\\Vert p-s\\Vert^2$. Equality occurs only at s=p, proving uniqueness. Checking only that p and r have zero dot product would be weaker: the residual must be perpendicular to the entire subspace.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-2",
+    "title": "Dependent generators do not destroy a unique projection",
+    "stem": "Let A have columns u=(1,2,0) and 2u. For b=(2,1,3), determine the projection, all coefficient vectors producing it, and the minimum-norm coefficient vector. Explain why directly inverting A transpose A is invalid.\n\n",
+    "solution": "Both columns describe the same line S. Its projector depends on u, not on how often u is listed:\n\n$$P=\\frac{uu^T}{u^Tu}=\\frac15\\begin{bmatrix}1&2&0\\\\2&4&0\\\\0&0&0\\end{bmatrix}.$$\n\nHere u transpose b is four. Hence $p=(4/5,8/5,0)^T$ and $r=(6/5,-3/5,3)^T$. The residual satisfies u transpose r=0, and its squared norm is $36/25+9/25+9=54/5$. The projection is unique by the closest-point theorem.\n\nCoefficients c satisfy $Ac=u(c_1+2c_2)$, so the full coefficient family is $c_1+2c_2=4/5$. Writing c₂=t gives c₁=4/5−2t. The squared coefficient norm is $(4/5-2t)^2+t^2$. Completing the square, or differentiating this exact quadratic, gives t=8/25 and c₁=4/25. Thus the minimum-norm coefficient vector is (4/25,8/25), while infinitely many other coefficient vectors produce the same physical p.\n\nThe Gram matrix has proportional columns and determinant zero; it has no inverse. Selecting the single column basis u is sufficient to construct P. If a pseudoinverse is used, it must be derived correctly: $A^+=\\frac1{25}\\begin{bmatrix}1&2&0\\\\2&4&0\\end{bmatrix}$ yields the same minimum-norm coefficients and satisfies $AA^+=P$. Unique physical projection and unique generator coordinates are different claims.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-3",
+    "title": "Determine the scale instead of assuming symmetry is enough",
+    "stem": "For a nonzero real scalar a, consider $M=a\\begin{bmatrix}1&2\\\\2&4\\end{bmatrix}$. For which a is M an orthogonal projection? Give its range and explain what fails at a=1/2.\n\n",
+    "solution": "Let B be the unscaled displayed matrix. Direct multiplication gives $B^2=5B$. Since M is symmetric for every real a, the missing condition is idempotence. The equation $M^2=M$ becomes $5a^2B=aB$. Because B is nonzero and a is nonzero, this reduces to 5a=1, so a=1/5. The excluded a=0 would give the zero-space projection, but it is outside the question's nonzero premise.\n\nAt a=1/5, M is $uu^T/(u^Tu)$ for u=(1,2), so its range is the line spanned by u and its kernel is the perpendicular line spanned by (−2,1). It fixes u and kills that normal. Those two actions give a direct decomposition certificate as well as the matrix identity test.\n\nAt a=1/2, the matrix remains symmetric and has the same range, but it multiplies u by 5/2 instead of fixing it. Applying it twice scales that component by 25/4, which differs from the first application. Thus range information and symmetry do not establish that the map is a projection. The error is an incorrect normalization, not a changed geometric line. A rank-one outer product requires division by the generator's squared length; rescaling the generator without preserving that normalization changes the operator.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-4",
+    "title": "Weighted perpendicularity can look nonsymmetric",
+    "stem": "Use the weighted inner product $\\langle x,y\\rangle_W=x^TWy$ with W=diag(1,4). Project b=(2,−1) onto the line spanned by u=(1,1). Find the matrix and verify a weighted energy split. Is the projector symmetric in ordinary coordinates?\n\n",
+    "solution": "The projection coefficient is $(u^TWb)/(u^TWu)$. Its numerator is 2−4=−2 and its denominator is 1+4=5. Therefore p=(−2/5,−2/5) and r=(12/5,−3/5). The matrix is\n\n$$P_W=u(u^TWu)^{-1}u^TW=\\frac15\\begin{bmatrix}1&4\\\\1&4\\end{bmatrix}.$$\n\nIt is not ordinarily symmetric because its off-diagonal entries differ. Nevertheless it is idempotent and satisfies the correct weighted self-adjoint relation $P_W^TW=WP_W$. Weighted perpendicularity is verified by $u^TWr=12/5+4(-3/5)=0$. Ordinary u transpose r is 9/5 rather than zero, so applying the ordinary Euclidean perpendicularity test would reject a valid weighted projection.\n\nThe original weighted squared norm is $2^2+4(-1)^2=8$. The projected energy is $5(2/5)^2=4/5$, and the residual energy is $(12/5)^2+4(3/5)^2=36/5$. Their sum is eight. This Pythagorean identity uses the same positive-definite W as the projection. Mixing an ordinary norm on one side with weighted energies on the other would compare different metrics. A nonsymmetric matrix can thus be an orthogonal projector in a declared weighted geometry while failing ordinary Euclidean orthogonality.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-5",
+    "title": "An affine hyperplane is not a linear subspace",
+    "stem": "Find the closest point to b=(3,1,0) on the affine plane $x+2y-z=3$, and its squared distance. State the affine projection map and explain why it is not linear.\n\n",
+    "solution": "The normal is n=(1,2,−1), with squared length six. Its dot product with b is five, exceeding the required plane value by two. Subtract the normal correction:\n\n$$p=b-\\frac{n^Tb-3}{n^Tn}n=(8/3,1/3,1/3)^T.$$\n\nThe plane equation checks directly: 8/3+2/3−1/3=3. The residual b−p=(1/3,2/3,−1/3) is a multiple of n and therefore perpendicular to every direction lying in the plane. Its squared norm is (1+4+1)/9=2/3. The direction-space certificate establishes unique closest-point optimality: subtracting any other point in the same plane creates a direction perpendicular to this residual.\n\nFor general input x, the closest-point map is $F(x)=(I-nn^T/6)x+n/2$. Its constant term is nonzero, so F(0)=n/2 rather than zero. Thus F is affine but not linear. It fixes every point on the plane and satisfies F(F(x))=F(x), yet those properties alone do not make it a linear projection matrix. Translating the plane to its parallel subspace, projecting the translated vector, and translating back provides another derivation. The distinction prevents replacing an affine constraint by a homogeneous one and returning the wrong closest point.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-6",
+    "title": "A commuting product and a nonprojecting sum",
+    "stem": "Let P=diag(1,1,0) and Q=diag(0,1,1). Determine projectors onto the intersection and sum of their ranges. Is P+Q itself a projection?\n\n",
+    "solution": "P selects the first two coordinate directions, and Q selects the last two. They commute because both are diagonal. Their common range is the second coordinate axis, and $PQ=\\operatorname{diag}(0,1,0)$ is its projector. The sum of the ranges is the whole three-dimensional space, whose projector is $P+Q-PQ=I$. The subtraction removes the double count of the common coordinate.\n\nThe plain sum P+Q is diag(1,2,1). It sends e₂ to 2e₂, so it does not fix a vector in its alleged range; squaring gives diag(1,4,1), which differs. It is symmetric and positive semidefinite but not idempotent. A trace value four is also incompatible with an ordinary orthogonal projector in dimension three.\n\nMore generally, for commuting orthogonal projectors, PQ is symmetric and idempotent because transposition reverses the product and commutation restores it, while $(PQ)^2=P^2Q^2=PQ$. Its range lies in both ranges and it fixes their intersection. The complementary commuting product (I−P)(I−Q) projects onto the intersection of the complements. Taking its complement gives P+Q−PQ, the sum-space projector. Without commutation these algebraic simplifications are invalid. A formula verified on diagonal examples must still have its general hypothesis declared before use.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-7",
+    "title": "A fractional trace refutes an intersection shortcut",
+    "stem": "In the plane, let P project onto the first coordinate axis and Q onto the line spanned by (1,1). Compute PQ, decide whether it is a projection, and compare its trace with the dimension of the intersection.\n\n",
+    "solution": "The matrices and product are\n\n$$P=\\begin{bmatrix}1&0\\\\0&0\\end{bmatrix},\\quad Q=\\frac12\\begin{bmatrix}1&1\\\\1&1\\end{bmatrix},\\quad PQ=\\frac12\\begin{bmatrix}1&1\\\\0&0\\end{bmatrix}.$$\n\nThe reverse product is one half of the matrix with rows (1,0) and (1,0), so the two products differ. Squaring PQ gives one quarter of its unscaled displayed matrix, or one half of PQ. Thus PQ is not idempotent and is not an orthogonal projector. It is also nonsymmetric.\n\nThe two distinct lines intersect only at zero, so their intersection dimension is zero. But trace(PQ)=1/2. The equality between trace and rank applies to an idempotent matrix; it cannot be applied to an arbitrary product of idempotent matrices. Here the product's nonzero eigenvalue is 1/2 rather than one, reflecting attenuation caused by the angle between the lines.\n\nAs an additional exact check, $\\Vert P-Q\\Vert_F^2=1$. The identity rank(P)+rank(Q)−2trace(PQ) gives 1+1−1=1, agreeing with direct entrywise squares. This geometric trace identity does not turn the fractional trace into an integer intersection dimension. The counterexample pinpoints the missing commutation premise rather than rejecting every useful relationship between two projection matrices.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-8",
+    "title": "Conjugation is a substantive operation",
+    "stem": "In complex Euclidean space, project b=(1,1) onto the line generated by u=(1,i), using the convention conjugate-linear in the first argument. Find p and r and diagnose the ordinary-transpose formula.\n\n",
+    "solution": "The squared norm is $u^*u=1+(-i)i=2$. The coefficient is $u^*b/2=(1-i)/2$, so\n\n$$P=\\frac12\\begin{bmatrix}1&-i\\\\i&1\\end{bmatrix},\\quad p=\\frac12\\begin{bmatrix}1-i\\\\1+i\\end{bmatrix},\\quad r=\\frac12\\begin{bmatrix}1+i\\\\1-i\\end{bmatrix}.$$\n\nThe projector is Hermitian: its off-diagonal entries are conjugates. The residual check is $u^*r=(1+i)/2-i(1-i)/2=0$. Each projected coordinate has squared magnitude 1/2, so the projected squared norm is one; the residual also has squared norm one. Their sum equals the original squared norm two, confirming the complex Pythagorean split.\n\nUsing u transpose instead would produce $u^Tu=1+i^2=0$ even though u is nonzero. That expression is not a positive-definite squared norm and cannot appear as the denominator of this Hermitian projection formula. The problem is not numerical roundoff; it is the wrong bilinear form. Other authors use a first-argument-linear convention, which changes the written coefficient orientation. Either convention can work if applied consistently, but a displayed conjugate must not be dropped during transcription or inferred solely from a real-valued example.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-9",
+    "title": "Diagonal data reveals fixed and killed coordinates",
+    "stem": "An ordinary orthogonal projector has diagonal (1,1/2,1/2). Determine its possible matrices in three dimensions. Explain why diagonal (1,0,1/2) cannot be the diagonal of another such projector.\n\n",
+    "solution": "For an orthogonal projector, $P_{jj}=\\Vert Pe_j\\Vert^2$ and $1-P_{jj}=\\Vert(I-P)e_j\\Vert^2$. A first diagonal entry one forces (I−P)e₁=0, hence Pe₁=e₁. Symmetry then fixes the first row and column as (1,0,0). The remaining symmetric block has the form $\\begin{bmatrix}1/2&t\\\\t&1/2\\end{bmatrix}$.\n\nIts idempotence equation on a diagonal entry is 1/4+t²=1/2, giving t=±1/2. The off-diagonal equation is already t=t. Thus exactly two matrices fit: first coordinate fixed, with a rank-one projector onto either (0,1,1) or (0,1,−1) in the remaining coordinate plane. Both have total trace two and rank two.\n\nBy contrast, diagonal (1,0,1/2) would have trace 3/2. Over the declared real finite-dimensional model, every idempotent matrix has eigenvalues zero or one and is diagonalizable, so its trace is its integer rank. The fractional value rules out existence. Bounds placing every diagonal entry in [0,1] are necessary but not sufficient. A diagonal value zero also forces the corresponding row and column to vanish for an orthogonal projector, because the projected coordinate vector has zero norm. These structural constraints provide more information than a numerical trace check alone.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-10",
+    "title": "Idempotence does not control Euclidean expansion",
+    "stem": "Let $E=\\begin{bmatrix}1&t\\\\0&0\\end{bmatrix}$ with real t≠0. Determine its image, kernel and Euclidean operator norm. Is it an ordinary orthogonal projection despite E squared equaling E?\n\n",
+    "solution": "E maps (x,y) to (x+ty,0). Its image is the first coordinate axis and its kernel is the line x+ty=0, generated by (−t,1). Direct multiplication verifies E²=E, so it is an algebraic projector onto its image along that kernel. The kernel is not perpendicular to the image when t≠0.\n\nThe output length is $|x+ty|$. For a unit input, Cauchy–Schwarz bounds this by $\\sqrt{1+t^2}$, and the input $(1,t)/\\sqrt{1+t^2}$ attains that bound. Therefore $\\Vert E\\Vert_2=\\sqrt{1+t^2}>1$. The matrix is nonsymmetric, and it expands some unit vectors. Both facts distinguish it from an ordinary orthogonal projection, which is contractive.\n\nFor example, E sends b=(0,1) to p=(t,0), with residual r=(−t,1). The residual dot e₁ is −t rather than zero, so the closest-point certificate fails; the actual orthogonal projection of b onto the image is zero. Eigenvalues zero and one, integer trace one, and idempotence establish an algebraic projection but do not establish orthogonality. The example explains why a spectral-radius bound of one is not an operator-norm bound of one for a nonnormal matrix. The geometry of the kernel and the declared inner product are essential.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-11",
+    "title": "A perpendicular pair is not a complete certificate",
+    "stem": "A candidate projection of $b=(1,1,1)^T$ onto $S=\\operatorname{span}(e_1,e_2)$ is $p=e_1$. It satisfies $p^T(b-p)=0$. Is it the closest point? Give a necessary and sufficient certificate instead.\n\n",
+    "solution": "The proposed residual is $r=(0,1,1)^T$. Its dot product with $p=e_1$ is indeed zero, and the candidate belongs to the plane. But $e_2^Tr=1$, so the residual is not perpendicular to the entire plane. The candidate has squared error two. The point $(1,1,0)^T$ belongs to the plane and has squared error one, proving the proposed answer is wrong.\n\nThe complete certificate requires both $p\\in S$ and $v^T(b-p)=0$ for every $v\\in S$. It suffices to check every member of any spanning set. If those conditions hold, then for any $z\\in S$, $b-z=(b-p)+(p-z)$ has perpendicular components. Consequently its squared length is ${\\Vert b-p\\Vert}^2+{\\Vert p-z\\Vert}^2$, minimized uniquely at $z=p$. A single vanishing scalar product cannot replace a whole-subspace condition when the subspace has more than one direction.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-12",
+    "title": "Project onto a kernel without finding its basis",
+    "stem": "Find the Euclidean projection onto $S=\\{x:x_1+2x_2+2x_3=0\\}$, then project $b=(3,0,0)^T$ and calculate the distance.\n\n",
+    "solution": "The constraint normal is $n=(1,2,2)^T$ and $n^Tn=9$. The normal-line projection is $nn^T/9$. Subtracting it from the identity gives\n\n$$P=\\frac19\\begin{pmatrix}8&-2&-2\\\\-2&5&-4\\\\-2&-4&5\\end{pmatrix}.$$\n\nThus $p=(8/3,-2/3,-2/3)^T$ and $r=(1/3,2/3,2/3)^T=n/3$. Substituting $p$ into the constraint gives $8/3-4/3-4/3=0$, so it is feasible. The residual is a normal multiple, providing the perpendicularity certificate. Its squared length is one, so the distance is one.\n\nThe matrix has trace two, consistent with one independent constraint in three dimensions. The normal-line projector has trace one. Confusing these complementary operators returns the residual instead of the closest point. The method avoids solving for two plane generators, but it relies on a nonzero normal: a zero constraint normal either imposes no homogeneous restriction or makes a nonzero affine right-hand side inconsistent.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-13",
+    "title": "Orthogonal but unnormalized generators",
+    "stem": "Project $b=(4,8,1)^T$ onto the span of $v_1=(2,1,2)^T$ and $v_2=(-2,2,1)^T$. Can their outer products simply be added?\n\n",
+    "solution": "Their dot product is $-4+2+2=0$, and both squared lengths are nine. Their products with the target are eighteen and nine. Therefore the correct projection is $p=2v_1+v_2=(2,4,5)^T$. The residual $(2,4,-4)^T$ has zero dot product with each generator, and its squared length is thirty-six.\n\nThe matrix is $(v_1v_1^T+v_2v_2^T)/9$. Adding the unscaled outer products produces $9P$, which acts by nine on every vector in the plane; it is not idempotent. If normalized generators $u_i=v_i/3$ are used, the formula becomes $u_1u_1^T+u_2u_2^T$ with no extra denominator.\n\nThe energy check is ${\\Vert b\\Vert}^2=81$, ${\\Vert p\\Vert}^2=45$, and ${\\Vert r\\Vert}^2=36$. This independently confirms the squared distance. The distinction between orthogonal and orthonormal is substantive: perpendicularity separates the coefficient equations, while unit normalization removes their denominators. This is an independently explained reconstruction of the numerical example in Berkeley's projection notes, pages three and four.",
+    "origin": "Berkeley Math54 projection example, independently explained and checked."
+  },
+  {
+    "id": "projection-14",
+    "title": "Recover a projector from its action",
+    "stem": "An orthogonal projector on $\\mathbb R^3$ fixes $u=(1,1,0)^T$ and kills $v=(1,-1,0)^T$. Does this determine it uniquely? List all possibilities.\n\n",
+    "solution": "Normalize these perpendicular vectors to $q_1=u/\\sqrt2$ and $q_2=v/\\sqrt2$, and complete them with $q_3=e_3$. Symmetry implies $\\langle Pq_3,q_1\\rangle=\\langle q_3,Pq_1\\rangle=0$ and $\\langle Pq_3,q_2\\rangle=\\langle q_3,Pq_2\\rangle=0$. Thus $Pq_3$ is a scalar multiple $\\lambda q_3$. Idempotence forces $\\lambda^2=\\lambda$, giving zero or one.\n\nThe two possibilities in standard coordinates are\n\n$$P_0=\\frac12\\begin{pmatrix}1&1&0\\\\1&1&0\\\\0&0&0\\end{pmatrix},\\qquad P_1=P_0+e_3e_3^T.$$\n\nTheir ranks are one and two. Both satisfy every given action. The unspecified perpendicular direction creates a genuine ambiguity; counting the two supplied vectors does not establish that all three directions have been characterized. If the problem additionally states rank one, only the first remains. Without orthogonality, a third input could map obliquely into the fixed line and produce still more idempotent maps.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-15",
+    "title": "A rank-one update when a new generator is added",
+    "stem": "Suppose $P$ projects onto $S$ and a vector $v$ is added to its generators. Derive the new projector and handle $v\\in S$ separately. Apply the result to $S=\\operatorname{span}(e_1)$ and $v=(1,2,2)^T$.\n\n",
+    "solution": "Split $v=Pv+w$ with $w=(I-P)v$. If $w=0$, the new vector was already in $S$, so the subspace and projector are unchanged. If $w\\ne0$, the enlarged space is the perpendicular direct sum of $S$ and the line spanned by $w$. Consequently\n\n$$P_{\\rm new}=P+\\frac{ww^T}{w^Tw}.$$\n\nThe cross-products vanish because $Pw=0$, so the sum is symmetric and idempotent. Its range is the enlarged subspace, and its rank increases by exactly one. This derives the update and explains its denominator rather than guessing an outer product of the original $v$.\n\nIn the example $w=(0,2,2)^T$, giving $P_{\\rm new}=\\begin{pmatrix}1&0&0\\\\0&1/2&1/2\\\\0&1/2&1/2\\end{pmatrix}$. For $b=(0,1,-1)^T$, both its projection and the update contribution are zero, so its squared distance remains two. Using $vv^T/(v^Tv)$ instead would double-count a component already present in $S$.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-16",
+    "title": "A nonorthogonal change of basis",
+    "stem": "The physical projector is $P=\\operatorname{diag}(1,0)$, but coordinates use $B=\\begin{pmatrix}1&1\\\\0&1\\end{pmatrix}$. Compute the coordinate projector and its correct metric. Explain its nonsymmetry.\n\n",
+    "solution": "The inverse basis matrix is $B^{-1}=\\begin{pmatrix}1&-1\\\\0&1\\end{pmatrix}$. Direct multiplication gives $E=B^{-1}PB=\\begin{pmatrix}1&1\\\\0&0\\end{pmatrix}$. The coordinate metric is $G=B^TB=\\begin{pmatrix}1&1\\\\1&2\\end{pmatrix}$. We obtain $E^2=E$ and $E^TG=GE=\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}$.\n\nFor the physical vector $b=e_2$, its coordinates are $z=(-1,1)^T$. The coordinate projection is $Ez=0$, corresponding to the correct physical closest point zero. Its coordinate residual equals $z$, whose squared $G$-length is one, agreeing with the physical squared distance.\n\nOrdinary coordinate symmetry is absent because the chosen basis vectors are not perpendicular. Testing $E^T=E$ would use the wrong metric. In contrast, treating that same numerical matrix as a map in a separately declared ordinary Euclidean coordinate system would make it oblique. A basis change preserves the geometric map only when its metric is transformed as well.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-17",
+    "title": "Derive a Householder reflection",
+    "stem": "Reflect $b=(3,0)^T$ across the line $x+y=0$. Find the reflection matrix, its determinant and the associated closest-point projection.\n\n",
+    "solution": "The normal is $n=(1,1)^T$. Projection onto the reflecting line is $P=I-nn^T/2=\\frac12\\begin{pmatrix}1&-1\\\\-1&1\\end{pmatrix}$. Therefore $H=2P-I=\\begin{pmatrix}0&-1\\\\-1&0\\end{pmatrix}$ and $Hb=(0,-3)^T$. The projected point is $Pb=(3/2,-3/2)^T$, the midpoint of $b$ and its reflection.\n\nThe determinant of $H$ is minus one, so this is a reflection rather than a rotation of the plane. Directly, $H^TH=I$ and $H^2=I$; the input and reflected vectors have the same norm three. The direction $(1,-1)^T$ is fixed and the normal $(1,1)^T$ is negated.\n\nThe midpoint identity $P=(I+H)/2$ explains why averaging identity and reflection produces a closest-point map. The reflection itself is not idempotent: its second application returns the input. The projection is idempotent and discards the normal component. Confusing these two operations changes both the output and the spectrum.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-18",
+    "title": "Quantify alternating projections",
+    "stem": "Project alternately onto a line at sixty degrees and the horizontal axis, starting at $e_1$. Count a full cycle as the sloping projection followed by the horizontal one. How many cycles make the norm at most $1/1000$?\n\n",
+    "solution": "Here $c=1/2$ and $s=\\sqrt3/2$. One cycle is $M=PQ=\\begin{pmatrix}1/4&\\sqrt3/4\\\\0&0\\end{pmatrix}$. Since $Me_1=e_1/4$, induction gives $M^je_1=4^{-j}e_1$. The question asks for $4^j\\ge1000$. Four cycles give denominator 256, which is insufficient; five give 1024, which is sufficient. Thus exactly five cycles are needed.\n\nThe intermediate sloping point in cycle $j$ is $4^{-(j-1)}(1/4,\\sqrt3/4)^T$, and the next horizontal point is $(4^{-j},0)^T$. These are actual finite vectors, not the intersection projector. The two lines intersect only at zero, which is reached as a limit for this input, not after any finite cycle.\n\nIf a simulation counts each individual projection as a step, it requires ten individual steps rather than five. Stating what one iteration means prevents a factor-of-two error. A nearly parallel pair would have a contraction factor close to one and require many more cycles.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-19",
+    "title": "A commutator and a quantitative angle",
+    "stem": "For the horizontal projector $P$ and the projector $Q$ onto $(\\cos\\theta,\\sin\\theta)^T$, compute $PQ-QP$ and its squared Frobenius norm. When do they commute?\n\n",
+    "solution": "With $c=\\cos\\theta$ and $s=\\sin\\theta$, multiplication gives\n\n$$PQ-QP=\\begin{pmatrix}0&cs\\\\-cs&0\\end{pmatrix},\\qquad {\\Vert PQ-QP\\Vert}_F^2=2c^2s^2.$$\n\nThus the two maps commute exactly when $cs=0$. In the interval from zero to ninety degrees this means coincident lines or perpendicular lines. At forty-five degrees the squared norm is one half, the largest possible value for this family, since $c^2s^2\\le1/4$.\n\nThe commutator is skew-symmetric, as transposition reverses its sign. It records an order effect: applying one projection before the other usually changes the result. It is not itself a projection merely because its factors are projections. A zero commutator is enough to construct the intersection projector by multiplication, but the numerical size of the commutator alone is not the intersection dimension or a count of violated constraints. The angle calculation makes the distinction explicit.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-20",
+    "title": "Equal ranks do not imply equal ranges",
+    "stem": "Two rank-two orthogonal projectors in $\\mathbb R^3$ satisfy $\\operatorname{tr}(PQ)=3/2$. Find ${\\Vert P-Q\\Vert}_F^2$ and the dimension of their intersection.\n\n",
+    "solution": "Expanding the squared Frobenius norm yields $\\operatorname{tr}(P)+\\operatorname{tr}(Q)-2\\operatorname{tr}(PQ)=2+2-3=1$. The dimension formula implies that two planes in three dimensions intersect in dimension at least one.\n\nIf their intersection had dimension two, their ranges would coincide. The orthogonal projector onto a fixed subspace is unique, so $P=Q$, giving $\\operatorname{tr}(PQ)=\\operatorname{tr}(P)=2$, contrary to the data. The intersection therefore has dimension exactly one. The trace value $3/2$ itself is not a dimension.\n\nTo check realizability, let $P$ project onto the plane spanned by $e_1,e_2$, and let $Q$ project onto the plane spanned by $e_1,(e_2+e_3)/\\sqrt2$. The common direction contributes one to the product trace and the remaining pair contributes one half. This constructs the stated overlap and confirms that the conditions are consistent, rather than merely extracting a formal number from them.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-21",
+    "title": "A projector polynomial without multiplication",
+    "stem": "Let $P$ be an idempotent matrix. Evaluate $P^7-3P^2+2I$ and determine when $aI+bP$ is invertible. Give its inverse when it exists.\n\n",
+    "solution": "Every positive power of $P$ equals $P$ by induction. The polynomial is therefore $2I-2P=2(I-P)$. More generally, on the range of $P$, the matrix $aI+bP$ acts by $a+b$; on its kernel it acts by $a$. These subspaces form a direct sum even for oblique idempotents.\n\nIf both subspaces are nonzero, invertibility requires $a\\ne0$ and $a+b\\ne0$, and the inverse is\n\n$$\\frac1a(I-P)+\\frac1{a+b}P.$$\n\nMultiplying and using $P(I-P)=0$ verifies the formula. Endpoint ranks need care: if $P=0$, only $a\\ne0$ is required; if $P=I$, only $a+b\\ne0$ is required. A formula containing a denominator for a nonexistent component can impose an unnecessary restriction. This method uses idempotence rather than orthogonality, so it applies to oblique projectors too. Positivity and norm conclusions, by contrast, would require more information.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-22",
+    "title": "Rank from a shifted determinant",
+    "stem": "An idempotent $5\\times5$ real matrix satisfies $\\det(I+2P)=27$. Determine its rank and $\\det(2I-P)$. Must the matrix be symmetric?\n\n",
+    "solution": "A basis of the range followed by a basis of the kernel makes $P$ similar to $\\operatorname{diag}(I_k,0)$. Thus $I+2P$ has $k$ eigenvalues three and $5-k$ eigenvalues one. Its determinant is $3^k=27$, giving $k=3$.\n\nThe second shifted matrix acts by one on the range and by two on the kernel. Therefore $\\det(2I-P)=1^3 2^2=4$. The trace of $P$ is also three, but that fact does not imply symmetry. Similarity by an arbitrary invertible matrix preserves idempotence and these determinant values while generally destroying Euclidean symmetry.\n\nFor a concrete nonsymmetric construction, take a two-dimensional block $\\begin{pmatrix}1&1\\\\0&0\\end{pmatrix}$ and append diagonal entries $1,1,0$. The resulting five-dimensional matrix has rank three and both required determinants, yet is not symmetric. Spectral calculations answer the rank question; they do not certify that the decomposition uses perpendicular subspaces.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-23",
+    "title": "All affine points from one constraint correction",
+    "stem": "Minimize ${\\Vert x-b\\Vert}^2$ subject to $Dx=d$, where $D=\\begin{pmatrix}1&1&0\\\\0&1&1\\end{pmatrix}$, $d=(1,2)^T$ and $b=(1,0,0)^T$.\n\n",
+    "solution": "The violation is $Db-d=(0,-2)^T$. The row Gram matrix is $\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}$, whose inverse is $\\frac13\\begin{pmatrix}2&-1\\\\-1&2\\end{pmatrix}$. The multiplier is $(2/3,-4/3)^T$, so the correction $D^T\\lambda$ is $(2/3,-2/3,-4/3)^T$. Therefore\n\n$$p=(1/3,2/3,4/3)^T,\\qquad {\\Vert b-p\\Vert}^2=8/3.$$\n\nBoth constraints check directly. Every feasible vector is $p+t(-1,1,-1)^T$, and the residual $(2/3,-2/3,-4/3)^T$ is perpendicular to that direction. Thus the squared error for a general feasible vector is $8/3+3t^2$, proving unique minimality at $t=0$ without relying only on stationary equations.\n\nThe residual lies in the row space, while the feasible directions lie in the kernel. These are subspaces of the three-dimensional physical space. The multiplier has only two entries because it belongs to constraint space; adding it directly to $b$ would be dimensionally invalid.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-24",
+    "title": "Dependent constraints: consistency comes first",
+    "stem": "Compare closest-point problems with constraints $x+y=1$, $2x+2y=2$ and with constraints $x+y=1$, $2x+2y=3$. Use the target zero.\n\n",
+    "solution": "In the first system the second equation is redundant. The feasible set is one line. Write $y=1-x$; the squared distance from zero is $x^2+(1-x)^2=2(x-1/2)^2+1/2$. The unique closest point is $(1/2,1/2)^T$ with squared distance one half. The two-row Gram matrix is singular, but the geometry remains well-defined after retaining one independent row.\n\nIn the second system, doubling the first equation forces $2x+2y=2$, contradicting the second equation. The feasible set is empty. There is no closest feasible point and no projection onto that empty set in the sense studied here.\n\nAn unconstrained least-squares fit to the inconsistent equations is a different optimization problem. With $s=x+y$, it minimizes $(s-1)^2+(2s-3)^2$, giving $s=7/5$. None of those minimizers satisfies either required pair exactly. A pseudoinverse cannot make incompatible constraints consistent; it can only solve a declared surrogate. Check the augmented rank before using an affine projection formula.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-25",
+    "title": "A weighted affine correction",
+    "stem": "Minimize $x^2+4y^2$ subject to $x+y=1$. Compare the answer with ordinary Euclidean projection of zero onto the same line.\n\n",
+    "solution": "Substitute $y=1-x$. The objective is $x^2+4(1-x)^2=5(x-4/5)^2+4/5$. Thus the unique weighted minimizer is $(4/5,1/5)^T$ with squared weighted distance $4/5$. Ordinary Euclidean minimization instead gives $(1/2,1/2)^T$.\n\nThe weighted correction formula explains the difference. With $G=\\operatorname{diag}(1,4)$ and row constraint $D=(1,1)$, the shortest correction from target $b$ is\n\n$$p=b-G^{-1}D^T(DG^{-1}D^T)^{-1}(Db-1).$$\n\nAt zero, $G^{-1}D^T=(1,1/4)^T$ and $DG^{-1}D^T=5/4$, producing the same answer. The correction follows the metric normal $G^{-1}D^T$, not the ordinary normal $D^T$.\n\nThe direction $(1,-1)^T$ lies in the line's direction space. Its weighted inner product with the minimizer is $4/5-4/5=0$. This verifies the correct orthogonality certificate and explains conceptually why changing the cost weights changes the closest point.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-26",
+    "title": "A semidefinite cost can lose uniqueness",
+    "stem": "Minimize $x^TGx$ over $x\\in\\mathbb R^2$ with $G=\\operatorname{diag}(1,0)$. Then minimize the same cost subject to $x_1=1$. Why does the positive-definite projection theorem not apply?\n\n",
+    "solution": "The objective is simply $x_1^2$. Unconstrained minimizers are all vectors $(0,t)^T$, with arbitrary real $t$, and cost zero. Under $x_1=1$, every feasible vector $(1,t)^T$ has cost one, so again there are infinitely many minimizers.\n\nThe matrix is positive semidefinite, not positive definite. The nonzero vector $e_2$ has zero squared cost, violating the condition that zero length occurs only at the zero vector. Therefore $x^TGy$ is not an inner product on the full plane and its associated quantity is not a norm there.\n\nThe closest-point proof uses strict positivity of the extra squared difference to establish uniqueness. Here the extra term can vanish for different points separated in the unpenalized direction. A specific restricted feasible set might still have a unique minimizer, but uniqueness must then be proved from those restrictions. Substituting a singular weight into a formula derived for a positive-definite metric is not a valid general argument.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-27",
+    "title": "Classify an idempotent family",
+    "stem": "Let $P_a=\\begin{pmatrix}1&a\\\\0&0\\end{pmatrix}$ for real $a$. Find when it is Euclidean orthogonal, and find a positive-definite metric making it orthogonal for any fixed $a$.\n\n",
+    "solution": "Every member is idempotent. Euclidean symmetry requires $a=0$, which is also sufficient. For a general metric $G=\\begin{pmatrix}g&h\\\\h&k\\end{pmatrix}$, the self-adjoint condition $P_a^TG=GP_a$ requires $h=ag$. Positive definiteness then requires $g>0$ and $k>a^2g$.\n\nOne valid choice is $G=\\begin{pmatrix}1&a\\\\a&a^2+1\\end{pmatrix}$, whose determinant is one. Its quadratic form is $(x+ay)^2+y^2$, strictly positive for every nonzero vector. The range direction $e_1$ and kernel direction $(-a,1)^T$ have zero $G$-product.\n\nThus an oblique Euclidean projector can be orthogonal for another declared metric. The numerical matrix alone does not specify what perpendicularity means. Conversely, inventing a new metric after a question explicitly states the ordinary dot product would change the problem. The distinction helps diagnose apparent disagreements between coordinate formulas without erasing their hypotheses.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-28",
+    "title": "Impossible diagonal and a sharp entry bound",
+    "stem": "A real orthogonal projector has $p_{11}=1/4$ and $p_{22}=3/4$. Bound $|p_{12}|$. Can equality occur in two dimensions?\n\n",
+    "solution": "Cauchy–Schwarz for $Pe_1,Pe_2$ gives $p_{12}^2\\le(1/4)(3/4)=3/16$. Applying it to the complementary projector gives the same bound, so $|p_{12}|\\le\\sqrt3/4$.\n\nIn two dimensions the symmetric candidate is $\\begin{pmatrix}1/4&t\\\\t&3/4\\end{pmatrix}$. Idempotence on the first diagonal gives $1/16+t^2=1/4$, requiring $t^2=3/16$. The other diagonal and off-diagonal equations then hold. Hence exactly the two signs $t=\\pm\\sqrt3/4$ are possible, and each attains equality.\n\nThese are line projectors generated by unit vectors $(1/2,\\pm\\sqrt3/2)^T$. A candidate with the same diagonal and $t=0$ satisfies the entry bound but is not idempotent. Necessary inequalities help reject matrices; they do not replace the defining identities. In higher dimensions extra entries can contribute to row squared norms, so the two-dimensional equality conclusion cannot be inferred from these two diagonal entries alone.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-29",
+    "title": "Orthogonal decomposition of an observation vector",
+    "stem": "Reconstruct MIT Session2.3 exercise16.1: fit the observations $(7,7,21)^T$ at times $(-1,1,2)$ with $C+Dt$. Derive the coefficients rather than quoting the answer.\n\n",
+    "solution": "The design columns are the all-ones vector and the time vector. Their Gram matrix is $\\begin{pmatrix}3&2\\\\2&6\\end{pmatrix}$, and their products with the observation vector give $(35,42)^T$. The normal equations are $3C+2D=35$ and $2C+6D=42$. Eliminate $C$: multiplying the first equation by two and the second by three gives $6C+4D=70$ and $6C+18D=126$. Thus $14D=56$, so $D=4$ and $C=9$.\n\nThe fitted observation vector is $(5,13,17)^T$, lying in the two-dimensional column space in $\\mathbb R^3$. The coefficient vector $(9,4)^T$ instead lives in $\\mathbb R^2$. They describe different objects. Since the two columns are independent, their Gram matrix has positive determinant fourteen and this coefficient solution is unique. The calculation is a projection in observation space, not an orthogonal-distance line fit in the time-height plot.",
+    "origin": "MIT18.06SC Session2.3 exercise reconstruction; independently derived explanation. See exact exercise numbers in the question."
+  },
+  {
+    "id": "projection-30",
+    "title": "Explain why projecting the error gives zero",
+    "stem": "Continue the preceding MIT exercise family16.2–16.4. Find the residual, project that residual, and project the fitted vector again. Explain all three operations geometrically.\n\n",
+    "solution": "Subtracting fitted from observed values gives $r=(2,-6,4)^T$. Its products with the two design columns are $2-6+4=0$ and $-2-6+8=0$. Therefore it lies in the left nullspace and its orthogonal projection onto the column space is zero. Its squared norm is $4+36+16=56$.\n\nThe fitted vector $p=(5,13,17)^T$ already belongs to that column space, so $Pp=p$. Thus the operator kills the error and fixes the fit: $Pr=0$ and $Pp=p$. For a general input $b=p+r$, linearity then gives $Pb=p$.\n\nIf the residual is used as a new response vector with the same design columns, the unique fitted coefficients are zero. If the fitted response is used instead, its coefficients remain $(9,4)^T$ and its residual becomes zero. These statements depend on keeping the same design space; changing the time points or columns changes the projector. The operations demonstrate complementary subspaces and idempotence rather than requiring another matrix inverse.",
+    "origin": "MIT18.06SC Session2.3 exercise reconstruction; independently derived explanation. See exact exercise numbers in the question."
+  },
+  {
+    "id": "projection-31",
+    "title": "Locate each vector in its correct ambient space",
+    "stem": "Revisit the four-subspace issue in MIT exercise16.5. For $A\\in\\mathbb R^{m\\times n}$, where do the fitted vector, residual and least-squares coefficients belong? What changes if the columns are dependent?\n\n",
+    "solution": "The physical fit $p$ belongs to $\\operatorname{Col}(A)\\subseteq\\mathbb R^m$. The residual belongs to $\\operatorname{Ker}(A^T)\\subseteq\\mathbb R^m$. Any coefficient minimizer $c$ belongs to $\\mathbb R^n$ and satisfies $Ac=p$. If the columns are independent, the row space of $A$ is all of $\\mathbb R^n$, so that unique coefficient vector lies in it automatically.\n\nWith dependent columns, every minimizer has the form $c_0+z$, where $z\\in\\operatorname{Ker}(A)$. The unique minimum-norm minimizer is the one in $\\operatorname{Col}(A^T)=\\operatorname{Ker}(A)^\\perp$. Other minimizers need not lie in the row space. For example, if $A=(1,1)$ and the target is one, $(1,0)^T$ is a minimizer but is not on the row-space line spanned by $(1,1)^T$; the minimum-norm choice is $(1/2,1/2)^T$.\n\nThus the source's full-column-rank example cannot be generalized to every minimizer of a deficient system. This is a hypothesis check, not a disagreement with its stated example.",
+    "origin": "MIT18.06SC Session2.3 exercise reconstruction; independently derived explanation. See exact exercise numbers in the question."
+  },
+  {
+    "id": "projection-32",
+    "title": "Symmetric times remove one coupling term",
+    "stem": "Reconstruct MIT exercise16.6: fit values $(4,2,-1,0,0)^T$ at times $(-2,-1,0,1,2)$ with an intercept and slope. Compute the fit and squared residual norm.\n\n",
+    "solution": "The time sum is zero and the sum of squared times is ten. Thus the Gram matrix is $\\operatorname{diag}(5,10)$. The observation sum is five, and the time-weighted sum is $-8-2=-10$. Therefore the coefficient equations give $C=1$ and $D=-1$.\n\nThe fitted values are $(3,2,1,0,-1)^T$, and the residual is $(1,0,-2,0,1)^T$. Its sum and time-weighted sum are zero, as required by perpendicularity to both design columns. The squared error is $1+4+1=6$. The input squared norm is twenty-one and the fitted squared norm is fifteen, giving the energy check $21=15+6$.\n\nCentering time values makes the constant and time columns perpendicular; it does not necessarily make either a unit vector. Their squared lengths remain five and ten, explaining the two denominators. Symmetry of the times simplifies this example, but orthogonality follows from zero sum even for nonsymmetric time sets. The distinction separates a sufficient convenient pattern from the exact algebraic condition.",
+    "origin": "MIT18.06SC Session2.3 exercise reconstruction; independently derived explanation. See exact exercise numbers in the question."
+  },
+  {
+    "id": "projection-33",
+    "title": "QR from an explicit orthonormal pair",
+    "stem": "Let $q_1=(1,1,0)^T/\\sqrt2$, $q_2=(1,-1,2)^T/\\sqrt6$, and $Q=[q_1\\ q_2]$. Project $b=e_3$ and find the complementary rank-one projector.\n\n",
+    "solution": "The vectors have unit norm and dot product zero. The coordinate measurements are $Q^Tb=(0,2/\\sqrt6)^T$. Reconstruction gives $p=(1/3,-1/3,2/3)^T$. The residual is $r=(-1/3,1/3,1/3)^T$, whose squared norm is one third.\n\nA perpendicular unit vector is $q_3=(-1,1,1)^T/\\sqrt3$. Hence $I-QQ^T=q_3q_3^T$, while $QQ^T=I-q_3q_3^T$. This provides a second calculation of the same residual. The fitted squared norm is two thirds, summing with the residual energy to the unit input energy.\n\nAlthough $Q^TQ=I_2$, the product $QQ^T$ is a three-dimensional rank-two projector and cannot equal $I_3$. Its nullspace contains the nonzero vector $q_3$. Rectangular orthonormality is one-sided; substituting the wrong identity would make the computed residual vanish and falsely claim that every three-dimensional vector lies in a two-dimensional plane.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-34",
+    "title": "Projection operators in a polynomial space",
+    "stem": "In real polynomials of degree at most two, use $\\langle f,g\\rangle=\\int_{-1}^1f(t)g(t)\\,dt$. Project $f(t)=t^2$ onto the span of $1,t$. Find the squared error.\n\n",
+    "solution": "The generators are perpendicular because $\\int_{-1}^1t\\,dt=0$. Their squared norms are two and $2/3$. The target products are $\\int_{-1}^1t^2dt=2/3$ and $\\int_{-1}^1t^3dt=0$. Thus its projection is the constant polynomial $p(t)=1/3$.\n\nThe residual $t^2-1/3$ has zero product with both generators. Its squared norm is\n\n$$\\int_{-1}^1(t^2-1/3)^2dt=2/5-4/9+2/9=8/45.$$\n\nThe coefficient vector of $f$ in the monomial basis is $(0,0,1)^T$. Merely discarding the quadratic coordinate would give zero, which is wrong: the monomial basis is not orthonormal in this integral metric. Indeed the constant and quadratic monomials have nonzero product $2/3$. Projection acts on functions with their declared inner product, not on an arbitrary coefficient list with an assumed Euclidean metric. The same finite-dimensional theorem applies once the correct Gram matrix is used.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-35",
+    "title": "Weighted complex projection",
+    "stem": "In $\\mathbb C^2$, use $G=\\operatorname{diag}(2,1)$ and project $b=(1,1)^T$ onto the complex line generated by $u=(1,i)^T$.\n\n",
+    "solution": "The correct product is $u^*Gb=2-i$, and $u^*Gu=3$. Therefore the coefficient is $(2-i)/3$ and\n\n$$p=\\frac13\\begin{pmatrix}2-i\\\\1+2i\\end{pmatrix},\\qquad r=\\frac13\\begin{pmatrix}1+i\\\\2-2i\\end{pmatrix}.$$\n\nThe matrix is $P_G=\\frac13\\begin{pmatrix}2&-i\\\\2i&1\\end{pmatrix}$. It is generally not Hermitian under the ordinary complex dot product, but satisfies $P_G^*G=GP_G$ and is idempotent. The weighted residual certificate is $u^*Gr=2(1+i)/3-i(2-2i)/3=0$.\n\nThe projected energy is $|2-i|^2/3=5/3$, while the input energy is three. The residual energy is therefore $4/3$; direct magnitude squares give the same value. Both conjugation and the metric are essential. Replacing $G$ by the identity solves a different closest-point problem, while replacing the conjugate transpose by an ordinary transpose destroys positive definiteness.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-36",
+    "title": "Recover a subspace from a distance oracle",
+    "stem": "An unknown orthogonal projector $P$ on $\\mathbb R^3$ has squared residual distances zero for $e_1$ and $e_2$, and one for $e_3$. Determine $P$. Would knowledge of the three diagonal distances always determine a projector?\n\n",
+    "solution": "Zero distance for $e_1$ implies $(I-P)e_1=0$, hence $Pe_1=e_1$. The same reasoning fixes $e_2$. Distance one for the unit vector $e_3$ implies its projected energy is zero by Pythagoras, so $Pe_3=0$. The action on this basis determines $P=\\operatorname{diag}(1,1,0)$.\n\nThe endpoint distance values are decisive because a nonnegative squared norm can vanish only at zero. Intermediate values do not usually identify the directions. In the plane, the two different line projectors $\\frac12\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}$ and $\\frac12\\begin{pmatrix}1&-1\\\\-1&1\\end{pmatrix}$ give squared residual distance one half for both coordinate unit vectors.\n\nThus diagonal observations determine how much coordinate energy is retained, but can conceal sign and orientation information. A reconstruction problem should distinguish this special endpoint case from a general uniqueness claim. Additional mixed-vector distance measurements can recover off-diagonal entries by polarization.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-37",
+    "title": "Recover an off-diagonal entry by polarization",
+    "stem": "For an unknown real orthogonal projector, suppose the squared residual distances for $e_1,e_2,e_1+e_2$ are $1/2,1/2,0$. Determine $p_{11},p_{22},p_{12}$ and interpret the result in two dimensions.\n\n",
+    "solution": "The squared residual distance for $x$ is $x^T(I-P)x$. Applying it to the two unit vectors gives $1-p_{11}=1/2$ and $1-p_{22}=1/2$. Expanding for their sum gives $2-p_{11}-p_{22}-2p_{12}=0$, so $p_{12}=1/2$.\n\nIn two dimensions this fixes $P=\\frac12\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}$, the projector onto the line spanned by $(1,1)^T$. The zero residual distance for their sum says precisely that this direction belongs to the range.\n\nThe mixed measurement contains a cross term that separate coordinate measurements cannot reveal. The sign is easy to reverse if one uses projected energy instead of residual energy without changing the expansion. Checking the known range direction provides an immediate independent sign check. In a larger ambient dimension these entries specify only a principal block; other directions may still require measurements, although the fixed mixed vector imposes additional constraints.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-38",
+    "title": "A quadratic minimum with a projector penalty",
+    "stem": "For an orthogonal projector $P$ and real $\\lambda>0$, minimize $F(x)={\\Vert x-b\\Vert}^2+\\lambda{\\Vert Px\\Vert}^2$. Give the minimum value.\n\n",
+    "solution": "Decompose $b=b_S+b_N$ and $x=x_S+x_N$ using the range and perpendicular kernel of $P$. Perpendicularity separates the objective into ${\\Vert x_N-b_N\\Vert}^2+{\\Vert x_S-b_S\\Vert}^2+\\lambda{\\Vert x_S\\Vert}^2$. Completing the square in the range component gives the unique minimizer\n\n$$x_*=(I-P)b+\\frac1{1+\\lambda}Pb.$$\n\nThe minimum is $\\lambda{\\Vert Pb\\Vert}^2/(1+\\lambda)$. The kernel component is left unchanged because the penalty does not act there; the range component is shrunk rather than removed entirely.\n\nFor $P=\\operatorname{diag}(1,0)$, $b=(3,4)^T$ and $\\lambda=2$, the answer is $(1,4)^T$ and the minimum is six. At finite positive penalty this map is generally not a projector: its range eigenvalue is $1/(1+\\lambda)$, strictly between zero and one. As the penalty tends to infinity, it approaches the complementary projection. A shrinkage operator and an idempotent projection have different spectra and repeated-application behavior.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-39",
+    "title": "Closest-point projection can fail outside a subspace",
+    "stem": "A proposed theorem claims every nonempty set has one unique closest point to every target. Refute it with a finite set, and explain the missing structure in the linear projection theorem.\n\n",
+    "solution": "Take the set $C=\\{(-1,0)^T,(1,0)^T\\}$ and target zero. Both candidates have squared distance one, so the minimizer exists but is not unique. There is no single-valued closest-point map without an arbitrary selection rule.\n\nIn the linear subspace theorem, differences of feasible points remain in the subspace. This lets the perpendicular residual split the squared error by Pythagoras, with a strictly positive extra term for every different point. The two-point set lacks the required feasible directions, and it is not convex.\n\nThe example does not say that only subspaces have unique closest points: nonempty closed convex subsets of finite-dimensional Euclidean space do too, by a broader theorem. Their projection maps, however, need not be linear. For instance projection onto the nonnegative real half-line sends a scalar to its maximum with zero. The present chapter's matrix identities characterize linear orthogonal projections, not every nearest-point operation on every possible set.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-40",
+    "title": "A tempting but false complement formula",
+    "stem": "Let $P,Q$ be orthogonal projectors. Is $I-PQ$ always an orthogonal projection? Is $P+Q-PQ$ always the projector onto the sum of their ranges?\n\n",
+    "solution": "Use the horizontal projector and the forty-five-degree line projector from Problem7. Their product is $M=\\frac12\\begin{pmatrix}1&1\\\\0&0\\end{pmatrix}$ and satisfies $M^2=M/2$, not $M$. The complement $I-M$ would be idempotent only if $M^2=M$, as expanding $(I-M)^2=I-M$ shows. It therefore fails.\n\nThe proposed sum expression equals $\\begin{pmatrix}1&0\\\\1/2&1/2\\end{pmatrix}$. It is nonsymmetric and does not equal the identity, even though the two nonparallel lines span the whole plane. Its square also differs from itself.\n\nIf $P$ and $Q$ commute, both formulas become valid orthogonal projectors: the first onto the complement of the intersection, the second onto the sum. Expanding a product of complements in a specified order is always algebraically valid, but concluding that the product is itself a projector requires the commutation hypothesis. Set identities alone do not license replacing intersection by arbitrary matrix multiplication.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-41",
+    "title": "A universal energy identity forces orthogonality",
+    "stem": "A real square matrix $E$ satisfies $E^2=E$ and ${\\Vert Ex\\Vert}^2+{\\Vert(I-E)x\\Vert}^2={\\Vert x\\Vert}^2$ for every real vector $x$. Prove that $E$ is an orthogonal projector. Would one tested input suffice?\n\n",
+    "solution": "Expanding the identity gives $x^T(2E^TE-E-E^T)x=0$ for every $x$. The matrix in parentheses is symmetric, so polarization or evaluating on coordinate sums shows that it is zero. Hence $2E^TE=E+E^T$.\n\nAlternatively, decompose arbitrary $x=u+v$ with $u$ in the range and $v$ in the kernel of the idempotent. The proposed identity becomes ${\\Vert u\\Vert}^2+{\\Vert v\\Vert}^2={\\Vert u+v\\Vert}^2$, forcing $u^Tv=0$ for every such pair. Thus the range and kernel are perpendicular, identifying $E$ as the orthogonal projector.\n\nOne tested input is insufficient. The oblique projector $\\begin{pmatrix}1&1\\\\0&0\\end{pmatrix}$ satisfies the energy identity for input $e_1$, since it fixes that vector. It fails for input $e_2$: the projected and residual squared lengths are one and two, summing to three instead of one. Universal quantifiers distinguish operator identities from accidental equality on a sample.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-42",
+    "title": "Determine containment from one scalar",
+    "stem": "Orthogonal projectors $P,Q$ satisfy $\\operatorname{tr}(PQ)=\\operatorname{rank}(P)$. Prove that the range of $P$ is contained in the range of $Q$. Is this valid for arbitrary idempotents?\n\n",
+    "solution": "Choose an orthonormal basis $u_1,\\ldots,u_r$ of the range of $P$. The trace is $\\sum_i u_i^TQu_i=\\sum_i{\\Vert Qu_i\\Vert}^2$. Each summand is at most one by contraction. Since the sum equals $r$, every summand equals one. The perpendicular energy split then forces $(I-Q)u_i=0$ for each basis vector, establishing containment.\n\nThe claim fails for general oblique idempotents. Take $P=\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix}$ and $Q=\\begin{pmatrix}1&0\\\\1&0\\end{pmatrix}$. Both are idempotent, and the product has trace one, equal to the rank of $P$. But their ranges are different lines, generated by $(1,0)^T$ and $(1,1)^T$.\n\nThe proof's crucial bounded summands came from orthogonal contraction. Integer eigenvalues of the individual idempotents do not recover that positivity argument for arbitrary products. Trace equalities must be interpreted with their structural hypotheses.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-43",
+    "title": "The difference of nested projectors",
+    "stem": "Let $S\\subseteq U$ with dimensions two and four in $\\mathbb R^6$, and let $P,Q$ be their orthogonal projectors. Describe $Q-P$, its rank, trace and kernel. Describe $P-Q$ too.\n\n",
+    "solution": "Containment gives $QP=PQ=P$. Thus $(Q-P)^2=Q-2P+P=Q-P$, and symmetry is immediate. Its range is $U\\cap S^\\perp$, which has dimension $4-2=2$. It therefore has rank and trace two. Its kernel is the perpendicular direct sum $S+U^\\perp$, of dimension $2+(6-4)=4$.\n\nOne can verify this action directly: vectors in $S$ are fixed by both and cancel; vectors in $U\\cap S^\\perp$ are fixed only by $Q$; vectors in $U^\\perp$ are killed by both. These three perpendicular pieces exhaust the space.\n\nThe reverse difference $P-Q$ acts by minus one on the two-dimensional middle piece and zero elsewhere. Its square is $Q-P$, so it is not idempotent here. Its trace is minus two and rank two. A difference formula needs both containment and the correct sign; symmetry alone does not determine which difference is a projection.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-44",
+    "title": "Rank changes invalidate a limiting shortcut",
+    "stem": "Let $A_\\varepsilon=\\begin{pmatrix}1&1\\\\0&\\varepsilon\\end{pmatrix}$. Find the projector onto its columns and the coefficients fitting $b=e_2$ for nonzero $\\varepsilon$. Compare with $\\varepsilon=0$.\n\n",
+    "solution": "For nonzero $\\varepsilon$, the determinant is $\\varepsilon$, so the columns span the whole plane. The orthogonal projector is $I$, independent of the parameter. Solving $A_\\varepsilon c=e_2$ gives $\\varepsilon c_2=1$ and $c_1+c_2=0$, hence $c=(-1/\\varepsilon,1/\\varepsilon)^T$. Coefficients diverge as the parameter tends to zero, although the fitted vector remains exactly $e_2$.\n\nAt zero the columns coincide and span the horizontal line. Its projector is $\\operatorname{diag}(1,0)$, and the projected target is zero, with squared residual distance one. Thus the limit of the projectors at nonzero parameters is not the projector of the limiting matrix.\n\nThe discontinuity occurs at a rank change. It does not contradict uniqueness for any fixed subspace or imply that every small perturbation produces a discontinuity at fixed rank. A numerical procedure declaring a tiny parameter to be zero changes the modeled subspace and needs an explicit rank policy.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-45",
+    "title": "Best approximation from orthogonal measurements",
+    "stem": "A vector $b$ has squared norm twenty-five. Its inner products with three orthonormal vectors are $2,-3,1$. Find the closest vector in their span and the distance. Could the three reported measurements instead be $4,3,2$?\n\n",
+    "solution": "Orthogonality decouples the measurements, so the closest vector is $p=2q_1-3q_2+q_3$. Its squared norm is $4+9+1=14$. Pythagoras gives residual squared norm $25-14=11$, so the distance is $\\sqrt{11}$. The formula identifies a physical vector in the declared basis even if its ambient coordinates are not supplied.\n\nThe alternate measurements would have squared sum $16+9+4=29$, exceeding the target's squared norm twenty-five. They are impossible for three orthonormal measurement vectors, by the same perpendicular energy identity or Bessel's inequality. The contradiction could indicate wrong data, nonunit vectors, or nonorthogonal directions, but the question's stated assumptions rule all three measurements out together.\n\nAn incomplete orthonormal set need not recover all the input energy; the remaining eleven can lie in its perpendicular complement. Equality of measured and total energy would certify membership in the measured span. These are exact feasibility conclusions, not statistical estimates.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-46",
+    "title": "Distance from a rank-one projector to another",
+    "stem": "Let $P=uu^T$ and $Q=vv^T$ for real unit vectors. Derive their squared Frobenius distance and find its possible range. Does replacing $v$ by $-v$ change it?\n\n",
+    "solution": "The product is $PQ=u(u^Tv)v^T$, whose trace is $(u^Tv)^2$. Both ranks are one, so\n\n$$ {\\Vert P-Q\\Vert}_F^2=2\\bigl(1-(u^Tv)^2\\bigr).$$\n\nCauchy–Schwarz bounds the squared dot product between zero and one. The squared distance lies between zero and two. Zero occurs exactly when the two lines coincide, including the case $v=-u$. Two occurs for perpendicular lines. Intermediate angles produce intermediate values.\n\nReplacing $v$ by its negative leaves the outer product unchanged, and the squared dot product also remains unchanged. The distance compares *unoriented subspaces*, not signed unit-vector representatives. In contrast, the ordinary vector distance ${\\Vert u-v\\Vert}$ distinguishes $v=u$ from $v=-u$. The formula uses a matrix Frobenius norm, so interpreting its maximum as the Euclidean distance between the original endpoints would mix two spaces and two geometric objects.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-47",
+    "title": "Projection onto a diagonal line in arbitrary dimension",
+    "stem": "Project $b=(1,2,\\ldots,m)^T$ onto the all-ones line in $\\mathbb R^m$, for positive integer $m$. Find the squared distance and handle $m=1$.\n\n",
+    "solution": "With generator $u=(1,\\ldots,1)^T$, the denominator $u^Tu=m$. The coefficient is the coordinate mean $(m+1)/2$. Thus every projected coordinate equals that mean and $P=uu^T/m$.\n\nUsing the sum and sum-of-squares formulas, the residual energy is\n\n$$\\sum_{j=1}^{m}\\left(j-\\frac{m+1}{2}\\right)^2=\\frac{m(m^2-1)}{12}.$$\n\nTo derive it, expand the square into $\\sum j^2-(m+1)\\sum j+m(m+1)^2/4$, then substitute $\\sum j=m(m+1)/2$ and $\\sum j^2=m(m+1)(2m+1)/6$. A common denominator twelve yields the stated expression. The residual sum is zero, proving perpendicularity to the all-ones direction.\n\nAt $m=1$, the line is the full space, the projector is the identity, and the formula gives zero error. Dividing by $m$ is valid because $m$ is positive; a zero-dimensional empty-data version is not included. This example connects centering to a projection while keeping the exact finite-dimensional assumptions explicit.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-48",
+    "title": "Centering is a complementary projection",
+    "stem": "For $m\\ge2$, let $J=uu^T/m$ with $u$ the all-ones vector. Show that $C=I-J$ centers data, find its rank, and prove that centering twice has no further effect.\n\n",
+    "solution": "Each coordinate of $Jb$ is the mean $\\bar b=\\sum_i b_i/m$, so $Cb$ has coordinates $b_i-\\bar b$. Their sum is zero. The matrix $J$ is symmetric and satisfies $J^2=J$ because $u^Tu=m$. Hence $C$ is symmetric and $C^2=I-2J+J^2=C$.\n\nThe centered space is $u^\\perp$, of dimension $m-1$, so $C$ has rank and trace $m-1$. Its kernel is the all-ones line. Centering a vector already of zero sum leaves it unchanged, explaining idempotence operationally.\n\nThe energy identity becomes $\\sum_i b_i^2=m\\bar b^2+\\sum_i(b_i-\\bar b)^2$. The first term is the squared norm of the mean vector, not merely the square of the scalar mean. Omitting the factor $m$ confuses those objects. This deterministic identity does not by itself justify any statistical unbiasedness correction; such a claim requires a sampling model and belongs to the probability/statistics chapters.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-49",
+    "title": "A coordinate formula can be algebraically idempotent but wrong",
+    "stem": "For $A=\\begin{pmatrix}1&0\\\\1&1\\\\0&1\\end{pmatrix}$, a solution replaces its pivot columns by those of its reduced row-echelon form and constructs a projector from them. Demonstrate the error with a target.\n\n",
+    "solution": "The original columns are independent. The reduced form has columns $e_1,e_2$ in the ambient three-space, so the incorrect construction gives $P_{\\rm wrong}=\\operatorname{diag}(1,1,0)$. That is a valid projector, but onto a different plane. Row operations preserve linear relations among columns, not the physical column space in the original coordinates.\n\nThe original plane has normal $n=(1,-1,1)^T$, so its correct projector is $I-nn^T/3$. For target $b=e_3$, this gives $p=(-1/3,1/3,2/3)^T$, with squared residual distance one third. The incorrect projector gives zero and squared distance one.\n\nMembership checks expose the error: the original plane satisfies $x_1-x_2+x_3=0$, but the wrongly selected basis direction $e_1$ violates that equation. Checking symmetry and idempotence alone certifies a closest-point map onto *its own* range, not that its range matches the subspace asked about. Use original pivot columns after reduction identifies their indices.",
+    "origin": "Original problem; independently derived solution."
+  },
+  {
+    "id": "projection-50",
+    "title": "Synthesize weighted projection, coordinates and uniqueness",
+    "stem": "In $\\mathbb R^2$ with $G=\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}$, project $b=(2,0)^T$ onto the line generated by $u=(1,-1)^T$. Find the matrix, point, residual and weighted energies. Why is the answer unique?\n\n",
+    "solution": "The metric has positive leading principal minors two and three, so it is positive definite. Here $Gu=u$, $u^TGu=2$, and $u^TGb=2$. Therefore the coefficient is one and $p=(1,-1)^T$, with $r=(1,1)^T$.\n\nThe weighted projector is $P_G=u(u^TGu)^{-1}u^TG=\\frac12\\begin{pmatrix}1&-1\\\\-1&1\\end{pmatrix}$. It happens to be ordinarily symmetric in this example because the chosen line and its ordinary perpendicular complement are metric eigendirections. Ordinary symmetry is not generally guaranteed for a weighted projector.\n\nThe input energy is eight, the projected energy two, and the residual energy six. Their weighted cross term is zero because $u^TGr=0$. For every competing point $tu$ on the line, the error energy is six plus $2(1-t)^2$, proving unique minimality at one. The existence of a matrix formula is not the uniqueness proof; strict positivity of the metric on every nonzero feasible direction is. This closes the chapter by combining a concrete calculation with the underlying certificate.",
+    "origin": "Original problem; independently derived solution."
+  }
+]

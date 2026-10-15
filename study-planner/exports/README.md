@@ -1,9 +1,10 @@
 # Offline teaching copies
 
-Open **Algorithm Correctness.html** or **IELTS Academic Session 1.html** in your normal browser. Each file includes its fonts, scripts and teaching resources. No local server is required for these two copies. External course references still require internet access.
+Open any HTML file in this directory directly in a browser. Fonts, scripts, selected simulations and original teaching audio are embedded; no local server or internet is required for the lesson itself. External references require internet access.
 
-The correctness copy includes the full revised lesson, all 54 detailed solutions, 40 final decisions and the chapter's exact concept models. The IELTS copy is a planned 60-minute beginner lesson with grammar, reading, six original synthetic audio clips, complete worked explanations and a post-teaching check. Both are review drafts. Opening a file does not confirm approval or mastery.
+- Conditional Probability.html: revised60-answer chapter and corrected counterexample.
+- Orthogonal Projections.html: new25-section chapter,52worked entries and compact geometric models.
+- IELTS Academic Session1.html and Session2.html:60minutes each; learner mastery remains unconfirmed.
+- Algorithm Correctness.html: prior reviewed chapter.
 
-These copies were checked directly from file URLs with HTTP and HTTPS requests blocked. Browser evidence is in `browser-checks.json`; source and export hashes are in `manifest.json`. The chapter library still contains 60 existing technical notes, of which 23 individual revisions are checked and 37 remain. The new projection manuscript remains unfinished; 59 new technical chapters remain to complete the planned 119-topic syllabus. One IELTS teaching lesson has now been written.
-
-Private Site publication is pending recovery of its source connection. These files provide access to the two current teaching editions while that connection is unavailable. The repository branch is `study-planner-1406`.
+See manifest.json for actual file-byte hashes and browser-checks.json for tests with all HTTP/HTTPS requests blocked. The latest Site update is pending because its official source connection reset. GitHub backup is recorded separately.
