@@ -1,0 +1,35 @@
+{
+  "state": "targeted_erratum_individual_review_in_progress",
+  "date": "2026-10-17",
+  "baseline": "f4195fd9c5a874cf3f032b4724f293a94168e5f1",
+  "changes": [
+    "LG56: original full-row-rank example does not demonstrate unequal column spaces; corrected and added an actual distinct-plane example",
+    "LG05: title no longer claims a swap absent from the displayed trace",
+    "LG14: title no longer claims two exceptional values when there is only lambda=1"
+  ],
+  "exactChecks": {
+    "old_spaces_are_both_R2": true,
+    "new_pivot_indices": true,
+    "original_plane": true,
+    "reduced_plane": true,
+    "distinct_spaces": true
+  },
+  "individualChapterReviewComplete": false,
+  "studentApproved": false,
+  "pageSha256": "664c11d4a5b23c31a0f8641c4a316af4ca8f3108b628846dcce03fce2736834d",
+  "unrelatedQuestionAliasesRemoved": 33,
+  "matchedQuestionScenes": {
+    "LG01": "gauss-swap",
+    "LG02": "gauss-skip",
+    "LG03": "gauss-affine",
+    "LG04": "gauss-inconsistent",
+    "LG13": "gauss-parameters",
+    "LG30": "gauss-coordinate",
+    "LG31": "gauss-inverse",
+    "LG34": "gauss-lu",
+    "LG36": "gauss-plu",
+    "LG45": "gauss-rounding",
+    "LG49": "gauss-binary"
+  },
+  "visualScope": "Targeted replacement of unrelated aliases. Existing problem-specific aids remain; the entire chapter individual review is still in progress."
+}

@@ -813,3 +813,10 @@ All60answers individually reviewed,56expanded derivations,80final rules retained
 ## Least Squares and IELTS Session 3 completed: 17 October 2026
 
 Least Squares:22teaching sections,50worked mathematical/course problems,one authentic doctoral revisit,60final decisions,11model families and20compact placements.1,283independent mathematical assertions;70rendered checkpoints;48exact explorer combinations. Four actual written university courses compared and used. IELTS Session3:60minutes,grammar/reading/listening,10worked grammar examples,12postteaching checks and6original synthetic clips. Mastery remains unconfirmed.62technical drafts available;57newtechnical chapters remain.25of60baseline individual reviews checked;35remain. Next review:l_gauss;next authoring:i_games.
+
+
+## Verified delivery and targeted Gaussian errata: 17 October 2026
+
+Private Site version 107 succeeded from source f4195fd9c5a874cf3f032b4724f293a94168e5f1. GitHub study-planner-1406 remote commit 33d1776f8d05fdf393f383ba22ef441d794595bc was verified, including all 62 technical HTML blobs and eight offline export hashes. Publication evidence is in research/continuation-publication-20261017.json.
+
+The next baseline review, Gaussian elimination, remains in progress. A real LG56 column-space error is corrected: full row rank makes both original and reduced column spaces equal to the ambient space, so an additional rank-two three-row example now demonstrates distinct planes. Two misleading problem titles were repaired. Thirty-three unrelated question-animation aliases were removed and eleven matched actual-input walkthroughs inserted; 32 existing problem-specific visual aids remain. Exact-model checks (1,044 assertions), 981 MathML expressions, all retained selectable scene checkpoints, real playback and three viewport widths passed. These targeted corrections do not certify the whole individual review and do not change the completed-review count of 25/60. They were written after version 107 and await their own exact-source deployment.
