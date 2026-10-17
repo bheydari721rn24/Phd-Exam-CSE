@@ -258,7 +258,7 @@
   {
     "id": "SB33",
     "title": "Size-biased selection of a family",
-    "stem": "Families have sizes one, two, and three with prior probabilities $(1/2,1/3,1/6)$. Select a child uniformly from all children in the population. What are the family-size probabilities of that selected child?",
+    "stem": "A population has exact family-size proportions $(1/2,1/3,1/6)$ at sizes one, two, and three; its family count is a positive multiple of six. Select a child uniformly from all children in this population. Find the selected child\\'s family-size distribution.",
     "solution": "The expected family size is $1/2+2/3+1/2=5/3$. A size-n family contributes n opportunities to select a child, so the size weights are $(1/2,2/3,1/2)$. Dividing by $5/3$ gives $(3/10,2/5,3/10)$. This is not the original family prior because the sampling unit changed from families to children. The normalization requires a finite positive mean; a zero-child family contributes no selection opportunities. Equal selection of families followed by a child within each would define a different protocol.",
     "origin": "Original problem",
     "difficulty": "Hard"
@@ -267,7 +267,7 @@
     "id": "SB34",
     "title": "A host with asymmetric tie-breaking",
     "stem": "The prize is uniform among three doors, your initial choice is door one, and an informed host opens door three with probability $1/4$ when your choice is correct. Otherwise the host must open an empty unchosen door. Given door three opens, find the switching probability.",
-    "solution": "The report likelihoods for prize doors one, two, and three are $(1/4,1,0)$. Multiply by equal priors and normalize: the door-two posterior is $1/(1+1/4)=4/5$. Switching to door two therefore wins with probability four fifths for this specified report. The unconditional always-switch win rate remains two thirds because switching wins exactly when the initial choice was wrong. Conditional and unconditional winning rates can differ when the host\u2019s tie-breaking is asymmetric.",
+    "solution": "The report likelihoods for prize doors one, two, and three are $(1/4,1,0)$. Multiply by equal priors and normalize: the door-two posterior is $1/(1+1/4)=4/5$. Switching to door two therefore wins with probability four fifths for this specified report. The unconditional always-switch win rate remains two thirds because switching wins exactly when the initial choice was wrong. Conditional and unconditional winning rates can differ when the host’s tie-breaking is asymmetric.",
     "origin": "Course-derived: CMU Exercise 2.22, informed-host structure; original tie-breaking",
     "difficulty": "Hard"
   },
@@ -282,7 +282,7 @@
   {
     "id": "SB36",
     "title": "Heavy coins selected as a pair",
-    "stem": "Two heavy and eight light coins lie in a bag. An unordered pair is selected uniformly. The selected pair has equal weights. What is the probability both are heavy?",
+    "stem": "Two coins have the same heavy weight and eight coins have the same distinct light weight. An unordered pair is selected uniformly without replacement. Given that its two coins have equal weights, what is the probability both are heavy?",
     "solution": "There are $\\binom{10}{2}=45$ equally likely pairs. Equal-weight evidence retains one heavy-heavy pair and $\\binom82=28$ light-light pairs. Therefore the posterior heavy-heavy probability is $1/(1+28)=1/29$. One can also use hypotheses HH, HL, LL with prior weights proportional to $(1,16,28)$ and equal-weight likelihoods $(1,0,1)$. A coin-type probability of one fifth cannot be squared because the pair is drawn without replacement. The partition method and direct retained-count method agree.",
     "origin": "Course-derived: CMU Exercise 2.23; independently written complete solution",
     "difficulty": "Hard"

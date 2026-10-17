@@ -1,0 +1,908 @@
+{
+  "line": [
+    {
+      "kind": "fit",
+      "t": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "y": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "w": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "c": 0.0,
+      "d": 0.0,
+      "exactC": "0",
+      "exactD": "0",
+      "sse": "9",
+      "residual": [
+        "1",
+        "2",
+        "2"
+      ],
+      "normal0": "5",
+      "normal1": "11",
+      "constant": false,
+      "title": "Start with an explicit candidate",
+      "why": "Zero is one feasible model; it is not assumed optimal."
+    },
+    {
+      "kind": "fit",
+      "t": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "y": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "w": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "c": 1.6666666666666667,
+      "d": 0.0,
+      "exactC": "5/3",
+      "exactD": "0",
+      "sse": "2/3",
+      "residual": [
+        "-2/3",
+        "1/3",
+        "1/3"
+      ],
+      "normal0": "0",
+      "normal1": "1",
+      "constant": false,
+      "title": "Fit an unweighted constant",
+      "why": "This isolates the intercept before applying the stated weights and features."
+    },
+    {
+      "kind": "fit",
+      "t": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "y": [
+        1.0,
+        2.0,
+        2.0
+      ],
+      "w": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "c": 0.6666666666666666,
+      "d": 0.5,
+      "exactC": "2/3",
+      "exactD": "1/2",
+      "sse": "1/6",
+      "residual": [
+        "-1/6",
+        "1/3",
+        "-1/6"
+      ],
+      "normal0": "0",
+      "normal1": "0",
+      "constant": false,
+      "title": "Solve the declared model",
+      "why": "The final weighted column products vanish. The plotted errors are vertical, not perpendicular distances to the plotted line."
+    }
+  ],
+  "weighted-constant": [
+    {
+      "kind": "fit",
+      "t": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "y": [
+        0.0,
+        2.0,
+        4.0
+      ],
+      "w": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "c": 0.0,
+      "d": 0.0,
+      "exactC": "0",
+      "exactD": "0",
+      "sse": "36",
+      "residual": [
+        "0",
+        "2",
+        "4"
+      ],
+      "normal0": "10",
+      "normal1": "18",
+      "constant": true,
+      "title": "Start with an explicit candidate",
+      "why": "Zero is one feasible model; it is not assumed optimal."
+    },
+    {
+      "kind": "fit",
+      "t": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "y": [
+        0.0,
+        2.0,
+        4.0
+      ],
+      "w": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "c": 2.0,
+      "d": 0.0,
+      "exactC": "2",
+      "exactD": "0",
+      "sse": "12",
+      "residual": [
+        "-2",
+        "0",
+        "2"
+      ],
+      "normal0": "2",
+      "normal1": "8",
+      "constant": true,
+      "title": "Fit an unweighted constant",
+      "why": "This isolates the intercept before applying the stated weights and features."
+    },
+    {
+      "kind": "fit",
+      "t": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "y": [
+        0.0,
+        2.0,
+        4.0
+      ],
+      "w": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "c": 2.5,
+      "d": 0.0,
+      "exactC": "5/2",
+      "exactD": "0",
+      "sse": "11",
+      "residual": [
+        "-5/2",
+        "-1/2",
+        "3/2"
+      ],
+      "normal0": "0",
+      "normal1": "11/2",
+      "constant": true,
+      "title": "Solve the declared model",
+      "why": "The final weighted column products vanish. The plotted errors are vertical, not perpendicular distances to the plotted line."
+    }
+  ],
+  "weighted-line": [
+    {
+      "kind": "fit",
+      "t": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "y": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "w": [
+        1.0,
+        2.0,
+        1.0
+      ],
+      "c": 0.0,
+      "d": 0.0,
+      "exactC": "0",
+      "exactD": "0",
+      "sse": "2",
+      "residual": [
+        "0",
+        "1",
+        "0"
+      ],
+      "normal0": "2",
+      "normal1": "2",
+      "constant": false,
+      "title": "Start with an explicit candidate",
+      "why": "Zero is one feasible model; it is not assumed optimal."
+    },
+    {
+      "kind": "fit",
+      "t": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "y": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "w": [
+        1.0,
+        2.0,
+        1.0
+      ],
+      "c": 0.3333333333333333,
+      "d": 0.0,
+      "exactC": "1/3",
+      "exactD": "0",
+      "sse": "10/9",
+      "residual": [
+        "-1/3",
+        "2/3",
+        "-1/3"
+      ],
+      "normal0": "2/3",
+      "normal1": "2/3",
+      "constant": false,
+      "title": "Fit an unweighted constant",
+      "why": "This isolates the intercept before applying the stated weights and features."
+    },
+    {
+      "kind": "fit",
+      "t": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "y": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "w": [
+        1.0,
+        2.0,
+        1.0
+      ],
+      "c": 0.5,
+      "d": 0.0,
+      "exactC": "1/2",
+      "exactD": "0",
+      "sse": "1",
+      "residual": [
+        "-1/2",
+        "1/2",
+        "-1/2"
+      ],
+      "normal0": "0",
+      "normal1": "0",
+      "constant": false,
+      "title": "Solve the declared model",
+      "why": "The final weighted column products vanish. The plotted errors are vertical, not perpendicular distances to the plotted line."
+    }
+  ],
+  "deficient": [
+    {
+      "kind": "coefficients",
+      "a": [
+        1,
+        2
+      ],
+      "rhs": 4,
+      "point": [
+        4.0,
+        0.0
+      ],
+      "pointExact": [
+        "4",
+        "0"
+      ],
+      "target": null,
+      "sse": "18",
+      "title": "One coefficient description",
+      "why": "All three observed inputs equal two. Every displayed point gives the identical fitted constant four and squared residual eighteen. Only the final point also minimizes coefficient norm."
+    },
+    {
+      "kind": "coefficients",
+      "a": [
+        1,
+        2
+      ],
+      "rhs": 4,
+      "point": [
+        2.0,
+        1.0
+      ],
+      "pointExact": [
+        "2",
+        "1"
+      ],
+      "target": null,
+      "sse": "18",
+      "title": "Move along the design nullspace",
+      "why": "All three observed inputs equal two. Every displayed point gives the identical fitted constant four and squared residual eighteen. Only the final point also minimizes coefficient norm."
+    },
+    {
+      "kind": "coefficients",
+      "a": [
+        1,
+        2
+      ],
+      "rhs": 4,
+      "point": [
+        0.0,
+        2.0
+      ],
+      "pointExact": [
+        "0",
+        "2"
+      ],
+      "target": null,
+      "sse": "18",
+      "title": "Another identical fit",
+      "why": "All three observed inputs equal two. Every displayed point gives the identical fitted constant four and squared residual eighteen. Only the final point also minimizes coefficient norm."
+    },
+    {
+      "kind": "coefficients",
+      "a": [
+        1,
+        2
+      ],
+      "rhs": 4,
+      "point": [
+        0.8,
+        1.6
+      ],
+      "pointExact": [
+        "4/5",
+        "8/5"
+      ],
+      "target": null,
+      "sse": "18",
+      "title": "Select the minimum-norm member",
+      "why": "All three observed inputs equal two. Every displayed point gives the identical fitted constant four and squared residual eighteen. Only the final point also minimizes coefficient norm."
+    }
+  ],
+  "constraint": [
+    {
+      "kind": "coefficients",
+      "a": [
+        1,
+        1
+      ],
+      "rhs": 1,
+      "point": [
+        0,
+        1
+      ],
+      "pointExact": [
+        "0",
+        "1"
+      ],
+      "target": [
+        3,
+        0
+      ],
+      "sse": "10",
+      "title": "A feasible starting coefficient",
+      "why": "Every moving point satisfies the exact sum constraint. The optimum has residual (1,1), perpendicular to the feasible direction (1,\u22121)."
+    },
+    {
+      "kind": "coefficients",
+      "a": [
+        1,
+        1
+      ],
+      "rhs": 1,
+      "point": [
+        1,
+        0
+      ],
+      "pointExact": [
+        "1",
+        "0"
+      ],
+      "target": [
+        3,
+        0
+      ],
+      "sse": "4",
+      "title": "Another feasible coefficient",
+      "why": "Every moving point satisfies the exact sum constraint. The optimum has residual (1,1), perpendicular to the feasible direction (1,\u22121)."
+    },
+    {
+      "kind": "coefficients",
+      "a": [
+        1,
+        1
+      ],
+      "rhs": 1,
+      "point": [
+        2,
+        -1
+      ],
+      "pointExact": [
+        "2",
+        "-1"
+      ],
+      "target": [
+        3,
+        0
+      ],
+      "sse": "2",
+      "title": "The constrained closest point",
+      "why": "Every moving point satisfies the exact sum constraint. The optimum has residual (1,1), perpendicular to the feasible direction (1,\u22121)."
+    }
+  ],
+  "ridge": [
+    {
+      "kind": "ridge",
+      "lam": 0.0,
+      "lambdaExact": "0",
+      "x": 3.0,
+      "xExact": "3",
+      "residualSSE": "0",
+      "coefficientSSE": "9",
+      "penalty": "0",
+      "sse": "0",
+      "title": "Penalty \u03bb = 0",
+      "why": "The plotted curve is the complete objective (3\u2212x)\u00b2 + \u03bbx\u00b2. Its minimizer balances residual and coefficient costs; it is not an ordinary projection."
+    },
+    {
+      "kind": "ridge",
+      "lam": 0.25,
+      "lambdaExact": "1/4",
+      "x": 2.4,
+      "xExact": "12/5",
+      "residualSSE": "9/25",
+      "coefficientSSE": "144/25",
+      "penalty": "36/25",
+      "sse": "9/5",
+      "title": "Penalty \u03bb = 1/4",
+      "why": "The plotted curve is the complete objective (3\u2212x)\u00b2 + \u03bbx\u00b2. Its minimizer balances residual and coefficient costs; it is not an ordinary projection."
+    },
+    {
+      "kind": "ridge",
+      "lam": 1.0,
+      "lambdaExact": "1",
+      "x": 1.5,
+      "xExact": "3/2",
+      "residualSSE": "9/4",
+      "coefficientSSE": "9/4",
+      "penalty": "9/4",
+      "sse": "9/2",
+      "title": "Penalty \u03bb = 1",
+      "why": "The plotted curve is the complete objective (3\u2212x)\u00b2 + \u03bbx\u00b2. Its minimizer balances residual and coefficient costs; it is not an ordinary projection."
+    },
+    {
+      "kind": "ridge",
+      "lam": 4.0,
+      "lambdaExact": "4",
+      "x": 0.6,
+      "xExact": "3/5",
+      "residualSSE": "144/25",
+      "coefficientSSE": "9/25",
+      "penalty": "36/25",
+      "sse": "36/5",
+      "title": "Penalty \u03bb = 4",
+      "why": "The plotted curve is the complete objective (3\u2212x)\u00b2 + \u03bbx\u00b2. Its minimizer balances residual and coefficient costs; it is not an ordinary projection."
+    },
+    {
+      "kind": "ridge",
+      "lam": 16.0,
+      "lambdaExact": "16",
+      "x": 0.17647058823529413,
+      "xExact": "3/17",
+      "residualSSE": "2304/289",
+      "coefficientSSE": "9/289",
+      "penalty": "144/289",
+      "sse": "144/17",
+      "title": "Penalty \u03bb = 16",
+      "why": "The plotted curve is the complete objective (3\u2212x)\u00b2 + \u03bbx\u00b2. Its minimizer balances residual and coefficient costs; it is not an ordinary projection."
+    }
+  ],
+  "ridge-identity": [
+    {
+      "kind": "ridge-identity",
+      "lam": 0.0,
+      "lambdaExact": "0",
+      "alpha": 1.0,
+      "alphaExact": "1",
+      "xExact": [
+        "3",
+        "4"
+      ],
+      "residualSSE": "0",
+      "penalty": "0",
+      "sse": "0",
+      "title": "Two-coordinate ridge: \u03bb = 0",
+      "why": "This is Problem24: A is the two-by-two identity and b = (3,4). The curve restricts the complete objective to x = \u03b1(3,4); the full normal equations prove this direction contains the unique global minimizer."
+    },
+    {
+      "kind": "ridge-identity",
+      "lam": 0.25,
+      "lambdaExact": "1/4",
+      "alpha": 0.8,
+      "alphaExact": "4/5",
+      "xExact": [
+        "12/5",
+        "16/5"
+      ],
+      "residualSSE": "1",
+      "penalty": "4",
+      "sse": "5",
+      "title": "Two-coordinate ridge: \u03bb = 1/4",
+      "why": "This is Problem24: A is the two-by-two identity and b = (3,4). The curve restricts the complete objective to x = \u03b1(3,4); the full normal equations prove this direction contains the unique global minimizer."
+    },
+    {
+      "kind": "ridge-identity",
+      "lam": 1.0,
+      "lambdaExact": "1",
+      "alpha": 0.5,
+      "alphaExact": "1/2",
+      "xExact": [
+        "3/2",
+        "2"
+      ],
+      "residualSSE": "25/4",
+      "penalty": "25/4",
+      "sse": "25/2",
+      "title": "Two-coordinate ridge: \u03bb = 1",
+      "why": "This is Problem24: A is the two-by-two identity and b = (3,4). The curve restricts the complete objective to x = \u03b1(3,4); the full normal equations prove this direction contains the unique global minimizer."
+    },
+    {
+      "kind": "ridge-identity",
+      "lam": 4.0,
+      "lambdaExact": "4",
+      "alpha": 0.2,
+      "alphaExact": "1/5",
+      "xExact": [
+        "3/5",
+        "4/5"
+      ],
+      "residualSSE": "16",
+      "penalty": "4",
+      "sse": "20",
+      "title": "Two-coordinate ridge: \u03bb = 4",
+      "why": "This is Problem24: A is the two-by-two identity and b = (3,4). The curve restricts the complete objective to x = \u03b1(3,4); the full normal equations prove this direction contains the unique global minimizer."
+    },
+    {
+      "kind": "ridge-identity",
+      "lam": 16.0,
+      "lambdaExact": "16",
+      "alpha": 0.058823529411764705,
+      "alphaExact": "1/17",
+      "xExact": [
+        "3/17",
+        "4/17"
+      ],
+      "residualSSE": "6400/289",
+      "penalty": "400/289",
+      "sse": "400/17",
+      "title": "Two-coordinate ridge: \u03bb = 16",
+      "why": "This is Problem24: A is the two-by-two identity and b = (3,4). The curve restricts the complete objective to x = \u03b1(3,4); the full normal equations prove this direction contains the unique global minimizer."
+    }
+  ],
+  "householder": [
+    {
+      "kind": "vectors",
+      "vectors": [
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "labels": [
+        "Design column v",
+        "Observed data b"
+      ],
+      "title": "Original observation coordinates",
+      "why": "The column spans a line. Its coefficient is eleven twenty-fifths; its squared distance to the data is four twenty-fifths.",
+      "sse": "4/25"
+    },
+    {
+      "kind": "vectors",
+      "vectors": [
+        [
+          3,
+          4
+        ],
+        [
+          8,
+          4
+        ]
+      ],
+      "labels": [
+        "Design column v",
+        "Reflector normal u"
+      ],
+      "title": "Construct the reflector normal",
+      "why": "With \u03b1 = \u22125, use u = v + 5e\u2081 = (8,4). The sign avoids cancellation in the leading coordinate.",
+      "sse": "4/25"
+    },
+    {
+      "kind": "vectors",
+      "vectors": [
+        [
+          -5,
+          0
+        ],
+        [
+          -2.2,
+          0.4
+        ]
+      ],
+      "labels": [
+        "Transformed column Hv",
+        "Transformed data Hb"
+      ],
+      "title": "Reflect both the design and the data",
+      "why": "H is orthogonal. Both vectors must be transformed; their residual length is preserved.",
+      "sse": "4/25"
+    },
+    {
+      "kind": "vectors",
+      "vectors": [
+        [
+          -2.2,
+          0
+        ],
+        [
+          -2.2,
+          0.4
+        ]
+      ],
+      "labels": [
+        "Optimal transformed fit",
+        "Transformed data Hb"
+      ],
+      "title": "Separate fitted and residual coordinates",
+      "why": "The first coordinate is fitted exactly. The vertical remaining coordinate is two-fifths, giving squared error four twenty-fifths.",
+      "sse": "4/25"
+    }
+  ],
+  "leverage": [
+    {
+      "kind": "fit",
+      "t": [
+        -1.0,
+        0.0,
+        1.0
+      ],
+      "y": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "w": [
+        1,
+        1,
+        1
+      ],
+      "c": 0.3333333333333333,
+      "d": 0.0,
+      "exactC": "1/3",
+      "exactD": "0",
+      "omit": null,
+      "sse": "2/3",
+      "residual": [
+        "-1/3",
+        "2/3",
+        "-1/3"
+      ],
+      "title": "Full three-point fit",
+      "why": "An outlined point was omitted from fitting but is still predicted. Its vertical error is a deleted-observation error, not its original training residual."
+    },
+    {
+      "kind": "fit",
+      "t": [
+        -1.0,
+        0.0,
+        1.0
+      ],
+      "y": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "w": [
+        1,
+        1,
+        1
+      ],
+      "c": 0.0,
+      "d": 0.0,
+      "exactC": "0",
+      "exactD": "0",
+      "omit": 1,
+      "sse": "0",
+      "residual": [
+        "0",
+        "1",
+        "0"
+      ],
+      "title": "Delete the middle observation",
+      "why": "An outlined point was omitted from fitting but is still predicted. Its vertical error is a deleted-observation error, not its original training residual."
+    },
+    {
+      "kind": "fit",
+      "t": [
+        -1.0,
+        0.0,
+        1.0
+      ],
+      "y": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "w": [
+        1,
+        1,
+        1
+      ],
+      "c": 1.0,
+      "d": -1.0,
+      "exactC": "1",
+      "exactD": "-1",
+      "omit": 0,
+      "sse": "0",
+      "residual": [
+        "-2",
+        "0",
+        "0"
+      ],
+      "title": "Delete the left observation",
+      "why": "An outlined point was omitted from fitting but is still predicted. Its vertical error is a deleted-observation error, not its original training residual."
+    }
+  ],
+  "sensitivity": [
+    {
+      "kind": "sensitivity",
+      "epsilon": "1",
+      "x": [
+        0.99,
+        0.01
+      ],
+      "xExact": [
+        "99/100",
+        "1/100"
+      ],
+      "delta": "1/100",
+      "sse": "1",
+      "title": "Column separation \u03b5 = 1",
+      "why": "Only the second observed response changes by one-hundredth. Fitted change remains (0,1/100,0), while canceling coefficients can grow large as the columns become dependent."
+    },
+    {
+      "kind": "sensitivity",
+      "epsilon": "1/10",
+      "x": [
+        0.9,
+        0.1
+      ],
+      "xExact": [
+        "9/10",
+        "1/10"
+      ],
+      "delta": "1/100",
+      "sse": "1",
+      "title": "Column separation \u03b5 = 1/10",
+      "why": "Only the second observed response changes by one-hundredth. Fitted change remains (0,1/100,0), while canceling coefficients can grow large as the columns become dependent."
+    },
+    {
+      "kind": "sensitivity",
+      "epsilon": "1/100",
+      "x": [
+        0.0,
+        1.0
+      ],
+      "xExact": [
+        "0",
+        "1"
+      ],
+      "delta": "1/100",
+      "sse": "1",
+      "title": "Column separation \u03b5 = 1/100",
+      "why": "Only the second observed response changes by one-hundredth. Fitted change remains (0,1/100,0), while canceling coefficients can grow large as the columns become dependent."
+    },
+    {
+      "kind": "sensitivity",
+      "epsilon": "1/1000",
+      "x": [
+        -9.0,
+        10.0
+      ],
+      "xExact": [
+        "-9",
+        "10"
+      ],
+      "delta": "1/100",
+      "sse": "1",
+      "title": "Column separation \u03b5 = 1/1000",
+      "why": "Only the second observed response changes by one-hundredth. Fitted change remains (0,1/100,0), while canceling coefficients can grow large as the columns become dependent."
+    }
+  ],
+  "discrete-noise": [
+    {
+      "kind": "noise",
+      "errors": [
+        1,
+        1
+      ],
+      "point": [
+        1.0,
+        0.0
+      ],
+      "sse": "0",
+      "title": "Errors (1, 1)",
+      "why": "Each of four outcomes has probability one-quarter. The coefficient error M and first residual D never are simultaneously zero; their product nevertheless always vanishes."
+    },
+    {
+      "kind": "noise",
+      "errors": [
+        1,
+        -1
+      ],
+      "point": [
+        0.0,
+        1.0
+      ],
+      "sse": "2",
+      "title": "Errors (1, -1)",
+      "why": "Each of four outcomes has probability one-quarter. The coefficient error M and first residual D never are simultaneously zero; their product nevertheless always vanishes."
+    },
+    {
+      "kind": "noise",
+      "errors": [
+        -1,
+        1
+      ],
+      "point": [
+        0.0,
+        -1.0
+      ],
+      "sse": "2",
+      "title": "Errors (-1, 1)",
+      "why": "Each of four outcomes has probability one-quarter. The coefficient error M and first residual D never are simultaneously zero; their product nevertheless always vanishes."
+    },
+    {
+      "kind": "noise",
+      "errors": [
+        -1,
+        -1
+      ],
+      "point": [
+        -1.0,
+        0.0
+      ],
+      "sse": "0",
+      "title": "Errors (-1, -1)",
+      "why": "Each of four outcomes has probability one-quarter. The coefficient error M and first residual D never are simultaneously zero; their product nevertheless always vanishes."
+    }
+  ]
+}

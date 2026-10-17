@@ -803,3 +803,13 @@ Site source synchronization again failed with a connection reset before verified
 ## Conditional probability review completed: 15October2026
 
 All60answers individually reviewed,56expanded derivations,80final rules retained,23newexact question figures,and all retained scene options checked. Repaired the false triple-only independence example in both lesson and SC33and the generator.24of60baseline reviews are now checked;36remain.61technical notes are available;58newtechnical chapters remain. IELTS has two actual prepared teaching lessons,with learner mastery unconfirmed. Next existing review:s_bayes;next technical authoring:l_leastsquares. Site transport is still pending;offline copies and GitHub are tracked separately.
+
+
+## Bayes individual review completed: 17 October 2026
+
+65answers reviewed;63newderivations;80final decisions;31actual-input vector figures. Fixed finite-population and common-coin-weight assumptions;all76finitecheckpoints and actual playback checked.25of60baseline reviews checked;35remain.61technical drafts;58newtechnical chapters remain. IELTS has two actual prepared lessons;mastery remains unconfirmed. Next new chapter:l_leastsquares;next existing review:l_gauss. Official Site source opening now succeeds;publication awaits completed packaging.
+
+
+## Least Squares and IELTS Session 3 completed: 17 October 2026
+
+Least Squares:22teaching sections,50worked mathematical/course problems,one authentic doctoral revisit,60final decisions,11model families and20compact placements.1,283independent mathematical assertions;70rendered checkpoints;48exact explorer combinations. Four actual written university courses compared and used. IELTS Session3:60minutes,grammar/reading/listening,10worked grammar examples,12postteaching checks and6original synthetic clips. Mastery remains unconfirmed.62technical drafts available;57newtechnical chapters remain.25of60baseline individual reviews checked;35remain. Next review:l_gauss;next authoring:i_games.

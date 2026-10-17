@@ -120,7 +120,7 @@ The core formulas are $w_i=\pi_iL_i$, $Z=\sum_iw_i$, $r_i=w_i/Z$ for $Z>0$, and 
 
 54. At least one boy in a two-child family and a randomly observed child being a boy are different events. Their report likelihoods explain the one-third and one-half answers without contradiction.
 
-55. Selecting a child uniformly across a population weights family sizes by the number of children. Selecting a family uniformly first does not create this size bias.
+55. For fixed population family proportions, selecting a child uniformly weights family sizes by their number of children. The size-biased limiting distribution requires a finite positive mean. A ratio of expected counts need not equal the expected ratio in a small random finite population. Selecting a family uniformly first defines a different protocol.
 
 56. A size-biased distribution requires finite positive mean for normalization. Zero-size groups contribute no individual-selection opportunities, although they may have positive group-selection prior mass.
 

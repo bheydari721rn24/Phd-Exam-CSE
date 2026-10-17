@@ -1,0 +1,303 @@
+# Fully worked mathematical and conceptual problems
+
+The course reconstructions are identified individually. All other entries are independently written exercises, with author-assessed medium or hard reasoning requirements. This is not a measured difficulty calibration. Every answer states the model, performs the calculation or proof, and explains a diagnostic check. The later authentic examination revisit is counted separately.
+
+## Problem 1. MIT's line fit, with a complete error certificate
+
+**Question.** Reconstruct the MIT 18.06SC Session 2.3 worked example: fit a line with intercept to $(1,1),(2,2),(3,2)$. Find coefficients, fitted values and minimum squared error. Explain which perpendicularity is valid.
+
+**Solution.** Let $A$ have rows $(1,1),(1,2),(1,3)$ and $x=(c,d)^T$. Its Gram system is $3c+6d=5$, $6c+14d=11$. Subtracting twice the first equation from the second gives $d=1/2$, and substitution gives $c=2/3$. The fitted vector is $p=(7/6,5/3,13/6)^T$. Therefore $r=b-p=(-1/6,1/3,-1/6)^T$ and $r^Tr=1/6$. Check $\sum_i r_i=0$ and $\sum_i t_ir_i=0$, so $A^Tr=0$. For any competing coefficient change $z$, the squared error is $1/6+\|Az\|_2^2$. Independent columns make equality possible only at $z=0$. This proves both optimality and uniqueness. The vector residual is perpendicular to the observation-space design plane; individual vertical data-plot errors need not be perpendicular to the plotted line.
+
+## Problem 2. Berkeley's nonorthogonal numerical design
+
+**Question.** Independently reconstruct Berkeley Math 54's first example. Let $A=\begin{bmatrix}-1&2\\2&-3\\-1&3\end{bmatrix}$ and $b=(4,1,2)^T$. Find the unique least-squares solution and squared error.
+
+**Solution.** Multiplication gives $A^TA=\begin{bmatrix}6&-11\\-11&22\end{bmatrix}$ and $A^Tb=(-4,11)^T$. The determinant is $132-121=11>0$, so coefficients are unique. The first equation gives $6x_1-11x_2=-4$; combining the equations yields $x_2=2$, then $x_1=3$. Now $Ax=(1,0,3)^T$ and $r=(3,1,-1)^T$. The column products are $-3+2+1=0$ and $6-3-3=0$, independently checking the solve. The squared error is $9+1+1=11$. The nonzero residual proves the original system is inconsistent, while the normal system remains consistent. The result is a best observation-space approximation, not an exact solution obtained by discarding an inconvenient equation.
+
+## Problem 3. Berkeley's QR example, without an explicit inverse
+
+**Question.** For $A=\begin{bmatrix}1&3&5\\1&1&0\\1&1&2\\1&3&3\end{bmatrix}$ and $b=(3,5,7,-3)^T$, use the Berkeley example's factorization $Q=\frac12\begin{bmatrix}1&1&1\\1&-1&-1\\1&-1&1\\1&1&-1\end{bmatrix}$ and $R=\begin{bmatrix}2&4&5\\0&2&3\\0&0&2\end{bmatrix}$. Explain every triangular step.
+
+**Solution.** The columns of $Q$ each have unit norm and pairwise inner product zero; multiplication verifies $QR=A$. Directly $Q^Tb=(6,-6,4)^T$. The last triangular equation is $2x_3=4$, hence $x_3=2$. The second is $2x_2+3(2)=-6$, hence $x_2=-6$. The first is $2x_1+4(-6)+5(2)=6$, hence $x_1=10$. Fitted values are $(2,4,8,-2)^T$, so $r=(1,1,-1,-1)^T$ and error four. Each design column has zero product with this residual. The nonzero diagonal of $R$ proves full column rank. Thin $Q$ has only three columns in four-dimensional observation space; using $QQ^T=I_4$ would incorrectly predict zero residual.
+
+## Problem 4. Derive the centered slope instead of memorizing it
+
+**Question.** Fit a line to $(-1,0),(0,1),(1,3)$. Derive the slope using centered sums and find the minimum error.
+
+**Solution.** The input mean is zero and the response mean is $4/3$. The constant and input columns are orthogonal. The centered normal equation for the intercept gives $c=4/3$. The slope numerator is $(-1)0+0(1)+1(3)=3$ and its denominator is $1+0+1=2$, so $d=3/2$. Fitted responses are $(-1/6,4/3,17/6)$; residuals are $(1/6,-1/3,1/6)$ and their squares sum to $1/6$. Their sum is zero and their input-weighted sum is zero. This also proves that the fitted line passes through $(0,4/3)$, the sample centroid. The coefficients would not be obtained by averaging the three slopes from the origin: a zero input and a free intercept make that shortcut inappropriate.
+
+## Problem 5. Removing an intercept changes the optimization
+
+**Question.** Fit a line through the origin to the same three observations as Problem 1. Compare its error with the fit that includes an intercept.
+
+**Solution.** There is now one coefficient $d$, one design column $(1,2,3)^T$, and normal equation $14d=11$. Thus $d=11/14$. The fitted values are $(11,22,33)/14$ and residuals $(3,6,-5)/14$. Their input-weighted sum is $(3+12-15)/14=0$, but their ordinary sum is $4/14$, not zero. The squared error is $(9+36+25)/196=5/14$. The intercept model has error $1/6$, and $5/14-1/6=4/21>0$. This is consistent with nested model spaces: allowing a free intercept adds possible fitted vectors. The intercept residual-sum identity cannot be used after deleting its design column; doing so would impose a second equation on a one-parameter model.
+
+## Problem 6. Repeated inputs and infinitely many line coefficients
+
+**Question.** All three inputs equal two, and responses are $1,4,7$. Fit an intercept and slope. Determine all minimizers, their minimum-norm member and the irreducible error.
+
+**Solution.** Every fitted value equals $c+2d$, so only this combination is identified. Minimize $(1-a)^2+(4-a)^2+(7-a)^2$ over $a=c+2d$. Completing the square gives $18+3(a-4)^2$, hence every minimizer satisfies $c+2d=4$ and has squared error eighteen. The design nullspace is spanned by $(-2,1)^T$. The minimum-norm member lies along the row vector $(1,2)$: write $(c,d)=k(1,2)$ and impose $5k=4$. It is $(4/5,8/5)$. Adding any multiple of $(-2,1)$ leaves all fitted responses unchanged. Separate slope estimates are therefore not meaningful from these inputs, although the optimal observed fitted vector $(4,4,4)$ is unique.
+
+## Problem 7. A dependent two-column design
+
+**Question.** Let $u=(1,2,0)^T$, $A=[u\ 2u]$ and $b=(3,1,2)^T$. Find every least-squares solution and the unique minimum-norm one.
+
+**Solution.** Write $a=x_1+2x_2$. The fitted vector is $au$ and the single-column projection coefficient is $a=(u^Tb)/(u^Tu)=5/5=1$. Thus all minimizers satisfy $x_1+2x_2=1$. The minimum-norm solution is parallel to $(1,2)$ and equals $(1/5,2/5)$. The fit is $(1,2,0)$, residual $(2,-1,2)$, and error nine. The residual product with $u$ is $2-2=0$, which also checks the second column because it is a multiple of the first. The Gram matrix is $\begin{bmatrix}5&10\\10&20\end{bmatrix}$ and is singular. Its singularity does not prevent a solution to its normal equations; it prevents using an ordinary inverse and explains nonunique coefficients.
+
+## Problem 8. The zero design is a valid boundary case
+
+**Question.** Let $A$ be the zero $3\times2$ matrix and $b=(1,2,3)^T$. Describe minimizers, fitted values, normal equations and minimum-norm selection.
+
+**Solution.** For every $x$, the fitted vector is zero, the residual is $b$, and the squared error is $1+4+9=14$. Consequently every coefficient vector minimizes the objective. The normal equations reduce to $0=0$, agreeing with this complete solution set. The unique minimum-norm vector among all coefficients is zero. The column space is the zero subspace, its orthogonal projector is zero, and the residual projector is the identity. The row space is also zero, consistent with the minimum-norm convention. A program that rejects this model merely because its Gram matrix is noninvertible would incorrectly reject a well-defined optimization problem; a program that reports a unique unrestricted coefficient solution would also be wrong.
+
+## Problem 9. Certify an answer by its residual
+
+**Question.** For $A=\begin{bmatrix}1&0\\0&1\\1&1\end{bmatrix}$, $b=(1,2,4)^T$, test whether $x=(4/3,7/3)^T$ is optimal and unique. Give a global certificate.
+
+**Solution.** Its fit is $(4/3,7/3,11/3)^T$, so $r=(-1/3,-1/3,1/3)^T$. The two column products are $-1/3+1/3=0$, so the normal equations hold. For every change $z$, the objective is $1/3+\|Az\|_2^2$. This proves global optimality and records the minimum error $1/3$. The first two rows of $A$ form an identity matrix, so $Az=0$ implies $z=0$, proving uniqueness. This route avoids recomputing an inverse. Merely checking that the candidate approximately satisfies some original equations is insufficient: the residual must be perpendicular to every design column, and uniqueness requires an independent rank argument.
+
+## Problem 10. Orthogonal columns that are not normalized
+
+**Question.** Let $a_1=(1,1,0)^T$, $a_2=(1,-1,2)^T$ and $b=(1,2,3)^T$. Find least-squares coefficients and error without forming a dense inverse.
+
+**Solution.** Their inner product is zero, while squared lengths are two and six. Each coordinate is therefore its own normalized inner-product ratio: $x_1=(a_1^Tb)/2=3/2$ and $x_2=(a_2^Tb)/6=5/6$. The fitted vector is $(7/3,2/3,5/3)^T$, giving residual $(-4/3,4/3,4/3)^T$ and error $16/3$. As an energy check, $\|b\|_2^2=14$, whereas fitted energy is $3^2/2+5^2/6=26/3$; their difference is $16/3$. Using $A^Tb$ as coefficients would be valid only for orthonormal columns and would omit the required divisions. Orthogonality diagonalizes the Gram matrix but does not make its diagonal equal to one.
+
+## Problem 11. One Householder step transforms both sides
+
+**Question.** For $A=(3,4)^T$ and $b=(1,2)^T$, construct the stable-sign Householder reflector, solve the transformed problem and recover its minimum error.
+
+**Solution.** The column norm is five. Choose $\alpha=-5$ and $u=(8,4)^T$, giving $H=\begin{bmatrix}-3/5&-4/5\\-4/5&3/5\end{bmatrix}$. Direct multiplication gives $HA=(-5,0)^T$ and $Hb=(-11/5,2/5)^T$. The first coordinate is fitted exactly by $-5x=-11/5$, so $x=11/25$. The second coordinate cannot be changed and contributes squared error $4/25$. Checking in original coordinates, $A^Tb=11$ and $A^TA=25$ give the same coefficient. Orthogonality of $H$ preserves the objective, not the data coordinates individually. Applying $H$ only to $A$ while leaving $b$ unchanged would solve a different problem and incorrectly return a different coefficient.
+
+## Problem 12. Read irreducible error from full QR
+
+**Question.** A full QR transform gives design $\begin{bmatrix}2&1\\0&3\\0&0\end{bmatrix}$ and data $(5,6,7)^T$. Find the coefficients and minimum error without constructing the original orthogonal matrix.
+
+**Solution.** Orthogonal transformation preserves the complete residual norm, so the objective is $(5-2x_1-x_2)^2+(6-3x_2)^2+49$. Set the second fitted coordinate to six to get $x_2=2$. Then the first gives $2x_1+2=5$, hence $x_1=3/2$. The remaining term is forty-nine and is independent of the coefficients. Both upper-triangular diagonal entries are nonzero, proving uniqueness. The bottom transformed data coordinate is not an extra equation that the optimizer should force to zero; its design row is identically zero. The original residual vector depends on the omitted orthogonal transformation, but its norm and the coefficient vector are already determined.
+
+## Problem 13. A change of feature basis
+
+**Question.** For the line design of Problem 1, replace $A$ by $A'=AT$ where $T=\begin{bmatrix}1&2\\0&1\end{bmatrix}$. Find the new coefficients and determine whether fitted values change.
+
+**Solution.** The new columns are the constant feature and $t+2$. Equality of predictions requires $ATx'=Ax$, so $x'=T^{-1}x$ because $A$ has independent columns. Since $T^{-1}=\begin{bmatrix}1&-2\\0&1\end{bmatrix}$ and the old coefficients are $(2/3,1/2)^T$, the new vector is $(-1/3,1/2)^T$. Evaluating the new model gives $-1/3+(t+2)/2=2/3+t/2$, exactly the same fitted line. Hence error remains $1/6$. The coordinate values changed because the basis changed; the observation-space subspace did not. This invariance applies to the unpenalized fit. A Euclidean penalty on the new coefficients would generally define a different regularized objective.
+
+## Problem 14. A quadratic with a repeated input
+
+**Question.** Fit $a_0+a_1t+a_2t^2$ to $(-1,1),(0,0),(0,2),(1,3)$. Explain why four observations do not make this interpolation exact.
+
+**Solution.** At input zero the same fitted value $a_0$ must approximate both zero and two; their squared contribution is $a_0^2+(2-a_0)^2=2+2(a_0-1)^2$. The two other inputs can be fitted exactly once $a_0$ is chosen: require $a_0-a_1+a_2=1$ and $a_0+a_1+a_2=3$. The minimum therefore sets $a_0=1$, then subtraction gives $a_1=1$ and either endpoint equation gives $a_2=1$. Error is two, with residuals $(0,-1,1,0)$, perpendicular to each sampled feature column. Three distinct inputs guarantee rank three. The repeated contradictory responses prevent zero error; they provide repeated measurement at one input, not a fourth independent interpolation location.
+
+## Problem 15. Why centering does not diagonalize a quadratic Gram matrix
+
+**Question.** In ETH's quadratic-feature construction, can the columns $1,t,t^2$ have a diagonal Gram matrix at nonzero real inputs merely because the inputs sum to zero? Prove the precise obstruction.
+
+**Solution.** The constant and input columns have product $\sum_i t_i$, which centering makes zero. The input and square columns have product $\sum_i t_i^3$, which vanishes for a symmetric input sample but need not vanish under centering alone. Most decisively, the constant and square columns have product $\sum_i t_i^2$. Every summand is nonnegative; their sum is zero exactly when every input is zero. In that case the last two columns vanish and the design is rank deficient. Therefore no nontrivial full-rank real quadratic design with these raw columns has a diagonal Gram matrix. One can instead subtract the mean square from the squared feature and continue an actual orthogonalization. The statement concerns the chosen basis, not impossibility of orthogonal polynomial fitting.
+
+## Problem 16. Unequal observation weights
+
+**Question.** Fit one constant to responses $0,2,4$ using weights $1,1,2$. Find its weighted error and compare it with the unweighted mean under both objectives.
+
+**Solution.** The scalar weighted normal equation is $(1+1+2)c=0+2+8$, so $c=5/2$. Its weighted error is $25/4+1/4+2(9/4)=11$. The unweighted mean is two, whose weighted error is $4+0+2(4)=12$. Thus the weighted optimizer is indeed better for the declared weighted objective. Under the ordinary objective, the mean has error eight, while $5/2$ has error $25/4+1/4+9/4=35/4$. There is no contradiction: relative row weights changed the objective. A common multiplier on all weights would cancel from the optimizer, whereas doubling only the last weight does not.
+
+## Problem 17. A weighted symmetric line fit
+
+**Question.** Fit a line with intercept to $(0,0),(1,1),(2,0)$ with respective weights $1,2,1$. Find coefficients and the correct residual orthogonality conditions.
+
+**Solution.** The weighted input mean is one, so use centered input $s=t-1$ with values $-1,0,1$. Its weighted product with the constant is zero, and with the response it is also zero. The slope is therefore zero. The intercept is the weighted response mean $2/4=1/2$. Residuals are $(-1/2,1/2,-1/2)$, giving weighted error $1/4+2(1/4)+1/4=1$. Their weighted sum is zero, while the ordinary sum is $-1/2$ and need not vanish. The weighted time-product is likewise zero. The unweighted intercept would be $1/3$ with the same zero slope, but its weighted objective is $1/9+2(4/9)+1/9=10/9>1$. The metric, not a changed residual sign, explains the difference.
+
+## Problem 18. A nonsymmetric weighted projector
+
+**Question.** Let $A=(1,0)^T$, $b=(0,1)^T$ and $W=\begin{bmatrix}2&1\\1&2\end{bmatrix}$. Find the weighted fit and show why ordinary perpendicularity fails.
+
+**Solution.** The weighted Gram scalar is two, and $A^TWb=1$. Thus $x=1/2$, $p=(1/2,0)$ and $r=(-1/2,1)$. Multiplication gives $Wr=(0,3/2)$, so $A^TWr=0$. Ordinary $A^Tr=-1/2$ is nonzero. The weighted error is $r^TWr=3/2$, smaller than the value two at the ordinary fit $x=0$. The projector is $P_W=\begin{bmatrix}1&1/2\\0&0\end{bmatrix}$. It squares to itself but is not symmetric; nevertheless $P_W^TW=WP_W$. The off-diagonal weight couples coordinates, making a purely Euclidean right-angle marker in a plot misleading. This example directly disproves extending symmetric-projector claims to arbitrary coordinate representations of weighted projections.
+
+## Problem 19. A full-rank design with zero-weight ambiguity
+
+**Question.** Let $A=I_2$, $b=(3,7)^T$ and $W=\operatorname{diag}(1,0)$. Does full rank of $A$ imply unique weighted coefficients?
+
+**Solution.** The objective is $(3-x_1)^2$ because the second residual receives zero weight. It is minimized by $x_1=3$ with arbitrary $x_2$. Thus full rank of the unweighted design does not suffice. With $C=\operatorname{diag}(1,0)$, the effective design $CA$ has rank one and nullspace spanned by $(0,1)$, exactly the direction of ambiguity. The minimum weighted error is zero, although a chosen minimizer such as $(3,0)$ has a nonzero ordinary residual. A minimum-norm convention would choose that vector, but the weighted objective alone does not require it. Positive definite weights preserve all observation directions; semidefinite weights may discard some.
+
+## Problem 20. Negative weights can destroy existence
+
+**Question.** For $A=(1,1)^T$, $b=(0,1)^T$ and signed weight matrix $\operatorname{diag}(1,-1)$, determine whether a minimum exists.
+
+**Solution.** The proposed loss is $x^2-(1-x)^2=2x-1$. It tends to negative infinity as $x$ tends to negative infinity, so no minimizer exists. Here the normal equation degenerates to $0x=-1$, which is inconsistent, in contrast with genuine nonnegative least squares where a minimizer always exists. The failure is not caused by having two observations or an overdetermined model; the signed expression is not a squared norm and is not bounded below. Even a stationary point in another indefinite-weight example would need a separate global-minimality test. The usual normal-equation sufficiency proof relies on a nonnegative remainder and cannot be imported after replacing a positive metric by arbitrary signed costs.
+
+## Problem 21. Fit subject to an exact coefficient constraint
+
+**Question.** Minimize $\|(3,0)^T-x\|_2^2$ subject to $x_1+x_2=1$. Find the coefficient vector, error and a constraint-based certificate.
+
+**Solution.** Parameterize every feasible vector by $(t,1-t)$. The objective becomes $(3-t)^2+(1-t)^2=2(t-2)^2+2$. Hence the unique solution is $(2,-1)$ and the minimum is two. Its residual is $(1,1)$, parallel to the constraint normal, so it is perpendicular to every feasible direction $(z,-z)$. The unconstrained normal equation $r=0$ does not hold because its solution $(3,0)$ is infeasible. Instead constrained stationarity is $x-b+\lambda(1,1)^T=0$ with $\lambda=1$. The nullspace-coordinate and multiplier methods agree. The positive quadratic term along all nonzero feasible directions proves uniqueness without requiring an inverse of a larger block matrix.
+
+## Problem 22. Check feasibility before optimizing
+
+**Question.** Coefficients must satisfy $x_1+x_2=1$ and $2x_1+2x_2=3$. Can a least-squares objective select a feasible solution? Would a large penalty repair the exact problem?
+
+**Solution.** Doubling the first equality forces the second left-hand side to equal two, contradicting its required value three. The feasible set is empty, so no constrained minimizer exists for any objective. A finite quadratic penalty on the two constraint violations yields a different unconstrained optimization problem and necessarily leaves at least one violation. Taking a penalty parameter large does not create a point satisfying inconsistent equalities. A numerical solver should report infeasibility or clearly state its relaxation; it must not label the relaxed fit an exact constrained solution. Redundancy of rows would be harmless if right-hand sides were compatible. The contradiction comes from the augmented constraints, not simply from dependence of their coefficient rows.
+
+## Problem 23. A constraint can restore uniqueness
+
+**Question.** Minimize $(2-x_1-x_2)^2$ subject to $x_1-x_2=0$. The unconstrained design is rank deficient. Determine the constrained result and justify uniqueness.
+
+**Solution.** Feasible coefficients have form $(t,t)$, so the objective is $(2-2t)^2=4(t-1)^2$. The unique constrained minimizer is $(1,1)$ and it fits exactly. The unconstrained nullspace is spanned by $(1,-1)$; the constraint's nullspace is spanned by $(1,1)$. Their intersection is zero. Therefore no nonzero feasible direction leaves the fit unchanged, precisely the condition that restores uniqueness. In contrast, imposing $x_1+x_2=2$ would make every feasible vector an exact fit and leave a whole line of minimizers. It is the relation between the design kernel and feasible directions that matters, rather than the number of equations called constraints.
+
+## Problem 24. Ridge changes both the residual and its certificate
+
+**Question.** With $A=I_2$, $b=(3,4)^T$ and penalty $\lambda=1$, minimize residual squared plus coefficient squared. Compute both terms and test ordinary residual perpendicularity.
+
+**Solution.** The ridge normal equations are $2x=b$, so $x=(3/2,2)$. Its residual equals the same vector, and each squared norm is $9/4+4=25/4$. The complete objective is $25/2$. Ordinary residual orthogonality would require $r=0$ because $A$ is the identity; it fails. The correct ridge equation is $A^Tr=\lambda x$, which holds exactly. The fitted map is $P_\lambda=I/2$ and its square is $I/4$, so it is not a projector. Ridge deliberately accepts some residual in exchange for smaller coefficients. Comparing its unpenalized error with the zero error of ordinary least squares does not evaluate the objective that ridge was asked to minimize.
+
+## Problem 25. Ridge on a dependent design
+
+**Question.** Let $A=[1\ 1]$, $b=2$ and $\lambda=2$. Find the ridge coefficients, fitted value and complete objective. What happens as the penalty tends to zero?
+
+**Solution.** The equations are $3x_1+x_2=2$ and $x_1+3x_2=2$. Subtraction gives $x_1=x_2$, and then both equal $1/2$. The fit is one, residual one, coefficient squared norm $1/2$, and complete objective $1+2(1/2)=2$. For a general positive penalty, symmetry gives each coefficient $2/(2+\lambda)$. As the penalty decreases to zero, both approach one, the minimum-norm exact solution of $x_1+x_2=2$. Ridge is unique for every positive penalty because its quadratic form adds a positive cost in the otherwise invisible null direction. Its limiting uniqueness convention should not be misreported as uniqueness of the original unpenalized problem.
+
+## Problem 26. A deliberately unpenalized intercept
+
+**Question.** Minimize $(2-x_1-x_2)^2+x_2^2$. Which coefficient is penalized, and is the optimizer unique despite a rank-one design?
+
+**Solution.** Only $x_2$ receives a coefficient penalty. For any fixed $x_2$, choose $x_1=2-x_2$ to make the residual zero. The remaining objective is $x_2^2$, uniquely minimized at $x_2=0$, hence $x_1=2$. The design kernel is spanned by $(1,-1)$, while the penalty kernel is the first coordinate axis; their intersection is zero. Equivalently the augmented design has independent columns. This result does not shrink the unpenalized coefficient toward zero. Replacing the penalty by $x_1^2+x_2^2$ would give a different problem with a nonzero residual. Statements about ridge shrinking every coefficient require an identity penalty, not a penalty that intentionally exempts an intercept or another known component.
+
+## Problem 27. A penalty that fails to identify a missing direction
+
+**Question.** Minimize $(1-x_1)^2+\lambda x_1^2$ over $(x_1,x_2)$ for $\lambda>0$. Does a positive penalty parameter alone imply unique coefficients?
+
+**Solution.** The objective contains no $x_2$. Completing the square in its only active coordinate gives $(1+\lambda)(x_1-1/(1+\lambda))^2+\lambda/(1+\lambda)$. Therefore all minimizers have $x_1=1/(1+\lambda)$ and arbitrary $x_2$, with minimum value $\lambda/(1+\lambda)$. Both the design $A=[1\ 0]$ and the penalty operator $L=[1\ 0]$ vanish on the second coordinate axis. Their common kernel is nonzero, so the augmented design remains deficient. A positive parameter guarantees uniqueness for ordinary identity ridge, but not for every quadratic penalty. A solver's optional minimum-norm output would select $x_2=0$ as an additional convention, not as a conclusion from this loss.
+
+## Problem 28. Leverage in a constant model
+
+**Question.** Fit one constant to three responses. Determine the hat matrix, all leverage scores and the response to changing only the first observation by $\delta$.
+
+**Solution.** The design is $\mathbf1=(1,1,1)^T$ and its Gram scalar is three. Hence $P=\mathbf1\mathbf1^T/3$. Every diagonal entry is $1/3$ and their sum is one, equal to the rank. Changing the first response adds $\delta e_1$ to the data and $\delta Pe_1=(\delta/3)\mathbf1$ to the fitted vector. Thus the first observation changes its own fit by only one third of its change and shifts every other fitted value equally. The full fitted change has norm $|\delta|/\sqrt3$, no greater than the original perturbation norm $|\delta|$. The leverage scores depend only on the design, not on whether a particular response is unusually large.
+
+## Problem 29. Exact deleted-observation errors
+
+**Question.** For a line with intercept at inputs $-1,0,1$ and responses $0,1,0$, compute leverage and leave-one-out residuals. Verify the middle result directly.
+
+**Solution.** The orthogonal constant and input columns give $P=\mathbf1\mathbf1^T/3+tt^T/2$. Its diagonal is $(5/6,1/3,5/6)$. Symmetry gives fit $(1/3,1/3,1/3)$ and residual $(-1/3,2/3,-1/3)$. The deleted residual formula gives $(-2,1,-2)$ after division by $(1/6,2/3,1/6)$. Directly deleting the middle observation leaves two endpoints with response zero, hence line zero and middle prediction zero; its deleted residual is one. Deleting the left endpoint leaves the line $1-t$, predicting two at input minus one and giving residual minus two. These checks show how leverage amplifies a modest training residual. The denominators are positive because deleting any one point still leaves two distinct inputs.
+
+## Problem 30. Leverage one is a rank-loss boundary
+
+**Question.** Let $A=\begin{bmatrix}1&0\\0&1\\0&1\end{bmatrix}$ and $b=(3,0,2)^T$. The first leverage is one. Can its deleted-observation error be computed as zero divided by zero?
+
+**Solution.** The coefficients are $(3,1)$, fitted values $(3,1,1)$ and residuals $(0,-1,1)$. The first column is $e_1$, so the first observation is fitted exactly for every data vector and has leverage one. Removing its row leaves no information about the first coefficient. Any value of that coefficient minimizes the remaining problem, so the deleted prediction at the omitted input is not uniquely identified. The ratio $r_1/(1-h_1)=0/0$ is undefined and does not imply zero prediction error. A minimum-norm convention after deletion would choose first coefficient zero and give residual three, but that answer needs the additional convention. The ordinary full-rank deletion formula explicitly excludes this boundary.
+
+## Problem 31. Quantify the gain from adding a slope
+
+**Question.** At inputs $-1,0,1$ with responses $0,1,3$, compare the constant-only and intercept-plus-slope errors. Derive the reduction from an orthogonal added feature.
+
+**Solution.** The constant-only fit is $4/3$ and its error is $0^2+1^2+3^2-3(4/3)^2=14/3$. The centered input $t=(-1,0,1)$ is already perpendicular to the constant, so its added coefficient is $t^Tb/(t^Tt)=3/2$. Its fitted component has energy $(t^Tb)^2/(t^Tt)=9/2$. The nested-model identity therefore gives new error $14/3-9/2=1/6$, matching the direct line fit. The calculation does not require recomputing a two-by-two inverse. Reduction is nonnegative because it is a squared projection length. It concerns in-sample approximation; the same arithmetic alone establishes no improvement on future responses.
+
+## Problem 32. A redundant feature adds coefficients but no fit
+
+**Question.** Add the feature $2\mathbf1$ to a model containing only $\mathbf1$, for arbitrary data $b\in\mathbb R^m$ with $m>0$. Determine the gain in error and the coefficient ambiguity.
+
+**Solution.** The new fitted vectors are $(x_1+2x_2)\mathbf1$, the same one-dimensional space as before. The optimal fitted constant is $\bar b$, so the gain in minimum error is zero and all coefficient pairs satisfy $x_1+2x_2=\bar b$. Residualizing the new feature against the old model gives $u=(I-P)(2\mathbf1)=0$. The one-feature gain formula must therefore use its redundant-feature branch; substituting zero into a denominator would be invalid. The minimum-norm pair is $(\bar b/5,2\bar b/5)$, an optional convention. Increasing the number of named coefficients need not increase rank, fitted flexibility, or the amount of information captured from data.
+
+## Problem 33. Residualize before computing an added-feature gain
+
+**Question.** Start with a constant model on $b=(1,0,3)^T$ and add $z=(0,1,0)^T$. Find the exact reduction in squared error and the new fitted values.
+
+**Solution.** The old mean is $4/3$. The residualized feature is $u=z-\mathbf1/3=(-1/3,2/3,-1/3)^T$, with squared norm $2/3$ and $u^Tb=-4/3$. Its added coefficient is $-2$ and the error reduction is $(16/9)/(2/3)=8/3$. The old error is $1+0+9-16/3=14/3$, so the new error is two. The added fitted component is $-2u=(2/3,-4/3,2/3)$; adding it to the old fit gives $(2,0,2)$, residual $(-1,0,1)$ and direct error two. Using $z$ itself in the perpendicular gain formula would ignore its component already represented by the constant and double-count a fitted direction.
+
+## Problem 34. Perturbations inside and outside the model space
+
+**Question.** Fit $A=(1,1)^T$ to $b=(1,3)^T$. Compare perturbations $\delta b=(1,1)^T$ and $\delta b=(1,-1)^T$.
+
+**Solution.** The original coefficient is two, fit $(2,2)$ and residual $(-1,1)$. The coefficient map is the row $(1/2,1/2)$. The first perturbation changes the coefficient by one, changes the fitted vector by $(1,1)$ and leaves the residual unchanged. It lies in the model's column space. The second perturbation has zero mean, so it changes the coefficient and fitted vector by zero and changes the residual by $(1,-1)$. It lies in the perpendicular space. This decomposition explains why a substantial data perturbation can leave coefficients unchanged: sensitivity depends on direction, not just magnitude. A general perturbation splits uniquely into these two perpendicular types.
+
+## Problem 35. Stable fitted values with unstable coefficients
+
+**Question.** Let $A_\varepsilon=\begin{bmatrix}1&1\\0&\varepsilon\\0&0\end{bmatrix}$, $\varepsilon=1/1000$, and $b=(1,0,1)^T$. Change only the second response by $1/100$. Compute the original and new coefficients and explain the contrast.
+
+**Solution.** For nonzero epsilon the first two rows form an invertible triangular block, so those coordinates are fitted exactly; the third response is irreducible residual one. Initially $x_2=0$ and $x_1=1$. After the change, the second equation gives $x_2=(1/100)/(1/1000)=10$ and the first gives $x_1=-9$. The coefficient change is $(-10,10)$ despite a data change of norm $1/100$. Yet the fitted change is exactly $(0,1/100,0)$ and the residual remains $(0,0,1)$. Nearly parallel columns allow large canceling coefficients. Orthogonal projection remains a contraction in observation space; that property does not bound coefficient sensitivity by one.
+
+## Problem 36. Prove the best unbiased constant estimator
+
+**Question.** Two observations equal a common deterministic parameter plus independent zero-mean errors of variance $\sigma^2$. Among linear unbiased estimators $ab_1+(1-a)b_2$, find the minimum variance and compare with using only the first observation.
+
+**Solution.** Unbiasedness for every parameter requires the weights to sum to one, already encoded in the expression. Independence and equal variances give error variance $\sigma^2[a^2+(1-a)^2]=\sigma^2[2(a-1/2)^2+1/2]$. It is uniquely minimized at $a=1/2$, with variance $\sigma^2/2$. Using only the first observation is $a=1$ and has variance $\sigma^2$. This proves the scalar BLUE result without Gaussianity or a claim about every realized error. The average can be farther from the true parameter on a particular sample even though its repeated-sampling variance is smaller. If the errors were correlated or had unequal variances, the displayed variance expression would change.
+
+## Problem 37. Unequal variances require whitening
+
+**Question.** Two independent zero-mean errors have variances one and nine. Estimate their common mean using a linear unbiased combination. Compare its variance with the ordinary average.
+
+**Solution.** Write the estimator as $ab_1+(1-a)b_2$. Its variance is $a^2+9(1-a)^2=10(a-9/10)^2+9/10$. Therefore the best weights are $9/10$ and $1/10$, and minimum variance is $9/10$. These are normalized inverse-variance weights because the error covariance is diagonal. The ordinary mean has variance $(1+9)/4=5/2$, larger. The GLS normal equation with $A=(1,1)^T$ and $W=\operatorname{diag}(1,1/9)$ gives the same estimate $(9b_1+b_2)/10$. Equal row weighting would still solve ordinary least squares, but the spherical-noise assumption needed for its BLUE interpretation is absent. Probability assumptions determine which variance comparison is justified.
+
+## Problem 38. A biased estimator can have smaller mean squared error
+
+**Question.** Observe $b=\theta+\varepsilon$ with zero-mean noise variance $\sigma^2$. Compare ordinary least squares with identity ridge at penalty one, using mean squared coefficient error.
+
+**Solution.** Ordinary least squares is $\hat\theta=b$, unbiased with mean squared error $\sigma^2$. Ridge is $\hat\theta_R=b/2$, whose expectation is $\theta/2$, bias $-\theta/2$ and variance $\sigma^2/4$. Expanding error into bias and zero-mean fluctuation gives mean squared error $(\theta^2+\sigma^2)/4$. It is smaller than ordinary least squares exactly when $\theta^2<3\sigma^2$, equal at the boundary and larger beyond it. The comparison does not contradict BLUE because ridge is generally biased and lies outside its competitor class. The favorable parameter region is part of the conclusion; there is no uniform claim that ridge is always better under this loss.
+
+## Problem 39. Count residual degrees of freedom by rank
+
+**Question.** A fixed design has five observation rows, rank two and spherical zero-mean noise variance three. Find expected residual sum of squares and an unbiased residual variance estimate. Does writing four dependent columns alter the answer?
+
+**Solution.** The residual projector has rank $5-2=3$. Expanding the expected quadratic form gives $E[\varepsilon^T(I-P)\varepsilon]=\operatorname{tr}((I-P)3I)=3\operatorname{tr}(I-P)=9$. Therefore observed residual sum of squares divided by three is unbiased for the common noise variance. Writing four columns that span the same rank-two space leaves $P$ unchanged, so the denominator remains three, not $5-4=1$. The number of independent fitted directions determines lost degrees of freedom. If the design rank instead equaled five, the residual would always be zero and the zero residual degrees of freedom would prevent this variance estimator. No Gaussian assumption is needed for this expectation calculation.
+
+## Problem 40. Uncorrelated estimates and residuals need not be independent
+
+**Question.** In a two-observation constant model, let independent errors take values minus one and one with equal probabilities. Show that the coefficient error and residual are uncorrelated but dependent.
+
+**Solution.** The coefficient error is $M=(\varepsilon_1+\varepsilon_2)/2$ and the first residual is $D=(\varepsilon_1-\varepsilon_2)/2$. The four equally likely pairs produce $(M,D)=(1,0),(0,1),(0,-1),(-1,0)$. Both means are zero and their product is always zero, so covariance is zero. But $P(M=0)=1/2$ and $P(D=0)=1/2$, while $P(M=0,D=0)=0$, not their product $1/4$. Thus they are dependent. The second residual is minus the first and does not change this conclusion. Gaussian linear transformations would provide an additional independence theorem; spherical covariance alone does not. Enumerating the actual probability table is a direct counterexample to that common overstatement.
+
+## Problem 41. A constant response and an undefined goodness-of-fit ratio
+
+**Question.** A line model includes an intercept and all observed responses equal five. What is the fitted vector and residual? Is the usual centered $R^2$ automatically one?
+
+**Solution.** The constant vector $5\mathbf1$ belongs to the model space, so the unique fitted observation vector equals the data and the residual is zero. Coefficients are unique only if the design has independent columns; this is separate from exact fitted values. The centered total sum of squares is $\sum_i(b_i-\bar b)^2=0$. Therefore the formula $1-\mathrm{SSE}/\mathrm{SST}$ contains $0/0$ and is undefined. Assigning one is a possible software reporting convention, not a value derived from that formula. A perfect observed fit and a defined variance-explanation ratio are different statements. An examination answer must state the zero-denominator boundary rather than cancel zeros.
+
+## Problem 42. Conjugation is essential for complex least squares
+
+**Question.** With $A=(1,i)^T$ and $b=(1,1)^T$, find the complex least-squares coefficient and residual norm. Diagnose the plain-transpose error.
+
+**Solution.** The adjoint is $A^*=(1,-i)$, so $A^*A=2$ and $A^*b=1-i$. Thus $x=(1-i)/2$. The fitted values are $((1-i)/2,(1+i)/2)^T$ and residuals $((1+i)/2,(1-i)/2)^T$. Each residual has squared modulus $1/2$, giving total one. Their adjoint column product is zero. A plain transpose would instead give $A^TA=1+i^2=0$, falsely suggesting that the nonzero column lacks a positive Gram norm. Complex Euclidean length uses conjugate products; its positivity and orthogonality proofs depend on them. The real formulas carry over by replacing every transpose in those inner-product identities with an adjoint.
+
+## Problem 43. Multiple right-hand sides reuse one factorization
+
+**Question.** Let $A=(1,1)^T$ and $B=\begin{bmatrix}1&2\\3&0\end{bmatrix}$. Minimize $\|B-AX\|_F^2$ over the $1\times2$ coefficient row $X$.
+
+**Solution.** The Frobenius loss is the sum of the two column losses. The first response column has mean two and the second mean one, so $X=[2\ 1]$. Fitted data are $\begin{bmatrix}2&1\\2&1\end{bmatrix}$ and residual matrix $\begin{bmatrix}-1&1\\1&-1\end{bmatrix}$. Its four squared entries sum to four. Directly $A^TA=2$ and $A^TB=[4\ 2]$, giving the same coefficient row. Both residual columns sum to zero, independently checking the normal equation. A shared design permits reusing its QR or scalar Gram solve, but the optimization is separable across response columns; no covariance or causal relation between the two responses has been assumed.
+
+## Problem 44. Construct every data vector producing specified coefficients
+
+**Question.** For $A=\begin{bmatrix}1&0\\0&1\\1&1\end{bmatrix}$, characterize every $b$ whose unique least-squares coefficient vector is $(2,-1)^T$.
+
+**Solution.** The required fitted vector is $Ax=(2,-1,1)^T$. The residual must lie in $\ker A^T$. Solve $r_1+r_3=0$ and $r_2+r_3=0$, obtaining $r=t(-1,-1,1)^T$. Therefore exactly the vectors $b=(2-t,-1-t,1+t)^T$, for real $t$, have the requested coefficients. Sufficiency follows because each such residual is perpendicular to both columns; necessity follows from the normal equations. The design has independent columns, so the coefficient answer is unique for every member of this affine family. Squared error is $3t^2$, which can vary while coefficients stay fixed. This inverse construction separates fitted information from the observation-space component the model cannot represent.
+
+## Problem 45. Uniqueness cannot overcome a dimension obstruction
+
+**Question.** A real $3\times4$ matrix is claimed to have a unique unrestricted least-squares coefficient solution for one special response vector. Can this happen? Distinguish a minimum-norm claim.
+
+**Solution.** Rank is at most three, so rank-nullity gives a nullspace of dimension at least one. A least-squares minimizer exists for every response. Adding any nonzero null vector to it produces another coefficient vector with exactly the same fitted observations and error. Thus unrestricted coefficients cannot be unique even for one specially chosen response. However the minimum-norm least-squares vector is unique because it is the unique minimizer in the row space, perpendicular to all those null directions. A software solver that returns one vector has selected a convention and has not established uniqueness of the original objective. Matrix shape here does prove a uniqueness obstruction, while it does not by itself establish whether the response is consistent.
+
+## Problem 46. Scaling one equation changes a noisy fit
+
+**Question.** Fit a constant to responses zero and two. Then multiply only the first design row and its response by two. Compare the optimizers and explain why exact-system row-equivalence reasoning does not apply.
+
+**Solution.** The original objective is $x^2+(2-x)^2$, minimized at one with error two. After the row scaling the objective is $4x^2+(2-x)^2$, whose normal equation is $5x=2$, giving $x=2/5$. This is weighted least squares with relative weights four and one. In the original objective that value has error $4/25+64/25=68/25>2$. Exact equation solution sets are preserved by nonzero row scaling, but this inconsistent system has no exact solution set to select from. Least squares compares the magnitudes of violations, and row scaling changes their relative costs. Multiplying every row by the same nonzero scalar would preserve the optimizer because it scales the whole objective uniformly.
+
+## Problem 47. Perpendicular to the data is the wrong certificate
+
+**Question.** Let $A=(1,0)^T$, $b=(1,1)^T$ and candidate $x=2$. Its residual is perpendicular to $b$. Is it a least-squares solution?
+
+**Solution.** The residual is $(-1,1)$ and indeed its product with $b$ is zero. But its product with the design column is minus one, not zero, so it fails the normal equation. Directly the objective is $(1-x)^2+1$, uniquely minimized at $x=1$ with error one; the proposed candidate has error two. The perpendicularity certificate concerns the entire column space of the feasible fitted vectors, not the data vector. Even checking perpendicularity to one fitted vector is insufficient if that vector is zero or does not span the model space. Identifying exactly which vectors must be perpendicular prevents replacing a necessary and sufficient condition with an unrelated geometric fact.
+
+## Problem 48. Least absolute deviations answers a different question
+
+**Question.** Fit a constant to responses $0,0,9$ under squared error and under absolute error. Compare both optimal coefficients and objectives.
+
+**Solution.** Squared error is $2c^2+(9-c)^2=3(c-3)^2+54$, so its unique minimizer is three with squared error fifty-four. Absolute error is $2|c|+|9-c|$. For $0\le c\le9$ it equals $9+c$, minimized at zero; for $c<0$ it is $9-3c>9$, and for $c>9$ it is $3c-9>18$. Thus its unique minimizer is zero with absolute error nine. The mean's absolute error is twelve. The extreme response has different influence because the two objectives penalize large residuals differently. The normal equations derived from a squared Euclidean norm do not solve an absolute-value objective. This is a precisely calculated modeling distinction, not a claim that one loss is always preferable.
+
+## Problem 49. Minimum coefficient norm depends on parameterization
+
+**Question.** For the exact equation $x_1+x_2=1$, compare the ordinary minimum-norm solution with the minimum-norm solution in new coordinates $x=\operatorname{diag}(2,1)z$.
+
+**Solution.** The original minimum is $(1/2,1/2)$ by perpendicularity to the null direction or by completing $x_1^2+(1-x_1)^2$. In new coordinates the equation is $2z_1+z_2=1$, whose minimum-norm vector is $(2/5,1/5)$, parallel to its row. Mapping it back gives $x=(4/5,1/5)$, still an exact fit but with original squared norm $17/25$, larger than $1/2$. Thus minimizing the new Euclidean coordinate norm is not the same as minimizing the original norm. To preserve the original penalty one must use $z^TT^TTz$, not $z^Tz$. Unpenalized fitted values can be invariant under a basis change while a norm-based convention changes.
+
+## Problem 50. Matrix perturbations expose the missing residual term
+
+**Question.** Start with $A=(1,0)^T$, $b=(0,1)^T$, and perturb the column to $A_\varepsilon=(1,\varepsilon)^T$. Compute the exact coefficient and its first-order change. Which term in the differentiated normal equations makes it nonzero?
+
+**Solution.** Initially $A^Tb=0$, so the coefficient is zero and residual is $(0,1)$. After the change, $A_\varepsilon^TA_\varepsilon=1+\varepsilon^2$ and $A_\varepsilon^Tb=\varepsilon$. Thus $x_\varepsilon=\varepsilon/(1+\varepsilon^2)$, with first-order change epsilon. In the differential formula, $db=0$, the old coefficient $x=0$, and $(dA)^Tr=(0,\varepsilon)(0,1)^T=\varepsilon$. The other terms vanish, leaving $dx=\varepsilon$. Dropping the residual term would incorrectly predict zero sensitivity. This example shows why perturbing a model matrix in an inconsistent problem is not covered by a coefficient sensitivity formula that assumes exact consistency or changes only the observations.

@@ -1,0 +1,1218 @@
+{
+  "counts": {
+    "questions": 51,
+    "rules": 60,
+    "players": 20
+  },
+  "fonts": {
+    "prose": true,
+    "math": true,
+    "heading": true,
+    "code": true
+  },
+  "frames": [
+    {
+      "kind": "fit",
+      "model": "line",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "line",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "line",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "vectors",
+      "model": "householder",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "vectors",
+      "model": "householder",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "vectors",
+      "model": "householder",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "vectors",
+      "model": "householder",
+      "k": 3,
+      "issues": []
+    },
+    {
+      "kind": "coefficients",
+      "model": "deficient",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "coefficients",
+      "model": "deficient",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "coefficients",
+      "model": "deficient",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "coefficients",
+      "model": "deficient",
+      "k": 3,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "weighted-constant",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "weighted-constant",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "weighted-constant",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "coefficients",
+      "model": "constraint",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "coefficients",
+      "model": "constraint",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "coefficients",
+      "model": "constraint",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "ridge",
+      "model": "ridge",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "ridge",
+      "model": "ridge",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "ridge",
+      "model": "ridge",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "ridge",
+      "model": "ridge",
+      "k": 3,
+      "issues": []
+    },
+    {
+      "kind": "ridge",
+      "model": "ridge",
+      "k": 4,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "leverage",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "leverage",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "leverage",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "sensitivity",
+      "model": "sensitivity",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "sensitivity",
+      "model": "sensitivity",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "sensitivity",
+      "model": "sensitivity",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "sensitivity",
+      "model": "sensitivity",
+      "k": 3,
+      "issues": []
+    },
+    {
+      "kind": "noise",
+      "model": "discrete-noise",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "noise",
+      "model": "discrete-noise",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "noise",
+      "model": "discrete-noise",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "noise",
+      "model": "discrete-noise",
+      "k": 3,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "line",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "line",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "line",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "coefficients",
+      "model": "deficient",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "coefficients",
+      "model": "deficient",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "coefficients",
+      "model": "deficient",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "coefficients",
+      "model": "deficient",
+      "k": 3,
+      "issues": []
+    },
+    {
+      "kind": "vectors",
+      "model": "householder",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "vectors",
+      "model": "householder",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "vectors",
+      "model": "householder",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "vectors",
+      "model": "householder",
+      "k": 3,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "weighted-constant",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "weighted-constant",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "weighted-constant",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "weighted-line",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "weighted-line",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "weighted-line",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "coefficients",
+      "model": "constraint",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "coefficients",
+      "model": "constraint",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "coefficients",
+      "model": "constraint",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "ridge-identity",
+      "model": "ridge-identity",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "ridge-identity",
+      "model": "ridge-identity",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "ridge-identity",
+      "model": "ridge-identity",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "ridge-identity",
+      "model": "ridge-identity",
+      "k": 3,
+      "issues": []
+    },
+    {
+      "kind": "ridge-identity",
+      "model": "ridge-identity",
+      "k": 4,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "leverage",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "leverage",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "leverage",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "sensitivity",
+      "model": "sensitivity",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "sensitivity",
+      "model": "sensitivity",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "sensitivity",
+      "model": "sensitivity",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "sensitivity",
+      "model": "sensitivity",
+      "k": 3,
+      "issues": []
+    },
+    {
+      "kind": "noise",
+      "model": "discrete-noise",
+      "k": 0,
+      "issues": []
+    },
+    {
+      "kind": "noise",
+      "model": "discrete-noise",
+      "k": 1,
+      "issues": []
+    },
+    {
+      "kind": "noise",
+      "model": "discrete-noise",
+      "k": 2,
+      "issues": []
+    },
+    {
+      "kind": "noise",
+      "model": "discrete-noise",
+      "k": 3,
+      "issues": []
+    },
+    {
+      "kind": "fit",
+      "model": "line",
+      "k": 0,
+      "issues": []
+    }
+  ],
+  "controls": [
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "next": true,
+      "previous": true,
+      "seek": true,
+      "reset": true
+    },
+    {
+      "single": true,
+      "disabled": true
+    }
+  ],
+  "playback": [
+    {
+      "model": "line",
+      "advanced": true
+    },
+    {
+      "model": "householder",
+      "advanced": true
+    },
+    {
+      "model": "deficient",
+      "advanced": true
+    },
+    {
+      "model": "weighted-constant",
+      "advanced": true
+    }
+  ],
+  "editableCases": [
+    {
+      "model": "line",
+      "y": [
+        1,
+        2,
+        2
+      ],
+      "w": [
+        1,
+        1,
+        1
+      ],
+      "c": "2/3",
+      "d": "1/2",
+      "sse": "1/6",
+      "normal0": "0",
+      "normal1": "0",
+      "valid": "true"
+    },
+    {
+      "model": "line",
+      "y": [
+        1,
+        2,
+        2
+      ],
+      "w": [
+        1,
+        2,
+        3
+      ],
+      "c": "9/10",
+      "d": "2/5",
+      "sse": "3/10",
+      "normal0": "0",
+      "normal1": "0",
+      "valid": "true"
+    },
+    {
+      "model": "line",
+      "y": [
+        1,
+        2,
+        2
+      ],
+      "w": [
+        9,
+        1,
+        4
+      ],
+      "c": "80/157",
+      "d": "81/157",
+      "sse": "36/157",
+      "normal0": "0",
+      "normal1": "0",
+      "valid": "true"
+    },
+    {
+      "model": "line",
+      "y": [
+        -10,
+        0,
+        10
+      ],
+      "w": [
+        1,
+        1,
+        1
+      ],
+      "c": "-20",
+      "d": "10",
+      "sse": "0",
+      "normal0": "0",
+      "normal1": "0",
+      "valid": "true"
+    },
+    {
+      "model": "line",
+      "y": [
+        -10,
+        0,
+        10
+      ],
+      "w": [
+        1,
+        2,
+        3
+      ],
+      "c": "-20",
+      "d": "10",
+      "sse": "0",
+      "normal0": "0",
+      "normal1": "0",
+      "valid": "true"
+    },
+    {
+      "model": "line",
+      "y": [
+        -10,
+        0,
+        10
+      ],
+      "w": [
+        9,
+        1,
+        4
+      ],
+      "c": "-20",
+      "d": "10",
+      "sse": "0",
+      "normal0": "0",
+      "normal1": "0",
+      "valid": "true"
+    },
+    {
+      "model": "line",
+      "y": [
+        0,
+        0,
+        0
+      ],
+      "w": [
+        1,
+        1,
+        1
+      ],
+      "c": "0",
+      "d": "0",
+      "sse": "0",
+      "normal0": "0",
+      "normal1": "0",
+      "valid": "true"
+    },
+    {
+      "model": "line",
+      "y": [
+        0,
+        0,
+        0
+      ],
+      "w": [
+        1,
+        2,
+        3
+      ],
+      "c": "0",
+      "d": "0",
+      "sse": "0",
+      "normal0": "0",
+      "normal1": "0",
+      "valid": "true"
+    },
+    {
+      "model": "line",
+      "y": [
+        0,
+        0,
+        0
+      ],
+      "w": [
+        9,
+        1,
+        4
+      ],
+      "c": "0",
+      "d": "0",
+      "sse": "0",
+      "normal0": "0",
+      "normal1": "0",
+      "valid": "true"
+    },
+    {
+      "model": "line",
+      "y": [
+        4,
+        -3,
+        1
+      ],
+      "w": [
+        1,
+        1,
+        1
+      ],
+      "c": "11/3",
+      "d": "-3/2",
+      "sse": "121/6",
+      "normal0": "0",
+      "normal1": "0",
+      "valid": "true"
+    },
+    {
+      "model": "line",
+      "y": [
+        4,
+        -3,
+        1
+      ],
+      "w": [
+        1,
+        2,
+        3
+      ],
+      "c": "11/10",
+      "d": "-2/5",
+      "sse": "363/10",
+      "normal0": "0",
+      "normal1": "0",
+      "valid": "true"
+    },
+    {
+      "model": "line",
+      "y": [
+        4,
+        -3,
+        1
+      ],
+      "w": [
+        9,
+        1,
+        4
+      ],
+      "c": "847/157",
+      "d": "-263/157",
+      "sse": "4356/157",
+      "normal0": "0",
+      "normal1": "0",
+      "valid": "true"
+    },
+    {
+      "model": "constant",
+      "y": [
+        1,
+        2,
+        2
+      ],
+      "w": [
+        1,
+        1,
+        1
+      ],
+      "c": "5/3",
+      "d": "0",
+      "sse": "2/3",
+      "normal0": "0",
+      "normal1": "1",
+      "valid": "true"
+    },
+    {
+      "model": "constant",
+      "y": [
+        1,
+        2,
+        2
+      ],
+      "w": [
+        1,
+        2,
+        3
+      ],
+      "c": "11/6",
+      "d": "0",
+      "sse": "5/6",
+      "normal0": "0",
+      "normal1": "4/3",
+      "valid": "true"
+    },
+    {
+      "model": "constant",
+      "y": [
+        1,
+        2,
+        2
+      ],
+      "w": [
+        9,
+        1,
+        4
+      ],
+      "c": "19/14",
+      "d": "0",
+      "sse": "45/14",
+      "normal0": "0",
+      "normal1": "81/14",
+      "valid": "true"
+    },
+    {
+      "model": "constant",
+      "y": [
+        -10,
+        0,
+        10
+      ],
+      "w": [
+        1,
+        1,
+        1
+      ],
+      "c": "0",
+      "d": "0",
+      "sse": "200",
+      "normal0": "0",
+      "normal1": "20",
+      "valid": "true"
+    },
+    {
+      "model": "constant",
+      "y": [
+        -10,
+        0,
+        10
+      ],
+      "w": [
+        1,
+        2,
+        3
+      ],
+      "c": "10/3",
+      "d": "0",
+      "sse": "1000/3",
+      "normal0": "0",
+      "normal1": "100/3",
+      "valid": "true"
+    },
+    {
+      "model": "constant",
+      "y": [
+        -10,
+        0,
+        10
+      ],
+      "w": [
+        9,
+        1,
+        4
+      ],
+      "c": "-25/7",
+      "d": "0",
+      "sse": "7850/7",
+      "normal0": "0",
+      "normal1": "785/7",
+      "valid": "true"
+    },
+    {
+      "model": "constant",
+      "y": [
+        0,
+        0,
+        0
+      ],
+      "w": [
+        1,
+        1,
+        1
+      ],
+      "c": "0",
+      "d": "0",
+      "sse": "0",
+      "normal0": "0",
+      "normal1": "0",
+      "valid": "true"
+    },
+    {
+      "model": "constant",
+      "y": [
+        0,
+        0,
+        0
+      ],
+      "w": [
+        1,
+        2,
+        3
+      ],
+      "c": "0",
+      "d": "0",
+      "sse": "0",
+      "normal0": "0",
+      "normal1": "0",
+      "valid": "true"
+    },
+    {
+      "model": "constant",
+      "y": [
+        0,
+        0,
+        0
+      ],
+      "w": [
+        9,
+        1,
+        4
+      ],
+      "c": "0",
+      "d": "0",
+      "sse": "0",
+      "normal0": "0",
+      "normal1": "0",
+      "valid": "true"
+    },
+    {
+      "model": "constant",
+      "y": [
+        4,
+        -3,
+        1
+      ],
+      "w": [
+        1,
+        1,
+        1
+      ],
+      "c": "2/3",
+      "d": "0",
+      "sse": "74/3",
+      "normal0": "0",
+      "normal1": "-3",
+      "valid": "true"
+    },
+    {
+      "model": "constant",
+      "y": [
+        4,
+        -3,
+        1
+      ],
+      "w": [
+        1,
+        2,
+        3
+      ],
+      "c": "1/6",
+      "d": "0",
+      "sse": "221/6",
+      "normal0": "0",
+      "normal1": "-4/3",
+      "valid": "true"
+    },
+    {
+      "model": "constant",
+      "y": [
+        4,
+        -3,
+        1
+      ],
+      "w": [
+        9,
+        1,
+        4
+      ],
+      "c": "37/14",
+      "d": "0",
+      "sse": "829/14",
+      "normal0": "0",
+      "normal1": "-263/14",
+      "valid": "true"
+    }
+  ],
+  "invalidCase": {
+    "valid": "false",
+    "error": "Use integer responses from \u221210 to 10 and positive integer weights from 1 to 9."
+  },
+  "widths": [
+    {
+      "width": 390,
+      "scroll": 375,
+      "underlined": 0
+    },
+    {
+      "width": 768,
+      "scroll": 753,
+      "underlined": 0
+    },
+    {
+      "width": 1360,
+      "scroll": 1345,
+      "underlined": 0
+    }
+  ],
+  "print": {
+    "open": 51,
+    "checkpoints": 70
+  },
+  "errors": [],
+  "status": "passed_leastsquares_browser_checks",
+  "ieltsReferenceCases": [
+    {
+      "number": "one",
+      "reference": "new",
+      "noun": "folder",
+      "sentence": "A folder is ready."
+    },
+    {
+      "number": "one",
+      "reference": "new",
+      "noun": "apple",
+      "sentence": "An apple is ready."
+    },
+    {
+      "number": "one",
+      "reference": "new",
+      "noun": "university card",
+      "sentence": "A university card is ready."
+    },
+    {
+      "number": "one",
+      "reference": "known",
+      "noun": "folder",
+      "sentence": "The folder is ready."
+    },
+    {
+      "number": "one",
+      "reference": "known",
+      "noun": "apple",
+      "sentence": "The apple is ready."
+    },
+    {
+      "number": "one",
+      "reference": "known",
+      "noun": "university card",
+      "sentence": "The university card is ready."
+    },
+    {
+      "number": "one",
+      "reference": "near",
+      "noun": "folder",
+      "sentence": "This folder is ready."
+    },
+    {
+      "number": "one",
+      "reference": "near",
+      "noun": "apple",
+      "sentence": "This apple is ready."
+    },
+    {
+      "number": "one",
+      "reference": "near",
+      "noun": "university card",
+      "sentence": "This university card is ready."
+    },
+    {
+      "number": "many",
+      "reference": "new",
+      "noun": "folder",
+      "sentence": "Some folders are ready."
+    },
+    {
+      "number": "many",
+      "reference": "new",
+      "noun": "apple",
+      "sentence": "Some apples are ready."
+    },
+    {
+      "number": "many",
+      "reference": "new",
+      "noun": "university card",
+      "sentence": "Some university cards are ready."
+    },
+    {
+      "number": "many",
+      "reference": "known",
+      "noun": "folder",
+      "sentence": "The folders are ready."
+    },
+    {
+      "number": "many",
+      "reference": "known",
+      "noun": "apple",
+      "sentence": "The apples are ready."
+    },
+    {
+      "number": "many",
+      "reference": "known",
+      "noun": "university card",
+      "sentence": "The university cards are ready."
+    },
+    {
+      "number": "many",
+      "reference": "near",
+      "noun": "folder",
+      "sentence": "These folders are ready."
+    },
+    {
+      "number": "many",
+      "reference": "near",
+      "noun": "apple",
+      "sentence": "These apples are ready."
+    },
+    {
+      "number": "many",
+      "reference": "near",
+      "noun": "university card",
+      "sentence": "These university cards are ready."
+    }
+  ],
+  "ieltsAudio": [
+    {
+      "src": "audio/centre-objects-guided.wav",
+      "seconds": 22.381361,
+      "ready": 4
+    },
+    {
+      "src": "audio/centre-objects-ordinary.wav",
+      "seconds": 18.351519,
+      "ready": 4
+    },
+    {
+      "src": "audio/notebook-order-guided.wav",
+      "seconds": 20.69746,
+      "ready": 4
+    },
+    {
+      "src": "audio/notebook-order-ordinary.wav",
+      "seconds": 16.926939,
+      "ready": 4
+    },
+    {
+      "src": "audio/workshop-details-guided.wav",
+      "seconds": 19.466984,
+      "ready": 4
+    },
+    {
+      "src": "audio/workshop-details-ordinary.wav",
+      "seconds": 15.982086,
+      "ready": 4
+    }
+  ],
+  "ieltsWidths": [
+    {
+      "width": 390,
+      "scroll": 375,
+      "underline": false
+    },
+    {
+      "width": 768,
+      "scroll": 753,
+      "underline": false
+    },
+    {
+      "width": 1360,
+      "scroll": 1345,
+      "underline": false
+    }
+  ],
+  "ieltsErrors": []
+}

@@ -1,10 +1,10 @@
 # Offline teaching copies
 
-Open any HTML file in this directory directly in a browser. Fonts, scripts, selected simulations and original teaching audio are embedded; no local server or internet is required for the lesson itself. External references require internet access.
+Open an HTML file directly in a browser. Lesson text, fonts, scripts, model data and original teaching audio are embedded. External reference links need internet.
 
-- Conditional Probability.html: revised60-answer chapter and corrected counterexample.
-- Orthogonal Projections.html: new25-section chapter,52worked entries and compact geometric models.
-- IELTS Academic Session1.html and Session2.html:60minutes each; learner mastery remains unconfirmed.
-- Algorithm Correctness.html: prior reviewed chapter.
+- Bayes Rule.html: individually revised65-answer chapter,80final decisions and31exact problem figures.
+- Least Squares.html:22teaching sections,51worked placements,60final decisions and20interactive placements.
+- IELTS Academic Session3.html:60minutes,grammar/reading/listening and6original synthetic clips.
+- Earlier copies:Algorithm Correctness,Conditional Probability,Orthogonal Projections,and IELTS Sessions1and2.
 
-See manifest.json for actual file-byte hashes and browser-checks.json for tests with all HTTP/HTTPS requests blocked. The latest Site update is pending because its official source connection reset. GitHub backup is recorded separately.
+There are eight copies. See manifest.json for actual file-byte hashes and browser-checks.json for checks with all HTTP/HTTPS requests blocked. These are author-review drafts;learner mastery is unconfirmed. GitHub backup and Site publication are recorded separately in the project delivery log.

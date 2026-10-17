@@ -4,9 +4,9 @@
   "baselineCommit": "f890223f3111d27958eb483056556fded2d59ff3",
   "chapterCount": 60,
   "workedEntryPlacements": 4169,
-  "revisedChapters": 24,
-  "pendingChapters": 36,
-  "currentTopicId": "s_bayes",
+  "revisedChapters": 25,
+  "pendingChapters": 35,
+  "currentTopicId": "l_gauss",
   "chapters": [
     {
       "topicId": "d_logic",
@@ -182,7 +182,8 @@
       "title": "Bayes' Rule, Base Rates, and Evidence",
       "url": "chapters/s_bayes.html",
       "questions": 65,
-      "state": "pending_individual_semantic_review"
+      "state": "revised_checked_review_draft",
+      "revisionEvidence": "research/deep-library-revision/s_bayes-current-review.md"
     },
     {
       "topicId": "l_gauss",
@@ -430,15 +431,20 @@
       "state": "pending_individual_semantic_review"
     }
   ],
-  "nextIndividualReview": "s_bayes",
+  "nextIndividualReview": "l_gauss",
   "newTechnicalDrafts": {
     "l_projection": {
       "state": "completed_author_review_draft",
       "countedAsCompleted": true,
       "studentApproved": false
+    },
+    "l_leastsquares": {
+      "state": "completed_author_review_draft",
+      "countedAsCompleted": true,
+      "studentApproved": false
     }
   },
-  "ieltsTeachingLessonsWritten": 2,
+  "ieltsTeachingLessonsWritten": 3,
   "newChaptersCompletedSinceBaseline": [
     {
       "topicId": "l_projection",
@@ -446,7 +452,7 @@
       "questions": 52
     }
   ],
-  "currentLibraryChapterCount": 61,
-  "newTechnicalChaptersRemaining": 58,
-  "nextNewTechnicalTopic": "l_leastsquares"
+  "currentLibraryChapterCount": 62,
+  "newTechnicalChaptersRemaining": 57,
+  "nextNewTechnicalTopic": "i_games"
 }

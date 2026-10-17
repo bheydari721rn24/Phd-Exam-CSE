@@ -1018,6 +1018,120 @@
       "repairedProblem": "Question 37. Triple factorization is not sufficientOriginal/course-derived mathematical problem \u00b7 individually revised answerConstructed counterexample for CMU Chapter 2, Exercise 2.15On eight equal atoms, let  A=B={1,2,3,4}  and  C={1,5,6,7}. Check the full triple product and a failed pair condition.\nRead the complete construction, calculation and checksCheck the subfamilies instead of only the largest intersection. In eight equal atoms, take  A=B={1,2,3,4}  and  C={1,5,6,7}. All three marginal probabilities are one half. Their full intersection is only atom 1 and has probability one eighth, agreeing with  (1/2)3.\nNevertheless  A\u2229B=A  has probability one half instead of the product one quarter. Hence full-family factorization holds while the pair condition fails. Mutual independence requires both the triple equation and all the pair equations; the full intersection alone is insufficient. The three positive marginals and complete explicit sets ensure that this is a genuine finite model rather than a boundary trick. Checking both equalities numerically is essential when proposing a counterexample: a plausible description that fails its own advertised equality proves nothing about the intended implication.\nEight equal atoms: the repaired triple-only example1Mass 1/8AB and C2Mass 1/8AB only3Mass 1/8AB only4Mass 1/8AB only5Mass 1/8C only6Mass 1/8C only7Mass 1/8C only8Mass 1/8NeitherThis problem: A and B coincide on atoms 1 through 4; C contains atoms 1,5,6,7. All three marginals are one half and the triple mass is one eighth. The AB intersection is one half, so mutual independence fails.",
       "errors": [],
       "externalTeachingDependencies": []
+    },
+    {
+      "file": "Bayes Rule.html",
+      "fonts": {
+        "body": true,
+        "heading": true,
+        "math": true
+      },
+      "questions": 65,
+      "models": [
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true"
+      ],
+      "lab": {
+        "valid": "true",
+        "posterior": "2/13",
+        "evidence": "117/2000",
+        "effective": "1"
+      },
+      "errors": [],
+      "externalTeachingDependencies": []
+    },
+    {
+      "file": "Least Squares.html",
+      "fonts": {
+        "body": true,
+        "heading": true,
+        "math": true
+      },
+      "models": 20,
+      "questions": 51,
+      "lab": {
+        "c": "2/3",
+        "d": "1/2",
+        "sse": "1/6",
+        "normal0": "0",
+        "normal1": "0",
+        "valid": "true"
+      },
+      "errors": [],
+      "externalTeachingDependencies": []
+    },
+    {
+      "file": "IELTS Academic Session 3.html",
+      "fonts": {
+        "body": true,
+        "heading": true,
+        "math": true
+      },
+      "audio": [
+        {
+          "duration": 22.381361,
+          "error": null,
+          "embedded": true
+        },
+        {
+          "duration": 18.351519,
+          "error": null,
+          "embedded": true
+        },
+        {
+          "duration": 20.69746,
+          "error": null,
+          "embedded": true
+        },
+        {
+          "duration": 16.926939,
+          "error": null,
+          "embedded": true
+        },
+        {
+          "duration": 19.466984,
+          "error": null,
+          "embedded": true
+        },
+        {
+          "duration": 15.982086,
+          "error": null,
+          "embedded": true
+        }
+      ],
+      "referenceLab": [
+        "A folder is ready.",
+        "An apple is ready.",
+        "A university card is ready.",
+        "The folder is ready.",
+        "The apple is ready.",
+        "The university card is ready.",
+        "This folder is ready.",
+        "This apple is ready.",
+        "This university card is ready.",
+        "Some folders are ready.",
+        "Some apples are ready.",
+        "Some university cards are ready.",
+        "The folders are ready.",
+        "The apples are ready.",
+        "The university cards are ready.",
+        "These folders are ready.",
+        "These apples are ready.",
+        "These university cards are ready."
+      ],
+      "errors": [],
+      "externalTeachingDependencies": []
     }
   ],
   "humanListeningClarity": "Synthetic audio requires learner feedback; technical playback checks are not a comprehension certificate."

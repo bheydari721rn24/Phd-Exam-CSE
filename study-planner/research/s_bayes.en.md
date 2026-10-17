@@ -128,7 +128,7 @@ For without-replacement sampling, use evolving conditional counts inside each hy
 
 Suppose a two-child family has four equiprobable ordered compositions. Conditioning on “at least one child is a boy” leaves three compositions and gives $P(BB\mid\text{at least one boy})=1/3$. If one uniformly selected child is observed to be a boy, the report likelihoods are one for $BB$, one half for each mixed composition, and zero for $GG$. Bayes then gives one half. Both reports are truthful; they are different random events.
 
-This is a general selection principle. A source that has more opportunities to generate the observed report can become more likely. Observing a uniformly selected individual does not usually sample families uniformly. If the family-size prior is $\pi_n$ and an individual is drawn uniformly from a large population of all children, the corresponding family-size weights are proportional to $n\pi_n$, subject to finite positive mean. A report mechanism must be specified before computing its likelihood.
+This is a general selection principle. A source that has more opportunities to generate the observed report can become more likely. Observing a uniformly selected individual does not usually sample families uniformly. If the fixed family proportions are $\pi_n$, uniform child selection weights them by $n\pi_n$ and normalizes by the positive mean. A limiting population law requires finite positive mean. For a small random finite population, the expected ratio of random counts need not equal the ratio of their expectations. A report mechanism must be specified before computing its likelihood.
 
 ### A host's informed choice
 

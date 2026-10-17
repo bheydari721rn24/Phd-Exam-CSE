@@ -472,8 +472,8 @@
         "topicId": "s_bayes",
         "title": "Bayes' Rule, Base Rates, and Evidence",
         "status": "draft",
-        "statusLabel": "Previous edition · individual deep review pending",
-        "revisionState": "deep_revision_pending",
+        "statusLabel": "Revised and checked · review draft",
+        "revisionState": "deep_revision_checked_draft",
         "url": "chapters/s_bayes.html",
         "questionCount": 65,
         "authenticQuestionCount": 2,
@@ -486,7 +486,10 @@
         "approvedVersion": 60,
         "visualRevisionState": "student_approved",
         "libraryDecisionRevisionState": "student_approved",
-        "historicalApprovedVersion": 60
+        "historicalApprovedVersion": 60,
+        "qualityAuditUrl": "reviews/s_bayes-current-review.html",
+        "problemFigureCount": 31,
+        "studentApproved": false
       },
       {
         "topicId": "l_gauss",
@@ -1214,6 +1217,24 @@
         "animationReviewState": "reviewed_draft",
         "sourceAuditUrl": "reviews/l_projection-sources.html",
         "qualityAuditUrl": "reviews/l_projection-quality.html",
+        "studentApproved": false
+      },
+      {
+        "topicId": "l_leastsquares",
+        "title": "Least Squares: Fitting, Identifiability, Computation and Estimation",
+        "status": "draft",
+        "statusLabel": "New chapter: author review complete",
+        "revisionState": "new_chapter_draft",
+        "url": "chapters/l_leastsquares.html",
+        "questionCount": 51,
+        "authenticQuestionCount": 1,
+        "originalQuestionCount": 50,
+        "examNotesCount": 60,
+        "animationCount": 20,
+        "animationWalkthroughCount": 20,
+        "animationReviewState": "reviewed_draft",
+        "sourceAuditUrl": "reviews/l_leastsquares-sources.html",
+        "qualityAuditUrl": "reviews/l_leastsquares-quality.html",
         "studentApproved": false
       }
     ]
