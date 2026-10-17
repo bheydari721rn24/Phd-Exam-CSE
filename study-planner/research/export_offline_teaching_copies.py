@@ -1,4 +1,4 @@
-"""Build self-contained teaching copies while private Site synchronization is unavailable."""
+"""Build self-contained teaching copies, independent of private Site access."""
 from pathlib import Path
 import base64,hashlib,json,mimetypes,re
 R=Path(__file__).resolve().parents[1];O=R/'exports';O.mkdir(exist_ok=True)
@@ -18,11 +18,16 @@ def css(p):
   return 'url("'+url_data(file)+'")'
  return re.sub(r'url\(([^)]+)\)',asset,s)
 records=[]
-for relative,name in[('chapters/a_correct.html','Algorithm Correctness.html'),('ielts/academic-01-sentences.html','IELTS Academic Session 1.html'),('chapters/l_projection.html','Orthogonal Projections.html'),('ielts/academic-02-routines.html','IELTS Academic Session 2.html'),('chapters/s_conditional.html','Conditional Probability.html'),('chapters/s_bayes.html','Bayes Rule.html'),('chapters/l_leastsquares.html','Least Squares.html'),('ielts/academic-03-nouns.html','IELTS Academic Session 3.html')]:
+for relative,name in[('chapters/a_correct.html','Algorithm Correctness.html'),('ielts/academic-01-sentences.html','IELTS Academic Session 1.html'),('chapters/l_projection.html','Orthogonal Projections.html'),('ielts/academic-02-routines.html','IELTS Academic Session 2.html'),('chapters/s_conditional.html','Conditional Probability.html'),('chapters/s_bayes.html','Bayes Rule.html'),('chapters/l_leastsquares.html','Least Squares.html'),('ielts/academic-03-nouns.html','IELTS Academic Session 3.html'),('chapters/l_gauss.html','Gaussian Elimination.html')]:
  p=R/'dist'/relative;page=p.read_text(encoding='utf8');sceneIDs=set(x for group in re.findall(r'data-scenes="([^"]+)"',page)for x in group.split(','));db=json.loads((R/'dist/chapters/concept-animations.json').read_text(encoding='utf8'));scenes={k:db['scenes'][k]for k in sorted(sceneIDs)}
  if sceneIDs:
   encoded=json.dumps({'scenes':scenes},ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
   page=page.replace('</head>','<script>window.__OFFLINE_CONCEPTS='+encoded+';</script></head>')
+ problemIDs=set(re.findall(r'data-problem-visual="([^"]+)"',page))
+ if problemIDs:
+  problemDB=json.loads((R/'dist/chapters/problem-visual-models.json').read_text(encoding='utf8'))
+  encoded=json.dumps({k:problemDB[k]for k in sorted(problemIDs)},ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
+  page=page.replace('</head>','<script>window.__OFFLINE_PROBLEMS='+encoded+';</script></head>')
  if relative=='chapters/l_leastsquares.html':
   model_data=(R/'dist/chapters/l_leastsquares-models.json').read_text(encoding='utf8').replace('<','\\u003c')
   page=page.replace('</head>','<script>window.LS_MODEL_DATA='+model_data+';</script></head>')
@@ -34,6 +39,9 @@ for relative,name in[('chapters/a_correct.html','Algorithm Correctness.html'),('
   if path.name=='concept-unified.js':
    code=re.sub(r" const data=\(\)=>[\s\S]*?\n const el=",' const data=()=>dataPromise??(dataPromise=Promise.resolve(window.__OFFLINE_CONCEPTS));\n const el=',code,count=1)
    assert'concept-animations.json'not in code
+  if path.name=='problem-visuals.js':
+   code,n=re.subn(r'let data;const pending=',r'let data=Promise.resolve(window.__OFFLINE_PROBLEMS||{});const pending=',code,count=1)
+   assert n==1
   return'<script>'+code.replace('</script','<\\/script')+'</script>'
  page=re.sub(r'<script\b[^>]*src="([^"]+)"[^>]*>\s*</script>',script,page)
  page=re.sub(r'src="(audio/[^"]+\.wav)"',lambda m:'src="'+url_data((p.parent/m[1]).resolve())+'"',page)
@@ -43,6 +51,6 @@ for relative,name in[('chapters/a_correct.html','Algorithm Correctness.html'),('
  page=re.sub(r'href="(\.\./[^"#]+)(#[^"]*)?"',lambda m:'href="https://github.com/bheydari721rn24/Phd-Exam-CSE/tree/study-planner-1406/study-planner"',page)
  ck=not re.search(r'<(?:link|script)\b[^>]*(?:href|src)="(?!data:)',page)
  assert ck and not re.search(r'<audio\b[^>]*src="(?!data:)',page)
- target=O/name;target.write_bytes(page.encode('utf8'));records.append({'path':str(target.relative_to(R)),'source':relative,'sourceSha256':hashlib.sha256(p.read_bytes()).hexdigest(),'sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'embeddedScenes':len(scenes),'embeddedAudio':page.count('<audio'),'bytes':target.stat().st_size})
+ target=O/name;target.write_bytes(page.encode('utf8'));records.append({'path':str(target.relative_to(R)),'source':relative,'sourceSha256':hashlib.sha256(p.read_bytes()).hexdigest(),'sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'embeddedScenes':len(scenes),'embeddedProblemModels':len(problemIDs),'embeddedAudio':page.count('<audio'),'bytes':target.stat().st_size})
 (O/'manifest.json').write_text(json.dumps({'date':'2026-10-17','copies':records,'scope':'Self-contained current drafts with embedded fonts, scripts, selected concept data and original audio. External references still require network access.'},indent=2)+'\n')
 print(records)

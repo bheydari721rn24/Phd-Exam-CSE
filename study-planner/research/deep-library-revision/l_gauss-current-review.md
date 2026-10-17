@@ -1,0 +1,23 @@
+# Gaussian elimination: current individual review
+
+## Completed scope
+
+The complete earlier lesson is preserved and three substantial explanations added: column-space transport with the original-pivot-column proof, the restricted conjugation argument for later LU pivoting, and a complete examination decision sequence. All 69 original/course solutions were individually expanded; both authentic examination answers were also expanded. The bank still has 71 question placements, not 71 new questions. Its solutions contain 13,291 whitespace-separated words, including mathematical notation. Eighty complete final rules remain, with four sharpened hypotheses.
+
+## Sources and original examinations
+
+Four primary written courses were genuinely reread: MIT 18.700 all 21 PDF pages; Oxford M1 printed pages 3–8 and 16–20; Berkeley Math 54 all seven handwritten pages visually; Stanford CME108/MATH114 all eleven Gaussian/LU/Permuted-LU bodies. Their individual strengths and the bounded five-course historical candidate comparison are documented in the source audit. CMU remains an earlier fifth comparison, not a newly reread source. Public instructor attribution is retained only where documented.
+
+Both authentic source pages were rechecked against original PDF images and pinned Git blobs. The Gaussian copied JSON record for MS CS 1405 Q113 still had option one as 32; it is now 37. The already-correct HTML option and canonical archive record remain 37. The answer remains 336, option four. PhD CS 1404 Q33 remains option three, with an actual scaled LU construction. No independently derived answer is described as an official key.
+
+## Mathematics and visuals
+
+The retained exact models passed 1,035 assertions, the parameter/proof manuscript 861, the advanced manuscript 612, and an independent peer check of the earlier/root scopes 105. These are separate overlapping audit scopes, not counts of different examination problems. All 1,698 native MathML expressions passed structural, fence and script-base checks.
+
+Twenty generic matrix galleries were replaced with actual-input mathematical derivations. Twelve exact row traces were retained and checked operation by operation. An additional Cartesian-choice model explains the authentic integer count. The chapter has 33 question-specific visual aids with 121 finite frames, plus twelve teaching-model families placed in the lesson and eleven matched questions. All 118 selectable teaching-scene placements/states were checked for geometry. The 31 multistep question players passed controls; four real playback runs advanced.
+
+The exact interactive laboratory passed six presets and 48 independent input-grid cases, including 360 invertible transformation checkpoints checked against original input and symbolic classifications. Eight invalid inputs were rejected. Mathematical and coding fonts loaded; three viewport widths stayed within the document width. An observed four-row cell-padding failure and long-inline-formula mobile overflow were repaired. Print exposes all 71 solutions and 121 question-model frames, and restores the reader's prior open-answer state afterward. Three representative rendered screenshots were visually inspected.
+
+## Status and boundaries
+
+The individual author review is complete. This revised edition remains a review draft; student approval is not inferred from approval of an earlier edition. The finite source pool, worked bank, model states and tests cannot establish literal universal correctness or guaranteed performance on every unseen examination question. Restricted homework was not claimed as read. Browser checks cover portable Edge and finite interactions; print DOM/CSS was inspected without a claim about every PDF page break or every browser. Publication is recorded separately from local review completion.

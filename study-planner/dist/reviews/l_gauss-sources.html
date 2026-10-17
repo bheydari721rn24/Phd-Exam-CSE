@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gaussian elimination audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/l_gauss.html">← Gaussian elimination chapter</a></p><article class="lesson"><h1>Gaussian elimination: written-source evaluation</h1>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gaussian elimination: written source evaluation</title><link rel="stylesheet" href="../chapters/chapter.en.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/l_gauss.html">Gaussian elimination chapter</a></p><article class="lesson"><h1>Gaussian elimination: written-source evaluation</h1>
 <h2>Candidate pool, ranking and decisions</h2>
 <p>Five accessible university course offerings were compared individually for this chapter. The pool is bounded and explicitly documented: it is not an assertion that every worldwide course, restricted LMS handout or historical offering was read. All five contribute genuinely reviewed written material; the four primary choices are MIT, Oxford, Stanford and Berkeley. CMU is an additional error/definition/example comparison. No video, transcript substitute or inaccessible homework was counted as read.</p>
 <table>
@@ -21,8 +21,8 @@
 </tr>
 <tr>
 <td>2</td>
-<td>Oxford, M1 Linear Algebra <span class="math-inline">I</span>, 2022; Andrew Wathen listed as lecturer</td>
-<td>Printed pp. 3–7 and 16–20, corresponding to PDF pp. 4–8 and 17–21; adjoining <span class="math-inline">p</span>. 8 inspected for boundary</td>
+<td>Oxford, M1 Linear Algebra I, 2022; Andrew Wathen listed as lecturer</td>
+<td>Printed pp. 3–7 and 16–20, corresponding to PDF pp. 4–8 and 17–21; adjoining p. 8 inspected for boundary</td>
 <td>Complete rectangular, incompatible and parameter branches; inductive existence argument</td>
 <td>Note author is not separately attributed. Uniqueness is deferred elsewhere in the course; supplied independently here. Primary branch and completeness source.</td>
 </tr>
@@ -42,7 +42,7 @@
 </tr>
 <tr>
 <td>5</td>
-<td>CMU, 21-241 Matrix Algebra, Summer <span class="math-inline">I</span> 2014; William Gunther</td>
+<td>CMU, 21-241 Matrix Algebra, Summer I 2014; William Gunther</td>
 <td>All three pages each of Day 1, Day 2 and Day 8</td>
 <td>Contrasting introduction, elementary inverses and introductory exercise structures</td>
 <td>Several slips are corrected. Additional comparison source rather than the sole basis for a proof.</td>
@@ -57,7 +57,7 @@
 <li>Berkeley: <a href="https://math.berkeley.edu/~apaulin/Systems%20of%20Linear%20Equations.pdf">Systems of Linear Equations</a>.</li>
 <li>CMU: <a href="https://www.math.cmu.edu/~wgunther/241/m14/notes/week1/1.pdf">Day 1</a>, <a href="https://www.math.cmu.edu/~wgunther/241/m14/notes/week1/2.pdf">Day 2</a>, <a href="https://www.math.cmu.edu/~wgunther/241/m14/notes/week2/8.pdf">Day 8</a>.</li>
 <li>Stanford Gaussian elimination: <a href="https://web.stanford.edu/class/math114/decks/linear_systems/gauss_elim21.html">Part 1</a>, <a href="https://web.stanford.edu/class/math114/decks/linear_systems/gauss_elim29.html">Part 2</a>, <a href="https://web.stanford.edu/class/math114/decks/linear_systems/gauss_elim37.html">Part 3</a>.</li>
-<li>Stanford LU: <a href="https://web.stanford.edu/class/math114/decks/linear_systems/lu_factorization.html">Part 1</a>, <a href="https://web.stanford.edu/class/math114/decks/linear_systems/lu_factorization49.html">Part 2</a>, <a href="https://web.stanford.edu/class/math114/decks/linear_systems/lu_factorization64.html">Part 3</a>. The third HTML title repeats “<span class="math-inline">2/3</span>”; the linked instructional body is the concluding part.</li>
+<li>Stanford LU: <a href="https://web.stanford.edu/class/math114/decks/linear_systems/lu_factorization.html">Part 1</a>, <a href="https://web.stanford.edu/class/math114/decks/linear_systems/lu_factorization49.html">Part 2</a>, <a href="https://web.stanford.edu/class/math114/decks/linear_systems/lu_factorization64.html">Part 3</a>. The third HTML title repeats “2/3”; the linked instructional body is the concluding part.</li>
 <li>Stanford Permuted LU: <a href="https://web.stanford.edu/class/math114/decks/linear_systems/permuted_lu.html">Part 1</a>, <a href="https://web.stanford.edu/class/math114/decks/linear_systems/permuted_lu8.html">Part 2</a>, <a href="https://web.stanford.edu/class/math114/decks/linear_systems/permuted_lu16.html">Part 3</a>, <a href="https://web.stanford.edu/class/math114/decks/linear_systems/permuted_lu32.html">Part 4</a>, <a href="https://web.stanford.edu/class/math114/decks/linear_systems/permuted_lu64.html">Part 5</a>.</li>
 </ul>
 <p>Content hashes, actual page counts and read scopes are preserved in the downloadable <a href="../evidence/l_gauss/sources.json">source record</a>. Original university PDFs and private archive caches are not copied into the public site.</p>
@@ -69,12 +69,12 @@
 <li>Stanford LU concluding part prints an inverse factor with exponent minus two in several intermediate lines; the final line has the correct minus-one exponent. The derivation here uses the inverse of each transform once, in reverse product order.</li>
 <li>Stanford Gauss-transform entry notation can be read as overwriting the identity diagonal and includes inconsistent signs in its intermediate naming. The chapter explicitly defines a strictly lower multiplier vector and proves the nilpotent rank-one inverse.</li>
 <li>Stanford's final in-place PLU pseudocode can be misread as updating the stored multiplier column during a full-row subtraction. The separate-array code here updates only trailing coefficient columns, explicitly sets known zeros and swaps completed multiplier columns.</li>
-<li>MIT <span class="math-inline">p</span>. 19 says full column rank implies a pivot in every row, although its own rectangular diagram contains additional zero rows. The correct condition is a pivot in every coefficient column, with possible additional zero rows when there are more equations than unknowns.</li>
-<li>MIT <span class="math-inline">p</span>. 13 gives a positive normalization in its displayed operation but a negative scalar in the adjacent prose for the same example. Our exact row certificates and substitutions determine the correct sign.</li>
+<li>MIT p. 19 says full column rank implies a pivot in every row, although its own rectangular diagram contains additional zero rows. The correct condition is a pivot in every coefficient column, with possible additional zero rows when there are more equations than unknowns.</li>
+<li>MIT p. 13 gives a positive normalization in its displayed operation but a negative scalar in the adjacent prose for the same example. Our exact row certificates and substitutions determine the correct sign.</li>
 <li>CMU Day 1 uses a trigonometric simplification with different variable arguments; that identity does not apply as printed. Its triangular example also prints an incorrect first coordinate; the chapter derives backward substitution from the equations instead.</li>
 <li>CMU Day 2 says a column containing a leading entry is free in one sentence; its intended condition is absence of a leading entry. The chapter consistently distinguishes coefficient pivot and free columns.</li>
 <li>CMU Day 8 drops the load in a prose inverse-solve expression. The correct formula is the inverse applied to the load, not the inverse matrix alone. The following theorem in the note gives the correct formula.</li>
-<li>Oxford Example 7(<span class="math-inline">b</span>)'s displayed last array is described as RREF, but retains nonzero entries above the last-column pivot. It already certifies inconsistency; a full augmented RREF would clear those entries. Our coefficient-only versus full-augmented conventions are explicitly separated.</li>
+<li>Oxford Example 7(b)'s displayed last array is described as RREF, but retains nonzero entries above the last-column pivot. It already certifies inconsistency; a full augmented RREF would clear those entries. Our coefficient-only versus full-augmented conventions are explicitly separated.</li>
 </ol>
 <p>These corrections are not reasons to discard otherwise valuable sources. They demonstrate why multiple written sources and independent certificates are needed.</p>
 <h2>Coverage crosswalk and prompt inventory</h2>
@@ -109,7 +109,7 @@
 </tr>
 <tr>
 <td>LU and permutations</td>
-<td>Stanford complete <span class="math-inline">LU/Pe</span>rmuted-LU sequences</td>
+<td>Stanford complete LU/Permuted-LU sequences</td>
 <td>Nonsingular leading-minor criterion, normalization freedom, later-multiplier swap certificate and authentic doctoral Q33</td>
 </tr>
 <tr>
@@ -129,8 +129,60 @@
 </tr>
 </tbody>
 </table>
-<p>In-scope written exercise structures were inventoried rather than claiming all homework in full courses was reproduced. Oxford Examples <span class="math-inline">2/5</span>, 7(a), 7(<span class="math-inline">b</span>), 8 and 46 are represented by worked tasks or the solution-family lesson; its elementary-matrix proof prompt is resolved in the operations section. Berkeley's two introductory solves and five-variable example are represented in the geometry lesson and problem bank. Stanford's forward/backward substitution, elementary multiplication, Gauss-transform inverse, permutation inverse, zero-pivot, rounding and LU example prompts are answered in the proofs and bank. MIT's check-the-solution and left-inverse constructions are independently certified; it has no separately reproduced full problem set in this handout. CMU's introductory classification and inverse-example patterns are represented by independent exact tasks; book exercises referenced without their full statement were not counted as accessed. Stanford protected HW2 was not accessed and is not claimed as reviewed.</p>
+<p>In-scope written exercise structures were inventoried rather than claiming all homework in full courses was reproduced. Oxford Examples 2/5, 7(a), 7(b), 8 and 46 are represented by worked tasks or the solution-family lesson; its elementary-matrix proof prompt is resolved in the operations section. Berkeley's two introductory solves and five-variable example are represented in the geometry lesson and problem bank. Stanford's forward/backward substitution, elementary multiplication, Gauss-transform inverse, permutation inverse, zero-pivot, rounding and LU example prompts are answered in the proofs and bank. MIT's check-the-solution and left-inverse constructions are independently certified; it has no separately reproduced full problem set in this handout. CMU's introductory classification and inverse-example patterns are represented by independent exact tasks; book exercises referenced without their full statement were not counted as accessed. Stanford protected HW2 was not accessed and is not claimed as reviewed.</p>
 <h2>Examination evidence</h2>
 <p>Doctoral CS 1404 Q33 was newly located on original booklet PDF page 8 and its options visually checked. Its unrestricted lower/upper factors allow diagonal scaling; assuming a unit lower diagonal would change the question. Master's CS 1405 Q113 was rechecked on original booklet PDF page 25 and intentionally revisited to connect elimination of a shared sum to an integer count. Both use the pinned archive commit and source hashes recorded with their statements. Answers are independent derivations, not claims about an official key.</p>
 <p>Only these inspected pages and documented items are claimed here. No assertion is made that every archived examination page has been scanned for this chapter or that every possible examination question is covered.</p>
+<h1>Current primary-source revalidation</h1>
+<h2>What was actually reread</h2>
+<p>This source subtask independently reread three university sources. The parent task reported a fresh complete reading of MIT's 21-page Gaussian elimination handout; that reading was not repeated by this reviewer. The combined project evidence must preserve that distinction. This record does not declare the individual chapter review complete.</p>
+<table>
+<thead>
+<tr>
+<th>University</th>
+<th>Written source and exact fresh scope</th>
+<th>Method and acquisition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Oxford</td>
+<td>M1 Linear Algebra I, <code>lecture_notes22.pdf</code>: printed pages 3–8 and 16–20, corresponding to PDF pages 4–9 and 17–21</td>
+<td>Complete extracted text of the eleven pages was read. Original rendered printed pages 6 and 18 were additionally inspected to verify the newly detected source errors. Local official-site download: 495,950 bytes; 78 PDF pages.</td>
+</tr>
+<tr>
+<td>UC Berkeley</td>
+<td>Alexander Paulin, Systems of Linear Equations and Row Reduction: all seven handwritten PDF pages</td>
+<td>Every page was rendered and visually read individually, including the two introductory solves, the five-variable reduction and classification diagrams. Local official-site download: 4,991,758 bytes.</td>
+</tr>
+<tr>
+<td>Stanford</td>
+<td>CME108/MATH114: all three Gaussian-elimination HTML parts, all three LU parts and all five Permuted-LU parts</td>
+<td>All eleven instructional HTML text and mathematical bodies were freshly read. Local official-site downloads recovered all eleven historical document hashes exactly. External linked media or separate image assets were not independently reviewed.</td>
+</tr>
+</tbody>
+</table>
+<p>All thirteen downloaded documents match the corresponding historical SHA-256 and byte counts in <code>dist/evidence/l_gauss/sources.json</code>. The accompanying JSON records every exact URL and verified hash. Original PDFs and rendering caches were moved outside the checkout to <code>C:/Users/bheydari/AppData/Local/Temp/phd-gauss-source-revalidation-20261017-agent</code>; they are not public redistribution deliverables. Instructor metadata is inherited from the earlier audit rather than newly established here.</p>
+<p>The web reader could not open the Oxford URL and timed out on three Berkeley screenshot requests. Local official-site downloads subsequently succeeded. Berkeley's complete seven-page visual review therefore uses the local rendered originals, not an inference from an inaccessible web result.</p>
+<h2>Newly detected errors and qualifications</h2>
+<h3>Oxford Example 7(b), printed page 6: the displayed subtraction has wrong signs</h3>
+<p>Immediately before its final arrow, the first two augmented rows are <code>[1,1,1,1 | 4]</code> and <code>[0,1,-4,-5 | -7]</code>. The stated operation subtracts the second row from the first. Its correct result is <code>[1,0,5,6 | 11]</code>; the source instead displays <code>[1,0,-5,-6 | -11]</code>. This is an arithmetic error, separately from the previously documented failure to clear the augmented last-column pivot. The existing contradiction row still proves inconsistency, so the classification is unaffected. A copied row-operation animation must use the correct arithmetic, not merely arrive at the same classification.</p>
+<h3>Oxford Proposition 44(b), printed page 18: consistency is required</h3>
+<p>The coefficient condition alone does not imply a unique solution. The augmented RREF <code>[[1 | 0], [0 | 1]]</code> has nonzero coefficient rows forming <code>I_1</code>, but its last equation is impossible. The correct general criterion is <code>rank(A) = rank([A|b]) = n</code>. Equivalently, require both absence of a contradictory augmented row and a pivot in every coefficient column. The proof below the source proposition implicitly assumes matching coefficient/augmented nonzero-row counts; that assumption needs to appear in the statement too.</p>
+<h3>Stanford Gaussian Part 1: the motivating backward-substitution formula reverses a sign</h3>
+<p>For <code>-8v - 2w = -12</code>, the source prints the expression <code>(-12 + 2w)/8</code> but claims the resulting value is 1 at <code>w=2</code>. That expression actually gives -1. The correct expression is <code>(12 - 2w)/8</code>, which gives 1. Deriving the numerator from the original equation prevents reproducing this transcription error.</p>
+<h3>Stanford Permuted-LU Part 5: conjugation needs the active-row condition</h3>
+<p>A later elimination permutation fixes the already completed pivot coordinates. Under that condition, conjugating a completed Gauss transform preserves the appropriate strictly lower multiplier structure. An arbitrary row swap need not do so: with <code>G = [[1,0],[2,1]]</code> and the two-coordinate swap <code>P</code>, the conjugate <code>PGP^-1 = [[1,2],[0,1]]</code> is upper triangular. The chapter should state the restriction when explaining why previous multiplier columns are swapped. One intermediate equality in the source also drops the earlier factor <code>P_1</code>; retain that factor throughout the derivation.</p>
+<p>These findings add to, rather than replace, the historical audit's triangular-side reversal, missing target-row subtraction, inverse-exponent typo, ambiguity in in-place multiplier updates, and other recorded corrections.</p>
+<h2>Source-specific conceptual improvements to retain in the chapter</h2>
+<ol>
+<li><strong>Oxford: preserve complete necessity and sufficiency.</strong> A displayed candidate is not yet a complete solution set. Derive the constraints, assign independent parameters only to free coefficient variables, prove every constructed vector satisfies all equations, and show every solution arises. State consistency before uniqueness. For Example 8, branch before dividing by the parameter: determinant <code>alpha(alpha+2)</code>, a unique solution for <code>alpha != 0,-2</code>, inconsistency at 0, and a one-parameter family at -2. Independent exact ranks are respectively <code>(2,3)</code> and <code>(2,2)</code> for the coefficient/augmented matrices in the exceptional cases.</li>
+<li><strong>Oxford: distinguish coefficient elimination from full augmented RREF.</strong> A contradiction is enough to stop a solve, but it does not make every displayed matrix a full RREF. A normalized augmented pivot must also be cleared above. Existence follows by induction on the smaller bottom-right block; the uniqueness proof needs its own argument, rather than borrowing a deferred source theorem.</li>
+<li><strong>Berkeley: synchronize geometry with actual equations.</strong> Its first example is the intersection of <code>x-y=-1</code> and <code>4x+2y=8</code> at <code>(1,2)</code>. Its second gives the line <code>(5/2-8t,t-1/2,t)</code> from two planes. Draw those actual examples with equal coordinate scales when metric geometry is implied, and show why replacing one equation preserves the common intersection even though the individual line/plane changes.</li>
+<li><strong>Berkeley: keep nonconsecutive pivots visible.</strong> The five-variable example has pivots in columns 1,3,5 and free variables in columns 2,4. Its complete solution is <code>(s+5t-9,s,4-4t,t,3)</code>. In an accompanying diagram, label the augmented load separately: it is neither a free variable nor another coefficient unknown. The zero/one/infinitely-many classification assumes an infinite scalar field; over a finite field a consistent free-variable family has a finite cardinality.</li>
+<li><strong>Stanford: separate a factorization from a solve.</strong> Factor the coefficient matrix once, then apply the recorded permutation and two triangular solves to each new load. State the convention <code>PA=LU</code>, so the solve order is <code>Ly=Pb</code>, <code>Ux=y</code>. Explain nonzero diagonal requirements and explicit simultaneous row swaps; sequential assignment without a temporary row would overwrite data.</li>
+<li><strong>Stanford: derive exact operations and stability claims locally.</strong> Count the declared loops rather than importing the source's inconsistent general flop-table row. Preserve completed multipliers when pivoting, update only the trailing coefficient block, and never infer exact singularity solely from a small floating-point pivot. The three-digit example should distinguish exact rational elimination, rounding at each declared arithmetic operation, residual size and forward error. Partial pivoting helps that example without becoming a universal error guarantee.</li>
+</ol>
+<h2>Boundaries</h2>
+<p>This is a revalidation of a bounded five-course historical candidate pool, not an exhaustive comparison of all world courses. Restricted Stanford HW2 was not accessed, and references to exercises in unavailable books were not counted as fully read questions. No new instructor attribution or full-course homework coverage is claimed. The exact independent checks and acquisition evidence are in the adjacent JSON file. The chapter's overall semantic, answer, animation and browser review remains the parent task's separate responsibility.</p>
 </article></main></body></html>

@@ -1,4 +1,7 @@
 """Chapter-specific medium/hard problems with teaching solutions and certificates."""
+from pathlib import Path as _RevisionPath
+if (_RevisionPath(__file__).resolve().parent / "deep-library-revision/l_gauss-answer-revision.json").exists():
+    raise SystemExit("Historical Gaussian generator is frozen. Use research/revise_gauss_chapter.py for the current individual revision.")
 import json
 from pathlib import Path
 from fractions import Fraction as F

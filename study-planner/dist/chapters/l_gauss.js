@@ -45,3 +45,18 @@
   document.querySelectorAll('[data-gauss-step]').forEach(b=>b.addEventListener('click',()=>{position=b.dataset.gaussStep==='next'?Math.min(position+1,trace.length-1):b.dataset.gaussStep==='back'?Math.max(position-1,0):0;render()}));
   form.addEventListener('submit',e=>{e.preventDefault();compute()});form.addEventListener('input',compute);compute();
 })();
+
+// Preserve the reader's open answers across the other players' print handlers.
+(() => {
+  let saved = null;
+  addEventListener('beforeprint', () => {
+    if (saved === null) saved = [...document.querySelectorAll('details.exam-solution')].map(node => [node, node.open]);
+  }, true);
+  addEventListener('afterprint', () => {
+    const state = saved;
+    queueMicrotask(() => {
+      if (state) for (const [node, open] of state) if (node.isConnected) node.open = open;
+      saved = null;
+    });
+  });
+})();

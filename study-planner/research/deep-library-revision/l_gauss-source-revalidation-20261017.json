@@ -1,0 +1,231 @@
+{
+  "date": "2026-10-17",
+  "chapter": "l_gauss",
+  "state": "bounded_source_revalidation_completed",
+  "reviewerScope": "This subtask independently reread Oxford, Berkeley and Stanford. MIT 21-page fresh read was reported by parent, not repeated here.",
+  "independentlyReviewedUniversityCount": 3,
+  "readScopes": {
+    "Oxford": {
+      "printedPages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "pdfPages": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "method": "Complete extracted text for these pages; original visual pages printed6 and18 checked for newly detected errors."
+    },
+    "UC Berkeley": {
+      "pdfPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "method": "All seven handwritten pages rendered and individually visually read."
+    },
+    "Stanford": {
+      "documentIds": [
+        "stanford-ge1",
+        "stanford-ge3",
+        "stanford-lu1",
+        "stanford-lu2",
+        "stanford-plu",
+        "stanford-ge2",
+        "stanford-lu3",
+        "stanford-plu2",
+        "stanford-plu3",
+        "stanford-plu4",
+        "stanford-plu5"
+      ],
+      "method": "All eleven complete instructional HTML text and mathematical bodies reread; linked image/video assets were not separately read."
+    }
+  },
+  "documents": [
+    {
+      "id": "berkeley",
+      "url": "https://math.berkeley.edu/~apaulin/Systems%20of%20Linear%20Equations.pdf",
+      "sha256": "36a3433868f286069d514c87ecec47610b1ce99f6111ad31d44f51fefd467ca5",
+      "bytes": 4991758,
+      "pages": 7,
+      "actualSha256": "36a3433868f286069d514c87ecec47610b1ce99f6111ad31d44f51fefd467ca5",
+      "actualBytes": 4991758
+    },
+    {
+      "id": "oxford",
+      "url": "https://courses.maths.ox.ac.uk/pluginfile.php/25471/mod_folder/content/0/lecture_notes22.pdf?forcedownload=1",
+      "sha256": "b7b49ddc40a68cd3d4376143178d259140a0fa01f5098c7df295d6ef85cf69ba",
+      "bytes": 495950,
+      "pages": 78,
+      "actualSha256": "b7b49ddc40a68cd3d4376143178d259140a0fa01f5098c7df295d6ef85cf69ba",
+      "actualBytes": 495950
+    },
+    {
+      "id": "stanford-ge1",
+      "url": "https://web.stanford.edu/class/math114/decks/linear_systems/gauss_elim21.html",
+      "sha256": "1b21062df70b5a19c3ddade8a5dac6129e2dd5fdfd27b2d70822907df1638168",
+      "bytes": 9431,
+      "pages": null,
+      "actualSha256": "1b21062df70b5a19c3ddade8a5dac6129e2dd5fdfd27b2d70822907df1638168",
+      "actualBytes": 9431
+    },
+    {
+      "id": "stanford-ge3",
+      "url": "https://web.stanford.edu/class/math114/decks/linear_systems/gauss_elim37.html",
+      "sha256": "0964cba777509d96dc7dfa2fbf37f5e0e713ccb0ae58f3aa0752f511ddfe01ae",
+      "bytes": 17247,
+      "pages": null,
+      "actualSha256": "0964cba777509d96dc7dfa2fbf37f5e0e713ccb0ae58f3aa0752f511ddfe01ae",
+      "actualBytes": 17247
+    },
+    {
+      "id": "stanford-lu1",
+      "url": "https://web.stanford.edu/class/math114/decks/linear_systems/lu_factorization.html",
+      "sha256": "1397be1642acf3410be3c9c9b000ac388f49e19f77cf7ec52fdb1d79755c48d3",
+      "bytes": 7157,
+      "pages": null,
+      "actualSha256": "1397be1642acf3410be3c9c9b000ac388f49e19f77cf7ec52fdb1d79755c48d3",
+      "actualBytes": 7157
+    },
+    {
+      "id": "stanford-lu2",
+      "url": "https://web.stanford.edu/class/math114/decks/linear_systems/lu_factorization49.html",
+      "sha256": "f5caf94c4296d3ad3d545ca63b7ebe3dbd518e140f03184224df7cdaa3c02d29",
+      "bytes": 4823,
+      "pages": null,
+      "actualSha256": "f5caf94c4296d3ad3d545ca63b7ebe3dbd518e140f03184224df7cdaa3c02d29",
+      "actualBytes": 4823
+    },
+    {
+      "id": "stanford-plu",
+      "url": "https://web.stanford.edu/class/math114/decks/linear_systems/permuted_lu.html",
+      "sha256": "e6ea240e19b2eb91efca675df812e1b453c6c3b43b8679bd40c929744fe3654c",
+      "bytes": 9622,
+      "pages": null,
+      "actualSha256": "e6ea240e19b2eb91efca675df812e1b453c6c3b43b8679bd40c929744fe3654c",
+      "actualBytes": 9622
+    },
+    {
+      "id": "stanford-ge2",
+      "url": "https://web.stanford.edu/class/math114/decks/linear_systems/gauss_elim29.html",
+      "sha256": "1a878abfbb7dbbec824f09a6a40bc2bfd258d94559c3576e3df39a56ac3b8659",
+      "bytes": 8459,
+      "pages": null,
+      "actualSha256": "1a878abfbb7dbbec824f09a6a40bc2bfd258d94559c3576e3df39a56ac3b8659",
+      "actualBytes": 8459
+    },
+    {
+      "id": "stanford-lu3",
+      "url": "https://web.stanford.edu/class/math114/decks/linear_systems/lu_factorization64.html",
+      "sha256": "7ad8019991aaf8e3cb3a9116238afacf74fdd4f7429f5beecbe6561d0570186f",
+      "bytes": 11220,
+      "pages": null,
+      "actualSha256": "7ad8019991aaf8e3cb3a9116238afacf74fdd4f7429f5beecbe6561d0570186f",
+      "actualBytes": 11220
+    },
+    {
+      "id": "stanford-plu2",
+      "url": "https://web.stanford.edu/class/math114/decks/linear_systems/permuted_lu8.html",
+      "sha256": "4d0c9e2079f3f0eb47160bdaa4baa22473ae7b0c805936081c40ce84a7e70745",
+      "bytes": 10716,
+      "pages": null,
+      "actualSha256": "4d0c9e2079f3f0eb47160bdaa4baa22473ae7b0c805936081c40ce84a7e70745",
+      "actualBytes": 10716
+    },
+    {
+      "id": "stanford-plu3",
+      "url": "https://web.stanford.edu/class/math114/decks/linear_systems/permuted_lu16.html",
+      "sha256": "d34830c30e26d60946460ede1c23c8d4218644e6f942146c641c2d8e9e87e7e2",
+      "bytes": 5860,
+      "pages": null,
+      "actualSha256": "d34830c30e26d60946460ede1c23c8d4218644e6f942146c641c2d8e9e87e7e2",
+      "actualBytes": 5860
+    },
+    {
+      "id": "stanford-plu4",
+      "url": "https://web.stanford.edu/class/math114/decks/linear_systems/permuted_lu32.html",
+      "sha256": "378358408449bcb39561491ddb63a0ca54b1b8e8e12c8dff0267f4fab0f65611",
+      "bytes": 5271,
+      "pages": null,
+      "actualSha256": "378358408449bcb39561491ddb63a0ca54b1b8e8e12c8dff0267f4fab0f65611",
+      "actualBytes": 5271
+    },
+    {
+      "id": "stanford-plu5",
+      "url": "https://web.stanford.edu/class/math114/decks/linear_systems/permuted_lu64.html",
+      "sha256": "5dc0d42f7844f673d93ebcec64518035ef1e7eb5b35d3c7278f92c9d81986e87",
+      "bytes": 12428,
+      "pages": null,
+      "actualSha256": "5dc0d42f7844f673d93ebcec64518035ef1e7eb5b35d3c7278f92c9d81986e87",
+      "actualBytes": 12428
+    }
+  ],
+  "mathematicalChecks": {
+    "OxfordExample7bCorrectSubtraction": true,
+    "OxfordProp44bCounterexampleCoefficientRank": 1,
+    "OxfordProp44bCounterexampleAugmentedRank": 2,
+    "OxfordExample8Determinant": "a*(a + 2)",
+    "OxfordExample8GenericSolution": [
+      "-a**2/(a + 2) - 5*(a + 3)/(a + 2) + 9/(a + 2)",
+      "-a**2/(a**2 + 2*a) - 5*(-2*a - 3)/(a**2 + 2*a) - 9*(a + 1)/(a**2 + 2*a)",
+      "a**2/(a + 2) - 4/(a + 2)"
+    ],
+    "OxfordExample8Alpha0Ranks": [
+      2,
+      3
+    ],
+    "OxfordExample8AlphaMinus2Ranks": [
+      2,
+      2
+    ],
+    "StanfordGE1CorrectV": "1",
+    "StanfordGE1PrintedExpressionV": "-1",
+    "ArbitraryConjugationCounterexample": [
+      [
+        "1",
+        "2"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ]
+  },
+  "newSourceErrors": [
+    "Oxford Example7b final row-subtraction has three sign errors in row1.",
+    "Oxford Proposition44b needs consistency in its uniqueness criterion.",
+    "Stanford GE1 motivating backward-substitution expression for v has its numerator sign reversed.",
+    "Stanford PLU5 conjugation statement needs a permutation fixing completed pivot indices.",
+    "Stanford PLU5 one intermediate displayed equality drops P1."
+  ],
+  "limits": [
+    "Only the declared bounded five-course pool was historically compared; no exhaustive worldwide comparison.",
+    "Restricted Stanford HW2 and external linked media were not accessed.",
+    "Course/instructor metadata inherited from historical audit was not independently re-established.",
+    "This is source revalidation, not a claim that the whole chapter review is complete."
+  ],
+  "sourceCache": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-gauss-source-revalidation-20261017-agent",
+  "downloadsPubliclyRedistributed": false
+}

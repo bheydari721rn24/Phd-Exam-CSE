@@ -1,0 +1,181 @@
+{
+  "date": "2026-10-17",
+  "chapter": "l_gauss",
+  "state": "two_original_examination_placements_rechecked_one_option_erratum_found",
+  "sourceRecords": [
+    {
+      "id": "Phd_CS_1404_Q33",
+      "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
+      "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+      "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
+      "workingFileMatchesPinnedGitBlob": true,
+      "sourceBytes": 456113,
+      "pdfPage": 8,
+      "sourceLocalFile": "C:\\Users\\bheydari\\Desktop\\Phd-Exam-CSE\\Exams\\Phd\\CS\\1404\\Q892A-PHD1404-[www.konkur.in].pdf",
+      "sourceImage": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-gauss-authentic-recheck-20261017-agent\\Phd_CS_1404_Q33.png",
+      "sourceImageSha256": "2a4b8b340f5f4c4d100e62f6f2892b0a2c099b674064a9ed94b5e52829f383bc",
+      "renderMatrix": [
+        1.7,
+        1.7
+      ],
+      "originalPageVisuallyRead": true,
+      "stemMatches": true,
+      "optionsMatch": true,
+      "independentAnswer": 3,
+      "officialKeyClaim": false
+    },
+    {
+      "id": "MS_CS_1405_Q113",
+      "repoPath": "Exams/MS/CS/1405/Q257A-Arshad1405-[www.konkur.in].pdf",
+      "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
+      "sourceSha256": "198f75f9f9d195adc5c09ab14d17029e63a3cd11030d62cffcdfcb5df7627527",
+      "workingFileMatchesPinnedGitBlob": true,
+      "sourceBytes": 539127,
+      "pdfPage": 25,
+      "sourceLocalFile": "C:\\Users\\bheydari\\Desktop\\Phd-Exam-CSE\\Exams\\MS\\CS\\1405\\Q257A-Arshad1405-[www.konkur.in].pdf",
+      "sourceImage": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-gauss-authentic-recheck-20261017-agent\\MS_CS_1405_Q113.png",
+      "sourceImageSha256": "64d5c7efafd09025da19c3b8d15b2e7f0202418a8a7d2b104d6b717a90605176",
+      "renderMatrix": [
+        1.7,
+        1.7
+      ],
+      "originalPageVisuallyRead": true,
+      "stemMatches": true,
+      "optionsMatch": false,
+      "independentAnswer": 4,
+      "officialKeyClaim": false
+    }
+  ],
+  "translationChecks": {
+    "Phd_CS_1404_Q33": {
+      "matrix": [
+        [
+          3,
+          -2,
+          4
+        ],
+        [
+          0,
+          5,
+          1
+        ],
+        [
+          6,
+          2,
+          3
+        ]
+      ],
+      "lowerUpperTriangularAssumptionsMatch": true,
+      "unitDiagonalAssumptionInOriginal": false,
+      "options": [
+        [
+          -1,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          -2
+        ],
+        [
+          -1,
+          0,
+          -2
+        ],
+        [
+          1,
+          2,
+          0
+        ]
+      ],
+      "sourcePageHeader": "Computer Science and Bioinformatics, code2247; booklet892A; page8",
+      "answer": 3
+    },
+    "MS_CS_1405_Q113": {
+      "nonnegativeIntegerDomainMatches": true,
+      "firstSum": 5,
+      "fullSum": 20,
+      "originalOptions": [
+        "37",
+        "binomial(24,4)+binomial(7,2)",
+        "binomial(24,4)*binomial(7,2)",
+        "336"
+      ],
+      "currentGaussBankOption1": "32",
+      "correctedOption1": "37",
+      "option1VisuallyRead": "Persian digits ۳۷",
+      "answer": 4,
+      "detailImage": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-gauss-authentic-recheck-20261017-agent\\MS-option-crop.png",
+      "detailImageSha256": "d51e8603fd429cd20fda05925fa10347b9183631a4323fc817e9816a6c085f98",
+      "detailRenderMatrix": [
+        4,
+        4
+      ],
+      "detailClipPdfCoordinates": [
+        390,
+        135,
+        565,
+        270
+      ]
+    }
+  },
+  "independentMathematics": {
+    "phdNecessaryColumnCondition": "A[:,1]=u11*L[:,1]; middle0 and third=2*first",
+    "phdPassingOptions": [
+      3
+    ],
+    "phdConstructiveExistenceVerified": true,
+    "phdL": [
+      [
+        "-1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "-2",
+        "6/5",
+        "1"
+      ]
+    ],
+    "phdU": [
+      [
+        "-3",
+        "2",
+        "-4"
+      ],
+      [
+        "0",
+        "5",
+        "1"
+      ],
+      [
+        "0",
+        "0",
+        "-31/5"
+      ]
+    ],
+    "msBruteForceEnumeratedSolutions": 336,
+    "msGroupCounts": [
+      21,
+      16
+    ],
+    "msAdditiveDistractor": 37,
+    "msUnrestrictedFiveVariableCount": 10626,
+    "msOption2Value": 10647,
+    "msOption3Value": 223146
+  },
+  "attributionDrift": [
+    "The canonical actual-items.json already corrected Q113 option1 to37 on12October; the separate Gaussian placement retained stale32 while claiming rendered-source checking.",
+    "The Gaussian chapter placement is an authentic revisit, not a newly discovered examination item or a source for an official answer key."
+  ],
+  "mainBankModifiedByThisSubtask": false,
+  "limits": [
+    "Only these two placements and original relevant pages were inspected; no whole-archive examination coverage claim."
+  ]
+}

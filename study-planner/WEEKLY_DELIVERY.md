@@ -829,3 +829,12 @@ Private Site version 108 succeeded from source a97cc196368bef29966074d8ce4c40608
 Thirteen further expanded solutions (LG13-LG25; 2,802 manuscript words) were then written, covering parameter branches, compatibility, certificates, affine restrictions, alternative parameter choices and canonical-form proofs. Independent symbolic/rational-grid, finite-field, structural and MathML checks passed: 861 assertions and 220 native expressions. These remain an unintegrated review manuscript and do not increment the completed-review count. The full original teaching text and all 80 rules were read; fresh MIT all 21 pages and Stanford final PLU body match their historical fingerprints. Current hostname resolution failures for other source downloads are recorded without relabeling historical reads as fresh.
 
 Verified current inventory: 62 distinct technical chapter URLs all resolve to actual local HTML; schedule has 119 technical boundaries, leaving 57 new chapters. IELTS has three actual teaching lessons with learner mastery unconfirmed. Baseline review remains 25/60 complete, 35 pending. Continue the active l_gauss review, then resume i_games authoring.
+
+
+## Gaussian elimination individual review complete: 17 October 2026
+
+All71answers integrated;69original/course solutions rewritten;80rules;three deeper instruction sections;four primary written university scopes reread;two original archive items rechecked.33actual-input problem aids with121frames and118teaching-scene placement/states passed geometry.31multistep controls,4realplaybacks,54exactlabinputs and360transformation checkpoints passed. Repaired actual padding, mobile math overflow and print-state restoration.26of60baseline reviews checked;34remain. Technical inventory remains62/119;57newchapters remain. ThreeIELTS lessons exist;mastery unconfirmed. New-authoring task nowi_games;nextbaseline reviewl_rank. The revised chapter remains student-unapproved. Cloud publication follows separately.
+
+Nine self-contained HTML teaching copies now pass actual file-URL browser checks with all HTTP/HTTPS requests blocked, including the revised Gaussian chapter,33question models,21teaching players and exact laboratory. The nine exported file hashes were checked before synchronization.
+
+Next-chapter work has started with a seven-university official written-source candidate register for i_games. Discovery is not claimed as course reading or a delivered chapter; the technical count remains62.

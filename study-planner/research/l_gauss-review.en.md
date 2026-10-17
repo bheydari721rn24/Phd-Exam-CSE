@@ -86,9 +86,9 @@
 
 44. Row additions preserve the common intersection of equations, not the geometric set defined by each individual equation. Draw the common solution point or family as the invariant.
 
-45. Row operations preserve row space and kernel. They generally move the column space through the invertible left transformation while preserving its dimension.
+45. Invertible row operations preserve row space, kernel and rank. They transport the column space by the same left transformation; the resulting subspace need not equal the original one, even though its dimension is unchanged.
 
-46. Use pivot indices from reduction to select original columns when seeking an original column-space basis. Reduced pivot columns usually belong to a different geometric subspace.
+46. Select original columns using the pivot indices of coefficient reduction when constructing an original column-space basis. Reduced pivot columns need not span that original space. Full row rank is an important equality case: both original and reduced column spaces are the entire ambient load space.
 
 47. A contradiction row supplies an original-coordinate certificate $y^TA=0$ and $y^Tb\ne0$. Multiplying any alleged solution by that row combination immediately refutes it.
 
@@ -126,11 +126,11 @@
 
 64. In $PA=LU$, solve $Ly=Pb$ before solving $Ux=y$. For the convention $A=P_0LU$, the load is instead $P_0^Tb$.
 
-65. A later pivot row exchange must exchange the already stored earlier multiplier columns of $L$. Swapping only the current upper array can leave a visually triangular but false factorization.
+65. A later active-row swap must move the already stored earlier multiplier columns of $L$. It fixes completed pivot coordinates. Swapping only the current upper array can leave a triangular-looking but false factorization; swapping the whole lower matrix would also disturb its prescribed unit diagonal.
 
 66. The full matrix identity $PA=LU$ is the factorization certificate. Also check the unit-lower and upper-triangular structural conditions.
 
-67. A Gauss transform $I-ge_k^T$ has inverse $I+ge_k^T$ because $g_k=0$ makes the rank-one square vanish. General lower triangular inverses need additional cross terms.
+67. A Gauss transform $I-ge_k^T$ has inverse $I+ge_k^T$ because $e_k^Tg=0$ makes the rank-one square vanish. Later active-row permutations preserve this support condition. General lower triangular inverses require cross terms, and arbitrary pivot-coordinate swaps need not preserve a lower Gauss-transform structure.
 
 68. A block Schur complement is $E-DB^{-1}C$ with transformed load $g-DB^{-1}f$. Its derivation requires invertible $B$ and preserves the stated factor order.
 

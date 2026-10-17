@@ -17,6 +17,9 @@
 .lab-phase{font-weight:400;color:#28625c}
 .gauss-step-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0}
 .chapter math{max-width:100%}
+.lesson .pr-inline{display:inline-block;max-width:100%;vertical-align:middle;overflow-x:auto;overflow-y:hidden;white-space:nowrap;line-height:normal;padding:.1em .12em .2em;box-sizing:border-box}
+.lesson .pr-inline>math{max-width:none!important;overflow:visible!important;white-space:nowrap}
+@media print{.lesson .pr-inline{overflow:visible;max-width:none;padding:0}}
 @media(max-width:600px){.gauss-matrix math{font-size:1.08rem}.lesson .formula-block math:has(mtable mtd + mtd){font-size:1.12rem}}
 @media screen and (max-width:650px){.lesson .gauss-diagram svg{width:100%;min-width:0;max-width:100%}.lesson .gauss-diagram.expanded svg{width:700px;min-width:700px;max-width:none}.gauss-figure-toggle{display:block;margin:.6rem 0}.gauss-diagram{scrollbar-width:thin}}
 @media print{.gauss-step-controls,.lab-actions,#gauss-form button{display:none}.gauss-matrix{break-inside:avoid}}

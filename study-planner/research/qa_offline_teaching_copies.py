@@ -19,9 +19,9 @@ try:
  def js(s):
   a=cdp('Runtime.evaluate',{'expression':s,'returnByValue':True,'awaitPromise':True});assert'exceptionDetails'not in a,a;return a.get('result',{}).get('value')
  cdp('Page.enable');cdp('Page.addScriptToEvaluateOnNewDocument',{'source':"window.__errors=[];addEventListener('error',e=>__errors.push(e.message));addEventListener('unhandledrejection',e=>__errors.push(String(e.reason)));"});cdp('Emulation.setDeviceMetricsOverride',{'width':1360,'height':1000,'deviceScaleFactor':1,'mobile':False})
- # External requests are blocked: these two files must teach without a server or internet.
+ # External requests are blocked: every copy must teach without a server or internet.
  cdp('Network.enable');cdp('Network.setBlockedURLs',{'urls':['http://*','https://*']})
- for name in['Algorithm Correctness.html','IELTS Academic Session 1.html','Orthogonal Projections.html','IELTS Academic Session 2.html','Conditional Probability.html','Bayes Rule.html','Least Squares.html','IELTS Academic Session 3.html']:
+ for name in['Algorithm Correctness.html','IELTS Academic Session 1.html','Orthogonal Projections.html','IELTS Academic Session 2.html','Conditional Probability.html','Bayes Rule.html','Least Squares.html','IELTS Academic Session 3.html','Gaussian Elimination.html']:
   fileUrl=(R/'exports'/name).as_uri();cdp('Page.navigate',{'url':fileUrl})
   for _ in range(100):
    if js('location.href==='+json.dumps(fileUrl)+'&&document.readyState==="complete"'):break
@@ -42,6 +42,16 @@ try:
    js('document.querySelectorAll(".exam-solution").forEach(d=>d.open=true)');js('Promise.all([...document.querySelectorAll(".concept-animation")].map(h=>ConceptAnimations.ready(h)))');entry['questions']=js('document.querySelectorAll(".exam-question").length');assert entry['questions']==65
    entry['models']=js('ConceptAnimations.players.map(p=>p.host.dataset.loaded)');assert len(entry['models'])==13 and all(x=='true'for x in entry['models'])
    entry['lab']=js('({...document.getElementById("bayes-output").dataset})');assert entry['lab']['posterior']=='2/13'
+  elif name=='Gaussian Elimination.html':
+   js('document.querySelectorAll(".exam-solution").forEach(d=>d.open=true)')
+   js('Promise.all([...document.querySelectorAll(".concept-animation")].map(h=>ConceptAnimations.ready(h)))')
+   js('Promise.all([...document.querySelectorAll("[data-problem-visual]")].map(h=>ProblemVisuals.ready(h)))')
+   entry['questions']=js('document.querySelectorAll(".exam-question").length');assert entry['questions']==71
+   entry['problemModels']=js('ProblemVisuals.players.map(p=>({id:p.host.dataset.problemVisual,loaded:p.host.dataset.loaded}))');assert len(entry['problemModels'])==33 and all(p['loaded']=='true'for p in entry['problemModels'])
+   entry['conceptModels']=js('ConceptAnimations.players.map(p=>p.host.dataset.loaded)');assert len(entry['conceptModels'])==21 and all(x=='true'for x in entry['conceptModels'])
+   entry['lab']=js('({...document.getElementById("gauss-output").dataset})');assert entry['lab']['particular']=='2/3,-1/9,11/9'
+   entry['correctedOption']=js('document.querySelector(\'[data-source-id="MS_CS_1405_Q113"] .exam-option p\').textContent');assert entry['correctedOption']=='37'
+   entry['controls']=js('(()=>{const p=ProblemVisuals.players.find(p=>p.model.frames.length>1);p.show(1);return p.index===1;})()');assert entry['controls']
   elif name=='Least Squares.html':
    for _ in range(100):
     if js('window.LeastSquaresPlayers?.length===20'):break
