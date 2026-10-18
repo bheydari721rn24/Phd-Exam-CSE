@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-17",
+  "state": "partial_candidate_evaluation_no_final_selection",
+  "chapter": "i_games",
+  "candidates": [
+    {
+      "id": "cmu",
+      "state": "unavailable",
+      "error": "404 Client Error: Not Found for url: https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Adversarial_Search.pdf"
+    },
+    {
+      "id": "cornell",
+      "url": "https://www.cs.cornell.edu/courses/cs4700/2018fa/lectures/pdf/CS4700-06-Search_adversarial_v2.pdf",
+      "sha256": "daba5f8a21afc8e66ce2a2fa74b05ebb4019f053d3f2e5e8af9d566a6d1f4dac",
+      "bytes": 8221762,
+      "textChars": 17029,
+      "state": "acquired_not_read",
+      "path": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-game-sources-20261017\\cornell.pdf"
+    },
+    {
+      "id": "yale",
+      "url": "https://zoo.cs.yale.edu/classes/cs370/lectures/slides/chapter05_4e.pptx.pdf",
+      "sha256": "43b940456c8e48dd907f32b403d97ecea606e86a4a501d1918ada88b188f14f5",
+      "bytes": 1101774,
+      "textChars": 15499,
+      "state": "acquired_not_read",
+      "path": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-game-sources-20261017\\yale.pdf"
+    },
+    {
+      "id": "stanford-index",
+      "url": "https://stanford-cs221.github.io/spring2026/modules/",
+      "sha256": "1ffad4d3f7024bfae882c41a083fd821232d4fcbd5bd2c2579df2dd5ec970f83",
+      "bytes": 629,
+      "textChars": 629,
+      "state": "acquired_not_read",
+      "path": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-game-sources-20261017\\stanford-index.html"
+    }
+  ],
+  "actuallyRead": [
+    {
+      "university": "Cornell",
+      "scope": "All 56 extracted slide-text pages; original rendered pages 15,35,43,55 visually inspected. Other diagrams remain pending.",
+      "sha256": "daba5f8a21afc8e66ce2a2fa74b05ebb4019f053d3f2e5e8af9d566a6d1f4dac",
+      "findings": [
+        "Original page15 prints 3^19=19683. The correct unrestricted nine-cell configuration count is3^9=19683; not all configurations are legal reachable positions.",
+        "Original page35 distinguishes exact full minimax node values from what a left-to-right alpha-beta trace actually evaluates. Future models must retain bounds for pruned or incompletely searched subtrees.",
+        "Original page55 correctly shows nonlinear utility-scale changes can change an expected-utility choice. Higher expected utility is optimal for the stated utility/model; a heuristic score is not automatically a probability of winning.",
+        "The outline mentions UCT, but this56page packet does not supply a complete UCT algorithm/analysis. More written material is required for that scope."
+      ]
+    },
+    {
+      "university": "UC Berkeley",
+      "scope": "Minimax teaching text through its alpha-beta explanation and beginning of evaluation-function section read. Remaining text and original diagrams pending.",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/textbook/games/minimax.html",
+      "findings": [
+        "Keep every node value in one designated MAX player's utility coordinates; do not confuse a MIN turn with switching score conventions.",
+        "Use formal ancestor bounds in addition to the informal pruning explanation; source diagrams overlap with standard AIMA patterns."
+      ]
+    }
+  ],
+  "unavailableCandidate": {
+    "id": "cmu",
+    "issue": "The search-indexed notes URL currently returns HTTP404. It is not counted as read; locate an accessible official replacement."
+  },
+  "preliminaryNumericalEvidence": "research/i_games-preliminary-mathematics.json",
+  "next": "Complete remaining candidate text/figure reading and accessible CMU replacement before selecting at least four complementary courses. No new chapter or new IELTS lesson is counted."
+}

@@ -1,17 +1,17 @@
 {
-  "currentTopicId": "i_games",
+  "currentTopicId": "l_rank",
   "state": "in_progress",
   "nextTopicRequiresExplicitApproval": false,
   "nextTopicId": null,
-  "sourceAuditPath": "research/l_gauss-source-audit.md",
+  "sourceAuditPath": "research/i_games-source-audit.md",
   "examAuditPath": "research/exam-calibration/archive-manifest.json",
   "lastCompletedReview": "l_gauss: complete 71-answer individual revision,80rules,33actual-input problem aids,source/math/browser gates passed.",
   "nextReview": "l_rank",
   "rule": "Author one chapter at a time, finish its source, mathematical, problem, visual and browser audits, deliver as a review draft, then continue under standing user authorization. Never label an unapproved draft student-approved.",
   "studyStartJalali": "1405/07/11",
-  "qualityAuditPath": "research/deep-library-revision/l_gauss-current-mathematics.json",
+  "qualityAuditPath": "research/i_games-quality-audit.md",
   "approvedTopicId": "p_recursion",
-  "activeWork": "26of60baseline reviews checked;34remain.62of119technical chapters exist;57newremain. Continue i_games authoring; next existing review l_rank. Three IELTS lessons exist; learner mastery unconfirmed.",
+  "activeWork": "26 of 60 baseline reviews checked;34 remain.63 of 119 technical drafts exist;56 new chapters remain. Continue individual l_rank review, then i_csp authoring. Three IELTS lessons exist; learner mastery remains unconfirmed.",
   "revisionTracker": "research/exam-calibration/manifest.json",
   "libraryReviewReportPath": "research/exam-calibration/DELIVERY.en.md",
   "approvedLibraryReview": false,
@@ -32,7 +32,7 @@
     "research/l_projection-evidence/draft-mathematics.json"
   ],
   "libraryVisualQuestionReviewPath": "research/library-visual-question-review/manifest.json",
-  "publicationState": "gauss_complete_revision_pending_publication",
+  "publicationState": "complete_gauss_revision_stored_github_site_upload_pending",
   "publicationRecordPath": "research/s_distributions-publication.json",
   "approvedVersion": 82,
   "publishedVersion": 108,
@@ -282,8 +282,8 @@
     "studentApproved": false,
     "note": "First upload timed out before saving a version. Retrying the same immutable archive succeeded; audience remains owner-private. No numeric version number is invented."
   },
-  "currentChapterPublicationState": "targeted_errata_published_individual_review_in_progress",
-  "currentDraftPath": "research/l_projection.en.md",
+  "currentChapterPublicationState": "games_and_complete_gauss_publication_pending",
+  "currentDraftPath": "research/l_rank.en.md",
   "preservedAuthoringDraft": {
     "topicId": "l_projection",
     "state": "in_progress",
@@ -322,13 +322,19 @@
   "latestConfirmedSiteContentCommit": "a97cc196368bef29966074d8ce4c406089a33d20",
   "lastConfirmedPrivateDeployment": "appgdep_6ad37bf384dc819191c95bbf96541b7b",
   "latestPublicationEvidence": "research/gauss-erratum-publication-20261017.json",
-  "pendingCurrentRevisionPublication": "research/deep-library-revision/a_correct-publication-pending.json",
-  "currentDraftEvidence": "research/deep-library-revision/l_gauss-answer-revision.json",
+  "pendingCurrentRevisionPublication": "research/l_gauss-complete-publication-20261017.json",
+  "currentDraftEvidence": "research/i_games-source-evaluation-start.json",
   "currentReadingEvidence": "research/i_games-source-discovery.md",
   "currentAnswerEvidence": "research/deep-library-revision/l_gauss-expanded-answer-checks.json",
   "lastCompletedNewChapter": "l_projection",
-  "nextNewTechnicalTopicId": "i_games",
-  "lastCompletedNewTechnicalChapter": "l_leastsquares",
+  "nextNewTechnicalTopicId": "i_csp",
+  "lastCompletedNewTechnicalChapter": "i_games",
   "status": "in_progress",
-  "lastCompletedReviewEvidence": "research/deep-library-revision/l_gauss-current-review.md"
+  "lastCompletedReviewEvidence": "research/deep-library-revision/l_gauss-current-review.md",
+  "latestNewChapterReview": {
+    "topicId": "i_games",
+    "manuscript": "research/i_games.en.md",
+    "evidence": "research/i_games-final-author-review.json",
+    "studentApproved": false
+  }
 }

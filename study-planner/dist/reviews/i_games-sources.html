@@ -1,0 +1,98 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Adversarial search review</title><link rel="stylesheet" href="../chapters/chapter.en.css"></head><body><main class="chapter"><p><a href="../chapters/i_games.html">Read the chapter</a></p><article class="lesson"><h1>Adversarial search: written-source comparison and synthesis decisions</h1>
+<p>Written scopes reviewed during 17 October 2026; final author review completed 18 October 2026. This edition remains a student-unapproved review draft.</p>
+<h2>Scope of the comparison</h2>
+<p>Seven university offerings were located and their accessible in-scope written material examined. This is a bounded candidate comparison, not a claim that every course in the world, every offering of these courses, every assignment, or every diagram has been exhaustively read. Coverage is judged against the declared chapter boundary: finite sequential game modelling, minimax, alpha-beta, exact and approximate values, stochastic opponents, search engineering and introductory game-search extensions. A course's reputation is not used as evidence that a statement in it is correct.</p>
+<p>The selection uses complementary contributions rather than adding prestige names. The four primary offerings are Stanford CS221, Berkeley CS188, MIT6.034 and Cornell CS4700. CMU15-281 supplies a fifth course contribution for additional mathematical examples and opponent-model exercises. Harvard and Yale are comparison sources with the limits stated below. Reading a course means reading the listed chapter-relevant written scope; it does not mean the entire semester was consumed.</p>
+<h2>Candidate decisions and exact reading scope</h2>
+<table>
+<thead>
+<tr>
+<th>University and course</th>
+<th>Written scope actually read</th>
+<th>Strength for this chapter</th>
+<th>Limit and decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stanford, CS221 Spring2026; Moses Charikar and Zachary Robertson listed as instructors on the official course homepage</td>
+<td>Complete written slide-source bodies for <code>modeling.js</code>, <code>minimax.js</code>, <code>expectimax.js</code>, <code>expectiminimax.js</code>, <code>evaluation-functions.js</code> and <code>alpha-beta-pruning.js</code>, including the explanatory <code>prose()</code> bodies and commented material distinguished from active slides</td>
+<td>Explicit policies, saddle inequalities, heterogeneous node types, depth convention and interval-based pruning explanation</td>
+<td>Selected primary. Public PDFs failed to load, but official textual slide sources were acquired and read. The combined games1/games2 files were acquired but are not counted as additional readings. Referenced photographs, live videos and external code were not consumed.</td>
+</tr>
+<tr>
+<td>UC Berkeley, CS188 course textbook, Games sections3.2–3.5</td>
+<td>Complete minimax/evaluation, expectimax/mixed-layer, general-games and MCTS prose/formulas; source pseudocode images have not all been visually inspected</td>
+<td>Integrated teaching sequence, utility modelling, bounded chance-node pruning and UCT statistics from the selecting player's perspective</td>
+<td>Selected primary. These specific textbook sections were read; the whole CS188 course was not. Future chapter pseudocode and diagrams are independently derived, not copied from unread image content.</td>
+</tr>
+<tr>
+<td>MIT, 6.034 Fall2010; Patrick H. Winston</td>
+<td>Entire26-page Lecture6 transcript, including pruning, distant-ancestor cutoffs, progressive deepening and uneven extensions</td>
+<td>Explanation of why a discarded branch cannot change the root choice; anytime search and the cost of repeated depths</td>
+<td>Selected primary. Transcript descriptions refer to a board not fully recoverable from text; its four-level classroom tree will not be reconstructed by guessing missing leaves. No video was needed or downloaded. Tutorial2 is discovered but unread and is not counted.</td>
+</tr>
+<tr>
+<td>Cornell, CS4700 Fall2018; Bart Selman</td>
+<td>All56 extracted slide-text pages; original rendered pages15,35,39,43,55 inspected</td>
+<td>Traditional game assumptions, complete search, utility-scale counterexamples and an independent alpha-beta presentation</td>
+<td>Selected primary. Other source figures are not claimed visually audited. The UCT outline item is not sufficient instruction in UCT. A confirmed configuration-count typo is corrected independently.</td>
+</tr>
+<tr>
+<td>CMU, 15-281 Fall2025; Pat Virtue</td>
+<td>All61 extracted slide-text pages; originals14,17,19,21,34–39,53 visually inspected</td>
+<td>Concrete pruning polls, unequal chance weights and a known stochastic opponent policy</td>
+<td>Selected fifth contribution. Slides explicitly credit Berkeley/CMU; overlapping examples are not presented as independent mathematical confirmation. The initially indexed Spring2026 notes URL returned404; the official Fall2025 course index supplied the accessible replacement.</td>
+</tr>
+<tr>
+<td>Harvard, CS50 Introduction to AI with Python; Brian Yu and David J. Malan</td>
+<td>Complete written Adversarial Search section through Depth-Limited Minimax</td>
+<td>Beginner state/action/terminal formulation and readable recursive explanation</td>
+<td>Comparison only. Too little advanced probability, bounds or engineering coverage to displace a primary source. Its depth-limit prose must not be interpreted as forbidding early terminal detection. Its chess game-count claim is not adopted. Source figures remain visually unreviewed.</td>
+</tr>
+<tr>
+<td>Yale, CS370 hosted AIMA Fourth Edition Chapter5 slides</td>
+<td>All45 extracted slide-text pages; originals21,24,26,33 inspected</td>
+<td>UCT formula, an iteration diagram and the warning about incorrect perfect-information averaging</td>
+<td>Supplemental comparison, not an independently authored Yale textbook. Copyright and AIMA provenance are explicit. Historical game-strength claims in the packet are not treated as current facts.</td>
+</tr>
+</tbody>
+</table>
+<h2>Synthesis map</h2>
+<ol>
+<li><strong>Representation and policy.</strong> Stanford supplies the precise state/control vocabulary; Harvard helps expose missing beginner definitions. The chapter defines a state sufficient for all relevant future rules. A chess board plus side to move alone is not sufficient when castling, en-passant, repetition or move-count rules matter.</li>
+<li><strong>Minimax.</strong> Stanford's policy inequalities are expanded into a backward-induction proof. Berkeley and Cornell give concrete backups. The lesson separates the value, a root action, a principal variation and a complete contingent strategy.</li>
+<li><strong>Alpha-beta.</strong> Stanford's interval explanation and MIT's distant-ancestor cutoff argument are expressed with an explicit fail-soft return contract. The incoming alpha/beta window is a decision threshold, not necessarily an interval containing the current node's true value. Exact and bounded returns are never conflated.</li>
+<li><strong>Complexity.</strong> MIT counts individual plies, whereas Stanford's cited module counts a depth unit as a two-player round. The chapter uses <code>D</code> individual plies throughout. It distinguishes leaf evaluations, total node visits, generated successors and stored states, and gives assumptions for every count.</li>
+<li><strong>Approximation.</strong> Berkeley's feature model and MIT's adaptive extensions are combined with an independently proved nonexpansion bound for minimax and expectation. Searching deeper is not represented as a universal improvement theorem.</li>
+<li><strong>Chance and utility.</strong> Stanford supplies opponent-policy expectations; Berkeley covers mixed layers and the possibility of finite-range pruning. Cornell/Yale illustrate why nonlinear changes to terminal utility can reverse expected-utility choices. The chapter derives the exact remaining-probability interval and distinguishes observation before versus after an action.</li>
+<li><strong>Extensions.</strong> Berkeley's UCT account and Yale's diagram are checked for reward perspective, unvisited children, update counts and final action selection. Hidden information is taught as a boundary requiring information-consistent strategies, not solved by ordinary full-information minimax. Transposition flags, quiescence termination and iterative-deepening fallback are independently specified.</li>
+</ol>
+<h2>Confirmed corrections and safeguards</h2>
+<ul>
+<li>Cornell original page15 prints <code>3^19=19683</code>. The unrestricted nine-cell configuration count is <code>3^9=19683</code>; legal reachable positions are a smaller subset.</li>
+<li>CMU original page39 displays100 beneath the left MIN subtree although its children have values10 and100. That MIN value is10. The independent worked tree uses root10, not100.</li>
+<li>CMU's introductory max-code screenshot initializes to a finite sentinel. A general implementation must use negative infinity or a proved lower bound; otherwise legitimate scores below the sentinel are handled incorrectly.</li>
+<li>Yale original page21's decision line omits the window parameters used by its recursive routines. Chapter code supplies a complete root call and an explicit action-selection policy.</li>
+<li>A chance-node instruction saying “average” means a probability-weighted sum; arithmetic averaging is valid only for equal probabilities.</li>
+<li>Strictly increasing utility transformations preserve deterministic min/max decisions. Merely nondecreasing transformations can merge formerly unequal actions. Positive affine transformations preserve expected-utility comparisons; arbitrary nonlinear increasing transformations need not.</li>
+<li>Stanford's active module counts depth in rounds; Berkeley/MIT often count individual plies. A formula with exponent <code>2d</code> is not a contradiction after normalizing definitions.</li>
+<li>Infinite win/loss utilities, useful for an ordinal deterministic illustration, are not used in finite expected-utility calculations. Expressions such as zero times infinity or expectations mixing both infinities are undefined. The chapter uses bounded terminal utilities for probabilistic models.</li>
+<li>“All values on an optimal path are equal” applies to deterministic exact minimax backups along selected optimizing children. It must not be generalized to expectation nodes or to an arbitrary root-value leaf path whose intermediate choices are not optimal.</li>
+<li>A bound return equal to the root incumbent is not evidence that the corresponding move is tied for best. This distinction is checked by a concrete counterexample in the preliminary numerical oracle.</li>
+<li>No historical AlphaGo date or source claim that Go programs are weak is copied as current background. Neither a source index nor an acquired unread file is evidence of actual substantive reading.</li>
+</ul>
+<h2>Verification and remaining work</h2>
+<p><code>i_games-preliminary-mathematics.json</code> records6651ordered trees and33255narrow-window certificates, plus best-case count and utility-transform checks. These checks support development; they do not replace the chapter's proofs, actual-input animations, original-examination checks or final browser review. The acquisition fingerprint ledger remains separate from reading status. Original source PDFs and images are cached outside the project and are not republished wholesale.</p>
+<p>The delivered author-review edition contains eighteen teaching sections, fifty original/course problems, two inspected authentic MS reconstructions and sixty final decisions. The current mathematics, code, model and browser results are recorded in the <a href="i_games-quality.html">quality review</a>. The bounded source-reading and exercise-access limits above remain in force.</p>
+<h2>Exact references</h2>
+<ul>
+<li>Stanford CS221 Spring2026: <a href="https://stanford-cs221.github.io/spring2026/">Course and instructors</a>; <a href="https://stanford-cs221.github.io/spring2026/modules/">official written module index</a>; <a href="https://stanford-cs221.github.io/spring2026/modules/games/modeling.js">model and policy source</a>; <a href="https://stanford-cs221.github.io/spring2026/modules/games/minimax.js">minimax</a>; <a href="https://stanford-cs221.github.io/spring2026/modules/games/alpha-beta-pruning.js">alpha-beta</a>; <a href="https://stanford-cs221.github.io/spring2026/modules/games/evaluation-functions.js">evaluation</a>; <a href="https://stanford-cs221.github.io/spring2026/modules/games/expectimax.js">expectimax</a>; <a href="https://stanford-cs221.github.io/spring2026/modules/games/expectiminimax.js">expectiminimax</a>.</li>
+<li>UC Berkeley CS188 textbook: <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/games/minimax.html">Minimax</a>, <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/games/expectimax.html">Expectimax</a>, <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/games/general.html">General Games</a>, <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/games/monte-carlo.html">Monte Carlo Tree Search</a>. Course team credited; this audit does not infer the author of every textbook paragraph from a particular term's instructors.</li>
+<li>MIT6.034 Fall2010, Patrick H. Winston: <a href="https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/resources/lecture-6-search-games-minimax-and-alpha-beta/">Lecture6 resource</a> and <a href="https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/7524b662aa86938e45c10c74d3a1ad41_STjW3eH0Cik.pdf">26-page written transcript</a>.</li>
+<li>Cornell CS4700 Fall2018, Bart Selman: <a href="https://www.cs.cornell.edu/courses/cs4700/2018fa/lectures/pdf/CS4700-06-Search_adversarial_v2.pdf">56-page written adversarial-search lecture</a>.</li>
+<li>CMU15-281 Fall2025, Pat Virtue: <a href="https://www.cs.cmu.edu/~15281-f25/lectures/15281_F25_Lec4_Adversarial_Search.pdf">61-page Adversarial Search lecture</a>; <a href="https://www.cs.cmu.edu/~15281-f25/">official course index</a>.</li>
+<li>Harvard CS50 AI, Brian Yu and David J. Malan: <a href="https://cs50.harvard.edu/ai/notes/0/#adversarial-search">Search notes, Adversarial Search section</a>.</li>
+<li>Yale CS370: <a href="https://zoo.cs.yale.edu/classes/cs370/lectures/slides/chapter05_4e.pptx.pdf">hosted AIMA Fourth Edition Chapter5 slides</a>, Pearson2021; textbook-derived material, not independently attributed to an unnamed Yale lecturer.</li>
+</ul>
+</article></main></body></html>

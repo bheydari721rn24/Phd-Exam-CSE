@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-17",
+  "status": "pending_upload_after_three_terminal_failures",
+  "projectId": "appgprj_6ab5666f72b081918286c6b371c1eb1b",
+  "audience": "owner-private",
+  "sourceCommit": "6948e13944366e9aa0fb6af01651b6b72f424342",
+  "githubContentCommit": "19dc9d0ba3cec529a0c9e680615b0f22f8cd51ee",
+  "githubBranch": "study-planner-1406",
+  "githubVerification": {
+    "changedCanonicalPaths": 64,
+    "technicalChapterHtml": 62,
+    "offlineCopies": 9,
+    "method": "Canonical committed Git blobs compared; all nine committed offline hashes independently checked in preceding delivery step."
+  },
+  "archive": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-study-20261017-gauss-complete.tar.gz",
+  "archiveBytes": 22525478,
+  "archiveSha256": "806a1cca13446222ddb1ecc5f625f93498ab3cd8783cad869a59761daf23b63c",
+  "attempts": [
+    {
+      "attempt": 1,
+      "stage": "backend files request",
+      "result": "Failed before archive upload; no saved version returned."
+    },
+    {
+      "attempt": 2,
+      "stage": "OpenAI file blob upload",
+      "result": "Connection failed after 144085 ms",
+      "requestId": "ec43d6a5-fcd0-405d-8f23-2d1f48ebb836"
+    },
+    {
+      "attempt": 3,
+      "stage": "OpenAI file blob upload",
+      "result": "Timeout after 300006 ms",
+      "requestId": "36910ba9-92c6-40bf-b497-6177df43516c"
+    }
+  ],
+  "reconciliation": {
+    "latestSavedVersion": 108,
+    "versionId": "appgprj_6ab5666f72b081918286c6b371c1eb1b~appgver_a6dd94502d6481919b5beefa793a1404",
+    "sourceCommit": "a97cc196368bef29966074d8ce4c406089a33d20",
+    "deploymentId": "appgdep_6ad37bf384dc819191c95bbf96541b7b",
+    "newSavedVersionReturned": false
+  },
+  "availability": "Complete Gaussian review is stored locally, in GitHub and in the self-contained offline copy. The confirmed online version108 contains the earlier targeted erratum, not the complete review.",
+  "studentApproved": false,
+  "retry": "Reuse the immutable archive and exact pushed source; reconcile saved versions before another native upload. Preserve private audience."
+}

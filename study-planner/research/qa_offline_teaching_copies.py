@@ -21,7 +21,7 @@ try:
  cdp('Page.enable');cdp('Page.addScriptToEvaluateOnNewDocument',{'source':"window.__errors=[];addEventListener('error',e=>__errors.push(e.message));addEventListener('unhandledrejection',e=>__errors.push(String(e.reason)));"});cdp('Emulation.setDeviceMetricsOverride',{'width':1360,'height':1000,'deviceScaleFactor':1,'mobile':False})
  # External requests are blocked: every copy must teach without a server or internet.
  cdp('Network.enable');cdp('Network.setBlockedURLs',{'urls':['http://*','https://*']})
- for name in['Algorithm Correctness.html','IELTS Academic Session 1.html','Orthogonal Projections.html','IELTS Academic Session 2.html','Conditional Probability.html','Bayes Rule.html','Least Squares.html','IELTS Academic Session 3.html','Gaussian Elimination.html']:
+ for name in['Algorithm Correctness.html','IELTS Academic Session 1.html','Orthogonal Projections.html','IELTS Academic Session 2.html','Conditional Probability.html','Bayes Rule.html','Least Squares.html','IELTS Academic Session 3.html','Gaussian Elimination.html','Adversarial Search.html']:
   fileUrl=(R/'exports'/name).as_uri();cdp('Page.navigate',{'url':fileUrl})
   for _ in range(100):
    if js('location.href==='+json.dumps(fileUrl)+'&&document.readyState==="complete"'):break
@@ -52,6 +52,15 @@ try:
    entry['lab']=js('({...document.getElementById("gauss-output").dataset})');assert entry['lab']['particular']=='2/3,-1/9,11/9'
    entry['correctedOption']=js('document.querySelector(\'[data-source-id="MS_CS_1405_Q113"] .exam-option p\').textContent');assert entry['correctedOption']=='37'
    entry['controls']=js('(()=>{const p=ProblemVisuals.players.find(p=>p.model.frames.length>1);p.show(1);return p.index===1;})()');assert entry['controls']
+  elif name=='Adversarial Search.html':
+   entry['questions']=js('document.querySelectorAll(".exam-question").length');assert entry['questions']==52
+   entry['models']=js('__gamesTeaching.models.size');assert entry['models']==27
+   entry['players']=js('__gamesTeaching.players.length');assert entry['players']==17
+   entry['controls']=js('(()=>{const p=__gamesTeaching.players[0];p.host.querySelector("[data-next]").click();const next=p.checkpoint;p.host.querySelector("[data-first]").click();return next===1&&p.checkpoint===0;})()');assert entry['controls']
+   entry['uct']=js('(()=>{const h=document.querySelector(".game-uct");h.querySelector("input").value=0;h.querySelector("input").dispatchEvent(new Event("input"));return h.dataset.selected;})()');assert entry['uct']=='A'
+   entry['widths']=[]
+   for width in[390,768,1360]:
+    cdp('Emulation.setDeviceMetricsOverride',{'width':width,'height':1000,'deviceScaleFactor':1,'mobile':False});entry['widths'].append(js('({width:innerWidth,document:document.documentElement.scrollWidth})'));assert entry['widths'][-1]['document']<=width
   elif name=='Least Squares.html':
    for _ in range(100):
     if js('window.LeastSquaresPlayers?.length===20'):break

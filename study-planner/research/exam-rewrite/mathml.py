@@ -47,7 +47,7 @@ class Parser:
    if name in ('quad','qquad'):return '<mspace width="'+('1em' if name=='quad' else '2em')+'"/>'
    if name in ('left','right','bigl','bigr','Bigl','Bigr'):return self.base()
    if name=='begin':
-    self.skip();m=re.match(r'\{(bmatrix|pmatrix|matrix)\}',self.s[self.i:])
+    self.skip();m=re.match(r'\{(bmatrix|pmatrix|matrix|cases)\}',self.s[self.i:])
     if not m:raise ValueError('Unsupported matrix environment in '+self.s)
     env=m.group(1);self.i+=len(m.group());end='\\end{'+env+'}'
     stop=self.s.find(end,self.i)
@@ -55,7 +55,8 @@ class Parser:
     content=self.s[self.i:stop];self.i=stop+len(end)
     rows=[row.strip().split('&') for row in re.split(r'\\\\',content.strip())]
     if not rows or len({len(row) for row in rows})!=1:raise ValueError('Ragged matrix in '+self.s)
-    table='<mtable columnspacing=".6em" rowspacing=".3em">'+''.join('<mtr>'+''.join('<mtd>'+Parser(cell.strip() or '0').seq()+'</mtd>' for cell in row)+'</mtr>' for row in rows)+'</mtable>'
+    table='<mtable columnspacing=".6em" rowspacing=".3em"'+(' columnalign="left"' if env=='cases' else '')+'>'+''.join('<mtr>'+''.join('<mtd>'+Parser(cell.strip() or '0').seq()+'</mtd>' for cell in row)+'</mtr>' for row in rows)+'</mtable>'
+    if env=='cases':return tag('mrow','<mo stretchy="true">{</mo>'+table)
     if env=='matrix':return table
     brackets=('[',']') if env=='bmatrix' else ('(',')')
     return tag('mrow',atom('mo',brackets[0])+table+atom('mo',brackets[1]))

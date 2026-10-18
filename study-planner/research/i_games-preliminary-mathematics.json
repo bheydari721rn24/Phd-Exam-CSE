@@ -1,0 +1,148 @@
+{
+  "state": "passed_preliminary_mathematical_research_not_a_chapter",
+  "date": "2026-10-17",
+  "exhaustiveSmallTrees": 6651,
+  "narrowWindowCertificates": 33255,
+  "assertions": 39954,
+  "uniformBestCaseCounts": [
+    {
+      "branching": 2,
+      "depth": 1,
+      "allLeaves": 2,
+      "observedLeaves": 2,
+      "bestCaseFormula": 2
+    },
+    {
+      "branching": 2,
+      "depth": 2,
+      "allLeaves": 4,
+      "observedLeaves": 3,
+      "bestCaseFormula": 3
+    },
+    {
+      "branching": 2,
+      "depth": 3,
+      "allLeaves": 8,
+      "observedLeaves": 5,
+      "bestCaseFormula": 5
+    },
+    {
+      "branching": 2,
+      "depth": 4,
+      "allLeaves": 16,
+      "observedLeaves": 7,
+      "bestCaseFormula": 7
+    },
+    {
+      "branching": 2,
+      "depth": 5,
+      "allLeaves": 32,
+      "observedLeaves": 11,
+      "bestCaseFormula": 11
+    },
+    {
+      "branching": 2,
+      "depth": 6,
+      "allLeaves": 64,
+      "observedLeaves": 15,
+      "bestCaseFormula": 15
+    },
+    {
+      "branching": 3,
+      "depth": 1,
+      "allLeaves": 3,
+      "observedLeaves": 3,
+      "bestCaseFormula": 3
+    },
+    {
+      "branching": 3,
+      "depth": 2,
+      "allLeaves": 9,
+      "observedLeaves": 5,
+      "bestCaseFormula": 5
+    },
+    {
+      "branching": 3,
+      "depth": 3,
+      "allLeaves": 27,
+      "observedLeaves": 11,
+      "bestCaseFormula": 11
+    },
+    {
+      "branching": 3,
+      "depth": 4,
+      "allLeaves": 81,
+      "observedLeaves": 17,
+      "bestCaseFormula": 17
+    },
+    {
+      "branching": 3,
+      "depth": 5,
+      "allLeaves": 243,
+      "observedLeaves": 35,
+      "bestCaseFormula": 35
+    },
+    {
+      "branching": 3,
+      "depth": 6,
+      "allLeaves": 729,
+      "observedLeaves": 53,
+      "bestCaseFormula": 53
+    },
+    {
+      "branching": 4,
+      "depth": 1,
+      "allLeaves": 4,
+      "observedLeaves": 4,
+      "bestCaseFormula": 4
+    },
+    {
+      "branching": 4,
+      "depth": 2,
+      "allLeaves": 16,
+      "observedLeaves": 7,
+      "bestCaseFormula": 7
+    },
+    {
+      "branching": 4,
+      "depth": 3,
+      "allLeaves": 64,
+      "observedLeaves": 19,
+      "bestCaseFormula": 19
+    },
+    {
+      "branching": 4,
+      "depth": 4,
+      "allLeaves": 256,
+      "observedLeaves": 31,
+      "bestCaseFormula": 31
+    },
+    {
+      "branching": 4,
+      "depth": 5,
+      "allLeaves": 1024,
+      "observedLeaves": 79,
+      "bestCaseFormula": 79
+    },
+    {
+      "branching": 4,
+      "depth": 6,
+      "allLeaves": 4096,
+      "observedLeaves": 127,
+      "bestCaseFormula": 127
+    }
+  ],
+  "equalityCutoffExample": {
+    "rootIncumbent": 5,
+    "candidateReturnedUpperBound": 5,
+    "candidateExactValue": 0,
+    "lesson": "A returned equality bound does not prove that a second root move is optimal."
+  },
+  "chanceUtilityExample": {
+    "deterministic": "2",
+    "lotteryExpected": "3/2",
+    "cubedDeterministic": "8",
+    "cubedLotteryExpected": "27/2"
+  },
+  "limits": "These finite tests support preparation of exact teaching models. They are not a four-course synthesis, a general proof of every bound, an authored problem bank, or a completed i_games chapter. No new chapter is counted."
+}

@@ -838,3 +838,18 @@ All71answers integrated;69original/course solutions rewritten;80rules;three deep
 Nine self-contained HTML teaching copies now pass actual file-URL browser checks with all HTTP/HTTPS requests blocked, including the revised Gaussian chapter,33question models,21teaching players and exact laboratory. The nine exported file hashes were checked before synchronization.
 
 Next-chapter work has started with a seven-university official written-source candidate register for i_games. Discovery is not claimed as course reading or a delivered chapter; the technical count remains62.
+
+
+## Complete Gaussian review: cloud storage confirmed, Site upload pending
+
+GitHub content commit 19dc9d0ba3cec529a0c9e680615b0f22f8cd51ee stores the complete review; all64changed paths,62technical chapter HTML files and9offline hashes were verified. Three native Site upload attempts failed before returning a saved version. Reconciliation still shows version108, source a97cc196368bef29966074d8ce4c406089a33d20. The immutable22525478byte archive is retained; the complete review is available from GitHub and exports/Gaussian Elimination.html. No current Site publication is claimed. Exact receipt: research/l_gauss-complete-publication-20261017.json.
+
+
+## Adversarial search author review completed: 18 October 2026
+
+Eighteen teaching sections, fifty original/course mathematical and conceptual problems, two inspected original MS trees and sixty final decisions. Seven university candidates compared; four primary written scopes and a fifth contribution used. The actual printed algorithm passed 46,560 bounded assertions; 181 problem/notation checks and 121 model certificates passed. All 815 rendered tree states, seventeen players, dedicated UCT/chance controls, fonts, mobile overview navigation and print presentation passed actual browser checks. Incoming, current and original classification windows are now explicitly distinguished.
+
+The library contains63 actual technical chapters of119, leaving56 new chapters. The original60-chapter revision baseline remains26 reviewed and34 pending. IELTS still has three prepared lessons and unconfirmed student mastery. Next individual review:l_rank; next technical authoring:i_csp. No claim of new Site publication is made until a native success response is recorded.
+
+
+Ten self-contained HTML copies now passed actual file-URL tests with HTTP/HTTPS blocked, including Adversarial Search and the complete Gaussian review. The Games copy retains52questions,27tree cases,17players,UCTcontrol and all three viewport checks. All ten actual export hashes were verified before synchronization.
