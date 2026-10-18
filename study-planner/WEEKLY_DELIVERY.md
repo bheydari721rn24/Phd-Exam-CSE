@@ -858,3 +858,8 @@ Ten self-contained HTML copies now passed actual file-URL tests with HTTP/HTTPS 
 ## Rank individual review completed: 18 October 2026
 
 All90solutions individually reviewed;88original/course answers extended,2authentic derivations rewritten;80rules and2deeper instruction sections. Four primary written university scopes reread,46pages;two original examination pages/hash records rechecked.27actual-input problem aids,81frames,75teaching placement/states,24multistep controls,4playbacks,31exactlabinputs and240row-space checkpoints passed. Corrected LR88 annihilator wording, coefficient/augmented label, explicit norm-bar rendering and print restoration.27of60baseline reviews checked;33remain.63of119technical chapters exist;56newremain. ThreeIELTS lessons exist,mastery unconfirmed. Siteversion109 alreadydelivers Games/fullGaussian/tenofflinecopies;Rankpublication followsseparately. Nextauthoring i_csp;nextbaseline reviewp_functions.
+
+
+## Rank revision privately published as version 110
+
+Native deployment succeeded and saved-version provenance matched source d5e3ce589f7b773783e1edc71a9674833b136969. GitHub content f3608aebd11f1a1d568cbb550f3b3fe4b5fc4ed5:43changed canonical paths,63technical chapter blobs and10offline byte hashes verified. Receipt:research/l_rank-publication-20261018.json. Rank has no new self-contained export in this delivery;the ten earlier offline copies remain verified. Constraint-satisfaction source evaluation has begun,with its four-university completion gate still open.

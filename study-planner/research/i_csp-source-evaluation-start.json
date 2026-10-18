@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-18",
+  "chapter": "i_csp",
+  "state": "source_evaluation_in_progress_not_an_authored_chapter",
+  "candidateOfferings": 7,
+  "candidateUniversities": 6,
+  "fourPrimaryUniversityGateMet": false,
+  "finalPrimarySelection": null,
+  "actualReading": [
+    {
+      "university": "UC Berkeley",
+      "scope": "Complete prose of CS188 Filtering and Ordering/Structure",
+      "method": "web reader",
+      "imagesVisuallyReviewed": false,
+      "localByteFingerprint": null
+    },
+    {
+      "university": "CMU",
+      "scope": "Complete 15-281 Fall2025 textual CSP note and pseudocode",
+      "method": "web reader",
+      "imagesVisuallyReviewed": false,
+      "localByteFingerprint": null
+    },
+    {
+      "university": "Harvard",
+      "scope": "CS50AI Optimization note:Constraint Satisfaction heading through final summary;full prose and textual pseudocode",
+      "method": "fresh official download and complete scoped text read",
+      "imagesVisuallyReviewed": false,
+      "sha256": "558694fb0f929c720c5f9b6a271316bfcbd21595dd17c40a34f85b0ad529efa7"
+    }
+  ],
+  "directAcquisitionResults": [
+    {
+      "id": "berkeley-filtering",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/textbook/csp/filtering.html",
+      "readingState": "not_acquired_not_read",
+      "error": "HTTPSConnectionPool(host='inst.eecs.berkeley.edu', port=443): Max retries exceeded with url: /~cs188/textbook/csp/filtering.html (Caused by NameResolutionError(\"HTTPSConnection(host='inst.eecs.berkeley.edu', port=443): Failed to resolve 'inst.eecs.berkeley.edu' ([Errno 11001] getaddrinfo failed)\"))"
+    },
+    {
+      "id": "berkeley-ordering",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/textbook/csp/ordering.html",
+      "readingState": "not_acquired_not_read",
+      "error": "HTTPSConnectionPool(host='inst.eecs.berkeley.edu', port=443): Max retries exceeded with url: /~cs188/textbook/csp/ordering.html (Caused by NameResolutionError(\"HTTPSConnection(host='inst.eecs.berkeley.edu', port=443): Failed to resolve 'inst.eecs.berkeley.edu' ([Errno 11001] getaddrinfo failed)\"))"
+    },
+    {
+      "id": "cmu-constraints",
+      "url": "https://www.cs.cmu.edu/~15281-f25/coursenotes/constraints/index.html",
+      "readingState": "not_acquired_not_read",
+      "error": "HTTPSConnectionPool(host='www.cs.cmu.edu', port=443): Max retries exceeded with url: /~15281-f25/coursenotes/constraints/index.html (Caused by NewConnectionError(\"HTTPSConnection(host='www.cs.cmu.edu', port=443): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it\"))"
+    },
+    {
+      "id": "harvard-optimization",
+      "url": "https://cs50.harvard.edu/ai/notes/3/",
+      "path": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-csp-sources-20261018\\harvard-optimization.html",
+      "sha256": "558694fb0f929c720c5f9b6a271316bfcbd21595dd17c40a34f85b0ad529efa7",
+      "bytes": 50469,
+      "readingState": "acquired_not_read"
+    },
+    {
+      "id": "stanford-course-data",
+      "url": "https://stanford-cs221.github.io/spring2026/modules/course-data.js?v=1",
+      "readingState": "not_acquired_not_read",
+      "error": "HTTPSConnectionPool(host='stanford-cs221.github.io', port=443): Max retries exceeded with url: /spring2026/modules/course-data.js?v=1 (Caused by NameResolutionError(\"HTTPSConnection(host='stanford-cs221.github.io', port=443): Failed to resolve 'stanford-cs221.github.io' ([Errno 11001] getaddrinfo failed)\"))"
+    },
+    {
+      "id": "mit-autonomy-index",
+      "url": "https://ocw.mit.edu/courses/16-410-principles-of-autonomy-and-decision-making-fall-2010/pages/lecture-notes/",
+      "readingState": "not_acquired_not_read",
+      "error": "HTTPSConnectionPool(host='ocw.mit.edu', port=443): Read timed out. (read timeout=45)"
+    },
+    {
+      "id": "cornell-csp",
+      "url": "https://www.cs.cornell.edu/courses/cs4700/2013fa/slides/CS4700-CSP_v6.pdf",
+      "readingState": "not_acquired_not_read",
+      "error": "HTTPSConnectionPool(host='www.cs.cornell.edu', port=443): Max retries exceeded with url: /courses/cs4700/2013fa/slides/CS4700-CSP_v6.pdf (Caused by NameResolutionError(\"HTTPSConnection(host='www.cs.cornell.edu', port=443): Failed to resolve 'www.cs.cornell.edu' ([Errno 11001] getaddrinfo failed)\"))"
+    }
+  ],
+  "acquisitionReadingDistinction": "Historical raw acquisition-state labels describe the direct downloader only;web-reader reading is recorded separately above. Six direct downloads failed;they are not silently promoted to successful acquisition or complete university-course reading.",
+  "pending": [
+    "Read actual written Stanford,MITandCornell scopes before selecting primaries",
+    "Visually inspect source-specific algorithm/map figures",
+    "Original Iranian examination discovery and PDF reconciliation",
+    "Detailed lesson,full worked bank,final decisions,exact graph/domain/queue models",
+    "Mathematics and rendered browser gates"
+  ],
+  "lastCompletedDelivery": "research/l_rank-publication-20261018.json"
+}
