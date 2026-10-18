@@ -1,0 +1,80 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Constraint satisfaction source review</title><link rel="stylesheet" href="../chapters/chapter.en.css"><link rel="stylesheet" href="../chapters/i_csp.css"></head><body><main class="chapter"><p><a href="../chapters/i_csp.html">Read the chapter</a></p><article class="lesson"><h1>Constraint satisfaction: written-source selection and reconciliation</h1>
+<p>Date: 18 October 2026. This is a bounded, chapter-specific source review. The chapter remains an author-review draft until its mathematical and browser gates pass; student approval is a separate status.</p>
+<h2>Discovery boundary and selection</h2>
+<p>Seven offerings at six universities were evaluated for accessible written instruction on finite CSP modeling, search, propagation and structure. Stanford CS 221, Berkeley CS 188, CMU 15-281, MIT 16.410, MIT 6.034, Cornell CS 4700 and Harvard CS 50 AI form the documented candidate pool. This is not every course worldwide, and no globally best-course claim is made. MIT 6.034 was identified but its CSP instructional body was not read in this pass; it is not counted toward the university minimum or used to support a technical claim.</p>
+<p>The four complementary primary offerings are Stanford CS 221, Berkeley CS 188, CMU 15-281 and MIT 16.410. Selection used actual written scope, explicit mathematical/algorithmic detail, complementary coverage and access, rather than university name alone. Stanford contributes factor modeling, value/variable ordering, weighted examples and approximate search. Berkeley supplies the clearest directly accessible tree/cutset treatment. CMU provides an independent integrated algorithm/heuristic account. MIT contributes precise constraint lectures, explicit worklist/forward-checking comparisons and conflict-directed reasoning. Cornell and Harvard are additional substantive comparisons, not substitutes for missing primary reading: Cornell strengthens consistency quantifiers and extensional-table reasoning; Harvard provides a second implementation/crossword perspective.</p>
+<table>
+<thead>
+<tr>
+<th>Offering</th>
+<th>Actual reading scope</th>
+<th>Contribution and limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stanford CS 221, Spring 2026</td>
+<td>Seven complete written module bodies: Overview, Definitions, Examples, Dynamic Ordering, Arc Consistency, Beam Search and Local Search. Explanatory text, displayed definitions and drawing-source declarations were read; the Examples middle passage was reread separately.</td>
+<td>Main factor/heuristic/approximation synthesis. Helper functions and external images are not claimed as visually inspected. Reading JavaScript text is not a claim to have executed every source slideshow.</td>
+</tr>
+<tr>
+<td>Berkeley CS 188 textbook</td>
+<td>Complete prose of Filtering and Ordering/Structure, including textual algorithm and complexity discussion.</td>
+<td>Filtering, tree proof and supplied cutset comparison. Embedded algorithm/map images were not independently viewed; their pixels are not used as evidence for this chapter's original graphics. Adjacent textbook sections are linked as optional context, not falsely counted as fully read.</td>
+</tr>
+<tr>
+<td>CMU 15-281, Fall 2025</td>
+<td>Complete Constraint Satisfaction Problems written note and textual pseudocode.</td>
+<td>Backtracking, ordering, filtering and local consistency. Embedded diagrams were not visually audited.</td>
+</tr>
+<tr>
+<td>MIT 16.410/16.413, Fall 2010</td>
+<td>Lecture 5 PDF pages 10–34; Lecture 6 pages 4–27; Lecture 7 a pages 10–20. Lecture 7 a pages 1–9 were surveyed, not primary detailed evidence.</td>
+<td>Binary tables, AC/FC, complexity and conflict-set examples. Lecture 5 line-labeling/scheduling appendix was excluded. Protected Dechter pseudocode explicitly removed from the source is unavailable and is not reconstructed as a source quotation.</td>
+</tr>
+<tr>
+<td>Cornell CS 4700, Fall 2013</td>
+<td>PDF pages 61–85, plus pages 1–16,32–39,44–53. Text extraction read; visual-heavy pages 69–72,77–80 only had readable labels, without verified edges/colors.</td>
+<td>Consistency hierarchy, global-vs-pairwise interpretation and relation-table prompt. Diagrams are independently constructed from exact mathematical inputs; original source layouts are not claimed as inspected.</td>
+</tr>
+<tr>
+<td>Harvard CS 50 AI</td>
+<td>Optimization note: Constraint Satisfaction heading through its final summary, complete scoped prose and textual pseudocode; crossword functional requirements used for comparison.</td>
+<td>Implementation boundary and restoration discussion. Earlier local-search/LP sections of the combined page are not counted as read, nor are enrolled solutions or hidden tests claimed.</td>
+</tr>
+</tbody>
+</table>
+<h2>Acquisition and actual reading are distinct</h2>
+<p>Official Stanford module files and Harvard notes were freshly acquired and their byte fingerprints recorded. Berkeley and CMU bodies were read through the web reader despite failed direct local acquisition. MIT/Cornell PDF text was read through the web reader; direct local PDF downloads timed out or failed. No local byte fingerprint or visual-page claim is invented for those university PDFs. The research ledger retains these limitations rather than replacing acquisition failures with a fictitious download success.</p>
+<p>The included peer reading report records exact PDF page scopes, independent mathematical reconciliations and inaccessible source content. The original source PDFs are not redistributed. The chapter's own algorithm is fully printed and tested; it is an independently written finite binary implementation, not a claim that every source pseudocode listing is executable as printed.</p>
+<h2>Corrections and conventions resolved before synthesis</h2>
+<ol>
+<li><strong>Domain notation:</strong> a domain is set-valued. A Stanford display using scalar membership for a domain is interpreted through its prose and corrected to the explicit finite set.</li>
+<li><strong>Actual neighbors:</strong> Stanford's NT forward-checking prose mentions NSW, which is not adjacent to NT in the displayed standard map. Every chapter player instead receives its own declared exact edges; source prose is not used to invent a nonedge.</li>
+<li><strong>LCV scores:</strong> counting deleted neighbor values differs from counting affected neighboring variables. The distinction appears in CMU/Harvard prose and is resolved with an exact opposite-ranking counterexample, IC 12.</li>
+<li><strong>Forward-checking cost:</strong> a singleton head costs one predicate test per candidate neighbor value. The chapter distinguishes  <span class="pr-inline"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="O(\delta d)"><mrow><mi>O</mi><mrow><mo>(</mo><mi>δ</mi><mi>d</mi><mo>)</mo></mrow></mrow></math></span>  from generic arbitrary-head  <span class="pr-inline"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="O(\delta d^2)"><mrow><mi>O</mi><mrow><mo>(</mo><mi>δ</mi><msup><mi>d</mi><mn>2</mn></msup><mo>)</mo></mrow></mrow></math></span>  revision.</li>
+<li><strong>Algorithm contracts:</strong> CMU wrapper naming and incomplete restoration/initial-empty-domain details are repaired in the chapter's independent implementation. MIT extracted FC indentation is not treated as reliable executable control flow. A possible MIT Lecture 6 queue-orientation typo remains a text-extraction suspicion, not a visually verified typesetting error.</li>
+<li><strong>Queue membership:</strong> enqueue existing incoming neighbors only; conjoin predicates on a pair; store reverse relations as transposes; omit the immediate reverse only under that contract.</li>
+<li><strong>Complexity notation:</strong> e counts directed arcs in the chapter's exact statements. Dense  <span class="pr-inline"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="O(n^2d^3)"><mrow><mi>O</mi><mrow><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><msup><mi>d</mi><mn>3</mn></msup><mo>)</mo></mrow></mrow></math></span>  and sparse  <span class="pr-inline"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="O(ed^3)"><mrow><mi>O</mi><mrow><mo>(</mo><mi>e</mi><msup><mi>d</mi><mn>3</mn></msup><mo>)</mo></mrow></mrow></math></span>  are reconciled, and lookup/input/output costs are stated separately.</li>
+<li><strong>Cornell arithmetic:</strong> n variables of domain size d have  <span class="pr-inline"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="d^n"><mrow><msup><mi>d</mi><mi>n</mi></msup></mrow></math></span>  tuples, not  <span class="pr-inline"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="n^d"><mrow><msup><mi>n</mi><mi>d</mi></msup></mrow></math></span>. Also  <span class="pr-inline"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="8^8=16777216"><mrow><msup><mn>8</mn><mn>8</mn></msup><mo>=</mo><mn>16777216</mn></mrow></math></span>. Historical queen-completion complexity claims and unsupported unconditional exponential lower bounds are omitted.</li>
+<li><strong>Consistency quantifiers:</strong> every consistent assignment to k−1 variables must extend to a selected kth variable. This is stronger than merely finding some solution on every k-variable subset. Strong consistency includes all lower levels; an empty unary base is not a construction certificate.</li>
+<li><strong>Tree/cutset bounds:</strong> the tree premise, empty-domain checks, boundary/internal constraints, enumeration and given-versus-found cutsets are explicit. The residual-only term cannot be the complete cost when  <span class="pr-inline"><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="c=n"><mrow><mi>c</mi><mo>=</mo><mi>n</mi></mrow></math></span>.</li>
+<li><strong>Weighted factors:</strong> nonnegative products generalize hard constraints; they are not automatically probabilities. A partial product is not an upper bound when remaining factors can exceed one.</li>
+<li><strong>Approximate/local search:</strong> beam selection complexity includes its scoring/selection assumptions. Finite local state spaces do not prevent equal-score cycles, and a zero unaffected factor invalidates an unqualified strict-global-improvement claim.</li>
+</ol>
+<h2>Course-prompt inventory and originality</h2>
+<p>The full chapter bank contains fifty original or attributed instructional problems. Source-derived prompts include MIT's four-queen nonadjacent-column table (IC 02), three-variable propagation (IC 06), AC 1/AC 3 comparison (IC 38), conflict-set merge (IC 36), Cornell's extensional relation (IC 05), and Stanford's sum-support, weighted voting, scheduling, sculpture and verification examples (IC 03,IC 33,IC 45–IC 47). Numerical variations, proof requests and solutions are explicitly authored and independently checked. IC 07 compares the common odd-cycle counterexample across courses.</p>
+<p>This is a scoped prompt inventory, not a reproduction of every assignment question from every candidate offering. Hidden, protected or unread exercises are not silently labeled covered. The remaining problems develop counts, proofs, counterexamples, costs and boundary cases from the synthesized concepts. Authorship labels distinguish adaptation from independent examination-style construction.</p>
+<p>Four original Iranian master's items were read from full original-page images and pinned archive metadata. No official key was verified; their answers are independently derived. No usable doctoral CSP item was verified in the bounded archive pass, so no doctoral provenance is fabricated. Two ambiguities are prominently preserved: graph edge versus directed arc in 1402 Q74, and the unstated tree premise in 1405 Q74. The 1404 map's three-color visualization is explicitly a teaching assumption, not an extra printed premise.</p>
+<h2>Exact references</h2>
+<ul>
+<li><strong>Stanford University.</strong> CS 221, Spring 2026; Moses Charikar and Zachary Robertson, instructors. <a href="https://stanford-cs221.github.io/spring2026/modules/">Written module index</a>. Seven module bodies: <a href="https://stanford-cs221.github.io/spring2026/modules/csps/overview.js">Overview</a>, <a href="https://stanford-cs221.github.io/spring2026/modules/csps/definitions.js">Definitions</a>, <a href="https://stanford-cs221.github.io/spring2026/modules/csps/examples.js">Examples</a>, <a href="https://stanford-cs221.github.io/spring2026/modules/csps/dynamic-ordering.js">Dynamic Ordering</a>, <a href="https://stanford-cs221.github.io/spring2026/modules/csps/arc-consistency.js">Arc Consistency</a>, <a href="https://stanford-cs221.github.io/spring2026/modules/csps/beam-search.js">Beam Search</a>, <a href="https://stanford-cs221.github.io/spring2026/modules/csps/local-search.js">Local Search</a>.</li>
+<li><strong>University of California, Berkeley.</strong> CS 188 textbook; Nikhil Sharma, Josh Hug, Jacky Liang and Henry Zhu, authors, with further contributors credited by the textbook. <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/csp/filtering.html">Filtering</a>; <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/csp/ordering.html">Ordering and Structure</a>.</li>
+<li><strong>Carnegie Mellon University.</strong> 15-281, Fall 2025; Pat Virtue, instructor, and course-staff written notes. <a href="https://www.cs.cmu.edu/~15281-f25/coursenotes/constraints/index.html">Constraint Satisfaction Problems</a>.</li>
+<li><strong>Massachusetts Institute of Technology.</strong> 16.410/16.413, Fall 2010; Brian Charles Williams, constraint-lecture instructor; co-taught with Emilio Frazzoli. <a href="https://ocw.mit.edu/courses/16-410-principles-of-autonomy-and-decision-making-fall-2010/pages/lecture-notes/">Lecture collection</a>, Lectures 5,6,7 a, exact scopes above. Lecture 7 a credits Patrick Prosser for contributions.</li>
+<li><strong>Cornell University.</strong> CS 4700, Fall 2013; Bart Selman. <a href="https://www.cs.cornell.edu/courses/cs4700/2013fa/slides/CS4700-CSP_v6.pdf">Constraint Satisfaction slides</a>, exact text scopes above.</li>
+<li><strong>Harvard University.</strong> CS 50 AI; Brian Yu, lecturer, and David J. Malan, co-instructor. <a href="https://cs50.harvard.edu/ai/notes/3/">Optimization notes, Constraint Satisfaction through final summary</a>; <a href="https://cs50.harvard.edu/ai/projects/3/crossword/">Crossword project specification</a>.</li>
+</ul>
+<h2>Remaining limits</h2>
+<p>Written-source comparison is substantive but bounded. Unread images, missing protected pseudocode, unavailable exercises and the lack of a verified doctoral CSP item are declared. Finite exact checks and browser checks support the delivered chapter; they do not prove literal universal correctness, exhaustive worldwide coverage or perfect performance on unseen questions. The quality report records the actual successful gates separately from these source limits.</p>
+</article></main></body></html>

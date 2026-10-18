@@ -1,0 +1,170 @@
+{
+  "date": "2026-10-18",
+  "chapter": "i_csp",
+  "status": "written_scopes_read_visual_verification_pending",
+  "checkout_mutations": false,
+  "exhaustive_worldwide_search_claimed": false,
+  "sources": [
+    {
+      "university": "Cornell University",
+      "course": "CS4700 Foundations of Artificial Intelligence, Fall 2013",
+      "instructor": "Bart Selman",
+      "url": "https://www.cs.cornell.edu/courses/cs4700/2013fa/slides/CS4700-CSP_v6.pdf",
+      "physical_pages": 85,
+      "main_text_read_pages": [
+        [
+          61,
+          85
+        ]
+      ],
+      "additional_text_read_pages": [
+        [
+          1,
+          16
+        ],
+        [
+          32,
+          39
+        ],
+        [
+          44,
+          53
+        ]
+      ],
+      "visual_pages_verified": [],
+      "sha256": null,
+      "missing_visual_scopes": [
+        [
+          69,
+          72
+        ],
+        [
+          77,
+          81
+        ]
+      ],
+      "ranking_among_assigned_two": "Complementary comparison source; primary selection depends on complete candidate pool.",
+      "gaps": [
+        "Tree-structured solver only mentioned, not developed",
+        "No cutset-conditioning proof",
+        "No substantive conflict-directed backjumping implementation"
+      ]
+    },
+    {
+      "university": "Massachusetts Institute of Technology",
+      "course": "16.410/16.413 Principles of Autonomy and Decision Making, Fall 2010",
+      "instructor": "Brian C. Williams",
+      "course_other_instructor": "Emilio Frazzoli",
+      "special_credit": "Lecture07a contributions from Patrick Prosser",
+      "index": "https://ocw.mit.edu/courses/16-410-principles-of-autonomy-and-decision-making-fall-2010/pages/lecture-notes/",
+      "documents": [
+        {
+          "id": "mit05",
+          "physical_pages": 39,
+          "text_read_pages": [
+            [
+              10,
+              34
+            ]
+          ],
+          "url": "https://ocw.mit.edu/courses/16-410-principles-of-autonomy-and-decision-making-fall-2010/43a72dc4afb4a2813f28944d6d4d9056_MIT16_410F10_lec05.pdf",
+          "sha256": null
+        },
+        {
+          "id": "mit06",
+          "physical_pages": 28,
+          "text_read_pages": [
+            [
+              4,
+              27
+            ]
+          ],
+          "url": "https://ocw.mit.edu/courses/16-410-principles-of-autonomy-and-decision-making-fall-2010/7434ba1355d03e83bfac5effa7edd1d0_MIT16_410F10_lec06.pdf",
+          "sha256": null
+        },
+        {
+          "id": "mit07a",
+          "physical_pages": 21,
+          "text_read_pages": [
+            [
+              10,
+              20
+            ]
+          ],
+          "url": "https://ocw.mit.edu/courses/16-410-principles-of-autonomy-and-decision-making-fall-2010/7a5cd091e89dff7ca4eed31df8a0aa08_MIT16_410F10_lec07a.pdf",
+          "sha256": null,
+          "explicitly_unavailable": "Page19 Dechter pseudocode/supporting definitions removed for copyright."
+        }
+      ],
+      "visual_pages_verified": [],
+      "ranking_among_assigned_two": "Strong specialized contributor for AC complexity, restoration, conflict-directed backjumping.",
+      "gaps": [
+        "No tree/cutset treatment in reviewed scope",
+        "Some original images not inspectable",
+        "Empirical speed examples historical"
+      ]
+    }
+  ],
+  "suspected_extraction_or_source_errors": [
+    {
+      "source": "MIT06",
+      "pdf_page": 7,
+      "issue": "AC3 initialization repeats same orientation in extracted text",
+      "verification": "Not a confirmed original typesetting error until pixels inspected",
+      "safe_chapter_form": "Both directed orientations, each relation transposed correctly."
+    },
+    {
+      "source": "MIT05/MIT06",
+      "pdf_pages": [
+        20,
+        7
+      ],
+      "issue": "Abbreviated incoming-arc set does not explicitly restrict k to actual neighbors",
+      "safe_chapter_form": "k in Neighbors(i) minus j."
+    },
+    {
+      "source": "MIT06",
+      "pdf_page": 22,
+      "issue": "Extracted FC pseudocode indentation ambiguous",
+      "safe_chapter_form": "Check all future neighbors; return only after no wipeout; undo branch deletions."
+    }
+  ],
+  "verified_mathematical_corrections": [
+    {
+      "source": "Cornell",
+      "pdf_page": 8,
+      "issue": "n^d instead of d^n"
+    },
+    {
+      "source": "Cornell",
+      "pdf_page": 32,
+      "issue": "8^8 magnitude is 1.6777216e7"
+    },
+    {
+      "source": "Cornell",
+      "pdf_page": 51,
+      "issue": "NP-completeness is not an unconditional exponential lower bound"
+    },
+    {
+      "source": "Cornell",
+      "pdf_page": 81,
+      "issue": "Use O(e*d^3) and directed-arc queue; dense O(n^2*d^3) is an upper bound"
+    },
+    {
+      "source": "Cornell",
+      "pdf_page": 37,
+      "issue": "2013 N-queens completion conjecture superseded by 2017 theorem",
+      "current_primary_reference": "https://doi.org/10.1613/jair.5512",
+      "reference_read_scope": "abstract and bibliographic result only"
+    }
+  ],
+  "independent_checks": "independent-checks.json",
+  "report": "i_csp-written-source-review.md",
+  "download_attempts": "acquisition-final.json",
+  "limitations": [
+    "All statements of source reading refer to extracted written PDF scopes, not all pages or all images.",
+    "Hashes omitted because local PDF acquisition failed.",
+    "Screenshot requests returned text placeholders; no visual claim.",
+    "No examination files or source files changed."
+  ]
+}

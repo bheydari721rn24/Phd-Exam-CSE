@@ -1,0 +1,56 @@
+{
+  "C13": [
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      3
+    ]
+  ],
+  "triangle_solutions": [
+    [
+      "B",
+      "R",
+      "G"
+    ]
+  ],
+  "relation_closure": [
+    [
+      1,
+      3
+    ],
+    [
+      3,
+      5,
+      6
+    ]
+  ],
+  "queens_8_assignments": 16777216,
+  "AC3_worst_case": "O(e*d^3) under O(1) binary-relation membership, max initial domain d"
+}

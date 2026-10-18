@@ -1,0 +1,226 @@
+{
+  "date": "2026-10-18",
+  "candidateOfferings": 7,
+  "candidateUniversities": 6,
+  "primaryUniversities": [
+    "Stanford",
+    "UC Berkeley",
+    "CMU",
+    "MIT"
+  ],
+  "additionalWrittenComparisons": [
+    "Cornell",
+    "Harvard"
+  ],
+  "actualReading": [
+    {
+      "university": "UC Berkeley",
+      "scope": "Complete prose of CS188 Filtering and Ordering/Structure",
+      "method": "web reader",
+      "imagesVisuallyReviewed": false,
+      "localByteFingerprint": null
+    },
+    {
+      "university": "CMU",
+      "scope": "Complete 15-281 Fall2025 textual CSP note and pseudocode",
+      "method": "web reader",
+      "imagesVisuallyReviewed": false,
+      "localByteFingerprint": null
+    },
+    {
+      "university": "Harvard",
+      "scope": "CS50AI Optimization note:Constraint Satisfaction heading through final summary;full prose and textual pseudocode",
+      "method": "fresh official download and complete scoped text read",
+      "imagesVisuallyReviewed": false,
+      "sha256": "558694fb0f929c720c5f9b6a271316bfcbd21595dd17c40a34f85b0ad529efa7"
+    },
+    {
+      "university": "Stanford",
+      "scope": "Seven complete Spring2026 written CSP modules: Overview, Definitions, Examples, Dynamic Ordering, Arc Consistency, Beam Search, Local Search",
+      "method": "Fresh official file acquisition and actual written-body reading",
+      "imagesVisuallyReviewed": false
+    },
+    {
+      "university": "Cornell University",
+      "scope": {
+        "university": "Cornell University",
+        "course": "CS4700 Foundations of Artificial Intelligence, Fall 2013",
+        "instructor": "Bart Selman",
+        "url": "https://www.cs.cornell.edu/courses/cs4700/2013fa/slides/CS4700-CSP_v6.pdf",
+        "physical_pages": 85,
+        "main_text_read_pages": [
+          [
+            61,
+            85
+          ]
+        ],
+        "additional_text_read_pages": [
+          [
+            1,
+            16
+          ],
+          [
+            32,
+            39
+          ],
+          [
+            44,
+            53
+          ]
+        ],
+        "visual_pages_verified": [],
+        "sha256": null,
+        "missing_visual_scopes": [
+          [
+            69,
+            72
+          ],
+          [
+            77,
+            81
+          ]
+        ],
+        "ranking_among_assigned_two": "Complementary comparison source; primary selection depends on complete candidate pool.",
+        "gaps": [
+          "Tree-structured solver only mentioned, not developed",
+          "No cutset-conditioning proof",
+          "No substantive conflict-directed backjumping implementation"
+        ]
+      },
+      "method": "Scoped official PDF text reading through web reader",
+      "imagesVisuallyReviewed": false,
+      "localByteFingerprint": null
+    },
+    {
+      "university": "Massachusetts Institute of Technology",
+      "scope": {
+        "university": "Massachusetts Institute of Technology",
+        "course": "16.410/16.413 Principles of Autonomy and Decision Making, Fall 2010",
+        "instructor": "Brian C. Williams",
+        "course_other_instructor": "Emilio Frazzoli",
+        "special_credit": "Lecture07a contributions from Patrick Prosser",
+        "index": "https://ocw.mit.edu/courses/16-410-principles-of-autonomy-and-decision-making-fall-2010/pages/lecture-notes/",
+        "documents": [
+          {
+            "id": "mit05",
+            "physical_pages": 39,
+            "text_read_pages": [
+              [
+                10,
+                34
+              ]
+            ],
+            "url": "https://ocw.mit.edu/courses/16-410-principles-of-autonomy-and-decision-making-fall-2010/43a72dc4afb4a2813f28944d6d4d9056_MIT16_410F10_lec05.pdf",
+            "sha256": null
+          },
+          {
+            "id": "mit06",
+            "physical_pages": 28,
+            "text_read_pages": [
+              [
+                4,
+                27
+              ]
+            ],
+            "url": "https://ocw.mit.edu/courses/16-410-principles-of-autonomy-and-decision-making-fall-2010/7434ba1355d03e83bfac5effa7edd1d0_MIT16_410F10_lec06.pdf",
+            "sha256": null
+          },
+          {
+            "id": "mit07a",
+            "physical_pages": 21,
+            "text_read_pages": [
+              [
+                10,
+                20
+              ]
+            ],
+            "url": "https://ocw.mit.edu/courses/16-410-principles-of-autonomy-and-decision-making-fall-2010/7a5cd091e89dff7ca4eed31df8a0aa08_MIT16_410F10_lec07a.pdf",
+            "sha256": null,
+            "explicitly_unavailable": "Page19 Dechter pseudocode/supporting definitions removed for copyright."
+          }
+        ],
+        "visual_pages_verified": [],
+        "ranking_among_assigned_two": "Strong specialized contributor for AC complexity, restoration, conflict-directed backjumping.",
+        "gaps": [
+          "No tree/cutset treatment in reviewed scope",
+          "Some original images not inspectable",
+          "Empirical speed examples historical"
+        ]
+      },
+      "method": "Scoped official PDF text reading through web reader",
+      "imagesVisuallyReviewed": false,
+      "localByteFingerprint": null
+    }
+  ],
+  "documents": [
+    {
+      "id": "stanford-overview",
+      "url": "https://stanford-cs221.github.io/spring2026/modules/csps/overview.js",
+      "path": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-csp-sources-20261018\\stanford-overview.js",
+      "sha256": "3f181aa51a38f5d8688c2d1edeae88c7f6f86af7a599b8d2d791e464bafd7c4d",
+      "bytes": 10173,
+      "readingState": "in_scope_written_body_read",
+      "visualScope": "Drawing source declarations read; external rendered images not claimed inspected"
+    },
+    {
+      "id": "stanford-definitions",
+      "url": "https://stanford-cs221.github.io/spring2026/modules/csps/definitions.js",
+      "path": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-csp-sources-20261018\\stanford-definitions.js",
+      "sha256": "e9bf3cdbe629e21c950c9af92876be77479f77f65b09ca8679dce62a5704b39a",
+      "bytes": 11328,
+      "readingState": "in_scope_written_body_read",
+      "visualScope": "Drawing source declarations read; external rendered images not claimed inspected"
+    },
+    {
+      "id": "stanford-examples",
+      "url": "https://stanford-cs221.github.io/spring2026/modules/csps/examples.js",
+      "path": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-csp-sources-20261018\\stanford-examples.js",
+      "sha256": "864d83a3b82ec14c2237882562021c8a89fd66d0cc975bce2ce422c9f5ec468e",
+      "bytes": 14830,
+      "readingState": "in_scope_written_body_read",
+      "visualScope": "Drawing source declarations read; external rendered images not claimed inspected"
+    },
+    {
+      "id": "stanford-dynamic-ordering",
+      "url": "https://stanford-cs221.github.io/spring2026/modules/csps/dynamic-ordering.js",
+      "path": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-csp-sources-20261018\\stanford-dynamic-ordering.js",
+      "sha256": "ffc1354486c95d924bdd5d19e74bf0f33600b99deeb20e43c499b8d01784ce8c",
+      "bytes": 15639,
+      "readingState": "in_scope_written_body_read",
+      "visualScope": "Drawing source declarations read; external rendered images not claimed inspected"
+    },
+    {
+      "id": "stanford-arc-consistency",
+      "url": "https://stanford-cs221.github.io/spring2026/modules/csps/arc-consistency.js",
+      "path": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-csp-sources-20261018\\stanford-arc-consistency.js",
+      "sha256": "606d1528e0cd013ee0a39f8df1af945ad347e7d750e68a426bcc1d446e510f3e",
+      "bytes": 9811,
+      "readingState": "in_scope_written_body_read",
+      "visualScope": "Drawing source declarations read; external rendered images not claimed inspected"
+    },
+    {
+      "id": "stanford-beam-search",
+      "url": "https://stanford-cs221.github.io/spring2026/modules/csps/beam-search.js",
+      "path": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-csp-sources-20261018\\stanford-beam-search.js",
+      "sha256": "851d8d5edccb15f6fd78651d873e807b30a5663d1861674fad02a1276f431c28",
+      "bytes": 8848,
+      "readingState": "in_scope_written_body_read",
+      "visualScope": "Drawing source declarations read; external rendered images not claimed inspected"
+    },
+    {
+      "id": "stanford-local-search",
+      "url": "https://stanford-cs221.github.io/spring2026/modules/csps/local-search.js",
+      "path": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-csp-sources-20261018\\stanford-local-search.js",
+      "sha256": "9067f0f5a307d609b3dad4ad43183476ae685f3103c9fb1bf7f853526ee2e4d9",
+      "bytes": 8880,
+      "readingState": "in_scope_written_body_read",
+      "visualScope": "Drawing source declarations read; external rendered images not claimed inspected"
+    }
+  ],
+  "discoveredNotRead": [
+    "MIT6.034 CSP offering"
+  ],
+  "fourUniversityGateMet": true,
+  "scopeAuthority": "research/i_csp-source-audit.md",
+  "limits": "Bounded written scope, not all courses worldwide; unread university images/protected pseudocode explicitly excluded. Source acquisition history remains separate from actual reading."
+}

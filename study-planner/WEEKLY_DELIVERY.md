@@ -863,3 +863,8 @@ All90solutions individually reviewed;88original/course answers extended,2authent
 ## Rank revision privately published as version 110
 
 Native deployment succeeded and saved-version provenance matched source d5e3ce589f7b773783e1edc71a9674833b136969. GitHub content f3608aebd11f1a1d568cbb550f3b3fe4b5fc4ed5:43changed canonical paths,63technical chapter blobs and10offline byte hashes verified. Receipt:research/l_rank-publication-20261018.json. Rank has no new self-contained export in this delivery;the ten earlier offline copies remain verified. Constraint-satisfaction source evaluation has begun,with its four-university completion gate still open.
+
+
+## Constraint satisfaction author review completed:18October2026
+
+25teaching sections;50original/course problems;4visually verified authentic MS placements with explicit source ambiguities;64final decisions. Six written university scopes compared,with four complementary primary offerings.39399mathematical assertions,all4096printed-code relation systems,720numeric queue orders,749MathML expressions,335domain placement/states,28controls,5separateboard/matching placements,4096independent browserlab cases and threeviewport/print checks passed.64of119technical chapters exist;55newremain. Baseline review remains27of60;33pending. ThreeIELTS lessons exist,mastery unconfirmed. Nextindividual review p_functions;nextnewtechnical i_informed. The new chapter remains student-unapproved;cloudpublication follows separately.
