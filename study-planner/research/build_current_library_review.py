@@ -12,9 +12,11 @@ planned=len(json.loads((R/"dist/schedule.en.json").read_text(encoding="utf8"))["
 page=page.replace("25 of60 existing editions reviewed · 35 reviews remain.",f"{reviewed} of {total} existing editions reviewed · {pending} reviews remain.")
 page=page.replace("25 reviewed",f"{reviewed} reviewed").replace("35 pending",f"{pending} pending")
 page=page.replace("62 of119 planned chapters",f"{available} of {planned} planned chapters").replace("57 newtechnical chapters remain",f"{planned-available} new technical chapters remain")
-page=page.replace("Next existing review:Gaussian Elimination.","Next existing review:Rank and Nullity.")
+page=page.replace("Next existing review:Gaussian Elimination.","Next existing review:Programming Functions.")
 page=page.replace("Latest individual revision:65 reviewed answers","Earlier individual revision:65 reviewed answers")
 gauss='<article class="card"><h2>Gaussian Elimination</h2><p>Latest individual revision:71fully explained problems,80complete rules and33actual-input question models. Four primary university texts and both original examination placements were rechecked.</p><a href="chapters/l_gauss.html">Read the revised chapter</a><p><a href="reviews/l_gauss-current-review.html">Read the current audit</a></p></article>'
 page=page.replace('<section class="cards">','<section class="cards">'+'<article class="card"><h2>Adversarial Search and Pruning</h2><p>New author-review draft:18teaching sections,52worked problems,60final decisions,27actual-input tree cases and dedicated chance-bound/UCT controls.</p><a href="chapters/i_games.html">Read the new chapter</a><p><a href="reviews/i_games-quality.html">Read the mathematical and visual audit</a></p></article>'+gauss,1)
 from teaching_prose_spacing import fix
+rank='<article class="card"><h2>Rank, Invertibility and Solution Sets</h2><p>Latest individual revision:90 fully explained problems,80 complete final rules and27 question-specific visual aids. Four primary university scopes and both original examination questions were rechecked.</p><a href="chapters/l_rank.html">Read the revised chapter</a><p><a href="reviews/l_rank-current-review.html">Read the current audit</a></p></article>'
+page=page.replace('<section class="cards">','<section class="cards">'+rank,1)
 (R/'dist/deep-library-review.html').write_text(fix(page),encoding='utf8');print({'reviewed':reviewed,'pending':pending,'inventory':total})

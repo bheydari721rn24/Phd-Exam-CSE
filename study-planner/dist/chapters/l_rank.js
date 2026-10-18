@@ -61,3 +61,18 @@ document.querySelectorAll('[data-rank-preset]').forEach(b=>b.addEventListener('c
 document.querySelectorAll('[data-rank-step]').forEach(b=>b.addEventListener('click',()=>{if(!trace.length)return;position=b.dataset.rankStep==='reset'?0:Math.max(0,Math.min(trace.length-1,position+(b.dataset.rankStep==='next'?1:-1)));show()}));
 compute();
 })();
+
+// Preserve the reader's answer state before other players expose print content.
+(() => {
+  let saved = null;
+  addEventListener('beforeprint', () => {
+    if (saved === null) saved = [...document.querySelectorAll('details.exam-solution')].map(node => [node, node.open]);
+  }, true);
+  addEventListener('afterprint', () => {
+    const state = saved;
+    queueMicrotask(() => {
+      if (state) for (const [node, open] of state) if (node.isConnected) node.open = open;
+      if (saved === state) saved = null;
+    });
+  });
+})();

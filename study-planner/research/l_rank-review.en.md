@@ -68,9 +68,9 @@ A matrix with $m$ rows, $n$ columns and $r$ pivots has an image of dimension $r$
 
 33. Existence for one load says little about other loads. Existence for every load is the full-row-rank assertion.
 
-34. Over an infinite field, positive nullity gives infinitely many compatible solutions. Over a field of $q$ elements, the count is exactly $q^{n-r}$.
+34. Over an infinite field, positive nullity gives infinitely many compatible solutions. Over a finite field of q elements the count is exactly $q^{n-r}$, through a bijection with the independent kernel coordinates. A field of order nine is not the non-field ring of integers modulo nine.
 
-35. A real load is compatible exactly when it is orthogonal to every left-kernel vector. Testing a left-kernel basis is sufficient.
+35. A real load b is in the column space exactly when it is orthogonal to every left-kernel vector. Testing an independent left-kernel basis gives every required output restriction. In contrast, row-space membership is tested against the right kernel in the input-coordinate space.
 
 36. A nonzero left-kernel load pairing is an inconsistency certificate. It refutes every possible input without guessing an input.
 
@@ -100,7 +100,7 @@ A matrix with $m$ rows, $n$ columns and $r$ pivots has an image of dimension $r$
 
 49. Infinite-dimensional shifts demonstrate that the square finite-dimensional theorem has genuine hypotheses. An onto map there can have a nonzero kernel.
 
-50. A positive lower norm bound forces injectivity. For a square map it also bounds the inverse norm, but it does not imply positive definiteness.
+50. A positive uniform lower norm bound forces injectivity. A finite square map is consequently invertible with inverse norm at most the reciprocal bound, using the same induced norm. It does not imply positive definiteness; negative identity is an explicit counterexample. Complex eigenvalues need a justified complex extension of the real norm argument.
 
 51. A rank factorization uses original independent columns and their coordinate rows. Multiplication should reproduce every original column.
 
@@ -118,7 +118,7 @@ A matrix with $m$ rows, $n$ columns and $r$ pivots has an image of dimension $r$
 
 58. Sylvester's lower bound uses the shared intermediate dimension n: $\operatorname{rank}(AB)\ge\operatorname{rank}A+\operatorname{rank}B-n$.
 
-59. Combine a negative Sylvester expression with the independent lower bound zero. Equality with zero and equality with the formal expression need different interpretations.
+59. Combine a negative Sylvester expression with the independent lower bound zero. Equality with the nonnegative formal expression requires the entire kernel of A to lie in the image of B. Equality of product rank with zero instead requires the image of B to lie in the kernel of A; these are different containments.
 
 60. If $AB=0$, the image of B lies in the kernel of A. A compatible dimension inequality alone does not prove that containment.
 
@@ -146,7 +146,7 @@ A matrix with $m$ rows, $n$ columns and $r$ pivots has an image of dimension $r$
 
 72. Constant-off-diagonal matrices can be analyzed on the all-ones line and the zero-sum space. Count the nonzero scalar actions with their correct multiplicities.
 
-73. Exact and numerical rank answer different questions. A numerical tolerance must be stated with its scale assumptions.
+73. Exact and numerical rank answer different questions. State the numerical threshold, whether its comparison is strict, and whether it is absolute or relative to a matrix scale. Rounding a nonzero coefficient to zero changes the exact matrix; it does not prove that the original exact matrix has lower rank.
 
 74. Block diagonal ranks add because their images occupy disjoint coordinate blocks. Block triangular matrices with singular diagonal blocks need not obey that formula.
 
@@ -160,4 +160,4 @@ A matrix with $m$ rows, $n$ columns and $r$ pivots has an image of dimension $r$
 
 79. A square-zero map has image contained in kernel, so rank is at most half the dimension rounded down. Nested kernels of powers stabilize permanently after their first equality.
 
-80. Subtract the rank of independent linear constraints from the number of ambient coordinates. Repeated constraints, nonlinear conditions and field-dependent coefficients require separate checks before this rule applies.
+80. Subtract the rank of independent linear constraints from the number of ambient coordinates. Prove the constraint rank with witnesses, reduction or a full parameterization. Repeated evaluations do not impose derivative conditions, repeated trace equations do not add independence, and nonlinear inequalities are not kernels of linear constraint maps.

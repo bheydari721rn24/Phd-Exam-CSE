@@ -1,0 +1,192 @@
+{
+  "chapter": "l_rank",
+  "date": "2026-10-18",
+  "status": "four_primary_written_scopes_revalidated",
+  "freshlyDownloadedCourses": 4,
+  "universities": 4,
+  "notWholeCoursesRead": true,
+  "sources": [
+    {
+      "id": "mit",
+      "url": "https://ocw.mit.edu/courses/18-700-linear-algebra-fall-2013/b144082f6883d02faeec26d7f708c63e_MIT18_700F13_gauss.pdf",
+      "path": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-rank-revalidation-20261018\\mit.pdf",
+      "sha256": "7e6f2c9a2a3681d95c1ab2a41ba23fff43fdc339cffaf93c809c3898ec5985a3",
+      "pages": 21,
+      "origin": "fresh official download",
+      "pdfPagesActuallyRead": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "readingMethod": "complete extracted page text plus mathematical reconciliation",
+      "contribution": "Invertible row transformations preserve null/row spaces and move column space; rank theorem, canonical RREF row basis, tall left-inverse construction."
+    },
+    {
+      "id": "oxford",
+      "url": "https://courses.maths.ox.ac.uk/pluginfile.php/25471/mod_folder/content/0/lecture_notes22.pdf?forcedownload=1",
+      "path": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-rank-revalidation-20261018\\oxford.pdf",
+      "sha256": "b7b49ddc40a68cd3d4376143178d259140a0fa01f5098c7df295d6ef85cf69ba",
+      "pages": 78,
+      "origin": "fresh official download",
+      "pdfPagesActuallyRead": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        57,
+        58,
+        59,
+        60,
+        61,
+        68,
+        69
+      ],
+      "readingMethod": "complete extracted page text plus mathematical reconciliation",
+      "contribution": "Row-space preservation, RREF uniqueness, exchange and basis size, basis extension, dimension formula, rank-nullity proof, one-sided inverses, restriction inequality, minimal factorization rank."
+    },
+    {
+      "id": "stanford",
+      "url": "https://web.stanford.edu/class/archive/ee/ee263/ee263.1082/lectures/lin-alg.pdf",
+      "path": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-rank-revalidation-20261018\\stanford.pdf",
+      "sha256": "a38713dbed8b74cd3f50491b9e476072a586727a5d0c7e8f6e991231b1f66e3f",
+      "pages": 31,
+      "origin": "fresh official download",
+      "pdfPagesActuallyRead": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "readingMethod": "complete extracted page text plus mathematical reconciliation",
+      "contribution": "Finite-dimensional real measurement interpretation, ambiguity fibers, onto versus injective, left/right inverse distinction, dual basis and conservation of dimension."
+    },
+    {
+      "id": "berkeley",
+      "url": "https://math.berkeley.edu/~apaulin/Rank%20and%20Nullity.pdf",
+      "path": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-rank-revalidation-20261018\\berkeley.pdf",
+      "sha256": "2282a237bbdd0b9d9f0030cf91ec2a66c442c3bc1d00c95f40605338e139d76b",
+      "pages": 2,
+      "origin": "fresh official download",
+      "pdfPagesActuallyRead": [
+        1,
+        2
+      ],
+      "readingMethod": "both original handwritten rendered pages visually inspected",
+      "contribution": "Handwritten exact 4-by-5 example: original pivot columns 1,3,5, rank3, two free coordinates and independently verified null basis."
+    }
+  ],
+  "sourceCorrectionsAndReconciliations": [
+    {
+      "source": "mit",
+      "pdfPage": 13,
+      "issue": "Prose says multiply third row by -1/3 although positive pivot3 and diagram use +1/3.",
+      "correction": "Use +1/3.",
+      "status": "visually confirmed; not imported into current rank lesson"
+    },
+    {
+      "source": "mit",
+      "pdfPage": 18,
+      "issue": "Third displayed supposed two-dimensional RREF row basis is [[0,1,0],[0,0,0]], rank1.",
+      "correction": "For the stated yz plane use [[0,1,0],[0,0,1]].",
+      "status": "visually and exactly confirmed; current lesson does not reproduce faulty display"
+    },
+    {
+      "source": "mit",
+      "pdfPage": 19,
+      "issue": "Tall injective map described as having pivot in every row.",
+      "correction": "A pivot in every column; rank n, potentially zero rows below.",
+      "status": "visually reconfirmed; current lesson already correct"
+    },
+    {
+      "source": "oxford",
+      "pdfPage": 50,
+      "issue": "Proposition135 proof chooses extension vector in undefined U minus span(S).",
+      "correction": "Choose vector in V minus span(S).",
+      "status": "visually confirmed; current lesson uses domain space correctly"
+    },
+    {
+      "source": "oxford",
+      "pdfPage": 50,
+      "issue": "Corollary137 proof additionally asserts that removing one dependent spanning vector leaves an independent set.",
+      "correction": "Removal preserves spanning; that alone contradicts minimal spanning. Independence after a single removal need not hold for a general dependent spanning set.",
+      "status": "visually confirmed; current lesson deletion algorithm is correct"
+    },
+    {
+      "source": "stanford",
+      "pdfPage": 8,
+      "issue": "Parenthetical describes infinite dimension as absence of a basis.",
+      "correction": "Finite basis may be absent; infinite-dimensional spaces can have a basis.",
+      "status": "scope reconciliation already correctly documented"
+    },
+    {
+      "source": "stanford",
+      "pdfPage": 19,
+      "issue": "Conservation interpretation can be misread as separate deletion of original coordinates.",
+      "correction": "Use kernel-adapted basis; x1+x2 retains a mixture.",
+      "status": "current lesson already explains limitation"
+    }
+  ],
+  "independentChecks": {
+    "berkeleyRank": 3,
+    "berkeleyPivotsOneBased": [
+      1,
+      3,
+      5
+    ],
+    "berkeleyRref": "Matrix([[1, 2, 0, 1, 0], [0, 0, 1, 1, 0], [0, 0, 0, 0, 1], [0, 0, 0, 0, 0]])",
+    "berkeleyKernelAnnihilated": true,
+    "berkeleyKernelRank": 2,
+    "traceZeroSymmetricBasisCount": 9,
+    "traceZeroSymmetricBasisRank": 9,
+    "everyBasisSymmetricTraceZero": true,
+    "mitIncorrectThirdMatrixRank": 1,
+    "mitCorrectedThirdMatrixRank": 2,
+    "positiveDefiniteCounterexample": "Matrix([[-1, 0], [0, -1]])",
+    "counterexampleNormRatio": 1,
+    "counterexampleQuadraticForm": "-(x1^2+x2^2)"
+  },
+  "lessonRead": "all 277 lines of research/l_rank.en.md read, main explanations mathematically reconciled; bank and visual QA delegated elsewhere",
+  "currentLessonSha256": "ee7793e131eab8e057272d4eb3f117832ead1774005e9fc425365fd2944ca912",
+  "visualPagesActuallyInspected": [
+    "berkeley:1",
+    "berkeley:2",
+    "mit:13",
+    "mit:18",
+    "mit:19",
+    "oxford:50"
+  ],
+  "remainingLimits": [
+    "CMU fifth comparison is historical and not newly reread in this task.",
+    "Four selected finite scopes were reread; no worldwide exhaustive course enumeration or all-page course reading is claimed.",
+    "No full chapter completion or visual-browser certification follows from this source-only report.",
+    "Extracted pages can contain equation layout ambiguity; error-bearing and handwritten pages were additionally rendered and inspected."
+  ],
+  "privateCache": "C:\\Users\\bheydari\\AppData\\Local\\Temp\\phd-rank-revalidation-20261018",
+  "filesChangedByThisTask": "only these report artifacts; original source caches outside checkout"
+}

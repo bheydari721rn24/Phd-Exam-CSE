@@ -158306,7 +158306,7 @@
               "size": 22
             }
           ],
-          "caption": "Original augmented matrix. The same invertible transform acts on all five columns. Dependency coefficients and the kernel are preserved, while the original pivot columns must be taken from the unreduced matrix.",
+          "caption": "Original coefficient matrix. The same invertible transform acts on all five columns. Dependency coefficients and the kernel are preserved, while the original pivot columns must be taken from the unreduced matrix.",
           "metrics": {
             "Pivots found": 0,
             "Input coordinates": 5,
@@ -158347,7 +158347,7 @@
                 0
               ]
             ],
-            "op": "Original augmented matrix",
+            "op": "Original coefficient matrix",
             "matrix": [
               [
                 "1",
@@ -158413,15 +158413,15 @@
             "pivots": []
           },
           "formulaHtml": "<div class=\"formula-block\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" aria-label=\"Ax=0\\quad\\Longleftrightarrow\\quad EAx=0\"><mrow><mi>A</mi><mi>x</mi><mo>=</mo><mn>0</mn><mspace width=\"1em\"/><mo>⟺</mo><mspace width=\"1em\"/><mi>E</mi><mi>A</mi><mi>x</mi><mo>=</mo><mn>0</mn></mrow></math></div>",
-          "captionHtml": "<p>Original augmented matrix. The same invertible transform acts on all five columns. Dependency coefficients and the kernel are preserved, while the original pivot columns must be taken from the unreduced matrix.</p>\n",
+          "captionHtml": "<p>Original coefficient matrix. The same invertible transform acts on all five columns. Dependency coefficients and the kernel are preserved, while the original pivot columns must be taken from the unreduced matrix.</p>\n",
           "metricLabels": {
             "Pivots found": "<p>Pivots found</p>\n",
             "Input coordinates": "<p>Input coordinates</p>\n",
             "Final rank": "<p>Final rank</p>\n"
           },
           "teaching": {
-            "operation": "Original augmented matrix.",
-            "why": "Original augmented matrix. The same invertible transform acts on all five columns. Dependency coefficients and the kernel are preserved, while the original pivot columns must be taken from the unreduced matrix.",
+            "operation": "Original coefficient matrix.",
+            "why": "Original coefficient matrix. The same invertible transform acts on all five columns. Dependency coefficients and the kernel are preserved, while the original pivot columns must be taken from the unreduced matrix.",
             "reading": "Rows, columns and blocks retain their mathematical roles. Changed entries are exact checkpoint values; they are never interpolated as fractional algorithm states.",
             "guide": [
               "Identify the matrix dimensions, coefficient field and current operation.",
@@ -158464,7 +158464,7 @@
                   0
                 ]
               ],
-              "op": "Original augmented matrix",
+              "op": "Original coefficient matrix",
               "matrix": [
                 [
                   "1",
@@ -158913,7 +158913,7 @@
               },
               {
                 "field": "op",
-                "before": "Original augmented matrix",
+                "before": "Original coefficient matrix",
                 "after": "Row 3 minus (1) times row 1"
               },
               {
