@@ -868,3 +868,10 @@ Native deployment succeeded and saved-version provenance matched source d5e3ce58
 ## Constraint satisfaction author review completed:18October2026
 
 25teaching sections;50original/course problems;4visually verified authentic MS placements with explicit source ambiguities;64final decisions. Six written university scopes compared,with four complementary primary offerings.39399mathematical assertions,all4096printed-code relation systems,720numeric queue orders,749MathML expressions,335domain placement/states,28controls,5separateboard/matching placements,4096independent browserlab cases and threeviewport/print checks passed.64of119technical chapters exist;55newremain. Baseline review remains27of60;33pending. ThreeIELTS lessons exist,mastery unconfirmed. Nextindividual review p_functions;nextnewtechnical i_informed. The new chapter remains student-unapproved;cloudpublication follows separately.
+
+
+## CSP cloud backup confirmed;Site upload pending
+
+CSP source c1a92c7bc9b57d180896281340ed0fa1e216fab4 is pushed to the Sites source repository. GitHub content3f1379bb2d6e3bcf9aac0ed86fe12decfcd9eb20 stores all41changed canonical paths;64technical HTML blobs and10offline hashes match. Two native archive uploads timed out after300seconds before returning any saved version. Reconciliation still shows Site110,source d5e3ce589f7b773783e1edc71a9674833b136969. The immutable checked archive is retained;publication is not claimed. Local reading is available at http://127.0.0.1:8771/chapters/i_csp.html while its local server runs. Receipt:research/i_csp-publication-20261018.json.
+
+Functions individual review has started:four scoped written university rereads,24individually rewritten replacement solutions,68569exact finite assertions and106formula checks. The replacements remain an unintegrated review manuscript;other answers,authentic items,visuals and whole-chapter gates are pending. Baseline completed review remains27/60,not28/60.

@@ -22,9 +22,9 @@ The empty assignment is a solution of an empty constraint system with no variabl
 
 ## 3. Modeling changes the search space
 
-In $N$-queens, use one variable $Q_i$ per row, with value equal to its column. For distinct rows $i,j$, impose $Q_i\ne Q_j$ and $|Q_i-Q_j|\ne|i-j|$. Row occupancy is built into the representation. There are $N^N$ complete column tuples before testing attacks. For $N=4$, the two solutions are $(2,4,1,3)$ and $(3,1,4,2)$.
+In $N$-queens, use one variable $Q_i$ per column, with value equal to its row. For distinct columns $i,j$, impose $Q_i\ne Q_j$ and $|Q_i-Q_j|\ne|i-j|$. Column occupancy is built into the representation. There are $N^N$ complete row tuples before testing attacks. For $N=4$, the two solutions are $(2,4,1,3)$ and $(3,1,4,2)$. This is also the coordinate convention used by the board player and the worked questions.
 
-An alternative Boolean encoding uses $N^2$ variables $B_{ij}\in\{0,1\}$. At-most-one constraints alone admit the all-zero board. Exactly-one in each row, together with column/diagonal attack restrictions, supplies the missing occupancy requirement. The Boolean universe has $2^{N^2}$ assignments; a larger universe does not by itself prove slower solving because propagation structure also changes.
+An alternative Boolean encoding uses $N^2$ variables $B_{ij}\in\{0,1\}$. At-most-one constraints alone admit the all-zero board. Exactly-one in each column, together with row/diagonal attack restrictions, supplies the missing occupancy requirement. The Boolean universe has $2^{N^2}$ assignments; a larger universe does not by itself prove slower solving because propagation structure also changes.
 
 For scheduling, an event-variable encoding gives each event one allowed time-slot value and imposes all-different on the event variables. A slot-variable encoding instead assigns an event or an empty marker to each slot and requires every event to occur exactly once. These are equivalent only after the missing occupancy, uniqueness and allowed-slot conditions are all included. Count variables, domain sizes, constraint arities and propagation strength; do not compare encodings only by one of those counts.
 
