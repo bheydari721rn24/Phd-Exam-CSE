@@ -96,7 +96,7 @@ for (size_t i = n; i > 0; ) {
 }
 ~~~
 
-The body runs n times and never computes n - 1 when n is zero. Check arithmetic used in allocation: before requesting n * sizeof *p bytes, establish $n\le\lfloor\mathrm{SIZE\_MAX}/\operatorname{sizeof}(*p)\rfloor$. A successful arithmetic check still needs successful allocation and a live valid object. realloc may move storage and invalidate earlier aliases; on failure the old allocation remains valid, so keep the old pointer until the result is known.
+The body runs n times and never computes n - 1 when n is zero. Check arithmetic used in allocation: before requesting n * sizeof *p bytes, establish $n\le\lfloor\mathrm{SIZE\_MAX}/\operatorname{sizeof}(*p)\rfloor$. A successful arithmetic check still needs successful allocation and a live valid object. A successful realloc may move storage and invalidate earlier aliases. For a positive requested size, allocation failure leaves the old allocation valid, so retain its pointer until the result is known. Handle a requested size of zero separately: C17 zero-size behavior does not justify treating every null result as a failed positive-size request with the original block necessarily retained.
 
 For a rectangular parameter, int a[][4] adjusts to int (*a)[4]. The column extent participates in the row stride. C variable-length parameter forms can express a run-time column count, with the relevant positive-bound and implementation-support conditions; int ** remains a different representation.
 
@@ -119,7 +119,7 @@ $$P[0]=0,\quad P[i+1]=P[i]+A[i],\quad
 
 The query formula follows by cancellation of the first l terms, and also works for an empty segment. A static array permits linear preprocessing and constant-time range-sum queries. A later element update invalidates every subsequent prefix value; do not claim unchanged query correctness after mutation.
 
-The difference sequence satisfies $D[0]=A[0]$ and $D[i]=A[i]-A[i-1]$ for $i>0$. Adding c to $A[l:r)$ changes only D[l] by +c and, if r < n, D[r] by -c. An n+1 boundary array can retain a right-end sentinel. Reconstruct by a prefix accumulation. This inverse relation explains range updates; it is not merely a pair of memorized signs.
+For positive length n, an n-entry difference sequence satisfies $D[0]=A[0]$ and $D[i]=A[i]-A[i-1]$ for $0<i<n$. For n equal to zero, the sequence is empty and neither index zero is read. A valid update on `A[l:r)` with l equal to r is a no-op, including the boundary case l = r = n. Otherwise $0\le l<r\le n$ proves that D[l] exists: add c there, and subtract c from D[r] only when r < n. These boundary changes reconstruct the intended range update by prefix accumulation. An explicitly allocated n+1 boundary representation can instead retain a right-end sentinel, but it is a different storage contract; an n-entry D has no element D[n].
 
 For a two-dimensional prefix table indexed by boundaries, P has shape $(R+1)\times(C+1)$ and zero top/left edges. The recurrence and rectangle query are
 

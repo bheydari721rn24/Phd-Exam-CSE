@@ -887,3 +887,10 @@ Functions replacements now coverPF01-PF36,with71119exact finite assertions and13
 ## Functions individual review — 18 October 2026
 
 Completed the English author review of all 91 solutions, 80 decision rules and 27 actual-input question aids. Source, original-PDF, numerical and browser checks are recorded in research/deep-library-revision/p_functions-current-review.md. This edition awaits student approval. Baseline progress is 28/60 reviewed; technical inventory remains 64/119. Next existing review is p_arrays; next new authoring is i_informed. CSP and this revision require a confirmed private Site upload; latest confirmed online version remains 110 until a successful deployment result is recorded.
+
+
+### Confirmed delivery and next review
+
+Functions review is backed up in GitHub commit 2a811f872e82285500cd5edb279ba70b96ecc847 on study-planner-1406. The combined CSP/Functions native archive upload timed out after 300008 ms before saving a version. Reconciliation still returns hosted version 110; no new deployment is claimed. The verified local app serves the revised Functions chapter at http://127.0.0.1:8771/chapters/p_functions.html. The immutable archive and its fingerprint are retained in research/p_functions-publication-20261018.json.
+
+Arrays review has begun: twelve full replacement solutions are saved as a manuscript, the two refreshed written courses are scoped explicitly, and two demonstrated lesson boundary defects were repaired. The remaining 69 original answers and the full chapter gates are pending; this chapter is not counted as a completed review.

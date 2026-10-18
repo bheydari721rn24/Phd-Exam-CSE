@@ -1,0 +1,75 @@
+{
+  "checks": [
+    {
+      "id": "PA01",
+      "passed": true,
+      "detail": "lower-bound address and occupied extent"
+    },
+    {
+      "id": "PA02",
+      "passed": true,
+      "detail": "normalized inverse indices map to declared (5,5)"
+    },
+    {
+      "id": "PA03",
+      "passed": true,
+      "detail": "five columns and base1000"
+    },
+    {
+      "id": "PA04",
+      "passed": true,
+      "detail": "two independently specified layouts"
+    },
+    {
+      "id": "PA05",
+      "passed": true,
+      "detail": "forward offset48 and inverse offset47"
+    },
+    {
+      "id": "PA06",
+      "passed": true,
+      "detail": "transpose offsets"
+    },
+    {
+      "id": "PA07",
+      "passed": true,
+      "detail": "all18 numerical starts enumerated"
+    },
+    {
+      "id": "PA08",
+      "passed": true,
+      "detail": "independently enumerated packed lower triangle"
+    },
+    {
+      "id": "PA09",
+      "passed": true,
+      "detail": "independently enumerated packed upper triangle"
+    },
+    {
+      "id": "PA10",
+      "passed": true,
+      "detail": "enumerated jagged cells omit empty row"
+    },
+    {
+      "id": "PA11",
+      "passed": true,
+      "detail": "five diagonal positions and offset sum60"
+    },
+    {
+      "id": "layout-bijections",
+      "passed": true,
+      "detail": "6084 positions across144 positive shapes; matrix zero-size construction is not asserted"
+    },
+    {
+      "id": "CMU-overlap-counterexamples",
+      "passed": true,
+      "detail": "leftward final-source equality fails; rightward result differs from source snapshot"
+    },
+    {
+      "id": "CMU-wrapped-precondition",
+      "passed": true,
+      "detail": "32-bit C0 arithmetic model admits unsafe source index; no C0 interpreter run claimed"
+    }
+  ],
+  "boundary": "Independent finite models and arithmetic only; no compiler/runtime or app simulation execution."
+}
