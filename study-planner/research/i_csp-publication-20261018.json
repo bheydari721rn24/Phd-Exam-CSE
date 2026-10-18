@@ -2,30 +2,40 @@
   "date": "2026-10-18",
   "status": "publication_unconfirmed_upload_timeout",
   "projectId": "appgprj_6ab5666f72b081918286c6b371c1eb1b",
-  "sourceCommit": "c1a92c7bc9b57d180896281340ed0fa1e216fab4",
-  "githubContentCommit": "3f1379bb2d6e3bcf9aac0ed86fe12decfcd9eb20",
+  "sourceCommit": "d68a6a5b3f70e146d56a32b0a8101b6c1225bd0c",
+  "githubContentCommit": "5cdf3f87ef588adeb0ceded4ab40bec2df3a4e5d",
   "githubBranch": "study-planner-1406",
-  "archive": "C:/Users/bheydari/AppData/Local/Temp/phd-study-20261018-csp-reviewed.tar.gz",
-  "archiveSha256": "a44c06953898ba05035c0a3c866f12ac340914f85a7795538677dfe89daa46c5",
+  "archive": "C:/Users/bheydari/AppData/Local/Temp/phd-study-20261018-csp-final-reviewed.tar.gz",
+  "archiveSha256": "06caa6efb8ffa76999e665c41fa6c430f969221278540d8f9716970c2b1f0b56",
   "archiveEntries": 572,
   "attempts": [
     {
       "result": "failed_before_saved_version",
       "stage": "OpenAI file blob upload",
       "elapsedMilliseconds": 300007,
-      "requestId": "a5f60854-6ed1-406e-af8f-0295edc5f06f"
+      "requestId": "a5f60854-6ed1-406e-af8f-0295edc5f06f",
+      "sourceCommit": "c1a92c7bc9b57d180896281340ed0fa1e216fab4"
     },
     {
       "result": "failed_before_saved_version",
       "stage": "OpenAI file blob upload",
       "elapsedMilliseconds": 300015,
-      "requestId": "5629ac3a-bec9-459d-b1ca-742c1c9f4a69"
+      "requestId": "5629ac3a-bec9-459d-b1ca-742c1c9f4a69",
+      "sourceCommit": "c1a92c7bc9b57d180896281340ed0fa1e216fab4"
+    },
+    {
+      "result": "failed_before_saved_version",
+      "stage": "OpenAI file blob upload",
+      "elapsedMilliseconds": 300003,
+      "requestId": "9d767f61-2ce3-4e73-818f-d8281d3896ec",
+      "sourceCommit": "d68a6a5b3f70e146d56a32b0a8101b6c1225bd0c",
+      "uploadRegion": "Poland Central"
     }
   ],
   "lastConfirmedSiteVersion": 110,
   "lastConfirmedSiteSource": "d5e3ce589f7b773783e1edc71a9674833b136969",
   "lastConfirmedDeploymentId": "appgdep_6ad44b008c708191b1f09faf4354e528",
-  "reconciliation": "After both failures, native saved-version listing still shows110 as newest. No new version or deployment ID was returned.",
+  "reconciliation": "After all three upload failures,the native saved-version listing still shows110 as newest. No new saved version or deployment ID returned.",
   "canonicalChangedPathsVerified": 41,
   "technicalChapterHTMLVerified": 64,
   "offlineByteHashesVerified": 10,
@@ -33,5 +43,8 @@
   "localReadingUrl": "http://127.0.0.1:8771/chapters/i_csp.html",
   "studentApproved": false,
   "qualityEvidence": "research/i_csp-final-author-review.json",
-  "limits": "Local archive bytes match the browser-checked working assets; CRLF-normalized text also matches canonical pushed Git blobs. The checked new chapter is on GitHub and locally readable, but is not claimed deployed on the current Site."
+  "limits": "Local archive bytes match the browser-checked working assets; CRLF-normalized text also matches canonical pushed Git blobs. The checked new chapter is on GitHub and locally readable, but is not claimed deployed on the current Site.",
+  "archiveBytes": 22752205,
+  "latestCorrection": "Main lesson,question convention and interactive board now uniformly use one queen variable per column,whose value is its row. Mathematics and browser gates rerun after the correction.",
+  "canonicalFinalFollowupPathsVerified": 16
 }

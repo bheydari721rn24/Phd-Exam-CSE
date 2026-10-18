@@ -1,4 +1,4 @@
-"""Exact independent checks for the twenty-four current replacement solutions only."""
+"""Exact independent checks for the thirty-six current replacement solutions only."""
 from pathlib import Path
 from fractions import Fraction
 import hashlib,json,re,sys
@@ -63,8 +63,29 @@ for u in range(-20,21):
   objects=[u,v];objects[0]+=2;objects[1]*=3;check(objects==[u+2,3*v])
 for u in range(-200,201):
  obj=[u];p=q=obj;p[0]+=2;q[0]*=3;check(obj[0]==3*u+6);check(obj[0]-(3*u+2)==4)
-path=E/'p_functions-answer-rewrites.en.md';text=path.read_text(encoding='utf8');ids=re.findall(r'^## (PF\d+)',text,re.M);check(ids==['PF'+str(n).zfill(2)for n in range(1,25)])
+check((-2+2,3*5)==(0,15));check(3*(-2+2)==0)
+store={'a':2,'b':5,'r':'a'};p=store['r'];q='b';p=q;store[p]=9;check(store=={'a':2,'b':9,'r':'a'})
+store={'a':2,'b':5,'r':'a'};p='r';q='b';store[p]=q;store[store['r']]+=4;check(store=={'a':2,'b':9,'r':'b'})
+for u in range(-200,201):
+ obj=[u];a=b=obj;saved=a[0];a[0]=b[0];b[0]=saved;check(obj==[u])
+ obj=[u];p=q=obj;p[0]=p[0]+q[0];q[0]=p[0]-q[0];p[0]=p[0]-q[0];check(obj==[0])
+for u in range(-20,21):
+ for v in range(-20,21):
+  a,b=u,v;a=a+b;b=a-b;a=a-b;check((a,b)==(v,u))
+obj=[0];obj[0]=23//5;obj[0]=23%5;check(obj==[3]and 23==4*5+3)
+caller=23;parameter=caller;caller=parameter//5;remainder=parameter%5;check((caller,remainder)==(4,3))
+state=2
+for k in range(30):
+ check(state==4**k*2+2*(4**k-1)//3 and (4**k-1)%3==0)
+ state=2*state+1;state=state+state
+outcomes=set()
+for order in [('left','right'),('right','left')]:
+ counter=0;args={}
+ for arg in order:counter+=1;args[arg]=counter
+ outcomes.add(args['left']-args['right']);check(counter==2)
+check(outcomes=={-1,1})
+path=E/'p_functions-answer-rewrites.en.md';text=path.read_text(encoding='utf8');ids=re.findall(r'^## (PF\d+)',text,re.M);check(ids==['PF'+str(n).zfill(2)for n in range(1,37)])
 formulas=re.findall(r'\$\$([\s\S]*?)\$\$|\$([^$\n]+)\$',text)
 for block,inline in formulas:mathml.render(block or inline,bool(block));check(True)
-report=dict(date='2026-10-18',state='partial_review_manuscript_checked_not_integrated',rewrittenAnswers=ids,assertions=count,nativeFormulaChecks=len(formulas),inputSha256=hashlib.sha256(path.read_bytes()).hexdigest(),limits='Exact mathematical integers/rationals, finite representability models and semantic call activations. No C compiler/ABI execution is claimed. Only these twenty-four blocks checked; whole-chapter review remains incomplete.')
+report=dict(date='2026-10-18',state='partial_review_manuscript_checked_not_integrated',rewrittenAnswers=ids,assertions=count,nativeFormulaChecks=len(formulas),inputSha256=hashlib.sha256(path.read_bytes()).hexdigest(),limits='Exact mathematical integers/rationals, finite representability/abstract-store models and semantic call activations. No C compiler/ABI execution is claimed. Only these thirty-six blocks checked; whole-chapter review remains incomplete.')
 (E/'p_functions-review-start-checks.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf8');print(report)

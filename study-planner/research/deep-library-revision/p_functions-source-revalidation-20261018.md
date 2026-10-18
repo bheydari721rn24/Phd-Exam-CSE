@@ -20,7 +20,10 @@ Local fresh byte hashes were not obtained by this web-reader pass. Historical fi
 5. CMU physical page24's text ends with a strict `e/2 > 0` assertion, contradicted by e=1. Nonnegativity `floor(e/2) >= 0` is the needed termination bound. The preceding invariant/preservation calculation already supports the repaired statement.
 6. CMU's C0 modular integer examples must not be imported into signed C17 arithmetic. Its sample GCD interface intentionally promises a common divisor, not maximality. A caller using only that weak postcondition may not silently assume greatest-common-divisor behavior from the function's name or body.
 
-The twenty-four newly rewritten answer blocks are an unintegrated review manuscript. Other question answers, the two authentic bridge placements, simulations, final notes and complete browser gates still need individual review. Baseline completed-review count remains27of60.
+The thirty-six newly rewritten answer blocks are an unintegrated review manuscript. Other question answers, the two authentic bridge placements, simulations, final notes and complete browser gates still need individual review. Baseline completed-review count remains27of60.
 
 
 Additional standard-level checks: WG14N1570 section6.2.1 paragraph7 confirms the declaration-point scope rule, and section6.2.4 paragraph2 confirms ended-lifetime pointer indeterminacy. These are named C11 draft provisions used for the corresponding unchanged C17 rules, not a claim to have freshly read all701pages. The original official PDF was checked through the web reader.
+
+
+For PF36,WG14N1570 section6.5.2.2 paragraph10 was checked directly: separate called bodies are indeterminately sequenced. This supplies the required distinction from direct unsequenced argument modifications. Fresh standard reading is limited to these identified provisions.
