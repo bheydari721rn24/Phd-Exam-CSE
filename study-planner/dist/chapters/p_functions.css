@@ -10,3 +10,12 @@
 .chapter math{max-width:100%}
 @media screen and (max-width:650px){.lesson .functions-diagram svg{width:100%;min-width:0;max-width:100%}.lesson .functions-diagram.expanded svg{width:700px;min-width:700px;max-width:none}.functions-figure-toggle{display:block;margin:.6rem 0}}
 @media print{#functions-form,.functions-figure-toggle{display:none}}
+
+/* The full written answer supplies the proof; keep its exact-input aid compact. */
+.problem-visual .sim-teaching{display:none}
+.problem-visual .sim-stage{min-height:0!important;height:auto!important}
+.problem-visual .sim-motion-note{display:none}
+.problem-visual .sim-shell{gap:0}
+.problem-visual .sim-visual{min-width:0}
+.problem-visual .sim-caption{padding:.6rem .9rem}
+.problem-visual .sim-timeline{margin-top:.7rem}

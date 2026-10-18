@@ -13,12 +13,12 @@
       "`if(n<0)return; b[i]=a[n]; store(n-2,i+1);`",
       "`if(n<0)return; b[i+1]=a[n]; store(n-2,i+1);`",
       "`if(n<0)return; b[i]=a[n]; store(n-2,i+2);`",
-      "`if(n<0)return; b[i+1]=a[n]; store(n-1,i+2);`"
+      "`if(n<0)return; b[i+1]=a[n]; store(n-2,i+2);`"
     ],
     "answer": 1,
-    "solution": "1. After $t$ copies, the source index is $N-1-2t$ and the destination index is $t$. The recursive edge must therefore decrease `n` by two and increase `i` by one.\n2. Option 1 starts at b[0], preserves those indices, and stops before a negative source index is read. It copies the ceiling of N/2 elements.\n3. All printed alternatives have the guard n<0. Option 2 starts writing at b[1]. Option 3 advances the destination by two and skips slots. Option 4 both starts at b[1] and uses a source stride of one, so it fails the requested selection.\n4. The source is integer pseudocode, not a strictly declared C17 interface. A real C implementation must use compatible signed bounds or a prechecked remaining-length representation.\n\n**Source correction.** Options were visually rechecked against MSc CS 1393, Q167, PDF page 34 on 9 October 2026. The independently derived answer remains option 1. This is a bridge revisit, not a new unique archive question.",
+    "solution": "After t completed writes, the source and destination indices in option 1 satisfy $n=N-1-2t$ and $i=t$. Initially t is zero, exactly matching store(N-1,0). One write copies the required source element into the next contiguous destination, and the recursive call decreases the source index by two while increasing the destination index by one. This establishes the same invariant at the next call.\n\nThe guard is tested before reading a[n]. A write occurs precisely when $N-1-2t\\ge0$, giving $\\lceil N/2\\rceil$ writes. For N = 7 and a = [10,20,30,40,50,60,70], valid source indices are 6,4,2,0 and the destination becomes [70,50,30,10]. The next call has n = -2 and returns without reading an invalid element. For N = 6, indices 5,3,1 produce [60,40,20]. Empty input stops immediately at n = -1.\n\nOption 2 begins at destination index one. Option 3 writes destination positions zero,two,four,..., leaving gaps. Option 4 also uses source stride two, but writes destination positions one,three,five,... . It therefore both skips b[0] and leaves gaps. The earlier claim that option 4 uses source stride one was a transcription error; the rendered original was rechecked on 18 October 2026. Correct option: 1, independently derived rather than verified against an official key.\n\nEach nonterminal call performs its write before calling the next procedure. Unwinding creates no new writes. There are $\\lceil N/2\\rceil+1$ invocations including the terminal guard call. The syntax is legacy integer pseudocode; a real C implementation still requires appropriate types, valid storage and a nonoverflowing index contract. This is an explicit bridge revisit, not a newly discovered unique functions question.",
     "pattern": "index invariant and stop condition",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium–Hard",
     "repoPath": "Exams/MS/CS/1393/olum_93_konkurcomputer.pdf",
     "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
     "translationStatus": "checked against rendered source page",
@@ -26,7 +26,7 @@
     "qNumber": 167,
     "sourceSHA": "7ed89fae8eb601a964355fde5e5d297cbb30844e5240b9e3908b798fb86e349d",
     "provenance": "Authentic archive bridge revisit; original PDF page rechecked for this chapter. English option properties, independently derived solution; not an official key.",
-    "verification": "Original PDF page 34 visually rechecked on 9 October 2026. Option guards and indices corrected from the printed page for this new adaptation. Explicit bridge revisit, not a new unique archive item."
+    "verification": "Original PDF page 34 visually rechecked and enlarged on 18 October 2026. All source strides are n-2. Option 4 destination indices are 1,3,5,... . Independently derived option 1; official key unverified."
   },
   {
     "id": "Phd_CE_1405_Q9",
@@ -40,21 +40,22 @@
     "title": "A recursive algorithm with reversed concatenation",
     "stem": "For an array of distinct values, `SplitSort` chooses its median $m$, recursively processes $R=\\{x:x>m\\}$ and $L=\\{x:x<m\\}$, and returns `concatenate(SplitSort(R), [m], SplitSort(L))`; arrays of length at most one are returned unchanged. What is the output order?",
     "options": [
-      "Descending up to the median, then ascending.",
+      "A descending block, then the median m, then an ascending block.",
       "Approximately random.",
       "Ascending.",
       "Descending."
     ],
     "answer": 4,
-    "solution": "1. The base cases of zero or one value are descending.\n2. Assume recursive outputs are descending. Every value in the first block is greater than $m$, and every value in the final block is less than $m$.\n3. Concatenating the descending greater block, $m$, and the descending smaller block therefore produces a descending whole array. Strong induction establishes the claim for every length.\n4. Median selection controls balance, not ascending direction. Option 1 misreads one recursive block; option 2 ignores determinism; option 3 would require left\u2013median\u2013right concatenation.\n\n**Transfer rule.** Prove a recursion's semantic invariant separately from its running-time recurrence.\\n\\n**Call boundary interpretation.** The returned greater and smaller blocks must be kept with the appropriate median continuation; reversing their concatenation changes semantics even though the calls have the same types. This bridge revisits an archived item already taught with divide and conquer. It is not represented as a new unique functions/scope examination question.",
+    "solution": "The printed base condition is length(A) at most one. Both an empty array and a singleton are already descending, so they return immediately without creating recursive children. A root visual inspection of the enlarged original confirms the less-than-or-equal sign; it must not be transcribed as a strict less-than sign.\n\nFor a larger array of distinct values, assume by strong induction that the two smaller recursive calls return their inputs in descending order. Every element in R exceeds m, and every element in L is below m. Therefore the returned greater block is descending internally, its last element exceeds m, and m exceeds the first element of the returned smaller block. The final smaller block is descending internally too. All internal and cross-block comparisons are descending, proving option 4.\n\nFor A = [7,2,5,1,6,3,4], the median is four. The greater input [7,5,6] returns [7,6,5], and the smaller input [2,1,3] returns [3,2,1]. Concatenating those results around four gives [7,6,5,4,3,2,1]. There are seven invocations for this example: the root, two three-element calls and four singleton calls. Maximum live depth is three including the root. Inventing empty recursive children for the singleton base would incorrectly change these counts to fifteen calls and depth four.\n\nMedian choice controls partition balance; R,m,L concatenation determines direction. Option 1 wrongly assigns different orientations to recursive outputs governed by the same algorithm. Option 2 ignores the ordering invariant. Option 3 would require the opposite L,m,R concatenation. No even-length numerical-median convention is needed for the odd-sized trace used here. The answer is independently derived, not an official-key assertion. This is a bridge revisit supporting recursive contracts and pending continuations.",
     "pattern": "recursive correctness versus runtime",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium–Hard",
     "repoPath": "Exams/Phd/CE/1405/Q707A-phd1405-[www.konkur.in].pdf",
     "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
     "translationStatus": "checked against rendered source page",
     "answerProvenance": "independently derived; not represented as an official key",
     "qNumber": 9,
     "sourceSHA": "34d7e4f8f1d347be2ede1be4ff027efc2e17680c3aedf633a13857f27955b75a",
-    "provenance": "Authentic archive bridge revisit; original PDF page rechecked for this chapter. English option properties, independently derived solution; not an official key."
+    "provenance": "Authentic archive bridge revisit; original PDF page rechecked for this chapter. English option properties, independently derived solution; not an official key.",
+    "verification": "Root visually inspected complete PDF page 3 and enlarged base-case glyph on 18 October 2026: length(A) <= 1. Independently derived descending option 4; original seven-element trace has seven calls and depth three."
   }
 ]

@@ -122,7 +122,7 @@
 
 58. Signed arithmetic outside the representable range is undefined in C. Do not import C0's modular integer interpretation from a contracts example into signed C code.
 
-59. Mathematical representability of the final result is insufficient. Check every executed intermediate, including an unnecessary final square whose value is later discarded.
+59. Mathematical representability of the final result is insufficient. With an explicitly assumed int32, 50000 raised to exponent one fits, but an unused square of 50000 is 2500000000 and overflows. Check every executed intermediate and avoid a final square that the algorithm never needs.
 
 60. A function-like macro substitutes tokens rather than creating parameter objects. Expand it before analyzing value, side effects, precedence, or scope.
 
@@ -140,7 +140,7 @@
 
 66. A frame condition limits which external objects may change. A numerical postcondition alone does not prove that a helper is pure.
 
-67. A specification promising “a positive common divisor” does not promise “the greatest common divisor.” The constant-one implementation refutes that inference.
+67. A specification promising a positive common divisor does not promise the greatest common divisor. For inputs twelve and eighteen, returning one meets the weaker contract but misses the gcd six. A descending search proves greatestness by maintaining that every larger candidate has already failed, not merely by testing that the current candidate divides both inputs.
 
 68. Every reachable return site must establish the postcondition, including early returns inside a loop. A proof only for the closing return is incomplete.
 
@@ -164,6 +164,6 @@
 
 78. Python defaults are evaluated when the definition executes. A mutable default is shared across calls using it; an explicit argument does not reset that stored default.
 
-79. Loop-created Python closures can share a late-read binding; per-definition defaults can instead save each current value. Explain binding identity and evaluation time rather than saying merely “captured.”
+79. Loop-created Python closures can share a late-read binding: saved functions reading i after range(3) can all return two. A definition lambda i=i: i instead saves defaults zero, one and two at the respective definitions. Its parameter can still be overridden by an explicit call argument; saving a mutable default would not create a deep copy.
 
 80. A Python binding operation can make a name local throughout its function block, causing an earlier read to raise UnboundLocalError. State session/error outcomes accurately; a failed call does not supply a normal numeric return.

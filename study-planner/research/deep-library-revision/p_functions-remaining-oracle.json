@@ -1,0 +1,1055 @@
+{
+  "status": "pass",
+  "source_sha256": "b228bce939100b3b333f7a08bdac5fd9bed6e8f2684f3fb1ebae72ab91613bca",
+  "python_version": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:05:56) [MSC v.1942 64 bit (AMD64)]",
+  "checks": [
+    {
+      "name": "PF64 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": [
+          4,
+          14
+        ],
+        "expected": [
+          4,
+          14
+        ],
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF64 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF65 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": [
+          [
+            2,
+            7
+          ],
+          [
+            99
+          ],
+          false
+        ],
+        "expected": [
+          [
+            2,
+            7
+          ],
+          [
+            99
+          ],
+          false
+        ],
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF65 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF66 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": [
+          [
+            1,
+            5,
+            9
+          ],
+          [
+            1,
+            5,
+            9
+          ],
+          true
+        ],
+        "expected": [
+          [
+            1,
+            5,
+            9
+          ],
+          [
+            1,
+            5,
+            9
+          ],
+          true
+        ],
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF66 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF67 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": [
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            3,
+            8
+          ],
+          false
+        ],
+        "expected": [
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            3,
+            8
+          ],
+          false
+        ],
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF67 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF68 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": [
+          4,
+          9
+        ],
+        "expected": [
+          4,
+          9
+        ],
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF68 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF69 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": [
+          [
+            2
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "expected": [
+          [
+            2
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF69 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF70 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": [
+          [
+            1
+          ],
+          [
+            9,
+            7
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "expected": [
+          [
+            1
+          ],
+          [
+            9,
+            7
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF70 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF71 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          false
+        ],
+        "expected": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          false
+        ],
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF71 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF72 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": "UnboundLocalError",
+        "expected": "UnboundLocalError",
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF72 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF73 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": [
+          11,
+          11
+        ],
+        "expected": [
+          11,
+          11
+        ],
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF73 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF74 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": [
+          7,
+          12
+        ],
+        "expected": [
+          7,
+          12
+        ],
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF74 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF75 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": 13,
+        "expected": 13,
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF75 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF76 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": [
+          2,
+          4,
+          6
+        ],
+        "expected": [
+          2,
+          4,
+          6
+        ],
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF76 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF77 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": [
+          2,
+          2,
+          2
+        ],
+        "expected": [
+          2,
+          2,
+          2
+        ],
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF77 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF78 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": [
+          0,
+          1,
+          2
+        ],
+        "expected": [
+          0,
+          1,
+          2
+        ],
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF78 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF79 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": [
+          -1,
+          2
+        ],
+        "expected": [
+          -1,
+          2
+        ],
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF79 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF80 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": "TypeError",
+        "expected": "TypeError",
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF80 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF81 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": 127,
+        "expected": 127,
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF81 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF82 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": null,
+        "expected": null,
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF82 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF83 actual stated Python",
+      "passed": true,
+      "evidence": {
+        "actual": 25,
+        "expected": 25,
+        "stdout": ""
+      }
+    },
+    {
+      "name": "PF83 no unexpected printing",
+      "passed": true,
+      "evidence": ""
+    },
+    {
+      "name": "PF85 labelled reconstruction",
+      "passed": true,
+      "evidence": {
+        "returns": [
+          1,
+          2,
+          1,
+          3
+        ],
+        "distinct_cells": true
+      }
+    },
+    {
+      "name": "PF49 descending divisor maximality",
+      "passed": true,
+      "evidence": {
+        "input_pairs": 10000,
+        "candidate_states": 317270,
+        "range": "a,b=1..100",
+        "initialization": "d=min(a,b)",
+        "decrement": "only after non-common candidate"
+      }
+    },
+    {
+      "name": "PF50 stated triangular contract",
+      "passed": true,
+      "evidence": {
+        "cases": 101,
+        "n_range": [
+          0,
+          100
+        ],
+        "maximum_total": 5050,
+        "maximum_k": 101
+      }
+    },
+    {
+      "name": "PF51 unbounded geometric invariant",
+      "passed": true,
+      "evidence": {
+        "cases": 151,
+        "n_range": [
+          0,
+          150
+        ],
+        "machine_safety": "not implied for a C implementation"
+      }
+    },
+    {
+      "name": "PF52 explicit guarded binary-power reconstruction",
+      "passed": true,
+      "evidence": {
+        "cases": 1616,
+        "final_int32_fit_cases": 842,
+        "bounds": "x=-50..50,y=0..15",
+        "zero_exponent": "returns 1, including adopted 0**0 convention",
+        "scope": "this explicit algorithm, not an unspecified correction"
+      }
+    },
+    {
+      "name": "PF53 needless final square counterexample",
+      "passed": true,
+      "evidence": {
+        "final_power": 50000,
+        "unused_square": 2500000000,
+        "int32_max": 2147483647
+      }
+    },
+    {
+      "name": "PF54 quotient remainder enumeration",
+      "passed": true,
+      "evidence": {
+        "cases": 5050,
+        "alternative_q_tests": 515100,
+        "stated_example": [
+          7,
+          5
+        ],
+        "limits": "n=0..100,d=1..50; proof supplies universal positive-d argument"
+      }
+    },
+    {
+      "name": "PF55 mathematical model of C signed quotient",
+      "passed": true,
+      "evidence": {
+        "cases": 8040,
+        "stated_q": -4,
+        "stated_r": -3,
+        "scope": "exact integer truncation model, no C execution; nonzero denominator and representable quotient required"
+      }
+    },
+    {
+      "name": "PF57 exact composite interval",
+      "passed": true,
+      "evidence": {
+        "exhaustive_cases": 131056,
+        "two_complement_widths": [
+          4,
+          16
+        ],
+        "int32_boundaries": [
+          {
+            "x": -1073741828,
+            "first": -1073741825,
+            "second": -2147483650,
+            "safe": false
+          },
+          {
+            "x": -1073741827,
+            "first": -1073741824,
+            "second": -2147483648,
+            "safe": true
+          },
+          {
+            "x": 1073741820,
+            "first": 1073741823,
+            "second": 2147483646,
+            "safe": true
+          },
+          {
+            "x": 1073741821,
+            "first": 1073741824,
+            "second": 2147483648,
+            "safe": false
+          }
+        ],
+        "portability": "general interval must use actual INT_MIN/INT_MAX; int32 is an additional assumption"
+      }
+    },
+    {
+      "name": "PF59 stateful sequential callback",
+      "passed": true,
+      "evidence": {
+        "cases": 100,
+        "first_two_results": [
+          8,
+          12
+        ],
+        "final_s": 200,
+        "formula": "mth apply(step,5) = 4m+4",
+        "scope": "mathematical bounded trace, int safety separately required"
+      }
+    },
+    {
+      "name": "PF62 stipulated copy-out model",
+      "passed": true,
+      "evidence": {
+        "orders": [
+          "p then q",
+          "q then p"
+        ],
+        "results": [
+          20,
+          10
+        ],
+        "scope": "theoretical stipulated semantics, neither C nor C++ references"
+      }
+    },
+    {
+      "name": "PF63 stipulated by-name model",
+      "passed": true,
+      "evidence": {
+        "by_name": [
+          4,
+          5
+        ],
+        "by_value": [
+          4,
+          4
+        ],
+        "caller_i": 4,
+        "scope": "body explicitly has permission to modify caller i"
+      }
+    },
+    {
+      "name": "PF84 persistent triangular returns",
+      "passed": true,
+      "evidence": {
+        "cases": 301,
+        "n_range": [
+          0,
+          300
+        ],
+        "n4": {
+          "returns": [
+            1,
+            3,
+            6,
+            10
+          ],
+          "sum": 20
+        },
+        "closed_form": "n(n+1)(n+2)/6",
+        "machine_safety": "intermediate counter, caller accumulator, and evaluated closed-form products require separate bounds"
+      }
+    }
+  ],
+  "check_count": 53,
+  "actual_python_blocks": 20,
+  "python_runs": [
+    {
+      "id": "PF64",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "def f(x):\n    x += 3\n    return x * 2\nx = 4\ny = f(x)\n# Find x, y.",
+      "observer": "answer=[x,y]",
+      "answer": [
+        4,
+        14
+      ],
+      "stdout": "",
+      "exception": null,
+      "identities": null
+    },
+    {
+      "id": "PF65",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "def f(a):\n    a.append(7)\n    a = [99]\n    return a\nx = [2]\ny = f(x)\n# Find x, y, and whether x is y.",
+      "observer": "answer=[x,y,x is y]",
+      "answer": [
+        [
+          2,
+          7
+        ],
+        [
+          99
+        ],
+        false
+      ],
+      "stdout": "",
+      "exception": null,
+      "identities": null
+    },
+    {
+      "id": "PF66",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "def f(a):\n    a.append(5)\n    return a\nx = [1]\ny = f(x)\ny.append(9)\n# Find x and identity relation.",
+      "observer": "answer=[x,y,x is y]",
+      "answer": [
+        [
+          1,
+          5,
+          9
+        ],
+        [
+          1,
+          5,
+          9
+        ],
+        true
+      ],
+      "stdout": "",
+      "exception": null,
+      "identities": null
+    },
+    {
+      "id": "PF67",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "def f(a):\n    b = list(a)\n    b.append(8)\n    return b\nx = [2,3]\ny = f(x)\n# Find x and y.",
+      "observer": "answer=[x,y,x is y]",
+      "answer": [
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          8
+        ],
+        false
+      ],
+      "stdout": "",
+      "exception": null,
+      "identities": null
+    },
+    {
+      "id": "PF68",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "k = 4\ndef f(x=k):\n    return x\nk = 9\na = f()\nb = f(k)\n# Find a,b.",
+      "observer": "answer=[a,b]",
+      "answer": [
+        4,
+        9
+      ],
+      "stdout": "",
+      "exception": null,
+      "identities": null
+    },
+    {
+      "id": "PF69",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "def f(x,a=[]):\n    a.append(x)\n    return list(a)\nr1=f(2)\nr2=f(5)\n# Find r1,r2.",
+      "observer": "answer=[r1,r2]; identities={\"snapshots_distinct\":r1 is not r2,\"default\":f.__defaults__[0]}",
+      "answer": [
+        [
+          2
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "stdout": "",
+      "exception": null,
+      "identities": {
+        "snapshots_distinct": true,
+        "default": [
+          2,
+          5
+        ]
+      }
+    },
+    {
+      "id": "PF70",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "def f(x,a=[]):\n    a.append(x)\n    return list(a)\nr1=f(1)\nr2=f(7,[9])\nr3=f(2)\n# Find all results.",
+      "observer": "answer=[r1,r2,r3]; identities={\"snapshots_pairwise_distinct\":len({id(r1),id(r2),id(r3)})==3,\"default\":f.__defaults__[0]}",
+      "answer": [
+        [
+          1
+        ],
+        [
+          9,
+          7
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "stdout": "",
+      "exception": null,
+      "identities": {
+        "snapshots_pairwise_distinct": true,
+        "default": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "PF71",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "def f(x,a=None):\n    if a is None:\n        a=[]\n    a.append(x)\n    return a\nr1=f(1)\nr2=f(2)\n# Find results and identity.",
+      "observer": "answer=[r1,r2,r1 is r2]",
+      "answer": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        false
+      ],
+      "stdout": "",
+      "exception": null,
+      "identities": null
+    },
+    {
+      "id": "PF72",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "x=8\ndef f():\n    print(x)\n    x=3\n# Classify f().",
+      "observer": "f()",
+      "answer": null,
+      "stdout": "",
+      "exception": {
+        "type": "UnboundLocalError",
+        "message": "cannot access local variable 'x' where it is not associated with a value"
+      },
+      "identities": null
+    },
+    {
+      "id": "PF73",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "x=8\ndef f():\n    global x\n    x += 3\n    return x\nr=f()\n# Find x,r.",
+      "observer": "answer=[x,r]",
+      "answer": [
+        11,
+        11
+      ],
+      "stdout": "",
+      "exception": null,
+      "identities": null
+    },
+    {
+      "id": "PF74",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "def make(k):\n    def f(x):\n        return x+k\n    return f\na=make(4)\nb=make(9)\n# Find a(3),b(3).",
+      "observer": "answer=[a(3),b(3)]; identities={\"function_distinct\":a is not b,\"closure_cells_distinct\":a.__closure__[0] is not b.__closure__[0]}",
+      "answer": [
+        7,
+        12
+      ],
+      "stdout": "",
+      "exception": null,
+      "identities": {
+        "function_distinct": true,
+        "closure_cells_distinct": true
+      }
+    },
+    {
+      "id": "PF75",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "x=10\ndef f():\n    return x\ndef g():\n    x=3\n    return f()+x\n# Find g().",
+      "observer": "answer=g()",
+      "answer": 13,
+      "stdout": "",
+      "exception": null,
+      "identities": null
+    },
+    {
+      "id": "PF76",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "def make():\n    n=0\n    def next_value():\n        nonlocal n\n        n+=2\n        return n\n    return next_value\nf=make()\n# Find first three results.",
+      "observer": "answer=[f(),f(),f()]",
+      "answer": [
+        2,
+        4,
+        6
+      ],
+      "stdout": "",
+      "exception": null,
+      "identities": null
+    },
+    {
+      "id": "PF77",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "def build():\n    out=[]\n    for i in range(3):\n        out.append(lambda: i)\n    return out\n# Call every returned function.",
+      "observer": "functions=build(); answer=[f() for f in functions]; identities={\"three_distinct_functions\":len({id(f) for f in functions})==3,\"shared_closure_cell\":len({id(f.__closure__[0]) for f in functions})==1}",
+      "answer": [
+        2,
+        2,
+        2
+      ],
+      "stdout": "",
+      "exception": null,
+      "identities": {
+        "three_distinct_functions": true,
+        "shared_closure_cell": true
+      }
+    },
+    {
+      "id": "PF78",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "def build():\n    out=[]\n    for i in range(3):\n        out.append(lambda i=i: i)\n    return out\n# Call every returned function.",
+      "observer": "functions=build(); answer=[f() for f in functions]; identities={\"defaults\":[f.__defaults__ for f in functions],\"closures\":[f.__closure__ for f in functions]}",
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "stdout": "",
+      "exception": null,
+      "identities": {
+        "defaults": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "closures": [
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "id": "PF79",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "i=0\ndef next_value():\n    global i\n    i+=1\n    return i\ndef sub(a,b):\n    return a-b\nr=sub(next_value(),next_value())\n# Find r,i.",
+      "observer": "answer=[r,i]",
+      "answer": [
+        -1,
+        2
+      ],
+      "stdout": "",
+      "exception": null,
+      "identities": null
+    },
+    {
+      "id": "PF80",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "def f(a,b=2):\n    return a+b\n# Classify f(1,a=3).",
+      "observer": "f(1,a=3)",
+      "answer": null,
+      "stdout": "",
+      "exception": {
+        "type": "TypeError",
+        "message": "f() got multiple values for argument 'a'"
+      },
+      "identities": null
+    },
+    {
+      "id": "PF81",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "def f(a,/,b=2,*,c=3):\n    return 100*a+10*b+c\n# Evaluate f(1,c=7).",
+      "observer": "answer=f(1,c=7)",
+      "answer": 127,
+      "stdout": "",
+      "exception": null,
+      "identities": null
+    },
+    {
+      "id": "PF82",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "def f(x):\n    x*x\nr=f(5)\n# Classify r.",
+      "observer": "answer=r",
+      "answer": null,
+      "stdout": "",
+      "exception": null,
+      "identities": null
+    },
+    {
+      "id": "PF83",
+      "source_kind": "actual stated block plus explicitly requested call/observer",
+      "block": "def compose(f,g):\n    return lambda x: f(g(x))\nf=compose(lambda x:x*x,lambda x:x+2)\n# Evaluate f(3).",
+      "observer": "answer=f(3)",
+      "answer": 25,
+      "stdout": "",
+      "exception": null,
+      "identities": null
+    }
+  ],
+  "manual_semantic_classifications": {
+    "PF37": "C17 function executions ordered but order unspecified; commutative sum invariant 3, counter 2",
+    "PF38": "undefined behavior: unsequenced modifications, not two numerical outcomes",
+    "PF39": [
+      0,
+      1,
+      2,
+      -1
+    ],
+    "PF40": [
+      1,
+      8
+    ],
+    "PF41": {
+      "integer_quotient": 2,
+      "double_return": 2.0,
+      "fractional_cast_before_division": 2.25
+    },
+    "PF42": "using result of non-void fallthrough is undefined, except initial-main rule not applicable",
+    "PF43": "mathematical terminating domain nonnegative integers; stated actual C multiply additionally bounded",
+    "PF44": {
+      "function": [
+        6,
+        4
+      ],
+      "macro": "undefined unsequenced writes"
+    },
+    "PF45": {
+      "r": 4,
+      "i": 5,
+      "reason": "conditional first operand before selected operand"
+    },
+    "PF46": "fixed float parameter vs trailing variadic float-to-double promotion",
+    "PF47": {
+      "stdout": "5\n8\n",
+      "return": 8
+    },
+    "PF48": "constant-one counterexample satisfies common-positive-divisor contract without maximality",
+    "PF56": "equal result relation does not imply equal effects or termination",
+    "PF58": {
+      "at4": 28,
+      "formula": "9x-8"
+    },
+    "PF60": [
+      11,
+      7
+    ],
+    "PF61": 18,
+    "PF86": "dangling returned reference does not extend ordinary automatic-local lifetime",
+    "PF87": "parameter adjusted to int*; sizeof is pointer size, not array size",
+    "PF88": {
+      "stateful_s": 2,
+      "pure_s": 0
+    },
+    "PF89": {
+      "final_x": 6,
+      "local_b_before_return": 9
+    }
+  },
+  "limitations": [
+    "No C/C++ compilation or execution.",
+    "Finite enumerations do not replace proofs outside tested ranges.",
+    "PF85 and guarded-power implementation are explicitly reconstructed because full executable blocks are absent from those stems.",
+    "This oracle checks current question JSON; it does not certify later rewritten prose, visuals, or browser rendering."
+  ]
+}

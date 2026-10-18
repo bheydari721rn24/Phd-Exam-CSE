@@ -1,25 +1,155 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Functions chapter audit</title><link rel="stylesheet" href="../chapters/chapter.en.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/p_functions.html">← Functions chapter</a></p><article class="lesson"><h1>Functions chapter: source selection and reconciliation</h1>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Functions chapter review</title><link rel="stylesheet" href="../chapters/chapter.en.css"></head><body><main class="chapter"><p class="top-link"><a href="../chapters/p_functions.html">Functions chapter</a></p><article class="lesson"><h1>Functions chapter: source selection and reconciliation</h1>
 <h2>Discovery and selection boundary</h2>
-<p>Six distinct accessible written courses from Cambridge, Berkeley, Harvard, CMU, Stanford and MIT were compared on written access, exact chapter coverage, semantic depth and exercise value, each scored from one to five. The scored register includes reasons and exact reading ranges. Four primary sources jointly cover <span class="math-inline">C</span> interfaces and effects, lexical environments, concrete caller/target tracing, and modular mathematical contracts. Stanford adds actual <span class="math-inline">C++</span> reference semantics and MIT adds an independent Python scope/return comparison, so all six contribute. This is a bounded evaluated pool, not an unverifiable assertion that every worldwide course was found.</p>
+<p>Six distinct accessible written courses from Cambridge, Berkeley, Harvard, CMU, Stanford and MIT were compared on written access, exact chapter coverage, semantic depth and exercise value, each scored from one to five. The scored register includes reasons and exact reading ranges. Four primary sources jointly cover C interfaces and effects, lexical environments, concrete caller/target tracing, and modular mathematical contracts. Stanford adds actual C++ reference semantics and MIT adds an independent Python scope/return comparison, so all six contribute. This is a bounded evaluated pool, not an unverifiable assertion that every worldwide course was found.</p>
 <p>Cambridge Lecture 2 was read in full, 19 pages. Stanford's two-page handout was read in full. MIT Lecture 4 slides 3–35 were read. Berkeley §1.3, §1.6.3–1.6.4 and the sequence-object sharing/mutation material of §2.4.2 were read; material on classes, dispatch dictionaries and advanced mutable closures was outside this boundary. Harvard Lecture 1's function section and Lecture 4's value/pointer swapping section were read. CMU Contracts pp. 19–39 were read with introductory context on pp. 1–10; intermediate source pages not inspected are not counted as read.</p>
 <h2>Retrieval identity check</h2>
 <p>The first cached responses for three PDF URLs had the wrong document content: Cambridge returned an old discrete-mathematics text, Stanford returned mathematical-functions slides, and MIT returned relations notes. Document titles and page counts exposed the mismatch. Fresh URL retrievals with a chapter-specific query retrieved the actual 19-page Cambridge, two-page Stanford, and 35-slide MIT documents. Those corrected documents and their hashes are the counted evidence; the first incorrect responses are not counted or cited as reviewed. Private original files remain outside the published app.</p>
 <p>The CMU live notes identify Fall 2026, even though the search index described Fall 2025. The acquisition text, not the stale indexed date, determines the citation.</p>
 <h2>Reconciliation of language rules</h2>
 <ul>
-<li>Harvard describes pointer swapping as passing “by reference.” In this C17 chapter that phrase is refined to copied pointer values enabling writes through targets. It does not create <span class="math-inline">C++</span> reference parameters.</li>
-<li>Cambridge's static-scope explanation is separated into identifier scope, object duration and internal linkage. Its physical 32-bit address layout is not elevated to a portable <span class="math-inline">C</span> rule.</li>
+<li>Harvard describes pointer swapping as passing “by reference.” In this C17 chapter that phrase is refined to copied pointer values enabling writes through targets. It does not create C++ reference parameters.</li>
+<li>Cambridge's static-scope explanation is separated into identifier scope, object duration and internal linkage. Its physical 32-bit address layout is not elevated to a portable C rule.</li>
 <li>Stanford's absolute-value illustration omits the most-negative signed integer boundary. The chapter requires representability rather than claiming -INT_MIN is safe.</li>
 <li>MIT's historical print statements are expressed in Python 3. Python None is a returned object, not a printed numerical result; output events are separated from return values.</li>
-<li>CMU C0 modular integer arithmetic is not copied into signed <span class="math-inline">C</span> arithmetic. Its printed termination argument on <span class="math-inline">p</span>. 24 should establish <span class="math-inline">floor(e/2)</span> <span class="math-inline">&gt;=</span> 0, not <span class="math-inline">&gt;</span> 0 at <span class="math-inline">e=1</span>.</li>
-<li>C17 empty-list declarations are distinguished from void prototypes, C23, and <span class="math-inline">C++</span>.</li>
-<li>Separate <span class="math-inline">C</span> function bodies can be indeterminately sequenced while direct conflicting argument modifications remain unsequenced. WG14 N1570 §6.5.2.2 paragraph 10 and §6.5 paragraph 2 supply the precise distinction.</li>
+<li>CMU C0 modular integer arithmetic is not copied into signed C arithmetic. Its printed termination argument on p. 24 should establish floor(e/2) &gt;= 0, not &gt; 0 at e=1.</li>
+<li>C17 empty-list declarations are distinguished from void prototypes, C23, and C++.</li>
+<li>Separate C function bodies can be indeterminately sequenced while direct conflicting argument modifications remain unsequenced. WG 14 N1570 §6.5.2.2 paragraph 10 and §6.5 paragraph 2 supply the precise distinction.</li>
 <li>Python binding, defaults and free-variable lookup are checked against the official tutorial and execution model. Ordinary function blocks are distinguished from advanced annotation/class-scope exceptions, which are not included here.</li>
 </ul>
 <h2>Accessible exercise families and delivery disposition</h2>
-<p>Cambridge <span class="math-inline">p</span>. 19 lists lowercase counting, merge-sort memory and swap macros. Array/string implementation and advanced recursion are deferred to their dedicated chapters; macro repeated evaluation and alias-safe swapping receive original fully worked cases here. Stanford's set-to-zero examples motivate independently written mixed-reference/value cases. MIT's scope, return/print and function-argument examples motivate original binding and exception cases. Berkeley's square/sum-square and composition examples motivate distinct original environment and callback traces; the text has no claim here of an exhaustive all-course problem corpus. CMU Exercises 2 and 3 receive independently formulated geometric-sum and specification-strength tasks. The chapter's 89 original/course-inspired tasks plus two authentic bridge revisits are a curated bank, not a reproduction of all external exercise sets.</p>
+<p>Cambridge p. 19 lists lowercase counting, merge-sort memory and swap macros. Array/string implementation and advanced recursion are deferred to their dedicated chapters; macro repeated evaluation and alias-safe swapping receive original fully worked cases here. Stanford's set-to-zero examples motivate independently written mixed-reference/value cases. MIT's scope, return/print and function-argument examples motivate original binding and exception cases. Berkeley's square/sum-square and composition examples motivate distinct original environment and callback traces; the text has no claim here of an exhaustive all-course problem corpus. CMU Exercises 2 and 3 receive independently formulated geometric-sum and specification-strength tasks. The chapter's 89 original/course-inspired tasks plus two authentic bridge revisits are a curated bank, not a reproduction of all external exercise sets.</p>
 <h2>Archive evidence</h2>
-<p>MSc CS 1393 Q167, original PDF page 34, and PhD CE 1405 Q9, page 3, were rendered and visually reread at the pinned archive revision bdadf6e2c9cadc4772ae137a96a3da753c7cfd08. Their source hashes are in the question records. Both are openly labeled revisits and bridge questions about call/return semantics; neither is falsely described as a new functions-specific unique item. Q167's English options describe the decisive correct stride and three option defects rather than pretending the printed pseudocode is strictly typed C17.</p>
+<p>MSc CS 1393 Q167, original PDF page 34, and PhD CE 1405 Q9, page 3, were rendered and visually reread at the pinned archive revision bdadf 6 e2 c9 cadc 4772 ae137 a96 a3 da753 c7 cfd 08. Their source hashes are in the question records. Both are openly labeled revisits and bridge questions about call/return semantics; neither is falsely described as a new functions-specific unique item. Q167's English options describe the decisive correct stride and three option defects rather than pretending the printed pseudocode is strictly typed C17.</p>
 <h2>Coverage limit</h2>
 <p>Arrays, strings, detailed recursive recurrences, pointer arithmetic, dynamic allocation, object-oriented methods and concurrency have separate plan chapters. Function-related distinctions needed before those chapters are introduced here, with their boundaries explicit. Mathematical proofs and exact finite checks establish the included models; literal universal completeness or guaranteed unseen-exam performance is not claimed.</p>
+<h2>Current source-reading refresh</h2>
+<h1>Functions: fresh scoped written-source revalidation</h1>
+<p>State: individual review in progress. The published previous edition has not yet been promoted as a newly complete review.</p>
+<h2>Actual text reread in this continuation</h2>
+<ul>
+<li><strong>Cambridge, Programming in C, 2017–18; Neel Krishnaswami.</strong> Lecture 2, all 19 PDF pages, text extracted by the web reader. First query-string attempt failed; the exact official base URL worked. The returned title, author, term and 19-page length match the intended document. Source address-space illustration pixels were not newly inspected. <a href="https://www.cl.cam.ac.uk/teaching/1718/ProgC/lectures/lecture2.pdf">Official PDF</a>.</li>
+<li><strong>UC Berkeley, Composing Programs; John DeNero.</strong> Complete §1.3 text, including parameters, fresh frames, lookup, abstraction and operator discussion. Embedded environment diagrams were not newly visually inspected. §1.6 and mutation sections remain prior actual readings, not claimed as fresh rereads in this pass. <a href="https://composingprograms.com/pages/13-defining-new-functions.html">Official text</a>.</li>
+<li><strong>Harvard, CS 50 x2025; David J. Malan.</strong> Lecture 4 Swapping heading through the next Overflow heading; both complete C swap bodies and surrounding comparison prose. Lecture 1 Functions and other Lecture 4 sections remain prior readings, not fresh complete readings. <a href="https://cs50.harvard.edu/x/2025/notes/4/#swapping">Official note</a>.</li>
+<li><strong>CMU,15-122 Contracts.</strong> Physical PDF pages 19–39, including full argument repair, loop invariants, termination, bounded arithmetic, modular specifications, exercise statements and supplied sample solutions. Surrounding pages 17–18 were also read. Earlier pages 1–10 remain historical readings, not a fresh full-document claim. <a href="https://www.cs.cmu.edu/~15122/handouts/lectures/01-contracts.pdf">Official PDF</a>.</li>
+</ul>
+<p>Local fresh byte hashes were not obtained by this web-reader pass. Historical fingerprints are retained in the original reviewed-course register and are not relabeled as current downloads. Stanford and MIT remain documented previous supplementary readings; no fresh reread is claimed yet.</p>
+<h2>Reconciliations retained or strengthened</h2>
+<ol>
+<li>Cambridge's historical empty-list explanation applies to the chapter's C17 contract, not C23 or C++. Its static-scope wording is refined into visibility, storage duration and linkage. Its example x86 layout is not a portable address rule.</li>
+<li>Cambridge's macro lecture is instructional simplification: replacement operates on preprocessing tokens, <code>##</code> pastes tokens, and replacement/argument expansion rules need the standard-level qualifications. A malformed displayed JOIN line is not adopted as an executable definition.</li>
+<li>Harvard describes its pointer swap as passing by reference. In C, the pointer values are copied into distinct parameter objects; dereferencing them designates caller objects. True C++ references are a separate explicitly named language mechanism.</li>
+<li>Berkeley's environment model separates each invocation's bindings from returned values. The model does not assert a machine ABI or a count of physically allocated frame bytes. Its ordinary Python scope is not silently generalized to every advanced class/annotation exception.</li>
+<li>CMU physical page 24's text ends with a strict <code>e/2 &gt; 0</code> assertion, contradicted by e=1. Nonnegativity <code>floor(e/2) &gt;= 0</code> is the needed termination bound. The preceding invariant/preservation calculation already supports the repaired statement.</li>
+<li>CMU's C0 modular integer examples must not be imported into signed C17 arithmetic. Its sample GCD interface intentionally promises a common divisor, not maximality. A caller using only that weak postcondition may not silently assume greatest-common-divisor behavior from the function's name or body.</li>
+</ol>
+<p>The thirty-six newly rewritten answer blocks are an unintegrated review manuscript. Other question answers, the two authentic bridge placements, simulations, final notes and complete browser gates still need individual review. Baseline completed-review count remains 27 of60.</p>
+<p>Additional standard-level checks: WG 14 N1570 section 6.2.1 paragraph 7 confirms the declaration-point scope rule, and section 6.2.4 paragraph 2 confirms ended-lifetime pointer indeterminacy. These are named C11 draft provisions used for the corresponding unchanged C17 rules, not a claim to have freshly read all 701 pages. The original official PDF was checked through the web reader.</p>
+<p>For PF 36,WG 14 N1570 section 6.5.2.2 paragraph 10 was checked directly: separate called bodies are indeterminately sequenced. This supplies the required distinction from direct unsequenced argument modifications. Fresh standard reading is limited to these identified provisions.</p>
+<h1>Functions chapter: independent scoped source refresh</h1>
+<p>Date: 2026-10-18. Research-only assignment. The app checkout and synced sources were not edited.</p>
+<h2>Files and reading distinction</h2>
+<p><code>acquisition.json</code> records actual fresh bytes, final URLs, SHA -256 identities, page counts and failed requests. Retrieval did not automatically count as reading. The following scopes were subsequently actually read; no worldwide course-exhaustiveness claim is made.</p>
+<h3>Stanford CS 106 B, Winter 2016</h3>
+<p>Official written handout: https://web. stanford. edu/class/archive/cs/cs 106 b/cs 106 b. 1164/handouts/1-PassbyReference. pdf</p>
+<p>Both pages were reread in text and visually inspected as rendered PNGs. Fresh hash matches the original course register: <code>5dfbd2aa55697b52e6c43b84ec2c87ee491d236f82acaf37f91a2eaee5f29646</code>. Date and course identity match. A staff attribution is supported; a named individual author is not established.</p>
+<p>The value-parameter and <code>int&amp;</code> examples support PF 60, PF 61 and PF 89. Three source simplifications need explicit qualifications: negating the most-negative signed integer can overflow; the value-parameter prose should describe the unchanged caller object rather than an expired parameter's supposed later value; the literal-binding restriction concerns the illustrated non-const lvalue reference, not every C++ reference type. No reference-return lifetime proof is supplied by this short handout, so PF 86 requires separate language reasoning. The statement labeling <code>int</code> as the function's “return” is more precisely the return type.</p>
+<h3>MIT 6.0001, Fall 2016</h3>
+<p>Official Lecture 4: https://ocw. mit. edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall -2016/6 ba59859535 f1566 dd57 a7279 aeba 5 d1_MIT 6_0001 F16_Lec 4.pdf</p>
+<p>All 35 extracted slide texts were read across web-reader responses. Chapter-relevant scope is slides 3–35; introductory context 1–2 was also visible. Only slide images 28 and 31 were freshly visually inspected, including the actual indentation and nested-scope diagram. Other illustration pixels were not newly inspected. Fresh hash matches the register: <code>eac916af74cd039a9f1a85a611e1ef5776a14e1ae0f4a0e6b3fccbcb2e782530</code>.</p>
+<p>The source supplies decomposition, scope, return/print, callback and nested-call comparisons. Historical print-statement examples require Python 3 syntax adaptation. An implicit return supplies <code>None</code>; it does not return a previous printed value. A return exits its current invocation; broader exceptions/finally behavior is outside this introductory simplification. Claims about inability to modify outside variables must distinguish rebinding from mutation, plus explicit global/nonlocal declarations. The nested example's <code>h</code> has its own local string binding while <code>g</code> retains its separate integer binding.</p>
+<h3>Official Python documentation</h3>
+<p>The web reader returned Python 3.15.0 documentation updated 18 October 2026. The reviewed ordinary-function rules also apply to the printed chapter examples; execution below uses the locally installed interpreter recorded in <code>python-checks.json</code>. Direct byte retrieval timed out, so no fresh local Python-page hash is claimed.</p>
+<ul>
+<li>https://docs. python. org/3/tutorial/controlflow. html — actually read §4.8, §4.9.1, §4.9.2 and the parameter-kind explanation/examples of §4.9.3 through the combined-call failure examples. Definitions bind function objects; ordinary calls introduce local parameter bindings. Defaults are evaluated when the definition executes, including one shared mutable default. Explicit arguments do not replace a saved default. Missing/duplicate argument binding and positional-only/keyword-only markers support PF 68–PF 71 and PF 80–PF 82. This is not a claim to read the entire tutorial.</li>
+<li>https://docs. python. org/3/reference/executionmodel. html — actually read §§4.1, 4.2.1–4.2.2 and §4.2.6. Ordinary function binding classification spans the block; pre-binding reads can raise <code>UnboundLocalError</code>. Global and nonlocal choose namespaces/bindings, and free-variable lookup occurs at runtime. Class and annotation scope exceptions were noted but not adopted as ordinary-function rules. Runtime implementation/thread sections were not part of this assignment's substantive review.</li>
+<li>https://docs. python. org/3/faq/programming. html#why-do-lambdas-defined-in-a-loop-with-different-values-all-return-the-same-result — actually read the local/global explanation and complete late-binding/default-snapshot examples immediately surrounding this heading. This independently confirms PF 77–PF 78. It does not imply that every closure snapshots a value.</li>
+<li>https://docs. python. org/3/reference/expressions. html#evaluation-order — actually read §6.16 and adjacent ordinary-call return/binding paragraphs of §6.3.4. Left-to-right expression evaluation confirms PF 79. Entire comprehensions and precedence chapters were not counted as comprehensively read.</li>
+</ul>
+<h2>Exact C provisions freshly reread</h2>
+<p>The official WG 14 N1570 PDF failed through the web reader, but fresh local HTTPS retrieval succeeded. The Dalhousie copy has the identical SHA -256 <code>208969fec021e4f4ce87a1873765298c73e7bbb5209b1c5868967c7adfc8492e</code>. This is a C11 committee draft used for corresponding retained C17 rules, not a freshly acquired final C17 standard. Only the listed provisions were substantively reread; all 701 pages were not read.</p>
+<p>Official artifact: https://www. open-std. org/jtc 1/sc 22/wg 14/www/docs/n1570.pdf</p>
+<table>
+<thead>
+<tr>
+<th>Provision</th>
+<th>Physical PDF page</th>
+<th>Verified use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6.2.1 p7</td>
+<td>54</td>
+<td>Ordinary identifier scope begins after completion of its declarator.</td>
+</tr>
+<tr>
+<td>6.2.4 p2,p6</td>
+<td>56</td>
+<td>Ended-lifetime access and pointer indeterminacy; separate recursive automatic instances.</td>
+</tr>
+<tr>
+<td>6.5 p2,p5</td>
+<td>94</td>
+<td>Conflicting unsequenced scalar effects and unrepresentable arithmetic.</td>
+</tr>
+<tr>
+<td>6.5.2.2 p7,p10</td>
+<td>100</td>
+<td>Parameter conversions/default promotions; noninterleaving, indeterminately sequenced called bodies.</td>
+</tr>
+<tr>
+<td>6.5.5 p5–6</td>
+<td>110</td>
+<td>Zero division, truncation and quotient-remainder representability.</td>
+</tr>
+<tr>
+<td>6.5.15 p4</td>
+<td>118</td>
+<td>Conditional guard precedes the one selected branch.</td>
+</tr>
+<tr>
+<td>6.5.17 p2</td>
+<td>123</td>
+<td>Comma operator sequencing differs from argument separators.</td>
+</tr>
+<tr>
+<td>6.7.6.3 p7–10</td>
+<td>151</td>
+<td>Array/function parameter adjustment and void-list interface.</td>
+</tr>
+<tr>
+<td>6.8 p4</td>
+<td>164</td>
+<td>Sequencing between full expressions.</td>
+</tr>
+<tr>
+<td>6.8.5 p6 and continuation</td>
+<td>168–169</td>
+<td>Qualified permission to assume loop termination.</td>
+</tr>
+<tr>
+<td>6.9.1 p9–12</td>
+<td>175</td>
+<td>Automatic parameter objects, as-if-assignment entry, used missing return.</td>
+</tr>
+</tbody>
+</table>
+<p>Pages 100 and 118 were additionally visually inspected. <code>c-scopes.txt</code> and <code>c-additional-scopes.txt</code> retain the first set of extracted relevant pages; declaration scope and conditional/loop-continuation pages were read in a separate tool output. These are evidence excerpts, not an all-standard audit.</p>
+<p>The exact C17 correction to loop paragraph 6 was also read in full at the official committee issue: https://www 9.open-std. org/JTC 1/SC 22/WG 14/issues/c11 c17/issue 0436.html . The fixed wording permits termination assumptions for nonconstant controlling expressions without I/O, volatile access, synchronization or atomics. A stipulated mathematical divergent branch, or <code>if (x&lt;0) while(1){}</code>, avoids silently treating every side-effect-free nonconstant C loop as a portable divergence example.</p>
+<h2>Question review PF 37–PF 89</h2>
+<p>All 53 stems and their current saved solutions were individually read. Their arithmetic results and major classifications agree with the declared models. This is an independent semantic review, not an approval or a claim of adequate final instructional depth.</p>
+<h3>Changes or qualifications to make</h3>
+<ol>
+<li><strong>PF 43:</strong> make the mathematical divergence contract explicit. If executable C is supplied, use a constant-condition infinite loop for the negative branch, or explain the qualified loop rule above. The existing mathematical result is correct, but an unspecified concrete C loop can undermine its intended portability.</li>
+<li><strong>PF 64:</strong> replace “creates integer 7” with “computes integer value 7 and rebinds the local name.” A distinct observable allocation of every integer result is not part of Python's value semantics.</li>
+<li><strong>PF 71:</strong> prefer “<code>r1 is r2</code> is false” to “false identity equality”; identity and value equality are different operations. This task's two results happen to be unequal too.</li>
+<li><strong>PF 37, PF 44, PF 50:</strong> the stems refer to the preceding task or lesson definitions. Preserve the exact referenced definitions or restate them for standalone question readability; do not silently change the state/reset assumptions when rewriting.</li>
+<li><strong>PF 57:</strong> the 32-bit interval <code>[-1073741827,1073741820]</code> is correct. The general ceiling/floor expression is mathematical, not an instruction to evaluate <code>-INT_MIN</code> or overflow intermediate C products.</li>
+<li><strong>PF 58–PF 59 and PF 84:</strong> distinguish mathematical general formulas from C implementations' intermediate representability constraints. The stated concrete small examples are safe; unrestricted signed-int polynomial identities cannot imply universally executable code.</li>
+<li><strong>PF 86:</strong> its lifetime conclusion is sound, but Stanford's two-page handout alone does not prove it. Cite the appropriate C++ lifetime rule if expanding into a standards-level reference-return discussion; do not cite C pointer-indeterminacy text as if it defines C++ references.</li>
+<li><strong>PF 87:</strong> the ordinary <code>a[10]</code> parameter has no copied-array object or automatic length. Do not generalize its lack of a mandatory ten-element access promise to the distinct C syntax <code>a[static 10]</code>, whose minimum-access requirement is explicit in 6.7.6.3 p7.</li>
+</ol>
+<h3>Independently executed printed examples</h3>
+<p><code>check_python.py</code> extracts the exact fenced Python code for PF 64–PF 83 from the current question JSON and applies independently written assertions. All 20 passed, including the two expected exceptions. <code>python-checks.json</code> records interpreter identity and per-ID results. This does not compile C/C++, test the browser simulations, validate the authentic archive pages, or establish universal correctness of rewritten answers.</p>
+<p>The reference-mode examples PF 60/PF 61/PF 89, theoretical value-result/call-by-name PF 62/PF 63, contract proofs, integer bounds and sums were checked by semantic/mathematical reasoning; they are not described as compiled runs.</p>
 </article></main></body></html>
