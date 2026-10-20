@@ -1,0 +1,666 @@
+[
+  {
+    "id": "MS_CS_1393_Q167",
+    "title": "Recursive reverse-stride copying",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-MS_CS_1393_Q167",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 249
+  },
+  {
+    "id": "Phd_CS_1404_Q72",
+    "title": "Expected running-minimum updates",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-Phd_CS_1404_Q72",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 248
+  },
+  {
+    "id": "PA01",
+    "title": "A lower bound is not the first value",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA01",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 170
+  },
+  {
+    "id": "PA02",
+    "title": "Invert a two-dimensional row-major address",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA02",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 153
+  },
+  {
+    "id": "PA03",
+    "title": "Recover a missing column extent",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 175
+  },
+  {
+    "id": "PA04",
+    "title": "Distinguish row-major from column-major numerically",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 168
+  },
+  {
+    "id": "PA05",
+    "title": "Three-dimensional mixed-radix recovery",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 159
+  },
+  {
+    "id": "PA06",
+    "title": "A transpose changes the destination shape",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA06",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 164
+  },
+  {
+    "id": "PA07",
+    "title": "Affine strides with a reversed axis",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 168
+  },
+  {
+    "id": "PA08",
+    "title": "Packed lower triangle and symmetric lookup",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 180
+  },
+  {
+    "id": "PA09",
+    "title": "Packed upper triangle cannot reuse the lower formula",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 191
+  },
+  {
+    "id": "PA10",
+    "title": "Repeated jagged boundaries",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA10",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 198
+  },
+  {
+    "id": "PA11",
+    "title": "Diagonal offsets and loop count",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 178
+  },
+  {
+    "id": "PA12",
+    "title": "When is a flat byte difference meaningful?",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 210
+  },
+  {
+    "id": "PA13",
+    "title": "Interior negative indexing is ordinary pointer arithmetic",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 158
+  },
+  {
+    "id": "PA14",
+    "title": "Array sizeof and parameter sizeof",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 174
+  },
+  {
+    "id": "PA15",
+    "title": "Whole-array pointer versus first-element pointer",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 183
+  },
+  {
+    "id": "PA16",
+    "title": "A row pointer retains the inner extent",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 170
+  },
+  {
+    "id": "PA17",
+    "title": "Numerical adjacency does not erase a C subarray boundary",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 169
+  },
+  {
+    "id": "PA18",
+    "title": "Partial initialization and definite values",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 184
+  },
+  {
+    "id": "PA19",
+    "title": "Constraint violation is not a surprise numeric output",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 170
+  },
+  {
+    "id": "PA20",
+    "title": "One-past use and dereference are different questions",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 167
+  },
+  {
+    "id": "PA21",
+    "title": "Unsigned reverse loop trap",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 180
+  },
+  {
+    "id": "PA22",
+    "title": "A stride count with nonzero boundaries",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 164
+  },
+  {
+    "id": "PA23",
+    "title": "Two different reduction initializations",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA23",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 200
+  },
+  {
+    "id": "PA24",
+    "title": "Weighted prefix invariant",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 144
+  },
+  {
+    "id": "PA25",
+    "title": "Prefix construction and three ranges",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA25",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 163
+  },
+  {
+    "id": "PA26",
+    "title": "Difference-array range updates",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA26",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 189
+  },
+  {
+    "id": "PA27",
+    "title": "Rectangle inclusion\u2013exclusion",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 156
+  },
+  {
+    "id": "PA28",
+    "title": "An in-place recurrence uses modified predecessors",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA28",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 158
+  },
+  {
+    "id": "PA29",
+    "title": "Reverse execution computes another map",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA29",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 169
+  },
+  {
+    "id": "PA30",
+    "title": "An overlapping right move fails in forward order",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA30",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 180
+  },
+  {
+    "id": "PA31",
+    "title": "An overlapping right move succeeds in reverse order",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA31",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 183
+  },
+  {
+    "id": "PA32",
+    "title": "Leftward overlap needs the opposite direction",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA32",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 171
+  },
+  {
+    "id": "PA33",
+    "title": "Bounds alone do not prove a copy contract",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 172
+  },
+  {
+    "id": "PA34",
+    "title": "Copy a segment with a complete proof",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 168
+  },
+  {
+    "id": "PA35",
+    "title": "Insertion shifts and the end case",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA35",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 176
+  },
+  {
+    "id": "PA36",
+    "title": "Deletion changes length rather than erasing storage",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA36",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 164
+  },
+  {
+    "id": "PA37",
+    "title": "Reverse a half-open segment exactly",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA37",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 171
+  },
+  {
+    "id": "PA38",
+    "title": "Three reversals implement left rotation",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA38",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 165
+  },
+  {
+    "id": "PA39",
+    "title": "Rotation cycles and visit count",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 176
+  },
+  {
+    "id": "PA40",
+    "title": "A stable read/write filter",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA40",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 195
+  },
+  {
+    "id": "PA41",
+    "title": "Direction of an in-place adjacent-difference transform",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA41",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 162
+  },
+  {
+    "id": "PA42",
+    "title": "Python single indices and clipped slices",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 172
+  },
+  {
+    "id": "PA43",
+    "title": "Omitted negative stop versus explicit -1",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA43",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 156
+  },
+  {
+    "id": "PA44",
+    "title": "Extended slice replacement count",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA44",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 172
+  },
+  {
+    "id": "PA45",
+    "title": "Ordinary slice assignment can change length",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA45",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 152
+  },
+  {
+    "id": "PA46",
+    "title": "Outer copy and inner alias",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA46",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 168
+  },
+  {
+    "id": "PA47",
+    "title": "Repeated rows share one inner object",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA47",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 176
+  },
+  {
+    "id": "PA48",
+    "title": "Deletion during iteration skips shifted entries",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA48",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 192
+  },
+  {
+    "id": "PA49",
+    "title": "Identity versus equal contents",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 193
+  },
+  {
+    "id": "PA50",
+    "title": "Mapped values and filtered values are different outputs",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 168
+  },
+  {
+    "id": "PA51",
+    "title": "Code points, UTF-8 bytes and display units",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 183
+  },
+  {
+    "id": "PA52",
+    "title": "Embedded zero separates capacity from string length",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA52",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 173
+  },
+  {
+    "id": "PA53",
+    "title": "An exactly filled C character array lacks a terminator",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 180
+  },
+  {
+    "id": "PA54",
+    "title": "Writable array versus literal target",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 175
+  },
+  {
+    "id": "PA55",
+    "title": "Bounded length finds a terminator or reports absence",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 161
+  },
+  {
+    "id": "PA56",
+    "title": "Naive matching comparison count",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 175
+  },
+  {
+    "id": "PA57",
+    "title": "An empty pattern and a longer pattern",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 180
+  },
+  {
+    "id": "PA58",
+    "title": "Appending requires one more slot than the visible result",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 162
+  },
+  {
+    "id": "PA59",
+    "title": "Argument pointer sentinel versus character sentinel",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA59",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 172
+  },
+  {
+    "id": "PA60",
+    "title": "A signed char cannot be passed blindly to ctype",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 175
+  },
+  {
+    "id": "PA61",
+    "title": "Returned substring pointer and lifetime",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 195
+  },
+  {
+    "id": "PA62",
+    "title": "Exact doubling work for a particular length",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA62",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 185
+  },
+  {
+    "id": "PA63",
+    "title": "General doubling bound and exact powers",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 184
+  },
+  {
+    "id": "PA64",
+    "title": "Additive growth causes a quadratic sum",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA64",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 153
+  },
+  {
+    "id": "PA65",
+    "title": "A growth factor other than two",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA65",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 178
+  },
+  {
+    "id": "PA66",
+    "title": "Allocation overflow and an exact boundary",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 180
+  },
+  {
+    "id": "PA67",
+    "title": "A failed realloc must not lose the owner",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 187
+  },
+  {
+    "id": "PA68",
+    "title": "Shifts and growth costs in one insertion",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA68",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 176
+  },
+  {
+    "id": "PA69",
+    "title": "Shrink threshold thrashing",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA69",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 185
+  },
+  {
+    "id": "PA70",
+    "title": "A precise cold cache-line comparison",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA70",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 177
+  },
+  {
+    "id": "PA71",
+    "title": "Cold lines for a misaligned contiguous scan",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 142
+  },
+  {
+    "id": "PA72",
+    "title": "Circular buffer length distinguishes full and empty",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA72",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 170
+  },
+  {
+    "id": "PA73",
+    "title": "Rectangular transpose cycle",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA73",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 169
+  },
+  {
+    "id": "PA74",
+    "title": "Packed triangular inversion without a floating shortcut",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA74",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 163
+  },
+  {
+    "id": "PA75",
+    "title": "Pairwise distinct index count",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 165
+  },
+  {
+    "id": "PA76",
+    "title": "A minimum interface can be safe with a stronger contract",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 190
+  },
+  {
+    "id": "PA77",
+    "title": "Signed sum range and cancellation",
+    "decision": "exact_input_visual_aid",
+    "model": "p_arrays-review-PA77",
+    "reason": "The problem has a meaningful finite state or tabulated quantity, shown using its actual input.",
+    "solutionWords": 175
+  },
+  {
+    "id": "PA78",
+    "title": "A bounding proof for two source indices",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 156
+  },
+  {
+    "id": "PA79",
+    "title": "A polynomial fill with machine-range qualification",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 160
+  },
+  {
+    "id": "PA80",
+    "title": "Pointer-negative-index exercise with explicit domain",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 172
+  },
+  {
+    "id": "PA81",
+    "title": "Array mean and a hidden integer division",
+    "decision": "complete_symbolic_or_semantic_derivation",
+    "model": null,
+    "reason": "This proof, arithmetic classification or language-contract question is explained directly by its complete derivation and the chapter representation diagrams; an invented execution would obscure its assumptions.",
+    "solutionWords": 181
+  }
+]

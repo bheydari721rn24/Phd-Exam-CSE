@@ -104,7 +104,7 @@
 
 51. An element update invalidates subsequent ordinary prefix sums. Static preprocessing does not promise dynamic-query correctness.
 
-52. A difference-array range update adds at its left boundary and subtracts at its right boundary. The signs follow from starting and ending the change.
+52. For an n-entry difference array, an empty range update is a no-op, including [n:n). For a nonempty range, add at the left boundary and subtract at the right only when it is below n. A separately allocated n+1 sentinel representation has another valid boundary contract.
 
 53. A right-end difference sentinel is not a data element. Reconstruct only the declared logical length.
 
@@ -132,7 +132,7 @@
 
 65. Three segment reversals turn XY into YX. Normalize rotation only after handling length zero.
 
-66. Rotation by k on positive length n has $\gcd(n,k)$ cycles under the modular step map. Track the direction of value movement explicitly.
+66. Rotation by k on positive length n has $\gcd(n,k)$ cycles. For left rotation, new position i reads old (i+k) modulo n; an old value moves instead to (i-k) modulo n. The two maps are inverses, not interchangeable value-movement directions.
 
 67. Stable compaction maintains write≤read. This prevents writes from destroying larger unread positions.
 

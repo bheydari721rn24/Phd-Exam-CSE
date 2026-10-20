@@ -3,9 +3,9 @@
     "id": "PA01",
     "title": "A lower bound is not the first value",
     "stem": "A flat representation declares indices -3 through 8 inclusive, four-byte elements and base address 1600 for the first element. Find the address of index 5, total storage and final occupied byte.",
-    "solution": "There are $8-(-3)+1=12$ positions. Index 5 is eight positions after the first, regardless of the values stored. Its address is $1600+4(5+3)=1632$. Storage is $12\\cdot4=48$ bytes, so the last occupied byte is 1647 and the one-past boundary is 1648. Using 1600+4\u00b75 would silently treat the lower bound as zero. The final byte and final element start differ by three. These are numerical layout statements; the negative declaration bound is not ordinary C array syntax.",
+    "solution": "The inclusive logical interval from minus three through eight contains $8-(-3)+1=12$ elements. The first element is at logical index minus three, so the normalized offset of index five is $5-(-3)=8$. This counts eight complete element widths before the requested element; it does not use the element's stored value.\n\nWith base address 1600 and width four, the requested starting address is\n\n$$1600+4\\cdot8=1632.$$\n\nAll twelve elements occupy $12\\cdot4=48$ bytes. Consequently the inclusive final occupied byte is $1600+48-1=1647$, whereas the one-past boundary is 1648. The last element itself begins at $1600+4\\cdot11=1644$ and occupies bytes 1644 through 1647. These three endpoints must not be conflated.\n\nAs a consistency check, logical index minus three maps to 1600, and index eight maps to 1644. Increasing a valid index by one increases its starting address by exactly four. Computing 1600 plus four times five would incorrectly assume a zero lower bound. This is a numerical flat-storage model with language-independent declaration bounds, not an ordinary C declaration allowing negative array bounds or a claim about portable integer-to-pointer conversion.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "address",
       "data": [
@@ -21,10 +21,10 @@
   {
     "id": "PA02",
     "title": "Invert a two-dimensional row-major address",
-    "stem": "A matrix has row indices 2..6 and column indices -1..5. Each element occupies eight bytes; its first element starts at 4096. Which element starts at address 4312?",
-    "solution": "The byte difference is 216, divisible by eight, so the element offset is 27. There are seven columns. Divide $27=3\\cdot7+6$: normalized row 3 and column 6 recover declared row 5 and column 5. Both lie in bounds. Thus the requested element is (5,5). The total extent is 35 elements, so 27 is valid. Dividing by the number of rows instead would invert a column-major representation. Address 4313 would be inside this element but not its start, so it would fail the element-start divisibility check.",
+    "stem": "A row-major matrix has row indices 2..6 and column indices -1..5. Each element occupies eight bytes; its first element starts at 4096. Which element starts at address 4312?",
+    "solution": "There are five rows, from two through six, and seven columns, from minus one through five. The byte displacement is $4312-4096=216$. Because 216 is divisible by the stated element width eight, the requested address can be an element start. Its normalized element offset is $216/8=27$.\n\nFor row-major storage, divide by the column extent seven:\n\n$$27=3\\cdot7+6.$$\n\nThus the normalized coordinates are (3,6), and adding the declared lower bounds gives row $2+3=5$ and column $-1+6=5$. Reconstructing verifies the answer: $4096+8(3\\cdot7+6)=4312$. Both declared coordinates lie within their respective bounds, and the flat offset is below the total extent $5\\cdot7=35$.\n\nIf the same declared matrix instead used column-major storage, dividing 27 by five would yield normalized column five and row two, hence logical coordinate (4,4). This distinct valid result explains why stating the layout is necessary. Address 4313 lies inside an element rather than at its start and fails the alignment test before coordinate recovery is attempted.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "inverse",
       "data": [
@@ -44,9 +44,9 @@
     "id": "PA03",
     "title": "Recover a missing column extent",
     "stem": "In row-major storage of four-byte elements, A[1,2] starts at 1028 and A[3,1] starts at 1064. Both dimensions start at zero. Determine the number of columns, then the base address.",
-    "solution": "Subtract the addresses to eliminate the base. The offset difference is $2C-1$ elements, so $4(2C-1)=36$ and C=5. Substitute the first observation: $1028=B+4(5+2)$, giving B=1000. A necessary consistency check is that columns 1 and 2 fit within five columns; at least four rows must exist because row 3 is present. The pair of observations does not determine the total row count. An answer that reports a unique complete matrix shape goes beyond the evidence.",
+    "solution": "Let C denote the unknown positive column count and B the starting byte address. With zero-based row-major indices and four-byte elements, the two observations give\n\n$$1028=B+4(C+2),\\qquad1064=B+4(3C+1).$$\n\nSubtracting the equations removes B:\n\n$$36=4(2C-1).$$\n\nTherefore $2C-1=9$, so C is five. Substitution into the first equation gives $B=1028-4\\cdot7=1000$. The second observation independently reconstructs as $1000+4(3\\cdot5+1)=1064$.\n\nColumn indices one and two are legal for a five-column row, and observing row three requires at least four rows. Nothing in either equation states the final row index, so the total number of rows remains undetermined. Every row count at least four is consistent with these observations under the declared flat layout.\n\nThis is an inverse problem with a consistency condition, rather than permission to report any algebraic result as a shape. A noninteger or nonpositive solution for C, or a column observation outside the recovered extent, would invalidate the proposed representation. Once C is known, its byte row stride is twenty; the observed displacement thirty-six equals two row strides minus one element width, exactly matching the move from (1,2) to (3,1).",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "recover",
       "data": [
@@ -58,10 +58,10 @@
   {
     "id": "PA04",
     "title": "Distinguish row-major from column-major numerically",
-    "stem": "A 4\u00d76 matrix begins at 800, uses two-byte elements and zero-based indices. Calculate the address of (2,3) in each layout and explain why the addresses need not differ at every index.",
-    "solution": "Row-major offset is $2\\cdot6+3=15$, yielding 830. Column-major offset is $3\\cdot4+2=14$, yielding 828. Equality of the two layouts at an index requires $i(C-1)=j(R-1)$; here $5i=3j$. Both layouts start at the same address for (0,0), and the last element also occupies their common final slot. Therefore a single matching address does not identify the layout. The two formulas describe separately declared representations, not two legal interpretations of one C rectangular-array object.",
+    "stem": "A 4×6 matrix begins at 800, uses two-byte elements and zero-based indices. Calculate the address of (2,3) in each layout and explain why the addresses need not differ at every index.",
+    "solution": "The row-major offset of (2,3) in four rows and six columns is $2\\cdot6+3=15$. With base 800 and two-byte elements, its address is 830. In column-major storage, the offset is $3\\cdot4+2=14$, giving address 828. These calculations use the same coordinate and different declared storage conventions.\n\nFor an arbitrary valid coordinate (i,j), equality of the two offsets requires\n\n$$iC+j=jR+i,\\qquad i(C-1)=j(R-1).$$\n\nHere the condition becomes $5i=3j$. Since three and five are coprime, integer solutions have $i=3t$ and $j=5t$. Within $0\\le i<4$ and $0\\le j<6$, only t equal to zero or one is possible. Thus the two matching coordinates are (0,0) and (3,5), the common first and final positions. The requested (2,3) is neither of them.\n\nMore generally, for both dimensions greater than one, the number of matching coordinates is $\\gcd(R-1,C-1)+1$. The one-row or one-column cases need separate treatment because the two orders then coincide throughout. These formulas compare two numerical representations; they do not make column-major traversal a second interpretation of the type and layout of one declared C rectangular array.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "layouts",
       "data": [
@@ -77,10 +77,10 @@
   {
     "id": "PA05",
     "title": "Three-dimensional mixed-radix recovery",
-    "stem": "A row-major array has extents 3\u00d74\u00d75, base 2000 and four-byte elements. Find the address of (2,1,3), then recover the indices of element offset 47.",
-    "solution": "The selected offset is $(2\\cdot4+1)5+3=48$, giving address 2192. To invert 47, first divide by five: final index 2 and quotient 9. Divide 9 by four: middle index 1 and first index 2. Thus 47 belongs to (2,1,2), the immediate predecessor in the final axis. There are 60 elements, so both offsets are valid. A common error sums the three indices without strides, which loses the complete earlier planes and rows. The product-of-extents bound is a separate part of the inverse proof.",
+    "stem": "A zero-based row-major array has extents 3×4×5, base 2000 and four-byte elements. Find the address of (2,1,3), then recover the indices of element offset 47.",
+    "solution": "For zero-based row-major extents three, four and five, advancing the first coordinate skips twenty elements per unit, advancing the second skips five, and advancing the final coordinate skips one. Coordinate (2,1,3) therefore has offset\n\n$$2\\cdot20+1\\cdot5+3=48.$$\n\nIts starting byte address is $2000+4\\cdot48=2192$. Each coordinate is legal and offset 48 lies below the total extent sixty.\n\nTo recover the coordinate of offset 47, take quotient and remainder by the final extent: $47=9\\cdot5+2$. Hence the last coordinate is two. Decode the remaining quotient using the middle extent: $9=2\\cdot4+1$. The first two coordinates are therefore two and one, giving (2,1,2). Reconstruction yields $(2\\cdot4+1)5+2=47$.\n\nThis is mixed-radix uniqueness: each remainder is in the valid range of its corresponding axis, and the final first-coordinate quotient must be below three. Simply summing indices loses the skipped rows and planes. Offset sixty would fail the total-extent test even though repeated division could still produce a three-number tuple; the inverse algorithm must validate the recovered leading coordinate too.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "mixed",
       "data": [
@@ -97,10 +97,10 @@
   {
     "id": "PA06",
     "title": "A transpose changes the destination shape",
-    "stem": "A 2\u00d75 row-major matrix is copied into a 5\u00d72 transpose. Where does original flat offset 7 move, and where does offset 9 move?",
-    "solution": "Divide by the original column count five: offset 7 is original (1,2). Transpose to destination (2,1), whose new row-major offset is $2\\cdot2+1=5$. Offset 9 is original (1,4), which moves to (4,1), destination offset 9. A fixed last element therefore does not imply that the whole transpose is unchanged. The destination stride uses two columns, not five. The mapping $iC+j\\mapsto jR+i$ is a bijection because transposing the recovered destination coordinates returns the original pair.",
+    "stem": "A 2×5 row-major matrix is copied into a 5×2 transpose. Where does original flat offset 7 move, and where does offset 9 move?",
+    "solution": "The source has two rows and five columns. For a source flat offset o, recover its coordinates with quotient and remainder by five. Then swap the coordinates, and encode them using the destination's two columns, not the source's five.\n\nFor offset seven, $7=1\\cdot5+2$ identifies source (1,2). Its transpose coordinate is (2,1), whose destination offset is $2\\cdot2+1=5$. For offset nine, $9=1\\cdot5+4$ gives source (1,4), destination (4,1), and new offset $4\\cdot2+1=9$.\n\nIn general the mapping is\n\n$$iC+j\\longmapsto jR+i.$$\n\nIt is bijective because destination coordinates (j,i) recover the unique source (i,j), with the destination shape C by R. In this two-by-five case the complete source-to-destination offset list is [0,2,4,6,8,1,3,5,7,9], containing each offset zero through nine exactly once.\n\nThe fixed final offset nine therefore does not imply an unchanged arrangement. A transpose view that exchanges strides and a physically copied transpose are distinct implementations of the coordinate relation. Likewise, the pairwise square-matrix swap loop cannot be applied unchanged to this rectangular physical arrangement; its permutation contains longer cycles.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "transpose",
       "data": [
@@ -116,10 +116,10 @@
   {
     "id": "PA07",
     "title": "Affine strides with a reversed axis",
-    "stem": "A numerical view has row stride 40 bytes and column stride -4 bytes. Its logical (0,0) starts at address 1020, and its shape is 3\u00d76. Find the addresses of (2,5) and (1,0), and the minimum and maximum selected element-start addresses.",
-    "solution": "The address map is $1020+40i-4j$. At (2,5) it yields 1080; at (1,0) it yields 1060. Since the row term increases and the column term decreases, the minimum start is (0,5) at 1000 and maximum is (2,0) at 1100. This view selects rows in reverse column order and has gaps between rows. Shape alone cannot substitute the usual dense row-major formula. The numerical model still needs a backing allocation covering every selected element; its bounds are logical bounds, not a proof of C pointer provenance.",
+    "stem": "A numerical view has row stride 40 bytes and column stride -4 bytes. Its logical (0,0) starts at address 1020, and its shape is 3×6. Find the addresses of (2,5) and (1,0), and the minimum and maximum selected element-start addresses.",
+    "solution": "The stated numerical affine map is\n\n$$X(i,j)=1020+40i-4j,\\qquad0\\le i<3,\\quad0\\le j<6.$$\n\nThus $X(2,5)=1020+80-20=1080$, and $X(1,0)=1060$. The row term is increasing and the column term is decreasing over independent rectangular index bounds. Its minimum is therefore at (0,5), giving 1000, and its maximum is at (2,0), giving 1100.\n\nThe three rows select starting addresses 1020,1016,...,1000; then 1060,1056,...,1040; then 1100,1096,...,1080. This explicit list checks both extrema and exposes the gaps between successive selected row ranges. A shape-only dense row-major formula would incorrectly discard the negative column direction and the forty-byte row stride.\n\nThe requested extrema concern element starts. The statement does not explicitly declare element byte width, so it does not by itself determine the final occupied byte. If an additional four-byte-width convention is imposed, the last selected element occupies through 1103. That is a conditional conclusion, not an assumption inferred solely from a stride of minus four. A backing allocation and typed-object contract must also cover all accesses; these numerical addresses alone do not prove valid C pointer arithmetic or provenance.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "strides",
       "data": [
@@ -133,10 +133,10 @@
   {
     "id": "PA08",
     "title": "Packed lower triangle and symmetric lookup",
-    "stem": "A zero-based symmetric 6\u00d76 matrix stores its lower triangle including the diagonal, in row order, with eight-byte elements and base 3000. Find the stored address for logical (1,4).",
-    "solution": "Symmetry redirects (1,4) to lower-triangle position (4,1). Four earlier rows contain $1+2+3+4=10$ elements. Add column offset one to obtain flat offset 11 and address 3088. The full packed length is $6\\cdot7/2=21$, not 36. Applying the lower-triangle formula directly to an upper-triangle coordinate would violate its domain and can collide with another row. This answer assumes symmetry of values and the specified storage convention; a general matrix cannot discard its upper half this way.",
+    "stem": "A zero-based symmetric 6×6 matrix stores its lower triangle including the diagonal, in row order, with eight-byte elements and base 3000. Find the stored address for logical (1,4).",
+    "solution": "Only lower-triangle positions with $0\\le j\\le i<6$ are physically stored. The logical request (1,4) is above that diagonal. Symmetry of values permits redirecting it to stored coordinate (4,1); without symmetry, this replacement would have no general justification.\n\nBefore row four lie rows zero through three, of lengths one, two, three and four. Their total is ten. Column one is one position after the start of stored row four, so its flat offset is eleven and its address is\n\n$$3000+8\\cdot11=3088.$$\n\nThe lower-triangle row-major encoding is $i(i+1)/2+j$ on its declared domain. Substituting (4,1) reproduces eleven. Applying that encoding directly to the unnormalized upper coordinate (1,4) would produce six, but that number denotes a different physical position and is not an alternative correct answer.\n\nThe packed representation has $6\\cdot7/2=21$ stored elements. Its final element starts at 3160, so the requested 3088 lies within the packed extent and has the required eight-byte alignment relative to the base. Equal total storage counts would not identify the order by themselves: storing columns, omitting the diagonal or packing the upper triangle would require a different coordinate formula.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "lower",
       "data": [
@@ -150,10 +150,10 @@
   {
     "id": "PA09",
     "title": "Packed upper triangle cannot reuse the lower formula",
-    "stem": "An upper-triangular 5\u00d75 matrix includes its diagonal and is packed by rows. Find the flat offset of (2,4), and identify which coordinates occupy flat offset 9.",
-    "solution": "Earlier row lengths are five and four, totaling nine. Within row two, column four is two positions after its first column two, so the offset is 11. Offset 9 is the beginning of row two and therefore belongs to (2,2). The general preceding-row count is $in-i(i-1)/2$; adding j-i yields the required offset. Row lengths decrease here, whereas they increase in lower-triangle storage. Both representations have 15 elements, but equal total capacity is not enough to identify their individual element positions.",
+    "stem": "An upper-triangular 5×5 matrix includes its diagonal and is packed by rows. Find the flat offset of (2,4), and identify which coordinates occupy flat offset 9.",
+    "solution": "In an upper triangle of order five, stored row lengths are five, four, three, two and one. Before row two there are five plus four, or nine entries. That row begins at column two, so column four is two positions later. Its flat offset is $9+(4-2)=11$.\n\nTo invert offset nine, locate its row interval. Row zero occupies [0,5), row one [5,9), and row two [9,12). Therefore offset nine is the first entry of row two, coordinate (2,2), rather than the final entry of row one.\n\nFor general order n and a valid upper coordinate $0\\le i\\le j<n$, the preceding rows contain\n\n$$\\sum_{r=0}^{i-1}(n-r)=in-\\frac{i(i-1)}2.$$\n\nAdding within-row offset j-i gives the full encoding. This is not the lower-triangle prefix $i(i+1)/2$, because row lengths decrease instead of increase. Both conventions happen to store $n(n+1)/2$ entries, but equal capacities do not imply equal coordinate maps.\n\nThe half-open row intervals also give a safe inverse strategy: find the unique row whose start is at most the flat offset and whose next start is larger, then add the within-row displacement to that row's diagonal column. A final boundary equal to fifteen is one-past, not a valid stored coordinate.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "upper",
       "data": [
@@ -170,9 +170,9 @@
     "id": "PA10",
     "title": "Repeated jagged boundaries",
     "stem": "Rows have lengths [2,0,3,1]. Construct the packed boundary array and recover the logical coordinate for flat offsets 2 and 5.",
-    "solution": "Prefix accumulation gives Q=[0,2,2,5,6]. Offset 2 lies in row two, interval [2,5), at column zero; the empty row one also begins at boundary two but contains no element. Offset 5 lies in row three, interval [5,6), at column zero. Taking the first equal boundary would wrongly choose the empty row for offset 2. The valid reconstruction finds i with $Q[i]\\le o<Q[i+1]$. The final boundary 6 is one-past and has no coordinate. Every valid flat offset is covered by exactly one nonempty interval.",
+    "solution": "Starting with zero, prefix accumulation of row lengths [2,0,3,1] gives boundary array Q = [0,2,2,5,6]. Row i occupies the half-open flat interval [Q[i],Q[i+1]). Thus row zero contains offsets zero and one; row one contains no offset; row two contains two,three,four; row three contains five.\n\nOffset two therefore belongs to row two at column zero, and offset five belongs to row three at column zero. The duplicate boundary two does not create two copies of an element. It records that the intervening row has length zero.\n\nFor a valid flat offset o, the inverse condition is\n\n$$Q[i]\\le o<Q[i+1],\\qquad j=o-Q[i].$$\n\nWith nondecreasing boundaries and a prior check $0\\le o<Q[4]$, this row can be found as the last boundary not exceeding o, equivalently a right-biased upper-bound search minus one. A first-equal-boundary rule fails at repeated boundaries: it can select the empty row one for offset two.\n\nThe input bound check is essential. Offset six is the final one-past boundary, so no row owns it. Repeated trailing boundaries from empty final rows do not change that conclusion. This representation packs element storage contiguously while allowing rows to have different lengths; it is not a dense rectangular matrix with one fixed row stride.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "jagged",
       "data": [
@@ -195,10 +195,10 @@
   {
     "id": "PA11",
     "title": "Diagonal offsets and loop count",
-    "stem": "For an n\u00d7n dense row-major matrix, derive the diagonal offsets and their sum, then evaluate for n=5. Count distinct positions selected.",
-    "solution": "Coordinate (i,i) has flat offset $in+i=i(n+1)$ for i=0 through n-1. Their sum is $(n+1)n(n-1)/2$. At n=5 the offsets are 0,6,12,18,24 and the sum is 60. There are five positions, not 25; the arithmetic progression spacing is n+1. For n=0 the abstract selected set and sum are empty, while a C fixed zero-size declaration is a separate invalid construction. The sum of offsets does not equal the sum of matrix values unless values were specifically defined from their offsets.",
+    "stem": "For an n×n dense row-major matrix, derive the diagonal offsets and their sum, then evaluate for n=5. Count distinct positions selected.",
+    "solution": "For zero-based diagonal coordinate (i,i) in a dense n-by-n row-major matrix, each earlier row contributes n elements and the column contributes another i. The flat offset is therefore $in+i=i(n+1)$ for $0\\le i<n$.\n\nThere are n selected coordinates. Their offsets form an arithmetic progression with first term zero, last term $(n-1)(n+1)$ and spacing n+1. Hence\n\n$$\\sum_{i=0}^{n-1}i(n+1)=(n+1)\\frac{n(n-1)}2.$$\n\nFor n equal to five, the selected offsets are [0,6,12,18,24], and their sum is sixty. The selection contains five positions, not twenty-five; the underlying matrix's capacity is not the number of loop visits on its diagonal.\n\nFor a nonempty matrix the offsets are distinct because n+1 is positive. At n equal to one, the only offset is zero. At n equal to zero, the abstract index set is empty, the count and sum are zero, and the symbolic formula agrees. This mathematical convention does not license a standard C fixed-size array with a zero bound. Finally, these are sums of positions: the sum of matrix values on those positions cannot be recovered without data values or a separate rule relating values to offsets.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "diagonal",
       "data": [
@@ -211,9 +211,9 @@
     "id": "PA12",
     "title": "When is a flat byte difference meaningful?",
     "stem": "Two separate malloc allocations appear at numerical addresses 1000 and 1040 on one run. Each stores integers. Is their C pointer difference necessarily ten? Explain what additional facts are needed.",
-    "solution": "No portable pointer-difference result follows. C subtraction requires both pointers to be within the same array object or its one-past boundary, with a representable ptrdiff_t result. Separate allocations fail that object relation even if they are adjacent numerically. Four-byte integers and the observed difference forty support only a numerical address calculation under that run\u2019s representation. They do not create a shared array. If instead both pointers designate positions zero and ten of one live integer array, with legal endpoints and representable subtraction, the result is ten elements.",
+    "solution": "The observed numerical difference is forty bytes, but C pointer subtraction requires more than a numerical address representation. Both pointer operands must designate elements of one array object, or its permitted one-past position, and the resulting element difference must be representable in ptrdiff_t. Two separate live allocations do not satisfy that shared-array requirement merely because their addresses happen to be near each other.\n\nMoreover, the stem does not state sizeof(int). If a particular implementation uses four-byte integers, forty divided by four is ten as a numerical calculation. That conditional arithmetic does not make subtraction between the actual unrelated pointers defined. If the width is different, even the numerical quotient changes.\n\nUnder a different valid setup, let p designate element zero and q designate element ten of one sufficiently large live integer array, with a representable difference. Then q-p equals ten elements regardless of the byte width. Reversing the subtraction yields minus ten. If q is the permitted one-past element at index ten of a ten-element array, subtraction can still be valid although dereferencing q is not.\n\nThis separates three facts: byte-address arithmetic in a stipulated representation, element-distance arithmetic within a known array, and legal element access. Neither alignment nor a plausible integer result can substitute for the missing object-domain condition.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "provenance",
       "data": null
@@ -223,9 +223,9 @@
     "id": "PA13",
     "title": "Interior negative indexing is ordinary pointer arithmetic",
     "stem": "For int a[7]={2,4,6,8,10,12,14}, let p=a+4. Evaluate p[-3], p[2], and the complete range of legal element-access offsets k.",
-    "solution": "p designates a[4]. Subtracting three selects a[1], so p[-3]=4; adding two selects a[6], so p[2]=14. Element access requires $0\\le4+k<7$, hence $-4\\le k\\le2$. Offset three forms the legal one-past pointer p+3 but cannot be dereferenced. This negative index is relative to the pointer\u2019s current position, not Python\u2019s end-of-sequence normalization. The legality follows from the shared live array object and bounds, rather than from the sign of the written subscript.",
+    "solution": "The pointer p designates a[4], whose value is ten. Subscript syntax means pointer displacement followed by access: p[k] selects a[4+k] when that element exists. Consequently p[-3] selects a[1] and reads four, while p[2] selects a[6] and reads fourteen.\n\nSolve the access constraint before interpreting any other displacement:\n\n$$0\\le4+k<7\\quad\\Longleftrightarrow\\quad-4\\le k\\le2.$$\n\nThe lower endpoint selects a[0], and the upper selects a[6]. Pointer formation has a slightly larger range: k equal to three forms a+7, the one-past pointer. That endpoint is useful for a boundary comparison or legal same-array subtraction, but not for an evaluated element access. A displacement below minus four or above three exceeds even the pointer-formation domain.\n\nThe negative sign is therefore not inherently an error and does not invoke Python's indexing-from-the-end convention. Its legality follows from p's interior position in this same live initialized array. A pointer with the same numerical address but no established object relation would require a separate argument; numerical arithmetic alone is insufficient.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "interior",
       "data": [
@@ -242,9 +242,9 @@
     "id": "PA14",
     "title": "Array sizeof and parameter sizeof",
     "stem": "Assume sizeof(int)=4 and sizeof(int *)=8. For a real int a[9], evaluate sizeof a / sizeof a[0]. What does the same expression mean inside void f(int a[9])?",
-    "solution": "In the caller\u2019s actual-array scope, sizeof a is 36 and sizeof a[0] is four, so the quotient is nine. In f, the array-parameter declaration is adjusted to int *, even though nine appears in its syntax. sizeof a is therefore eight and the quotient is two; it is not a runtime length computation. The length must be passed or supplied by a valid interface contract. Different pointer sizes would change the misleading quotient, while the true caller array length would remain nine. No array elements are read by these non-VLA sizeof expressions.",
+    "solution": "Where a is the actual nine-int array object, its size is $9\\cdot4=36$ bytes and an element's size is four. The quotient is therefore nine. The array operand of sizeof does not undergo the usual conversion to a pointer.\n\nInside the parameter declaration `void f(int a[9])`, the parameter is adjusted to `int *a`. No nine-element array parameter object is created. Under the stated pointer size, sizeof a is eight and sizeof a[0] is four, giving the quotient two. That two is a ratio of type sizes, not a discovered sequence length.\n\nThe two expressions have identical spelling but different operand types. Changing the caller's actual array length does not change the adjusted pointer type or its sizeof. Conversely, changing the implementation's pointer size can change the misleading parameter quotient without changing the caller's nine elements.\n\nThese fixed-type sizeof expressions do not read any element value. To process the actual sequence, pass a length and require that it matches accessible initialized storage; merely writing nine inside ordinary array-parameter brackets does not supply the length at runtime.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "sizeof",
       "data": [
@@ -260,9 +260,9 @@
     "id": "PA15",
     "title": "Whole-array pointer versus first-element pointer",
     "stem": "For int a[6] and sizeof(int)=4, compare the numerical advances of a+1 and &a+1. Why can both begin at the same storage?",
-    "solution": "After expression conversion, a+1 has type int * and advances to the next integer, numerically four bytes in the given model. &a is a pointer to the whole six-int array, so &a+1 advances over 24 bytes to one past that entire array object. Their beginnings coincide because the first element starts at the array beginning. The identical beginning does not make their pointed-to types or strides identical. The whole-array one-past result is valid to form, but dereferencing it would ask for a nonexistent following array object.",
+    "solution": "In a+1, ordinary expression conversion first gives a pointer to the first int. Adding one advances to the next int, a numerical displacement of four bytes under this problem's stated model. Its resulting type is int*.\n\nUnary & instead preserves the array object as its operand. The type of &a is a pointer to an array of six ints, written `int (*)[6]`. Adding one advances by one whole pointed-to array, numerically $6\\cdot4=24$ bytes. The result is one past that entire object and does not designate a second live six-int array.\n\nBoth original pointers correspond to the beginning of the same storage because the first element starts at the array's beginning. A common starting location does not erase the pointed-to type, which determines the arithmetic unit. The byte displacements are statements in the specified representation; C does not generally promise that casting pointers to integers produces a universally linear address encoding.\n\nFormation of the whole-array one-past pointer is permitted. Evaluated access through it is not. Changing the array extent to seven would change the whole-array stride to twenty-eight while leaving the element stride four.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "whole",
       "data": [
@@ -275,9 +275,9 @@
     "id": "PA16",
     "title": "A row pointer retains the inner extent",
     "stem": "For int m[3][5] with four-byte integers, let p=m. Interpret p+2, *(p+2), and sizeof *(p+2). Is p correctly declared int **?",
-    "solution": "The converted type is pointer to a five-int row: int (*p)[5]. Adding two advances two complete rows, forty bytes, to row two. Dereferencing gives the row-array lvalue m[2]; in ordinary expressions it can then convert to an int * to that row\u2019s first element. sizeof on this row-array operand is 20. Declaring p as int ** would falsely expect stored pointer objects where integers are actually stored. A cast cannot repair that representation mismatch. Both the row index and any subsequent column index need their own valid bounds.",
+    "solution": "The compatible declaration is `int (*p)[5] = m`. Conversion of the outer array gives a pointer to its first five-int row. Each row occupies twenty bytes, so p+2 advances forty bytes and designates m[2].\n\nThe expression *(p+2) is that five-element row-array lvalue. In an ordinary value context it can convert to a pointer to m[2][0]; as the operand of sizeof it retains its array type. Therefore `sizeof *(p+2)` is twenty bytes, not the size of an int pointer.\n\nAn int** expects a pointer to an int* object. The rectangular matrix stores rows of integers and has no intervening array of row-pointer objects. A cast does not construct those missing objects, so using an int** interpretation is not a representation repair.\n\nThere are three separately valid row positions for p-relative row access: zero, one and two. After selecting a row, a column access must also be in zero through four. The two-dimensional numerical offset formula counts storage correctly only when the actual typed accesses respect those separate row and element domains.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "rowpointer",
       "data": [
@@ -293,9 +293,9 @@
     "id": "PA17",
     "title": "Numerical adjacency does not erase a C subarray boundary",
     "stem": "For int m[2][3], does a int *p=m[0] authorize p[4] merely because the matrix stores six adjacent integers?",
-    "solution": "No portable justification follows from total adjacency. p points into the first three-element row subarray. Its permitted pointer formation reaches that row\u2019s one-past boundary, but p[4] goes beyond it. Use m[1][1], whose row and column accesses are each within their proper array objects, to select the physically corresponding integer. A separately allocated genuine six-int flat buffer would allow flat[4]. The row-major numerical offset four is useful for deriving layout; it is not a replacement for the typed object-boundary requirements of C pointer arithmetic.",
+    "solution": "The converted m[0] points into the first three-int row object. Relative element pointers p, p+1 and p+2 designate that row's elements, while p+3 is its one-past pointer. Forming p+4 already exceeds that row's permitted pointer-arithmetic domain. Thus p[4] is not justified by the fact that the enclosing rectangular matrix occupies contiguous storage.\n\nThe intended element can instead be selected as m[1][1]. The first subscript selects a valid row of the outer two-row array, and the second selects a valid element of that row. Its flat numerical offset is four, but numerical offset and legal typed evaluation are different propositions.\n\nA genuine flat six-int array would have a different relevant element-array domain and could permit flat[4]. The distinction is not whether a processor could reach the bytes. The C object model sets the arithmetic boundary. The public C draft's Annex J.2 explicitly lists an out-of-range multidimensional index despite apparently accessible adjacent storage, reinforcing this point. No compiler observation of a convenient output would establish portable behavior for the invalid expression.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "subarray",
       "data": null
@@ -305,9 +305,9 @@
     "id": "PA18",
     "title": "Partial initialization and definite values",
     "stem": "At block scope consider int a[5]={9,2}; int b[5]; static int c[5]; Which values of a[4], b[4], c[4] are determined by these declarations?",
-    "solution": "The initializer for a supplies two entries and zero-initializes the remaining three, so a[4]=0. c has static storage duration and no explicit initializer, which also zero-initializes all its integer elements, so c[4]=0. b is an uninitialized automatic array; b[4] cannot be assigned a portable numeric output by reading it. This is not an array-bound error\u2014index four fits\u2014but an initialization problem. Correct tracing separates valid storage, valid index and a usable stored value. Changing the scope or initialization of b can change that third condition.",
+    "solution": "The aggregate initializer supplies a[0] equal to nine and a[1] equal to two. Omitted elements of this initialized aggregate receive zero initialization, so a[2], a[3] and a[4] are zero. The requested a[4] is therefore zero even though only two values were explicitly written.\n\nThe block-scope static array c has static storage duration. With no explicit initializer, its integer elements are zero-initialized, so c[4] is also zero. This is a storage-duration initialization guarantee, not a claim that every block-local array starts cleared.\n\nThe ordinary automatic b has no initializer. Its element at index four has an indeterminate value; the declaration does not justify a portable numeric result from reading it. Index four is within the allocated five-element array, so the issue is initialization rather than bounds.\n\nA correct access argument checks three facts: the object is alive, the selected index belongs to it, and the stored value can be used under the language rules. Zeroing b explicitly, initializing it with `{0}`, or giving it static storage would change the last fact. Changing arbitrary observed bytes or guessing previous stack contents is not a valid substitute.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "initialization",
       "data": null
@@ -317,9 +317,9 @@
     "id": "PA19",
     "title": "Constraint violation is not a surprise numeric output",
     "stem": "Which declarations or statements require a C diagnostic: int a[3]; int b[3]; a=b; int z[0];? How do you copy the contents instead?",
-    "solution": "Array assignment a=b violates a constraint because an array object is not a modifiable lvalue for assignment. A fixed array bound zero also violates the array-declaration requirements; accepting it as an extension does not make it standard C. Declare valid arrays and copy elements in a bounded loop, or use an appropriate nonoverlapping byte-copy operation for suitable objects. An array name does not become a writable pointer variable merely because it often converts to a pointer in expressions. Rebinding a separate pointer changes the reference, not the original array contents.",
+    "solution": "The positive-bound declarations int a[3] and int b[3] are valid. The assignment a=b violates a constraint: the assignment's left operand must be a modifiable lvalue, and an array is not one. Usual expression conversion does not turn the original array object into a writable pointer variable.\n\nThe constant bound in int z[0] is zero, violating the positive-bound requirement for this standard fixed array declaration. A compiler may diagnose and then accept an extension; that does not change its standard-C classification. This differs from a runtime nonpositive variable-length bound, whose rule must be analyzed separately.\n\nTo copy initialized contents, use a bounded element loop:\n\n```c\nfor (size_t i = 0; i < 3; ++i) a[i] = b[i];\n```\n\nHere the original uninitialized b must first receive valid values before this loop reads them. A suitable nonoverlapping byte copy can copy the representation of appropriate objects, but it is not array assignment syntax. Assigning a separate pointer p=b redirects p and copies no array contents. These are distinct operations with different effects.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "constraints",
       "data": null
@@ -329,9 +329,9 @@
     "id": "PA20",
     "title": "One-past use and dereference are different questions",
     "stem": "For a four-element initialized array, classify a+4, *(a+4), a+5 and (a+4)-a under C17.",
-    "solution": "a+4 forms the permitted one-past pointer. Dereferencing it to read or write an element is invalid because there is no fifth element. a+5 exceeds even the permitted one-past boundary and is invalid pointer arithmetic. Subtracting a from a+4 is permitted within the same array relation and returns four elements if that result fits ptrdiff_t. The pointer\u2019s permitted formation and the object\u2019s permitted access are distinct checks. The legal subtraction does not require a read at the endpoint, and it does not make the endpoint into a real element.",
+    "solution": "For this four-element array, a+4 is the permitted one-past pointer. Its formation does not read array contents. It can serve as an exclusive iteration boundary even though it designates no fifth element.\n\nEvaluating *(a+4) as an element indirection is not a valid access. In contrast, a+5 is already outside the permitted pointer-formation range, so no dereference is needed to expose that arithmetic error. The initialized values of the four existing elements do not repair either violation.\n\nThe subtraction (a+4)-a uses the same array and its one-past boundary. It gives four in units of elements, subject to representability in ptrdiff_t. It does not need to read a value at the endpoint. Reversing its operands gives minus four under the same representability condition.\n\nThe classification concerns evaluated operations. Unevaluated fixed-type sizeof operands and the special cancellation rules for expressions such as &*p need their own analysis; they should not be used to justify an ordinary out-of-bounds read. Keep pointer formation, same-object distance and element access as three separate checks.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "onepast",
       "data": null
@@ -341,9 +341,9 @@
     "id": "PA21",
     "title": "Unsigned reverse loop trap",
     "stem": "Explain why for(size_t i=n-1; i>=0; --i) use(a[i]); is incorrect. Give a version that also handles n=0 and prove its first and last accessed indices.",
-    "solution": "The condition i>=0 is always true for unsigned size_t. At n=0, n-1 wraps before any valid index exists; at nonzero n, decrementing zero wraps to a huge value instead of stopping. Initialize i=n, test i>0, decrement i, then access a[i]. For n>0 the first body decrements to n-1. Each subsequent body selects one smaller index; the final access is zero, after which the next test fails. For n=0 the body is skipped. This proves n valid accesses and avoids relying on unsigned wraparound as termination.",
+    "solution": "Because size_t is unsigned, its stored values are never below zero; i>=0 cannot terminate the proposed loop. At n equal to zero, initialization stores the converted value SIZE_MAX in i. For a nonempty array, reaching zero and decrementing similarly produces the maximum unsigned value instead of a negative stopping sentinel. The following access is not a valid reverse traversal.\n\nUse a boundary and decrement before access:\n\n```c\nfor (size_t i = n; i > 0; ) {\n    --i;\n    use(a[i]);\n}\n```\n\nAt every guard, $0\\le i\\le n$. A true guard establishes i positive, so decrement produces a valid index from zero through n-1. The first accessed index is n-1 when n is nonzero; subsequent iterations decrease it by one. After the final access at zero, the next guard sees zero and exits without another decrement.\n\nThe variant is the boundary i itself, which decreases on each executed iteration and cannot pass below zero. When n is zero, the body is skipped, including all array access. This proves both the order and the exact n-access count without treating wraparound as termination.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "reverseguard",
       "data": null
@@ -353,9 +353,9 @@
     "id": "PA22",
     "title": "A stride count with nonzero boundaries",
     "stem": "A loop visits indices 3,7,11,... while i<26. List the final index and number of visits; derive the count without simulating every iteration.",
-    "solution": "Write i=3+4t. The guard becomes $3+4t<26$, so $0\\le t\\le5$. There are six visits and the last index is 23. Equivalently the count is $\\lceil(26-3)/4\\rceil=6$. Replacing the strict guard by i<=26 happens to give the same result here because 26 is not in the progression; that coincidence is not a general equivalence. At boundary 27 the strict and non-strict guards would differ. An array hosting the loop must contain every selected index, not merely the number of visits.",
+    "solution": "Write a visited index as $i=3+4t$, where t is a nonnegative iteration number. The condition i<26 becomes $4t<23$, hence t can be zero through five. There are six visits: 3,7,11,15,19,23. The last visited index is twenty-three, and the next candidate twenty-seven fails the guard.\n\nEquivalently, a positive stride s over a nonempty half-open interval [l,r) has $\\lceil(r-l)/s\\rceil$ visits. Here that is $\\lceil23/4\\rceil=6$. The strict inequality must be retained when converting from an endpoint to an integer count.\n\nChanging the guard to i<=26 happens not to change this example because twenty-six is absent from the progression. At endpoint twenty-seven, the strict guard still excludes that candidate whereas the non-strict guard includes it. A numerical coincidence is therefore not an equivalence proof.\n\nFinally, a zero-based array serving these accesses needs at least twenty-four elements, not merely six. Six counts visits, while twenty-three is the largest accessed coordinate. In actual machine code, the final increment and any arithmetic used to form indices need their own representability check.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "stride",
       "data": [
@@ -371,9 +371,9 @@
     "id": "PA23",
     "title": "Two different reduction initializations",
     "stem": "For [5,5,2,2,7,1,1], compare the number of comparisons and successful minimum updates when initialized from the first element versus mathematical positive infinity, always using strict comparison.",
-    "solution": "Initializing from the first element leaves six later comparisons. Strict decreases occur at value two and value one, so there are two updates. Initializing from infinity performs seven comparisons and the first five is an additional update, giving three. Equal occurrences never update under strict comparison, so the selected minimum position is the first one, index five. A non-strict comparison changes tie handling and update count. The number of loop comparisons is fixed here, whereas successful assignments depend on the data and initialization policy.",
+    "solution": "Initialize the minimum to the first five and scan the six later positions. The second five ties and does not replace a strict minimum; two at index two replaces five; the next two ties; seven is larger; one at index five replaces two; the final one ties. Thus there are six comparisons and two successful updates, with the first minimum occurrence retained at index five.\n\nWith a mathematical positive-infinity initialization, all seven elements are compared. The first five now causes an additional successful replacement. The subsequent strict decreases are the same two and one, giving seven comparisons and three updates. Positive infinity is a stated mathematical sentinel, not an arbitrary finite integer constant assumed above every possible input.\n\nUsing non-strict comparison would replace on ties too. For this data it would give five updates after first-element initialization, or six after infinity initialization, and retain the last one at index six. That is a different algorithmic policy.\n\nThe original strict algorithm's comparison count follows from its scan boundaries; its update count follows from record-low events in the actual data. Neither count alone identifies the other, and a correct final minimum value does not establish the tie index or number of assignments.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "minimum",
       "data": [
@@ -397,9 +397,9 @@
     "id": "PA24",
     "title": "Weighted prefix invariant",
     "stem": "For mathematical integers A=[2,-1,4,3], compute S=sum((i+1)A[i]) and give a loop invariant for the weighted scan.",
-    "solution": "The contributions are 2,-2,12,12, so S=24. At boundary i the invariant is $0\\le i\\le4$ and $S=\\sum_{k=0}^{i-1}(k+1)A[k]$. It starts with the empty sum zero. When i<4, reading A[i] is valid and adding (i+1)A[i] extends the relation through that index. Advancing i preserves the boundary condition. At exit i=4 and the invariant gives the required result. A loop that uses i rather than i+1 computes a different weighting, so an unweighted total cannot serve as its certificate.",
+    "solution": "The four products are $1\\cdot2=2$, $2\\cdot(-1)=-2$, $3\\cdot4=12$ and $4\\cdot3=12$. Their sum is twenty-four. The running totals after each access are two, zero, twelve and twenty-four.\n\nAt a loop boundary use\n\n$$0\\le i\\le4,\\qquad S=\\sum_{k=0}^{i-1}(k+1)A[k].$$\n\nInitially i is zero and S is the empty sum zero. A true guard i<4 proves the next element access valid. Adding (i+1)A[i] appends exactly the missing weighted term, and incrementing i restores the stated prefix relation. At exit i=4, the invariant gives the entire required sum. The variant 4-i proves termination.\n\nUsing i instead of i+1 changes the products and gives sixteen here, not twenty-four. The unweighted total is eight, another different reduction. The invariant must describe the implemented weighting, not merely mention a generic sum. The question uses mathematical integers; a C implementation would additionally need every multiplication and every partial addition to fit, not just its final result.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "weighted",
       "data": [
@@ -417,9 +417,9 @@
     "id": "PA25",
     "title": "Prefix construction and three ranges",
     "stem": "Construct P for A=[3,-2,5,1,-4]. Find sums on [1:4), [0:5) and [3:3).",
-    "solution": "Start P[0]=0 and accumulate each original element to obtain P=[0,3,1,6,7,3]. The first sum is P[4]-P[1]=7-3=4. The whole-array sum is P[5]-P[0]=3. The empty range subtracts P[3] from itself and is zero. P has six entries for five data elements because its indices label boundaries. Using P[r-1]-P[l] would omit the final included element and fail for empty ranges. After changing any data entry, update the affected prefixes before reusing these answers.",
+    "solution": "Set P[0] to zero and successively add the five data values. This constructs P = [0,3,1,6,7,3]. Entry P[t] is the sum of exactly the first t elements, so five elements require six boundary entries.\n\nThe sum on [1,4) is $P[4]-P[1]=7-3=4$, agreeing with the direct sum minus two plus five plus one. The whole-array sum is $P[5]-P[0]=3$. The empty query [3,3) subtracts P[3] from itself and gives zero without accessing a data element.\n\nFor general boundaries, subtracting the first l elements from the first r elements cancels precisely the unwanted prefix, leaving indices l through r-1. Replacing P[r] by P[r-1] would omit the last included element and break the empty-range convention.\n\nThe table summarizes a particular data state. After a point update at index j, every P[t] with t>j is affected. Reusing the old table without repair would answer queries about the previous array. Thus the constant-time query guarantee assumes valid preprocessing for the current values; it is not a constant-time arbitrary-update data structure.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "prefix",
       "data": [
@@ -445,9 +445,9 @@
     "id": "PA26",
     "title": "Difference-array range updates",
     "stem": "Starting from five zeros, add 4 on [1:4), then subtract 2 on [2:5). Use a six-entry boundary difference array and reconstruct the result.",
-    "solution": "The first update adds four at boundary one and subtracts four at boundary four. The second subtracts two at boundary two and adds two at boundary five. D becomes [0,4,-2,0,-4,2]. Accumulating its first five entries gives [0,4,2,2,-2]. The sixth entry is a sentinel that brings the running total back to zero beyond the array; it is not a sixth data value. The signs follow from starting and ending each added constant segment. Applying both plus signs at the right boundaries would continue the change after the intended interval.",
+    "solution": "Use six boundary slots for five data elements and initialize all slots to zero. Adding four on [1,4) records plus four at boundary one and minus four at boundary four. Subtracting two on [2,5) records minus two at boundary two and plus two at boundary five. Their combined difference array is [0,4,-2,0,-4,2].\n\nAccumulate the first five entries: the running values are zero, four, two, two and minus two. Hence the resulting data array is [0,4,2,2,-2]. Direct interval membership independently confirms it: index one receives only four, indices two and three receive four minus two, and index four receives only minus two.\n\nThe final sentinel two cancels the remaining minus-two contribution beyond the data range. Including that sixth accumulated boundary as a data value would incorrectly invent another element. It exists to express the exclusive endpoint, not to extend the logical array.\n\nAn empty update at identical boundaries adds and subtracts at the same boundary and has no effect under this six-slot contract. An n-slot implementation must instead treat an empty update as a no-op before attempting an endpoint access at n. The storage contract determines which boundary writes exist.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "difference",
       "data": [
@@ -471,11 +471,11 @@
   },
   {
     "id": "PA27",
-    "title": "Rectangle inclusion\u2013exclusion",
+    "title": "Rectangle inclusion–exclusion",
     "stem": "For A=[[1,2,3],[4,5,6]], build the boundary prefix table and find the sum of rows [0:2), columns [1:3).",
-    "solution": "Include a zero row and column to obtain P=[[0,0,0,0],[0,1,3,6],[0,5,12,21]]. The requested sum is $P[2,3]-P[0,3]-P[2,1]+P[0,1]=21-0-5+0=16$. Directly, the selected entries are 2,3,5,6, also totaling 16. The table recurrence removes the overlap already counted by the top and left accumulated rectangles. Boundary indexing avoids substituting -1 at the top edge. The same four-term relation yields zero for an empty row or column interval.",
+    "solution": "The boundary prefix table is\n\n$$P=\\begin{bmatrix}0&0&0&0\\\\0&1&3&6\\\\0&5&12&21\\end{bmatrix}.$$\n\nP[i,j] contains rows before i and columns before j. The selected rectangle uses row boundaries zero and two and column boundaries one and three. Its sum is\n\n$$P[2,3]-P[0,3]-P[2,1]+P[0,1]=21-0-5+0=16.$$\n\nDirectly adding the four selected entries 2,3,5,6 also gives sixteen. This independent check detects an indexing convention mismatch.\n\nFor an arbitrary rectangle, begin with the prefix ending at its lower-right boundary. Remove the prefixes above and left of it. Their intersection has then been removed twice, so add it back once. That explains the final plus sign rather than treating it as a mnemonic.\n\nThe zero boundary row and column handle top and left edges without negative subscripts. Equal row boundaries or equal column boundaries make the expression cancel to zero, as an empty rectangle requires. Each table entry itself needs a safe partial-sum representation in a machine implementation; a mathematically correct inclusion-exclusion identity alone does not guarantee absence of intermediate overflow.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "rect",
       "data": [
@@ -499,9 +499,9 @@
     "id": "PA28",
     "title": "An in-place recurrence uses modified predecessors",
     "stem": "For A=[1,2,3,4,5], execute A[i]+=A[i-1] for i=1..4 in increasing order. Derive the general final relation to original values.",
-    "solution": "The successive complete states are [1,3,3,4,5], [1,3,6,4,5], [1,3,6,10,5], and [1,3,6,10,15]. After processing index i, A[i] equals the sum of original entries zero through i. The already updated predecessor supplies the earlier prefix, so the operation implements a prefix accumulation. A formula $A_0[i]+A_0[i-1]$ would incorrectly assume an untouched predecessor. This can be proved by induction on i: the base leaves A[0] original, and each update adds the next original value to the established prefix.",
+    "solution": "Starting with [1,2,3,4,5], the four writes produce [1,3,3,4,5], [1,3,6,4,5], [1,3,6,10,5] and [1,3,6,10,15]. The key observation is that the right-hand predecessor has already been updated when the next statement reads it.\n\nLet A0 denote the original array. Before processing index i, every earlier position k holds its original prefix sum, while positions from i onward remain original. The update at i adds original A0[i] to the established prefix at i-1, yielding\n\n$$A[i]=\\sum_{k=0}^{i}A_0[k].$$\n\nThis extends the invariant by one position; index zero supplies the base prefix. After the final write the entire array contains inclusive prefix sums. All visited indices and their predecessors are within the five-element array.\n\nThe expression A0[i]+A0[i-1] describes a snapshot-neighbor transformation, not this execution, because it discards the dependency on the modified predecessor. The difference is algorithmic, not undefined behavior: these are sequential complete assignments. For length zero or one, a correctly guarded loop performs no writes. Fixed-width execution also requires every accumulating prefix to fit.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "inplace",
       "data": [
@@ -527,9 +527,9 @@
     "id": "PA29",
     "title": "Reverse execution computes another map",
     "stem": "Execute the same update A[i]+=A[i-1] on [1,2,3,4,5] for i=4,3,2,1. Why is the result not a prefix sum?",
-    "solution": "The reverse order yields [1,2,3,4,9], then [1,2,3,7,9], then [1,2,5,7,9], and finally [1,3,5,7,9]. At each update the predecessor index is lower and has not yet been changed. Therefore the final value for i>0 is $A_0[i]+A_0[i-1]$, not a growing prefix total. Index zero remains original. Both executions use valid indices and the same statement, so the difference is a data dependency rather than an undefined-behavior issue. A snapshot-based implementation would make the neighbor-sum intent explicit.",
+    "solution": "Processing indices four, three, two and one produces [1,2,3,4,9], [1,2,3,7,9], [1,2,5,7,9] and [1,3,5,7,9]. Unlike the increasing traversal, each predecessor lies at a smaller index and has not yet been changed.\n\nThus for every processed i>0, both values read are still A0[i] and A0[i-1], giving the final relation $A[i]=A_0[i]+A_0[i-1]$. Index zero is never assigned and retains A0[0]. A descending invariant states that the already processed suffix has this neighbor-sum value, while the unprocessed prefix remains original.\n\nThe update decreases the suffix boundary by one and cannot change any still-unread lower predecessor. This proves preservation and explains why the same statement computes a different map when its direction changes. There is no need to invoke unspecified evaluation order: the two array reads in each assignment do not conflict with an unsequenced independent modification.\n\nIf a prefix sum is intended, use the increasing traversal. If original adjacent sums are intended, use this direction or an explicit snapshot. The required postcondition, rather than a preference for forward loops, determines the correct dependency order.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "inplace",
       "data": [
@@ -555,9 +555,9 @@
     "id": "PA30",
     "title": "An overlapping right move fails in forward order",
     "stem": "For original A=[2,4,6,8,10,12], copy four entries from source offset 0 to destination offset 1, in increasing t. Give all resulting writes and compare with an original-value move.",
-    "solution": "At t=0, A[1] receives 2. At t=1, the source A[1] has already become 2, so A[2] also receives 2. The same dependency propagates through t=2 and t=3. The final array is [2,2,2,2,2,12]. The desired snapshot move is [2,2,4,6,8,12]. All individual indices are valid; the failure is preservation of unread original values. Copying the same region in descending t avoids it, because each source is read before a higher destination overwrites it.",
+    "solution": "The requested forward loop writes A[1]=2 at t=0. At t=1, it reads that newly changed A[1], so A[2] becomes two. The same dependency repeats: A[3] and A[4] also become two. The final array is [2,2,2,2,2,12].\n\nAn original-value move would place the original source segment [2,4,6,8] into destinations one through four, producing [2,2,4,6,8,12]. Bounds alone do not distinguish these outcomes: every read and write index in the faulty forward loop is valid. The failed obligation is preservation of future source values.\n\nAfter its first write, the loop has overwritten source position one before the next read. Induction then explains the repeated two: every next source equals the preceding write. Using a postcondition that compares only final source and final destination can hide precisely this corruption.\n\nFor this rightward overlap, copy relative indices three down to zero. Each original source is read before the higher destination can destroy it. A temporary source snapshot or a valid memmove provides another correct strategy. memcpy does not permit overlapping source and destination regions, so merely replacing the loop with memcpy is not a valid repair.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "move",
       "data": [
@@ -588,9 +588,9 @@
     "id": "PA31",
     "title": "An overlapping right move succeeds in reverse order",
     "stem": "Repeat the previous move but process t=3,2,1,0. State the unchanged region and a suffix invariant.",
-    "solution": "Writes occur as A[4]=A[3]=8, A[3]=A[2]=6, A[2]=A[1]=4, and A[1]=A[0]=2. The final array is [2,2,4,6,8,12], while positions zero and five remain unchanged. Before a descending step t, every destination d+k for k>t contains original source s+k, and the remaining source prefix through s+t is unchanged. Since d>s, writing d+t cannot affect any still unread smaller source position. The invariant proves both the final destination and absence of damage outside the moved region.",
+    "solution": "The four writes are A[4]=8, A[3]=6, A[2]=4 and A[1]=2, in that order. Each reads an original source value before its cell can be overwritten. Final state is [2,2,4,6,8,12]. Positions zero and five lie outside the destination region and retain their original values.\n\nBefore relative index t is processed, every destination 1+k with k>t already equals original A0[k], and the original source prefix from zero through t is unchanged. The initial t=3 checkpoint has an empty completed suffix, so the invariant holds.\n\nAt the next step, source t is still original by that prefix condition. Writing it to t+1 extends the correct destination suffix. Because t+1 exceeds every remaining source index below t, the write preserves the next unread source prefix. Decrementing t restores the invariant; after processing zero, the complete destination segment equals the original source segment.\n\nThis proof also states a frame condition: no position outside destinations one through four is written. The source's final values need not equal its original values because source and destination overlap. The desired relation must therefore refer to A0, not an imagined immutable final source segment.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "move",
       "data": [
@@ -621,9 +621,9 @@
     "id": "PA32",
     "title": "Leftward overlap needs the opposite direction",
     "stem": "Move four entries of [2,4,6,8,10,12] from source offset 1 to destination offset 0. Compare increasing and decreasing processing orders.",
-    "solution": "Increasing order writes values 4,6,8,10 into positions zero through three, giving [4,6,8,10,10,12]. Each destination is below the current source, so no future larger source index is overwritten. Decreasing order first writes A[3]=10; the next read of A[3] therefore repeats ten, eventually producing [10,10,10,10,10,12]. This reverses the safety relation of a rightward move. The correct rule depends on relative offsets and overlap, not on a universal preference for increasing or decreasing loops.",
+    "solution": "For increasing relative indices, destinations zero through three receive original source values at one through four: four, six, eight and ten. The successive writes give final [4,6,8,10,10,12]. Each destination is below its current source and below every future, larger source, so unread source values survive.\n\nDecreasing order starts by writing A[3]=A[4]=10. The next step reads A[3], now ten, and writes that into A[2]. Ten then propagates through A[1] and A[0], giving [10,10,10,10,10,12]. The operation is within bounds but violates the original-value move postcondition.\n\nThe ascending proof uses a correct copied target prefix and an unchanged unread source suffix. Writing the next lower destination cannot affect that suffix, which establishes preservation. This is the dual of the descending proof for rightward overlap.\n\nThe correct rule compares integer offsets in one known backing array: rightward overlap requires descending copying, leftward overlap permits ascending copying, and identical regions require no change. Disjoint regions can tolerate either direction. General ordering comparisons on unrelated C pointers are not a portable substitute for these known-array offset conditions.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "move",
       "data": [
@@ -654,9 +654,9 @@
     "id": "PA33",
     "title": "Bounds alone do not prove a copy contract",
     "stem": "A copy_into loop has valid source/destination bounds but its postcondition compares final source and final destination segments. Explain why those bounds are insufficient if both parameters alias.",
-    "solution": "Take a=[1,2,3,4], source start zero, target start one and length three. A forward loop produces [1,1,1,1]. Its final source segment and target segment happen to be equal, yet the intended original-value copy [1,1,2,3] was not achieved. In the opposite direction, a forward move produces [2,3,4,4] and even final source/target equality can fail. Therefore a meaningful specification must refer to original source values and control interference. Require disjointness, or use a snapshot/overlap-safe move. The CMU array-copy exercise is extended here precisely to expose this missing obligation.",
-    "origin": "Course-inspired extension \u2014 CMU 15-122 Lecture 3, exercise 2",
-    "difficulty": "Medium\u2013Hard",
+    "solution": "Use one backing array [1,2,3,4], with source zero, target one and length three. Forward copying produces [1,1,1,1]. Final source and final destination segments are equal, so a final-to-final equality may hold even though the intended original-value result [1,1,2,3] was not obtained. That specification is too weak to distinguish corruption.\n\nFor the opposite leftward move, forward copying gives [2,3,4,4]. The final source segment [3,4,4] differs from the correct target [2,3,4], so the same final-to-final equality can reject a correct move. Both examples satisfy the numerical bounds.\n\nA useful specification refers to the source snapshot at entry: every final target position equals its corresponding original source value. Its proof additionally needs interference control, such as distinct arrays, disjoint ranges, a temporary snapshot, or the appropriate overlap-safe direction.\n\nFor bounded machine indices, validate ranges without a potentially overflowing sum: first establish start<=length, then count<=length-start. Even a bounds precondition can be defective if it tests a wrapped start+count. These repairs strengthen the reviewed CMU copying exercise rather than blindly importing a flawed alias or arithmetic assumption.",
+    "origin": "Course-inspired extension — CMU 15-122 Lecture 3, exercise 2",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "copycontract",
       "data": null
@@ -665,10 +665,10 @@
   {
     "id": "PA34",
     "title": "Copy a segment with a complete proof",
-    "stem": "For initialized A of length n and 0\u2264l\u2264r\u2264n, construct a distinct B of length r-l with B[k]=original A[l+k]. State initialization, preservation, exit and termination.",
-    "solution": "Initialize t=0 and use the invariant $0\\le t\\le r-l$ plus equality for all copied positions k<t. Initially the equality is vacuous. When t<r-l, destination t is valid and source l+t satisfies $l\\le l+t<r\\le n$. Writing that original source extends the equality through k=t; distinct storage ensures that the source is unchanged. Advance t to preserve the bound. At exit t=r-l and every result position satisfies the contract. The nonnegative variant r-l-t decreases each time. When l=r, allocate/represent a distinct empty result appropriately without a zero-size fixed C declaration.",
-    "origin": "Course-inspired extension \u2014 CMU 15-122 Lecture 3, exercise 1",
-    "difficulty": "Medium\u2013Hard",
+    "stem": "For initialized A of length n and 0≤l≤r≤n, construct a distinct B of length r-l with B[k]=original A[l+k]. State initialization, preservation, exit and termination.",
+    "solution": "Let m=r-l. Initialize t=0 and require a valid destination representation of length m. At each loop boundary use $0\\le t\\le m$ and, for every $0\\le k<t$, $B[k]=A_0[l+k]$. Distinct destination storage ensures that A remains equal to its entry snapshot.\n\nInitialization holds because the copied prefix is empty. A true guard t<m proves destination t valid and source $l+t<l+m=r\\le n$. Writing B[t]=A[l+t] establishes the missing equality at k=t. Incrementing t extends the completed prefix and preserves the bound.\n\nAt exit, t=m, so all destination positions satisfy the required relation. The nonnegative variant m-t decreases by one per iteration, proving termination. No source location is written, and no destination outside the copied prefix is touched before its turn.\n\nFor l=r, m is zero and the body is skipped; use an appropriate empty-sequence representation rather than an illegal fixed C zero-bound declaration. In a C implementation, allocation-size multiplication, allocation success and live initialized source elements are additional obligations. The abstract invariant alone does not allocate memory or establish those machine-level facts.",
+    "origin": "Course-inspired extension — CMU 15-122 Lecture 3, exercise 1",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "segmentproof",
       "data": null
@@ -678,9 +678,9 @@
     "id": "PA35",
     "title": "Insertion shifts and the end case",
     "stem": "A logical sequence [3,6,9,12] occupies the first four positions of capacity six. Insert 7 at index two. Give the write order, new contents and shift count; compare insertion at index four.",
-    "solution": "Move original index three to four, then index two to three, then write seven at index two. The logical result is [3,6,7,9,12], length five. There are n-k=2 shifts; descending movement preserves the original values. Insertion at boundary four uses zero shifts and writes only the new last value. Boundary n is valid for insertion although it is not a valid old element index. Capacity must permit the new length, and spare positions need not have meaningful initialized values before they are assigned.",
+    "solution": "The old logical length is four and capacity is six, so a new length five is available. To insert at index two, first copy A[3]=12 into A[4], then A[2]=9 into A[3], and finally store seven into A[2]. The new logical sequence is [3,6,7,9,12].\n\nThe suffix has n-k=2 old elements, so there are two shifts and one new-value store. Descending movement preserves each old suffix value until it has been copied one position right. An increasing shift would overwrite nine with a previous value before all old values had been read.\n\nInsertion at boundary four appends instead: the suffix is empty, so there are zero shifts and one store at A[4]. Boundary n is valid for insertion although it was not a valid old-element index. In general insertion permits $0\\le k\\le n$ and requires capacity at least n+1.\n\nOnly the first new-length positions belong to the logical container afterwards. Spare allocated slots need not previously contain meaningful initialized values when they are assigned before reading. Capacity and logical length are therefore separate parts of the correctness argument.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "insert",
       "data": [
@@ -707,9 +707,9 @@
     "id": "PA36",
     "title": "Deletion changes length rather than erasing storage",
     "stem": "Delete index one from [3,6,9,12,15] using stable compaction. How many shifts occur and what may remain in the spare slot?",
-    "solution": "Move indices two, three and four left once, yielding the logical prefix [3,9,12,15] and length four. There are n-k-1=3 shifts. The physical slot at old index four can still contain fifteen; it is outside the logical sequence and need not be zeroed for correctness. Reading it as an allocated initialized element is a different question from including it in the container\u2019s valid logical contents. Forward copy is safe because each write is below unread source positions. Deleting the last logical element would require no shifts.",
+    "solution": "Deleting index one removes six. Copy A[2]=9 into A[1], then A[3]=12 into A[2], and A[4]=15 into A[3]. The resulting logical prefix is [3,9,12,15], with length four. Three elements were shifted, matching $n-k-1=5-1-1=3$.\n\nAscending copying is safe because each destination is below its source and cannot overwrite a later unread source. The copied prefix invariant preserves the original order of all elements after the removed one, which establishes stability.\n\nThe old final physical slot can still contain fifteen. It remains within the allocated array but is now outside the container's logical sequence. Clearing that slot is not required for this integer-sequence postcondition, although other element types or resource/security contracts could require additional cleanup. Reporting it as a fifth logical element would ignore the length update.\n\nDeleting the final logical element requires no shifts, while deleting index zero requires n-1 shifts. A valid deletion requires a nonempty sequence and $0\\le k<n$, unlike insertion's inclusive endpoint. These bounds should be checked before evaluating n-k-1 in unsigned arithmetic.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "delete",
       "data": [
@@ -735,9 +735,9 @@
     "id": "PA37",
     "title": "Reverse a half-open segment exactly",
     "stem": "Reverse A[1:6) in [0,1,2,3,4,5,6]. List the swapped pairs and final sequence. Why is the central element untouched?",
-    "solution": "The segment length is five, so there are floor(5/2)=2 swaps: (1,5) and (2,4). The final array is [0,5,4,3,2,1,6]. Index three maps to itself, so writing it again is unnecessary. An invariant fixes completed pairs to the reversed original values and leaves the intervening middle original. Using r instead of r-1 for the first high index would incorrectly include index six, outside the requested segment. Length zero or one requires no swaps and is already reversed.",
+    "solution": "The half-open segment [1,6) contains indices one through five, so its length is five. Pair its first and last included positions, then move both boundaries inward. The swaps are (1,5) and (2,4), producing [0,5,4,3,2,1,6]. Positions zero and six remain outside the operation.\n\nAfter t swaps, the first t and last t positions of the segment equal their reversed original partners; the intervening segment is still original. Another swap extends both correct ends while preserving the untouched middle. At t=2, only index three remains, and its reversed partner is itself.\n\nThe total swap count is $\\lfloor5/2\\rfloor=2$. In general, the reflected partner of included index k is l+r-1-k, not l+r-k; the minus one comes from r being excluded. Starting the high partner at six would reverse a different segment.\n\nAn empty or singleton segment needs no swap. An implementation should test the remaining segment length before forming an unsigned r-1 for the empty case. The mathematical empty case does not authorize an underflowing machine index, even when no eventual element write is intended.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "reverse",
       "data": [
@@ -768,9 +768,9 @@
     "id": "PA38",
     "title": "Three reversals implement left rotation",
     "stem": "Rotate [0,1,2,3,4,5,6] left by three using three segment reversals. Show each intermediate state and explain the block algebra.",
-    "solution": "Reverse the first block to get [2,1,0,3,4,5,6]. Reverse the second block to get [2,1,0,6,5,4,3]. Reverse the whole sequence to obtain [3,4,5,6,0,1,2]. If the original is XY, the first two stages produce reverse(X) reverse(Y), and reversing that concatenation gives YX. This proves the rotation without assuming particular values. Normalize k modulo n only when n>0. The method uses constant auxiliary element storage and linear swaps, whereas a copied result requires separate output storage.",
+    "solution": "Split the original sequence into X=[0,1,2] and Y=[3,4,5,6]. Reverse X to obtain [2,1,0,3,4,5,6], reverse Y to obtain [2,1,0,6,5,4,3], and reverse the whole to obtain [3,4,5,6,0,1,2].\n\nFor arbitrary blocks, reversing a concatenation reverses its block order as well as each block internally. Thus reversing reverse(X) followed by reverse(Y) yields Y followed by X, because each block's second reversal restores its internal order. This proves the rotation for all values, including duplicates; it is a position permutation rather than a comparison-based operation.\n\nThe first two reversals use one and two swaps respectively, and the final length-seven reversal uses three, for six swaps here. Each reversal uses a constant-size temporary element, so the complete operation uses constant auxiliary element storage and linear work.\n\nFor a positive length n, normalize a nonnegative left rotation k modulo n. Handle n equal to zero before taking a remainder. At k equal to zero, a direct no-op is valid; the algebraic reversal method also restores the original order but performs unnecessary work.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "rotate",
       "data": [
@@ -799,10 +799,10 @@
   {
     "id": "PA39",
     "title": "Rotation cycles and visit count",
-    "stem": "For a 12-element sequence rotated left by eight, determine the number and length of permutation cycles, and list the cycle beginning at index zero.",
-    "solution": "The step permutation is addition by eight modulo twelve. Since gcd(12,8)=4, there are four cycles, each of length three. The cycle from zero is 0\u21928\u21924\u21920. Distinct starting representatives can be 0,1,2,3. Repeating a cycle from another already visited member would duplicate work. The cycle length is the smallest positive t with 12 dividing 8t, namely three. All twelve indices appear across the four disjoint cycles; the direction used to move values must match whether the map denotes original-to-destination or destination-to-source.",
+    "stem": "For a 12-element sequence rotated left by eight, determine the number and length of permutation cycles, and list the cycle beginning at index zero. Use the destination-to-source map (i+8) modulo twelve; distinguish it from original-to-destination movement.",
+    "solution": "The destination-to-source step map for a left rotation by eight is $f(i)=(i+8)\\bmod12$. Starting at zero gives the cycle 0,8,4,0. Returning after t steps requires twelve to divide 8t. Dividing by their greatest common divisor four shows that the least positive t is three.\n\nAll cycles therefore have length three, and the twelve positions form four disjoint cycles. Representatives zero, one, two and three give cycles (0,8,4), (1,9,5), (2,10,6) and (3,11,7). This accounts for every position exactly once.\n\nThe orientation matters during implementation. The new value at destination i comes from old position f(i); following this source map with a saved element implements the left rotation. Mapping an old element to its new destination instead uses subtraction of eight modulo twelve, the inverse cycle orientation.\n\nIn general, repeated addition of k modulo positive n gives gcd(n,k) cycles of length n/gcd(n,k). Distinct values are unnecessary because the cycles concern positions. For normalized k equal to zero, every position is a one-element cycle and no movement is needed. Repeating a traversal from an already visited member would duplicate work.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "cycles",
       "data": [
@@ -817,9 +817,9 @@
     "id": "PA40",
     "title": "A stable read/write filter",
     "stem": "Remove odd entries from [5,2,7,4,6,9,8] in place without changing the order of retained entries. Give final logical contents and explain why writes cannot destroy unread data.",
-    "solution": "Use read r from zero upward and write w starting at zero. Copy a[r] to a[w] only when the entry is even, then increment w. Retained entries are 2,4,6,8, giving logical length four and prefix [2,4,6,8]. At every boundary $0\\le w\\le r\\le7$, and the output prefix equals the retained original entries from the processed prefix. Because w\u2264r, a retained write affects the current or an earlier position, never a larger unread position. Stability follows because retained values are appended in original encounter order.",
+    "solution": "Read the original sequence from left to right with write boundary w initially zero. Five is rejected. Two is copied to position zero; seven is rejected; four is copied to position one; six to position two; nine is rejected; eight to position three. The final logical prefix is [2,4,6,8] with length four.\n\nAt each boundary, $0\\le w\\le r\\le7$, and positions before w are exactly the retained values from the processed original prefix before r, in encounter order. On rejection only r advances. On retention, write at w and advance both boundaries, extending the retained prefix by precisely the next qualifying value.\n\nBecause w never exceeds r, a write affects the current or an earlier position, never a larger unread one. The original value needed at r is read before that write. This proves interference safety as well as stability.\n\nSpare positions beyond new length four can retain old or copied values; they are not part of the logical result. If no elements qualify the result is an empty prefix, and if all qualify the values remain in their original order. The predicate and capacity contract, not the physical contents of the spare suffix, determine correctness.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "filter",
       "data": [
@@ -843,11 +843,11 @@
   },
   {
     "id": "PA41",
-    "title": "Dependency analysis of a two-pass difference transform",
+    "title": "Direction of an in-place adjacent-difference transform",
     "stem": "For A=[3,5,9,10], compute the adjacent differences A[i]-A[i-1] for i>0 in place while retaining A[0]. Which loop direction gives original differences?",
-    "solution": "Process from index three down to one. The writes are 10-9=1, then 9-5=4, then 5-3=2, so the final sequence is [3,2,4,1]. Each predecessor is still original when read. Forward processing first changes index one to two; index two then reads that changed two and becomes seven, and the final index becomes three. That wrong result is [3,2,7,3]. The desired difference map is the inverse of a forward prefix accumulation when all arithmetic is exact. Direction follows from which neighbor must remain original.",
+    "solution": "Process indices three, two and one. The first subtraction is ten minus nine, storing one at index three. Then nine minus five stores four at index two, and five minus three stores two at index one. The result is [3,2,4,1].\n\nAt a descending checkpoint, completed suffix positions hold original adjacent differences and the remaining prefix is unchanged. The next predecessor lies inside that unchanged prefix, so each subtraction uses two original values. Retaining index zero provides the initial value needed to reconstruct the original sequence later.\n\nForward order instead first stores two at index one. The next subtraction uses that modified two and gives seven at index two; the last uses the modified seven and gives three. It produces [3,2,7,3], a different recurrence.\n\nForward prefix accumulation applied to [3,2,4,1] reconstructs [3,5,9,10], showing the inverse relation under exact arithmetic. A signed-machine implementation needs every subtraction and subsequent reconstruction sum to be representable. The algebraic inverse does not retroactively make an overflowing intermediate defined.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "difftransform",
       "data": [
@@ -870,9 +870,9 @@
     "id": "PA42",
     "title": "Python single indices and clipped slices",
     "stem": "For a=list(range(6)), evaluate a[-2], a[-8:20:3] and a[8:20]. Which corresponding single-index access raises an exception?",
-    "solution": "The single index -2 normalizes to four and returns 4. For the second expression, start -8 clips to zero and stop 20 clips to six; step three selects indices zero and three, giving [0,3]. The third slice starts beyond the end and clips both boundaries to six, producing []. A single access a[8] raises IndexError, as does a[-8]. This difference is deliberate: slice boundaries can be clipped while an element request needs an actual element. It is incorrect to infer single-access safety from an empty slice at similar written bounds.",
+    "solution": "The list contains [0,1,2,3,4,5]. A single index minus two is normalized by adding length six, giving index four and result four. A single index still must satisfy the element domain after normalization.\n\nFor the positive-step slice [-8:20:3], start minus eight lies before the beginning and clips to zero; stop twenty clips to six. The normalized progression is range(0,6,3), selecting indices zero and three and producing [0,3]. For [8:20], both forward boundaries clip to six, so the resulting slice is empty.\n\nIn contrast, a[8] raises IndexError, and a[-8] also raises IndexError: adding six gives minus two, still outside the normalized element domain. Slice clipping does not repeatedly wrap indices or make these element accesses safe.\n\nThe slicing operation constructs a new outer list of selected references and leaves the original list unchanged. Here all elements are immutable integers; for nested mutable elements, an outer slice would not recursively duplicate them. Establish the normalized progression first, then count or copy its elements rather than treating the written start and stop as necessarily accessible positions.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "python",
       "data": [
@@ -892,9 +892,9 @@
     "id": "PA43",
     "title": "Omitted negative stop versus explicit -1",
     "stem": "For a=list(range(7)), evaluate a[::-1], a[:-1:-1] and a[5:0:-2]. Explain the stop semantics.",
-    "solution": "The omitted negative-step start defaults to six, and the omitted stop is a before-first sentinel, so the reversal is [6,5,4,3,2,1,0]. In a[:-1:-1], the explicitly supplied -1 normalizes to six. The start is also six, and a strict decreasing progression cannot begin above that stop, so the result is empty. The third slice visits indices 5,3,1 and returns [5,3,1]. Replacing an omitted negative stop with written -1 is therefore not a harmless spelling change. Normalize the slice before counting its selected indices.",
+    "solution": "For length seven and step minus one, an omitted start becomes six and an omitted stop is the before-first sentinel. The progression is 6,5,4,3,2,1,0, so a[::-1] yields that reversal.\n\nIn a[:-1:-1], the explicit minus-one stop is normalized as an ordinary negative boundary relative to the length, giving six. The omitted start is also six. A decreasing slice includes indices strictly greater than its stop; since six is not greater than six, the slice is empty.\n\nFor a[5:0:-2], the selected indices are five, three and one. Zero is excluded, and the next candidate minus one has passed the stop. The result is [5,3,1].\n\nPython exposes the exact normalization through `slice(start,stop,step).indices(len(a))`; an omitted negative stop and a written -1 need not produce the same triple. Do not replace one with the other during algebraic simplification. A zero step is invalid and raises ValueError rather than representing an empty progression. These rules concern slicing, not C's pointer-relative negative subscripts.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "python",
       "data": [
@@ -923,9 +923,9 @@
     "id": "PA44",
     "title": "Extended slice replacement count",
     "stem": "For a=[0,1,2,3,4,5], assign a[1:6:2]=[9,8,7]. What is the result? Why does replacing it with [9,8] fail?",
-    "solution": "The selected indices are 1,3,5, so three replacement values produce [0,9,2,8,4,7]. An extended slice whose step is not one cannot change the number of selected slots, and a two-item replacement raises ValueError instead of shrinking the list. Ordinary step-one slice assignment uses a different rule and can change length. The resulting list\u2019s unselected values at indices zero, two and four remain unchanged. Count the normalized index progression before matching replacement length; the written difference between stop and start is not the number of selected entries.",
+    "solution": "Normalize the slice [1:6:2] in a six-element list. Its progression selects indices one, three and five, exactly three positions. Matching them in order with [9,8,7] replaces those slots and yields [0,9,2,8,4,7]. Indices zero, two and four remain unchanged.\n\nA non-unit-step extended slice assignment must supply exactly as many replacement values as selected positions. Replacing the three slots with [9,8] therefore raises ValueError; it is not a request to delete the remaining selected slot or to shift all later positions. If attempted separately on the original list with that concrete replacement, it does not produce a shortened result.\n\nOrdinary step-one slice replacement follows a different contract and can resize a list. Consequently the statement that every slice assignment preserves length would be as incorrect as claiming every replacement may resize.\n\nThe selected count is obtained from the normalized progression, not simply stop minus start. Explicit clipping, negative steps and empty slices must be handled before matching replacement lengths. The successful assignment returns no new list value; it mutates the existing list's selected slots.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "python",
       "data": [
@@ -945,9 +945,9 @@
     "id": "PA45",
     "title": "Ordinary slice assignment can change length",
     "stem": "For a=[1,2,3,4,5], assign a[1:4]=[8,9], then a[2:2]=[6,7]. Give both states and lengths.",
-    "solution": "The first replacement removes three selected entries and inserts two, giving [1,8,9,5] of length four. The empty slice at boundary two then inserts two values before the old entry there, yielding [1,8,6,7,9,5] of length six. A slice of length zero can be an insertion location; it is not an element access. The second operation uses the current list positions after the first length change. Treating both statements as updates to original indices would select the wrong position. These Python semantics are not fixed-capacity C array assignment.",
+    "solution": "The first slice [1:4] selects [2,3,4], three old values. Replacing them with [8,9] gives [1,8,9,5] of length $5-3+2=4$. The prefix before index one and suffix beginning at old index four are retained in order.\n\nThe next slice [2:2] has equal boundaries in this current four-element list. It selects no element, but step-one slice assignment inserts [6,7] at that boundary. The result is [1,8,6,7,9,5] of length $4-0+2=6$.\n\nThe second boundary is interpreted after the first mutation. It is before the current nine, not a saved reference to original index two's element. A trace based entirely on old coordinates would miss this shift.\n\nAn empty slice can therefore designate an insertion position without being a valid single-element access. Inserting at len(a) appends, although a[len(a)] itself raises IndexError. These are Python resizable-list operations; they should not be translated into C whole-array assignment, where storage capacity and explicit element movement require a separate implementation and proof.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "python",
       "data": [
@@ -975,9 +975,9 @@
     "id": "PA46",
     "title": "Outer copy and inner alias",
     "stem": "Compute the final a and b:\n\n~~~python\na = [[2], [5]]\nb = a[:]\nb[0].append(7)\nb[1] = [9]\nresult = (a, b)\n~~~\n\n",
-    "solution": "The slice creates a distinct outer list but copies the two inner references. Appending seven changes the shared first inner list, so both outer lists observe [2,7]. Assigning b[1]=[9] changes one slot in b\u2019s outer list and does not redirect a\u2019s second slot. Therefore a=[[2,7],[5]] and b=[[2,7],[9]]. The two outer lists are not identical, while their first entries are identical objects. This trace separates mutation of a referenced object from replacement of a reference slot; the word copy alone does not say which level is independent.",
-    "origin": "Course-inspired extension \u2014 UC Berkeley CS61A, Composing Programs \u00a72.4.2",
-    "difficulty": "Medium\u2013Hard",
+    "solution": "Name the initial inner lists X=[2] and Y=[5]. The outer list a has slots referring to X and Y. The slice b=a[:] creates a different outer list whose two slots initially refer to those same X and Y; it does not copy X and Y themselves.\n\nAppending seven through b[0] mutates X to [2,7], so the first entry observed through either outer list changes. Assigning b[1]=[9] instead creates a new inner list Z and redirects only b's second slot. The corresponding slot in a still refers to Y.\n\nThe final values are a=[[2,7],[5]] and b=[[2,7],[9]]. The outer identity test a is b is false, while a[0] is b[0] is true. Their second entries are now distinct objects.\n\nThe two statements affect different levels of the object graph: append changes an inner object's contents, while slot assignment changes one edge in a particular outer container. Equal initial displayed values cannot identify which edges are shared. An accurate diagram must preserve those identities as it changes contents or redirects links.",
+    "origin": "Course-inspired extension — UC Berkeley CS61A, Composing Programs §2.4.2",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "python",
       "data": [
@@ -1009,9 +1009,9 @@
     "id": "PA47",
     "title": "Repeated rows share one inner object",
     "stem": "Compare bad=[[0]*4]*3 with good=[[0]*4 for _ in range(3)] after setting index [1][2] to nine in each.",
-    "solution": "bad contains three references to one inner row. Modifying that row through the second reference changes the displayed value in all three rows, giving three copies in appearance of [0,0,9,0]. good creates three distinct rows, so only its second row changes. Repetition copies references, not recursively referenced objects. Distinct outer slot positions can therefore share one inner identity. For a matrix whose rows should vary independently, create the row inside the comprehension. A shallow outer copy of bad still preserves the same inner sharing and cannot repair it.",
+    "solution": "The expression [0]*4 creates one row R=[0,0,0,0]. Repeating the outer list three times places three references to R into three distinct outer slots. The assignment bad[1][2]=9 selects R through the second slot and changes R itself to [0,0,9,0]. All three displayed rows therefore contain that nine.\n\nIn the comprehension, [0]*4 is executed once per iteration. It creates three distinct row objects, so assigning good[1][2]=9 changes only the second row. The first and third rows remain [0,0,0,0]. The relevant distinction is inner-list identity, not the identical initial zero values.\n\nA shallow outer copy of bad still contains three references to the same R and does not repair independent-row behavior. Copying each row separately repairs this two-level example; deeper nested mutable elements would require another decision about how far copying must proceed.\n\nImmutable integer zeros do not themselves cause the problem. Replacing one row slot with another integer is local to that row object. The cross-row visibility follows from sharing the mutable row container, which a correct environment diagram should show as one target with three incoming links.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "python",
       "data": [
@@ -1065,9 +1065,9 @@
     "id": "PA48",
     "title": "Deletion during iteration skips shifted entries",
     "stem": "Trace:\n\n~~~python\na = [2, 4, 6, 7]\nfor x in a:\n    if x % 2 == 0:\n        a.remove(x)\nresult = a\n~~~\n\n",
-    "solution": "The iterator first selects two at position zero and removes it, leaving [4,6,7]. Its next index is one, which now contains six rather than four, so it removes six and leaves [4,7]. The next index is two, beyond the current list, and iteration ends. Final result is [4,7], despite four also being even. The issue is index advancement combined with leftward shifting, not a failure of the predicate. A new filtered list [x for x in a if x%2] or the proved read/write compaction avoids skipping unread values.",
+    "solution": "The list iterator first reads index zero, obtaining two. Removing that value leaves [4,6,7]. The iterator advances to index one, which now contains six, not the shifted four at index zero. Removing six leaves [4,7]. Its next index two is beyond the current length, so iteration stops. The final result is [4,7].\n\nFour remains even because it was skipped after shifting, not because the predicate failed. A trace must record both the current sequence and the iterator's next positional index; tracking only the encountered values hides this dependency.\n\nA separate filtered result `[x for x in a if x % 2 != 0]` reads the source without deleting positions under the iterator. If caller aliases must keep referring to the same outer list, assigning the filtered result to the full slice can replace its contents while preserving that outer identity. A read/write compaction loop is another approach with an explicit write<=read invariant.\n\nThese repairs have different identity and allocation contracts. Simply iterating the same mutating list again is not a proof that all rejected values will be removed, and replacing remove with an index deletion does not by itself cure positional skipping.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "python",
       "data": [
@@ -1083,9 +1083,9 @@
     "id": "PA49",
     "title": "Identity versus equal contents",
     "stem": "Let a=[[1],[2]], b=a[:], c=[row[:] for row in a]. Evaluate a==b, a is b, a[0] is b[0], and a[0] is c[0]. What later mutation distinguishes b from c?",
-    "solution": "Initially a==b is true because the contents compare equal, but a is b is false because the outer slice made a different list. a[0] is b[0] is true because the shallow copy retained its inner references. a[0] is c[0] is false because the row slicing created distinct inner lists. Appending to a[0] also changes b[0] but not c[0]. The row-copy construction gives independence at this two-level example; it is not a universal deep copy when rows themselves contain mutable nested objects.",
+    "solution": "Initially a and its outer slice b contain equal lists, so a==b is true. Their outer objects are distinct, making a is b false. The outer slice copies the references to the inner lists, so a[0] is b[0] is true.\n\nThe row-copy comprehension for c executes a separate slice for each row. Thus a[0] is c[0] is false, even though their contents initially compare equal. Appending nine to a[0] changes the shared first inner list observed through b too, but c[0] remains [1]. Its other inner row is similarly independent in this particular two-level example.\n\nThe results therefore concern four different questions: equal values, identical outer objects, shared inner objects, and the depth to which copying was performed. They should not be condensed to a statement that b is a copy while c is a deep copy without defining the reachable structure.\n\nIf a row itself contained another mutable list, row[:] would copy only that row's outer slots and still share deeper targets. The construction supplies the independence required by this exact example, not a universal recursive-copy guarantee. Identity-sensitive diagrams should draw the actual inner edges rather than duplicating every displayed bracketed value.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "python",
       "data": [
@@ -1103,9 +1103,9 @@
     "id": "PA50",
     "title": "Mapped values and filtered values are different outputs",
     "stem": "For a=[-2,0,3,5], compare [x*x for x in a if x>0] with [x for x in a if x*x>0], then derive the first output sum.",
-    "solution": "The first expression filters original positive values three and five, then maps them to nine and twenty-five, giving [9,25] and sum 34. The second filters all nonzero original values because their squares are positive, but returns those original values, giving [-2,3,5]. The order and position of the map/filter expressions determine the result. The original input list is unchanged in this example because evaluating squares and comparisons does not mutate its integer objects. The output comprehension creates a new list but that alone does not imply deep copying for arbitrary mapped objects.",
-    "origin": "Course-inspired extension \u2014 UC Berkeley CS61A, Composing Programs \u00a72.3.3",
-    "difficulty": "Medium\u2013Hard",
+    "solution": "In `[x*x for x in a if x>0]`, the predicate first selects original values three and five. The output expression squares each selected value, producing [9,25], whose sum is thirty-four.\n\nIn `[x for x in a if x*x>0]`, the predicate accepts minus two, three and five because their squares are positive. The output expression is x, so it returns those original values, producing [-2,3,5]. Zero fails that predicate. The presence of a square in the filter does not make the output a square.\n\nFor the first sum, explicitly compute $3^2+5^2=9+25=34$. Summing the second output instead gives six. These are different mathematical reductions as well as different lists.\n\nNeither comprehension mutates the input here: integer comparisons and products provide values for a newly constructed outer list. That argument depends on the particular expressions and immutable integer elements. It does not establish that arbitrary predicates are pure, or that a comprehension returning mutable elements automatically duplicates those elements. Read the filter and output expression as separate parts of the contract.",
+    "origin": "Course-inspired extension — UC Berkeley CS61A, Composing Programs §2.3.3",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "python",
       "data": [
@@ -1127,14 +1127,14 @@
   {
     "id": "PA51",
     "title": "Code points, UTF-8 bytes and display units",
-    "stem": "For Python s=\"A\u00e9\", give len(s), len(s.encode(\"utf-8\")), and the number of stored characters in a UTF-8 C array initialized with the same two symbols plus a terminator. State the encoding assumption.",
-    "solution": "Python counts two Unicode code points, so len(s)=2. UTF-8 encodes A in one byte and \u00e9 in two, giving three encoded bytes. A C char array containing those UTF-8 bytes and a final zero occupies four C bytes in the stated eight-bit-byte UTF-8 environment, while its string byte length is three. None of these automatically counts grapheme clusters in more complex text. The C source/execution encoding assumption must be explicit; a literal containing a non-ASCII symbol need not use UTF-8 on every implementation. Mixing byte and code-point indices gives incorrect bounds.",
+    "stem": "For Python s=\"Aé\", find len(s) and len(s.encode(\"utf-8\")). In a C environment with eight-bit char bytes and UTF-8 execution encoding, how many char elements hold those UTF-8 bytes plus a final zero? Distinguish code points, encoded bytes and array capacity.",
+    "solution": "Python's s contains the code points for A and the precomposed character é, so len(s) is two. UTF-8 encodes A with one octet and this é with two, so len(s.encode('utf-8')) is three. Encoding changes the representation being counted, not the original string's code-point length.\n\nUnder the explicitly stipulated C environment with eight-bit char bytes and UTF-8 execution encoding, an array holding these encoded bytes plus its terminating zero needs four char elements. Its C string byte length is three, excluding that zero. The four storage elements do not mean four displayed characters.\n\nAn ordinary C source literal with non-ASCII text is not guaranteed to use UTF-8 on every implementation. The stipulated encoding and byte width make the requested char-element count unambiguous; a C type name is not itself a count of human-readable character units.\n\nFor more complex Unicode text, code points need not coincide with grapheme clusters either. The stated precomposed é makes this example unambiguous, but a combining sequence could display similarly with another code-point count. Byte and code-point indices cannot be exchanged in a bounds proof without an explicit decoding map.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "python",
       "data": [
-        "s=\"A\u00e9\";result=(len(s),len(s.encode(\"utf-8\")))",
+        "s=\"Aé\";result=(len(s),len(s.encode(\"utf-8\")))",
         [
           2,
           3
@@ -1145,10 +1145,10 @@
   {
     "id": "PA52",
     "title": "Embedded zero separates capacity from string length",
-    "stem": "In C, char s[8]={\\x27a\\x27,\\x27b\\x27,0,\\x27c\\x27}; determine sizeof s, strlen(s), s[3] and whether later initialized entries extend the string.",
-    "solution": "The real array has capacity eight bytes because sizeof(char)=1. Its first zero is at index two, so strlen(s)=2. s[3] is the initialized character c, and the remaining unspecified initializer entries are zero. Later initialized bytes exist as array elements but are not part of the string beginning at s. Thus a string length does not identify the array capacity, and a terminator does not end the storage object. A bounded array access to index three is valid even though a string operation starting at index zero stops earlier.",
+    "stem": "In C17 consider:\n\n```c\nchar s[8] = {'a', 'b', 0, 'c'};\n```\n\nDetermine sizeof s, strlen(s), s[3], and whether later initialized entries extend the string beginning at s.",
+    "solution": "The intended C declaration is:\n\n```c\nchar s[8] = {'a', 'b', 0, 'c'};\n```\n\nThe declaration creates eight char elements, and sizeof(char) is one C byte. Thus sizeof s is eight. Its explicit values occupy indices zero through three; the omitted initializer entries four through seven are zero-initialized.\n\nThe first zero starting at s is at index two, so strlen(s) is two. Index three still exists and contains the initialized character 'c'. A direct in-bounds read of s[3] is valid even though it is beyond the end of the string beginning at s.\n\nNo later character extends that first string past its terminator. Starting a different string operation at s+3 would instead see 'c' followed by the zero at index four and have length one. The array's capacity, the selected starting pointer and the first accessible zero jointly determine which string is observed.\n\nThe declaration's character literals denote actual initialized elements; the numeric zero denotes the first terminator. Keep those roles separate when locating any later string starting elsewhere in the same array.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "string",
       "data": [
@@ -1161,9 +1161,9 @@
     "id": "PA53",
     "title": "An exactly filled C character array lacks a terminator",
     "stem": "Classify char a[3]=\"cat\" and char b[]=\"cat\" in C17, then evaluate which may be passed to strlen without another change.",
-    "solution": "C permits the first initializer to fill the three-element array with c,a,t and omit the zero because there is no remaining slot. The declaration itself is allowed, but a is not a valid terminated string. strlen(a) cannot be assigned a portable result; it may read beyond its storage seeking a zero. b has four elements including the terminator and strlen(b)=3. The distinction is specifically C; language variants can differ. A known capacity and initialized characters are not sufficient\u2014the string operation requires an accessible terminating zero.",
+    "solution": "In C17, char a[3]=\"cat\" is permitted: the three available elements receive 'c', 'a' and 't', and the terminating zero is omitted because the declared bound leaves no room. The declaration itself is not the same as a valid zero-terminated string.\n\nThe inferred array b from char b[]=\"cat\" has four elements, including the zero at index three. Therefore sizeof b is four and strlen(b) is three. In contrast, strlen(a) lacks an accessible terminator within a's object and cannot be assigned a portable result. An unrelated zero in conveniently adjacent storage does not repair the interface precondition.\n\nThe distinction is specifically the stated C initialization rule; a C++ question needs its own language analysis. Replacing a's bound by four would provide the missing terminator, while simply casting a to another pointer type would not.\n\nIf the intent is to store exactly three nonterminated character elements, a is a valid buffer representation, but use operations with an explicit length rather than unbounded string scanning. Capacity and initialization establish real elements; the additional zero-termination contract determines whether a C string function may consume them.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "string",
       "data": null
@@ -1172,10 +1172,10 @@
   {
     "id": "PA54",
     "title": "Writable array versus literal target",
-    "stem": "Contrast char a[]=\"cat\"; const char *p=\"cat\"; a[0]=\\x27b\\x27;. What changes, and why is casting away const not permission to modify the literal?",
-    "solution": "The array a owns four writable character objects initialized from the literal, so the assignment changes its string to bat while keeping the terminator. p designates a separate string-literal array and still presents cat. A string literal is not a permitted modification target in C even if a cast changes the written pointer type. Type casts do not change storage permissions, object origin or lifetime. The caller\u2019s array and the literal can have equal initial values without being the same modifiable object. sizeof a counts its array, whereas sizeof p counts the pointer.",
+    "stem": "In C17 consider:\n\n```c\nchar a[] = \"cat\";\nconst char *p = \"cat\";\na[0] = 'b';\n```\n\nWhat changes? Why does casting away const not permit modifying the string literal?",
+    "solution": "The declaration char a[]=\"cat\" creates a writable four-element character array initialized from the literal's characters and terminating zero. Assigning a[0]='b' changes that array's first element and gives the string \"bat\". Its last zero remains intact.\n\nThe pointer p instead designates a string-literal array containing \"cat\". It does not designate a merely because the initial displayed characters matched. It still observes \"cat\" after a is changed. C string literals are not valid modification targets; casting away the written const qualification does not make their storage writable under the language rules.\n\nThe result depends on object origin and access contract, not only the pointer's apparent type. A cast can alter which type an expression presents, but cannot create a different backing object or extend its lifetime.\n\nsizeof a counts four char elements; sizeof p measures a pointer object and depends on the implementation. strlen(a) and strlen(p) both return three after the assignment because each first string still has three nonzero character bytes. Those equal lengths do not establish shared identity or permission to perform the same writes.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "literal",
       "data": null
@@ -1185,9 +1185,9 @@
     "id": "PA55",
     "title": "Bounded length finds a terminator or reports absence",
     "stem": "For bytes [65,66,67,0,88] with capacity five, derive a safe length scan. What should the same scan report for [65,66,67,88,89]?",
-    "solution": "Initialize k=0 and continue while k<capacity and a[k]!=0, checking the bound before the element access. The first buffer returns k=3 and reports a terminator found. The second reaches k=5 without reading a[5] and reports absence, not a valid string length for an unbounded string operation. The invariant states that every earlier position is nonzero and all tested indices were within storage. Short-circuit evaluation protects the current access at the boundary. Returning five without the absence status would confuse a buffer length with a verified string length.",
+    "solution": "Use a loop whose guard checks the capacity first:\n\n```c\nsize_t k = 0;\nwhile (k < capacity && a[k] != 0) ++k;\nbool found_zero = k < capacity;\n```\n\nAssume a names capacity readable initialized char elements, or capacity is zero and no element access is required. Short-circuit evaluation means a[k] is read only after k<capacity succeeds. At every boundary, all earlier tested positions are nonzero and $0\\le k\\le\\operatorname{capacity}$.\n\nFor [65,66,67,0,88], the first three tests advance k, and the test at index three finds zero. The result is k=3 with found_zero true. For [65,66,67,88,89], all five values are nonzero; k reaches five and the bound stops the loop before a[5] is read. The status is false.\n\nThe latter k is a scanned buffer extent, not a verified zero-terminated string length. Returning it without status could incorrectly authorize an unbounded string function. Swapping the guard operands would lose the boundary protection and attempt an invalid endpoint access in the unterminated case.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "boundedlength",
       "data": [
@@ -1206,9 +1206,9 @@
     "id": "PA56",
     "title": "Naive matching comparison count",
     "stem": "Search pattern \"aaab\" in text \"aaaaab\" by comparing left to right at starts zero upward, stopping each candidate at its first mismatch. Find the first match and total character comparisons.",
-    "solution": "There are three candidate starts, zero through two. At start zero, the first three a characters match and the fourth comparison mismatches a against b, costing four. Start one has the same four-comparison failure. Start two matches all four characters, so the result index is two and total comparisons are twelve. The worst-case bound $(6-4+1)4=12$ is attained here. Counting only failed comparisons would report two and omit successful tests. A match stops the search, so later candidate costs would not be charged even if they existed.",
+    "solution": "The text length is six and the pattern length four, giving candidate starts zero, one and two. At start zero, the first three 'a' comparisons succeed, and the fourth compares text 'a' with pattern 'b', failing. That candidate costs four comparisons.\n\nAt start one, the same three successes precede another fourth-position mismatch, for four more comparisons. At start two, all four characters match \"aaab\" and the search returns index two. The total is $4+4+4=12$ character comparisons.\n\nThe usual naive upper bound $(n-m+1)m$ equals twelve here and is attained. Counting only the two mismatch events omits ten successful equality tests. Counting loop guards as character comparisons would instead charge a different operation and must be stated separately.\n\nNo later candidate is explored after the first match. An explicit trace should identify the candidate start and current pattern position together, because the same text character can be compared during different candidates. More efficient search algorithms reduce this repeated work, but they are a different implementation; their costs cannot be silently substituted for the specified left-to-right naive search.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "search",
       "data": [
@@ -1223,9 +1223,9 @@
     "id": "PA57",
     "title": "An empty pattern and a longer pattern",
     "stem": "Specify first-match results for text \"abc\" with patterns \"\" and \"abcd\". Why should unsigned n-m not be calculated before the length comparison in C?",
-    "solution": "Under the explicit convention, the empty pattern matches at boundary zero and requires no character comparisons. The four-character pattern cannot fit within the three-character text, so it fails immediately. If n and m are size_t, n-m wraps when m>n and can create a huge apparent candidate count. Test the empty-pattern convention and m>n case first, then subtract. A candidate start is a boundary, whereas successful nonempty matching must keep all compared positions within actual elements. The failure case is determined by lengths and does not require examining text contents.",
+    "solution": "Under the stated first-match convention, the empty pattern matches the text at boundary zero and requires zero character comparisons. This is a boundary match; it does not demand an element from an empty pattern.\n\nThe pattern \"abcd\" has length four while text \"abc\" has length three. No nonnegative candidate start can leave room for all four pattern characters, so the search reports no match immediately, without comparing any character.\n\nWhen n and m are size_t, compute n-m only after establishing m<=n. Otherwise its unsigned interpretation or later conversion can produce a large apparent range instead of the intended negative mathematical difference. A safe control structure first handles m=0, then m>n, and only then visits starts from zero through n-m inclusive.\n\nFor each remaining candidate and each pattern position j<m, those conditions establish start+j<n. The proof must also choose machine arithmetic that cannot overflow while constructing the index. A return convention for failure must be explicit, for example a separate success flag and index or a defined sentinel. The problem's length rejection does not itself choose a universal C return type.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "searchboundaries",
       "data": null
@@ -1235,9 +1235,9 @@
     "id": "PA58",
     "title": "Appending requires one more slot than the visible result",
     "stem": "A writable C buffer of capacity nine contains \"abcd\". Can it append \"wxyz\" with a valid final terminator? What changes if capacity is eight?",
-    "solution": "The initial length is four and the appended length is four. The result needs $4+4+1=9$ slots, including the zero at index eight, so capacity nine is exactly enough. Capacity eight can store all eight visible characters but has no slot for the required terminator; it cannot hold that complete string. The proof must establish source termination, destination capacity and any overlap restrictions of the chosen copy operation. Counting only visible symbols is the standard off-by-one distractor. An unused spare slot before the operation is not automatically a verified terminator.",
+    "solution": "The old string length is four and the suffix length four. The required resulting storage is $4+4+1=9$ char elements: eight visible bytes plus one zero. With capacity nine, copy suffix characters into indices four through seven and store zero at index eight. The final string is \"abcdwxyz\".\n\nCapacity eight has no element at index eight. It can hold those eight nonzero bytes as a buffer but not that complete terminated string. Treating the one-past boundary as a spare terminator slot is precisely the off-by-one error.\n\nThe argument assumes both source and destination strings have already been validated to their respective accessible zeros. It must also respect any overlap restrictions of the selected copying operation. Sufficient destination capacity does not make overlapping strcpy-style use valid.\n\nFor a general overflow-safe capacity check, first establish old_length<capacity, reserving its current terminator, then require append_length<=capacity-old_length-1. This avoids forming an unchecked old_length+append_length+1. The numerical nine-byte example fits easily, but the subtraction-based contract transfers safely to large machine sizes.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "append",
       "data": [
@@ -1251,9 +1251,9 @@
     "id": "PA59",
     "title": "Argument pointer sentinel versus character sentinel",
     "stem": "Assume argc=3 and arguments are \"prog\", \"x\", \"yz\". Identify argv[2][1], argv[2][2], argv[3], and why argv[3][0] is invalid.",
-    "solution": "argv[2] points to the third argument string yz. Its element one is z and element two is the terminating zero character. argv[3] is the null pointer sentinel required after the argc argument pointers. Dereferencing argv[3] to request its first character is invalid; it does not point to a one-character empty string. There are three string pointers followed by a pointer sentinel, and each pointed-to string has its own character terminator. Confusing these two representation levels loses the distinction between an array of pointers and an array of characters.",
+    "solution": "With argc equal to three, argv[0], argv[1] and argv[2] point to the three argument strings. The third is \"yz\", so argv[2][1] is 'z', and argv[2][2] is its terminating zero character. The second access remains within that string's actual storage.\n\nargv[3], at the boundary argc, is a null pointer sentinel. It is not a pointer to an empty string. Attempting argv[3][0] would perform indirection through that null pointer and is invalid.\n\nA faithful diagram therefore has an outer array of pointers ending in a null pointer, and separate inner character arrays each ending in a zero character. The outer null is not another argument, while an inner zero is an actual element of its string storage.\n\nThis distinction also explains why argv is not a contiguous rectangular character matrix. Argument lengths differ and the outer elements are pointers, so advancing one outer position and one inner position use different types. Report the character values rather than assuming their numeric encoding, since no ASCII code table is needed for the requested identity of 'z'.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "argv",
       "data": null
@@ -1263,9 +1263,9 @@
     "id": "PA60",
     "title": "A signed char cannot be passed blindly to ctype",
     "stem": "A byte 0xE9 is stored in a char on an implementation where char is signed. Explain why toupper(s[i]) may violate its contract and how to prepare the argument.",
-    "solution": "The promoted char can be a negative int that is neither EOF nor representable as unsigned char. C\u2019s character-classification and conversion functions require EOF or an unsigned-char-representable value. Convert the stored byte to unsigned char before the call, for example toupper((unsigned char)s[i]). This fixes the argument-domain issue, not general Unicode uppercasing. In UTF-8 the byte may be one part of a multi-byte code point, and bytewise conversion is not a full text transformation. Stating an ASCII-only domain can simplify a separate arithmetic exercise but cannot justify passing arbitrary negative char values.",
+    "solution": "Under an implementation where the stored non-ASCII byte promotes to a negative int distinct from EOF, passing it directly to toupper violates that function's domain. Its valid inputs are EOF and values representable as unsigned char. Plain signed char values do not automatically meet that contract.\n\nFor a byte obtained from the char array, use `toupper((unsigned char)s[i])`. Converting before the function call produces the corresponding unsigned-byte value, which integer promotion then presents in the valid domain. Casting the returned value afterwards would be too late to repair the argument.\n\nThis is distinct from preserving the EOF result of an input function, which must be tested as int rather than prematurely narrowed to char. The example's value is a stored byte, not an EOF-bearing input result.\n\nThe conversion solves the library precondition, not Unicode uppercasing. A byte can be part of a multibyte UTF-8 sequence, and locale-sensitive byte conversion need not map a whole code point. An ASCII-only arithmetic exercise has a narrower explicit domain and cannot justify feeding arbitrary negative char values to ctype functions.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "ctype",
       "data": null
@@ -1275,9 +1275,9 @@
     "id": "PA61",
     "title": "Returned substring pointer and lifetime",
     "stem": "A C search returns a pointer to a matching character inside its text argument. What ownership and lifetime facts permit later use? Contrast a pointer into a local automatic buffer returned by the function.",
-    "solution": "The returned pointer designates part of the original text storage, not a new allocated copy. Later access requires that the text object remain alive and that its intended characters stay initialized and within bounds. The search cannot transfer ownership merely by returning an interior pointer; freeing that interior pointer is not equivalent to freeing an owning allocation pointer. A pointer into a local automatic buffer becomes invalid when that buffer\u2019s lifetime ends at function return. A numerically plausible address or unchanged bytes observed later do not restore the ended object lifetime.",
+    "solution": "A successful search returning an interior pointer identifies an element of the caller-supplied text object. It allocates no new character array and does not automatically transfer ownership. To read the result later, the original object must remain alive, the selected access must stay within its object domain, and the characters being read must have usable initialized values.\n\nIf the owner frees or successfully reallocates the backing allocation, a saved interior pointer is not preserved as a valid access handle. Mutating the text without ending its lifetime can also change what a still-valid pointer observes; stable location is not a promise of stable contents.\n\nAn interior pointer is not generally the owning pointer returned by an allocator and cannot simply be passed to free. Ownership must remain with the interface that owns the complete allocation. A returned pointer into a callee's ordinary automatic buffer is worse: that buffer ends its lifetime on return, so subsequent access has no valid referent.\n\nReturning a position plus explicit success status can make borrowing clearer, but using that position still requires a live compatible text object. Observed unchanged bytes or a plausible numeric address cannot extend an expired object's lifetime.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "lifetime",
       "data": null
@@ -1287,9 +1287,9 @@
     "id": "PA62",
     "title": "Exact doubling work for a particular length",
     "stem": "An initially empty container reserves capacity one and doubles when full. After 13 successful appends, find final capacity, total elements copied during expansions, total writes including new values and peak simultaneously allocated slots.",
-    "solution": "Expansion capacities are 2,4,8,16, copying the old live counts 1,2,4,8. Final capacity is 16 and copy work is 15. Adding the thirteen new-element writes gives 28 writes. During the final expansion, blocks of capacity eight and sixteen coexist, so the peak is 24 slots. Logical length is thirteen, distinct from both final capacity and peak capacity. An individual ninth append copies eight elements before its own write; amortized constant cost therefore does not imply constant cost for that operation.",
-    "origin": "Course-inspired extension \u2014 Stanford CS106B Lecture 17, expansion model",
-    "difficulty": "Medium\u2013Hard",
+    "solution": "Starting at capacity one, appends that exceed capacities one, two, four and eight allocate capacities two, four, eight and sixteen. They copy respectively one, two, four and eight live elements. Thirteen successful appends therefore finish at logical length thirteen and capacity sixteen.\n\nTotal copied elements are $1+2+4+8=15$. The thirteen new values each require another write, giving twenty-eight element writes in the specified model. Initial reservation does not copy an element, and no extra growth occurs merely because an append exactly fills the current capacity.\n\nDuring the final allocate-copy-release expansion, the old capacity-eight block and new capacity-sixteen block coexist, giving peak backing storage twenty-four slots. This differs from both the final capacity sixteen and final logical length thirteen.\n\nThe ninth append alone copies eight old elements before storing its new value, so it has linear cost in the previous length. A constant amortized cost distributes expansion work across a whole sequence of operations; it is not a constant upper bound on that single append. The count assumes successful allocations, unit-cost element assignments and explicit coexistence, rather than an allocator that can extend a block in place.",
+    "origin": "Course-inspired extension — Stanford CS106B Lecture 17, expansion model",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "doubling",
       "data": [
@@ -1305,9 +1305,9 @@
     "id": "PA63",
     "title": "General doubling bound and exact powers",
     "stem": "Prove copied-element work is c-1 when final capacity c is a power of two reached from capacity one. Relate it to final positive length n, including n=1.",
-    "solution": "Each expansion copies its previous full capacity, so the sum is $1+2+\\cdots+c/2=c-1$. At c=1 no expansion occurs and the empty sum is zero, matching the formula. Choosing the least power of two at least n gives $n\\le c<2n$, hence c-1<2n. Including new writes gives less than 3n. If n itself is a power of two, c=n and the exact copy work is n-1. These relations assume no deletions, failed allocations or costly element copies; they count element assignments rather than every machine instruction.",
+    "solution": "If final capacity c is a power of two, the expansion copies are one, two, four and so on through c/2. Their sum is c-1. At c equal to one there are no expansions and the empty sum is zero, also c-1.\n\nFor positive final length n, c is the least power of two at least n. Thus $n\\le c<2n$. The copied-element work c-1 is less than 2n, and including n stores of new elements gives less than 3n. Dividing that sequence cost by n establishes a constant amortized bound under the unit-copy model.\n\nWhen n itself is a power of two, c=n and the exact copy total is n-1. Just after a threshold, for example n=9, capacity jumps to sixteen and copying totals fifteen, illustrating why copy work is not always n-1.\n\nThe proof assumes no deletions, failed operations, or costly nested copy behavior. Counting initial allocation, allocation latency or constructor work would require an enlarged cost model. A uniform bound on total assignments does not establish a physical time bound independent of element type, nor eliminate an individual expansion's linear copying cost.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "doublingproof",
       "data": null
@@ -1317,9 +1317,9 @@
     "id": "PA64",
     "title": "Additive growth causes a quadratic sum",
     "stem": "Initial capacity is three; whenever full it grows by three. After 12 appends, calculate copied elements and derive the order for n=3m appends.",
-    "solution": "For twelve appends, expansions copy 3,6,9 live elements and final capacity is twelve, so copy work is 18. For n=3m, expansions copy $3,6,\\ldots,3(m-1)$, totaling $3m(m-1)/2$. Since m=n/3, the leading term grows quadratically in n. New-element writes add only n. A fixed additive increment therefore cannot use the same geometric bound as doubling. The exact sum depends on whether initial allocation is counted and whether a capacity expansion happens only before an append that would exceed current capacity; those conventions are stated here.",
+    "solution": "With initial capacity three, the fourth, seventh and tenth appends trigger expansions to six, nine and twelve. They copy three, six and nine existing elements. After twelve appends, final capacity is twelve and total copied elements are eighteen. New-value stores contribute another twelve, for thirty assignments in this model.\n\nFor n=3m appends, expansions copy $3,6,\\ldots,3(m-1)$. Their total is\n\n$$3\\sum_{j=1}^{m-1}j=\\frac{3m(m-1)}{2}=\\frac{n^2}{6}-\\frac{n}{2}.$$\n\nAdding n new-value stores retains quadratic growth of total work and gives a linear, rather than constant, average cost per append as n grows.\n\nThe exact endpoints matter: reaching length three uses the initial block without expansion, and reaching length twelve exactly does not allocate fifteen. An implementation that expands proactively on becoming full would have a different count. The stated policy expands only before an append that would exceed capacity. Fixed additive increments cannot use the geometric-series argument for doubling because successive copied sizes differ by a constant rather than a fixed ratio.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "additive",
       "data": [
@@ -1333,9 +1333,9 @@
     "id": "PA65",
     "title": "A growth factor other than two",
     "stem": "Capacity begins at one and triples when full. After ten appends, find final capacity and copy work. Explain why this does not prove tripling universally better or worse than doubling.",
-    "solution": "Full capacities one, three and nine are copied before reaching capacity 27. Thus copy work is 1+3+9=13 and new writes add ten. The total is 23 element writes, but 17 final spare slots remain. With doubling, ten appends reach capacity sixteen and copy fifteen elements, so that particular comparison trades less copying for more reserved storage. Different operation counts and memory constraints can favor different factors. Both fixed factors above one give linear total copy work under the simple model; the phrase \u201cmost efficient\u201d requires a specified objective and cost model.",
+    "solution": "Tripling from capacity one copies one live element to capacity three, three to capacity nine, and nine to capacity twenty-seven. The tenth append needs that final expansion, so copy work is thirteen. Adding ten stores of new values yields twenty-three element writes, with seventeen spare slots at completion.\n\nDoubling for the same length reaches capacity sixteen and copies $1+2+4+8=15$ elements, giving twenty-five total writes and six spare slots. Under these exact conventions, tripling performs two fewer copied-element writes but reserves eleven more final slots.\n\nNeither comparison ranks a growth factor universally. Peak simultaneous storage, allocation costs, future append count, element-copy expense and memory limits can change the preferred objective. For instance, allocate-copy-release tripling from nine to twenty-seven temporarily holds thirty-six slots, versus twenty-four at doubling's last expansion here.\n\nEvery fixed multiplicative factor greater than one yields a geometric copied-work series and therefore linear total copying under the simple model. Its constants and unused-capacity bounds differ. A claimed efficiency result must name which quantity is minimized; an asymptotic equivalence does not imply equal practical costs or equal memory use.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "tripling",
       "data": [
@@ -1349,9 +1349,9 @@
     "id": "PA66",
     "title": "Allocation overflow and an exact boundary",
     "stem": "Assume SIZE_MAX=65535 and an eight-byte element type. What is the largest n for which n*sizeof(element) fits, and why is checking the wrapped product afterward insufficient?",
-    "solution": "The multiplication is representable exactly when $n\\le\\lfloor65535/8\\rfloor=8191$. That maximum requests 65528 bytes. n=8192 would need 65536 and wraps to zero in the stated unsigned arithmetic. Comparing a wrapped product with SIZE_MAX cannot detect the original mathematical overflow because every wrapped unsigned result already lies in the type\u2019s range. Check n against the quotient before multiplication, then handle allocation failure. This arithmetic certificate permits a byte-count computation; it does not guarantee that memory is available or that all created elements have been initialized.",
+    "solution": "The mathematical request is representable in the stipulated size_t exactly when $8n\\le65535$, giving $n\\le8191$. The maximum valid count requests 65528 bytes. At n=8192 the mathematical request is 65536, which cannot be represented by that size_t.\n\nIt is not sufficient to assert that multiplication necessarily wraps merely because SIZE_MAX is 65535. If size_t is a narrower unsigned type and int can represent its full range, integer promotions can evaluate the product in a wider int and obtain 65536 exactly. Conversion of that value to the stipulated size_t, for example for an allocation argument, then reduces it to zero. An explicitly sixteen-bit unsigned evaluated product can instead wrap during the multiplication itself.\n\nOnce the invalid result has been stored as size_t, comparing it with SIZE_MAX cannot recover the lost high bits; every such stored value already lies within the type's range. A genuinely wider untruncated product can be checked, but that is a different computation.\n\nUse the precondition n<=SIZE_MAX/sizeof *p before constructing the allocation count. This proves representability of that count, not allocation success, object initialization or lifetime. These remain separate obligations.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "allocation",
       "data": [
@@ -1364,10 +1364,10 @@
   {
     "id": "PA67",
     "title": "A failed realloc must not lose the owner",
-    "stem": "Explain the problem with p=realloc(p,new_bytes) when failure is possible. What references remain valid after a successful move versus after failure?",
-    "solution": "On allocation failure, realloc returns null while the original allocation remains valid. Assigning the result directly to the sole owner p overwrites the only saved original pointer and can leak that block. Store the result in a temporary, test success and update p only afterward. On successful reallocation, use the returned pointer; old interior pointers and references into the prior allocation are not retained as valid access handles, even if observed addresses seem unchanged. On failure, the old allocation and its existing valid interior pointers remain available. State new_bytes>0 here to avoid version-dependent zero-size corner cases.",
+    "stem": "Assume new_bytes > 0. Explain the problem with p=realloc(p,new_bytes) when allocation failure is possible. What references remain valid after successful reallocation versus after failure?",
+    "solution": "Assume new_bytes is positive. On allocation failure, realloc returns null and the original allocation remains available. If p is its only saved owning pointer, assigning `p = realloc(p,new_bytes)` overwrites that pointer with null and can lose the ability to release or use the still-live block.\n\nUse a temporary result:\n\n```c\nvoid *next = realloc(p, new_bytes);  /* new_bytes > 0 */\nif (next != NULL) {\n    p = next;\n    /* Recompute any required interior pointers from the new allocation. */\n} else {\n    /* p still owns the original allocation. */\n}\n```\n\nOn success, use the returned allocation pointer. The prior allocation's lifetime has ended; old owning and interior pointer values are not preserved as valid handles even if the observed numeric address happens to be unchanged. Reestablish positions from saved offsets under the new size bounds.\n\nOn positive-size failure, previously valid interior pointers remain tied to the original live allocation. The guarantee must not be generalized to every null result of a zero-size request. Handle that C17 corner separately, and validate byte-count arithmetic before the call rather than treating allocation failure handling as an overflow repair.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "realloc",
       "data": null
@@ -1377,9 +1377,9 @@
     "id": "PA68",
     "title": "Shifts and growth costs in one insertion",
     "stem": "A full dynamic sequence of length/capacity eight inserts at index two after doubling. Count old-element copies, subsequent shifts, new-element write and peak slots under an implementation that first expands then shifts.",
-    "solution": "Expansion copies all eight old live elements into capacity sixteen. Insertion then shifts n-k=6 elements from indices seven down to two, followed by one new-element write. The specified implementation therefore performs fifteen element writes: eight copies, six shifts and one new write. Peak capacity during expansion is 8+16=24 slots. A different implementation could copy directly into final shifted positions and avoid some duplicate assignments, so the count is tied to the declared execution strategy. The logical result still needs length nine and stable preservation of the old order around the inserted value.",
+    "solution": "The full sequence has eight live elements and no spare slot. Its expansion allocates sixteen slots and copies all eight old values. The old eight-slot block coexists until release, giving a peak of twenty-four backing slots.\n\nInsertion at index two then shifts the six old elements at indices two through seven one position right, in descending order. A final store writes the inserted value. The declared expand-then-shift strategy therefore performs $8+6+1=15$ element writes and ends at logical length nine.\n\nThe descending suffix movement protects unread values, while expansion itself preserves the entire old logical prefix in separate storage. These are two different preservation arguments, even though some elements participate in both sets of writes.\n\nA different implementation can allocate the new block and copy each old element directly to its final side of the insertion gap, reducing repeated assignments. That possibility does not change the requested fifteen, because the question explicitly selects the first strategy. Exact operation counts must follow the stated execution rather than silently substituting a more efficient algorithm with the same final sequence.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "growthinsert",
       "data": [
@@ -1396,9 +1396,9 @@
     "id": "PA69",
     "title": "Shrink threshold thrashing",
     "stem": "A container of capacity eight shrinks to four as soon as length becomes four, and doubles when a fifth element is inserted. Explain the cost of repeatedly deleting and re-appending the fifth item.",
-    "solution": "Each deletion reaches length four and copies four elements into a capacity-four block. The next append finds that block full, copies four elements into capacity eight and writes the new item. Repeating the pair causes eight copied elements every cycle despite the sequence length fluctuating by only one. For a scaled capacity c with shrink at c/2, the pair can cost a linear number of copies in c. A lower shrink threshold, such as one quarter with a suitable minimum-capacity policy, leaves room for many operations before the opposite resize and prevents this immediate oscillation.",
+    "solution": "Begin with five values in capacity eight. Deleting the fifth value leaves four and immediately triggers the stipulated shrink: four remaining elements are copied to capacity four. Re-appending a fifth value finds that block full, copies those same four elements to capacity eight, then stores the new value.\n\nEach delete/append pair therefore copies eight elements and writes one new value, repeatedly allocating and releasing blocks even though logical length changes by only one. In a scaled version with thresholds c/2 and c, one such opposing pair can copy a quantity proportional to c without many intervening operations to pay for it.\n\nA smaller shrink threshold supplies hysteresis. For example, after shrinking from c to c/2 at length c/4, the new block is half full and many appends can occur before expansion. The exact amortized proof must state the growth/shrink factors and minimum capacity, rather than merely suggesting a threshold informally.\n\nThe example concerns resize copies, separate from the cost of deleting a middle element. Its fifth-item deletion can remove the last logical element without shifts, yet the resize policy still creates the repeated copying overhead.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "hysteresis",
       "data": null
@@ -1407,10 +1407,10 @@
   {
     "id": "PA70",
     "title": "A precise cold cache-line comparison",
-    "stem": "An 8\u00d78 row-major integer matrix uses four-byte elements and starts on a 32-byte line boundary. With one cache line, count line fills for complete row-major and column-major traversals, assuming every new line evicts the previous one.",
-    "solution": "One cache line holds eight integers, exactly one row. Row-major traversal reads all eight entries of a row after one fill and then moves to the next line, totaling eight fills. Column-major traversal visits rows zero through seven for each column; every next access selects a different line and the one-line cache cannot retain an earlier row. It therefore causes 64 fills. Both traversals perform 64 element reads. The conclusion depends on alignment and the explicitly one-line cache; a cache large enough to retain all eight rows would have different reuse behavior.",
+    "stem": "An 8×8 row-major integer matrix uses four-byte elements and starts on a 32-byte line boundary. With one cache line, count line fills for complete row-major and column-major traversals, assuming every new line evicts the previous one.",
+    "solution": "Each row contains eight four-byte elements, exactly thirty-two bytes, and the first row starts on a line boundary. Therefore each complete row occupies one cache line. A cold row-major traversal fills that line once and reuses it for the remaining seven elements, giving eight fills across the eight rows.\n\nColumn-major traversal reads one element from each of eight different row lines before returning to the next column. Each next row access requests a line different from the sole resident line and therefore misses. Returning to the first row at the next column also misses, so all sixty-four element reads cause fills.\n\nBoth loops perform sixty-four element accesses. The counts eight and sixty-four describe misses under the explicitly cold, one-line, no-retention model, not different arithmetic complexity.\n\nAlignment, capacity and replacement assumptions are essential. A cache able to retain all eight row lines can reuse them across columns; a different starting alignment can make a row cross a line boundary. Real hardware may also prefetch. None of those alternative models should be silently added to this exact counting exercise.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "cache",
       "data": [
@@ -1425,9 +1425,9 @@
     "id": "PA71",
     "title": "Cold lines for a misaligned contiguous scan",
     "stem": "Read eleven consecutive four-byte elements beginning at byte offset eight within a 16-byte cache line. Count distinct lines touched in a simple no-prefetch model.",
-    "solution": "The read occupies bytes from relative offset eight through $8+44-1=51$. Line indices range from floor(8/16)=0 through floor(51/16)=3, so four distinct lines are touched. Dividing the total 44 bytes by sixteen and rounding up gives three, but misses the partially occupied initial and final lines due to alignment. The exact interval formula is $\\lfloor(B+nw-1)/L\\rfloor-\\lfloor B/L\\rfloor+1$ for positive n. A zero-length read touches no lines and must be handled before subtracting one.",
+    "solution": "Eleven consecutive four-byte elements cover forty-four bytes. Beginning eight bytes into a sixteen-byte line, they occupy the inclusive byte interval eight through $8+44-1=51$ relative to that line's start.\n\nThe first line index is floor(8/16)=0 and the last is floor(51/16)=3, so four distinct lines are touched: intervals 0–15, 16–31, 32–47 and 48–63. The first and final selected portions are partial lines.\n\nRounding forty-four divided by sixteen upward gives three, which would suffice only for a suitably aligned starting interval. It ignores the eight-byte starting displacement. For positive length n, the general count is\n\n$$\\left\\lfloor\\frac{B+nw-1}{L}\\right\\rfloor-\\left\\lfloor\\frac{B}{L}\\right\\rfloor+1.$$\n\nHandle n=0 first: no byte is accessed and no line is touched. In machine code the positive-case endpoint expression also requires nonoverflowing address arithmetic. The count concerns distinct lines for the contiguous read interval under the stipulated model; cache conflict behavior of a different noncontiguous traversal requires another analysis.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "cacheinterval",
       "data": [
@@ -1443,9 +1443,9 @@
     "id": "PA72",
     "title": "Circular buffer length distinguishes full and empty",
     "stem": "A circular buffer has capacity seven, head five and logical length four. List physical indices in logical order and the next append position. What does head=tail alone reveal?",
-    "solution": "Logical offsets zero through three map to $(5+t)\\bmod7$, giving physical indices [5,6,0,1]. The next append position is (5+4) mod seven, namely two. With a separate length, full is n=7 and empty is n=0. In both cases head can equal tail, so equality of those indices alone cannot distinguish them. Another design reserves one unused slot, but that changes usable capacity and must be stated. Modulo requires positive capacity; the logical-bound proof also requires 0\u2264n\u2264c and 0\u2264head<c.",
+    "solution": "With head five and capacity seven, logical offsets zero, one, two and three map to physical indices $(5+t)\\bmod7$, namely [5,6,0,1]. Their logical adjacency crosses the physical end without moving any slot. The next append position is $(5+4)\\bmod7=2$.\n\nIf a separate length is stored, empty means length zero and full means length seven. In both cases the tail boundary can equal the head, so head=tail alone cannot distinguish them. A reserved-empty-slot representation resolves ambiguity differently and reduces the usable capacity; it must not be mixed with the present length-counted representation.\n\nThe general proof requires positive capacity, a head in zero through capacity-1, and a logical length between zero and capacity. Every valid logical offset then maps into a physical slot, and offsets within one capacity are distinct modulo it.\n\nIn fixed-width code, the mathematical formula does not automatically justify an overflowing head+length intermediate. Use a safe conditional wrap or a sufficiently wide representation. The small values here are safe, but modulo after overflow is not a universal repair for arbitrary capacities.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "ring",
       "data": [
@@ -1465,10 +1465,10 @@
   {
     "id": "PA73",
     "title": "Rectangular transpose cycle",
-    "stem": "For a 2\u00d73 row-major sequence, list the original-to-destination transpose permutation and its nontrivial cycle. Why is a square diagonal-swap loop insufficient?",
-    "solution": "The coordinate map sends original offsets [0,1,2,3,4,5] to destination offsets [0,2,4,1,3,5]. Thus zero and five are fixed, and the nontrivial cycle is 1\u21922\u21924\u21923\u21921. A square matrix\u2019s pairwise (i,j)\u2194(j,i) swaps rely on equal source and destination shapes. Here the new row width is two rather than three, so the physical permutation has a four-cycle instead of only disjoint transpositions. A cycle algorithm must retain one temporary value and move in the appropriate direction, or use separate output storage.",
+    "stem": "For a 2×3 row-major sequence, list the original-to-destination transpose permutation and its nontrivial cycle. Why is a square diagonal-swap loop insufficient?",
+    "solution": "Decode source offset as (i,j) in a two-by-three shape and encode its transpose as (j,i) in a three-by-two shape. The original-to-destination map is [0,2,4,1,3,5]. In particular, one goes to two, two to four, four to three and three back to one.\n\nThe nontrivial cycle is therefore 1,2,4,3,1. Positions zero and five are fixed. For original values [a,b,c,d,e,f], a separate destination becomes [a,d,b,e,c,f]. An in-place cycle algorithm can save b, place it at destination two while saving the displaced c, then continue through four, three and one.\n\nA square transpose's pairwise swaps rely on the source and destination having the same row extent. Here the row width changes from three to two; the physical permutation has a four-cycle rather than only two-cycles. Treating every coordinate pair as one symmetric swap can therefore revisit or misplace values.\n\nThe inverse transpose uses the swapped shape, not the same original flattening map a second time. This distinction separates a mathematical coordinate involution from the physical permutations expressed in different source and destination layouts.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "transposecycle",
       "data": [
@@ -1493,9 +1493,9 @@
     "id": "PA74",
     "title": "Packed triangular inversion without a floating shortcut",
     "stem": "A lower-triangular row-major packing including the diagonal has flat offset 17. Recover its row and column, and give an exact method that avoids floating rounding.",
-    "solution": "Find i with $i(i+1)/2\\le17<(i+1)(i+2)/2$. Triangular starts are 0,1,3,6,10,15,21, so i=5 and j=17-15=2. The coordinates are (5,2), requiring at least six rows in the containing matrix. A binary search over triangular starts gives an exact integer inversion when products are safely computed; blindly flooring a floating square-root expression can misclassify large boundary values. The column must satisfy 0\u2264j\u2264i after inversion. The address of an interior byte would first require conversion to an aligned element offset.",
+    "solution": "Lower row i begins at triangular offset $T_i=i(i+1)/2$ and contains i+1 values. Find the unique i satisfying $T_i\\le17<T_{i+1}$. The starts are 0,1,3,6,10,15,21, so row five owns seventeen. Its column offset is $17-15=2$, giving (5,2).\n\nThe containing matrix needs at least six rows, and the recovered column satisfies zero<=2<=5. If a finite matrix order were supplied, its total packed length would also need to exceed seventeen; inversion does not independently prove that the allocation exists.\n\nAn exact binary search over triangular starts locates the row without floating rounding. Alternatively, arbitrary-precision integer square-root arithmetic can supply a candidate that is verified against both inequalities. An unchecked floating square-root formula can round incorrectly near a large triangular boundary.\n\nEven an integer search must avoid overflowing i(i+1) before dividing by two. Use suitable width or divide an even factor before multiplication with a remaining range check. The final packed offset fitting in a type does not prove every candidate product evaluated during inversion fits that same type.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "triangleinverse",
       "data": [
@@ -1508,10 +1508,10 @@
   {
     "id": "PA75",
     "title": "Pairwise distinct index count",
-    "stem": "How many pairs (i,j) satisfy 0\u2264i<j<n, and how does it differ from a loop that includes i=j? Derive from row lengths.",
-    "solution": "For each i, there are n-i-1 possible larger j values. Summing lengths n-1 down to zero gives n(n-1)/2. Including the diagonal adds n pairs and produces n(n+1)/2. At n=5 the counts are ten and fifteen. A rectangular n\u00b2 iteration counts ordered pairs and includes both orientations and the diagonal, so it is not the same region. The triangular count also explains the number of swaps in square transposition. A finite-type implementation must preserve the products or reduce a factor before multiplying.",
+    "stem": "How many pairs (i,j) satisfy 0≤i<j<n, and how does it differ from a loop that includes i=j? Derive from row lengths.",
+    "solution": "For a fixed i from zero through n-1, the indices strictly above it are i+1 through n-1, giving n-i-1 possibilities. Summing these row lengths yields\n\n$$\\sum_{i=0}^{n-1}(n-i-1)=\\frac{n(n-1)}{2}.$$\n\nIncluding i=j adds one pair for each of the n rows, giving n(n+1)/2. At n=5 the respective counts are ten and fifteen. At n=0 both are zero, and at n=1 only the included-diagonal region has one pair.\n\nThe full n-by-n rectangle instead has n squared ordered positions: it includes both orientations of off-diagonal pairs as well as the diagonal. For a square transpose, selecting only i<j visits each unordered off-diagonal pair once, giving exactly the required swap count rather than swapping each pair twice.\n\nThese are mathematical products. To implement the count in a finite type, divide the even factor before multiplying or use an appropriate wider checked representation, and establish that the resulting count itself fits. If n is an unsigned zero, blindly forming n-1 can underflow before a later multiplication by zero; handle that empty case explicitly.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "pairs",
       "data": [
@@ -1525,9 +1525,9 @@
     "id": "PA76",
     "title": "A minimum interface can be safe with a stronger contract",
     "stem": "The C0 course asks what useful function can inspect an array without an ordinary length parameter. Discuss the role of a known nonempty contract versus an arbitrary array with no such contract.",
-    "solution": "For an arbitrary array that may be empty and whose length cannot be read in ordinary C0 code, no unconditional element access is proved safe. However, a stronger contract that guarantees at least one element allows a useful function returning A[0], even without a length parameter. A sentinel-terminated contract can also permit a specified scan, provided the sentinel is guaranteed within accessible storage. The source\u2019s negative answer depends on the unconstrained interface, not on a universal impossibility of array functions without a separate length argument. Precisely state which information the caller promises before rejecting or constructing an implementation.",
-    "origin": "Course-inspired extension \u2014 CMU 15-122 Lecture 3, exercise 3",
-    "difficulty": "Medium\u2013Hard",
+    "solution": "For an arbitrary array that may be empty, an unconditional A[0] access is not proved safe merely because an array parameter exists. If ordinary C0 code has no accessible length information and the interface gives no other promise, it cannot justify even its first read.\n\nA stronger precondition can change the answer. If the caller guarantees at least one accessible initialized element, a function returning A[0] is useful and safe without receiving a separate numeric length parameter. A guaranteed sentinel within accessible storage can similarly justify a particular scan; a sentinel that might be absent cannot.\n\nThe negative conclusion in the course exercise must therefore be read under its unconstrained interface. It is not a universal impossibility theorem for every array-related function lacking a length argument. Nor does a contract magically expose hidden allocation metadata: it supplies an assumption the caller must establish.\n\nFor C, ordinary pointer/array parameters likewise carry no automatic runtime extent. The intended domain can be conveyed through a length, a stronger fixed-bound contract, a validated container, or a valid terminator convention. Each option needs an explicit proof of safe access and termination under its actual promises.",
+    "origin": "Course-inspired extension — CMU 15-122 Lecture 3, exercise 3",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "interface",
       "data": null
@@ -1537,9 +1537,9 @@
     "id": "PA77",
     "title": "Signed sum range and cancellation",
     "stem": "For signed 32-bit integers, A=[2147483647,1,-1] has mathematical sum 2147483647. Is the straightforward left-to-right int accumulator safe? Give a safer representability argument.",
-    "solution": "The second addition mathematically produces 2147483648, outside the signed 32-bit range, so the straightforward C int accumulation overflows even though the final mathematical sum fits. Signed overflow is not a guaranteed wraparound computation. Accumulate in a type wide enough for every partial sum, or check each addition against its representable limits. Reordering these particular terms to combine one and minus one first avoids this instance but is not a general safety proof. The invariant must include both the mathematical partial-sum relation and its machine representability at every operation.",
+    "solution": "The mathematical partial sums in the specified order are 2147483647, then 2147483648, then 2147483647. The second exceeds the maximum signed thirty-two-bit value. Thus straightforward C int accumulation is not safe even though the final mathematical total fits.\n\nSigned overflow is not a promised wraparound result. A convenient numerical output from a particular compilation cannot validate this execution. The loop invariant needs both equality to the mathematical processed-prefix sum and representability of the next addition.\n\nA wider accumulator whose range covers every partial sum can compute this example safely. Alternatively, before adding a positive x require current<=INT_MAX-x, and before a negative x require current>=INT_MIN-x, with correctly typed bounds and operations. Merely checking the completed total after overflow is too late.\n\nReordering this particular input to cancel one with minus one first avoids its overflow, but arbitrary reordering is not a general safety proof and can change other algorithms' semantics. An absolute-sum bound supplies a sufficient wider-range argument, although it may be conservative. Distinguish mathematical addition identities from the evaluation order and representation of a concrete implementation.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "overflow",
       "data": null
@@ -1548,10 +1548,10 @@
   {
     "id": "PA78",
     "title": "A bounding proof for two source indices",
-    "stem": "A loop reads A[i] and A[n-1-i] for i=0..floor(n/2)-1. Prove both accesses are valid for every n\u22650 and identify whether an odd center is visited.",
-    "solution": "When the loop executes, n\u22652 and $0\\le i<\\lfloor n/2\\rfloor<n$, proving the low access. Also i\u2264n-1 gives n-1-i\u22650, and i\u22650 gives n-1-i\u2264n-1. Thus the high access is valid. The two positions lie on opposite sides because the bound stops before they meet. For odd n, the center (n-1)/2 is not visited; it would pair with itself and is unnecessary for reversal. At n=0 or one the body is skipped, so no invalid n-1 element access occurs.",
+    "stem": "A loop reads A[i] and A[n-1-i] for i=0..floor(n/2)-1. Prove both accesses are valid for every n≥0 and identify whether an odd center is visited.",
+    "solution": "An executed iteration has $0\\le i<\\lfloor n/2\\rfloor$, so n is at least two. The low index i is below n. For the high index, i>=0 implies n-1-i<=n-1, and i<=n-1 implies n-1-i>=0. Both selected positions therefore exist.\n\nThey are distinct: the loop bound gives $2i<n-1$ for every executed pair, so i lies strictly below its reflected partner. For odd n, the center (n-1)/2 is excluded; pairing it with itself would not contribute a reversal swap.\n\nFor n=0 or n=1, the iteration range is empty. A concrete implementation must preserve this evaluation order: test the loop guard before calculating n-1-i for an access. Precomputing an unsigned n-1 before checking the empty case is a different program and needs another argument.\n\nThere are exactly floor(n/2) pairs. Their low positions are distinct, their high positions are distinct, and no low position equals a high one. Consequently every off-center element participates once, providing the disjoint-pair structure used by a reversal invariant.",
     "origin": "Original examination-style problem",
-    "difficulty": "Medium\u2013Hard",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "boundsproof",
       "data": null
@@ -1560,10 +1560,10 @@
   {
     "id": "PA79",
     "title": "A polynomial fill with machine-range qualification",
-    "stem": "Construct a length-n sequence B[k]=(k+1)\u00b2 for 0\u2264k<n and prove the fill invariant. If using signed 32-bit multiplication, find the largest n whose values fit.",
-    "solution": "Before iteration i, keep $0\\le i\\le n$ and $B[k]=(k+1)^2$ for every k<i. Initially there are no filled entries. The guard i<n proves a valid destination, and writing (i+1)\u00b2 extends the invariant through i. Advancing i preserves the bound; n-i proves termination. At exit every required value is filled. For signed 32-bit values, the largest square root bound is 46340 because 46340\u00b2=2147395600 fits while 46341\u00b2=2147488281 does not. Thus n\u226446340, with a valid positive allocation bound if represented by a C VLA.",
-    "origin": "Course-inspired extension \u2014 CMU 15-122 Lecture 3, array-fill specification",
-    "difficulty": "Medium\u2013Hard",
+    "stem": "Construct a length-n sequence B[k]=(k+1)² for 0≤k<n and prove the fill invariant. If using signed 32-bit multiplication, find the largest n whose values fit.",
+    "solution": "At boundary i, maintain $0\\le i\\le n$ and the relation $B[k]=(k+1)^2$ for every k<i. Initially the filled prefix is empty. If i<n, index i exists and storing (i+1) squared extends the relation through that index. Incrementing i restores the invariant; n-i proves termination. At i=n, all required positions are correct.\n\nThe positive values increase with k, so the largest stored value is n squared for n>0. For signed thirty-two-bit multiplication,\n\n$$46340^2=2147395600\\le2147483647<2147488281=46341^2.$$\n\nThus n may be at most 46340 under that implementation model. This also keeps i+1 representable for each executed body, but the array's allocation size and success remain separate checks. On an implementation whose int is narrower, the explicitly thirty-two-bit assumption cannot be dropped.\n\nFor n=0 the abstract fill performs no access and needs no value square. A standard C fixed or evaluated variable-length array declaration still needs a positive bound; use another empty-sequence representation. The proof establishes the filled logical prefix, not permission to inspect uninitialized spare storage.",
+    "origin": "Course-inspired extension — CMU 15-122 Lecture 3, array-fill specification",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "fill",
       "data": [
@@ -1576,9 +1576,9 @@
     "id": "PA80",
     "title": "Pointer-negative-index exercise with explicit domain",
     "stem": "For a pointer p into a live n-element C array at normalized position r, derive every integer k for which p[k] is a valid element access. What changes for pointer formation without dereference?",
-    "solution": "The selected position is r+k. Element access requires $0\\le r+k<n$, giving $-r\\le k\\le n-1-r$. Pointer formation p+k permits the one-past endpoint and therefore extends the upper bound to n-r. The difference is exactly one endpoint, not permission for arbitrary negative or large offsets. If p itself is one-past, r=n, negative offsets down to -n can access earlier elements, but zero cannot be dereferenced. This independently worded extension supplies the complete domain behind Cambridge\u2019s negative-index prompt.",
-    "origin": "Course-inspired extension \u2014 Cambridge Programming in C, Lecture 3 exercise 1",
-    "difficulty": "Medium\u2013Hard",
+    "solution": "Let p correspond to position r of the same live n-element array, allowing r=n only as its one-past boundary. The subscript p[k] selects position r+k, so its element-access domain is\n\n$$0\\le r+k<n\\quad\\Longleftrightarrow\\quad-r\\le k\\le n-1-r.$$\n\nPointer formation without evaluated element indirection also permits position n, extending the upper bound to n-r. The lower bound does not change. Both inequalities describe mathematical index displacements; the actual C operands must also have suitable representable integer values.\n\nIf r=0, only nonnegative element offsets through n-1 are accessible. At an interior position, some negative offsets are valid. If r=n, offsets from minus n through minus one can reach elements, but k=0 cannot be dereferenced. These cases explain why the sign of a written subscript alone does not decide validity.\n\nThe same-array and lifetime premises are essential. A numerically convenient address into another allocation does not acquire this domain, and an expired object's old pointer cannot be justified by substituting a former r. This gives the complete condition behind isolated negative-index examples rather than a memorized special case.",
+    "origin": "Course-inspired extension — Cambridge Programming in C, Lecture 3 exercise 1",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "pointerdomain",
       "data": null
@@ -1588,9 +1588,9 @@
     "id": "PA81",
     "title": "Array mean and a hidden integer division",
     "stem": "For scores [7,8,10], compare (scores[0]+scores[1]+scores[2])/3 with the same numerator divided by 3.0, under C arithmetic. What contract does a general average require?",
-    "solution": "The sum is twenty-five. Integer division by three gives eight, discarding the fractional part for these positive operands. Division by 3.0 converts the operation to floating arithmetic and gives an approximation to 25/3. A general average requires positive length to avoid division by zero, valid initialized entries for every scanned index and safe accumulator arithmetic or an explicitly chosen wider representation. A cast after integer division cannot restore the lost fraction. This extension of the CS50 array-average pattern adds the complete numerical and interface obligations rather than assuming every nonempty-looking parameter is safe.",
-    "origin": "Course-inspired extension \u2014 Harvard CS50x 2025 Lecture 2, array average",
-    "difficulty": "Medium\u2013Hard",
+    "solution": "The three integer scores sum to twenty-five. Dividing this integer numerator by integer three gives eight. Dividing by the floating operand 3.0 converts the operation to floating arithmetic and produces an approximation to 25/3, about 8.3333333333 in ordinary double arithmetic.\n\nCasting the integer result eight to double afterwards gives 8.0; it cannot recover the discarded fraction. A cast on the numerator before division or a floating divisor changes the division itself, which is the relevant operation.\n\nA general average requires positive logical length to avoid division by zero, accessible initialized elements for the whole scan, and a safely represented accumulator. A correct final average does not prove that a preceding signed integer sum avoided overflow. A floating accumulator has its own precision and range limits, while a wider integer accumulator needs a bound covering every partial sum.\n\nThe supplied three values are small, so the concrete sum is safe. The interface argument must not silently generalize that convenience to arbitrary scores or lengths. An array-shaped parameter supplies neither a runtime length nor proof that the caller passed a nonempty initialized sequence.",
+    "origin": "Course-inspired extension — Harvard CS50x 2025 Lecture 2, array average",
+    "difficulty": "Medium to hard",
     "certificate": {
       "kind": "average",
       "data": [

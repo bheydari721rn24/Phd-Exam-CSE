@@ -1,0 +1,849 @@
+{
+  "status": "passed",
+  "checks": 63,
+  "entries": [
+    {
+      "name": "PA42",
+      "actual": [
+        4,
+        [
+          0,
+          3
+        ],
+        []
+      ],
+      "expected": [
+        4,
+        [
+          0,
+          3
+        ],
+        []
+      ]
+    },
+    {
+      "name": "PA43",
+      "actual": [
+        [
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        [],
+        [
+          5,
+          3,
+          1
+        ]
+      ],
+      "expected": [
+        [
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        [],
+        [
+          5,
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "PA44",
+      "actual": [
+        0,
+        9,
+        2,
+        8,
+        4,
+        7
+      ],
+      "expected": [
+        0,
+        9,
+        2,
+        8,
+        4,
+        7
+      ]
+    },
+    {
+      "name": "PA45",
+      "actual": [
+        [
+          1,
+          8,
+          9,
+          5
+        ],
+        [
+          1,
+          8,
+          6,
+          7,
+          9,
+          5
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          8,
+          9,
+          5
+        ],
+        [
+          1,
+          8,
+          6,
+          7,
+          9,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "PA46",
+      "actual": [
+        [
+          [
+            2,
+            7
+          ],
+          [
+            5
+          ]
+        ],
+        [
+          [
+            2,
+            7
+          ],
+          [
+            9
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          [
+            2,
+            7
+          ],
+          [
+            5
+          ]
+        ],
+        [
+          [
+            2,
+            7
+          ],
+          [
+            9
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "PA47",
+      "actual": [
+        [
+          [
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            9,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          [
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            9,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "PA48",
+      "actual": [
+        4,
+        7
+      ],
+      "expected": [
+        4,
+        7
+      ]
+    },
+    {
+      "name": "PA49",
+      "actual": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "expected": [
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "name": "PA50",
+      "actual": [
+        [
+          9,
+          25
+        ],
+        [
+          -2,
+          3,
+          5
+        ]
+      ],
+      "expected": [
+        [
+          9,
+          25
+        ],
+        [
+          -2,
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "PA51",
+      "actual": [
+        2,
+        3
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "source_divisors_1_bug",
+      "actual": [
+        1
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "proper_divisors_1",
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "source_perfects_includes_1",
+      "actual": [
+        1,
+        6,
+        28,
+        496
+      ],
+      "expected": [
+        1,
+        6,
+        28,
+        496
+      ]
+    },
+    {
+      "name": "correct_perfects_excludes_1",
+      "actual": [
+        6,
+        28,
+        496
+      ],
+      "expected": [
+        6,
+        28,
+        496
+      ]
+    },
+    {
+      "name": "comprehension_distinct_outer",
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "comprehension_can_share_inner",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "shared_inner_mutation",
+      "actual": [
+        [
+          3,
+          8,
+          10
+        ]
+      ],
+      "expected": [
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "name": "tuple_referenced_object_mutable",
+      "actual": [
+        [
+          3,
+          8,
+          10
+        ]
+      ],
+      "expected": [
+        [
+          3,
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "name": "slice_indices_0_slice(None, None, -1)",
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "slice_indices_0_slice(None, -1, -1)",
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "slice_indices_0_slice(-25, 25, 3)",
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "slice_indices_0_slice(8, -20, -2)",
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "slice_indices_1_slice(None, None, -1)",
+      "actual": [
+        0
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_1_slice(None, -1, -1)",
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "slice_indices_1_slice(-25, 25, 3)",
+      "actual": [
+        0
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_1_slice(8, -20, -2)",
+      "actual": [
+        0
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_2_slice(None, None, -1)",
+      "actual": [
+        1,
+        0
+      ],
+      "expected": [
+        1,
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_2_slice(None, -1, -1)",
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "slice_indices_2_slice(-25, 25, 3)",
+      "actual": [
+        0
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_2_slice(8, -20, -2)",
+      "actual": [
+        1
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "slice_indices_3_slice(None, None, -1)",
+      "actual": [
+        2,
+        1,
+        0
+      ],
+      "expected": [
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_3_slice(None, -1, -1)",
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "slice_indices_3_slice(-25, 25, 3)",
+      "actual": [
+        0
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_3_slice(8, -20, -2)",
+      "actual": [
+        2,
+        0
+      ],
+      "expected": [
+        2,
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_4_slice(None, None, -1)",
+      "actual": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "expected": [
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_4_slice(None, -1, -1)",
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "slice_indices_4_slice(-25, 25, 3)",
+      "actual": [
+        0,
+        3
+      ],
+      "expected": [
+        0,
+        3
+      ]
+    },
+    {
+      "name": "slice_indices_4_slice(8, -20, -2)",
+      "actual": [
+        3,
+        1
+      ],
+      "expected": [
+        3,
+        1
+      ]
+    },
+    {
+      "name": "slice_indices_5_slice(None, None, -1)",
+      "actual": [
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "expected": [
+        4,
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_5_slice(None, -1, -1)",
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "slice_indices_5_slice(-25, 25, 3)",
+      "actual": [
+        0,
+        3
+      ],
+      "expected": [
+        0,
+        3
+      ]
+    },
+    {
+      "name": "slice_indices_5_slice(8, -20, -2)",
+      "actual": [
+        4,
+        2,
+        0
+      ],
+      "expected": [
+        4,
+        2,
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_6_slice(None, None, -1)",
+      "actual": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "expected": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_6_slice(None, -1, -1)",
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "slice_indices_6_slice(-25, 25, 3)",
+      "actual": [
+        0,
+        3
+      ],
+      "expected": [
+        0,
+        3
+      ]
+    },
+    {
+      "name": "slice_indices_6_slice(8, -20, -2)",
+      "actual": [
+        5,
+        3,
+        1
+      ],
+      "expected": [
+        5,
+        3,
+        1
+      ]
+    },
+    {
+      "name": "slice_indices_7_slice(None, None, -1)",
+      "actual": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "expected": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_7_slice(None, -1, -1)",
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "slice_indices_7_slice(-25, 25, 3)",
+      "actual": [
+        0,
+        3,
+        6
+      ],
+      "expected": [
+        0,
+        3,
+        6
+      ]
+    },
+    {
+      "name": "slice_indices_7_slice(8, -20, -2)",
+      "actual": [
+        6,
+        4,
+        2,
+        0
+      ],
+      "expected": [
+        6,
+        4,
+        2,
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_8_slice(None, None, -1)",
+      "actual": [
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "expected": [
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_8_slice(None, -1, -1)",
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "slice_indices_8_slice(-25, 25, 3)",
+      "actual": [
+        0,
+        3,
+        6
+      ],
+      "expected": [
+        0,
+        3,
+        6
+      ]
+    },
+    {
+      "name": "slice_indices_8_slice(8, -20, -2)",
+      "actual": [
+        7,
+        5,
+        3,
+        1
+      ],
+      "expected": [
+        7,
+        5,
+        3,
+        1
+      ]
+    },
+    {
+      "name": "slice_indices_9_slice(None, None, -1)",
+      "actual": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "expected": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "slice_indices_9_slice(None, -1, -1)",
+      "actual": [],
+      "expected": []
+    },
+    {
+      "name": "slice_indices_9_slice(-25, 25, 3)",
+      "actual": [
+        0,
+        3,
+        6
+      ],
+      "expected": [
+        0,
+        3,
+        6
+      ]
+    },
+    {
+      "name": "slice_indices_9_slice(8, -20, -2)",
+      "actual": [
+        8,
+        6,
+        4,
+        2,
+        0
+      ],
+      "expected": [
+        8,
+        6,
+        4,
+        2,
+        0
+      ]
+    },
+    {
+      "name": "unicode_codepoints",
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "name": "unicode_utf8_bytes",
+      "actual": 3,
+      "expected": 3
+    },
+    {
+      "name": "decomposed_character_codepoints",
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "name": "substring_membership",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "list_element_membership",
+      "actual": false,
+      "expected": false
+    }
+  ],
+  "scope": "Actual Python certificate programs plus independently authored boundary cases. No compiled C or C++ execution is claimed."
+}

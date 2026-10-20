@@ -10,3 +10,12 @@
 .chapter math{max-width:100%}
 @media screen and (max-width:650px){.lesson .arrays-diagram svg{width:100%;min-width:0;max-width:100%}.lesson .arrays-diagram.expanded svg{width:700px;min-width:700px;max-width:none}.arrays-figure-toggle{display:block;margin:.6rem 0}}
 @media print{#arrays-form,.arrays-figure-toggle{display:none}}
+.problem-visual .sim-teaching{display:none}
+.problem-visual .sim-stage{min-height:0!important;height:auto!important}
+.problem-visual .sim-motion-note{display:none}
+.problem-visual .sim-shell{gap:0}
+.problem-visual .sim-visual{min-width:0}
+.problem-visual .sim-caption{padding:.6rem .9rem}
+.chapter .formula-block{overflow-x:auto;max-width:100%}
+.chapter .formula-block math{max-width:none;white-space:nowrap}
+.problem-visual svg{max-width:760px;width:100%;height:auto}

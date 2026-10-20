@@ -96,7 +96,7 @@ for (size_t i = n; i > 0; ) {
 }
 ~~~
 
-The body runs n times and never computes n - 1 when n is zero. Check arithmetic used in allocation: before requesting n * sizeof *p bytes, establish $n\le\lfloor\mathrm{SIZE\_MAX}/\operatorname{sizeof}(*p)\rfloor$. A successful arithmetic check still needs successful allocation and a live valid object. A successful realloc may move storage and invalidate earlier aliases. For a positive requested size, allocation failure leaves the old allocation valid, so retain its pointer until the result is known. Handle a requested size of zero separately: C17 zero-size behavior does not justify treating every null result as a failed positive-size request with the original block necessarily retained.
+The body runs n times and never computes n - 1 when n is zero. Check arithmetic used in allocation: before requesting n * sizeof *p bytes, establish $n\le\lfloor\operatorname{SIZE_MAX}/\operatorname{sizeof}(*p)\rfloor$. A successful arithmetic check still needs successful allocation and a live valid object. A successful realloc may move storage and invalidate earlier aliases. For a positive requested size, allocation failure leaves the old allocation valid, so retain its pointer until the result is known. Handle a requested size of zero separately: C17 zero-size behavior does not justify treating every null result as a failed positive-size request with the original block necessarily retained.
 
 For a rectangular parameter, int a[][4] adjusts to int (*a)[4]. The column extent participates in the row stride. C variable-length parameter forms can express a run-time column count, with the relevant positive-bound and implementation-support conditions; int ** remains a different representation.
 
@@ -194,6 +194,23 @@ void reverse_segment(int *a, size_t l, size_t r) {
     }
 }
 ~~~
+
+### Why a range check can itself be unsafe
+
+A specification is executable arithmetic, so its precondition must not assume the very safety it is meant to prove. Suppose a nonnegative index type wraps modulo 256, an array has length 20, the proposed start is 250, and the count is 10. Testing start+count<=20 after the wrapped addition accepts 4<=20, even though the first element is already outside the array. In a language whose signed overflow is undefined, evaluating the overflowing sum can instead invalidate the check itself. Neither behavior establishes a valid range.
+
+First check start<=length and then count<=length-start. Short-circuit evaluation must perform the first check before the subtraction. For signed inputs, reject negative start, length and count as well, before converting to an unsigned index type. For the example, 250<=20 immediately fails. For start=20 and count=0, both tests succeed: the empty range ends at a boundary and performs no element access. For start=20 and count=1, the second test fails. Apply this contract separately to source and destination. This strengthens the CMU copying specification without importing C0's arithmetic and allocation assumptions into C17.
+
+Arithmetic validity is only one layer. The claimed length must describe a live backing object; initialization must cover every read; and overlapping writes must preserve every value that is still needed. A successful range check does not establish any of those independent facts. Use an original-input snapshot to state the postcondition when the final source may have been mutated by overlapping destination writes.
+
+### A complete method for a new array question
+
+Begin by naming the model: mathematical indexing, C17, Python 3, or an explicitly stipulated byte layout. Record index origins, dimensions, element width, logical length and allocated capacity. If they are absent, state the missing assumption rather than inventing a numerical address or an execution result. In C, the relevant boundary belongs to the pointed-to array object, including a row subarray; numeric adjacency to another row does not enlarge it.
+
+Next express the exact operation before counting it. For a left rotation, new[i]=old[(i+k) mod n], whereas a value originally at i moves to (i-k) mod n. For a half-open slice, the stop is excluded. For an in-place loop, write down the first two actual reads and writes: they expose whether the next read consumes an original value or an overwritten value. For shared Python lists, draw object identities and references before computing printed contents; equal values alone cannot reveal sharing.
+
+Then derive an invariant, prove its initial case, show preservation for one operation and identify the decreasing measure. Count the quantity the question actually requests: comparisons, assignments, copies, calls, occupied bytes or peak simultaneously live storage. These counts can differ even when the algorithm has one asymptotic complexity. Finally test the empty and singleton cases, the first and last valid indices, ties, overlap in both directions and the first arithmetic value beyond the allowed range. A small trace is an independent check of a derivation; it does not replace the general proof.
+
 
 ## Python slices, sharing and nested rows
 

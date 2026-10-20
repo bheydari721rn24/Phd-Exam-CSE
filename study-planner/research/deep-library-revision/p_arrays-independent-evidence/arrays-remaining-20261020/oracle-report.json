@@ -1,0 +1,1511 @@
+{
+  "questions_sha256": "42abf07c4fd48a8fab822ab393963f0bc10a70c1dfb548bbeea8f13f85a986d6",
+  "review_sha256": "a2fe082d9700cfd2408ab692cb1bc205ec5597bd0ebcdf6df192efa73c52d611",
+  "individual_questions_reviewed": 69,
+  "rules_read": 80,
+  "assertions": 14898,
+  "scope": "Exact mathematical and bounded enumeration plus fresh Python execution. C/C++ semantics manually checked; no C/C++ compiler, UB execution, allocation implementation, or physical cache measurement. Finite tests supplement proofs.",
+  "rows": [
+    {
+      "id": "PA13",
+      "actual": [
+        4,
+        14,
+        [
+          -4,
+          -3,
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        4,
+        14,
+        [
+          -4,
+          -3,
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ]
+      ],
+      "note": "Independent transformed-index enumeration; negative C subscript relative to p.",
+      "status": "passed"
+    },
+    {
+      "id": "PA14",
+      "actual": [
+        9,
+        2
+      ],
+      "expected": [
+        9,
+        2
+      ],
+      "note": "Declared target-model sizes only; array parameter adjustment is separately reviewed.",
+      "status": "passed"
+    },
+    {
+      "id": "PA15",
+      "actual": [
+        4,
+        24
+      ],
+      "expected": [
+        4,
+        24
+      ],
+      "note": "Typed strides under stipulated flat byte model; equal starts do not equal types.",
+      "status": "passed"
+    },
+    {
+      "id": "PA16",
+      "actual": [
+        40,
+        20
+      ],
+      "expected": [
+        40,
+        20
+      ],
+      "note": "Pointer-to-row rather than pointer-to-pointer.",
+      "status": "passed"
+    },
+    {
+      "id": "PA17",
+      "status": "reviewed_semantically_not_executed",
+      "note": "C17 6.5.6 array relation: the first row has length three; p[4] exceeds it despite rectangular adjacency. No invalid C run."
+    },
+    {
+      "id": "PA18",
+      "status": "reviewed_semantically_not_executed",
+      "note": "Partial initializer fills omitted integer elements with zero; static no-initializer zero; automatic uninitialized b has no asserted numerical value."
+    },
+    {
+      "id": "PA19",
+      "status": "reviewed_semantically_not_executed",
+      "note": "Array assignment fails modifiable-lvalue constraint; fixed zero bound is nonstandard. Diagnostics are not inferred by executing a compiler."
+    },
+    {
+      "id": "PA20",
+      "actual": [
+        4,
+        4
+      ],
+      "expected": [
+        4,
+        4
+      ],
+      "note": "One-past position/subtraction abstract model; dereference and a+5 classified semantically invalid, not run.",
+      "status": "passed"
+    },
+    {
+      "id": "PA21",
+      "actual": 100,
+      "expected": 100,
+      "note": "Safe boundary-before-decrement loop tested for n=0..100; unsafe unsigned loop not run.",
+      "status": "passed"
+    },
+    {
+      "id": "PA22",
+      "actual": [
+        6,
+        23,
+        6
+      ],
+      "expected": [
+        6,
+        23,
+        6
+      ],
+      "note": "Strict arithmetic progression.",
+      "status": "passed"
+    },
+    {
+      "id": "PA23",
+      "actual": [
+        [
+          6,
+          2,
+          5
+        ],
+        [
+          7,
+          3,
+          5
+        ]
+      ],
+      "expected": [
+        [
+          6,
+          2,
+          5
+        ],
+        [
+          7,
+          3,
+          5
+        ]
+      ],
+      "note": "Strict ties leave earliest minimum.",
+      "status": "passed"
+    },
+    {
+      "id": "PA24",
+      "actual": 24,
+      "expected": 24,
+      "note": "Exact integer weighted contributions.",
+      "status": "passed"
+    },
+    {
+      "id": "PA25",
+      "actual": [
+        [
+          0,
+          3,
+          1,
+          6,
+          7,
+          3
+        ],
+        [
+          4,
+          3,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          3,
+          1,
+          6,
+          7,
+          3
+        ],
+        [
+          4,
+          3,
+          0
+        ]
+      ],
+      "note": "Boundary prefix construction and three intervals.",
+      "status": "passed"
+    },
+    {
+      "id": "PA26",
+      "actual": [
+        [
+          0,
+          4,
+          -2,
+          0,
+          -4,
+          2
+        ],
+        [
+          0,
+          4,
+          2,
+          2,
+          -2
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          4,
+          -2,
+          0,
+          -4,
+          2
+        ],
+        [
+          0,
+          4,
+          2,
+          2,
+          -2
+        ]
+      ],
+      "note": "Boundary difference events; sentinel excluded from result.",
+      "status": "passed"
+    },
+    {
+      "id": "PA27",
+      "actual": [
+        [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            3,
+            6
+          ],
+          [
+            0,
+            5,
+            12,
+            21
+          ]
+        ],
+        16
+      ],
+      "expected": [
+        [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            3,
+            6
+          ],
+          [
+            0,
+            5,
+            12,
+            21
+          ]
+        ],
+        16
+      ],
+      "note": "Prefix rectangles built directly from sums, independently of recurrence.",
+      "status": "passed"
+    },
+    {
+      "id": "PA28",
+      "actual": [
+        1,
+        3,
+        6,
+        10,
+        15
+      ],
+      "expected": [
+        1,
+        3,
+        6,
+        10,
+        15
+      ],
+      "note": "Actual sequential in-place read/write trace.",
+      "status": "passed"
+    },
+    {
+      "id": "PA29",
+      "actual": [
+        1,
+        3,
+        5,
+        7,
+        9
+      ],
+      "expected": [
+        1,
+        3,
+        5,
+        7,
+        9
+      ],
+      "note": "Actual sequential in-place read/write trace.",
+      "status": "passed"
+    },
+    {
+      "id": "PA30",
+      "actual": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        12
+      ],
+      "expected": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        12
+      ],
+      "note": "Forward destructive right overlap.",
+      "status": "passed"
+    },
+    {
+      "id": "PA31",
+      "actual": [
+        2,
+        2,
+        4,
+        6,
+        8,
+        12
+      ],
+      "expected": [
+        2,
+        2,
+        4,
+        6,
+        8,
+        12
+      ],
+      "note": "Reverse original-preserving right overlap.",
+      "status": "passed"
+    },
+    {
+      "id": "PA32",
+      "actual": [
+        [
+          4,
+          6,
+          8,
+          10,
+          10,
+          12
+        ],
+        [
+          10,
+          10,
+          10,
+          10,
+          10,
+          12
+        ]
+      ],
+      "expected": [
+        [
+          4,
+          6,
+          8,
+          10,
+          10,
+          12
+        ],
+        [
+          10,
+          10,
+          10,
+          10,
+          10,
+          12
+        ]
+      ],
+      "note": "Both left-overlap directions.",
+      "status": "passed"
+    },
+    {
+      "id": "PA33",
+      "actual": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          3,
+          4,
+          4
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          3,
+          4,
+          4
+        ]
+      ],
+      "note": "Final-equality weak contract counterexamples; original snapshot is needed.",
+      "status": "passed"
+    },
+    {
+      "id": "PA34",
+      "status": "reviewed_semantically_not_executed",
+      "note": "Independently tested copy result all 1540 bounded interval cases n<20; generic invariant needs distinct storage and a suitable zero-length representation."
+    },
+    {
+      "id": "PA35",
+      "actual": [
+        [
+          3,
+          6,
+          7,
+          9,
+          12
+        ],
+        2,
+        0
+      ],
+      "expected": [
+        [
+          3,
+          6,
+          7,
+          9,
+          12
+        ],
+        2,
+        0
+      ],
+      "note": "Logical insertion and shift counts.",
+      "status": "passed"
+    },
+    {
+      "id": "PA36",
+      "actual": [
+        [
+          3,
+          9,
+          12,
+          15
+        ],
+        3
+      ],
+      "expected": [
+        [
+          3,
+          9,
+          12,
+          15
+        ],
+        3
+      ],
+      "note": "Logical deletion and stable shift count; physical spare slot remains unspecified by container contract.",
+      "status": "passed"
+    },
+    {
+      "id": "PA37",
+      "actual": [
+        [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        [
+          0,
+          5,
+          4,
+          3,
+          2,
+          1,
+          6
+        ]
+      ],
+      "expected": [
+        [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        [
+          0,
+          5,
+          4,
+          3,
+          2,
+          1,
+          6
+        ]
+      ],
+      "note": "Exclusive right boundary and untouched center.",
+      "status": "passed"
+    },
+    {
+      "id": "PA38",
+      "actual": [
+        [
+          2,
+          1,
+          0,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          2,
+          1,
+          0,
+          6,
+          5,
+          4,
+          3
+        ],
+        [
+          3,
+          4,
+          5,
+          6,
+          0,
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        [
+          2,
+          1,
+          0,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          2,
+          1,
+          0,
+          6,
+          5,
+          4,
+          3
+        ],
+        [
+          3,
+          4,
+          5,
+          6,
+          0,
+          1,
+          2
+        ]
+      ],
+      "note": "All three reversal stages.",
+      "status": "passed"
+    },
+    {
+      "id": "PA39",
+      "actual": [
+        [
+          0,
+          8,
+          4
+        ],
+        [
+          1,
+          9,
+          5
+        ],
+        [
+          2,
+          10,
+          6
+        ],
+        [
+          3,
+          11,
+          7
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          8,
+          4
+        ],
+        [
+          1,
+          9,
+          5
+        ],
+        [
+          2,
+          10,
+          6
+        ],
+        [
+          3,
+          11,
+          7
+        ]
+      ],
+      "note": "Destination-to-source map +8 for left rotation; opposite original-to-destination direction acknowledged.",
+      "status": "passed"
+    },
+    {
+      "id": "PA40",
+      "actual": [
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        4
+      ],
+      "expected": [
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        4
+      ],
+      "note": "Read/write compaction; physical tail not claimed erased.",
+      "status": "passed"
+    },
+    {
+      "id": "PA41",
+      "actual": [
+        [
+          3,
+          2,
+          4,
+          1
+        ],
+        [
+          3,
+          2,
+          7,
+          3
+        ]
+      ],
+      "expected": [
+        [
+          3,
+          2,
+          4,
+          1
+        ],
+        [
+          3,
+          2,
+          7,
+          3
+        ]
+      ],
+      "note": "Independent reverse/forward difference traces.",
+      "status": "passed"
+    },
+    {
+      "id": "PA42",
+      "actual": [
+        4,
+        [
+          0,
+          3
+        ],
+        []
+      ],
+      "expected": [
+        4,
+        [
+          0,
+          3
+        ],
+        []
+      ],
+      "note": "Fresh actual Python execution with independent expected result.",
+      "status": "passed"
+    },
+    {
+      "id": "PA43",
+      "actual": [
+        [
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        [],
+        [
+          5,
+          3,
+          1
+        ]
+      ],
+      "expected": [
+        [
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        [],
+        [
+          5,
+          3,
+          1
+        ]
+      ],
+      "note": "Fresh actual Python execution with independent expected result.",
+      "status": "passed"
+    },
+    {
+      "id": "PA44",
+      "actual": [
+        0,
+        9,
+        2,
+        8,
+        4,
+        7
+      ],
+      "expected": [
+        0,
+        9,
+        2,
+        8,
+        4,
+        7
+      ],
+      "note": "Fresh actual Python execution with independent expected result.",
+      "status": "passed"
+    },
+    {
+      "id": "PA45",
+      "actual": [
+        [
+          1,
+          8,
+          9,
+          5
+        ],
+        [
+          1,
+          8,
+          6,
+          7,
+          9,
+          5
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          8,
+          9,
+          5
+        ],
+        [
+          1,
+          8,
+          6,
+          7,
+          9,
+          5
+        ]
+      ],
+      "note": "Fresh actual Python execution with independent expected result.",
+      "status": "passed"
+    },
+    {
+      "id": "PA46",
+      "actual": [
+        [
+          [
+            2,
+            7
+          ],
+          [
+            5
+          ]
+        ],
+        [
+          [
+            2,
+            7
+          ],
+          [
+            9
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          [
+            2,
+            7
+          ],
+          [
+            5
+          ]
+        ],
+        [
+          [
+            2,
+            7
+          ],
+          [
+            9
+          ]
+        ]
+      ],
+      "note": "Fresh actual Python execution with independent expected result.",
+      "status": "passed"
+    },
+    {
+      "id": "PA47",
+      "actual": [
+        [
+          [
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            9,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          [
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            9,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "note": "Fresh actual Python execution with independent expected result.",
+      "status": "passed"
+    },
+    {
+      "id": "PA48",
+      "actual": [
+        4,
+        7
+      ],
+      "expected": [
+        4,
+        7
+      ],
+      "note": "Fresh actual Python execution with independent expected result.",
+      "status": "passed"
+    },
+    {
+      "id": "PA49",
+      "actual": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "expected": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "note": "Fresh actual Python execution with independent expected result.",
+      "status": "passed"
+    },
+    {
+      "id": "PA50",
+      "actual": [
+        [
+          9,
+          25
+        ],
+        [
+          -2,
+          3,
+          5
+        ]
+      ],
+      "expected": [
+        [
+          9,
+          25
+        ],
+        [
+          -2,
+          3,
+          5
+        ]
+      ],
+      "note": "Fresh actual Python execution with independent expected result.",
+      "status": "passed"
+    },
+    {
+      "id": "PA51",
+      "actual": [
+        2,
+        3
+      ],
+      "expected": [
+        2,
+        3
+      ],
+      "note": "Fresh actual Python execution with independent expected result.",
+      "status": "passed"
+    },
+    {
+      "id": "PA46-printed",
+      "actual": [
+        [
+          [
+            2,
+            7
+          ],
+          [
+            5
+          ]
+        ],
+        [
+          [
+            2,
+            7
+          ],
+          [
+            9
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          [
+            2,
+            7
+          ],
+          [
+            5
+          ]
+        ],
+        [
+          [
+            2,
+            7
+          ],
+          [
+            9
+          ]
+        ]
+      ],
+      "note": "Exact multiline code extracted from the question stem, not certificate.",
+      "status": "passed"
+    },
+    {
+      "id": "PA48-printed",
+      "actual": [
+        4,
+        7
+      ],
+      "expected": [
+        4,
+        7
+      ],
+      "note": "Exact multiline code extracted from the question stem, not certificate.",
+      "status": "passed"
+    },
+    {
+      "id": "PA47-identity",
+      "actual": [
+        true,
+        false
+      ],
+      "expected": [
+        true,
+        false
+      ],
+      "note": "Fresh shared-versus-distinct object identity test.",
+      "status": "passed"
+    },
+    {
+      "id": "PA52",
+      "actual": [
+        8,
+        2
+      ],
+      "expected": [
+        8,
+        2
+      ],
+      "note": "Abstract initialized byte array; malformed displayed escape notation is separately reported.",
+      "status": "passed"
+    },
+    {
+      "id": "PA53",
+      "status": "reviewed_semantically_not_executed",
+      "note": "C17 permits char[3] initialized by cat without terminator; strlen contract then fails. No UB string call executed."
+    },
+    {
+      "id": "PA54",
+      "status": "reviewed_semantically_not_executed",
+      "note": "Writable initialized array distinct from literal; casting away const does not grant literal modification rights. No invalid write executed."
+    },
+    {
+      "id": "PA55",
+      "actual": [
+        [
+          3,
+          true
+        ],
+        [
+          5,
+          false
+        ]
+      ],
+      "expected": [
+        [
+          3,
+          true
+        ],
+        [
+          5,
+          false
+        ]
+      ],
+      "note": "Bound guard precedes element read; absence distinguished.",
+      "status": "passed"
+    },
+    {
+      "id": "PA56",
+      "actual": [
+        2,
+        12
+      ],
+      "expected": [
+        2,
+        12
+      ],
+      "note": "Naive first-mismatch count includes successful tests.",
+      "status": "passed"
+    },
+    {
+      "id": "PA57",
+      "actual": [
+        [
+          0,
+          0
+        ],
+        [
+          null,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          null,
+          0
+        ]
+      ],
+      "note": "Empty convention and longer-pattern guard; unsigned subtraction not executed.",
+      "status": "passed"
+    },
+    {
+      "id": "PA58",
+      "actual": [
+        true,
+        false
+      ],
+      "expected": [
+        true,
+        false
+      ],
+      "note": "Final terminator included.",
+      "status": "passed"
+    },
+    {
+      "id": "PA59",
+      "status": "reviewed_semantically_not_executed",
+      "note": "argc=3 argument-pointer array has argv[3] null; yz has separate zero char at argv[2][2]. Null dereference not executed."
+    },
+    {
+      "id": "PA60",
+      "status": "reviewed_semantically_not_executed",
+      "note": "ctype requires EOF or unsigned-char-representable int; negative plain-char promotion may violate it. Cast to unsigned char restores domain, not Unicode semantics."
+    },
+    {
+      "id": "PA61",
+      "status": "reviewed_semantically_not_executed",
+      "note": "Interior pointer borrows source lifetime and is not an owning allocation pointer; automatic local lifetime ends on return. No dangling pointer execution."
+    },
+    {
+      "id": "PA62",
+      "actual": [
+        16,
+        15,
+        28,
+        24
+      ],
+      "expected": [
+        16,
+        15,
+        28,
+        24
+      ],
+      "note": "Allocate-copy-free peak, successful operations, unit-cost assignments.",
+      "status": "passed"
+    },
+    {
+      "id": "PA63",
+      "status": "reviewed_semantically_not_executed",
+      "note": "General geometric-series proof reviewed; inequalities independently checked n=1..10000, including exact powers."
+    },
+    {
+      "id": "PA64",
+      "actual": [
+        12,
+        18,
+        30
+      ],
+      "expected": [
+        12,
+        18,
+        30
+      ],
+      "note": "Additive growth happens only before otherwise-exceeding append.",
+      "status": "passed"
+    },
+    {
+      "id": "PA65",
+      "actual": [
+        [
+          27,
+          13,
+          23
+        ],
+        [
+          16,
+          15,
+          25
+        ]
+      ],
+      "expected": [
+        [
+          27,
+          13,
+          23
+        ],
+        [
+          16,
+          15,
+          25
+        ]
+      ],
+      "note": "Cost/storage comparison is model-specific.",
+      "status": "passed"
+    },
+    {
+      "id": "PA66",
+      "actual": [
+        8191,
+        65528,
+        65536,
+        0
+      ],
+      "expected": [
+        8191,
+        65528,
+        65536,
+        0
+      ],
+      "note": "Integer promotions caveat: mathematical product may be wider int; zero occurs on modulo-65536 conversion or stipulated narrow unsigned arithmetic.",
+      "status": "passed"
+    },
+    {
+      "id": "PA67",
+      "status": "reviewed_semantically_not_executed",
+      "note": "Nonzero-size realloc: failure preserves old allocation; success invalidates prior access handles even at same observed address. No allocation implementation or C compiler used."
+    },
+    {
+      "id": "PA68",
+      "actual": [
+        8,
+        6,
+        15,
+        24
+      ],
+      "expected": [
+        8,
+        6,
+        15,
+        24
+      ],
+      "note": "Expand-then-shift strategy, not optimized direct-position copy.",
+      "status": "passed"
+    },
+    {
+      "id": "PA69",
+      "actual": [
+        8,
+        1
+      ],
+      "expected": [
+        8,
+        1
+      ],
+      "note": "Four copies on shrink, four on next expansion, one append value write per pair.",
+      "status": "passed"
+    },
+    {
+      "id": "PA70",
+      "actual": [
+        8,
+        64
+      ],
+      "expected": [
+        8,
+        64
+      ],
+      "note": "Cold one-line model, no prefetch, row-aligned.",
+      "status": "passed"
+    },
+    {
+      "id": "PA71",
+      "actual": 4,
+      "expected": 4,
+      "note": "Every byte interval enumerated independently of rounded formula.",
+      "status": "passed"
+    },
+    {
+      "id": "PA72",
+      "actual": [
+        [
+          5,
+          6,
+          0,
+          1
+        ],
+        2
+      ],
+      "expected": [
+        [
+          5,
+          6,
+          0,
+          1
+        ],
+        2
+      ],
+      "note": "Separate length distinguishes empty/full; head+length overflow in finite types requires additional implementation qualification.",
+      "status": "passed"
+    },
+    {
+      "id": "PA73",
+      "actual": [
+        [
+          0,
+          2,
+          4,
+          1,
+          3,
+          5
+        ],
+        [
+          1,
+          2,
+          4,
+          3
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          2,
+          4,
+          1,
+          3,
+          5
+        ],
+        [
+          1,
+          2,
+          4,
+          3
+        ]
+      ],
+      "note": "Original-to-destination rectangular transpose, inverse movement direction not conflated.",
+      "status": "passed"
+    },
+    {
+      "id": "PA74",
+      "actual": [
+        5,
+        2
+      ],
+      "expected": [
+        5,
+        2
+      ],
+      "note": "Exact integer triangular-start enumeration.",
+      "status": "passed"
+    },
+    {
+      "id": "PA75",
+      "actual": [
+        10,
+        15
+      ],
+      "expected": [
+        10,
+        15
+      ],
+      "note": "Independent region enumeration.",
+      "status": "passed"
+    },
+    {
+      "id": "PA76",
+      "status": "reviewed_semantically_not_executed",
+      "note": "Known nonempty or sentinel contract can authorize useful access without an ordinary length parameter. No unconditional arbitrary-empty-array access is claimed."
+    },
+    {
+      "id": "PA77",
+      "actual": [
+        2147483648,
+        2147483647
+      ],
+      "expected": [
+        2147483648,
+        2147483647
+      ],
+      "note": "Exact integer model demonstrates first invalid C signed-32 intermediate; UB never run.",
+      "status": "passed"
+    },
+    {
+      "id": "PA78",
+      "status": "reviewed_semantically_not_executed",
+      "note": "Both access bounds and unvisited odd center checked n=0..100; body not evaluated for n<2."
+    },
+    {
+      "id": "PA79",
+      "actual": [
+        46340,
+        2147395600,
+        2147488281
+      ],
+      "expected": [
+        46340,
+        2147395600,
+        2147488281
+      ],
+      "note": "Value range bound separate from allocation success, size arithmetic, and zero-length C representation.",
+      "status": "passed"
+    },
+    {
+      "id": "PA80",
+      "status": "reviewed_semantically_not_executed",
+      "note": "General offset formulas independently enumerated for n=1..30 and r=0..n, including one-past starting pointer."
+    },
+    {
+      "id": "PA81",
+      "actual": [
+        25,
+        8,
+        8.333333333333334
+      ],
+      "expected": [
+        25,
+        8,
+        8.333333333333334
+      ],
+      "note": "Positive C quotient modeled exactly; float result only approximate; a cast after division cannot recover remainder.",
+      "status": "passed"
+    }
+  ],
+  "findings": [
+    "PA66 multiplication-promotions qualification required: narrow size_t can promote to wider int; zero on conversion is distinct from direct-expression unsigned wrap.",
+    "PA52/PA54 literal escaped apostrophe notation in source stem needs renderer check: replace literal \\x27 with actual apostrophe.",
+    "PA41 title calls its one-pass transform two-pass; retitle or explain inverse second transformation.",
+    "PA39 +8 map is destination-to-source for left rotation; preserve explicit direction.",
+    "PA67 assume new_bytes>0 for stated realloc contract."
+  ]
+}

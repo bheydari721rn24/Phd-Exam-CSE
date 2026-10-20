@@ -1,0 +1,33 @@
+{
+  "status": "passed_arrays_current_revision_integrated_checks",
+  "date": "2026-10-20",
+  "solutions": 83,
+  "rules": 80,
+  "nativeMathExpressions": 258,
+  "exactVisualModels": 38,
+  "exactVisualFrames": 143,
+  "independentVisualStateChecks": [
+    "PA25 every accumulated boundary",
+    "PA26 boundary cancellation and reconstruction",
+    "PA30 each actual read/write",
+    "PA31 each actual read/write",
+    "PA32 each actual read/write",
+    "PA28 dependency direction",
+    "PA29 dependency direction",
+    "PA41 dependency direction",
+    "PA38 left rotation",
+    "PA40 stable retained prefix",
+    "PA45 length-changing slice",
+    "PA46 redirect one slot not inner identity",
+    "PA47 repeated identity versus comprehension",
+    "PA48 forward iterator mutation",
+    "PA72 wrapped ring indices",
+    "original167 exact selected indices",
+    "original72 exact strict record trace"
+  ],
+  "otherChapterBodiesUnchanged": 63,
+  "oldSharedModelEntriesPreserved": 421,
+  "questionBankSha256": "42abf07c4fd48a8fab822ab393963f0bc10a70c1dfb548bbeea8f13f85a986d6",
+  "pageSha256": "7015c4b0988fdffb351131a3992cdb6878f4c25b23a6222160d299942a020781",
+  "limits": "Finite independent reference examples and structural checks supplement proofs. No compiler run, physical cache measurement, exhaustive worldwide source review or universal guarantee."
+}

@@ -17,9 +17,9 @@
       "`if(n<0)return; b[i+1]=a[n]; store(n-2,i+2);`"
     ],
     "answer": 1,
-    "solution": "1. After $t$ copies, the source index is $N-1-2t$ and the destination index is $t$. The recursive edge must therefore decrease `n` by two and increase `i` by one.\n2. Option 1 starts at b[0], preserves those indices, and stops before a negative source index is read. It copies the ceiling of N/2 elements.\n3. All printed alternatives have the guard n<0. Option 2 starts writing at b[1]. Option 3 advances the destination by two and skips slots. Option 4 both starts at b[1] and advances the destination by two, leaving gaps, so it fails the requested selection.\n4. The source is integer pseudocode, not a strictly declared C17 interface. A real C implementation must use compatible signed bounds or a prechecked remaining-length representation.\n\n**Source correction.** Options were visually rechecked against MSc CS 1393, Q167, PDF page 34 on 9 October 2026. The independently derived answer remains option 1. This is a bridge revisit, not a new unique archive question.",
+    "solution": "Let t count completed copies. At the beginning of a call, the required indices are $n=N-1-2t$ and $i=t$, while each already written destination $b[j]$ equals original source $a[N-1-2j]$ for $0\\le j<t$. The initial call establishes this relation with an empty prefix. A nonnegative n permits exactly the next desired copy; decreasing n by two and increasing i by one preserves the invariant. The negative guard occurs before any invalid read.\n\nFor N=6 and a=[10,20,30,40,50,60], source indices 5,3,1 write [60,40,20] at consecutive destinations 0,1,2. The terminal call receives n=-1. For odd N=5, the selected indices are 4,2,0 and the terminal n is -2, so changing the guard to n<=0 would wrongly omit index zero. The general write count is $\\lceil N/2\\rceil$, with one additional guard-only invocation. No writes occur on unwinding.\n\nAll four original alternatives use the correct source stride minus two and the guard n<0. Option 2 starts at destination one; option 3 writes at zero,two,four,...; option 4 combines destination origin one and stride two. Only option 1 gives the required contiguous output. The independently derived answer is one, not a verified official key.\n\nThis is legacy integer pseudocode with globally available arrays. A real implementation needs a sufficiently large destination, valid indices and preservation of unread source values through separate storage or a proved overlap strategy. The mathematical empty extension copies nothing and makes one guard call, but is not an assertion that the original exam explicitly stipulated an empty input. This placement is an identified bridge revisit.",
     "pattern": "index invariant and stop condition",
-    "difficulty": "Medium–Hard",
+    "difficulty": "Medium to hard",
     "repoPath": "Exams/MS/CS/1393/olum_93_konkurcomputer.pdf",
     "sourceSha256": "7ed89fae8eb601a964355fde5e5d297cbb30844e5240b9e3908b798fb86e349d",
     "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
@@ -29,7 +29,7 @@
     "qNumber": 167,
     "sourceSHA": "7ed89fae8eb601a964355fde5e5d297cbb30844e5240b9e3908b798fb86e349d",
     "provenance": "Original scan rechecked this turn. Explicit bridge revisit of an already taught archive item; not a new unique question.",
-    "verification": "Original PDF page 34 rechecked on 18 October 2026: all four source strides are -2. This editable record now agrees with the previously corrected live adaptation. Answer 1 remains independently derived."
+    "verification": "Original complete PDF page and enlarged question inspected on 20 October 2026; source hashes match pinned revision. Independently derived key, not an official key."
   },
   {
     "id": "Phd_CS_1404_Q72",
@@ -42,7 +42,7 @@
       "s_axioms"
     ],
     "title": "Expected running-minimum updates",
-    "stem": "An array contains $n$ distinct values in a uniformly random permutation. Set `min` to positive infinity, scan from index 1 to $n$, and replace it whenever the next value is smaller. If $Y$ counts replacements, which expression is closest to its mean for large $n$?",
+    "stem": "A contains n distinct finite values, with every permutation equally likely. The original mathematical pseudocode is:\n\n```text\nmin = +infinity\nfor (i = 1; i <= n; i++)\n    if (min > A[i])\n        min = A[i]  // counted assignment\n```\n\nY counts executions of the marked assignment. Which listed expression approximates its mean asymptotically? The original asks which expression is closer to the mean; this English adaptation makes its intended large-n comparison explicit.",
     "options": [
       "1",
       "$\\ln n$",
@@ -50,9 +50,9 @@
       "$n\\ln n$"
     ],
     "answer": 2,
-    "solution": "1. Let $I_i$ indicate that position $i$ contains the smallest of the first $i$ values. Uniform permutation symmetry gives $P(I_i=1)=1/i$.\n2. Linearity of expectation requires no independence between these indicators: $E[Y]=\\sum_{i=1}^n1/i=H_n$.\n3. Integral bounds give $\\ln(n+1)\\le H_n\\le1+\\ln n$, so $\\ln n$ is the listed large-$n$ approximation.\n4. The exact mean is $H_n$, not exactly $\\ln n$. One counts only the first update; $n$ assumes every position is a record; $n\\ln n$ multiplies counts that should be summed.\n\n**Transfer rule.** Distinguish the number of loop tests (always $n$) from the number of successful updates (random).",
+    "solution": "Define $I_i=1$ when position i causes the marked assignment, and zero otherwise. This occurs exactly when that position contains the smallest of the first i distinct values. Under the stated uniform permutation model, each of those i positions is equally likely to contain that smallest value, giving $P(I_i=1)=1/i$.\n\nThe counted updates satisfy $Y=\\sum_{i=1}^{n}I_i$. Linearity of expectation, without requiring independence, therefore gives\n\n$$E[Y]=\\sum_{i=1}^{n}\\frac1i=H_n.$$\n\nThe exact expectation is a harmonic number. Integration of the decreasing function 1/x yields $\\ln(n+1)\\le H_n\\le1+\\ln n$, so option 2, ln n, is the intended asymptotic approximation. It is not an identity H_n=ln n and is not necessarily the numerically closest formula for every small n.\n\nFor n=3, all six permutations have eleven counted updates in total, giving exact mean 11/6. In the concrete order [5,2,4,1,3], the updates store five, two and one, so Y is three. The scan always makes n element comparisons, but its number of successful assignments varies from one in increasing order to n in decreasing order.\n\nThe infinity initialization ensures the first finite value is counted. Initializing instead from the first data element and scanning only the rest removes that update and changes the mean to H_n-1. Duplicates or a nonuniform permutation model require another probability proof. Option 1 misses the growing record count; option n treats every value as a new record; n ln n multiplies rather than sums the per-position probabilities. Both original loop endpoints and strict comparison were inspected on the scan; no official answer key is claimed.",
     "pattern": "indicator expectation versus loop count",
-    "difficulty": "Medium–Hard",
+    "difficulty": "Medium to hard",
     "repoPath": "Exams/Phd/CS/1404/Q892A-PHD1404-[www.konkur.in].pdf",
     "sourceSha256": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
     "sourceCommit": "bdadf6e2c9cadc4772ae137a96a3da753c7cfd08",
@@ -61,6 +61,7 @@
     "origin": "Authentic examination bridge revisit",
     "qNumber": 72,
     "sourceSHA": "928e51b55059b3094583f9c190e260b405ec775da05f6c7679675e332a8a6f40",
-    "provenance": "Original scan rechecked this turn. Explicit bridge revisit of an already taught archive item; not a new unique question."
+    "provenance": "Original scan rechecked this turn. Explicit bridge revisit of an already taught archive item; not a new unique question.",
+    "verification": "Original complete PDF page and enlarged question inspected on 20 October 2026; source hashes match pinned revision. Independently derived key, not an official key."
   }
 ]

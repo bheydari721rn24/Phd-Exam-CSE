@@ -67,3 +67,13 @@ MSc CS 1393 Q167 and PhD CS 1404 Q72 are translated/adapted from their original 
 ## Coverage boundary
 
 The chapter covers array representation, C pointer domains, indexing, dense/affine/packed layouts, traversal proofs, prefix/difference arrays, overlap, insertion/deletion/reversal/rotation/compaction, Python slices/sharing, C string boundaries and dynamic backing storage. Full sorting, searching data structures and arbitrary graph algorithms belong to later chapters. Finite tests support exact authored examples; they do not prove universal course completeness or guaranteed performance on unseen examinations.
+
+
+# Current individual review: 20 October 2026
+
+The bounded candidate pool remains Cambridge, CMU, Harvard, UC Berkeley, Stanford, MIT, Princeton and ETH Zurich. The source audit records selection criteria and separates fully read chapter-relevant texts from screened indexes. Four complementary primary courses are Cambridge Programming in C, CMU 15-122, Harvard CS50x and Berkeley CS61A/Composing Programs. Stanford CS106B and MIT 6.0001 are supplements. This is not a claim to have evaluated every course worldwide.
+
+The 18 October refresh reread Cambridge's 25-slide Lecture 3 and CMU's 19-page Arrays handout, including its exercises. Cambridge slides 3, 12, 13 and 25 were inspected visually. CMU's new download was unavailable; that review used the previously acquired full text and did not newly verify the original diagram pixels or new byte identity. The 20 October refresh reread Harvard's Arrays-through-command-line-arguments notes and Berkeley sections 2.3.1–2.3.5 plus 2.4.2. Fresh Harvard and Berkeley hashes agree with the recorded sources. The Stanford and MIT full relevant slide readings remain historical, not newly claimed refreshes.
+
+The source reconciliation qualifies informal array/pointer claims, C0 initialization and arithmetic, overlapping-copy contracts, C string capacity and Python object identities. CMU's wrapped start+count precondition is replaced by a safe ordered test. Berkeley's displayed divisors implementation includes one among its own proper divisors at input one; this error was independently reproduced and is not adopted. The formal Python sequence documentation was additionally consulted for clipping, negative-step boundaries, extended assignment and iteration under mutation. The public C11 draft is identified as N1570 supporting selected retained C17 rules, not labeled the published C17 standard.
+
